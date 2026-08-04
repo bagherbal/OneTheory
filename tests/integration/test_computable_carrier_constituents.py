@@ -28,8 +28,13 @@ def test_tier_a_constituents_carry_complexes_and_unique_rays() -> None:
 
     assert tuple(candidate.scheme.name for candidate in candidates) == ("I3", "I6")
     assert tuple(candidate.invariant_ray_dimension for candidate in candidates) == (2, 5)
+    assert tuple(len(candidate.invariant_ray_coordinates) for candidate in candidates) == (2, 5)
     assert all(
         candidate.scheme.resolution.polynomial_complex.squared_zero
+        for candidate in candidates
+    )
+    assert all(
+        candidate.as_record()["resolution"]["scheme_resolution_certified"]
         for candidate in candidates
     )
 

@@ -22,7 +22,14 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from onetheory.math.sheaves import CoxChart, CoxChartCover, LaurentMatrix, LaurentPolynomial
+from onetheory.math.polynomials import determinantal_ideal, rank_locus_ideal
+from onetheory.math.sheaves import (
+    CoxChart,
+    CoxChartCover,
+    LaurentMatrix,
+    LaurentPolynomial,
+    LocalizedModuleMap,
+)
 from onetheory.models.heterotic_schoen.visible import PointScheme, point_schemes, serre_data
 
 
@@ -36,6 +43,7 @@ class SerreConstituentCandidate:
     local_potentials: tuple[LaurentPolynomial, ...]
     transitions: tuple[tuple[int, int, LaurentMatrix], ...]
     invariant_ray_dimension: int
+    invariant_ray_coordinates: tuple[str, ...]
     extension_identification_status: str
 
     @property
@@ -80,6 +88,29 @@ class SerreConstituentCandidate:
     def as_record(self) -> dict[str, object]:
         """Return exact chart data and its unresolved Serre gate."""
 
+        resolution = self.scheme.resolution.polynomial_complex
+        differential_records = []
+        for degree, differential in resolution.differentials:
+            differential_records.append({
+                "degree": degree,
+                "shape": list(differential.matrix.shape),
+                "localized_shapes": [
+                    {
+                        "chart": chart.name,
+                        "shape": list(
+                            LocalizedModuleMap.from_polynomial_map(chart, differential).matrix.shape
+                        ),
+                    }
+                    for chart in self.cover.charts
+                ],
+            })
+        maximal_minor_ideal = determinantal_ideal(self.scheme.resolution.matrix, len(
+            self.scheme.resolution.matrix[0]
+        ))
+        rank_drop_ideal = rank_locus_ideal(
+            self.scheme.resolution.matrix,
+            len(self.scheme.resolution.matrix[0]) - 1,
+        )
         return {
             "scheme": self.scheme.name,
             "twist": list(self.twist),
@@ -125,6 +156,15 @@ class SerreConstituentCandidate:
             "pairwise_inverse": self.pairwise_inverse,
             "determinant_one": self.determinant_one,
             "invariant_ray_dimension": self.invariant_ray_dimension,
+            "invariant_ray_coordinates": list(self.invariant_ray_coordinates),
+            "resolution": {
+                "degrees": list(resolution.degrees),
+                "squared_zero": resolution.squared_zero,
+                "differentials": differential_records,
+                "maximal_minor_ideal": maximal_minor_ideal.as_record(),
+                "rank_drop_ideal": rank_drop_ideal.as_record(),
+                "scheme_resolution_certified": self.scheme.is_certified,
+            },
             "extension_identification_status": self.extension_identification_status,
         }
 
@@ -149,6 +189,7 @@ def _candidate(
     scheme: PointScheme,
     twist: tuple[int, int, int],
     ray_dimension: int,
+    ray_coordinates: tuple[str, ...],
 ) -> SerreConstituentCandidate:
     """Construct the exact chart candidate from scheme generators."""
 
@@ -172,6 +213,7 @@ def _candidate(
         local_generators,
         transitions,
         ray_dimension,
+        ray_coordinates,
         "formal chart cocycle only; Serre identification pending",
     )
 
@@ -182,8 +224,18 @@ def tier_a_constituents() -> tuple[SerreConstituentCandidate, ...]:
     schemes = point_schemes()
     rays = serre_data().rays
     return (
-        _candidate(schemes[0], (-1, 1, 0), len(rays[0].vector)),
-        _candidate(schemes[1], (1, -1, 0), len(rays[1].vector)),
+        _candidate(
+            schemes[0],
+            (-1, 1, 0),
+            len(rays[0].vector),
+            tuple(str(value) for value in rays[0].vector.values),
+        ),
+        _candidate(
+            schemes[1],
+            (1, -1, 0),
+            len(rays[1].vector),
+            tuple(str(value) for value in rays[1].vector.values),
+        ),
     )
 
 

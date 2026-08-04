@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "59b497b10bd76ed7d31508d91f4ca924258d6450cfa0213da32ec9740a5a1658",
+  "artifact_digest": "59fd144fec16e574f7ffab794cecb5ba0325c47bc640e997a246ac0f4d45ca9e",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -11181,6 +11181,10 @@
         "cocycle": true,
         "determinant_one": true,
         "extension_identification_status": "formal chart cocycle only; Serre identification pending",
+        "invariant_ray_coordinates": [
+          "2*omega",
+          "1"
+        ],
         "invariant_ray_dimension": 2,
         "inverted_variables": [
           [
@@ -11232,6 +11236,130 @@
           }
         ],
         "pairwise_inverse": true,
+        "resolution": {
+          "degrees": [
+            0,
+            1
+          ],
+          "differentials": [
+            {
+              "degree": 1,
+              "localized_shapes": [
+                {
+                  "chart": "U_a",
+                  "shape": [
+                    3,
+                    2
+                  ]
+                },
+                {
+                  "chart": "U_b",
+                  "shape": [
+                    3,
+                    2
+                  ]
+                },
+                {
+                  "chart": "U_c",
+                  "shape": [
+                    3,
+                    2
+                  ]
+                }
+              ],
+              "shape": [
+                3,
+                2
+              ]
+            }
+          ],
+          "maximal_minor_ideal": {
+            "generators": [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ],
+            "scalar_type": "Eisenstein",
+            "variable_count": 3
+          },
+          "rank_drop_ideal": {
+            "generators": [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ],
+            "scalar_type": "Eisenstein",
+            "variable_count": 3
+          },
+          "scheme_resolution_certified": true,
+          "squared_zero": true
+        },
         "scheme": "I3",
         "transitions": [
           {
@@ -11592,6 +11720,13 @@
         "cocycle": true,
         "determinant_one": true,
         "extension_identification_status": "formal chart cocycle only; Serre identification pending",
+        "invariant_ray_coordinates": [
+          "1",
+          "0",
+          "-2+3*omega",
+          "1",
+          "0"
+        ],
         "invariant_ray_dimension": 5,
         "inverted_variables": [
           [
@@ -11643,6 +11778,154 @@
           }
         ],
         "pairwise_inverse": true,
+        "resolution": {
+          "degrees": [
+            0,
+            1
+          ],
+          "differentials": [
+            {
+              "degree": 1,
+              "localized_shapes": [
+                {
+                  "chart": "U_a",
+                  "shape": [
+                    4,
+                    3
+                  ]
+                },
+                {
+                  "chart": "U_b",
+                  "shape": [
+                    4,
+                    3
+                  ]
+                },
+                {
+                  "chart": "U_c",
+                  "shape": [
+                    4,
+                    3
+                  ]
+                }
+              ],
+              "shape": [
+                4,
+                3
+              ]
+            }
+          ],
+          "maximal_minor_ideal": {
+            "generators": [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      2
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      2,
+                      1
+                    ]
+                  }
+                ]
+              }
+            ],
+            "scalar_type": "Eisenstein",
+            "variable_count": 3
+          },
+          "rank_drop_ideal": {
+            "generators": [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      2
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      2,
+                      1
+                    ]
+                  }
+                ]
+              }
+            ],
+            "scalar_type": "Eisenstein",
+            "variable_count": 3
+          },
+          "scheme_resolution_certified": true,
+          "squared_zero": true
+        },
         "scheme": "I6",
         "transitions": [
           {

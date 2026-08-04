@@ -6,7 +6,7 @@ This package is the concrete home for the published one-Higgs heterotic Schoen c
 
 ## Belongs here
 
-The future modules divide the carrier into quotient geometry, observable SU(4) data, flavor and rank lifting, Ricci-flat and HYM metrics, worldsheet instantons and determinant lines, hidden-bundle construction, global consistency, and carrier-specific vacuum stabilization. The published carrier is an input; downstream closure is not assumed.
+The modules divide the carrier into quotient geometry, observable SU(4) data, flavor and rank lifting, Ricci-flat and HYM metrics, worldsheet instantons and determinant lines, hidden-bundle construction, global consistency, and carrier-specific vacuum stabilization. `geometry.py` now freezes the published cover, quotient, Cox, intersection, and symmetry handoff. `visible.py` now reproduces the exact point schemes, Serre rays, one-Higgs SU(4) extension metadata, Wilson-line breaking, and published spectrum counts. The published carrier is an input; downstream closure is not assumed.
 
 ## Does not belong here
 

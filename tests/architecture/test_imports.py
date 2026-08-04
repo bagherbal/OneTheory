@@ -31,6 +31,7 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "math/polynomials.py",
     "math/finite.py",
     "math/lattices.py",
+    "math/geometry.py",
 }
 
 

@@ -30,6 +30,11 @@ Q(omega), then checked for invertibility, order three, and its termwise
 projective commutator. These are resolution-level actions only; they do not
 constitute Serre linearizations or quotient descent.
 
+Their lowest dual graded presentations are serialized as finite cokernel
+diagnostics with explicit quotient representatives. The I3 quotient still
+has a nontrivial projective P/T commutator, while the I6 quotient commutes;
+neither result is identified with a sheaf Ext group or a published Serre ray.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

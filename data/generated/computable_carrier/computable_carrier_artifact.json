@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "e421f87c6237c75309e546b5b166e4faafa99edd1e505eebf3bf503b8f7535a7",
+  "artifact_digest": "18024e8d386d4f1c301c663ed3d0189ef490b44d84918efe94df45b26cacdf61",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -12344,6 +12344,445 @@
       "promotable": false,
       "status": "downstream calculations blocked by explicit prerequisites"
     },
+    "dual_cokernels": [
+      {
+        "action_commutes": false,
+        "actions": [
+          {
+            "matrix": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0"
+              ]
+            ],
+            "name": "P",
+            "order_three": true,
+            "preserves_relations": true
+          },
+          {
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "name": "T",
+            "order_three": true,
+            "preserves_relations": true
+          }
+        ],
+        "commutator_scalar": "-1-omega",
+        "dimension": 3,
+        "graded_degree": -2,
+        "presentation_rank": 3,
+        "presentation_shape": [
+          6,
+          3
+        ],
+        "representative_indices": [
+          2,
+          3,
+          4
+        ],
+        "representative_vectors": [
+          [
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0"
+          ]
+        ],
+        "scheme": "I3",
+        "source_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "status": "dual graded cokernel diagnostic; projective sheaf and Serre comparison remain unresolved",
+        "target_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        ]
+      },
+      {
+        "action_commutes": true,
+        "actions": [
+          {
+            "matrix": [
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ]
+            ],
+            "name": "P",
+            "order_three": true,
+            "preserves_relations": true
+          },
+          {
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "name": "T",
+            "order_three": true,
+            "preserves_relations": true
+          }
+        ],
+        "commutator_scalar": "1",
+        "dimension": 5,
+        "graded_degree": -3,
+        "presentation_rank": 4,
+        "presentation_shape": [
+          9,
+          4
+        ],
+        "representative_indices": [
+          0,
+          3,
+          5,
+          7,
+          8
+        ],
+        "representative_vectors": [
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "scheme": "I6",
+        "source_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            3,
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "status": "dual graded cokernel diagnostic; projective sheaf and Serre comparison remain unresolved",
+        "target_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        ]
+      }
+    ],
     "equivariance": {
       "checks": [
         {

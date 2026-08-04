@@ -28,6 +28,7 @@ from onetheory.models.heterotic_schoen.visible import point_schemes
 from .cech_sections import bounded_cech_sections
 from .constituents import tier_a_constituents
 from .downstream import downstream_frontier
+from .dual_cokernels import tier_a_dual_cokernels
 from .equivariance import tier_a_equivariance, tier_a_split_equivariance
 from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
 from .hom_cech import tier_a_hom_cech
@@ -54,6 +55,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     downstream = downstream_frontier(rank_four)
     bounded_equivariance = cached_tier_a_bounded_extension_equivariance(2)
     resolution_actions = tier_a_resolution_actions()
+    dual_cokernels = tier_a_dual_cokernels()
     reference_artifact = root / "data/generated/visible_carrier/visible_carrier_artifact.json"
     return {
         "schema": {
@@ -117,6 +119,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "resolution_actions": [
                 action_pair.as_record() for action_pair in resolution_actions
+            ],
+            "dual_cokernels": [
+                cokernel.as_record() for cokernel in dual_cokernels
             ],
             "bounded_cech_windows": [
                 {

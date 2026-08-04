@@ -45,3 +45,12 @@ def test_standard_model_spectrum_has_three_families_and_one_higgs_pair() -> None
     assert spectrum.by_name("Q").representation.charge("Y") == Rational(1, 6)
     assert spectrum.by_name("ν^c").representation.charge("B-L") == Rational(1)
     assert sum(item.multiplicity for item in spectrum.sector("higgs")) == 2
+
+
+def test_majorana_operator_is_explicitly_blocked_by_gauged_b_minus_l() -> None:
+    gauged = standard_model()
+    ungauged = standard_model(include_b_minus_l=False)
+
+    assert not gauged.majorana_operator.allowed
+    assert ungauged.majorana_operator.allowed
+    assert ungauged.extended_gauge_group == STANDARD_MODEL_GAUGE_GROUP

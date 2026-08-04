@@ -53,6 +53,7 @@ from onetheory.models.heterotic_schoen.visible import (
     ObservableBundle,
     SplitWallDeformation,
 )
+from onetheory.reality import Established4DLaws
 from onetheory.verification.evidence import (
     EXACT_PROJECT,
     PUBLISHED_CARRIER,
@@ -102,6 +103,86 @@ def exact_certificate(
     return ExactCertificate(identifier, expected, observed, passed, record, digest)
 
 
+def certify_established_4d_laws(laws: Established4DLaws) -> tuple[ExactCertificate, ...]:
+    """Certify law structure while marking numerical parameters as unresolved."""
+
+    model = laws.standard_model
+    return (
+        exact_certificate(
+            "laws.standard_model.anomalies",
+            True,
+            model.anomalies.cancels,
+            evidence_class=EvidenceClass.PARAMETERIZED_LAW,
+            statement="The chiral Standard Model spectrum cancels exact gauge anomalies.",
+            scope="parameterized four-dimensional laws",
+        ),
+        exact_certificate(
+            "laws.standard_model.b_minus_l_anomalies",
+            True,
+            model.b_minus_l_anomalies.cancels,
+            evidence_class=EvidenceClass.PARAMETERIZED_LAW,
+            statement="B-L anomalies cancel with three explicit right-handed neutrinos.",
+            scope="parameterized U(1)_{B-L} extension",
+        ),
+        exact_certificate(
+            "laws.interactions.invariant",
+            True,
+            model.all_law_terms_are_invariant,
+            evidence_class=EvidenceClass.PARAMETERIZED_LAW,
+            statement="Every declared gauge, Lorentz, matter, and scalar term is invariant.",
+            scope="renormalizable Standard Model law structure",
+        ),
+        exact_certificate(
+            "laws.interactions.dimension_four",
+            True,
+            model.all_renormalizable_terms_dimension_four,
+            evidence_class=EvidenceClass.PARAMETERIZED_LAW,
+            statement="Every declared renormalizable law term has mass dimension four.",
+            scope="renormalizable Standard Model law structure",
+        ),
+        exact_certificate(
+            "laws.standard_model.electric_charges",
+            True,
+            model.electric_charge_assignments_valid,
+            evidence_class=EvidenceClass.PARAMETERIZED_LAW,
+            statement="Electric charges are exactly derived from hypercharge and weak isospin.",
+            scope="Standard Model component charge assignments",
+        ),
+        exact_certificate(
+            "laws.quantum.self_adjoint",
+            True,
+            laws.quantum_hamiltonian.self_adjoint,
+            evidence_class=EvidenceClass.PARAMETERIZED_LAW,
+            statement="The quantum Hamiltonian is recorded as self-adjoint.",
+            scope="structural quantum law layer",
+        ),
+        exact_certificate(
+            "laws.gravity.einstein_hilbert",
+            True,
+            laws.gravity_action.mass_dimension == 4,
+            evidence_class=EvidenceClass.PARAMETERIZED_LAW,
+            statement="The Einstein-Hilbert action is represented with explicit G and provenance.",
+            scope="four-dimensional Einstein gravity",
+        ),
+        exact_certificate(
+            "laws.gravity.matter_coupling",
+            True,
+            laws.matter_coupling.covariant,
+            evidence_class=EvidenceClass.PARAMETERIZED_LAW,
+            statement="Matter and Higgs kinetic action has an explicit covariant metric coupling.",
+            scope="four-dimensional matter-gravity coupling",
+        ),
+        exact_certificate(
+            "laws.gravity.gauge_coupling",
+            True,
+            laws.gauge_coupling.covariant,
+            evidence_class=EvidenceClass.PARAMETERIZED_LAW,
+            statement="Gauge kinetic laws have an explicit covariant metric coupling.",
+            scope="four-dimensional gauge-gravity coupling",
+        ),
+    )
+
+
 def certify_established_carrier(state: PhysicalState) -> tuple[ExactCertificate, ...]:
     """Certify the established geometry, visible spectrum, flavor, and topology."""
 
@@ -111,32 +192,44 @@ def certify_established_carrier(state: PhysicalState) -> tuple[ExactCertificate,
     topology = cast(TopologicalConsistency, state.value("topological_consistency"))
     certificates = (
         exact_certificate(
-            "carrier.quotient.order", 9, geometry.quotient.order,
+            "carrier.quotient.order",
+            9,
+            geometry.quotient.order,
             statement="The established carrier uses a free order-nine quotient.",
             provenance=(PUBLISHED_CARRIER, EXACT_PROJECT),
         ),
         exact_certificate(
-            "carrier.spectrum.families", 3, visible.spectrum.families,
+            "carrier.spectrum.families",
+            3,
+            visible.spectrum.families,
             evidence_class=EvidenceClass.PUBLISHED_INPUT,
             statement="Wilson-line projection leaves three observable families.",
             provenance=(PUBLISHED_CARRIER,),
         ),
         exact_certificate(
-            "carrier.spectrum.higgs_pairs", 1, visible.spectrum.higgs_pairs,
+            "carrier.spectrum.higgs_pairs",
+            1,
+            visible.spectrum.higgs_pairs,
             evidence_class=EvidenceClass.PUBLISHED_INPUT,
             statement="The selected visible carrier has one Higgs pair.",
             provenance=(PUBLISHED_CARRIER,),
         ),
         exact_certificate(
-            "carrier.flavor.det_zero", True, flavor.up.determinant.is_zero(),
+            "carrier.flavor.det_zero",
+            True,
+            flavor.up.determinant.is_zero(),
             statement="The holomorphic tree-level determinant vanishes identically.",
         ),
         exact_certificate(
-            "carrier.topology.bianchi", True, topology.bianchi_identity,
+            "carrier.topology.bianchi",
+            True,
+            topology.bianchi_identity,
             statement="Visible plus required hidden Chern data match the tangent target.",
         ),
         exact_certificate(
-            "carrier.topology.cover_slope", -297, topology.cover_slope,
+            "carrier.topology.cover_slope",
+            -297,
+            topology.cover_slope,
             statement="The visible constituent slope uses the ninefold cover normalization.",
         ),
     )
@@ -205,8 +298,7 @@ def certify_observable_frontier(state: PhysicalState) -> tuple[ExactCertificate,
             True,
             admissibility.stability.negative_on_box,
             statement=(
-                "The declared sufficient stability inequalities remain negative "
-                "on the exact box."
+                "The declared sufficient stability inequalities remain negative on the exact box."
             ),
             scope=admissibility.stability.scope,
         ),
@@ -265,9 +357,7 @@ def unresolved_frontier_evidence() -> tuple[EvidenceRecord, ...]:
             EvidenceClass.MISSING_INPUT,
             (
                 f"First missing input: {status['first_missing_input']}. "
-                "Prerequisites: "
-                + " -> ".join(COMMON_DGA_MISSING_CHAIN)
-                + "."
+                "Prerequisites: " + " -> ".join(COMMON_DGA_MISSING_CHAIN) + "."
             ),
             (EXACT_PROJECT,),
             "finite holomorphic frontier",

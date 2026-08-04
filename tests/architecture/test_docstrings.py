@@ -31,8 +31,13 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "math/sections.py",
     "core/errors.py",
     "core/precision.py",
+    "core/units.py",
+    "physics/spacetime.py",
+    "physics/fields.py",
     "physics/gauge.py",
     "physics/matter.py",
+    "physics/quantum.py",
+    "physics/gravity.py",
     "physics/strings.py",
     "models/standard_model.py",
     "models/heterotic_schoen/geometry.py",
@@ -45,10 +50,12 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "engine/graph.py",
     "engine/solve.py",
     "engine/state.py",
+    "engine/simulate.py",
     "reality.py",
     "verification/evidence.py",
     "verification/certificates.py",
     "verification/gates.py",
+    "verification/audit.py",
 }
 
 

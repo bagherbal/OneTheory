@@ -6,7 +6,7 @@ Physics contains general physical laws and concepts that do not depend on the se
 
 ## Belongs here
 
-Spacetime, quantum kinematics, fields, gauge theory, matter and flavor, gravity, heterotic string principles, vacuum structure, and terminal observable interfaces belong in the named modules. `gauge.py` now owns exact group and representation metadata, `matter.py` owns immutable particle multiplets and spectra, and `strings.py` owns compactification, bundle, Wilson-line, and published-input descriptors. The modules provide homes for laws used by both general computation and concrete models.
+Spacetime, quantum kinematics, fields, gauge theory, matter and flavor, gravity, heterotic string principles, vacuum structure, and terminal observable interfaces belong in the named modules. The general kernel now provides exact Lorentzian tensor and form operations, typed action terms, gauge covariance records, chiral matter and symbolic Yukawa maps, canonical quantum relations, and Einstein-law contracts. `gauge.py` owns exact group, connection, and anomaly metadata; `matter.py` owns immutable particle multiplets, generations, and interaction checks; and `strings.py` owns compactification, bundle, Wilson-line, and published-input descriptors.
 
 ## Does not belong here
 
@@ -14,7 +14,7 @@ Concrete Schoen geometry or bundles, measured-data selectors, native-origin brid
 
 ## Dependencies
 
-Physics may depend on core and reusable mathematics. It must remain independent of concrete models, engine execution, verification, research, and observations.
+Physics may depend on core and reusable mathematics and may compose its own general-law modules. It remains independent of concrete models, engine execution, verification, research, and observations.
 
 ## Promotion condition
 

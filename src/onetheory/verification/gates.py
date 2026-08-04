@@ -87,3 +87,21 @@ def gate_missing_input(
     """Construct a missing-input gate with its exact prerequisite chain."""
 
     return GateResult(name, GateState.MISSING_INPUT, statement, scope, prerequisites)
+
+
+def parameterized_law_gate(
+    name: str,
+    exact_law_structure: bool,
+    unresolved_parameters: tuple[str, ...],
+    scope: str,
+) -> GateResult:
+    """Pass structural laws or expose their unresolved physical parameters."""
+
+    if not exact_law_structure:
+        return GateResult(name, GateState.FAIL, "exact law structure failed", scope, ())
+    return gate_missing_input(
+        name,
+        "Law structure is established; physical parameter values remain unresolved.",
+        scope,
+        unresolved_parameters,
+    )

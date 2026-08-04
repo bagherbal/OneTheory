@@ -57,7 +57,7 @@ def _resolved_imports(path: Path, tree: ast.AST) -> set[str]:
             imports.update(alias.name for alias in node.names)
         elif isinstance(node, ast.ImportFrom):
             if node.level:
-                base = current_parts[:-node.level]
+                base = current_parts[: -node.level]
             else:
                 base = []
             module_parts = node.module.split(".") if node.module else []
@@ -136,3 +136,17 @@ def test_production_import_graph_has_no_cycles() -> None:
     assert not violations, "\n".join(violations)
     cycles = _cycles(graph)
     assert not cycles, f"Circular production imports: {cycles}"
+
+
+def test_production_does_not_import_observations_or_source_documents() -> None:
+    forbidden = ("observations", "Experimental_Draft_OneTheory", "docx")
+    violations: list[str] = []
+    for path in sorted(PRODUCTION_ROOT.rglob("*.py")):
+        tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+        for node in ast.walk(tree):
+            if isinstance(node, (ast.Import, ast.ImportFrom)):
+                names = [alias.name for alias in node.names]
+                imported = ".".join(names)
+                if any(token.lower() in imported.lower() for token in forbidden):
+                    violations.append(f"{path}: {imported}")
+    assert not violations, "Forbidden source or observation imports: " + ", ".join(violations)

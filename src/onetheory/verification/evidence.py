@@ -34,6 +34,7 @@ class EvidenceClass(StrEnum):
     OPEN = "open"
     MISSING_INPUT = "missing_input"
     KILLED = "killed"
+    PARAMETERIZED_LAW = "parameterized_law"
 
 
 @dataclass(frozen=True, slots=True)

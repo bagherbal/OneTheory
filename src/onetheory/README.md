@@ -6,7 +6,7 @@ This package is the executable scientific engine’s root. Its modules represent
 
 ## Belongs here
 
-The sole composition root is `reality.py`; it assembles the established one-Higgs heterotic Schoen carrier and its exact formal observable frontier while keeping rank-three and physical outputs unresolved. Package initializers remain intentionally quiet and do not re-export future symbols.
+The sole composition root is `reality.py`; it exposes both the parameterized established four-dimensional law kernel and the established one-Higgs heterotic Schoen carrier while keeping physical parameter outputs unresolved. Package initializers remain intentionally quiet and do not re-export future symbols.
 
 ## Does not belong here
 
@@ -14,7 +14,7 @@ Paper chapters, historical ledgers, speculative bridges, failed physical routes,
 
 ## Dependencies
 
-Lower layers feed higher layers: core supports mathematics, mathematics supports general physics, models realize physics, engine evaluates direct dependencies, and reality composes models with engine machinery. Verification inspects production from outside.
+Lower layers feed higher layers: core supports mathematics, mathematics supports general physics, models realize physics, engine evaluates direct dependencies and controlled benchmarks, and reality composes models with engine machinery. Verification inspects production from outside.
 
 ## Promotion condition
 

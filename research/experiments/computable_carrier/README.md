@@ -48,6 +48,11 @@ are serialized as well. Its six affine blow-up hypersurface charts and all 30
 Laurent overlap identities are checked exactly. This is a geometric atlas,
 not a global Serre transition construction.
 
+Each coordinate singular point is now tied to its mu-chart fiber coordinate,
+local hypersurface incidence, nonzero fiber derivative, and exact unit Serre
+pushout. The six local presentations are still only local data: their global
+Cech gluing and equivariant linearization remain promotion gates.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

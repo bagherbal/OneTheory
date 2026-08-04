@@ -27,6 +27,7 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "math/finite.py",
     "math/lattices.py",
     "math/geometry.py",
+    "math/homological.py",
 }
 
 

@@ -1,0 +1,69 @@
+{
+  "manifest_version": 1,
+  "carrier": "published one-Higgs observable SU(4) Schoen bundle",
+  "retrieval_urls": {
+    "arxiv_source": "https://arxiv.org/e-print/",
+    "arxiv_pdf": "https://arxiv.org/pdf/"
+  },
+  "sources": [
+    {
+      "arxiv_id": "hep-th/0410055",
+      "version": "v2",
+      "title": "Elliptic Calabi-Yau Threefolds with Z_3 x Z_3 Wilson Lines",
+      "source_archive_sha256": "ad75668ca40b14972f1e52d5232fee08b3b6130b27accff1217440fc1d65536a",
+      "pdf_sha256": "9741aaef974e6564d50fc217fcc9de594fcef632ae0a1d1c994a044c103ddcec",
+      "locators": [
+        "sec:weierstrass; eq:weierstrass; eq:specialweierstrass",
+        "eq:eta; eq:xi; eq:xiMWeq",
+        "eq:specialcubicpencil; eq:g1pencil",
+        "sec:CY; fiber-product hypersurface and free quotient construction",
+        "eq:H2Xtquotient; invariant quotient cohomology"
+      ],
+      "role": "ambient rational elliptic surfaces, pencil, fiber product, and deck action"
+    },
+    {
+      "arxiv_id": "hep-th/0512177",
+      "version": "v3",
+      "title": "The Exact MSSM Spectrum from String Theory",
+      "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+      "pdf_sha256": "3a98c51d6e0513ecb14f25b8d4e33dfee9fa674bbdcbaff9ab94ddfb650c0a06",
+      "locators": [
+        "eq:C; eq:D; eq:A; eq:B",
+        "eq:Vcoh; eq:wedge2Vcoh",
+        "eq:burt2; eq:burt3; eq:17",
+        "eq:yukawa"
+      ],
+      "role": "one-Higgs V1/V2 extension, equivariant spectrum, and Wilson line"
+    },
+    {
+      "arxiv_id": "hep-th/0602073",
+      "version": "v1",
+      "title": "Stability of the Minimal Heterotic Standard Model Bundle",
+      "source_archive_sha256": "8e38123b9d2de8751deecbf295015497ab2ed891244215455fffe756bebf0aea",
+      "pdf_sha256": "556c95e829d3262e7fb8ee404d130724da4aadf68ca36bf397557e5d04a61af5",
+      "locators": [
+        "eq:V1def; eq:V2def; eq:Vdef",
+        "sec:ext; Ext^1(V2,V1)=4",
+        "eq:W1def; eq:W2def",
+        "eq:I3def; eq:I6def",
+        "eq:I3pushdown; eq:I6pushdown",
+        "eq:W1pushdown; eq:W2pushdown",
+        "eq:W12tpushdown; eq:W22tpushdown",
+        "sec:CB; Cayley-Bacharach rank-two conclusion"
+      ],
+      "role": "Serre ideal schemes, bundle stability, pushdowns, and extension dimension"
+    }
+  ],
+  "excluded_sources": [
+    {
+      "arxiv_id": "hep-th/0501070",
+      "reason": "superseded two-Higgs construction; not an input to this carrier"
+    }
+  ],
+  "source_inspection": {
+    "source_archives_retrieved": true,
+    "pdfs_retrieved": true,
+    "ancillary_computational_files": "none advertised in the retrieved arXiv records",
+    "inspection_result": "published sources define sheaf extensions and dimensions but do not serialize four invariant Ext cocycles, transition functions, or the 404-section evaluation matrix"
+  }
+}

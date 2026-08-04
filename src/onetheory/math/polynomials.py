@@ -498,6 +498,113 @@ class Polynomial:
         return Polynomial.zero(1, scalar_type=self.scalar_type) if left.is_zero() else left.monic()
 
 
+@dataclass(frozen=True, slots=True, init=False)
+class PolynomialMatrix:
+    """An immutable matrix map between finite free polynomial modules."""
+
+    rows: tuple[tuple[Polynomial, ...], ...]
+
+    def __init__(self, rows: Iterable[Iterable[Polynomial]]) -> None:
+        object.__setattr__(self, "rows", _matrix_rows(rows))
+
+    @property
+    def shape(self) -> tuple[int, int]:
+        """Return the codomain and domain ranks."""
+
+        return len(self.rows), len(self.rows[0])
+
+    @property
+    def variable_count(self) -> int:
+        """Return the common polynomial variable count."""
+
+        return self.rows[0][0].variable_count
+
+    @property
+    def scalar_type(self) -> ScalarType:
+        """Return the common exact coefficient field."""
+
+        return self.rows[0][0].scalar_type
+
+    def compose(self, previous: PolynomialMatrix) -> PolynomialMatrix:
+        """Compose this map after a compatible polynomial matrix map."""
+
+        if self.shape[1] != previous.shape[0]:
+            raise ValueError("polynomial matrix maps have incompatible ranks")
+        return PolynomialMatrix(
+            tuple(
+                tuple(
+                    sum(
+                        (
+                            self.rows[row][inner] * previous.rows[inner][column]
+                            for inner in range(self.shape[1])
+                        ),
+                        Polynomial.zero(self.variable_count, scalar_type=self.scalar_type),
+                    )
+                    for column in range(previous.shape[1])
+                )
+                for row in range(self.shape[0])
+            )
+        )
+
+    def is_zero(self) -> bool:
+        """Return whether every polynomial entry is exactly zero."""
+
+        return all(entry.is_zero() for row in self.rows for entry in row)
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class PolynomialFreeResolution:
+    """A finite chain of free polynomial modules with exact square-zero checks."""
+
+    name: str
+    term_ranks: tuple[tuple[int, int], ...]
+    differentials: tuple[tuple[int, PolynomialMatrix], ...]
+
+    def __init__(
+        self,
+        name: str,
+        term_ranks: Mapping[int, int] | Iterable[tuple[int, int]],
+        differentials: Mapping[int, PolynomialMatrix]
+        | Iterable[tuple[int, PolynomialMatrix]],
+    ) -> None:
+        ranks = tuple(sorted(term_ranks.items() if isinstance(term_ranks, Mapping) else term_ranks))
+        maps = tuple(
+            sorted(differentials.items() if isinstance(differentials, Mapping) else differentials)
+        )
+        if not name.strip() or not ranks:
+            raise ValueError("free resolutions require a name and nonempty term ranks")
+        if len({degree for degree, _ in ranks}) != len(ranks):
+            raise ValueError("free-resolution degrees must be unique")
+        if any(rank < 0 for _, rank in ranks):
+            raise ValueError("free-resolution ranks must be nonnegative")
+        rank_map = dict(ranks)
+        if len({degree for degree, _ in maps}) != len(maps):
+            raise ValueError("free-resolution differential degrees must be unique")
+        for degree, differential in maps:
+            if (
+                rank_map.get(degree) != differential.shape[1]
+                or rank_map.get(degree - 1) != differential.shape[0]
+            ):
+                raise ValueError("free-resolution differential ranks do not match its terms")
+        object.__setattr__(self, "name", name)
+        object.__setattr__(self, "term_ranks", ranks)
+        object.__setattr__(self, "differentials", maps)
+        for degree, differential in maps:
+            next_map = dict(maps).get(degree - 1)
+            if next_map is not None and not next_map.compose(differential).is_zero():
+                raise ValueError("free-resolution differentials must square to zero")
+
+    @property
+    def squared_zero(self) -> bool:
+        """Return the exact chain-complex square-zero certificate."""
+
+        maps = dict(self.differentials)
+        return all(
+            degree - 1 not in maps or maps[degree - 1].compose(differential).is_zero()
+            for degree, differential in self.differentials
+        )
+
+
 def polynomial_determinant(matrix: Iterable[Iterable[Polynomial]]) -> Polynomial:
     """Return the exact determinant of a nonempty square polynomial matrix."""
 
@@ -609,6 +716,8 @@ def substitute_monomials(
 __all__ = [
     "Monomial",
     "Polynomial",
+    "PolynomialFreeResolution",
+    "PolynomialMatrix",
     "derivative",
     "determinant",
     "divmod_univariate",

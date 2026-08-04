@@ -37,7 +37,13 @@ from onetheory.math.homological import (
 )
 from onetheory.math.linear import Matrix, Vector
 from onetheory.math.numbers import OMEGA, OMEGA2, Eisenstein, Rational, coerce_rational
-from onetheory.math.polynomials import Polynomial, determinant, maximal_minors
+from onetheory.math.polynomials import (
+    Polynomial,
+    PolynomialFreeResolution,
+    PolynomialMatrix,
+    determinant,
+    maximal_minors,
+)
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry
 from onetheory.models.standard_model import standard_model
 from onetheory.physics.gauge import GaugeGroup
@@ -111,6 +117,16 @@ class HilbertBurchResolution:
             Eisenstein,
         )
         return GradedVectorSpace(self.name, {0: generator_space, 1: syzygy_space})
+
+    @property
+    def free_resolution(self) -> PolynomialFreeResolution:
+        """Return the exact polynomial free-module complex behind the matrix."""
+
+        return PolynomialFreeResolution(
+            self.name,
+            {0: len(self.matrix), 1: len(self.matrix[0])},
+            {1: PolynomialMatrix(self.matrix)},
+        )
 
     @property
     def scheme_length(self) -> Rational:
@@ -229,6 +245,22 @@ class SerreData:
             if action.name == name:
                 return action
         raise KeyError(name)
+
+
+def _invariant_serre_ray(name: str, p: Matrix, t: Matrix) -> InvariantSerreRay:
+    """Derive the unique invariant Serre ray from the shifted kernel action."""
+
+    identity = Matrix.identity(p.shape[0], scalar_type=Eisenstein)
+    shifted_p = p.inverse().scale(OMEGA if name == "W1" else OMEGA2)
+    shifted_t = t.inverse().scale(Eisenstein(1) if name == "W1" else OMEGA)
+    equations = Matrix(
+        (*((shifted_p - identity).rows), *((shifted_t - identity).rows)),
+        scalar_type=Eisenstein,
+    )
+    rays = equations.nullspace()
+    if len(rays) != 1:
+        raise ValueError(f"{name} shifted Serre action must have a unique invariant ray")
+    return InvariantSerreRay(name, rays[0], shifted_p, shifted_t)
 
 
 @dataclass(frozen=True, slots=True)
@@ -371,16 +403,7 @@ def serre_data() -> SerreData:
         scalar_type=Eisenstein,
     )
     actions = (_action("W1", w1_p, w1_t), _action("W2", w2_p, w2_t))
-    rays = (
-        InvariantSerreRay(
-            "W1", Vector((2 * OMEGA, 1), scalar_type=Eisenstein),
-            w1_p.inverse().scale(OMEGA), w1_t.inverse(),
-        ),
-        InvariantSerreRay(
-            "W2", Vector((1, 0, -2 + 3 * OMEGA, 1, 0), scalar_type=Eisenstein),
-            w2_p.inverse().scale(OMEGA2), w2_t.inverse().scale(OMEGA),
-        ),
-    )
+    rays = (_invariant_serre_ray("W1", w1_p, w1_t), _invariant_serre_ray("W2", w2_p, w2_t))
     local = LocalI6Characters(OMEGA2 * OMEGA, OMEGA)
     data = SerreData(actions, rays, local)
     if not all(action.commutes for action in actions):

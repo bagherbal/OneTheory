@@ -122,7 +122,7 @@ def audit_inputs(root: Path) -> MetricSufficiencyAudit:
         InputRecord(name, relative_path, (root / relative_path).is_file())
         for name, relative_path in REQUIRED_INPUTS
     )
-    published_root = root / "data" / "published"
+    published_root = root / "data" / "published" / "visible_metrics"
     published_files = (
         tuple(
             str(path.relative_to(root))

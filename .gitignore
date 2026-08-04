@@ -34,5 +34,7 @@ Thumbs.db
 # Reproducible generated outputs are not source inputs.
 data/generated/*
 !data/generated/README.md
+!data/generated/visible_carrier/
+!data/generated/visible_carrier/**
 
 .gitmessage

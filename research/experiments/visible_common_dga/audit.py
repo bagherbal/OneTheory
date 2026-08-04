@@ -105,7 +105,7 @@ def audit_inputs(root: Path) -> SufficiencyAudit:
         InputRecord(name, relative_path, (root / relative_path).is_file())
         for name, relative_path in REQUIRED_INPUTS
     )
-    published_root = root / "data" / "published"
+    published_root = root / "data" / "published" / "visible_common_dga"
     published_files = tuple(
         str(path.relative_to(root))
         for path in sorted(published_root.rglob("*"))

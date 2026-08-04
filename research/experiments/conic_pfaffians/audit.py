@@ -87,7 +87,7 @@ SOURCE_HASHES: Final[tuple[tuple[str, str], ...]] = (
     ),
     (
         "src/onetheory/models/heterotic_schoen/visible.py",
-        "62b032a3a1fdce984f6e6aa688795ed3ad4d7eac6912119b238fd8aa30eeeea3",
+        "4ad5f63e5078234707c4410d6b093589d3c1352f9dbf099024c6997dd2bcdc29",
     ),
     (
         "Experimental_Draft_OneTheory.py",
@@ -113,7 +113,7 @@ def audit_inputs(root: Path) -> PfaffianSufficiencyAudit:
         InputRecord(name, relative_path, (root / relative_path).is_file())
         for name, relative_path in REQUIRED_INPUTS
     )
-    published_root = root / "data" / "published"
+    published_root = root / "data" / "published" / "conic_pfaffians"
     published_files = tuple(
         str(path.relative_to(root))
         for path in sorted(published_root.rglob("*"))

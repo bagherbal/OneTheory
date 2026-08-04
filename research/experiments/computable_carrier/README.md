@@ -35,6 +35,11 @@ diagnostics with explicit quotient representatives. The I3 quotient still
 has a nontrivial projective P/T commutator, while the I6 quotient commutes;
 neither result is identified with a sheaf Ext group or a published Serre ray.
 
+The local Serre pushout boundary is also explicit: the reduced I3 ideal uses
+((x,y)), the I6 ideal uses ((x,y^2)), and the unit local class has a unit
+Fitting generator. The I6 nilpotent direction fails that local freeness test.
+These local presentations still require global dP9 patching and linearization.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

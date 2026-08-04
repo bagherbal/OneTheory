@@ -36,6 +36,7 @@ from .outer import split_rank_four_baseline
 from .rank_four import rank_four_frontier
 from .resolution_actions import tier_a_resolution_actions
 from .search import finite_tier_search
+from .serre_local import local_serre_model, tier_a_local_serre_models
 from .specification import computable_carrier_specification
 
 
@@ -56,6 +57,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     bounded_equivariance = cached_tier_a_bounded_extension_equivariance(2)
     resolution_actions = tier_a_resolution_actions()
     dual_cokernels = tier_a_dual_cokernels()
+    local_serre_models = tier_a_local_serre_models()
     reference_artifact = root / "data/generated/visible_carrier/visible_carrier_artifact.json"
     return {
         "schema": {
@@ -123,6 +125,20 @@ def build_artifact(root: Path) -> dict[str, object]:
             "dual_cokernels": [
                 cokernel.as_record() for cokernel in dual_cokernels
             ],
+            "local_serre_models": [
+                model.as_record() for model in local_serre_models
+            ],
+            "local_class_boundary": {
+                "I3": [local_serre_model("I3", "unit").as_record()],
+                "I6": [
+                    local_serre_model("I6", "unit").as_record(),
+                    local_serre_model("I6", "nilpotent").as_record(),
+                ],
+                "status": (
+                    "local pushout freeness only; global Serre patching and "
+                    "linearization remain unresolved"
+                ),
+            },
             "bounded_cech_windows": [
                 {
                     "scheme": candidate.scheme.name,

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "18024e8d386d4f1c301c663ed3d0189ef490b44d84918efe94df45b26cacdf61",
+  "artifact_digest": "bc7336c594e5cd1e7f5eae29ee0226b72c5ada9bfe19280b555c26de01d68410",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -12939,6 +12939,895 @@
       "honest": false,
       "status": "coordinate equivariance checked; no honest gauge lifts constructed"
     },
+    "local_class_boundary": {
+      "I3": [
+        {
+          "class_label": "unit",
+          "extension_class": {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          "fitting_ideal": {
+            "generators": [
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ],
+            "scalar_type": "Rational",
+            "variable_count": 2
+          },
+          "ideal_generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1
+                  ]
+                }
+              ]
+            }
+          ],
+          "local_coordinates": [
+            "x",
+            "y"
+          ],
+          "locally_free": true,
+          "multiplicity": 1,
+          "pushout_relation": [
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ]
+          ],
+          "quotient_map": [
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": []
+              }
+            ]
+          ],
+          "relation_composes_to_zero": true,
+          "scheme": "I3",
+          "status": "local Serre presentation only; global patching remains pending",
+          "syzygy": [
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "I6": [
+        {
+          "class_label": "unit",
+          "extension_class": {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          "fitting_ideal": {
+            "generators": [
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      2
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ],
+            "scalar_type": "Rational",
+            "variable_count": 2
+          },
+          "ideal_generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    2
+                  ]
+                }
+              ]
+            }
+          ],
+          "local_coordinates": [
+            "x",
+            "y"
+          ],
+          "locally_free": true,
+          "multiplicity": 2,
+          "pushout_relation": [
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      2
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ]
+          ],
+          "quotient_map": [
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      2
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": []
+              }
+            ]
+          ],
+          "relation_composes_to_zero": true,
+          "scheme": "I6",
+          "status": "local Serre presentation only; global patching remains pending",
+          "syzygy": [
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    2
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class_label": "nilpotent",
+          "extension_class": {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "fitting_ideal": {
+            "generators": [
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      2
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              }
+            ],
+            "scalar_type": "Rational",
+            "variable_count": 2
+          },
+          "ideal_generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    2
+                  ]
+                }
+              ]
+            }
+          ],
+          "local_coordinates": [
+            "x",
+            "y"
+          ],
+          "locally_free": false,
+          "multiplicity": 2,
+          "pushout_relation": [
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      2
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              }
+            ]
+          ],
+          "quotient_map": [
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      2
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": []
+              }
+            ]
+          ],
+          "relation_composes_to_zero": true,
+          "scheme": "I6",
+          "status": "local Serre presentation only; global patching remains pending",
+          "syzygy": [
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    2
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "status": "local pushout freeness only; global Serre patching and linearization remain unresolved"
+    },
+    "local_serre_models": [
+      {
+        "class_label": "unit",
+        "extension_class": {
+          "terms": [
+            {
+              "coefficient": "1",
+              "exponents": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "fitting_ideal": {
+          "generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ],
+          "scalar_type": "Rational",
+          "variable_count": 2
+        },
+        "ideal_generators": [
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          }
+        ],
+        "local_coordinates": [
+          "x",
+          "y"
+        ],
+        "locally_free": true,
+        "multiplicity": 1,
+        "pushout_relation": [
+          [
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        ],
+        "quotient_map": [
+          [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": []
+            }
+          ]
+        ],
+        "relation_composes_to_zero": true,
+        "scheme": "I3",
+        "status": "local Serre presentation only; global patching remains pending",
+        "syzygy": [
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "class_label": "unit",
+        "extension_class": {
+          "terms": [
+            {
+              "coefficient": "1",
+              "exponents": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "fitting_ideal": {
+          "generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    2
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ],
+          "scalar_type": "Rational",
+          "variable_count": 2
+        },
+        "ideal_generators": [
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ]
+          }
+        ],
+        "local_coordinates": [
+          "x",
+          "y"
+        ],
+        "locally_free": true,
+        "multiplicity": 2,
+        "pushout_relation": [
+          [
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    2
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        ],
+        "quotient_map": [
+          [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    2
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": []
+            }
+          ]
+        ],
+        "relation_composes_to_zero": true,
+        "scheme": "I6",
+        "status": "local Serre presentation only; global patching remains pending",
+        "syzygy": [
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "point_schemes": [
       {
         "name": "I3",

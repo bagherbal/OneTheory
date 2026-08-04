@@ -23,16 +23,28 @@ from dataclasses import FrozenInstanceError
 import pytest
 
 from onetheory.math.homological import (
+    DGA,
     Bicomplex,
     ChainComplex,
     ChainHomotopy,
     ChainMap,
     CochainComplex,
+    Contraction,
     CoordinateVector,
+    CyclicPairing,
+    FiniteComplexAction,
+    GradedElement,
+    GradedMap,
+    GradedProduct,
     GradedVectorSpace,
+    HPLTransfer,
+    InvariantSubcomplex,
     LinearMap,
     VectorSpace,
+    graded_commutator,
+    induced_action_on_cohomology,
     mapping_cone,
+    tensor_product_space,
 )
 from onetheory.math.numbers import OMEGA, Eisenstein, Rational
 
@@ -183,3 +195,60 @@ def test_bicomplex_rejects_noncommuting_unsigned_directions() -> None:
             vertical={(0, 0): LinearMap(a, c, ((1,),)),
                       (1, 0): LinearMap(b, d, ((1,),))},
         )
+
+
+def test_dga_leibniz_commutator_pairing_and_maurer_cartan() -> None:
+    degree_zero = VectorSpace("A0", ("1",))
+    graded = GradedVectorSpace("A", {0: degree_zero})
+    differential = GradedMap.zero(graded, graded, 1)
+    tensor = tensor_product_space(degree_zero, degree_zero)
+    multiplication = GradedProduct(
+        graded,
+        {(0, 0): LinearMap(tensor, degree_zero, ((1,),))},
+    )
+    dga = DGA(graded, differential, multiplication)
+    one = GradedElement(0, CoordinateVector(degree_zero, (1,)))
+
+    assert dga.multiply(one, one) == one
+    assert graded_commutator(multiplication, one, one).vector.is_zero()
+    pairing = CyclicPairing(dga, {0: (1,)}, normalized=True)
+    assert pairing.is_cyclic()
+    assert pairing.is_nondegenerate()
+    assert pairing.pair(one, one) == Rational(1)
+    assert dga.is_maurer_cartan({0: CoordinateVector(degree_zero, (0,))})
+
+
+def test_identity_contraction_and_suspended_hpl_are_exact_and_memoized() -> None:
+    space = VectorSpace("C0", ("e",))
+    graded = GradedVectorSpace("C", {0: space})
+    complex_ = CochainComplex(graded, {})
+    identity = ChainMap.identity(complex_)
+    homotopy = ChainHomotopy(identity, identity, {})
+    contraction = Contraction(complex_, complex_, identity, identity, homotopy)
+    tensor = tensor_product_space(space, space)
+    product = GradedProduct(
+        graded,
+        {(0, 0): LinearMap(tensor, space, ((1,),))},
+    )
+    transfer = HPLTransfer(contraction, product)
+    element = GradedElement(0, CoordinateVector(space, (1,)))
+    result = transfer.evaluate((element, element))
+
+    assert result.result == element
+    assert result.f_word_count == 2
+    assert result.b_word_count == 1
+
+
+def test_finite_complex_action_projector_preserves_the_exact_complex() -> None:
+    space = VectorSpace("C0", ("e",))
+    graded = GradedVectorSpace("C", {0: space})
+    complex_ = CochainComplex(graded, {})
+    identity = ChainMap.identity(complex_)
+    action = FiniteComplexAction(complex_, "1", {"1": identity}, {("1", "1"): "1"})
+    invariant = action.character_projector({"1": 1})
+
+    assert invariant.component(0) == LinearMap.identity(space)
+    restricted = InvariantSubcomplex(action, {"1": 1})
+    assert restricted.complex.spaces.space(0).dimension == 1
+    assert len(restricted.cohomology_representatives(0)) == 1
+    assert induced_action_on_cohomology(action).matrix("1", 0).rows == ((Rational(1),),)

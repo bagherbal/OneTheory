@@ -22,14 +22,20 @@ import pytest
 from onetheory.core.errors import MissingPhysicalInput
 from onetheory.reality import (
     assemble_reality,
+    request_ckm_cp,
     request_hidden_bundle,
     request_instanton_amplitudes,
     request_low_energy_predictions,
+    request_masses,
     request_metrics,
     request_physical_yukawas,
+    request_rank_three_yukawa,
     request_vacuum,
 )
-from onetheory.verification.certificates import certify_established_carrier
+from onetheory.verification.certificates import (
+    certify_established_carrier,
+    certify_observable_frontier,
+)
 from onetheory.verification.evidence import EvidenceClass
 
 
@@ -44,6 +50,10 @@ def test_reality_composes_only_established_carrier_objects() -> None:
         "visible_bundle",
         "tree_level_flavor",
         "topological_consistency",
+        "split_wall_deformation",
+        "mixed_deformation_branch",
+        "observable_admissibility",
+        "finite_flavor_frontier",
     )
     assert "hidden bundle" in state.unresolved
     assert "physical Yukawa matrices" in state.unresolved
@@ -61,11 +71,21 @@ def test_external_certificates_pass_for_the_assembled_state() -> None:
     assert all(len(certificate.digest) == 64 for certificate in certificates)
 
 
+def test_frontier_certificates_recompute_formal_results() -> None:
+    certificates = certify_observable_frontier(assemble_reality())
+
+    assert len(certificates) == 10
+    assert all(certificate.passed for certificate in certificates)
+
+
 @pytest.mark.parametrize(
     "request_fn",
     (
         request_metrics,
         request_physical_yukawas,
+        request_rank_three_yukawa,
+        request_masses,
+        request_ckm_cp,
         request_instanton_amplitudes,
         request_hidden_bundle,
         request_vacuum,

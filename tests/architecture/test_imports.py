@@ -49,6 +49,7 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "reality.py",
     "verification/evidence.py",
     "verification/certificates.py",
+    "verification/gates.py",
 }
 
 

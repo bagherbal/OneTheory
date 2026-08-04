@@ -8,7 +8,7 @@ Production code lives under `src/onetheory` and may be consumed by `research`; p
 
 Simulation consumes the same physical laws and immutable state objects as scientific computation. It will eventually emit structured trajectories for external animation consumers, without introducing a second simplified physics implementation or rendering dependency.
 
-The first executable reality slice now assembles the published one-Higgs heterotic Schoen carrier, its exact geometry, visible spectrum, holomorphic tree-level flavor structure, and topological checks. Metrics, instantons, hidden-bundle existence, vacuum stabilization, canonical normalization, physical Yukawas, and low-energy predictions remain explicit missing inputs.
+The executable reality slice now also carries the exact observable split-wall ledger, corrected formal mixed branch, local/open-locus admissibility certificates, scoped degree-three and order-five exclusions, and the finite holomorphic flavor frontier. The 24 residue workload reduces to 20 direction-adaptive traces and a four-trace first test, but carrier residue values, complete common-DGA representatives, rank-three Yukawas, metrics, canonical normalization, masses, CP observables, instantons, hidden-bundle existence, and vacuum stabilization remain explicit missing inputs.
 
 ## Dependency direction
 

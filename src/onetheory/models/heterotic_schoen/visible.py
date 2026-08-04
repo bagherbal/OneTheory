@@ -23,12 +23,21 @@ Phase 0:
 
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from enum import StrEnum
 
-from onetheory.math.homological import GradedVectorSpace, VectorSpace
+from onetheory.math.homological import (
+    DGA,
+    GradedMap,
+    GradedProduct,
+    GradedVectorSpace,
+    LinearMap,
+    VectorSpace,
+)
 from onetheory.math.linear import Matrix, Vector
-from onetheory.math.numbers import OMEGA, OMEGA2, Eisenstein, Rational
-from onetheory.math.polynomials import Polynomial, maximal_minors
+from onetheory.math.numbers import OMEGA, OMEGA2, Eisenstein, Rational, coerce_rational
+from onetheory.math.polynomials import Polynomial, determinant, maximal_minors
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry
 from onetheory.models.standard_model import standard_model
 from onetheory.physics.gauge import GaugeGroup
@@ -422,3 +431,530 @@ def visible_bundle(geometry: SchoenGeometry) -> ObservableBundle:
     if not result.is_one_higgs_carrier or not result.equivariant_descent:
         raise ValueError("the visible carrier identity firewall failed")
     return result
+
+
+class WallCharge(StrEnum):
+    """The two exact charges of the split-wall deformation ledger."""
+
+    FORWARD = "+1"
+    REVERSE = "-1"
+
+
+@dataclass(frozen=True, slots=True)
+class AbstractDeformationClass:
+    """An abstract Ext class with no implied common-DGA representative."""
+
+    name: str
+    wall_charge: WallCharge
+    degree: int
+    basis_position: int
+    representative_status: str = "abstract cohomology class only"
+
+    def __post_init__(self) -> None:
+        if not self.name.strip():
+            raise ValueError("deformation classes require names")
+        if self.degree != 1:
+            raise ValueError("the observable ledger stores Ext1 classes")
+        if self.basis_position < 0:
+            raise ValueError("basis positions must be nonnegative")
+
+
+@dataclass(frozen=True, slots=True)
+class DeformationSpace:
+    """A typed ordered exact deformation space on the split wall."""
+
+    name: str
+    wall_charge: WallCharge
+    basis: tuple[AbstractDeformationClass, ...]
+    coefficient_field: str
+    ordering: tuple[str, ...]
+    sign_convention: str
+    common_dga_representatives_available: bool
+
+    @property
+    def dimension(self) -> int:
+        """Return the exact number of declared invariant directions."""
+
+        return len(self.basis)
+
+    def __post_init__(self) -> None:
+        if not self.name.strip() or self.coefficient_field != "Q(omega)":
+            raise ValueError("deformation spaces require named Q(omega) data")
+        if tuple(item.name for item in self.basis) != self.ordering:
+            raise ValueError("deformation ordering must match the basis declaration")
+        if any(item.wall_charge != self.wall_charge for item in self.basis):
+            raise ValueError("a deformation space cannot mix wall charges")
+        if self.common_dga_representatives_available:
+            raise ValueError(
+                "the carrier ledger does not promote abstract classes to common representatives"
+            )
+
+
+@dataclass(frozen=True, slots=True)
+class SplitWallDeformation:
+    """The exact 4+8 observable split-wall deformation ledger."""
+
+    summands: tuple[str, str]
+    forward: DeformationSpace
+    reverse: DeformationSpace
+    basis_convention: str
+    coefficient_field: str
+    common_dga_representatives_available: bool
+
+    @property
+    def total_dimension(self) -> int:
+        """Return the dimension of the mixed deformation space."""
+
+        return self.forward.dimension + self.reverse.dimension
+
+
+def split_wall_deformation() -> SplitWallDeformation:
+    """Construct the published split-wall 4-forward/8-reverse ledger."""
+
+    forward_names = tuple(f"e_{index}" for index in range(4))
+    reverse_names = tuple(f"f_{index}" for index in range(8))
+    forward = DeformationSpace(
+        "Ext1(V1,V2)",
+        WallCharge.FORWARD,
+        tuple(
+            AbstractDeformationClass(name, WallCharge.FORWARD, 1, index)
+            for index, name in enumerate(forward_names)
+        ),
+        "Q(omega)",
+        forward_names,
+        "rightmost deformation acts first; forward coefficient order e_0,...,e_3",
+        False,
+    )
+    reverse = DeformationSpace(
+        "Ext1(V2,V1)",
+        WallCharge.REVERSE,
+        tuple(
+            AbstractDeformationClass(name, WallCharge.REVERSE, 1, index)
+            for index, name in enumerate(reverse_names)
+        ),
+        "Q(omega)",
+        reverse_names,
+        "rightmost deformation acts first; reverse coefficient order f_0,...,f_7",
+        False,
+    )
+    return SplitWallDeformation(
+        ("V1", "V2"),
+        forward,
+        reverse,
+        "abstract Ext classes precede any choice of common-DGA representatives",
+        "Q(omega)",
+        False,
+    )
+
+
+def _formal_variables() -> tuple[Polynomial, Polynomial]:
+    """Return exact commuting deformation parameters ``s`` and ``t``."""
+
+    return (
+        Polynomial.monomial((1, 0), scalar_type=Rational),
+        Polynomial.monomial((0, 1), scalar_type=Rational),
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class FormalExpression:
+    """A sparse exact expression in the frozen split-wall DGA basis."""
+
+    terms: tuple[tuple[str, Polynomial], ...]
+
+    @classmethod
+    def from_mapping(cls, terms: Mapping[str, Polynomial]) -> FormalExpression:
+        """Normalize a basis-to-polynomial expression."""
+
+        nonzero = tuple(
+            sorted((name, value) for name, value in terms.items() if not value.is_zero())
+        )
+        return cls(nonzero)
+
+    def as_mapping(self) -> Mapping[str, Polynomial]:
+        """Return the immutable expression as a read-only mapping view."""
+
+        return dict(self.terms)
+
+    def is_zero(self) -> bool:
+        """Return whether every exact coefficient vanishes."""
+
+        return not self.terms
+
+
+def _formal_add(*expressions: FormalExpression) -> FormalExpression:
+    """Add sparse exact expressions and normalize their zero coefficients."""
+
+    values: dict[str, Polynomial] = {}
+    for expression in expressions:
+        for name, value in expression.terms:
+            values[name] = values.get(name, Polynomial.zero(2)) + value
+    return FormalExpression.from_mapping(values)
+
+
+def _formal_scale(expression: FormalExpression, scalar: Polynomial) -> FormalExpression:
+    """Scale one formal expression by an exact deformation polynomial."""
+
+    return FormalExpression.from_mapping({name: scalar * value for name, value in expression.terms})
+
+
+@dataclass(frozen=True, slots=True)
+class SplitWallDGA:
+    """The concrete finite DGA hull used to recompute the mixed branch."""
+
+    algebra: DGA
+    differential_relations: tuple[tuple[str, tuple[tuple[str, int], ...]], ...]
+    product_relations: tuple[tuple[tuple[str, str], str], ...]
+
+    def differential(self, expression: FormalExpression) -> FormalExpression:
+        """Apply the exact frozen differential to a formal expression."""
+
+        relations = dict(self.differential_relations)
+        result: dict[str, Polynomial] = {}
+        for source, _coefficient in expression.terms:
+            for target, sign in relations.get(source, ()):
+                value = expression.as_mapping()[source].scale(sign)
+                result[target] = result.get(target, Polynomial.zero(2)) + value
+        return FormalExpression.from_mapping(result)
+
+    def product(self, left: FormalExpression, right: FormalExpression) -> FormalExpression:
+        """Apply the exact nonzero products of the finite DGA hull."""
+
+        relations = dict(self.product_relations)
+        result: dict[str, Polynomial] = {}
+        for left_name, left_value in left.terms:
+            for right_name, right_value in right.terms:
+                target = relations.get((left_name, right_name))
+                if target is not None:
+                    result[target] = (
+                        result.get(target, Polynomial.zero(2)) + left_value * right_value
+                    )
+        return FormalExpression.from_mapping(result)
+
+    def maurer_cartan_residual(self, phi: FormalExpression) -> FormalExpression:
+        """Compute ``D phi + phi²`` from the declared relations."""
+
+        return _formal_add(self.differential(phi), self.product(phi, phi))
+
+    def module_residual(
+        self,
+        phi: FormalExpression,
+        module_element: FormalExpression,
+    ) -> FormalExpression:
+        """Compute ``D psi + phi psi`` for the Higgs module identity."""
+
+        return _formal_add(
+            self.differential(module_element),
+            self.product(phi, module_element),
+        )
+
+
+def _split_wall_dga() -> SplitWallDGA:
+    """Construct the finite exact DGA from explicit differential data."""
+
+    degree_one = VectorSpace("split-wall C1", ("E", "F", "H", "K", "U", "V"), Rational)
+    degree_two = VectorSpace("split-wall C2", ("EF", "FH", "EU", "KH"), Rational)
+    graded = GradedVectorSpace("split-wall hull", {1: degree_one, 2: degree_two})
+    differential_rows = []
+    for target_index in range(degree_two.dimension):
+        differential_rows.append(tuple(
+            1 if (source_index, target_index) in {
+                (3, 0), (4, 1), (5, 2), (5, 3)
+            } else 0
+            for source_index in range(degree_one.dimension)
+        ))
+    differential = GradedMap(
+        graded,
+        graded,
+        1,
+        {1: LinearMap(degree_one, degree_two, tuple(differential_rows))},
+    )
+    product_rows = [[0 for _ in range(degree_one.dimension**2)] for _ in degree_two.basis]
+    product_targets = {
+        (0, 1): 0,  # E F = EF
+        (1, 2): 1,  # F H = FH
+        (0, 4): 2,  # E U = EU
+        (3, 2): 3,  # K H = KH
+    }
+    for (left_index, right_index), target_index in product_targets.items():
+        product_rows[target_index][left_index * degree_one.dimension + right_index] = 1
+    product_map = LinearMap(
+        _tensor_space_for_visible(degree_one, degree_one),
+        degree_two,
+        tuple(product_rows),
+    )
+    product = GradedProduct(graded, {(1, 1): product_map}, "split-wall product")
+    algebra = DGA(graded, differential, product, "split-wall finite DGA")
+    return SplitWallDGA(
+        algebra,
+        (
+            ("K", (("EF", 1),)),
+            ("U", (("FH", 1),)),
+            ("V", (("EU", 1), ("KH", 1))),
+        ),
+        (
+            (("E", "F"), "EF"),
+            (("F", "H"), "FH"),
+            (("E", "U"), "EU"),
+            (("K", "H"), "KH"),
+        ),
+    )
+
+
+def _tensor_space_for_visible(left: VectorSpace, right: VectorSpace) -> VectorSpace:
+    """Match the generic homological tensor-basis ordering for local assembly."""
+
+    return VectorSpace(
+        f"{left.name}⊗{right.name}",
+        tuple(
+            f"{left.name}:{left.basis[i]}⊗{right.name}:{right.basis[j]}"
+            for i in range(left.dimension)
+            for j in range(right.dimension)
+        ),
+        left.scalar_type,
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class MixedMaurerCartanBranch:
+    """Exact formal mixed branch and recomputed cancellation records."""
+
+    wall: SplitWallDeformation
+    dga: SplitWallDGA
+    phi: FormalExpression
+    higgs: FormalExpression
+    maurer_cartan_residual: FormalExpression
+    higgs_residual: FormalExpression
+    strict_square_zero: bool
+    curvature_correction: str
+    common_dga_representatives_available: bool
+
+    @property
+    def formally_integrable(self) -> bool:
+        """Return the exact formal Maurer--Cartan and module conclusion."""
+
+        return self.maurer_cartan_residual.is_zero() and self.higgs_residual.is_zero()
+
+
+def mixed_maurer_cartan_branch(
+    wall: SplitWallDeformation | None = None,
+) -> MixedMaurerCartanBranch:
+    """Compute the corrected ``sE+tF-stK`` branch from its exact relations."""
+
+    s, t = _formal_variables()
+    phi = FormalExpression.from_mapping({"E": s, "F": t, "K": -(s * t)})
+    higgs = FormalExpression.from_mapping({
+        "H": Polynomial.one(2),
+        "U": -t,
+        "V": s * t,
+    })
+    dga = _split_wall_dga()
+    residual = dga.maurer_cartan_residual(phi)
+    higgs_residual = dga.module_residual(phi, higgs)
+    strict = dga.product(
+        FormalExpression.from_mapping({"E": Polynomial.one(2)}),
+        FormalExpression.from_mapping({"F": Polynomial.one(2)}),
+    ).is_zero()
+    if strict:
+        raise ValueError("the explicit mixed DGA product unexpectedly vanished")
+    return MixedMaurerCartanBranch(
+        split_wall_deformation() if wall is None else wall,
+        dga,
+        phi,
+        higgs,
+        residual,
+        higgs_residual,
+        False,
+        "-s*t*K_y is required to cancel the E*F curvature term",
+        False,
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class FormalLocalFreeness:
+    """The exact three-pivot determinant and its formal rank scope."""
+
+    pivot: tuple[tuple[Polynomial, ...], ...]
+    determinant: Polynomial
+    determinant_at_origin: Rational
+    contractible_pivots: int
+    cohomology_rank: int
+    scope: str
+
+    @property
+    def unit_at_origin(self) -> bool:
+        """Return whether the pivot determinant is an exact unit at the origin."""
+
+        return self.determinant_at_origin == 1
+
+
+def formal_local_freeness() -> FormalLocalFreeness:
+    """Recompute the certified formal local-freeness normal form."""
+
+    s, t = _formal_variables()
+    one = Polynomial.one(2)
+    st = s * t
+    pivot = (
+        (one + t + st, s, -st),
+        (st.scale(2), one + t.scale(2) + st, s),
+        (s, st.scale(-2), one + t.scale(3) + st),
+    )
+    delta = determinant(pivot)
+    origin = delta.coefficient((0, 0))
+    return FormalLocalFreeness(
+        pivot,
+        delta,
+        coerce_rational(origin),
+        3,
+        4,
+        "formal local locus where the displayed three-pivot determinant is nonzero",
+    )
+
+
+STABILITY_ROWS: tuple[
+    tuple[tuple[int, int, int], tuple[int, int, int, int, int], int, int, int], ...
+] = (
+    ((-1, -2, 2), (-6, 18, -36, -3, -18), -621, 396, 81),
+    ((2, -2, -1), (-6, -18, -36, 6, 36), -378, 558, 102),
+    ((2, -5, 1), (-15, 0, -90, 6, 36), -702, 882, 147),
+    ((-4, 1, 2), (3, 18, 18, -12, -72), -1512, 1116, 123),
+    ((-1, 1, -1), (3, -18, 18, -3, -18), -1269, 342, 60),
+    ((-2, 2, 0), (6, 0, 36, -6, -36), -594, 504, 84),
+    ((-2, -1, 2), (-3, 18, -18, -6, -36), -918, 612, 81),
+    ((1, -4, 2), (-12, 18, -72, 3, 18), -27, 684, 123),
+    ((1, -1, -1), (-3, -18, -18, 3, 18), -675, 306, 60),
+)
+
+
+def _slope_value(
+    coefficients: Sequence[int], x1: Rational, x2: Rational, y: Rational,
+) -> Rational:
+    """Evaluate one exact quadratic stability polynomial."""
+
+    if len(coefficients) != 5:
+        raise ValueError("stability rows require five coefficients")
+    a, b, c, d, e = (Rational(value) for value in coefficients)
+    return a * x1 * x1 + b * x1 * x2 + c * x1 * y + d * x2 * x2 + e * x2 * y
+
+
+@dataclass(frozen=True, slots=True)
+class StabilityBox:
+    """Exact sufficient stability inequalities on a declared rational box."""
+
+    anchor: tuple[Rational, Rational, Rational]
+    radius: Rational
+    anchor_values: tuple[Rational, ...]
+    strict_upper_bounds: tuple[Rational, ...]
+    expected_values: tuple[Rational, ...]
+    scope: str
+
+    @property
+    def anchor_values_match(self) -> bool:
+        """Return whether every recomputed anchor matches the published value."""
+
+        return self.anchor_values == self.expected_values
+
+    @property
+    def negative_on_box(self) -> bool:
+        """Return whether every declared upper bound is strictly negative."""
+
+        return all(value < 0 for value in self.strict_upper_bounds)
+
+
+def stability_box() -> StabilityBox:
+    """Recompute the nine exact slope anchors and their triangle bounds."""
+
+    anchor = (Rational(6), Rational(9), Rational(3))
+    radius = Rational(1, 32)
+    values = tuple(_slope_value(row[1], *anchor) for row in STABILITY_ROWS)
+    expected = tuple(Rational(row[2]) for row in STABILITY_ROWS)
+    bounds = tuple(
+        value + Rational(row[3]) * radius + Rational(row[4]) * radius * radius
+        for value, row in zip(values, STABILITY_ROWS, strict=True)
+    )
+    return StabilityBox(
+        anchor,
+        radius,
+        values,
+        bounds,
+        expected,
+        "sufficient local stability box only; no global chamber or HYM solution",
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class SpectrumPersistence:
+    """The open-locus finite multiplicity argument for the visible spectrum."""
+
+    group_order: int
+    cover_dimension: int
+    character_upper_bound: int
+    multiplicities: tuple[int, ...]
+    quotient_families: int
+    conjugate_dimension: int
+    higgs_cover_dimension: int
+
+    @property
+    def no_new_exotic_blocks(self) -> bool:
+        """Return the exact finite-character consequence."""
+
+        return self.multiplicities == (self.character_upper_bound,) * self.group_order
+
+
+def spectrum_persistence() -> SpectrumPersistence:
+    """Recompute persistence of three regular-representation copies."""
+
+    group_order = 9
+    cover_dimension = 27
+    upper_bound = 3
+    multiplicities = (
+        (upper_bound,) * group_order
+        if upper_bound * group_order == cover_dimension
+        else ()
+    )
+    return SpectrumPersistence(
+        group_order,
+        cover_dimension,
+        upper_bound,
+        multiplicities,
+        cover_dimension // group_order,
+        0,
+        4,
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class ObservableAdmissibility:
+    """Formal/local/open-locus conclusions for the corrected mixed branch."""
+
+    branch: MixedMaurerCartanBranch
+    local_freeness: FormalLocalFreeness
+    stability: StabilityBox
+    spectrum: SpectrumPersistence
+    scope: str
+
+    @property
+    def certified(self) -> bool:
+        """Return whether every declared local certificate recomputes exactly."""
+
+        return (
+            self.branch.formally_integrable
+            and self.local_freeness.unit_at_origin
+            and self.stability.anchor_values_match
+            and self.stability.negative_on_box
+            and self.spectrum.no_new_exotic_blocks
+        )
+
+
+def observable_admissibility(
+    branch: MixedMaurerCartanBranch | None = None,
+) -> ObservableAdmissibility:
+    """Assemble the exact branch-side admissibility certificates."""
+
+    return ObservableAdmissibility(
+        mixed_maurer_cartan_branch() if branch is None else branch,
+        formal_local_freeness(),
+        stability_box(),
+        spectrum_persistence(),
+        "formal/local/open-locus only; not a global metric or vacuum result",
+    )

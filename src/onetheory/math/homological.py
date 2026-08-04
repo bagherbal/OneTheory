@@ -1,29 +1,34 @@
-"""Exact basis-aware chain and cochain constructions.
+"""Exact basis-aware homological algebra and transfer machinery.
 
 Owns:
     Finite-dimensional graded vector spaces, typed exact linear maps, chain and
-    cochain complexes, homology computations, homotopies, cones, shifts, direct
-    sums, bicomplexes, and signed totalization over Rational or Eisenstein data.
+    cochain complexes, graded products and DGAs, DGA modules, commutators,
+    cyclic pairings, Maurer--Cartan residuals, contractions, suspended planar
+    homological perturbation transfer, and finite-group equivariant complexes.
 
 Depends on:
-    `onetheory.math.numbers` for exact scalars and `onetheory.math.linear` for
-    deterministic rank, RREF, and nullspace calculations.
+    `onetheory.math.numbers` for exact scalars, `onetheory.math.linear` for
+    deterministic rank, RREF, and nullspace calculations, and
+    `onetheory.core.errors` for fail-closed missing-input signals.
 
 Must not:
-    Implement sheaves, Čech covers, DGAs, Maurer–Cartan equations, A-infinity or
-    HPL transfer, physical bundle data, or any speculative bridge between models.
+    Implement sheaves, Čech covers, physical bundle data, numerical geometry, or
+    any speculative bridge between models. Synthetic transfer inputs are generic
+    mathematical fixtures and are not physical carrier evidence.
 
 Phase 0:
-    Exact mathematical implementation is provided; physical applications remain
-    outside this reusable module until independently derived and verified.
+    Exact generic homological and transfer implementation is provided; physical
+    applications remain outside this reusable module until independently derived.
 """
 
 from __future__ import annotations
 
 from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
+from itertools import product
 from typing import Any, cast
 
+from onetheory.core.errors import MissingPhysicalInput
 from onetheory.math.linear import Matrix
 from onetheory.math.numbers import Eisenstein, Rational, coerce_rational
 
@@ -61,6 +66,12 @@ def _multiply(left: Scalar, right: Scalar) -> Scalar:
 
 def _negate(value: Scalar) -> Scalar:
     return cast(Scalar, -cast(Any, value))
+
+
+def _inverse(value: Scalar, scalar_type: ScalarType) -> Scalar:
+    """Return one exact inverse in the declared scalar field."""
+
+    return cast(Scalar, cast(Any, _one(scalar_type)) / value)
 
 
 def _require_same_scalar(left: ScalarType, right: ScalarType) -> None:
@@ -223,6 +234,20 @@ class CoordinateVector:
                 self.coordinates, other.coordinates, strict=True
             )),
         )
+
+    def scale(self, scalar: object) -> CoordinateVector:
+        """Multiply the coordinates by one exact scalar in the basis."""
+
+        factor = _coerce(scalar, self.space.scalar_type)
+        return CoordinateVector(
+            self.space,
+            tuple(_multiply(factor, value) for value in self.coordinates),
+        )
+
+    def is_zero(self) -> bool:
+        """Return whether every coordinate vanishes exactly."""
+
+        return all(value.is_zero() for value in self.coordinates)
 
 
 @dataclass(frozen=True, slots=True, init=False)
@@ -927,3 +952,1151 @@ class Bicomplex:
         for cell in cells[1:]:
             result = result.direct_sum(self.space(cell))
         return result
+
+
+# The following objects extend the finite-complex foundation with the generic
+# algebraic structures needed by exact deformation calculations.  They are
+# deliberately independent of the Schoen carrier.
+
+
+def _basis_vector(space: VectorSpace, index: int) -> CoordinateVector:
+    """Return one exact standard basis vector in a named space."""
+
+    if index < 0 or index >= space.dimension:
+        raise IndexError(index)
+    values = tuple(
+        _one(space.scalar_type) if position == index else _zero(space.scalar_type)
+        for position in range(space.dimension)
+    )
+    return CoordinateVector(space, values)
+
+
+def _tensor_space(left: VectorSpace, right: VectorSpace, name: str | None = None) -> VectorSpace:
+    """Construct the ordered tensor-product coordinate space."""
+
+    _require_same_scalar(left.scalar_type, right.scalar_type)
+    labels = tuple(
+        f"{left.name}:{left.basis[i]}⊗{right.name}:{right.basis[j]}"
+        for i in range(left.dimension)
+        for j in range(right.dimension)
+    )
+    return VectorSpace(name or f"{left.name}⊗{right.name}", labels, left.scalar_type)
+
+
+def tensor_product_space(
+    left: VectorSpace,
+    right: VectorSpace,
+    name: str | None = None,
+) -> VectorSpace:
+    """Return the public exact tensor-product basis used by graded products."""
+
+    return _tensor_space(left, right, name)
+
+
+def _tensor_vector(left: CoordinateVector, right: CoordinateVector) -> CoordinateVector:
+    """Flatten two coordinate vectors in left-major tensor order."""
+
+    return CoordinateVector(
+        _tensor_space(left.space, right.space),
+        tuple(
+            _multiply(left_value, right_value)
+            for left_value in left.coordinates
+            for right_value in right.coordinates
+        ),
+    )
+
+
+def _sum_vectors(vectors: Sequence[CoordinateVector]) -> CoordinateVector:
+    """Add nonempty vectors in one exact named basis."""
+
+    if not vectors:
+        raise ValueError("at least one vector is required")
+    result = vectors[0]
+    for vector in vectors[1:]:
+        result = result + vector
+    return result
+
+
+@dataclass(frozen=True, slots=True)
+class GradedElement:
+    """A homogeneous exact vector together with its declared degree."""
+
+    degree: int
+    vector: CoordinateVector
+
+    def __post_init__(self) -> None:
+        if isinstance(self.degree, bool) or not isinstance(self.degree, int):
+            raise TypeError("graded degrees must be integers")
+
+    def scale(self, scalar: object) -> GradedElement:
+        """Scale the homogeneous element in its exact coefficient field."""
+
+        return GradedElement(self.degree, self.vector.scale(scalar))
+
+    def __add__(self, other: GradedElement) -> GradedElement:
+        if self.degree != other.degree:
+            raise ValueError("graded elements must have the same degree")
+        return GradedElement(self.degree, self.vector + other.vector)
+
+    def __neg__(self) -> GradedElement:
+        return self.scale(-1)
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class GradedMap:
+    """A typed homogeneous map of a fixed integer degree."""
+
+    source: GradedVectorSpace
+    target: GradedVectorSpace
+    degree: int
+    components: tuple[tuple[int, LinearMap], ...]
+
+    def __init__(
+        self,
+        source: GradedVectorSpace,
+        target: GradedVectorSpace,
+        degree: int,
+        components: Mapping[int, LinearMap] | Iterable[tuple[int, LinearMap]],
+    ) -> None:
+        if isinstance(degree, bool) or not isinstance(degree, int):
+            raise TypeError("graded-map degree must be an integer")
+        pairs = tuple(components.items()) if isinstance(components, Mapping) else tuple(components)
+        if len({item[0] for item in pairs}) != len(pairs):
+            raise ValueError("graded-map source degrees must be unique")
+        for source_degree, component in pairs:
+            if component.domain != source.space(source_degree):
+                raise ValueError("graded-map component has the wrong domain")
+            if component.codomain != target.space(source_degree + degree):
+                raise ValueError("graded-map component has the wrong codomain")
+        object.__setattr__(self, "source", source)
+        object.__setattr__(self, "target", target)
+        object.__setattr__(self, "degree", degree)
+        object.__setattr__(self, "components", tuple(sorted(pairs)))
+
+    @property
+    def source_degrees(self) -> tuple[int, ...]:
+        """Return all degrees that can contribute nontrivially."""
+
+        return tuple(sorted(set(self.source.degrees) | {degree for degree, _ in self.components}))
+
+    def component(self, degree: int) -> LinearMap:
+        """Return a component, using a typed zero map when absent."""
+
+        for source_degree, component in self.components:
+            if source_degree == degree:
+                return component
+        return LinearMap.zero(self.source.space(degree), self.target.space(degree + self.degree))
+
+    def __call__(self, element: GradedElement) -> GradedElement:
+        """Apply the typed graded map to one homogeneous element."""
+
+        if element.vector.space != self.source.space(element.degree):
+            raise ValueError("graded element does not belong to the map source")
+        component = self.component(element.degree)
+        return GradedElement(element.degree + self.degree, component(element.vector))
+
+    def compose(self, previous: GradedMap) -> GradedMap:
+        """Compose this graded map after another homogeneous map."""
+
+        if previous.target != self.source:
+            raise ValueError("graded-map composition requires matching spaces")
+        degrees = sorted(
+            set(previous.source_degrees) | {degree for degree, _ in previous.components}
+        )
+        return GradedMap(
+            previous.source,
+            self.target,
+            previous.degree + self.degree,
+            {
+                degree: self.component(degree + previous.degree).compose(
+                    previous.component(degree)
+                )
+                for degree in degrees
+            },
+        )
+
+    @classmethod
+    def zero(cls, source: GradedVectorSpace, target: GradedVectorSpace, degree: int) -> GradedMap:
+        """Construct the typed zero map of a declared degree."""
+
+        return cls(
+            source,
+            target,
+            degree,
+            {
+                source_degree: LinearMap.zero(
+                    source.space(source_degree), target.space(source_degree + degree)
+                )
+                for source_degree in source.degrees
+            },
+        )
+
+    @classmethod
+    def identity(cls, space: GradedVectorSpace) -> GradedMap:
+        """Construct the degree-zero identity graded map."""
+
+        return cls(
+            space,
+            space,
+            0,
+            {degree: LinearMap.identity(space.space(degree)) for degree in space.degrees},
+        )
+
+    def is_zero(self) -> bool:
+        """Return whether every explicit component is exactly zero."""
+
+        return all(component.is_zero() for _, component in self.components)
+
+
+GradedLinearMap = GradedMap
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class GradedProduct:
+    """A bilinear product with explicitly typed degreewise components."""
+
+    space: GradedVectorSpace
+    components: tuple[tuple[tuple[int, int], LinearMap], ...]
+    name: str
+
+    def __init__(
+        self,
+        space: GradedVectorSpace,
+        components: Mapping[tuple[int, int], LinearMap] |
+        Iterable[tuple[tuple[int, int], LinearMap]],
+        name: str = "product",
+    ) -> None:
+        pairs = tuple(components.items()) if isinstance(components, Mapping) else tuple(components)
+        if len({degree for degree, _ in pairs}) != len(pairs):
+            raise ValueError("graded-product components must have unique degree pairs")
+        for (left_degree, right_degree), component in pairs:
+            expected_domain = _tensor_space(
+                space.space(left_degree), space.space(right_degree)
+            )
+            if component.domain != expected_domain:
+                raise ValueError("graded-product component has the wrong tensor basis")
+            if component.codomain != space.space(left_degree + right_degree):
+                raise ValueError("graded-product component has the wrong output basis")
+        if not name.strip():
+            raise ValueError("graded products require a name")
+        object.__setattr__(self, "space", space)
+        object.__setattr__(self, "components", tuple(sorted(pairs)))
+        object.__setattr__(self, "name", name)
+
+    def component(self, left_degree: int, right_degree: int) -> LinearMap:
+        """Return one typed product component, including an implicit zero."""
+
+        for degrees, component in self.components:
+            if degrees == (left_degree, right_degree):
+                return component
+        return LinearMap.zero(
+            _tensor_space(self.space.space(left_degree), self.space.space(right_degree)),
+            self.space.space(left_degree + right_degree),
+        )
+
+    def multiply(self, left: GradedElement, right: GradedElement) -> GradedElement:
+        """Multiply two homogeneous elements in the declared bases."""
+
+        if left.vector.space != self.space.space(left.degree):
+            raise ValueError("left graded element has the wrong product basis")
+        if right.vector.space != self.space.space(right.degree):
+            raise ValueError("right graded element has the wrong product basis")
+        tensor = _tensor_vector(left.vector, right.vector)
+        return GradedElement(
+            left.degree + right.degree,
+            self.component(left.degree, right.degree)(tensor),
+        )
+
+    __call__ = multiply
+
+    def is_associative(self, degrees: Iterable[int] | None = None) -> bool:
+        """Check associativity on every basis triple in the selected degrees."""
+
+        selected = tuple(self.space.degrees if degrees is None else degrees)
+        for left_degree, middle_degree, right_degree in product(selected, repeat=3):
+            left_space = self.space.space(left_degree)
+            middle_space = self.space.space(middle_degree)
+            right_space = self.space.space(right_degree)
+            for i, j, k in product(
+                range(left_space.dimension),
+                range(middle_space.dimension),
+                range(right_space.dimension),
+            ):
+                left = GradedElement(left_degree, _basis_vector(left_space, i))
+                middle = GradedElement(middle_degree, _basis_vector(middle_space, j))
+                right = GradedElement(right_degree, _basis_vector(right_space, k))
+                if self.multiply(self.multiply(left, middle), right) != self.multiply(
+                    left, self.multiply(middle, right)
+                ):
+                    return False
+        return True
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class DGA:
+    """A finite exact differential graded algebra over one scalar field."""
+
+    space: GradedVectorSpace
+    differential_map: GradedMap
+    product: GradedProduct
+    name: str
+
+    def __init__(
+        self,
+        space: GradedVectorSpace,
+        differential: GradedMap,
+        product: GradedProduct,
+        name: str = "DGA",
+    ) -> None:
+        if differential.source != space or differential.target != space or differential.degree != 1:
+            raise ValueError("a DGA differential must be a degree-one endomap")
+        if product.space != space:
+            raise ValueError("a DGA product must use the DGA graded space")
+        object.__setattr__(self, "space", space)
+        object.__setattr__(self, "differential_map", differential)
+        object.__setattr__(self, "product", product)
+        object.__setattr__(self, "name", name)
+        self._validate_squared_zero()
+        if not product.is_associative():
+            raise ValueError("DGA product must be associative")
+        self._validate_leibniz()
+
+    def differential(self, element: GradedElement) -> GradedElement:
+        """Apply the exact degree-one differential."""
+
+        return self.differential_map(element)
+
+    def multiply(self, left: GradedElement, right: GradedElement) -> GradedElement:
+        """Apply the associative graded product."""
+
+        return self.product(left, right)
+
+    def _validate_squared_zero(self) -> None:
+        for degree in self.differential_map.source_degrees:
+            composite = self.differential_map.component(degree + 1).compose(
+                self.differential_map.component(degree)
+            )
+            if not composite.is_zero():
+                raise ValueError("DGA differential must satisfy D squared equals zero")
+
+    def _validate_leibniz(self) -> None:
+        for left_degree, right_degree in product(self.space.degrees, repeat=2):
+            left_space = self.space.space(left_degree)
+            right_space = self.space.space(right_degree)
+            for i, j in product(range(left_space.dimension), range(right_space.dimension)):
+                left = GradedElement(left_degree, _basis_vector(left_space, i))
+                right = GradedElement(right_degree, _basis_vector(right_space, j))
+                lhs = self.differential(self.multiply(left, right))
+                rhs = self.multiply(self.differential(left), right) + self.multiply(
+                    left, self.differential(right)
+                ).scale(-1 if left_degree % 2 else 1)
+                if lhs != rhs:
+                    raise ValueError("DGA differential must satisfy the graded Leibniz rule")
+
+    def residual(
+        self,
+        phi: Mapping[int, CoordinateVector] | Sequence[GradedElement],
+    ) -> tuple[GradedElement, ...]:
+        """Evaluate ``D phi + phi²`` without hiding nonzero terms."""
+
+        terms = _normalize_expression(self.space, phi)
+        residual: dict[int, GradedElement] = {}
+        for term in terms:
+            image = self.differential(term)
+            residual[image.degree] = _add_term(residual.get(image.degree), image)
+        for left in terms:
+            for right in terms:
+                image = self.multiply(left, right)
+                residual[image.degree] = _add_term(residual.get(image.degree), image)
+        return tuple(
+            residual[degree]
+            for degree in sorted(residual)
+            if not residual[degree].vector.is_zero()
+        )
+
+    def is_maurer_cartan(
+        self,
+        phi: Mapping[int, CoordinateVector] | Sequence[GradedElement],
+    ) -> bool:
+        """Return whether the exact Maurer--Cartan residual vanishes."""
+
+        return not self.residual(phi)
+
+
+def _add_term(previous: GradedElement | None, value: GradedElement) -> GradedElement:
+    """Add one homogeneous term to an expression accumulator."""
+
+    return value if previous is None else previous + value
+
+
+def _normalize_expression(
+    space: GradedVectorSpace,
+    expression: Mapping[int, CoordinateVector] | Sequence[GradedElement],
+) -> tuple[GradedElement, ...]:
+    """Normalize an inhomogeneous exact expression to ordered terms."""
+
+    terms = (
+        tuple(GradedElement(degree, vector) for degree, vector in expression.items())
+        if isinstance(expression, Mapping)
+        else tuple(expression)
+    )
+    if len({term.degree for term in terms}) != len(terms):
+        raise ValueError("inhomogeneous expressions require one term per degree")
+    for term in terms:
+        if term.vector.space != space.space(term.degree):
+            raise ValueError("expression term has the wrong graded basis")
+    return tuple(sorted(terms, key=lambda term: term.degree))
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class GradedAction:
+    """A typed left or right DGA action on a graded module."""
+
+    algebra: DGA
+    module_space: GradedVectorSpace
+    side: str
+    components: tuple[tuple[tuple[int, int], LinearMap], ...]
+
+    def __init__(
+        self,
+        algebra: DGA,
+        module_space: GradedVectorSpace,
+        side: str,
+        components: Mapping[tuple[int, int], LinearMap] |
+        Iterable[tuple[tuple[int, int], LinearMap]],
+    ) -> None:
+        if side not in {"left", "right"}:
+            raise ValueError("DGA actions must be left or right")
+        pairs = tuple(components.items()) if isinstance(components, Mapping) else tuple(components)
+        for (algebra_degree, module_degree), component in pairs:
+            if side == "left":
+                expected_domain = _tensor_space(
+                    algebra.space.space(algebra_degree), module_space.space(module_degree)
+                )
+            else:
+                expected_domain = _tensor_space(
+                    module_space.space(module_degree), algebra.space.space(algebra_degree)
+                )
+            if component.domain != expected_domain:
+                raise ValueError("DGA action component has the wrong tensor basis")
+            if component.codomain != module_space.space(algebra_degree + module_degree):
+                raise ValueError("DGA action component has the wrong output basis")
+        object.__setattr__(self, "algebra", algebra)
+        object.__setattr__(self, "module_space", module_space)
+        object.__setattr__(self, "side", side)
+        object.__setattr__(self, "components", tuple(sorted(pairs)))
+
+    def component(self, algebra_degree: int, module_degree: int) -> LinearMap:
+        """Return one action component, with a typed zero default."""
+
+        for degrees, component in self.components:
+            if degrees == (algebra_degree, module_degree):
+                return component
+        if self.side == "left":
+            domain = _tensor_space(
+                self.algebra.space.space(algebra_degree), self.module_space.space(module_degree)
+            )
+        else:
+            domain = _tensor_space(
+                self.module_space.space(module_degree), self.algebra.space.space(algebra_degree)
+            )
+        return LinearMap.zero(domain, self.module_space.space(algebra_degree + module_degree))
+
+    def apply(self, algebra_element: GradedElement, module_element: GradedElement) -> GradedElement:
+        """Apply the action in its declared left or right order."""
+
+        if algebra_element.vector.space != self.algebra.space.space(algebra_element.degree):
+            raise ValueError("algebra element has the wrong action basis")
+        if module_element.vector.space != self.module_space.space(module_element.degree):
+            raise ValueError("module element has the wrong action basis")
+        if self.side == "left":
+            tensor = _tensor_vector(algebra_element.vector, module_element.vector)
+        else:
+            tensor = _tensor_vector(module_element.vector, algebra_element.vector)
+        return GradedElement(
+            algebra_element.degree + module_element.degree,
+            self.component(algebra_element.degree, module_element.degree)(tensor),
+        )
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class DGAModule:
+    """A left or right differential graded module with exact Leibniz checks."""
+
+    algebra: DGA
+    space: GradedVectorSpace
+    differential_map: GradedMap
+    action: GradedAction
+    name: str
+
+    def __init__(
+        self,
+        algebra: DGA,
+        space: GradedVectorSpace,
+        differential: GradedMap,
+        action: GradedAction,
+        name: str = "DGA module",
+    ) -> None:
+        if differential.source != space or differential.target != space or differential.degree != 1:
+            raise ValueError("module differential must be a degree-one endomap")
+        if action.algebra != algebra or action.module_space != space:
+            raise ValueError("module action does not match the algebra and module")
+        object.__setattr__(self, "algebra", algebra)
+        object.__setattr__(self, "space", space)
+        object.__setattr__(self, "differential_map", differential)
+        object.__setattr__(self, "action", action)
+        object.__setattr__(self, "name", name)
+        for degree in differential.source_degrees:
+            composite = differential.component(degree + 1).compose(
+                differential.component(degree)
+            )
+            if not composite.is_zero():
+                raise ValueError("module differential must satisfy D squared equals zero")
+        self._validate_leibniz()
+
+    def differential(self, element: GradedElement) -> GradedElement:
+        """Apply the exact module differential."""
+
+        return self.differential_map(element)
+
+    def _validate_leibniz(self) -> None:
+        for algebra_degree, module_degree in product(
+            self.algebra.space.degrees, self.space.degrees
+        ):
+            algebra_space = self.algebra.space.space(algebra_degree)
+            module_space = self.space.space(module_degree)
+            for i, j in product(range(algebra_space.dimension), range(module_space.dimension)):
+                algebra_element = GradedElement(algebra_degree, _basis_vector(algebra_space, i))
+                module_element = GradedElement(module_degree, _basis_vector(module_space, j))
+                lhs = self.differential(self.action.apply(algebra_element, module_element))
+                if self.action.side == "left":
+                    first = self.action.apply(
+                        self.algebra.differential(algebra_element), module_element
+                    )
+                    second = self.action.apply(algebra_element, self.differential(module_element))
+                    rhs = first + second.scale(-1 if algebra_degree % 2 else 1)
+                else:
+                    first = self.action.apply(algebra_element, self.differential(module_element))
+                    second = self.action.apply(
+                        self.algebra.differential(algebra_element), module_element
+                    )
+                    rhs = first.scale(-1 if module_degree % 2 else 1) + second
+                if lhs != rhs:
+                    raise ValueError("DGA module action must satisfy the graded Leibniz rule")
+
+
+def graded_commutator(
+    product_: GradedProduct,
+    left: GradedElement,
+    right: GradedElement,
+) -> GradedElement:
+    """Return ``left*right - (-1)^(|left||right|) right*left``."""
+
+    first = product_(left, right)
+    second = product_(right, left).scale(
+        1 if (left.degree * right.degree) % 2 == 0 else -1
+    )
+    return first + second.scale(-1)
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class CyclicPairing:
+    """A trace functional inducing an exact cyclic pairing on a DGA."""
+
+    dga: DGA
+    trace_vectors: tuple[tuple[int, tuple[Scalar, ...]], ...]
+    normalized: bool
+
+    def __init__(
+        self,
+        dga: DGA,
+        trace_vectors: Mapping[int, Sequence[object]],
+        *,
+        normalized: bool = False,
+    ) -> None:
+        values: list[tuple[int, tuple[Scalar, ...]]] = []
+        for degree, raw in trace_vectors.items():
+            space = dga.space.space(degree)
+            vector = tuple(_coerce(value, space.scalar_type) for value in raw)
+            if len(vector) != space.dimension:
+                raise ValueError("trace vector length does not match its graded basis")
+            values.append((degree, vector))
+        object.__setattr__(self, "dga", dga)
+        object.__setattr__(self, "trace_vectors", tuple(sorted(values)))
+        object.__setattr__(self, "normalized", normalized)
+
+    def trace(self, element: GradedElement) -> Scalar:
+        """Evaluate the declared trace vector on one homogeneous element."""
+
+        vector = dict(self.trace_vectors).get(element.degree)
+        if vector is None:
+            return _zero(element.vector.space.scalar_type)
+        if element.vector.space != self.dga.space.space(element.degree):
+            raise ValueError("trace element has the wrong DGA basis")
+        return sum(
+            (_multiply(left, right) for left, right in zip(
+                vector, element.vector.coordinates, strict=True
+            )),
+            _zero(element.vector.space.scalar_type),
+        )
+
+    def pair(self, left: GradedElement, right: GradedElement) -> Scalar:
+        """Evaluate the induced bilinear pairing ``trace(left*right)``."""
+
+        return self.trace(self.dga.multiply(left, right))
+
+    def is_cyclic(self) -> bool:
+        """Check graded cyclicity on every basis triple."""
+
+        for p, q, r in product(self.dga.space.degrees, repeat=3):
+            spaces = (self.dga.space.space(p), self.dga.space.space(q), self.dga.space.space(r))
+            for i, j, k in product(*(range(space.dimension) for space in spaces)):
+                a = GradedElement(p, _basis_vector(spaces[0], i))
+                b = GradedElement(q, _basis_vector(spaces[1], j))
+                c = GradedElement(r, _basis_vector(spaces[2], k))
+                lhs = self.pair(self.dga.multiply(a, b), c)
+                sign = -1 if (p * (q + r)) % 2 else 1
+                rhs = self.pair(self.dga.multiply(b, c), a)
+                expected = rhs if sign == 1 else _negate(rhs)
+                if lhs != expected:
+                    return False
+        return True
+
+    def is_nondegenerate(self) -> bool:
+        """Check nondegeneracy degree-by-degree for all complementary pairs."""
+
+        for left_degree in self.dga.space.degrees:
+            left = self.dga.space.space(left_degree)
+            for right_degree in self.dga.space.degrees:
+                right = self.dga.space.space(right_degree)
+                rows = tuple(
+                    tuple(
+                        self.pair(
+                            GradedElement(left_degree, _basis_vector(left, i)),
+                            GradedElement(right_degree, _basis_vector(right, j)),
+                        )
+                        for j in range(right.dimension)
+                    )
+                    for i in range(left.dimension)
+                )
+                if rows and right.dimension:
+                    pairing_matrix = Matrix(rows, scalar_type=left.scalar_type)
+                    if (
+                        not pairing_matrix.is_zero()
+                        and pairing_matrix.rank() < min(left.dimension, right.dimension)
+                    ):
+                        return False
+        return True
+
+    def normalize(self, degree: int, basis_index: int = 0, target: object = 1) -> CyclicPairing:
+        """Scale the trace so one declared basis trace equals ``target``."""
+
+        space = self.dga.space.space(degree)
+        if basis_index < 0 or basis_index >= space.dimension:
+            raise IndexError(basis_index)
+        value = self.trace(GradedElement(degree, _basis_vector(space, basis_index)))
+        if value.is_zero():
+            raise ValueError("cannot normalize a zero trace value")
+        factor = cast(Scalar, cast(Any, _coerce(target, space.scalar_type)) / value)
+        scaled = {
+            trace_degree: tuple(_multiply(factor, entry) for entry in vector)
+            for trace_degree, vector in self.trace_vectors
+        }
+        return CyclicPairing(self.dga, scaled, normalized=True)
+
+
+def maurer_cartan_residual(
+    dga: DGA,
+    phi: Mapping[int, CoordinateVector] | Sequence[GradedElement],
+) -> tuple[GradedElement, ...]:
+    """Evaluate an exact Maurer--Cartan residual through the DGA contract."""
+
+    return dga.residual(phi)
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class Contraction:
+    """A complete contraction from a large complex onto a smaller one."""
+
+    source: ChainComplex | CochainComplex
+    target: ChainComplex | CochainComplex
+    inclusion: ChainMap
+    projection: ChainMap
+    homotopy: ChainHomotopy
+
+    def __init__(
+        self,
+        source: ChainComplex | CochainComplex,
+        target: ChainComplex | CochainComplex,
+        inclusion: ChainMap | None = None,
+        projection: ChainMap | None = None,
+        homotopy: ChainHomotopy | None = None,
+    ) -> None:
+        if inclusion is None:
+            raise MissingPhysicalInput("contraction inclusion", ("complete contraction package",))
+        if projection is None:
+            raise MissingPhysicalInput("contraction projection", ("complete contraction package",))
+        if homotopy is None:
+            raise MissingPhysicalInput("contracting homotopy", ("complete contraction package",))
+        if inclusion.source != target or inclusion.target != source:
+            raise ValueError("contraction inclusion must map target into source")
+        if projection.source != source or projection.target != target:
+            raise ValueError("contraction projection must map source onto target")
+        if homotopy.first.source != source or homotopy.first.target != source:
+            raise ValueError("contracting homotopy must be an endomorphism homotopy")
+        identity = ChainMap.identity(source)
+        composed = inclusion.compose(projection)
+        if homotopy.first != identity or homotopy.second != composed:
+            raise ValueError("homotopy must witness identity minus inclusion-projection")
+        if projection.compose(inclusion) != ChainMap.identity(target):
+            raise ValueError("contraction must satisfy projection after inclusion equals identity")
+        object.__setattr__(self, "source", source)
+        object.__setattr__(self, "target", target)
+        object.__setattr__(self, "inclusion", inclusion)
+        object.__setattr__(self, "projection", projection)
+        object.__setattr__(self, "homotopy", homotopy)
+        self.validate_side_conditions()
+
+    @property
+    def direction(self) -> str:
+        """Return the chain or cochain direction."""
+
+        return self.source.direction
+
+    def _homotopy_target_degree(self, degree: int) -> int:
+        return degree + 1 if self.direction == "chain" else degree - 1
+
+    def validate_side_conditions(self) -> bool:
+        """Validate ``ph=0``, ``hi=0``, and ``h²=0`` exactly."""
+
+        for degree in self.source.degrees:
+            h = self.homotopy.component(degree)
+            target_degree = self._homotopy_target_degree(degree)
+            if not self.projection.component(target_degree).compose(h).is_zero():
+                raise ValueError("contraction side condition p h = 0 failed")
+            if not h.compose(self.inclusion.component(degree)).is_zero():
+                raise ValueError("contraction side condition h i = 0 failed")
+            next_h = self.homotopy.component(target_degree)
+            if not next_h.compose(h).is_zero():
+                raise ValueError("contraction side condition h squared = 0 failed")
+        return True
+
+
+ContractionRecord = Contraction
+
+
+@dataclass(frozen=True, slots=True)
+class TransferWord:
+    """One exact transferred word and its memoization counts."""
+
+    arity: int
+    result: GradedElement
+    source_value: GradedElement
+    f_word_count: int
+    b_word_count: int
+
+
+@dataclass(frozen=True, slots=True)
+class HPLTransfer:
+    """Suspended planar homological perturbation transfer for a complete contraction."""
+
+    contraction: Contraction
+    product: GradedProduct
+
+    def __post_init__(self) -> None:
+        if self.product.space != self.contraction.source.spaces:
+            raise ValueError("HPL product must be defined on the contracted source")
+
+    def evaluate(self, inputs: Sequence[GradedElement]) -> TransferWord:
+        """Evaluate one transferred word by exact memoized planar recursion."""
+
+        if not inputs:
+            raise ValueError("a transfer word requires at least one input")
+        target_space = self.contraction.target.spaces
+        for element in inputs:
+            if element.vector.space != target_space.space(element.degree):
+                raise ValueError("HPL input does not belong to the retract basis")
+        f_cache: dict[tuple[GradedElement, ...], GradedElement] = {}
+        b_cache: dict[tuple[GradedElement, ...], GradedElement] = {}
+
+        def f_word(word: tuple[GradedElement, ...]) -> GradedElement:
+            if word in f_cache:
+                return f_cache[word]
+            if len(word) == 1:
+                item = word[0]
+                image = self.contraction.inclusion.component(item.degree)(item.vector)
+                result = GradedElement(item.degree, image)
+            else:
+                result = b_word(word)
+                h = self.contraction.homotopy.component(result.degree)
+                result = GradedElement(
+                    self.contraction._homotopy_target_degree(result.degree),
+                    h(result.vector).scale(-1),
+                )
+            f_cache[word] = result
+            return result
+
+        def b_word(word: tuple[GradedElement, ...]) -> GradedElement:
+            if len(word) < 2:
+                raise ValueError("the suspended HPL B word requires at least two inputs")
+            if word in b_cache:
+                return b_cache[word]
+            pieces = [
+                self.product.multiply(
+                    f_word(word[:split]),
+                    f_word(word[split:]),
+                )
+                for split in range(1, len(word))
+            ]
+            result = _sum_graded_elements(pieces)
+            b_cache[word] = result
+            return result
+
+        word = tuple(inputs)
+        source_value = f_word(word)
+        transfer_source = source_value if len(word) == 1 else b_word(word)
+        projection = self.contraction.projection.component(transfer_source.degree)
+        result = GradedElement(
+            transfer_source.degree,
+            projection(transfer_source.vector),
+        )
+        return TransferWord(len(inputs), result, source_value, len(f_cache), len(b_cache))
+
+    def transferred_product(self, inputs: Sequence[GradedElement]) -> GradedElement:
+        """Return only the transferred higher product value."""
+
+        return self.evaluate(inputs).result
+
+
+def _sum_graded_elements(elements: Sequence[GradedElement]) -> GradedElement:
+    """Add homogeneous elements after checking their degrees and bases."""
+
+    if not elements:
+        raise ValueError("at least one graded element is required")
+    result = elements[0]
+    for element in elements[1:]:
+        result = result + element
+    return result
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class FiniteComplexAction:
+    """A finite group action by exact chain or cochain maps."""
+
+    complex: ChainComplex | CochainComplex
+    identity: str
+    actions: tuple[tuple[str, ChainMap], ...]
+    multiplication: tuple[tuple[tuple[str, str], str], ...]
+
+    def __init__(
+        self,
+        complex_: ChainComplex | CochainComplex,
+        identity: str,
+        actions: Mapping[str, ChainMap],
+        multiplication: Mapping[tuple[str, str], str],
+    ) -> None:
+        if identity not in actions:
+            raise ValueError("finite actions require an identity element")
+        if any(
+            action.source != complex_ or action.target != complex_
+            for action in actions.values()
+        ):
+            raise ValueError("finite group actions must be endomorphisms of one complex")
+        names = set(actions)
+        product_values = tuple(multiplication.items())
+        if any(left not in names or right not in names or result not in names
+               for (left, right), result in product_values):
+            raise ValueError("group multiplication is not closed on the action names")
+        if len(product_values) != len(names) * len(names):
+            raise ValueError("finite group multiplication must be complete")
+        if actions[identity] != ChainMap.identity(complex_):
+            raise ValueError("the declared finite-group identity must act identically")
+        action_values = tuple(sorted(actions.items()))
+        object.__setattr__(self, "complex", complex_)
+        object.__setattr__(self, "identity", identity)
+        object.__setattr__(self, "actions", action_values)
+        object.__setattr__(self, "multiplication", tuple(sorted(product_values)))
+        table = dict(product_values)
+        for left, right in product(names, repeat=2):
+            expected = actions[table[(left, right)]]
+            if actions[left].compose(actions[right]) != expected:
+                raise ValueError("finite action maps do not realize the group law")
+
+    def action(self, name: str) -> ChainMap:
+        """Return one named group action."""
+
+        return dict(self.actions)[name]
+
+    @property
+    def elements(self) -> tuple[str, ...]:
+        """Return group names in deterministic order."""
+
+        return tuple(name for name, _ in self.actions)
+
+    def character_projector(self, character: Mapping[str, object]) -> GradedMap:
+        """Return the exact character projector ``|G|^-1 Σ χ(g)^-1 g``."""
+
+        if set(character) != set(self.elements):
+            raise ValueError("a character must provide exactly one value per group element")
+        scalar_type = self.complex.spaces.scalar_type
+        inverse_order = _inverse(_coerce(len(self.elements), scalar_type), scalar_type)
+        components: dict[int, LinearMap] = {}
+        for degree in self.complex.degrees:
+            space = self.complex.spaces.space(degree)
+            total = LinearMap.zero(space, space)
+            for name in self.elements:
+                total = total + self.action(name).component(degree).scale(
+                    _inverse(_coerce(character[name], scalar_type), scalar_type)
+                )
+            components[degree] = total.scale(inverse_order)
+        return GradedMap(
+            self.complex.spaces,
+            self.complex.spaces,
+            0,
+            components,
+        )
+
+
+GroupAction = FiniteComplexAction
+
+
+def _coordinate_in_basis(
+    basis: Sequence[CoordinateVector], vector: CoordinateVector,
+) -> tuple[Scalar, ...]:
+    """Express a vector in an independent exact basis by a pivot-row inverse."""
+
+    if not basis:
+        if not vector.is_zero():
+            raise ValueError("nonzero vector is outside a zero-dimensional basis")
+        return ()
+    if any(candidate.space != vector.space for candidate in basis):
+        raise ValueError("coordinate basis and vector use different named spaces")
+    rows = tuple(
+        tuple(candidate.coordinates[column] for candidate in basis)
+        for column in range(vector.space.dimension)
+    )
+    for selected_rows in product(range(vector.space.dimension), repeat=len(basis)):
+        if len(set(selected_rows)) != len(selected_rows):
+            continue
+        square = Matrix(
+            tuple(
+                tuple(rows[row][column] for column in range(len(basis)))
+                for row in selected_rows
+            ),
+            scalar_type=vector.space.scalar_type,
+        )
+        try:
+            inverse = square.inverse()
+        except ValueError:
+            continue
+        rhs = Matrix(
+            tuple((vector.coordinates[row],) for row in selected_rows),
+            scalar_type=vector.space.scalar_type,
+        )
+        coordinates = inverse.matmul(rhs)
+        result = tuple(coordinates[row][0] for row in range(len(basis)))
+        reconstructed = CoordinateVector(
+            vector.space,
+            tuple(
+                sum(
+                    (_multiply(result[index], basis[index].coordinates[row])
+                     for index in range(len(basis))),
+                    _zero(vector.space.scalar_type),
+                )
+                for row in range(vector.space.dimension)
+            ),
+        )
+        if reconstructed == vector:
+            return result
+    raise ValueError("vector is not in the declared exact basis span")
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class InvariantSubcomplex:
+    """The exact character-isotypic subcomplex cut out by a projector."""
+
+    action: FiniteComplexAction
+    character: tuple[tuple[str, Scalar], ...]
+    projector: GradedMap
+    complex: ChainComplex | CochainComplex
+    inclusion_maps: tuple[tuple[int, LinearMap], ...]
+
+    def __init__(self, action: FiniteComplexAction, character: Mapping[str, object]) -> None:
+        projector = action.character_projector(character)
+        source = action.complex
+        spaces: dict[int, VectorSpace] = {}
+        bases: dict[int, tuple[CoordinateVector, ...]] = {}
+        inclusions: dict[int, LinearMap] = {}
+        for degree in source.degrees:
+            image = projector.component(degree).image_basis()
+            bases[degree] = image
+            spaces[degree] = VectorSpace(
+                f"{source.spaces.name}[{degree}]^{character}",
+                tuple(f"chi:{index}" for index in range(len(image))),
+                source.spaces.scalar_type,
+            )
+            inclusions[degree] = LinearMap(
+                spaces[degree],
+                source.spaces.space(degree),
+                tuple(
+                    tuple(image[column].coordinates[row] for column in range(len(image)))
+                    for row in range(source.spaces.space(degree).dimension)
+                ),
+            ) if image else LinearMap.zero(spaces[degree], source.spaces.space(degree))
+        graded = GradedVectorSpace(f"{source.spaces.name}^{character}", spaces)
+        differentials: dict[int, LinearMap] = {}
+        step = -1 if source.direction == "chain" else 1
+        for degree in source.degrees:
+            basis = bases[degree]
+            target_basis = bases.get(degree + step, ())
+            target_space = graded.space(degree + step)
+            if not basis or not target_basis:
+                differentials[degree] = LinearMap.zero(spaces[degree], target_space)
+                continue
+            rows = []
+            original_map = source.differential(degree)
+            for target_index in range(len(target_basis)):
+                rows.append(tuple(
+                    _coordinate_in_basis(
+                        target_basis,
+                        original_map(basis[source_index]),
+                    )[target_index]
+                    for source_index in range(len(basis))
+                ))
+            differentials[degree] = LinearMap(spaces[degree], target_space, tuple(rows))
+        restricted = (
+            ChainComplex(graded, differentials)
+            if source.direction == "chain"
+            else CochainComplex(graded, differentials)
+        )
+        object.__setattr__(self, "action", action)
+        object.__setattr__(self, "character", tuple(sorted(
+            (name, _coerce(value, source.spaces.scalar_type)) for name, value in character.items()
+        )))
+        object.__setattr__(self, "projector", projector)
+        object.__setattr__(self, "complex", restricted)
+        object.__setattr__(self, "inclusion_maps", tuple(sorted(inclusions.items())))
+
+    def inclusion(self, degree: int) -> LinearMap:
+        """Return the exact inclusion of one invariant component."""
+
+        return dict(self.inclusion_maps)[degree]
+
+    def project(self, element: GradedElement) -> GradedElement:
+        """Project an ambient element to its exact character component."""
+
+        return self.projector(element)
+
+    def cohomology_representatives(self, degree: int) -> tuple[CoordinateVector, ...]:
+        """Return representatives in the invariant subcomplex basis."""
+
+        return self.complex.cohomology_representatives(degree)
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class InducedCohomologyAction:
+    """Exact matrices induced by a finite complex action on cohomology."""
+
+    action: FiniteComplexAction
+    matrices: tuple[tuple[str, int, Matrix], ...]
+
+    def __init__(self, action: FiniteComplexAction) -> None:
+        values: list[tuple[str, int, Matrix]] = []
+        complex_ = action.complex
+        for name in action.elements:
+            chain_map = action.action(name)
+            for degree in complex_.degrees:
+                representatives = complex_.cohomology_representatives(degree)
+                if not representatives:
+                    continue
+                boundaries = complex_.boundaries(degree)
+                full_basis = (*boundaries, *representatives)
+                columns = []
+                for representative in representatives:
+                    image = chain_map.component(degree)(representative)
+                    coordinates = _coordinate_in_basis(full_basis, image)
+                    columns.append(coordinates[len(boundaries):])
+                rows: tuple[tuple[Scalar, ...], ...] = tuple(
+                    tuple(columns[column][row] for column in range(len(columns)))
+                    for row in range(len(representatives))
+                )
+                values.append((name, degree, Matrix(rows, scalar_type=complex_.spaces.scalar_type)))
+        object.__setattr__(self, "action", action)
+        object.__setattr__(self, "matrices", tuple(sorted(values)))
+
+    def matrix(self, name: str, degree: int) -> Matrix:
+        """Return one exact induced cohomology action matrix."""
+
+        for action_name, action_degree, matrix in self.matrices:
+            if action_name == name and action_degree == degree:
+                return matrix
+        raise KeyError((name, degree))
+
+
+CharacterProjector = GradedMap
+
+
+def induced_action_on_cohomology(action: FiniteComplexAction) -> InducedCohomologyAction:
+    """Construct exact cohomology actions from a finite chain action."""
+
+    return InducedCohomologyAction(action)
+
+
+def character_pure_representatives(
+    action: FiniteComplexAction,
+    character: Mapping[str, object],
+    degree: int,
+) -> tuple[CoordinateVector, ...]:
+    """Extract deterministic exact representatives in one character subcomplex."""
+
+    return InvariantSubcomplex(action, character).cohomology_representatives(degree)
+
+
+def equivariant_chain_map(
+    action: FiniteComplexAction,
+    map_: ChainMap,
+) -> bool:
+    """Check that a chain map commutes with every declared group action."""
+
+    if map_.source != action.complex or map_.target != action.complex:
+        raise ValueError("equivariant endomorphism must use the declared complex")
+    return all(
+        map_.compose(action.action(name)) == action.action(name).compose(map_)
+        for name in action.elements
+    )
+
+
+__all__ = [
+    "Bicomplex",
+    "ChainComplex",
+    "ChainHomotopy",
+    "ChainMap",
+    "CochainComplex",
+    "Contraction",
+    "ContractionRecord",
+    "CoordinateVector",
+    "CyclicPairing",
+    "DGA",
+    "DGAModule",
+    "FiniteComplexAction",
+    "GradedAction",
+    "GradedElement",
+    "GradedLinearMap",
+    "GradedMap",
+    "GradedProduct",
+    "GradedVectorSpace",
+    "GroupAction",
+    "HPLTransfer",
+    "InvariantSubcomplex",
+    "InducedCohomologyAction",
+    "LinearMap",
+    "TransferWord",
+    "VectorSpace",
+    "character_pure_representatives",
+    "equivariant_chain_map",
+    "graded_commutator",
+    "induced_action_on_cohomology",
+    "maurer_cartan_residual",
+    "mapping_cone",
+    "tensor_product_space",
+]

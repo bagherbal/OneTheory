@@ -29,9 +29,18 @@ from onetheory.engine.graph import ComputationGraph, GraphNode
 from onetheory.engine.solve import solve_exact
 from onetheory.engine.state import PhysicalState, StateEntry
 from onetheory.models.heterotic_schoen.consistency import topological_consistency
-from onetheory.models.heterotic_schoen.flavor import tree_level_flavor
+from onetheory.models.heterotic_schoen.flavor import finite_frontier_status, tree_level_flavor
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry, schoen_geometry
-from onetheory.models.heterotic_schoen.visible import ObservableBundle, visible_bundle
+from onetheory.models.heterotic_schoen.visible import (
+    MixedMaurerCartanBranch,
+    ObservableAdmissibility,
+    ObservableBundle,
+    SplitWallDeformation,
+    mixed_maurer_cartan_branch,
+    observable_admissibility,
+    split_wall_deformation,
+    visible_bundle,
+)
 from onetheory.models.standard_model import StandardModel, standard_model
 
 
@@ -55,6 +64,24 @@ def _topology(values: Mapping[str, object]) -> object:
     return topological_consistency(cast(SchoenGeometry, values["geometry"]))
 
 
+def _split_wall(_: Mapping[str, object]) -> SplitWallDeformation:
+    return split_wall_deformation()
+
+
+def _mixed(values: Mapping[str, object]) -> MixedMaurerCartanBranch:
+    return mixed_maurer_cartan_branch(cast(SplitWallDeformation, values["split_wall_deformation"]))
+
+
+def _admissibility(values: Mapping[str, object]) -> ObservableAdmissibility:
+    return observable_admissibility(
+        cast(MixedMaurerCartanBranch, values["mixed_deformation_branch"])
+    )
+
+
+def _frontier(_: Mapping[str, object]) -> object:
+    return finite_frontier_status()
+
+
 def _assemble(values: Mapping[str, object]) -> tuple[StateEntry, ...]:
     return (
         StateEntry("standard_model", values["standard_model"]),
@@ -62,6 +89,10 @@ def _assemble(values: Mapping[str, object]) -> tuple[StateEntry, ...]:
         StateEntry("visible_bundle", values["visible_bundle"]),
         StateEntry("tree_level_flavor", values["tree_level_flavor"]),
         StateEntry("topological_consistency", values["topological_consistency"]),
+        StateEntry("split_wall_deformation", values["split_wall_deformation"]),
+        StateEntry("mixed_deformation_branch", values["mixed_deformation_branch"]),
+        StateEntry("observable_admissibility", values["observable_admissibility"]),
+        StateEntry("finite_flavor_frontier", values["finite_flavor_frontier"]),
     )
 
 
@@ -74,10 +105,27 @@ def _reality_graph() -> ComputationGraph:
         GraphNode("visible_bundle", ("geometry",), _visible),
         GraphNode("tree_level_flavor", (), _flavor),
         GraphNode("topological_consistency", ("geometry",), _topology),
+        GraphNode("split_wall_deformation", (), _split_wall),
+        GraphNode("mixed_deformation_branch", ("split_wall_deformation",), _mixed),
+        GraphNode("observable_admissibility", ("mixed_deformation_branch",), _admissibility),
+        GraphNode(
+            "finite_flavor_frontier",
+            ("visible_bundle", "tree_level_flavor", "split_wall_deformation"),
+            _frontier,
+        ),
         GraphNode(
             "established_carrier_state",
-            ("standard_model", "geometry", "visible_bundle", "tree_level_flavor",
-             "topological_consistency"),
+            (
+                "standard_model",
+                "geometry",
+                "visible_bundle",
+                "tree_level_flavor",
+                "topological_consistency",
+                "split_wall_deformation",
+                "mixed_deformation_branch",
+                "observable_admissibility",
+                "finite_flavor_frontier",
+            ),
             _assemble,
         ),
     ))
@@ -89,6 +137,9 @@ UNRESOLVED_REALITY_OUTPUTS = (
     "hidden bundle",
     "vacuum",
     "physical Yukawa matrices",
+    "rank-three holomorphic Yukawa matrix",
+    "physical masses",
+    "CKM and CP observables",
     "low-energy predictions",
 )
 
@@ -123,11 +174,63 @@ def request_metrics() -> NoReturn:
 
 
 def request_physical_yukawas() -> NoReturn:
-    """Reject physical Yukawa requests before canonical normalization exists."""
+    """Reject physical Yukawa requests before the rank lift and normalization exist."""
 
     _missing_output(
         "physical Yukawa matrices",
-        ("normalized Yukawa matrices", "matter metrics", "stabilized common vacuum"),
+        (
+            "rank-three holomorphic Yukawa matrix",
+            "nonzero null-family normal displacement",
+            "sector Hessian / second-normal form",
+            "twelve physical amplitudes",
+            "normalized carrier residues",
+            "complete common-DGA representatives and contractions",
+            "matter metrics",
+            "stabilized common vacuum",
+        ),
+    )
+
+
+def request_rank_three_yukawa() -> NoReturn:
+    """Reject rank-three holomorphic Yukawa requests at the exact frontier."""
+
+    _missing_output(
+        "rank-three holomorphic Yukawa matrix",
+        (
+            "nonzero null-family normal displacement",
+            "sector Hessian / second-normal form",
+            "twelve physical amplitudes",
+            "normalized carrier residues",
+            "complete common-DGA representatives and contractions",
+        ),
+    )
+
+
+def request_masses() -> NoReturn:
+    """Reject mass requests until physical Yukawas, metrics, and vacuum exist."""
+
+    _missing_output(
+        "physical masses",
+        (
+            "rank-three holomorphic Yukawa matrix",
+            "matter metrics",
+            "canonical normalization",
+            "stabilized common vacuum",
+        ),
+    )
+
+
+def request_ckm_cp() -> NoReturn:
+    """Reject CKM and CP requests until common normalized flavor exists."""
+
+    _missing_output(
+        "CKM and CP observables",
+        (
+            "rank-three physical Yukawa matrices",
+            "matter metrics",
+            "canonical normalization",
+            "stabilized common vacuum",
+        ),
     )
 
 

@@ -6,7 +6,7 @@ This package is the executable scientific engine’s root. Its modules represent
 
 ## Belongs here
 
-The sole composition root is `reality.py`; it assembles only the established one-Higgs heterotic Schoen carrier slice. Package initializers remain intentionally quiet and do not re-export future symbols.
+The sole composition root is `reality.py`; it assembles the established one-Higgs heterotic Schoen carrier and its exact formal observable frontier while keeping rank-three and physical outputs unresolved. Package initializers remain intentionally quiet and do not re-export future symbols.
 
 ## Does not belong here
 

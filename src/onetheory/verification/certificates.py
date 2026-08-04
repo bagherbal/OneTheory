@@ -1,8 +1,8 @@
 """Deterministic certificates inspected outside production physics.
 
 Owns:
-    Exact equality certificates, deterministic value digests, and certificate
-    collections for the established Schoen carrier state.
+    Exact equality certificates, deterministic value digests, and scoped
+    certificates for the established carrier and observable finite frontier.
 
 Depends on:
     `onetheory.verification.evidence`, immutable production state, and established
@@ -14,8 +14,9 @@ Must not:
     hidden class into an existing hidden bundle.
 
 Phase 0:
-    Exact certificate construction is implemented for the vertical slice; no
-    numerical convergence certificate is claimed.
+    Exact certificate construction is implemented for the promoted carrier and
+    formal/local observable frontier; no numerical convergence certificate or
+    physical residue is claimed.
 """
 
 from __future__ import annotations
@@ -26,9 +27,17 @@ from typing import cast
 
 from onetheory.engine.state import PhysicalState
 from onetheory.models.heterotic_schoen.consistency import TopologicalConsistency
-from onetheory.models.heterotic_schoen.flavor import TreeLevelFlavorResult
+from onetheory.models.heterotic_schoen.flavor import (
+    TreeLevelFlavorResult,
+    finite_frontier_status,
+)
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry
-from onetheory.models.heterotic_schoen.visible import ObservableBundle
+from onetheory.models.heterotic_schoen.visible import (
+    MixedMaurerCartanBranch,
+    ObservableAdmissibility,
+    ObservableBundle,
+    SplitWallDeformation,
+)
 from onetheory.verification.evidence import (
     EXACT_PROJECT,
     PUBLISHED_CARRIER,
@@ -108,3 +117,115 @@ def certify_established_carrier(state: PhysicalState) -> tuple[ExactCertificate,
         ),
     )
     return certificates
+
+
+def certify_observable_frontier(state: PhysicalState) -> tuple[ExactCertificate, ...]:
+    """Certify only recomputed formal/local frontier conclusions."""
+
+    wall = cast(SplitWallDeformation, state.value("split_wall_deformation"))
+    branch = cast(MixedMaurerCartanBranch, state.value("mixed_deformation_branch"))
+    admissibility = cast(ObservableAdmissibility, state.value("observable_admissibility"))
+    frontier = finite_frontier_status()
+    return (
+        exact_certificate(
+            "observable.ledger.forward_dimension",
+            4,
+            wall.forward.dimension,
+            statement="The exact split-wall ledger has four forward invariant directions.",
+            scope="abstract Ext1 ledger; no common-DGA representatives",
+        ),
+        exact_certificate(
+            "observable.ledger.reverse_dimension",
+            8,
+            wall.reverse.dimension,
+            statement="The exact split-wall ledger has eight reverse invariant directions.",
+            scope="abstract Ext1 ledger; no common-DGA representatives",
+        ),
+        exact_certificate(
+            "observable.branch.maurer_cartan",
+            True,
+            branch.formally_integrable,
+            statement="The corrected mixed Maurer–Cartan and Higgs residuals cancel exactly.",
+            scope="formal split-wall DGA branch",
+        ),
+        exact_certificate(
+            "observable.admissibility.local",
+            True,
+            admissibility.local_freeness.unit_at_origin,
+            statement="The three-pivot local determinant is a unit at the split origin.",
+            scope=admissibility.local_freeness.scope,
+        ),
+        exact_certificate(
+            "observable.admissibility.stability_box",
+            True,
+            admissibility.stability.negative_on_box,
+            statement=(
+                "The declared sufficient stability inequalities remain negative "
+                "on the exact box."
+            ),
+            scope=admissibility.stability.scope,
+        ),
+        exact_certificate(
+            "observable.frontier.direct_order_five_count",
+            42,
+            frontier["direct_order_five_count"],
+            statement="The complete directly tested order-five ledger contains 42 rows.",
+            scope="direct E^3 F^2 rows only",
+        ),
+        exact_certificate(
+            "observable.frontier.generic_residue_count",
+            24,
+            frontier["generic_residue_count"],
+            statement="The restricted-hull compiler requires 24 exact residue entries.",
+            scope="finite holomorphic residue workload",
+        ),
+        exact_certificate(
+            "observable.frontier.direction_refined_count",
+            20,
+            frontier["direction_refined_residue_count"],
+            statement="The exact f3 selection identities reduce the scalar workload to 20.",
+            scope="finite holomorphic residue workload",
+        ),
+        exact_certificate(
+            "observable.frontier.first_test_count",
+            4,
+            frontier["first_simultaneous_test_count"],
+            statement="The first simultaneous test consumes four normalized scalar traces.",
+            scope="finite holomorphic residue workload",
+        ),
+        exact_certificate(
+            "observable.frontier.typing_nonidentifiable",
+            False,
+            frontier["star_triangular_typing_identifiable"],
+            statement="Branch support alone does not identify star or triangular transport typing.",
+            scope="exact countermodel theorem; not a carrier typing claim",
+        ),
+    )
+
+
+def unresolved_frontier_evidence() -> tuple[EvidenceRecord, ...]:
+    """Return explicit evidence records for the still-missing physical layer."""
+
+    return (
+        EvidenceRecord(
+            "observable.common_dga_representatives",
+            EvidenceClass.MISSING_INPUT,
+            "Complete common-DGA representatives and contractions are not available.",
+            (EXACT_PROJECT,),
+            "finite holomorphic frontier",
+        ),
+        EvidenceRecord(
+            "observable.rank_three_yukawa",
+            EvidenceClass.MISSING_INPUT,
+            "Rank-three holomorphic Yukawa matrices remain unresolved after the finite frontier.",
+            (EXACT_PROJECT,),
+            "finite holomorphic frontier",
+        ),
+        EvidenceRecord(
+            "observable.physical_normalization",
+            EvidenceClass.OPEN,
+            "Matter metrics and a common stabilized vacuum are not supplied.",
+            (EXACT_PROJECT,),
+            "physical observables",
+        ),
+    )

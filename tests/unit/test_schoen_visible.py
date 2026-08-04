@@ -23,8 +23,11 @@ from __future__ import annotations
 from onetheory.math.numbers import OMEGA, Eisenstein
 from onetheory.models.heterotic_schoen.geometry import schoen_geometry
 from onetheory.models.heterotic_schoen.visible import (
+    mixed_maurer_cartan_branch,
+    observable_admissibility,
     point_schemes,
     serre_data,
+    split_wall_deformation,
     visible_bundle,
 )
 
@@ -71,3 +74,18 @@ def test_visible_bundle_is_the_published_one_higgs_extension() -> None:
     assert visible.spectrum.exotic_zero_modes == 0
     assert visible.spectrum.geometric_moduli == 6
     assert visible.spectrum.observable_bundle_moduli == 13
+
+
+def test_split_wall_branch_recomputes_the_formal_local_certificates() -> None:
+    wall = split_wall_deformation()
+    branch = mixed_maurer_cartan_branch(wall)
+    admissibility = observable_admissibility(branch)
+
+    assert wall.forward.dimension == 4
+    assert wall.reverse.dimension == 8
+    assert not wall.common_dga_representatives_available
+    assert branch.formally_integrable
+    assert branch.curvature_correction == "-s*t*K_y is required to cancel the E*F curvature term"
+    assert admissibility.certified
+    assert admissibility.local_freeness.determinant_at_origin == 1
+    assert admissibility.spectrum.multiplicities == (3,) * 9

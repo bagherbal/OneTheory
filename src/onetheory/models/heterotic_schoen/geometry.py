@@ -24,6 +24,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 from dataclasses import dataclass
+from typing import cast
 
 from onetheory.math.geometry import (
     Basis,
@@ -194,7 +195,8 @@ class SchoenGeometry:
             raise ValueError("descent coordinates must use the quotient basis")
         if any(isinstance(value, bool) or not isinstance(value, int) for value in values):
             raise TypeError("descent congruence requires integral coordinates")
-        return (values[0] + values[1]) % self.descent_modulus == 0
+        integer_values = cast(tuple[int, ...], values)
+        return (integer_values[0] + integer_values[1]) % self.descent_modulus == 0
 
     def square(self, divisor: Divisor) -> tuple[Rational, ...]:
         """Return the exact basis coordinates of a divisor square."""
@@ -257,7 +259,7 @@ def _heisenberg() -> HeisenbergLifts:
         ((1, 0, 0), (0, OMEGA, 0), (0, 0, OMEGA2)),
         scalar_type=Eisenstein,
     )
-    return HeisenbergLifts(p, p @ diagonal, OMEGA)
+    return HeisenbergLifts(p, p.matmul(diagonal), OMEGA)
 
 
 def schoen_geometry() -> SchoenGeometry:
@@ -325,4 +327,4 @@ def schoen_geometry() -> SchoenGeometry:
 def quotient_to_cover_divisor(divisor: Divisor) -> Divisor:
     """Convert quotient divisor normalization with the explicit degree nine."""
 
-    return quotient_to_cover(divisor, SCHOEN_COVERING_DEGREE)
+    return cast(Divisor, quotient_to_cover(divisor, SCHOEN_COVERING_DEGREE))

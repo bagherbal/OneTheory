@@ -19,12 +19,19 @@ Phase 0:
 from __future__ import annotations
 
 from onetheory.math.numbers import Rational
-from onetheory.math.polynomials import Polynomial
+from onetheory.math.polynomials import (
+    Polynomial,
+    PolynomialFreeModule,
+    PolynomialMap,
+    PolynomialMatrix,
+)
 from onetheory.math.sheaves import (
     CoxChart,
     CoxChartCover,
     LaurentMatrix,
     LaurentPolynomial,
+    LocalizedFreeModule,
+    LocalizedModuleMap,
     TransitionCocycle,
 )
 
@@ -80,3 +87,22 @@ def test_chart_intersections_and_transition_cocycle_are_exact() -> None:
     assert charts.intersection(0, 1).inverted_variables == ("x0", "x1")
     assert cocycle.verifies_cocycle()
     assert cocycle.transition(0, 1).compose(cocycle.transition(1, 0)).is_identity()
+
+
+def test_polynomial_free_modules_sheafify_to_chart_localized_maps() -> None:
+    """Polynomial map data retain named bases after exact localization."""
+
+    chart = CoxChart("U_x", ("x",), ("x",))
+    domain = PolynomialFreeModule("F1", ("e",), ((1,),), 1, Rational)
+    codomain = PolynomialFreeModule("F0", ("f",), ((0,),), 1, Rational)
+    x = Polynomial.monomial((1,), scalar_type=Rational)
+    map_ = PolynomialMap(domain, codomain, PolynomialMatrix(((x,),)))
+
+    localized_domain = LocalizedFreeModule.from_polynomial_module(chart, domain)
+    localized_map = LocalizedModuleMap.from_polynomial_map(chart, map_)
+
+    assert localized_map.domain == localized_domain
+    assert localized_map.matrix.rows[0][0] == LaurentPolynomial.from_polynomial(x)
+    assert localized_map.compose(
+        LocalizedModuleMap.identity(localized_domain)
+    ) == localized_map

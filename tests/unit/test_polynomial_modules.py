@@ -23,6 +23,7 @@ from onetheory.math.numbers import Rational
 from onetheory.math.polynomials import (
     Polynomial,
     PolynomialChainComplex,
+    PolynomialChainHomotopy,
     PolynomialChainMap,
     PolynomialFreeModule,
     PolynomialIdeal,
@@ -140,3 +141,36 @@ def test_exact_determinantal_fitting_rank_and_monomial_saturation() -> None:
 
     with pytest.raises(ValueError, match="monomial ideal"):
         saturate_by_monomial(PolynomialIdeal((x + y,)), (1, 0))
+
+
+def test_polynomial_chain_homotopy_validates_both_degrees() -> None:
+    """A contractible two-term polynomial complex admits an exact homotopy."""
+
+    one = Polynomial.one(1, scalar_type=Rational)
+    module_zero = _module("C0")
+    module_one = _module("C1")
+    differential = PolynomialMap(
+        module_one,
+        module_zero,
+        PolynomialMatrix(((one,),)),
+    )
+    complex_ = PolynomialChainComplex({0: module_zero, 1: module_one}, {1: differential})
+    identity = PolynomialChainMap(
+        complex_,
+        complex_,
+        {degree: PolynomialMap.identity(complex_.module(degree))
+         for degree in complex_.degrees},
+    )
+    zero_map = PolynomialChainMap(
+        complex_,
+        complex_,
+        {degree: PolynomialMap.zero(complex_.module(degree), complex_.module(degree))
+         for degree in complex_.degrees},
+    )
+    homotopy = PolynomialChainHomotopy(
+        identity,
+        zero_map,
+        {0: PolynomialMap(module_zero, module_one, PolynomialMatrix(((one,),)))},
+    )
+
+    assert homotopy.components[0][0] == 0

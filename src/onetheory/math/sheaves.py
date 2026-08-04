@@ -2,11 +2,13 @@
 
 Owns:
     Laurent polynomial localization, named affine Cox charts, finite chart
-    intersections, exact transition matrices, and Čech 1-cocycle checks.
+    intersections, chart-localized free modules and maps, exact transition
+    matrices, and Čech 1-cocycle checks.
 
 Depends on:
     `onetheory.math.numbers` for exact Rational and Eisenstein coefficients and
-    `onetheory.math.polynomials` for conversion from ordinary polynomials.
+    `onetheory.math.polynomials` for polynomial modules, maps, and conversion
+    from ordinary polynomials.
 
 Must not:
     Declare a cover of a selected Calabi–Yau, infer local freeness from sampled
@@ -14,8 +16,8 @@ Must not:
     functions.
 
 Phase 0:
-    Generic localization and transition primitives are implemented; a
-    carrier-specific cover requires an independent geometric certificate.
+    Generic localization, module sheafification, and transition primitives are
+    implemented; a carrier-specific cover requires an independent certificate.
 """
 
 from __future__ import annotations
@@ -25,7 +27,7 @@ from dataclasses import dataclass
 from typing import Any, cast
 
 from onetheory.math.numbers import Eisenstein, Rational, coerce_rational
-from onetheory.math.polynomials import Polynomial
+from onetheory.math.polynomials import Polynomial, PolynomialFreeModule, PolynomialMap
 
 Scalar = Rational | Eisenstein
 type ScalarType = type[Rational] | type[Eisenstein]
@@ -377,6 +379,18 @@ class LaurentMatrix:
 
         return len(self.rows), len(self.rows[0])
 
+    @property
+    def variable_count(self) -> int:
+        """Return the common Laurent variable count."""
+
+        return self.rows[0][0].variable_count
+
+    @property
+    def scalar_type(self) -> ScalarType:
+        """Return the common exact coefficient field."""
+
+        return self.rows[0][0].scalar_type
+
     @classmethod
     def identity(
         cls,
@@ -431,6 +445,109 @@ class LaurentMatrix:
 
 
 @dataclass(frozen=True, slots=True)
+class LocalizedFreeModule:
+    """A polynomial free module localized on one declared Cox chart."""
+
+    chart: CoxChart
+    name: str
+    basis: tuple[str, ...]
+    shifts: tuple[tuple[int, ...], ...]
+    scalar_type: ScalarType
+
+    def __post_init__(self) -> None:
+        if not self.name.strip() or not self.basis:
+            raise ValueError("localized modules require a name and basis")
+        if len(set(self.basis)) != len(self.basis):
+            raise ValueError("localized module bases must be unique")
+        if len(self.shifts) != len(self.basis):
+            raise ValueError("localized module shifts must match the basis")
+        if any(len(shift) != self.chart.variable_count for shift in self.shifts):
+            raise ValueError("localized shifts must match the chart variable count")
+        if self.scalar_type not in (Rational, Eisenstein):
+            raise TypeError("localized modules require an exact scalar field")
+
+    @property
+    def rank(self) -> int:
+        """Return the number of localized free generators."""
+
+        return len(self.basis)
+
+    @classmethod
+    def from_polynomial_module(
+        cls,
+        chart: CoxChart,
+        module: PolynomialFreeModule,
+    ) -> LocalizedFreeModule:
+        """Sheafify one exact polynomial free module on a Cox chart."""
+
+        if module.variable_count != chart.variable_count:
+            raise ValueError("module variables do not match the Cox chart")
+        return cls(chart, module.name, module.basis, module.shifts, module.scalar_type)
+
+
+@dataclass(frozen=True, slots=True)
+class LocalizedModuleMap:
+    """An exact Laurent matrix map between chart-localized free modules."""
+
+    domain: LocalizedFreeModule
+    codomain: LocalizedFreeModule
+    matrix: LaurentMatrix
+
+    def __post_init__(self) -> None:
+        if self.domain.chart != self.codomain.chart:
+            raise ValueError("localized maps require one common Cox chart")
+        if self.matrix.shape != (self.codomain.rank, self.domain.rank):
+            raise ValueError("localized map shape does not match its modules")
+        if self.matrix.variable_count != self.domain.chart.variable_count:
+            raise ValueError("localized map variables do not match the chart")
+        if self.matrix.scalar_type is not self.domain.scalar_type:
+            raise TypeError("localized map coefficients use a different scalar field")
+
+    @classmethod
+    def from_polynomial_map(
+        cls,
+        chart: CoxChart,
+        map_: PolynomialMap,
+    ) -> LocalizedModuleMap:
+        """Localize one exact polynomial free-module map."""
+
+        domain = LocalizedFreeModule.from_polynomial_module(chart, map_.domain)
+        codomain = LocalizedFreeModule.from_polynomial_module(chart, map_.codomain)
+        matrix = LaurentMatrix(
+            tuple(
+                tuple(LaurentPolynomial.from_polynomial(entry) for entry in row)
+                for row in map_.matrix.rows
+            )
+        )
+        return cls(domain, codomain, matrix)
+
+    @classmethod
+    def identity(cls, module: LocalizedFreeModule) -> LocalizedModuleMap:
+        """Construct the exact identity on a localized module."""
+
+        return cls(
+            module,
+            module,
+            LaurentMatrix.identity(
+                module.rank,
+                module.chart.variable_count,
+                scalar_type=module.scalar_type,
+            ),
+        )
+
+    def compose(self, previous: LocalizedModuleMap) -> LocalizedModuleMap:
+        """Compose two compatible localized maps exactly."""
+
+        if previous.codomain != self.domain:
+            raise ValueError("localized maps require matching named modules")
+        return LocalizedModuleMap(
+            previous.domain,
+            self.codomain,
+            self.matrix.compose(previous.matrix),
+        )
+
+
+@dataclass(frozen=True, slots=True)
 class TransitionCocycle:
     """Exact ordered transition matrices with a Čech cocycle certificate."""
 
@@ -482,5 +599,7 @@ __all__ = [
     "LaurentMatrix",
     "LaurentMonomial",
     "LaurentPolynomial",
+    "LocalizedFreeModule",
+    "LocalizedModuleMap",
     "TransitionCocycle",
 ]

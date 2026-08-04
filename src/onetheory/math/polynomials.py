@@ -4,7 +4,8 @@ Owns:
     Monomial normalization, sparse polynomial arithmetic and substitution,
     polynomial-matrix determinants and minors, finite determinantal and Fitting
     ideals, monomial-ideal saturation, exact rank loci, and exact univariate
-    division, derivatives, and monic greatest common divisors.
+    division, derivatives, monic greatest common divisors, and polynomial chain
+    homotopies.
 
 Depends on:
     `onetheory.math.numbers` for exact Rational and Eisenstein scalar coercion and
@@ -809,6 +810,26 @@ class PolynomialMap:
             ),
         )
 
+    def __add__(self, other: PolynomialMap) -> PolynomialMap:
+        """Add two maps with identical named modules exactly."""
+
+        if self.domain != other.domain or self.codomain != other.codomain:
+            raise ValueError("polynomial map addition requires identical modules")
+        return PolynomialMap(
+            self.domain,
+            self.codomain,
+            PolynomialMatrix(
+                tuple(
+                    tuple(left + right for left, right in zip(left_row, right_row, strict=True))
+                    for left_row, right_row in zip(
+                        self.matrix.rows,
+                        other.matrix.rows,
+                        strict=True,
+                    )
+                )
+            ),
+        )
+
     def __neg__(self) -> PolynomialMap:
         """Return the exact additive inverse map."""
 
@@ -923,6 +944,86 @@ class PolynomialChainMap:
         """Return one exact degree component."""
 
         return dict(self.components)[degree]
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class PolynomialChainHomotopy:
+    """An exact chain homotopy between polynomial chain maps."""
+
+    first: PolynomialChainMap
+    second: PolynomialChainMap
+    components: tuple[tuple[int, PolynomialMap], ...]
+
+    def __init__(
+        self,
+        first: PolynomialChainMap,
+        second: PolynomialChainMap,
+        components: Mapping[int, PolynomialMap]
+        | Iterable[tuple[int, PolynomialMap]],
+    ) -> None:
+        if first.source != second.source or first.target != second.target:
+            raise ValueError("polynomial homotopies require identical map endpoints")
+        pairs = tuple(
+            sorted(components.items() if isinstance(components, Mapping) else components)
+        )
+        if len({degree for degree, _ in pairs}) != len(pairs):
+            raise ValueError("polynomial homotopy degrees must be unique")
+        pair_map = dict(pairs)
+        for degree, component in pairs:
+            target_degree = degree + 1
+            if target_degree not in first.target.degrees:
+                raise ValueError("polynomial homotopy target degree is absent")
+            if component.domain != first.source.module(degree):
+                raise ValueError("polynomial homotopy component has the wrong domain")
+            if component.codomain != first.target.module(target_degree):
+                raise ValueError("polynomial homotopy component has the wrong codomain")
+        object.__setattr__(self, "first", first)
+        object.__setattr__(self, "second", second)
+        object.__setattr__(self, "components", pairs)
+        self._validate_equation(pair_map)
+
+    def _component(self, degree: int) -> PolynomialMap | None:
+        """Return a supplied homotopy component or the absent edge marker."""
+
+        return dict(self.components).get(degree)
+
+    def _validate_equation(self, pair_map: Mapping[int, PolynomialMap]) -> None:
+        """Validate ``f-g = d h + h d`` on every supported degree."""
+
+        source_differentials = dict(self.first.source.differentials)
+        target_differentials = dict(self.first.target.differentials)
+        for degree in self.first.source.degrees:
+            first_matrix = self.first.component(degree).matrix
+            second_matrix = self.second.component(degree).matrix
+            difference = PolynomialMatrix(
+                tuple(
+                    tuple(left - right for left, right in zip(left_row, right_row, strict=True))
+                    for left_row, right_row in zip(
+                        first_matrix.rows,
+                        second_matrix.rows,
+                        strict=True,
+                    )
+                )
+            )
+            target_degree = degree + 1
+            left = PolynomialMap.zero(
+                self.first.source.module(degree),
+                self.first.target.module(degree),
+            )
+            homotopy = pair_map.get(degree)
+            target_differential = target_differentials.get(target_degree)
+            if homotopy is not None and target_differential is not None:
+                left = target_differential.compose(homotopy)
+            right = PolynomialMap.zero(
+                self.first.source.module(degree),
+                self.first.target.module(degree),
+            )
+            previous_homotopy = pair_map.get(degree - 1)
+            source_differential = source_differentials.get(degree)
+            if previous_homotopy is not None and source_differential is not None:
+                right = previous_homotopy.compose(source_differential)
+            if not (difference == (left + right).matrix):
+                raise ValueError("polynomial homotopy equation failed")
 
 
 def polynomial_mapping_cone(chain_map: PolynomialChainMap) -> PolynomialChainComplex:
@@ -1244,6 +1345,7 @@ __all__ = [
     "Monomial",
     "Polynomial",
     "PolynomialChainComplex",
+    "PolynomialChainHomotopy",
     "PolynomialChainMap",
     "PolynomialFreeResolution",
     "PolynomialFreeModule",

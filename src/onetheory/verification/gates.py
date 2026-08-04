@@ -76,3 +76,14 @@ def gate_unresolved(
     """Construct an unresolved gate without a fallback conclusion."""
 
     return GateResult(name, GateState.UNRESOLVED, statement, scope, prerequisites)
+
+
+def gate_missing_input(
+    name: str,
+    statement: str,
+    scope: str,
+    prerequisites: tuple[str, ...],
+) -> GateResult:
+    """Construct a missing-input gate with its exact prerequisite chain."""
+
+    return GateResult(name, GateState.MISSING_INPUT, statement, scope, prerequisites)

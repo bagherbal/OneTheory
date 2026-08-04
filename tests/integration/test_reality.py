@@ -54,9 +54,14 @@ def test_reality_composes_only_established_carrier_objects() -> None:
         "mixed_deformation_branch",
         "observable_admissibility",
         "finite_flavor_frontier",
+        "common_dga_input_status",
     )
     assert "hidden bundle" in state.unresolved
     assert "physical Yukawa matrices" in state.unresolved
+    assert state.value("common_dga_input_status")["physical_carrier_package_available"] is False
+    assert state.value("common_dga_input_status")["first_missing_input"].startswith(
+        "carrier-specific V1/V2"
+    )
 
 
 def test_external_certificates_pass_for_the_assembled_state() -> None:

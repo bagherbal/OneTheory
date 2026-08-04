@@ -21,6 +21,7 @@ Phase 0:
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from hashlib import sha256
 from typing import cast
@@ -28,7 +29,9 @@ from typing import cast
 from onetheory.engine.state import PhysicalState
 from onetheory.models.heterotic_schoen.consistency import TopologicalConsistency
 from onetheory.models.heterotic_schoen.flavor import (
+    COMMON_DGA_MISSING_CHAIN,
     TreeLevelFlavorResult,
+    common_dga_input_status,
     finite_frontier_status,
 )
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry
@@ -45,6 +48,7 @@ from onetheory.verification.evidence import (
     EvidenceRecord,
     Provenance,
 )
+from onetheory.verification.gates import GateResult, gate_missing_input
 
 
 @dataclass(frozen=True, slots=True)
@@ -234,11 +238,17 @@ def certify_observable_frontier(state: PhysicalState) -> tuple[ExactCertificate,
 def unresolved_frontier_evidence() -> tuple[EvidenceRecord, ...]:
     """Return explicit evidence records for the still-missing physical layer."""
 
+    status = common_dga_input_status()
     return (
         EvidenceRecord(
             "observable.common_dga_representatives",
             EvidenceClass.MISSING_INPUT,
-            "Complete common-DGA representatives and contractions are not available.",
+            (
+                f"First missing input: {status['first_missing_input']}. "
+                "Prerequisites: "
+                + " -> ".join(COMMON_DGA_MISSING_CHAIN)
+                + "."
+            ),
             (EXACT_PROJECT,),
             "finite holomorphic frontier",
         ),
@@ -256,4 +266,17 @@ def unresolved_frontier_evidence() -> tuple[EvidenceRecord, ...]:
             (EXACT_PROJECT,),
             "physical observables",
         ),
+    )
+
+
+def common_dga_input_gate(state: PhysicalState) -> GateResult:
+    """Inspect the assembled state and expose the common-DGA missing chain."""
+
+    status = cast(Mapping[str, object], state.value("common_dga_input_status"))
+    chain = tuple(cast(tuple[str, ...], status["prerequisite_chain"]))
+    return gate_missing_input(
+        "observable.common_dga",
+        f"First missing input: {status['first_missing_input']}.",
+        "carrier-specific common-DGA reconstruction",
+        chain,
     )

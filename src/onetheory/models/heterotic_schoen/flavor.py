@@ -1053,6 +1053,26 @@ F3_COMMON_CYCLIC_PROVENANCE = (
     "normalization_sha256",
 )
 
+COMMON_DGA_MISSING_CHAIN = (
+    "carrier-specific V1/V2 resolutions in a synchronized common Cech-Koszul basis",
+    "ambient matter and Higgs hypercocycles in that basis",
+    "restricted deformation and correction actions",
+    "reachable-hull contraction with exact side conditions",
+    "normalized cyclic pairing and four physical f3 word assignments",
+)
+
+
+def common_dga_input_status() -> Mapping[str, object]:
+    """Report the exact physical common-DGA boundary without a fallback package."""
+
+    return {
+        "object": "PhysicalCommonDGAPackage",
+        "physical_carrier_package_available": False,
+        "first_missing_input": COMMON_DGA_MISSING_CHAIN[0],
+        "prerequisite_chain": COMMON_DGA_MISSING_CHAIN,
+        "scope": "carrier-specific reconstruction; no physical traces are available",
+    }
+
 
 def f3_common_cyclic_contract() -> Mapping[str, object]:
     """Describe the exact package boundary before the four first traces."""

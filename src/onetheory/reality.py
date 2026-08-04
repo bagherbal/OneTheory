@@ -29,7 +29,12 @@ from onetheory.engine.graph import ComputationGraph, GraphNode
 from onetheory.engine.solve import solve_exact
 from onetheory.engine.state import PhysicalState, StateEntry
 from onetheory.models.heterotic_schoen.consistency import topological_consistency
-from onetheory.models.heterotic_schoen.flavor import finite_frontier_status, tree_level_flavor
+from onetheory.models.heterotic_schoen.flavor import (
+    COMMON_DGA_MISSING_CHAIN,
+    common_dga_input_status,
+    finite_frontier_status,
+    tree_level_flavor,
+)
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry, schoen_geometry
 from onetheory.models.heterotic_schoen.visible import (
     MixedMaurerCartanBranch,
@@ -82,6 +87,10 @@ def _frontier(_: Mapping[str, object]) -> object:
     return finite_frontier_status()
 
 
+def _common_dga(_: Mapping[str, object]) -> object:
+    return common_dga_input_status()
+
+
 def _assemble(values: Mapping[str, object]) -> tuple[StateEntry, ...]:
     return (
         StateEntry("standard_model", values["standard_model"]),
@@ -93,6 +102,7 @@ def _assemble(values: Mapping[str, object]) -> tuple[StateEntry, ...]:
         StateEntry("mixed_deformation_branch", values["mixed_deformation_branch"]),
         StateEntry("observable_admissibility", values["observable_admissibility"]),
         StateEntry("finite_flavor_frontier", values["finite_flavor_frontier"]),
+        StateEntry("common_dga_input_status", values["common_dga_input_status"]),
     )
 
 
@@ -113,6 +123,7 @@ def _reality_graph() -> ComputationGraph:
             ("visible_bundle", "tree_level_flavor", "split_wall_deformation"),
             _frontier,
         ),
+        GraphNode("common_dga_input_status", (), _common_dga),
         GraphNode(
             "established_carrier_state",
             (
@@ -125,6 +136,7 @@ def _reality_graph() -> ComputationGraph:
                 "mixed_deformation_branch",
                 "observable_admissibility",
                 "finite_flavor_frontier",
+                "common_dga_input_status",
             ),
             _assemble,
         ),
@@ -149,7 +161,7 @@ UNRESOLVED_REALITY_CHAINS = {
         "sector Hessian / second-normal form",
         "twelve physical amplitudes",
         "normalized carrier residues",
-        "complete common-DGA representatives and contractions",
+        *COMMON_DGA_MISSING_CHAIN,
     ),
     "physical Yukawa matrices": (
         "rank-three holomorphic Yukawa matrix",
@@ -157,7 +169,7 @@ UNRESOLVED_REALITY_CHAINS = {
         "sector Hessian / second-normal form",
         "twelve physical amplitudes",
         "normalized carrier residues",
-        "complete common-DGA representatives and contractions",
+        *COMMON_DGA_MISSING_CHAIN,
         "matter metrics",
         "stabilized common vacuum",
     ),
@@ -217,7 +229,7 @@ def request_physical_yukawas() -> NoReturn:
             "sector Hessian / second-normal form",
             "twelve physical amplitudes",
             "normalized carrier residues",
-            "complete common-DGA representatives and contractions",
+            *COMMON_DGA_MISSING_CHAIN,
             "matter metrics",
             "stabilized common vacuum",
         ),
@@ -234,7 +246,7 @@ def request_rank_three_yukawa() -> NoReturn:
             "sector Hessian / second-normal form",
             "twelve physical amplitudes",
             "normalized carrier residues",
-            "complete common-DGA representatives and contractions",
+            *COMMON_DGA_MISSING_CHAIN,
         ),
     )
 

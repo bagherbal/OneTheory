@@ -24,9 +24,11 @@ from onetheory.core.errors import MissingPhysicalInput
 from onetheory.math.linear import Matrix, Vector
 from onetheory.math.numbers import Eisenstein
 from onetheory.models.heterotic_schoen.flavor import (
+    COMMON_DGA_MISSING_CHAIN,
     F3_COMMON_CYCLIC_CERTIFICATES,
     F3_COMMON_CYCLIC_PROVENANCE,
     binary_gram_certificate,
+    common_dga_input_status,
     compile_f3_common_cyclic_package,
     complete_forward_slice_obstruction,
     degree_three_obstruction,
@@ -124,3 +126,11 @@ def test_raw_common_cyclic_compiler_collapses_both_orientations() -> None:
     assert result["all_orientation_pairs_equal"]
     assert result["oriented_contraction_count"] == 8
     assert result["independent_normalized_scalar_count"] == 4
+
+
+def test_common_dga_status_preserves_the_first_missing_input() -> None:
+    status = common_dga_input_status()
+
+    assert status["physical_carrier_package_available"] is False
+    assert status["first_missing_input"] == COMMON_DGA_MISSING_CHAIN[0]
+    assert status["prerequisite_chain"] == COMMON_DGA_MISSING_CHAIN

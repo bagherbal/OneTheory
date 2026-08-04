@@ -26,6 +26,15 @@ from math import isfinite
 
 from onetheory.core.precision import PrecisionPolicy
 from onetheory.engine.graph import ComputationGraph
+from onetheory.engine.state import VacuumEngineState
+from onetheory.physics.vacuum import (
+    ControlCriterion,
+    ControlLedger,
+    CriticalPointReport,
+    VacuumEquationSystem,
+    VacuumSolveReport,
+    solve_supersymmetric_vacuum,
+)
 
 NumericState = tuple[float, ...]
 DerivativeFunction = Callable[[float, NumericState, "ParameterSet"], NumericState]
@@ -60,6 +69,21 @@ def solve_exact(
             {name: values[name] for name in graph.node(target).prerequisites}
         )
     return Evaluation(target, values[target], tuple(node.name for node in ordered))
+
+
+def solve_vacuum(
+    system: VacuumEquationSystem,
+    initial_regions: Iterable[Mapping[str, complex | float | int]],
+    criteria: Iterable[ControlCriterion],
+    precision_schedule: tuple[int, ...] = (40, 80),
+    critical_points: Iterable[CriticalPointReport] = (),
+) -> VacuumEngineState:
+    """Solve one explicit vacuum system and aggregate its supplied control ledger."""
+
+    report: VacuumSolveReport = solve_supersymmetric_vacuum(
+        system, initial_regions, precision_schedule
+    )
+    return VacuumEngineState(report, ControlLedger.from_criteria(criteria), tuple(critical_points))
 
 
 @dataclass(frozen=True, slots=True)

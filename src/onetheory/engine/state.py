@@ -23,6 +23,7 @@ from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 
 from onetheory.core.errors import MissingPhysicalInput
+from onetheory.physics.vacuum import ControlLedger, CriticalPointReport, VacuumSolveReport
 
 
 @dataclass(frozen=True, slots=True)
@@ -201,3 +202,18 @@ class SimulationResult:
     def __post_init__(self) -> None:
         if not self.convergence.converged:
             raise ValueError("simulation results require a converged refinement record")
+
+
+@dataclass(frozen=True, slots=True)
+class VacuumEngineState:
+    """Immutable generic vacuum output carrying candidates and control evidence."""
+
+    solve_report: VacuumSolveReport
+    control_ledger: ControlLedger
+    critical_points: tuple[CriticalPointReport, ...] = ()
+
+    @property
+    def controlled(self) -> bool:
+        """Return whether solved candidates also satisfy the control ledger."""
+
+        return self.solve_report.complete and self.control_ledger.controlled

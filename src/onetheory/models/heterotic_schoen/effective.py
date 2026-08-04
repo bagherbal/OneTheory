@@ -34,6 +34,10 @@ from onetheory.models.heterotic_schoen.consistency import (
 )
 from onetheory.models.heterotic_schoen.flavor import TreeLevelFlavorResult, tree_level_flavor
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry, schoen_geometry
+from onetheory.models.heterotic_schoen.vacuum import (
+    VacuumInputRequirements,
+    schoen_vacuum_input_requirements,
+)
 from onetheory.models.heterotic_schoen.visible import ObservableBundle, visible_bundle
 from onetheory.physics.gauge import GaugeGroup
 from onetheory.physics.matter import Spectrum
@@ -126,12 +130,15 @@ class SchoenEffectiveActionState:
     symbolic_slots: SymbolicEffectiveSlots
     prerequisite_graph: tuple[EffectivePrerequisite, ...]
     provenance: str
+    vacuum_requirements: VacuumInputRequirements | None = None
 
     def __post_init__(self) -> None:
         if self.visible_carrier.spectrum.standard_model != self.observable_spectrum:
             raise ValueError("effective action spectrum must reuse the published visible spectrum")
         if not self.provenance.strip():
             raise ValueError("effective-action states require provenance")
+        if self.vacuum_requirements is None:
+            object.__setattr__(self, "vacuum_requirements", schoen_vacuum_input_requirements())
         names = {node.name for node in self.prerequisite_graph}
         if len(names) != len(self.prerequisite_graph):
             raise ValueError("effective prerequisite names must be unique")
@@ -319,6 +326,7 @@ def schoen_effective_action(
         _effective_slots(),
         _prerequisites(),
         "published Schoen carrier plus established heterotic law boundary",
+        schoen_vacuum_input_requirements(),
     )
 
 

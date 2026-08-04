@@ -51,6 +51,10 @@ from onetheory.models.heterotic_schoen.instantons import (
     conic_pfaffian_input_status,
 )
 from onetheory.models.heterotic_schoen.metrics import METRIC_MISSING_CHAIN, metric_input_status
+from onetheory.models.heterotic_schoen.vacuum import (
+    SCHOEN_VACUUM_MISSING_CHAIN,
+    schoen_vacuum_boundary,
+)
 from onetheory.models.heterotic_schoen.visible import (
     MixedMaurerCartanBranch,
     ObservableAdmissibility,
@@ -367,6 +371,7 @@ UNRESOLVED_REALITY_CHAINS = {
     "hidden bundle": HIDDEN_BUNDLE_MISSING_CHAIN,
     "hidden spectrum": (*HIDDEN_BUNDLE_MISSING_CHAIN, "certified descended hidden bundle"),
     "metric package": METRIC_MISSING_CHAIN,
+    "vacuum": SCHOEN_VACUUM_MISSING_CHAIN,
 }
 
 
@@ -407,6 +412,12 @@ def assemble_schoen_effective_action() -> SchoenEffectiveActionState:
     """Compose the direct Schoen effective-action boundary from one carrier state."""
 
     return schoen_effective_action()
+
+
+def schoen_vacuum_status() -> object:
+    """Expose source scopes and missing carrier inputs without claiming a vacuum."""
+
+    return schoen_vacuum_boundary()
 
 
 def request_normalized_four_dimensional_effective_action() -> NoReturn:
@@ -525,7 +536,7 @@ def request_hidden_spectrum() -> NoReturn:
 def request_vacuum() -> NoReturn:
     """Reject vacuum requests before a controlled stabilization exists."""
 
-    _missing_output("vacuum", ("carrier superpotential", "stabilized moduli", "controlled vacuum"))
+    _missing_output("controlled Schoen vacuum", SCHOEN_VACUUM_MISSING_CHAIN)
 
 
 def request_low_energy_predictions() -> NoReturn:

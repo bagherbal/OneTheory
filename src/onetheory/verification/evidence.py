@@ -35,6 +35,8 @@ class EvidenceClass(StrEnum):
     MISSING_INPUT = "missing_input"
     KILLED = "killed"
     PARAMETERIZED_LAW = "parameterized_law"
+    SOURCE_CLASSIFICATION = "source_classification"
+    VACUUM_CONTROL = "vacuum_control"
 
 
 @dataclass(frozen=True, slots=True)
@@ -47,8 +49,10 @@ class Provenance:
     artifact_digest: str
 
     def __post_init__(self) -> None:
-        if any(not value.strip() for value in
-               (self.identifier, self.citation, self.locator, self.artifact_digest)):
+        if any(
+            not value.strip()
+            for value in (self.identifier, self.citation, self.locator, self.artifact_digest)
+        ):
             raise ValueError("provenance records require complete traceability")
 
 

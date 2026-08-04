@@ -50,6 +50,7 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "models/heterotic_schoen/hidden.py",
     "models/heterotic_schoen/metrics.py",
     "models/heterotic_schoen/effective.py",
+    "models/heterotic_schoen/vacuum.py",
     "engine/graph.py",
     "engine/solve.py",
     "engine/state.py",

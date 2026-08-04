@@ -21,6 +21,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import StrEnum
+from typing import Protocol
+
+
+class _SourceResult(Protocol):
+    name: str
+    status: str
 
 
 class GateState(StrEnum):
@@ -104,4 +110,70 @@ def parameterized_law_gate(
         "Law structure is established; physical parameter values remain unresolved.",
         scope,
         unresolved_parameters,
+    )
+
+
+def source_classification_gate(results: tuple[_SourceResult, ...]) -> GateResult:
+    """Inspect scoped source results without widening any retained hypothesis."""
+
+    if not results:
+        return gate_missing_input(
+            "source.classification",
+            "No source classification was supplied.",
+            "nonperturbative source architecture",
+            ("explicit source charges",),
+        )
+    unresolved = tuple(result.name for result in results if result.status == "UNRESOLVED")
+    if unresolved:
+        return gate_unresolved(
+            "source.classification",
+            "At least one scoped source result remains unresolved.",
+            "declared source-classification scopes",
+            unresolved,
+        )
+    return gate_passed(
+        "source.classification",
+        "All supplied source scopes have explicit conclusions.",
+        "declared source-classification scopes",
+    )
+
+
+def vacuum_control_gate(status: object, prerequisites: tuple[str, ...]) -> GateResult:
+    """Convert a control-ledger status into a fail-closed scientific gate."""
+
+    value = getattr(status, "value", status)
+    if value == "CONTROLLED":
+        return gate_passed(
+            "vacuum.control",
+            "All declared control criteria pass.",
+            "vacuum approximation hierarchy",
+        )
+    if value == "NUMERICAL_FAILURE":
+        return GateResult(
+            "vacuum.control",
+            GateState.FAIL,
+            "Numerical control certification failed.",
+            "vacuum approximation hierarchy",
+            prerequisites,
+        )
+    if value == "UNCONTROLLED":
+        return GateResult(
+            "vacuum.control",
+            GateState.FAIL,
+            "The candidate is not parametrically controlled.",
+            "vacuum approximation hierarchy",
+            prerequisites,
+        )
+    if value == "CONDITIONAL":
+        return gate_unresolved(
+            "vacuum.control",
+            "Control depends on explicit conditional assumptions.",
+            "vacuum approximation hierarchy",
+            prerequisites,
+        )
+    return gate_missing_input(
+        "vacuum.control",
+        "Control criteria are missing physical inputs.",
+        "vacuum approximation hierarchy",
+        prerequisites,
     )

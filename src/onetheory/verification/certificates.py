@@ -47,12 +47,14 @@ from onetheory.models.heterotic_schoen.metrics import (
     METRIC_MISSING_CHAIN,
     MetricInputStatus,
 )
+from onetheory.models.heterotic_schoen.vacuum import schoen_vacuum_boundary
 from onetheory.models.heterotic_schoen.visible import (
     MixedMaurerCartanBranch,
     ObservableAdmissibility,
     ObservableBundle,
     SplitWallDeformation,
 )
+from onetheory.physics.vacuum import ControlLedger, scoped_source_classifications
 from onetheory.reality import Established4DLaws
 from onetheory.verification.evidence import (
     EXACT_PROJECT,
@@ -503,4 +505,61 @@ def common_dga_input_gate(state: PhysicalState) -> GateResult:
         f"First missing input: {status['first_missing_input']}.",
         "carrier-specific common-DGA reconstruction",
         chain,
+    )
+
+
+def certify_source_classifications() -> tuple[ExactCertificate, ...]:
+    """Certify the maintained source exclusions from explicit scope records."""
+
+    certificates: list[ExactCertificate] = []
+    for result in scoped_source_classifications():
+        evidence_class = {
+            "KILLED": EvidenceClass.KILLED,
+            "CONDITIONAL": EvidenceClass.CONDITIONAL,
+        }.get(result.status, EvidenceClass.OPEN)
+        certificates.append(
+            exact_certificate(
+                f"source.{result.name}",
+                result.status,
+                result.status,
+                evidence_class=evidence_class,
+                statement=result.conclusion,
+                scope="explicit source-classification hypotheses",
+                prerequisites=result.hypotheses,
+            )
+        )
+    return tuple(certificates)
+
+
+def certify_schoen_vacuum_boundary() -> ExactCertificate:
+    """Certify that the carrier vacuum remains unavailable at its first missing input."""
+
+    boundary = schoen_vacuum_boundary()
+    missing = boundary.earliest_missing
+    return exact_certificate(
+        "schoen.vacuum.first_missing_input",
+        "complete Kähler potential",
+        missing,
+        evidence_class=EvidenceClass.MISSING_INPUT,
+        statement=(
+            "The Schoen vacuum is not reported before its complete carrier input chain exists."
+        ),
+        scope="one-Higgs heterotic Schoen vacuum boundary",
+        prerequisites=boundary.requirements.missing_chain,
+    )
+
+
+def certify_control_ledger(ledger: ControlLedger) -> ExactCertificate:
+    """Certify a control ledger without upgrading conditional or missing inputs."""
+
+    return exact_certificate(
+        "vacuum.control.ledger",
+        "CONTROLLED",
+        ledger.status.value,
+        evidence_class=EvidenceClass.VACUUM_CONTROL,
+        statement=(
+            "A vacuum control ledger passes only when every declared criterion is controlled."
+        ),
+        scope="generic vacuum approximation hierarchy",
+        prerequisites=tuple(criterion.name for criterion in ledger.criteria),
     )

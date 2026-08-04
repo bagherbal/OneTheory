@@ -79,5 +79,9 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert artifact["construction"]["selected_candidate"] is None
     assert artifact["promotion"]["production_import_allowed"] is False
     assert artifact["tier_a_chain_inputs"]["rank_four_frontier"]["candidate_count"] == 14
+    assert (
+        artifact["tier_a_chain_inputs"]["bounded_equivariant_extensions"]["candidate_count"]
+        == 14
+    )
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

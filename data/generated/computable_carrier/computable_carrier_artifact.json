@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "6cf998604fcd4bb2e71e1807ad1324d5175b14bbc67d2372de57d1dba91f3aa2",
+  "artifact_digest": "59b497b10bd76ed7d31508d91f4ca924258d6450cfa0213da32ec9740a5a1658",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -10664,6 +10664,421 @@
         ]
       }
     ],
+    "bounded_equivariant_extensions": {
+      "bound": 2,
+      "candidate_count": 14,
+      "candidates": [
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 0,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 1,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "P^3 != identity",
+            "PT != TP"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": true,
+              "transition_equations_verified": true,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": true,
+              "transition_equations_verified": true,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 2,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": true,
+              "transition_equations_verified": true,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 3,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 4,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 5,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 292,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 6,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "P^3 != identity",
+            "PT != TP"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": true,
+              "transition_equations_verified": true,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": true,
+              "transition_equations_verified": true,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 7,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 8,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": true,
+              "transition_equations_verified": true,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 9,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": true,
+              "transition_equations_verified": true,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 10,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 292,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": true,
+              "transition_equations_verified": true,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 11,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 290,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 12,
+          "status": "bounded affine lift search; completeness remains unproved"
+        },
+        {
+          "bound": 2,
+          "failed_group_relations": [
+            "generator lift unavailable"
+          ],
+          "group_relations_verified": false,
+          "lifts": [
+            {
+              "bound": 2,
+              "equation_count": 293,
+              "generator": "P",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            },
+            {
+              "bound": 2,
+              "equation_count": 287,
+              "generator": "T",
+              "solution_dimension": 11,
+              "solvable": false,
+              "transition_equations_verified": false,
+              "unknown_count": 120
+            }
+          ],
+          "representative_index": 13,
+          "status": "bounded affine lift search; completeness remains unproved"
+        }
+      ],
+      "status": "finite affine gauge search; completeness beyond the declared monomial window remains unproved"
+    },
     "bounded_hom_cech": {
       "basis_sizes": [
         [

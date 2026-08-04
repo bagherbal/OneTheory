@@ -24,6 +24,11 @@ research-only because the global horseshoe or mapping cone, deck linearization,
 stability chamber, spectrum, DGA, metric, instanton, and hidden consistency
 certificates are not yet present.
 
+The declared degree-two affine gauge window has also been audited for all 14
+representatives. Two admit local P/T transition lifts but fail exact group
+relations; the remaining candidates have at least one unsolved generator in
+that window. This is a scoped finite result, not a completeness claim.
+
 The external-algebra manifest records pinned reproduction commands separately.
 An unavailable external executable is a verification failure, not a reason to
 claim a completed carrier.

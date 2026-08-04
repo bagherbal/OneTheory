@@ -29,6 +29,7 @@ from .cech_sections import bounded_cech_sections
 from .constituents import tier_a_constituents
 from .downstream import downstream_frontier
 from .equivariance import tier_a_equivariance, tier_a_split_equivariance
+from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
 from .hom_cech import tier_a_hom_cech
 from .outer import split_rank_four_baseline
 from .rank_four import rank_four_frontier
@@ -50,6 +51,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     hom = tier_a_hom_cech()
     rank_four = rank_four_frontier(hom)
     downstream = downstream_frontier(rank_four)
+    bounded_equivariance = cached_tier_a_bounded_extension_equivariance(2)
     reference_artifact = root / "data/generated/visible_carrier/visible_carrier_artifact.json"
     return {
         "schema": {
@@ -131,6 +133,15 @@ def build_artifact(root: Path) -> dict[str, object]:
             "rank_four_baseline": split_rank_four_baseline().as_record(),
             "bounded_hom_cech": hom.as_record(),
             "rank_four_frontier": rank_four.as_record(),
+            "bounded_equivariant_extensions": {
+                "bound": 2,
+                "candidate_count": len(bounded_equivariance),
+                "candidates": [item.as_record() for item in bounded_equivariance],
+                "status": (
+                    "finite affine gauge search; completeness beyond the declared "
+                    "monomial window remains unproved"
+                ),
+            },
             "downstream_frontier": downstream.as_record(),
             "equivariance": tier_a_equivariance().as_record(),
             "split_equivariance": tier_a_split_equivariance().as_record(),

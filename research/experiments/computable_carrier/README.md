@@ -40,6 +40,11 @@ The local Serre pushout boundary is also explicit: the reduced I3 ideal uses
 Fitting generator. The I6 nilpotent direction fails that local freeness test.
 These local presentations still require global dP9 patching and linearization.
 
+The fixed dP9 Leray constraints are serialized separately with exact P1
+cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
+Their source equation labels and coboundary statuses remain inputs to the new
+construction, not proof that either global constituent has been rebuilt.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

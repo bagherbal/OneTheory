@@ -33,6 +33,7 @@ from .equivariance import tier_a_equivariance, tier_a_split_equivariance
 from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
 from .hom_cech import tier_a_hom_cech
 from .outer import split_rank_four_baseline
+from .pushdown import tier_a_pushdown_constraints
 from .rank_four import rank_four_frontier
 from .resolution_actions import tier_a_resolution_actions
 from .search import finite_tier_search
@@ -58,6 +59,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     resolution_actions = tier_a_resolution_actions()
     dual_cokernels = tier_a_dual_cokernels()
     local_serre_models = tier_a_local_serre_models()
+    pushdown_constraints = tier_a_pushdown_constraints()
     reference_artifact = root / "data/generated/visible_carrier/visible_carrier_artifact.json"
     return {
         "schema": {
@@ -139,6 +141,9 @@ def build_artifact(root: Path) -> dict[str, object]:
                     "linearization remain unresolved"
                 ),
             },
+            "pushdown_constraints": [
+                constraint.as_record() for constraint in pushdown_constraints
+            ],
             "bounded_cech_windows": [
                 {
                     "scheme": candidate.scheme.name,

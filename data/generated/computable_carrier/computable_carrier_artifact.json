@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "bc7336c594e5cd1e7f5eae29ee0226b72c5ada9bfe19280b555c26de01d68410",
+  "artifact_digest": "3a0cafab2acd6ce1a23beb8f1812e37dbd780c5538fe400f042d1088905c16f3",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -13974,6 +13974,201 @@
           ],
           "squared_zero": true
         }
+      }
+    ],
+    "pushdown_constraints": [
+      {
+        "character_multiplicities": [
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            [
+              [
+                [
+                  "1",
+                  "1"
+                ],
+                1
+              ]
+            ]
+          ],
+          [
+            2,
+            []
+          ]
+        ],
+        "coboundary_status": "isomorphism",
+        "cohomology_bases": [
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            [
+              "O:s^0t^0"
+            ]
+          ],
+          [
+            2,
+            []
+          ]
+        ],
+        "cohomology_dimensions": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "direct_terms": [
+          {
+            "character": [
+              "omega",
+              "1"
+            ],
+            "degree": -1,
+            "label": "chi1 O(-1)",
+            "point": null
+          }
+        ],
+        "higher_terms": [
+          {
+            "character": [
+              "1",
+              "1"
+            ],
+            "degree": 0,
+            "label": "O",
+            "point": null
+          }
+        ],
+        "name": "W1 pushdown constraint",
+        "source_equations": [
+          "hep-th/0602073 eq. (60)",
+          "hep-th/0602073 eq. (62)"
+        ],
+        "status": "source-backed pushdown constraint; global bundle pending"
+      },
+      {
+        "character_multiplicities": [
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            [
+              [
+                [
+                  "1",
+                  "-1-omega"
+                ],
+                2
+              ],
+              [
+                [
+                  "1",
+                  "omega"
+                ],
+                2
+              ]
+            ]
+          ],
+          [
+            2,
+            []
+          ]
+        ],
+        "coboundary_status": "zero",
+        "cohomology_bases": [
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            [
+              "chi2 O(-2):h1:0",
+              "chi2^2 O(1):s^0t^1",
+              "chi2^2 O(1):s^1t^0",
+              "chi2 O:s^0t^0"
+            ]
+          ],
+          [
+            2,
+            []
+          ]
+        ],
+        "cohomology_dimensions": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "direct_terms": [
+          {
+            "character": [
+              "1",
+              "-1-omega"
+            ],
+            "degree": -1,
+            "label": "chi2^2 O(-1)",
+            "point": null
+          },
+          {
+            "character": [
+              "1",
+              "omega"
+            ],
+            "degree": -2,
+            "label": "chi2 O(-2)",
+            "point": null
+          }
+        ],
+        "higher_terms": [
+          {
+            "character": [
+              "1",
+              "-1-omega"
+            ],
+            "degree": 1,
+            "label": "chi2^2 O(1)",
+            "point": null
+          },
+          {
+            "character": [
+              "1",
+              "omega"
+            ],
+            "degree": 0,
+            "label": "chi2 O",
+            "point": null
+          }
+        ],
+        "name": "W2 pushdown constraint",
+        "source_equations": [
+          "hep-th/0602073 eq. (63)"
+        ],
+        "status": "source-backed pushdown constraint; global bundle pending"
       }
     ],
     "rank_four_baseline": {

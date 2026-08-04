@@ -80,6 +80,12 @@ from onetheory.physics.gravity import (
     MetricField,
     MinimalCoupling,
 )
+from onetheory.physics.observables import (
+    PhysicalEvaluationContext,
+    PredictionRecord,
+    PredictionRegistry,
+    PredictionRole,
+)
 from onetheory.physics.quantum import Hamiltonian, HilbertSpace
 
 PHYSICAL_4D_MISSING_CHAIN = (
@@ -129,6 +135,58 @@ class OneTheoryCarrierState:
 
     laws: Established4DLaws
     carrier: PhysicalState
+
+
+@dataclass(frozen=True, slots=True)
+class ControlledVacuumState:
+    """A complete, stable effective action evaluated at one frozen vacuum."""
+
+    effective_action: SchoenEffectiveActionState
+    context: PhysicalEvaluationContext
+    stable: bool
+    provenance: tuple[str, ...]
+
+    def __post_init__(self) -> None:
+        if not self.effective_action.complete:
+            raise MissingPhysicalInput(
+                "controlled common vacuum",
+                self.effective_action.dependency_chain(),
+            )
+        if not self.stable or not self.provenance:
+            raise ValueError("controlled vacua require stability and provenance")
+
+
+@dataclass(frozen=True, slots=True)
+class LowEnergyPredictionState:
+    """A held-out prediction assembled only after the complete common state exists."""
+
+    laws: Established4DLaws
+    carrier: OneTheoryCarrierState
+    effective_action: SchoenEffectiveActionState
+    vacuum: ControlledVacuumState
+    registry: PredictionRegistry
+    prediction: PredictionRecord
+
+    def __post_init__(self) -> None:
+        if not self.registry.frozen or self.prediction not in self.registry.held_out():
+            raise ValueError("low-energy states require a frozen held-out prediction registry")
+        if self.prediction.role is not PredictionRole.HELD_OUT_PREDICTION:
+            raise ValueError("low-energy states require a held-out prediction")
+        self.prediction.context.assert_compatible(self.vacuum.context)
+
+
+LOW_ENERGY_PREDICTION_MISSING_CHAIN = (
+    "frozen prediction protocol",
+    "low-scale observable with uncertainty",
+    "renormalization-group evolution",
+    "threshold matching",
+    "canonically normalized interactions",
+    "one controlled common vacuum",
+    "complete K, W, f, and D data",
+    "carrier-derived holomorphic couplings",
+    "positive matter metrics",
+    "complete hidden and anomaly sectors",
+)
 
 
 def established_4d_laws() -> Established4DLaws:
@@ -542,7 +600,10 @@ def request_vacuum() -> NoReturn:
 def request_low_energy_predictions() -> NoReturn:
     """Reject low-energy predictions until all upstream physical inputs exist."""
 
-    _missing_output(
-        "low-energy predictions",
-        ("physical Yukawa matrices", "vacuum", "thresholds", "running"),
-    )
+    _missing_output("held-out low-energy prediction", LOW_ENERGY_PREDICTION_MISSING_CHAIN)
+
+
+def request_held_out_prediction() -> NoReturn:
+    """Reject a held-out request at the first unresolved closure prerequisite."""
+
+    request_low_energy_predictions()

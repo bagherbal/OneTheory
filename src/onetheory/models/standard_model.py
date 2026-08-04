@@ -21,8 +21,10 @@ Phase 0:
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
 from fractions import Fraction
+from math import atan2, sqrt
 
 from onetheory.math.numbers import Rational, coerce_rational
 from onetheory.physics.fields import FieldDomain, SymbolicCoefficient
@@ -44,6 +46,14 @@ from onetheory.physics.matter import (
     WeylField,
     YukawaTensor,
     generation_fields,
+)
+from onetheory.physics.observables import (
+    CanonicalTransformation,
+    ComplexMatrix,
+    HermitianMetric,
+    PhysicalEvaluationContext,
+    PhysicalMatrix,
+    PhysicalYukawa,
 )
 from onetheory.physics.spacetime import LorentzianSpacetime
 from onetheory.physics.strings import PublishedPhysicalInput
@@ -229,6 +239,158 @@ class StandardModel:
         return {item.multiplet: item.charges for item in self.electric_charges} == expected
 
 
+@dataclass(frozen=True, slots=True)
+class ElectroweakVacuum:
+    """A derived electroweak stationary point with explicit stability evidence."""
+
+    vev: float
+    potential_value: float
+    stable: bool
+    context: PhysicalEvaluationContext
+    provenance: tuple[str, ...]
+
+    def __post_init__(self) -> None:
+        if self.vev <= 0 or not self.provenance:
+            raise ValueError("electroweak vacua require a positive derived VEV and provenance")
+
+
+@dataclass(frozen=True, slots=True)
+class HiggsPotential:
+    """A one-field renormalizable Higgs potential with explicit coefficients."""
+
+    quadratic_coefficient: float
+    quartic_coefficient: float
+    context: PhysicalEvaluationContext
+    provenance: tuple[str, ...]
+
+    def __post_init__(self) -> None:
+        if self.quartic_coefficient <= 0 or not self.provenance:
+            raise ValueError("Higgs potentials require a positive quartic coefficient")
+
+
+def derive_electroweak_vacuum(potential: HiggsPotential) -> ElectroweakVacuum:
+    """Derive the stable electroweak stationary point from the Higgs potential."""
+
+    if potential.quadratic_coefficient >= 0:
+        raise ValueError("the supplied Higgs potential has no symmetry-breaking minimum")
+    vev = sqrt(-potential.quadratic_coefficient / potential.quartic_coefficient)
+    value = -(potential.quadratic_coefficient**2) / (4 * potential.quartic_coefficient)
+    return ElectroweakVacuum(
+        vev,
+        value,
+        True,
+        potential.context,
+        (*potential.provenance, "derived electroweak stationary point"),
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class GaugeBosonMassMatrix:
+    """Gauge-boson masses derived from explicit couplings and an electroweak VEV."""
+
+    charged_w_mass_squared: float
+    neutral_matrix: PhysicalMatrix
+    photon_mass_squared: float
+    z_mass_squared: float
+    weak_mixing_angle: float
+    electromagnetic_generator: tuple[tuple[str, Fraction], ...]
+    vacuum: ElectroweakVacuum
+
+
+@dataclass(frozen=True, slots=True)
+class FermionMassMatrix:
+    """A fermion mass matrix derived from a physical Yukawa and the VEV."""
+
+    matrix: PhysicalMatrix
+    yukawa: PhysicalYukawa
+    vacuum: ElectroweakVacuum
+
+
+@dataclass(frozen=True, slots=True)
+class ScalarMassSpectrum:
+    """Scalar masses extracted from a canonically normalized Hessian."""
+
+    masses_squared: tuple[float, ...]
+    canonical_hessian: PhysicalMatrix
+    vacuum: ElectroweakVacuum
+    goldstone_indices: tuple[int, ...]
+
+
+def gauge_boson_mass_matrix(
+    vacuum: ElectroweakVacuum, weak_coupling: float, hypercharge_coupling: float
+) -> GaugeBosonMassMatrix:
+    """Derive W and neutral gauge masses without measured-value defaults."""
+
+    if weak_coupling <= 0 or hypercharge_coupling <= 0:
+        raise ValueError("gauge couplings must be positive")
+    scale = vacuum.vev**2 / 4
+    neutral = PhysicalMatrix(
+        ComplexMatrix(
+            (
+                (weak_coupling**2 * scale, -weak_coupling * hypercharge_coupling * scale),
+                (-weak_coupling * hypercharge_coupling * scale, hypercharge_coupling**2 * scale),
+            )
+        ),
+        vacuum.context,
+        "(W3,B)",
+        (*vacuum.provenance, "electroweak gauge mass law"),
+    )
+    z_squared = (weak_coupling**2 + hypercharge_coupling**2) * scale
+    angle = atan2(hypercharge_coupling, weak_coupling)
+    return GaugeBosonMassMatrix(
+        weak_coupling**2 * scale,
+        neutral,
+        0.0,
+        z_squared,
+        angle,
+        (("T3", Fraction(1, 1)), ("Y", Fraction(1, 1))),
+        vacuum,
+    )
+
+
+def fermion_mass_matrix(yukawa: PhysicalYukawa, vacuum: ElectroweakVacuum) -> FermionMassMatrix:
+    """Derive a fermion mass matrix from an already normalized Yukawa."""
+
+    yukawa.matrix.context.assert_compatible(vacuum.context)
+    matrix = yukawa.matrix.matrix.scale(vacuum.vev / sqrt(2))
+    return FermionMassMatrix(
+        PhysicalMatrix(
+            matrix, vacuum.context, yukawa.matrix.basis, (*yukawa.matrix.provenance, "Higgs VEV")
+        ),
+        yukawa,
+        vacuum,
+    )
+
+
+def scalar_mass_spectrum(
+    hessian: PhysicalMatrix,
+    kinetic_metric: HermitianMetric,
+    vacuum: ElectroweakVacuum,
+    goldstone_indices: Iterable[int] = (),
+) -> ScalarMassSpectrum:
+    """Normalize a scalar Hessian before extracting physical masses."""
+
+    hessian.context.assert_compatible(kinetic_metric.context)
+    hessian.context.assert_compatible(vacuum.context)
+    transform = CanonicalTransformation.from_metric(kinetic_metric)
+    canonical = transform.matrix.conjugate_transpose() @ hessian.matrix @ transform.matrix
+    masses = tuple(canonical[index][index].real for index in range(canonical.row_count))
+    indices = tuple(goldstone_indices)
+    if any(index < 0 or index >= len(masses) for index in indices):
+        raise ValueError("Goldstone indices must lie within the scalar Hessian")
+    return ScalarMassSpectrum(
+        masses,
+        PhysicalMatrix(
+            canonical,
+            vacuum.context,
+            hessian.basis,
+            (*hessian.provenance, "canonical scalar Hessian"),
+        ),
+        vacuum,
+        indices,
+    )
+
+
 def standard_model_spectrum() -> Spectrum:
     """Return three matter generations and one Higgs pair as exact content."""
 
@@ -402,13 +564,18 @@ __all__ = [
     "B_MINUS_L",
     "COLOR",
     "DOWN_ANTIQUARK",
+    "ElectroweakVacuum",
     "ELECTRON_ANTILEPTON",
+    "FermionMassMatrix",
+    "GaugeBosonMassMatrix",
+    "HiggsPotential",
     "HIGGS_DOWN",
     "HIGGS_UP",
     "HYPERCHARGE",
     "LEPTON_DOUBLET",
     "NEUTRINO_ANTILEPTON",
     "Q",
+    "ScalarMassSpectrum",
     "STANDARD_MODEL_BL_GROUP",
     "STANDARD_MODEL_GAUGE_GROUP",
     "StandardModel",
@@ -416,4 +583,8 @@ __all__ = [
     "WEAK",
     "standard_model",
     "standard_model_spectrum",
+    "fermion_mass_matrix",
+    "gauge_boson_mass_matrix",
+    "scalar_mass_spectrum",
+    "derive_electroweak_vacuum",
 ]

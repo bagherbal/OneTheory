@@ -365,17 +365,46 @@ def generation_fields(multiplet: ParticleMultiplet) -> tuple[WeylField, ...]:
     )
 
 
+from onetheory.physics.observables import (  # noqa: E402
+    DiracNeutrinoMatrix,
+    HermitianMetric,
+    HolomorphicYukawa,
+    MajoranaMatrix,
+    PhysicalYukawa,
+    canonicalize_yukawa,
+    type_i_seesaw,
+)
+
+
+def construct_physical_yukawa(
+    holomorphic: HolomorphicYukawa,
+    left_metric: HermitianMetric,
+    right_metric: HermitianMetric,
+    higgs_metric: HermitianMetric,
+) -> PhysicalYukawa:
+    """Construct a physical Yukawa only from explicit positive metrics."""
+
+    return canonicalize_yukawa(holomorphic, left_metric, right_metric, higgs_metric)
+
+
 __all__ = [
     "Chirality",
+    "DiracNeutrinoMatrix",
     "DiracPairing",
     "InteractionTerm",
+    "HermitianMetric",
+    "HolomorphicYukawa",
     "MajoranaEligibility",
     "MajoranaMassOperator",
+    "MajoranaMatrix",
     "ParticleMultiplet",
+    "PhysicalYukawa",
     "ScalarMultiplet",
     "Spectrum",
     "SymbolicLinearMap",
     "WeylField",
     "YukawaTensor",
+    "construct_physical_yukawa",
     "generation_fields",
+    "type_i_seesaw",
 ]

@@ -46,6 +46,7 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "physics/strings.py",
     "physics/compactification.py",
     "physics/vacuum.py",
+    "physics/observables.py",
     "models/standard_model.py",
     "models/heterotic_schoen/geometry.py",
     "models/heterotic_schoen/visible.py",

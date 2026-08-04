@@ -39,6 +39,7 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "physics/matter.py",
     "physics/strings.py",
     "models/standard_model.py",
+    "models/heterotic_schoen/geometry.py",
 }
 
 

@@ -31,6 +31,8 @@ from onetheory.math.sheaves import LaurentMatrix, LaurentPolynomial
 from .constituents import SerreConstituentCandidate, tier_a_constituents
 
 HomBasis = tuple[int, int, tuple[int, ...]]
+Simplex = tuple[int, ...]
+SimplexBasisRecords = tuple[tuple[Simplex, tuple[HomBasis, ...]], ...]
 MatrixTransform = Callable[[LaurentMatrix], LaurentMatrix]
 
 
@@ -150,6 +152,7 @@ class BoundedHomCech:
     bound: int
     complex: CochainComplex
     bases: tuple[tuple[int, tuple[HomBasis, ...]], ...]
+    simplex_bases: tuple[tuple[int, SimplexBasisRecords], ...]
     status: str
 
     def __post_init__(self) -> None:
@@ -162,6 +165,11 @@ class BoundedHomCech:
         """Return the ordered matrix-monomial basis in one degree."""
 
         return dict(self.bases)[degree]
+
+    def basis_by_simplex(self, degree: int) -> SimplexBasisRecords:
+        """Return the ordered local basis grouped by its Čech simplex."""
+
+        return dict(self.simplex_bases)[degree]
 
     @property
     def h1_dimension(self) -> int:
@@ -183,6 +191,11 @@ class BoundedHomCech:
             "right_scheme": self.right.scheme.name,
             "bound": self.bound,
             "basis_sizes": [[degree, len(basis)] for degree, basis in self.bases],
+            "simplex_basis_sizes": [
+                [degree, list(simplex), len(basis)]
+                for degree, records in self.simplex_bases
+                for simplex, basis in records
+            ],
             "cohomology_dimensions": [
                 [degree, self.complex.cohomology_dimension(degree)]
                 for degree in self.complex.degrees
@@ -321,12 +334,17 @@ def bounded_hom_cech(
         (degree, tuple(basis for _, values in records for basis in values))
         for degree, records in sorted(ordered_bases.items())
     )
+    simplex_basis_records = tuple(
+        (degree, tuple(records))
+        for degree, records in sorted(ordered_bases.items())
+    )
     return BoundedHomCech(
         left,
         right,
         bound,
         complex_,
         basis_records,
+        simplex_basis_records,
         "bounded Hom Cech complex; full Ext and equivariance remain unproved",
     )
 

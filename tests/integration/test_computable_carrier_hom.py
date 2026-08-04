@@ -31,6 +31,11 @@ def test_bounded_hom_cech_builds_exact_cycles_and_boundaries() -> None:
     assert tuple(len(hom.basis(degree)) for degree in hom.complex.degrees) == (12, 48, 23)
     assert hom.h1_dimension == 14
     assert len(hom.h1_representatives) == 14
+    assert tuple(simplex for simplex, _ in hom.basis_by_simplex(1)) == (
+        (0, 1),
+        (0, 2),
+        (1, 2),
+    )
     assert all(
         hom.complex.differential(degree + 1).compose(
             hom.complex.differential(degree)

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "070201f856cd975344ea3845b7a8fc72b5f6a3f8b343e55d68c3a65d63e4e2fd",
+  "artifact_digest": "bb1437e08cecc019c57a225f591f7aea25b38dba2c0f308f298c5e4055902f31",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -10697,6 +10697,62 @@
       "h1_representative_count": 14,
       "left_scheme": "I3",
       "right_scheme": "I6",
+      "simplex_basis_sizes": [
+        [
+          0,
+          [
+            0
+          ],
+          4
+        ],
+        [
+          0,
+          [
+            1
+          ],
+          4
+        ],
+        [
+          0,
+          [
+            2
+          ],
+          4
+        ],
+        [
+          1,
+          [
+            0,
+            1
+          ],
+          16
+        ],
+        [
+          1,
+          [
+            0,
+            2
+          ],
+          16
+        ],
+        [
+          1,
+          [
+            1,
+            2
+          ],
+          16
+        ],
+        [
+          2,
+          [
+            0,
+            1,
+            2
+          ],
+          23
+        ]
+      ],
       "squared_zero": true,
       "status": "bounded Hom Cech complex; full Ext and equivariance remain unproved"
     },
@@ -11524,6 +11580,72 @@
         ]
       }
     ],
+    "downstream_frontier": {
+      "gates": [
+        {
+          "first_missing_prerequisite": "global polynomial horseshoe or mapping-cone certificate",
+          "name": "stability",
+          "prerequisite_chain": [
+            "global polynomial horseshoe or mapping-cone certificate",
+            "global locally free rank-four sheaf",
+            "equivariant descent and exact stability chamber"
+          ],
+          "promotable": false
+        },
+        {
+          "first_missing_prerequisite": "global equivariant sheaf cohomology representatives",
+          "name": "spectrum",
+          "prerequisite_chain": [
+            "global equivariant sheaf cohomology representatives",
+            "complete cohomology character decomposition",
+            "Wilson-line projection and exact spectrum certificate"
+          ],
+          "promotable": false
+        },
+        {
+          "first_missing_prerequisite": "common Cech-Koszul hypercohomology representatives",
+          "name": "common_dga",
+          "prerequisite_chain": [
+            "common Cech-Koszul hypercohomology representatives",
+            "deck action on every graded component",
+            "equivariant cyclic products and trace conventions"
+          ],
+          "promotable": false
+        },
+        {
+          "first_missing_prerequisite": "complete normalized matter and Higgs section bases",
+          "name": "metrics",
+          "prerequisite_chain": [
+            "complete normalized matter and Higgs section bases",
+            "Ricci-flat metric and HYM connection certificate",
+            "converged matter metric and canonical normalization"
+          ],
+          "promotable": false
+        },
+        {
+          "first_missing_prerequisite": "explicit bundle restrictions on certified rational curves",
+          "name": "instantons",
+          "prerequisite_chain": [
+            "explicit bundle restrictions on certified rational curves",
+            "Pfaffian determinant-line maps and Quillen normalization",
+            "controlled instanton amplitudes and phase conventions"
+          ],
+          "promotable": false
+        },
+        {
+          "first_missing_prerequisite": "selected visible carrier with certified Chern data",
+          "name": "hidden_consistency",
+          "prerequisite_chain": [
+            "selected visible carrier with certified Chern data",
+            "hidden bundle maps, descent, and stability",
+            "Bianchi identity, anomaly cancellation, and hidden spectrum"
+          ],
+          "promotable": false
+        }
+      ],
+      "promotable": false,
+      "status": "downstream calculations blocked by explicit prerequisites"
+    },
     "equivariance": {
       "checks": [
         {
@@ -11885,6 +12007,874 @@
           ]
         ]
       ]
+    },
+    "rank_four_frontier": {
+      "all_cocycles": true,
+      "all_locally_free_on_cover": true,
+      "candidate_count": 14,
+      "candidates": [
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 0,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 1,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 2,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 3,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 4,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 5,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 6,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 7,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 8,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 9,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 10,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 11,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 12,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        },
+        {
+          "bounded_nonboundary": true,
+          "cocycle": true,
+          "determinant_one": true,
+          "local_freeness_on_cover": true,
+          "pairwise_inverse": true,
+          "rank": 4,
+          "representative_index": 13,
+          "status": "bounded transition extension; global Ext and descent remain unresolved",
+          "transition_count": 6,
+          "transition_shapes": [
+            [
+              0,
+              1,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              0,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              0,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              1,
+              2,
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              2,
+              1,
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        }
+      ],
+      "h1_dimension": 14,
+      "mapping_cone": {
+        "constructed": false,
+        "status": "no polynomial horseshoe or mapping cone has been derived from the bounded Laurent representative"
+      },
+      "selected_candidate": null,
+      "status": "bounded rank-four transition frontier; no global carrier selected"
     },
     "split_equivariance": {
       "checks": [

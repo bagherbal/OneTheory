@@ -17,6 +17,13 @@ certified empty, and Tier C is locked until both earlier tiers have their own
 scoped no-go certificates. Every generated object carries a status and digest;
 an incomplete descriptor cannot be promoted into `src/onetheory`.
 
+The current exact frontier contains 14 bounded degree-one Hom representatives
+and corresponding rank-four transition candidates. Their ordered cocycle,
+inverse, determinant-one, and bounded non-boundary checks pass. They remain
+research-only because the global horseshoe or mapping cone, deck linearization,
+stability chamber, spectrum, DGA, metric, instanton, and hidden consistency
+certificates are not yet present.
+
 The external-algebra manifest records pinned reproduction commands separately.
 An unavailable external executable is a verification failure, not a reason to
 claim a completed carrier.

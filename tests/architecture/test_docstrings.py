@@ -38,6 +38,12 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "models/heterotic_schoen/visible.py",
     "models/heterotic_schoen/flavor.py",
     "models/heterotic_schoen/consistency.py",
+    "engine/graph.py",
+    "engine/solve.py",
+    "engine/state.py",
+    "reality.py",
+    "verification/evidence.py",
+    "verification/certificates.py",
 }
 
 

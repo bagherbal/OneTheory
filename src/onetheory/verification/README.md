@@ -6,7 +6,7 @@ Verification is the scientific firewall around production calculations. It inspe
 
 ## Belongs here
 
-`evidence.py` will classify provenance and evidence. `certificates.py` will record deterministic mathematical and numerical certificates. `gates.py` will represent accepted, failed, unresolved, and killed conditions. `audit.py` will inspect consistency, reproducibility, source, dependencies, and artifacts.
+`evidence.py` classifies provenance and evidence. `certificates.py` records deterministic exact certificates for the established carrier state. `gates.py` will represent accepted, failed, unresolved, and killed conditions. `audit.py` will inspect consistency, reproducibility, source, dependencies, and artifacts.
 
 ## Does not belong here
 

@@ -8,7 +8,7 @@ Production code lives under `src/onetheory` and may be consumed by `research`; p
 
 Simulation consumes the same physical laws and immutable state objects as scientific computation. It will eventually emit structured trajectories for external animation consumers, without introducing a second simplified physics implementation or rendering dependency.
 
-The current phase creates architecture only. No scientific calculation, promoted physical object, CLI, or placeholder API is included.
+The first executable reality slice now assembles the published one-Higgs heterotic Schoen carrier, its exact geometry, visible spectrum, holomorphic tree-level flavor structure, and topological checks. Metrics, instantons, hidden-bundle existence, vacuum stabilization, canonical normalization, physical Yukawas, and low-energy predictions remain explicit missing inputs.
 
 ## Dependency direction
 

@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This package is the executable scientific engine’s architectural root. Its modules will represent mathematical objects, physical laws, concrete carrier data, dependency evaluation, simulation state, and verification boundaries.
+This package is the executable scientific engine’s root. Its modules represent mathematical objects, physical laws, concrete carrier data, dependency evaluation, immutable state, and external verification boundaries.
 
 ## Belongs here
 
-The sole composition root is `reality.py`; the remaining modules belong to `core`, `math`, `physics`, `models`, `engine`, or `verification`. Package initializers remain intentionally quiet and do not re-export future symbols.
+The sole composition root is `reality.py`; it assembles only the established one-Higgs heterotic Schoen carrier slice. Package initializers remain intentionally quiet and do not re-export future symbols.
 
 ## Does not belong here
 

@@ -6,7 +6,7 @@ Engine contains generic execution machinery for direct physical dependencies and
 
 ## Belongs here
 
-`graph.py` will record direct dependencies and unresolved prerequisite chains. `state.py` will define immutable physical and simulation state. `solve.py` will evaluate exact and controlled numerical nodes. `simulate.py` will evolve valid states into structured trajectories for external animation consumers.
+`graph.py` records direct dependencies and unresolved prerequisite chains. `state.py` defines immutable physical and simulation state entries with explicit open outputs. `solve.py` evaluates exact graph nodes without fallback values. `simulate.py` will evolve valid states into structured trajectories for external animation consumers.
 
 ## Does not belong here
 
@@ -14,7 +14,7 @@ Model adapters, speculative bridges, fabricated missing nodes, rendering depende
 
 ## Dependencies
 
-Engine may depend on core, math, physics, and its own generic machinery. It must not import models, reality, verification, research, or observations.
+Engine may depend on core, math, physics, and its own generic machinery. It must not import models, reality, verification, research, or observations. The established carrier is injected by the composition root through direct graph evaluators.
 
 ## Promotion condition
 

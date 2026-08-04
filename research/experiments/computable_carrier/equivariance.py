@@ -56,6 +56,7 @@ class EquivarianceReport:
 
     checks: tuple[GeneratorEquivarianceCheck, ...]
     group_relations_verified: bool
+    failed_group_relations: tuple[str, ...]
     status: str
 
     @property
@@ -80,6 +81,7 @@ class EquivarianceReport:
                 for check in self.checks
             ],
             "group_relations_verified": self.group_relations_verified,
+            "failed_group_relations": list(self.failed_group_relations),
             "honest": self.honest,
             "status": self.status,
         }
@@ -173,6 +175,60 @@ def _check_split_generator(
     return GeneratorEquivarianceCheck(name, permutation, failed, True)
 
 
+def _split_group_relation_failures(
+    candidate: SerreConstituentCandidate,
+    p_images: tuple[tuple[object, tuple[int, ...]], ...],
+    t_images: tuple[tuple[object, tuple[int, ...]], ...],
+) -> tuple[str, ...]:
+    """Check exact P, T, and projective-commutator lift relations."""
+
+    p_permutation = (1, 2, 0)
+    t_permutation = (0, 1, 2)
+    p_lifts = tuple(
+        _derived_gauge_lift(candidate, chart, p_images, p_permutation)
+        for chart in range(3)
+    )
+    t_lifts = tuple(
+        _derived_gauge_lift(candidate, chart, t_images, t_permutation)
+        for chart in range(3)
+    )
+    failures: list[str] = []
+    p_power = p_lifts
+    t_power = t_lifts
+    for _ in range(2):
+        p_power = tuple(
+            _substitute_matrix(p_power[chart], p_images).compose(
+                p_lifts[p_permutation[chart]]
+            )
+            for chart in range(3)
+        )
+        t_power = tuple(
+            _substitute_matrix(t_power[chart], t_images).compose(
+                t_lifts[t_permutation[chart]]
+            )
+            for chart in range(3)
+        )
+    if not all(matrix.is_identity() for matrix in p_power):
+        failures.append("P^3 != identity")
+    if not all(matrix.is_identity() for matrix in t_power):
+        failures.append("T^3 != identity")
+    p_then_t = tuple(
+        _substitute_matrix(p_lifts[chart], t_images).compose(
+            t_lifts[p_permutation[chart]]
+        )
+        for chart in range(3)
+    )
+    t_then_p = tuple(
+        _substitute_matrix(t_lifts[chart], p_images).compose(
+            p_lifts[t_permutation[chart]]
+        )
+        for chart in range(3)
+    )
+    if p_then_t != t_then_p:
+        failures.append("PT != TP")
+    return tuple(failures)
+
+
 def _check_generator(
     candidate: SerreConstituentCandidate,
     name: str,
@@ -209,6 +265,7 @@ def tier_a_equivariance() -> EquivarianceReport:
     return EquivarianceReport(
         checks,
         True,
+        (),
         "coordinate equivariance checked; no honest gauge lifts constructed",
     )
 
@@ -227,10 +284,16 @@ def tier_a_split_equivariance() -> EquivarianceReport:
             _check_split_generator(candidate, f"{candidate.scheme.name}:T", t_images, (0, 1, 2)),
         )
     )
+    failures = tuple(
+        f"{candidate.scheme.name}:{relation}"
+        for candidate in candidates
+        for relation in _split_group_relation_failures(candidate, p_images, t_images)
+    )
     return EquivarianceReport(
         checks,
-        False,
-        "split-derived gauge lifts checked; group-level linearization remains unproved",
+        not failures,
+        failures,
+        "split-derived gauge lifts checked; exact group relations remain unresolved",
     )
 
 

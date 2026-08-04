@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "bb1437e08cecc019c57a225f591f7aea25b38dba2c0f308f298c5e4055902f31",
+  "artifact_digest": "6cf998604fcd4bb2e71e1807ad1324d5175b14bbc67d2372de57d1dba91f3aa2",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -11797,6 +11797,7 @@
           "name": "I6:T"
         }
       ],
+      "failed_group_relations": [],
       "group_relations_verified": true,
       "honest": false,
       "status": "coordinate equivariance checked; no honest gauge lifts constructed"
@@ -12927,9 +12928,14 @@
           "name": "I6:T"
         }
       ],
+      "failed_group_relations": [
+        "I3:P^3 != identity",
+        "I3:PT != TP",
+        "I6:P^3 != identity"
+      ],
       "group_relations_verified": false,
       "honest": false,
-      "status": "split-derived gauge lifts checked; group-level linearization remains unproved"
+      "status": "split-derived gauge lifts checked; exact group relations remain unresolved"
     },
     "status": "exact complexes and local candidate transitions available; Serre gate pending"
   }

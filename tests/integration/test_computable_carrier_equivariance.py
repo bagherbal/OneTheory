@@ -45,5 +45,10 @@ def test_split_derived_lifts_pass_transitions_but_not_group_gate() -> None:
 
     assert not report.group_relations_verified
     assert not report.honest
+    assert report.failed_group_relations == (
+        "I3:P^3 != identity",
+        "I3:PT != TP",
+        "I6:P^3 != identity",
+    )
     assert all(check.invariant for check in report.checks)
     assert all(check.gauge_lift_constructed for check in report.checks)

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "f26da79da7d4d4d0600008c9e3c79b8fe08892d7ed9a252a6508a91e307ae6f8",
+  "artifact_digest": "fcd52f15577fbcfca8abead71e289fcd41a1f81fd132c913ebca198e2afb21be",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -10570,6 +10570,1388 @@
     "wilson_line_route": "Spin(10) -> SU(3) x SU(2) x U(1) x U(1)"
   },
   "tier_a_chain_inputs": {
+    "atlas_ideal_resolutions": [
+      {
+        "all_chain_comparisons": true,
+        "chart_matrices": [
+          {
+            "chart": "U_0_mu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "chart": "U_0_nu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "chart": "U_1_mu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "chart": "U_1_nu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "chart": "U_2_mu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "chart": "U_2_nu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          }
+        ],
+        "generator_degree": 2,
+        "local_resolution_shapes": [
+          [
+            "U_0_mu",
+            [
+              3,
+              2
+            ]
+          ],
+          [
+            "U_0_nu",
+            [
+              3,
+              2
+            ]
+          ],
+          [
+            "U_1_mu",
+            [
+              3,
+              2
+            ]
+          ],
+          [
+            "U_1_nu",
+            [
+              3,
+              2
+            ]
+          ],
+          [
+            "U_2_mu",
+            [
+              3,
+              2
+            ]
+          ],
+          [
+            "U_2_nu",
+            [
+              3,
+              2
+            ]
+          ]
+        ],
+        "overlap_comparisons": [
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_0_mu",
+            "source_base_pivot": 0,
+            "target": "U_0_nu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_0_mu",
+            "source_base_pivot": 0,
+            "target": "U_1_mu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_0_mu",
+            "source_base_pivot": 0,
+            "target": "U_1_nu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_0_mu",
+            "source_base_pivot": 0,
+            "target": "U_2_mu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_0_mu",
+            "source_base_pivot": 0,
+            "target": "U_2_nu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_0_nu",
+            "source_base_pivot": 0,
+            "target": "U_0_mu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_0_nu",
+            "source_base_pivot": 0,
+            "target": "U_1_mu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_0_nu",
+            "source_base_pivot": 0,
+            "target": "U_1_nu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_0_nu",
+            "source_base_pivot": 0,
+            "target": "U_2_mu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_0_nu",
+            "source_base_pivot": 0,
+            "target": "U_2_nu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_1_mu",
+            "source_base_pivot": 1,
+            "target": "U_0_mu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_1_mu",
+            "source_base_pivot": 1,
+            "target": "U_0_nu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_1_mu",
+            "source_base_pivot": 1,
+            "target": "U_1_nu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_1_mu",
+            "source_base_pivot": 1,
+            "target": "U_2_mu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_1_mu",
+            "source_base_pivot": 1,
+            "target": "U_2_nu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_1_nu",
+            "source_base_pivot": 1,
+            "target": "U_0_mu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_1_nu",
+            "source_base_pivot": 1,
+            "target": "U_0_nu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_1_nu",
+            "source_base_pivot": 1,
+            "target": "U_1_mu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_1_nu",
+            "source_base_pivot": 1,
+            "target": "U_2_mu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_1_nu",
+            "source_base_pivot": 1,
+            "target": "U_2_nu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_2_mu",
+            "source_base_pivot": 2,
+            "target": "U_0_mu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_2_mu",
+            "source_base_pivot": 2,
+            "target": "U_0_nu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_2_mu",
+            "source_base_pivot": 2,
+            "target": "U_1_mu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_2_mu",
+            "source_base_pivot": 2,
+            "target": "U_1_nu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_2_mu",
+            "source_base_pivot": 2,
+            "target": "U_2_nu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_2_nu",
+            "source_base_pivot": 2,
+            "target": "U_0_mu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_2_nu",
+            "source_base_pivot": 2,
+            "target": "U_0_nu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_2_nu",
+            "source_base_pivot": 2,
+            "target": "U_1_mu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_2_nu",
+            "source_base_pivot": 2,
+            "target": "U_1_nu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 2,
+            "source": "U_2_nu",
+            "source_base_pivot": 2,
+            "target": "U_2_mu",
+            "target_base_pivot": 2
+          }
+        ],
+        "scheme": "I3",
+        "status": "exact pulled-back ideal resolution; Serre extension map pending"
+      },
+      {
+        "all_chain_comparisons": true,
+        "chart_matrices": [
+          {
+            "chart": "U_0_mu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [],
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "chart": "U_0_nu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [],
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "chart": "U_1_mu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [],
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "chart": "U_1_nu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [],
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "chart": "U_2_mu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [],
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "chart": "U_2_nu",
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ],
+              [
+                [],
+                [],
+                [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ]
+          }
+        ],
+        "generator_degree": 3,
+        "local_resolution_shapes": [
+          [
+            "U_0_mu",
+            [
+              4,
+              3
+            ]
+          ],
+          [
+            "U_0_nu",
+            [
+              4,
+              3
+            ]
+          ],
+          [
+            "U_1_mu",
+            [
+              4,
+              3
+            ]
+          ],
+          [
+            "U_1_nu",
+            [
+              4,
+              3
+            ]
+          ],
+          [
+            "U_2_mu",
+            [
+              4,
+              3
+            ]
+          ],
+          [
+            "U_2_nu",
+            [
+              4,
+              3
+            ]
+          ]
+        ],
+        "overlap_comparisons": [
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_0_mu",
+            "source_base_pivot": 0,
+            "target": "U_0_nu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_0_mu",
+            "source_base_pivot": 0,
+            "target": "U_1_mu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_0_mu",
+            "source_base_pivot": 0,
+            "target": "U_1_nu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_0_mu",
+            "source_base_pivot": 0,
+            "target": "U_2_mu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_0_mu",
+            "source_base_pivot": 0,
+            "target": "U_2_nu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_0_nu",
+            "source_base_pivot": 0,
+            "target": "U_0_mu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_0_nu",
+            "source_base_pivot": 0,
+            "target": "U_1_mu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_0_nu",
+            "source_base_pivot": 0,
+            "target": "U_1_nu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_0_nu",
+            "source_base_pivot": 0,
+            "target": "U_2_mu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_0_nu",
+            "source_base_pivot": 0,
+            "target": "U_2_nu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_1_mu",
+            "source_base_pivot": 1,
+            "target": "U_0_mu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_1_mu",
+            "source_base_pivot": 1,
+            "target": "U_0_nu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_1_mu",
+            "source_base_pivot": 1,
+            "target": "U_1_nu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_1_mu",
+            "source_base_pivot": 1,
+            "target": "U_2_mu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_1_mu",
+            "source_base_pivot": 1,
+            "target": "U_2_nu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_1_nu",
+            "source_base_pivot": 1,
+            "target": "U_0_mu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_1_nu",
+            "source_base_pivot": 1,
+            "target": "U_0_nu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_1_nu",
+            "source_base_pivot": 1,
+            "target": "U_1_mu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_1_nu",
+            "source_base_pivot": 1,
+            "target": "U_2_mu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_1_nu",
+            "source_base_pivot": 1,
+            "target": "U_2_nu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_2_mu",
+            "source_base_pivot": 2,
+            "target": "U_0_mu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_2_mu",
+            "source_base_pivot": 2,
+            "target": "U_0_nu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_2_mu",
+            "source_base_pivot": 2,
+            "target": "U_1_mu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_2_mu",
+            "source_base_pivot": 2,
+            "target": "U_1_nu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_2_mu",
+            "source_base_pivot": 2,
+            "target": "U_2_nu",
+            "target_base_pivot": 2
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_2_nu",
+            "source_base_pivot": 2,
+            "target": "U_0_mu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_2_nu",
+            "source_base_pivot": 2,
+            "target": "U_0_nu",
+            "target_base_pivot": 0
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_2_nu",
+            "source_base_pivot": 2,
+            "target": "U_1_mu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_2_nu",
+            "source_base_pivot": 2,
+            "target": "U_1_nu",
+            "target_base_pivot": 1
+          },
+          {
+            "chain_comparison": true,
+            "generator_degree": 3,
+            "source": "U_2_nu",
+            "source_base_pivot": 2,
+            "target": "U_2_mu",
+            "target_base_pivot": 2
+          }
+        ],
+        "scheme": "I6",
+        "status": "exact pulled-back ideal resolution; Serre extension map pending"
+      }
+    ],
     "atlas_serre_locals": [
       {
         "chart": "U_0_mu",

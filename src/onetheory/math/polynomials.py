@@ -1,16 +1,621 @@
-"""Exact polynomial and elimination machinery.
+"""Immutable exact sparse polynomial algebra over declared scalar fields.
 
 Owns:
-    Polynomial arithmetic, ideals, minors, elimination utilities, and Hilbert–Burch
-    style algebraic operations over declared coefficient systems.
+    Monomial normalization, sparse polynomial arithmetic and substitution,
+    polynomial-matrix determinants and maximal minors, and exact univariate
+    division, derivatives, and monic greatest common divisors.
 
 Depends on:
-    Core policy and reusable exact mathematics, including numbers and linear algebra.
+    `onetheory.math.numbers` for exact Rational and Eisenstein scalar coercion and
+    arithmetic. The algorithms are shared across both supported coefficient fields.
 
 Must not:
-    Treat witness polynomials as physical observables, smuggle in carrier assumptions,
-    or use fitted coefficients as derived algebraic input.
+    Implement ideals, Groebner bases, geometry, carrier objects, physical claims,
+    approximate roots, numerical algorithms, or interpretations of algebraic data.
 
 Phase 0:
-    Structural module only; no scientific implementation is provided yet.
+    The reusable exact polynomial foundation is implemented; higher symbolic and
+    physical domains remain structural only.
 """
+
+from __future__ import annotations
+
+from collections.abc import Iterable, Iterator, Mapping, Sequence
+from dataclasses import dataclass
+from itertools import combinations
+from typing import Any, cast
+
+from onetheory.math.numbers import Eisenstein, Rational, coerce_rational
+
+Scalar = Rational | Eisenstein
+type ScalarType = type[Rational] | type[Eisenstein]
+type Monomial = tuple[int, ...]
+
+
+def _scalar_type_for_values(values: Iterable[object]) -> ScalarType:
+    return Eisenstein if any(isinstance(value, Eisenstein) for value in values) else Rational
+
+
+def _coerce(value: object, scalar_type: ScalarType) -> Scalar:
+    if scalar_type is Rational:
+        return coerce_rational(value)
+    if scalar_type is Eisenstein:
+        return Eisenstein.coerce(value)
+    raise TypeError("scalar_type must be Rational or Eisenstein")
+
+
+def _zero(scalar_type: ScalarType) -> Scalar:
+    return _coerce(0, scalar_type)
+
+
+def _one(scalar_type: ScalarType) -> Scalar:
+    return _coerce(1, scalar_type)
+
+
+def _add(left: Scalar, right: Scalar) -> Scalar:
+    return cast(Scalar, cast(Any, left) + right)
+
+
+def _subtract(left: Scalar, right: Scalar) -> Scalar:
+    return cast(Scalar, cast(Any, left) - right)
+
+
+def _multiply(left: Scalar, right: Scalar) -> Scalar:
+    return cast(Scalar, cast(Any, left) * right)
+
+
+def _negate(value: Scalar) -> Scalar:
+    return cast(Scalar, -cast(Any, value))
+
+
+def _divide(left: Scalar, right: Scalar) -> Scalar:
+    return cast(Scalar, cast(Any, left) / right)
+
+
+def _is_zero(value: Scalar) -> bool:
+    return value.is_zero()
+
+
+def _validate_variable_count(value: int) -> int:
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise ValueError("variable_count must be a nonnegative integer")
+    return value
+
+
+def _validate_monomial(exponents: Iterable[int], variable_count: int) -> Monomial:
+    monomial = tuple(exponents)
+    if len(monomial) != variable_count:
+        raise ValueError("monomial dimension does not match variable_count")
+    if any(isinstance(exponent, bool) or not isinstance(exponent, int) for exponent in monomial):
+        raise TypeError("monomial exponents must be integers")
+    if any(exponent < 0 for exponent in monomial):
+        raise ValueError("monomial exponents must be nonnegative")
+    return monomial
+
+
+def _require_compatible(left: Polynomial, right: Polynomial) -> None:
+    if left.variable_count != right.variable_count:
+        raise ValueError("polynomial variable counts do not agree")
+    if left.scalar_type is not right.scalar_type:
+        raise TypeError("polynomials must use the same exact scalar type")
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class Polynomial:
+    """An immutable normalized sparse polynomial over one exact scalar field."""
+
+    _terms: tuple[tuple[Monomial, Scalar], ...]
+    _variable_count: int
+    _scalar_type: ScalarType
+
+    def __init__(
+        self,
+        terms: Mapping[Monomial, object] | Iterable[tuple[Iterable[int], object]] = (),
+        *,
+        variable_count: int | None = None,
+        scalar_type: ScalarType | None = None,
+    ) -> None:
+        raw_input = tuple(terms.items()) if isinstance(terms, Mapping) else tuple(terms)
+        raw_terms = tuple(
+            (tuple(exponents), coefficient) for exponents, coefficient in raw_input
+        )
+        if variable_count is None:
+            inferred_count = len(raw_terms[0][0]) if raw_terms else 0
+        else:
+            inferred_count = _validate_variable_count(variable_count)
+        resolved = (
+            _scalar_type_for_values(coefficient for _, coefficient in raw_terms)
+            if scalar_type is None
+            else scalar_type
+        )
+        combined: dict[Monomial, Scalar] = {}
+        for raw_exponents, raw_coefficient in raw_terms:
+            exponents = _validate_monomial(raw_exponents, inferred_count)
+            coefficient = _coerce(raw_coefficient, resolved)
+            combined[exponents] = _add(combined.get(exponents, _zero(resolved)), coefficient)
+        normalized = tuple(
+            sorted(
+                (
+                    (exponents, coefficient)
+                    for exponents, coefficient in combined.items()
+                    if not _is_zero(coefficient)
+                ),
+                key=lambda item: item[0],
+                reverse=True,
+            )
+        )
+        object.__setattr__(self, "_terms", normalized)
+        object.__setattr__(self, "_variable_count", inferred_count)
+        object.__setattr__(self, "_scalar_type", resolved)
+
+    @classmethod
+    def zero(
+        cls,
+        variable_count: int = 0,
+        *,
+        scalar_type: ScalarType = Rational,
+    ) -> Polynomial:
+        """Construct the normalized zero polynomial in the requested ring."""
+
+        return cls((), variable_count=variable_count, scalar_type=scalar_type)
+
+    @classmethod
+    def one(
+        cls,
+        variable_count: int = 0,
+        *,
+        scalar_type: ScalarType = Rational,
+    ) -> Polynomial:
+        """Construct the multiplicative identity in the requested ring."""
+
+        return cls.monomial(
+            (0,) * _validate_variable_count(variable_count),
+            1,
+            scalar_type=scalar_type,
+        )
+
+    @classmethod
+    def constant(
+        cls,
+        value: object,
+        variable_count: int = 0,
+        *,
+        scalar_type: ScalarType | None = None,
+    ) -> Polynomial:
+        """Construct an exact constant polynomial."""
+
+        count = _validate_variable_count(variable_count)
+        return cls(
+            (((0,) * count, value),),
+            variable_count=count,
+            scalar_type=scalar_type,
+        )
+
+    @classmethod
+    def monomial(
+        cls,
+        exponents: Iterable[int],
+        coefficient: object = 1,
+        *,
+        scalar_type: ScalarType | None = None,
+    ) -> Polynomial:
+        """Construct one normalized monomial with exact coefficient."""
+
+        normalized_exponents = tuple(exponents)
+        return cls(
+            ((normalized_exponents, coefficient),),
+            variable_count=len(normalized_exponents),
+            scalar_type=scalar_type,
+        )
+
+    @classmethod
+    def from_coefficients(
+        cls,
+        coefficients: Sequence[object],
+        *,
+        scalar_type: ScalarType | None = None,
+    ) -> Polynomial:
+        """Construct a univariate polynomial from ascending coefficients."""
+
+        return cls(
+            (((degree,), coefficient) for degree, coefficient in enumerate(coefficients)),
+            variable_count=1,
+            scalar_type=scalar_type,
+        )
+
+    @property
+    def terms(self) -> tuple[tuple[Monomial, Scalar], ...]:
+        """Return normalized nonzero terms in deterministic order."""
+
+        return self._terms
+
+    @property
+    def variable_count(self) -> int:
+        """Return the number of commuting variables."""
+
+        return self._variable_count
+
+    @property
+    def scalar_type(self) -> ScalarType:
+        """Return the exact coefficient type of this polynomial."""
+
+        return self._scalar_type
+
+    @property
+    def degree(self) -> int:
+        """Return total degree, or -1 for the normalized zero polynomial."""
+
+        if self.is_zero():
+            return -1
+        return max(sum(exponents) for exponents, _ in self._terms)
+
+    @property
+    def univariate_degree(self) -> int:
+        """Return degree in one variable, or -1 for zero."""
+
+        self._require_univariate()
+        return -1 if self.is_zero() else self._terms[0][0][0]
+
+    @property
+    def leading_coefficient(self) -> Scalar:
+        """Return the leading coefficient of a nonzero univariate polynomial."""
+
+        self._require_univariate()
+        if self.is_zero():
+            raise ValueError("zero polynomial has no leading coefficient")
+        return self._terms[0][1]
+
+    def coefficient(self, exponents: Iterable[int]) -> Scalar:
+        """Return an exact coefficient, using zero for an absent monomial."""
+
+        monomial = _validate_monomial(exponents, self.variable_count)
+        for existing, coefficient in self._terms:
+            if existing == monomial:
+                return coefficient
+        return _zero(self._scalar_type)
+
+    def __len__(self) -> int:
+        return len(self._terms)
+
+    def __iter__(self) -> Iterator[tuple[Monomial, Scalar]]:
+        return iter(self._terms)
+
+    def __getitem__(self, exponents: Monomial) -> Scalar:
+        return self.coefficient(exponents)
+
+    def __bool__(self) -> bool:
+        return not self.is_zero()
+
+    def is_zero(self) -> bool:
+        """Return whether normalization removed every term."""
+
+        return not self._terms
+
+    def _require_univariate(self) -> None:
+        if self.variable_count != 1:
+            raise ValueError("the operation requires a univariate polynomial")
+
+    def _combine(self, other: Polynomial, subtract: bool) -> Polynomial:
+        _require_compatible(self, other)
+        result: dict[Monomial, Scalar] = dict(self._terms)
+        for exponents, coefficient in other._terms:
+            current = result.get(exponents, _zero(self._scalar_type))
+            result[exponents] = (
+                _subtract(current, coefficient) if subtract else _add(current, coefficient)
+            )
+        return Polynomial(
+            result,
+            variable_count=self.variable_count,
+            scalar_type=self._scalar_type,
+        )
+
+    def __add__(self, other: Polynomial) -> Polynomial:
+        return self._combine(other, subtract=False)
+
+    def __sub__(self, other: Polynomial) -> Polynomial:
+        return self._combine(other, subtract=True)
+
+    def __neg__(self) -> Polynomial:
+        return Polynomial(
+            ((exponents, _negate(coefficient)) for exponents, coefficient in self._terms),
+            variable_count=self.variable_count,
+            scalar_type=self._scalar_type,
+        )
+
+    def scale(self, scalar: object) -> Polynomial:
+        """Multiply every coefficient by one exact scalar."""
+
+        factor = _coerce(scalar, self._scalar_type)
+        return Polynomial(
+            (
+                (exponents, _multiply(factor, coefficient))
+                for exponents, coefficient in self._terms
+            ),
+            variable_count=self.variable_count,
+            scalar_type=self._scalar_type,
+        )
+
+    def __mul__(self, other: object) -> Polynomial:
+        if not isinstance(other, Polynomial):
+            return self.scale(other)
+        _require_compatible(self, other)
+        result: dict[Monomial, Scalar] = {}
+        for left_exponents, left_coefficient in self._terms:
+            for right_exponents, right_coefficient in other._terms:
+                exponents = tuple(
+                    left + right
+                    for left, right in zip(left_exponents, right_exponents, strict=True)
+                )
+                product = _multiply(left_coefficient, right_coefficient)
+                result[exponents] = _add(
+                    result.get(exponents, _zero(self._scalar_type)),
+                    product,
+                )
+        return Polynomial(
+            result,
+            variable_count=self.variable_count,
+            scalar_type=self._scalar_type,
+        )
+
+    def __rmul__(self, other: object) -> Polynomial:
+        return self * other
+
+    def __pow__(self, exponent: int) -> Polynomial:
+        if isinstance(exponent, bool) or not isinstance(exponent, int):
+            raise TypeError("the exponent must be an integer")
+        if exponent < 0:
+            raise ValueError("polynomial powers must be nonnegative")
+        result = Polynomial.one(self.variable_count, scalar_type=self._scalar_type)
+        base = self
+        power = exponent
+        while power:
+            if power & 1:
+                result = result * base
+            base = base * base
+            power >>= 1
+        return result
+
+    def derivative(self, variable: int = 0) -> Polynomial:
+        """Return the exact formal derivative with respect to one variable."""
+
+        if self.variable_count == 0:
+            raise ValueError("a constant polynomial has no variable derivative")
+        if isinstance(variable, bool) or not isinstance(variable, int):
+            raise TypeError("variable index must be an integer")
+        if not 0 <= variable < self.variable_count:
+            raise IndexError("variable index is out of range")
+        terms: list[tuple[Monomial, Scalar]] = []
+        for exponents, coefficient in self._terms:
+            power = exponents[variable]
+            if power == 0:
+                continue
+            derivative_exponents = list(exponents)
+            derivative_exponents[variable] -= 1
+            terms.append(
+                (
+                    tuple(derivative_exponents),
+                    _multiply(coefficient, _coerce(power, self._scalar_type)),
+                )
+            )
+        return Polynomial(
+            terms,
+            variable_count=self.variable_count,
+            scalar_type=self._scalar_type,
+        )
+
+    def substitute(self, images: Sequence[object]) -> Polynomial:
+        """Substitute exact scalar or polynomial images for every variable."""
+
+        if len(images) != self.variable_count:
+            raise ValueError("substitution count must match variable_count")
+        polynomial_images = tuple(image for image in images if isinstance(image, Polynomial))
+        target_counts = {image.variable_count for image in polynomial_images}
+        if len(target_counts) > 1:
+            raise ValueError("substitution images must use one target variable count")
+        target_count = next(iter(target_counts), 0)
+        normalized_images: list[Polynomial] = []
+        for image in images:
+            if isinstance(image, Polynomial):
+                if image.scalar_type is not self.scalar_type:
+                    raise TypeError("substitution images must use the source scalar type")
+                normalized_images.append(image)
+            else:
+                normalized_images.append(
+                    Polynomial.constant(
+                        image,
+                        variable_count=target_count,
+                        scalar_type=self.scalar_type,
+                    )
+                )
+        result = Polynomial.zero(target_count, scalar_type=self.scalar_type)
+        for exponents, coefficient in self._terms:
+            term = Polynomial.constant(
+                coefficient,
+                variable_count=target_count,
+                scalar_type=self.scalar_type,
+            )
+            for image, power in zip(normalized_images, exponents, strict=True):
+                if power:
+                    term = term * (image**power)
+            result = result + term
+        return result
+
+    def substitute_monomials(
+        self,
+        images: Sequence[tuple[object, Iterable[int]]],
+    ) -> Polynomial:
+        """Substitute exact scalar multiples of target monomials."""
+
+        if len(images) != self.variable_count:
+            raise ValueError("substitution count must match variable_count")
+        raw_images = tuple((scalar, tuple(exponents)) for scalar, exponents in images)
+        target_count = len(raw_images[0][1]) if raw_images else 0
+        normalized_images = tuple(
+            Polynomial.monomial(
+                _validate_monomial(exponents, target_count),
+                scalar,
+                scalar_type=self.scalar_type,
+            )
+            for scalar, exponents in raw_images
+        )
+        return self.substitute(normalized_images)
+
+    def monic(self) -> Polynomial:
+        """Return the exact monic normalization of a nonzero univariate polynomial."""
+
+        leading = self.leading_coefficient
+        return self.scale(_divide(_one(self.scalar_type), leading))
+
+    def divmod_univariate(self, divisor: Polynomial) -> tuple[Polynomial, Polynomial]:
+        """Return exact quotient and remainder for univariate division."""
+
+        _require_compatible(self, divisor)
+        self._require_univariate()
+        divisor._require_univariate()
+        if divisor.is_zero():
+            raise ZeroDivisionError("polynomial division by zero")
+        quotient = Polynomial.zero(1, scalar_type=self.scalar_type)
+        remainder = self
+        divisor_degree = divisor.univariate_degree
+        while not remainder.is_zero() and remainder.univariate_degree >= divisor_degree:
+            shift = remainder.univariate_degree - divisor_degree
+            factor = _divide(remainder.leading_coefficient, divisor.leading_coefficient)
+            term = Polynomial.monomial((shift,), factor, scalar_type=self.scalar_type)
+            quotient = quotient + term
+            remainder = remainder - term * divisor
+        return quotient, remainder
+
+    def gcd(self, other: Polynomial) -> Polynomial:
+        """Return the monic exact greatest common divisor of two univariates."""
+
+        _require_compatible(self, other)
+        self._require_univariate()
+        other._require_univariate()
+        left, right = self, other
+        while not right.is_zero():
+            _, remainder = left.divmod_univariate(right)
+            left, right = right, remainder
+        return Polynomial.zero(1, scalar_type=self.scalar_type) if left.is_zero() else left.monic()
+
+
+def polynomial_determinant(matrix: Iterable[Iterable[Polynomial]]) -> Polynomial:
+    """Return the exact determinant of a nonempty square polynomial matrix."""
+
+    rows = _matrix_rows(matrix)
+    size = len(rows)
+    if len(rows[0]) != size:
+        raise ValueError("polynomial determinant requires a nonempty square matrix")
+    if size == 1:
+        return rows[0][0]
+    zero = Polynomial.zero(rows[0][0].variable_count, scalar_type=rows[0][0].scalar_type)
+    result = zero
+    for column in range(size):
+        minor = tuple(
+            tuple(entry for index, entry in enumerate(row) if index != column)
+            for row in rows[1:]
+        )
+        term = rows[0][column] * polynomial_determinant(minor)
+        result = result + (term if column % 2 == 0 else -term)
+    return result
+
+
+def maximal_minors(matrix: Iterable[Iterable[Polynomial]]) -> tuple[Polynomial, ...]:
+    """Return all maximal row minors of a polynomial matrix."""
+
+    rows = _matrix_rows(matrix)
+    row_count, column_count = len(rows), len(rows[0])
+    if row_count < column_count:
+        raise ValueError("maximal minors require at least as many rows as columns")
+    if row_count == column_count + 1:
+        row_sets = tuple(
+            tuple(index for index in range(row_count) if index != removed)
+            for removed in range(row_count)
+        )
+    else:
+        row_sets = tuple(combinations(range(row_count), column_count))
+    return tuple(
+        polynomial_determinant(
+            tuple(tuple(rows[row][column] for column in range(column_count)) for row in row_set)
+        )
+        for row_set in row_sets
+    )
+
+
+def _matrix_rows(matrix: Iterable[Iterable[Polynomial]]) -> tuple[tuple[Polynomial, ...], ...]:
+    rows = tuple(tuple(row) for row in matrix)
+    if not rows or not rows[0]:
+        raise ValueError("polynomial matrix must be nonempty and rectangular")
+    width = len(rows[0])
+    if any(len(row) != width for row in rows):
+        raise ValueError("polynomial matrix must be rectangular")
+    first = rows[0][0]
+    for row in rows:
+        for entry in row:
+            if entry.variable_count != first.variable_count:
+                raise ValueError("polynomial matrix variable counts do not agree")
+            if entry.scalar_type is not first.scalar_type:
+                raise TypeError("polynomial matrix scalar types do not agree")
+    return rows
+
+
+def determinant(matrix: Iterable[Iterable[Polynomial]]) -> Polynomial:
+    """Return a polynomial-matrix determinant."""
+
+    return polynomial_determinant(matrix)
+
+
+def derivative(polynomial: Polynomial, variable: int = 0) -> Polynomial:
+    """Return an exact formal derivative."""
+
+    return polynomial.derivative(variable)
+
+
+def substitute(polynomial: Polynomial, images: Sequence[object]) -> Polynomial:
+    """Substitute exact scalar or polynomial images for every variable."""
+
+    return polynomial.substitute(images)
+
+
+def divmod_univariate(
+    dividend: Polynomial,
+    divisor: Polynomial,
+) -> tuple[Polynomial, Polynomial]:
+    """Return exact quotient and remainder for univariate division."""
+
+    return dividend.divmod_univariate(divisor)
+
+
+def gcd(left: Polynomial, right: Polynomial) -> Polynomial:
+    """Return the monic exact greatest common divisor of two univariates."""
+
+    return left.gcd(right)
+
+
+def monic(polynomial: Polynomial) -> Polynomial:
+    """Return the monic normalization of a nonzero univariate polynomial."""
+
+    return polynomial.monic()
+
+
+def substitute_monomials(
+    polynomial: Polynomial,
+    images: Sequence[tuple[object, Iterable[int]]],
+) -> Polynomial:
+    """Substitute exact scalar multiples of target monomials."""
+
+    return polynomial.substitute_monomials(images)
+
+
+__all__ = [
+    "Monomial",
+    "Polynomial",
+    "derivative",
+    "determinant",
+    "divmod_univariate",
+    "gcd",
+    "maximal_minors",
+    "monic",
+    "polynomial_determinant",
+    "substitute",
+    "substitute_monomials",
+]

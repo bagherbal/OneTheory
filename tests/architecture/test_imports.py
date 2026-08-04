@@ -25,7 +25,11 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PRODUCTION_ROOT = PROJECT_ROOT / "src" / "onetheory"
-IMPLEMENTED_PRODUCTION_MODULES = {"math/numbers.py", "math/linear.py"}
+IMPLEMENTED_PRODUCTION_MODULES = {
+    "math/numbers.py",
+    "math/linear.py",
+    "math/polynomials.py",
+}
 
 
 def _module_name(path: Path) -> str:

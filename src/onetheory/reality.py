@@ -30,6 +30,11 @@ from onetheory.engine.graph import ComputationGraph, GraphNode
 from onetheory.engine.solve import solve_exact
 from onetheory.engine.state import PhysicalState, StateEntry
 from onetheory.models.heterotic_schoen.consistency import topological_consistency
+from onetheory.models.heterotic_schoen.effective import (
+    SchoenEffectiveActionState,
+    request_complete_effective_action,
+    schoen_effective_action,
+)
 from onetheory.models.heterotic_schoen.flavor import (
     COMMON_DGA_MISSING_CHAIN,
     common_dga_input_status,
@@ -396,6 +401,18 @@ def assemble_one_theory_carrier_state() -> OneTheoryCarrierState:
     """Named composition-root alias for the carrier-plus-laws state."""
 
     return one_theory_carrier_state()
+
+
+def assemble_schoen_effective_action() -> SchoenEffectiveActionState:
+    """Compose the direct Schoen effective-action boundary from one carrier state."""
+
+    return schoen_effective_action()
+
+
+def request_normalized_four_dimensional_effective_action() -> NoReturn:
+    """Reject the normalized action until direct reduction prerequisites are supplied."""
+
+    request_complete_effective_action()
 
 
 def request_physical_four_dimensional_model() -> NoReturn:

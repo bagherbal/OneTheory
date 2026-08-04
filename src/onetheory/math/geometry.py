@@ -23,6 +23,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
+from enum import StrEnum
 from itertools import permutations
 from typing import cast
 
@@ -64,6 +65,13 @@ class Normalization:
             raise ValueError("a normalization requires a nonempty name")
 
 
+class ClassKind(StrEnum):
+    """Distinguish integral/topological classes from differential representatives."""
+
+    INTEGRAL = "integral"
+    DIFFERENTIAL = "differential"
+
+
 def _coordinates(values: Iterable[object], basis: Basis) -> tuple[Rational, ...]:
     coordinates = tuple(coerce_rational(value) for value in values)
     if len(coordinates) != basis.dimension:
@@ -81,9 +89,7 @@ def _scalar_coordinates(
     return tuple(a + b for a, b in zip(left, right, strict=True))
 
 
-def _scale_coordinates(
-    coordinates: tuple[Rational, ...], scalar: object
-) -> tuple[Rational, ...]:
+def _scale_coordinates(coordinates: tuple[Rational, ...], scalar: object) -> tuple[Rational, ...]:
     factor = coerce_rational(scalar)
     return tuple(factor * coordinate for coordinate in coordinates)
 
@@ -284,6 +290,7 @@ class CharacteristicClass:
     _coordinates: tuple[Rational, ...]
     _degree: int
     _normalization: Normalization
+    _kind: ClassKind
 
     def __init__(
         self,
@@ -291,6 +298,7 @@ class CharacteristicClass:
         coordinates: Iterable[object],
         degree: int,
         normalization: Normalization,
+        kind: ClassKind = ClassKind.INTEGRAL,
     ) -> None:
         if isinstance(degree, bool) or not isinstance(degree, int) or degree < 0:
             raise ValueError("characteristic-class degree must be a nonnegative integer")
@@ -298,6 +306,7 @@ class CharacteristicClass:
         object.__setattr__(self, "_coordinates", _coordinates(coordinates, basis))
         object.__setattr__(self, "_degree", degree)
         object.__setattr__(self, "_normalization", normalization)
+        object.__setattr__(self, "_kind", kind)
 
     @property
     def basis(self) -> Basis:
@@ -315,6 +324,12 @@ class CharacteristicClass:
     def normalization(self) -> Normalization:
         return self._normalization
 
+    @property
+    def kind(self) -> ClassKind:
+        """Return whether the coordinates are topological or differential data."""
+
+        return self._kind
+
     def _check(self, other: CharacteristicClass) -> None:
         _require_coordinate_compatibility(
             self.basis,
@@ -324,6 +339,8 @@ class CharacteristicClass:
         )
         if self.degree != other.degree:
             raise ValueError("characteristic classes have incompatible degrees")
+        if self.kind != other.kind:
+            raise ValueError("integral and differential classes cannot be added")
 
     def __add__(self, other: CharacteristicClass) -> CharacteristicClass:
         self._check(other)
@@ -332,6 +349,7 @@ class CharacteristicClass:
             _scalar_coordinates(self.coordinates, other.coordinates),
             self.degree,
             self.normalization,
+            self.kind,
         )
 
     def __sub__(self, other: CharacteristicClass) -> CharacteristicClass:
@@ -341,6 +359,7 @@ class CharacteristicClass:
             _scalar_coordinates(self.coordinates, other.coordinates, subtract=True),
             self.degree,
             self.normalization,
+            self.kind,
         )
 
     def __neg__(self) -> CharacteristicClass:
@@ -349,6 +368,7 @@ class CharacteristicClass:
             (-value for value in self.coordinates),
             self.degree,
             self.normalization,
+            self.kind,
         )
 
     def scale(self, scalar: object) -> CharacteristicClass:
@@ -359,6 +379,7 @@ class CharacteristicClass:
             _scale_coordinates(self.coordinates, scalar),
             self.degree,
             self.normalization,
+            self.kind,
         )
 
     def __mul__(self, scalar: object) -> CharacteristicClass:
@@ -376,6 +397,7 @@ class CharacteristicClass:
             self.coordinates,
             self.degree,
             Normalization("cover"),
+            self.kind,
         )
 
     def to_quotient(self, covering_degree: int) -> CharacteristicClass:
@@ -387,6 +409,7 @@ class CharacteristicClass:
             self.coordinates,
             self.degree,
             Normalization("quotient"),
+            self.kind,
         )
 
 
@@ -406,10 +429,7 @@ class TripleIntersectionTensor:
     ) -> None:
         dimension = basis.dimension
         dense = [
-            [
-                [Rational(0) for _ in range(dimension)]
-                for _ in range(dimension)
-            ]
+            [[Rational(0) for _ in range(dimension)] for _ in range(dimension)]
             for _ in range(dimension)
         ]
         assigned: dict[tuple[int, int, int], Rational] = {}
@@ -418,9 +438,7 @@ class TripleIntersectionTensor:
             if len(indices) != 3:
                 raise ValueError("intersection indices must have length three")
             if any(
-                isinstance(index, bool)
-                or not isinstance(index, int)
-                or not 0 <= index < dimension
+                isinstance(index, bool) or not isinstance(index, int) or not 0 <= index < dimension
                 for index in indices
             ):
                 raise ValueError("intersection indices are outside the named basis")
@@ -549,9 +567,7 @@ class TripleIntersectionTensor:
         degree = _covering_degree(covering_degree)
         return TripleIntersectionTensor(
             self.basis,
-            {
-                indices: value * degree for indices, value in self.entries
-            },
+            {indices: value * degree for indices, value in self.entries},
             Normalization("cover"),
         )
 
@@ -561,19 +577,319 @@ class TripleIntersectionTensor:
         degree = _covering_degree(covering_degree)
         return TripleIntersectionTensor(
             self.basis,
-            {
-                indices: value / degree for indices, value in self.entries
-            },
+            {indices: value / degree for indices, value in self.entries},
             Normalization("quotient"),
         )
 
 
-GeometryObject = (
-    Divisor
-    | Curve
-    | CharacteristicClass
-    | TripleIntersectionTensor
-)
+@dataclass(frozen=True, slots=True)
+class VectorBundle:
+    """A generic vector-bundle record whose topology does not imply a connection."""
+
+    name: str
+    rank: int
+    basis: Basis
+    normalization: Normalization
+    c1: CharacteristicClass | None
+    c2: CharacteristicClass | None
+    c3: CharacteristicClass | None
+    connection: object | None
+    provenance: str
+
+    def __init__(
+        self,
+        name: str,
+        rank: int,
+        basis: Basis,
+        normalization: Normalization,
+        c1: CharacteristicClass | None = None,
+        c2: CharacteristicClass | None = None,
+        c3: CharacteristicClass | None = None,
+        connection: object | None = None,
+        provenance: str = "",
+    ) -> None:
+        if not name.strip() or not provenance.strip():
+            raise ValueError("vector bundles require a name and provenance")
+        if isinstance(rank, bool) or not isinstance(rank, int) or rank < 1:
+            raise ValueError("vector-bundle rank must be positive")
+        for degree, class_data in ((1, c1), (2, c2), (3, c3)):
+            if class_data is not None and (
+                class_data.basis != basis
+                or class_data.normalization != normalization
+                or class_data.degree != degree
+                or class_data.kind is not ClassKind.INTEGRAL
+            ):
+                raise ValueError("bundle Chern classes must be integral data in its basis")
+        object.__setattr__(self, "name", name)
+        object.__setattr__(self, "rank", rank)
+        object.__setattr__(self, "basis", basis)
+        object.__setattr__(self, "normalization", normalization)
+        object.__setattr__(self, "c1", c1)
+        object.__setattr__(self, "c2", c2)
+        object.__setattr__(self, "c3", c3)
+        object.__setattr__(self, "connection", connection)
+        object.__setattr__(self, "provenance", provenance)
+
+    @property
+    def has_connection(self) -> bool:
+        """Return whether a connection was supplied independently of topology."""
+
+        return self.connection is not None
+
+
+@dataclass(frozen=True, slots=True)
+class ChernCharacter:
+    """Chern-character components with explicit truncation and provenance."""
+
+    bundle: VectorBundle
+    rank: int
+    components: tuple[CharacteristicClass, ...]
+    formal_terms: tuple[tuple[int, str], ...]
+    provenance: str
+
+    def __init__(
+        self,
+        bundle: VectorBundle,
+        components: Iterable[CharacteristicClass] = (),
+        formal_terms: Mapping[int, str] | None = None,
+        provenance: str = "",
+    ) -> None:
+        values = tuple(components)
+        if not provenance.strip():
+            raise ValueError("Chern characters require provenance")
+        if any(
+            class_data.basis != bundle.basis
+            or class_data.normalization != bundle.normalization
+            or class_data.kind is not ClassKind.INTEGRAL
+            for class_data in values
+        ):
+            raise ValueError("Chern-character components must match the bundle topology")
+        if len({class_data.degree for class_data in values}) != len(values):
+            raise ValueError("Chern-character degrees must be unique")
+        object.__setattr__(self, "bundle", bundle)
+        object.__setattr__(self, "rank", bundle.rank)
+        object.__setattr__(self, "components", tuple(sorted(values, key=lambda item: item.degree)))
+        object.__setattr__(
+            self,
+            "formal_terms",
+            tuple(
+                sorted((degree, expression) for degree, expression in (formal_terms or {}).items())
+            ),
+        )
+        object.__setattr__(self, "provenance", provenance)
+
+    @classmethod
+    def from_bundle(
+        cls, bundle: VectorBundle, provenance: str = "Chern character formula"
+    ) -> ChernCharacter:
+        """Create the known components without inventing unavailable cup products."""
+
+        components = (bundle.c1,) if bundle.c1 is not None else ()
+        terms: dict[int, str] = {0: f"{bundle.rank}"}
+        if bundle.c1 is not None:
+            terms[1] = "c1"
+        if bundle.c2 is not None:
+            terms[2] = "(c1^2 - 2 c2)/2"
+        if bundle.c3 is not None:
+            terms[3] = "(c1^3 - 3 c1 c2 + 3 c3)/6"
+        return cls(bundle, components, terms, provenance)
+
+    def component(self, degree: int) -> CharacteristicClass | None:
+        """Return an explicitly supplied integral component."""
+
+        return next((item for item in self.components if item.degree == degree), None)
+
+
+@dataclass(frozen=True, slots=True)
+class PontryaginClass:
+    """A real Pontryagin-class record with no automatic bundle existence claim."""
+
+    degree: int
+    class_data: CharacteristicClass
+    expression: str
+    provenance: str
+
+    def __init__(
+        self,
+        degree: int,
+        class_data: CharacteristicClass,
+        expression: str,
+        provenance: str,
+    ) -> None:
+        if degree < 1 or not expression.strip() or not provenance.strip():
+            raise ValueError("Pontryagin classes require degree, expression, and provenance")
+        if class_data.kind is not ClassKind.INTEGRAL:
+            raise ValueError("Pontryagin topology must remain an integral class")
+        object.__setattr__(self, "degree", degree)
+        object.__setattr__(self, "class_data", class_data)
+        object.__setattr__(self, "expression", expression)
+        object.__setattr__(self, "provenance", provenance)
+
+    @classmethod
+    def p1_from_c2(cls, c2: CharacteristicClass, provenance: str = "p1 = -2 c2") -> PontryaginClass:
+        """Construct the first Pontryagin class for a real SU bundle convention."""
+
+        if c2.degree != 2:
+            raise ValueError("p1 from c2 requires a degree-two Chern class")
+        return cls(1, c2.scale(-2), "p1 = -2 c2", provenance)
+
+
+@dataclass(frozen=True, slots=True)
+class ChernWeilRepresentative:
+    """A differential representative tied to supplied curvature data."""
+
+    class_data: CharacteristicClass
+    curvature: object
+    polynomial: str
+    provenance: str
+
+    def __init__(
+        self,
+        class_data: CharacteristicClass,
+        curvature: object,
+        polynomial: str,
+        provenance: str,
+    ) -> None:
+        if class_data.kind is not ClassKind.DIFFERENTIAL:
+            raise ValueError("Chern–Weil representatives require differential class data")
+        if not polynomial.strip() or not provenance.strip():
+            raise ValueError("Chern–Weil representatives require polynomial provenance")
+        object.__setattr__(self, "class_data", class_data)
+        object.__setattr__(self, "curvature", curvature)
+        object.__setattr__(self, "polynomial", polynomial)
+        object.__setattr__(self, "provenance", provenance)
+
+    @property
+    def represents_integral_class(self) -> bool:
+        """Return false: differential data are not silently promoted to topology."""
+
+        return False
+
+
+@dataclass(frozen=True, slots=True)
+class WedgePairing:
+    """An exact cup/wedge pairing table in one named basis."""
+
+    basis: Basis
+    left_degree: int
+    right_degree: int
+    coefficients: tuple[tuple[tuple[int, int], Rational], ...]
+    normalization: Normalization
+    provenance: str
+
+    def __init__(
+        self,
+        basis: Basis,
+        left_degree: int,
+        right_degree: int,
+        coefficients: Mapping[tuple[int, int], object],
+        normalization: Normalization,
+        provenance: str,
+    ) -> None:
+        if left_degree < 0 or right_degree < 0 or not provenance.strip():
+            raise ValueError("pairings require nonnegative degrees and provenance")
+        values = tuple(
+            sorted(
+                (
+                    (tuple(indices), coerce_rational(value))
+                    for indices, value in coefficients.items()
+                )
+            )
+        )
+        if any(
+            len(indices) != 2 or any(index < 0 or index >= basis.dimension for index in indices)
+            for indices, _ in values
+        ):
+            raise ValueError("pairing indices are outside the named basis")
+        object.__setattr__(self, "basis", basis)
+        object.__setattr__(self, "left_degree", left_degree)
+        object.__setattr__(self, "right_degree", right_degree)
+        object.__setattr__(self, "coefficients", values)
+        object.__setattr__(self, "normalization", normalization)
+        object.__setattr__(self, "provenance", provenance)
+
+    def evaluate(self, left: CharacteristicClass, right: CharacteristicClass) -> Rational:
+        """Evaluate the exact pairing and reject incompatible class kinds."""
+
+        if (
+            left.basis != self.basis
+            or right.basis != self.basis
+            or left.normalization != self.normalization
+            or right.normalization != self.normalization
+            or left.degree != self.left_degree
+            or right.degree != self.right_degree
+            or left.kind != right.kind
+        ):
+            raise ValueError(
+                "pairing inputs use incompatible basis, degree, normalization, or kind"
+            )
+        return sum(
+            (
+                left.coordinates[first] * right.coordinates[second] * value
+                for (first, second), value in self.coefficients
+            ),
+            Rational(0),
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class Pushforward:
+    """An explicit internal integration map with a declared topological degree."""
+
+    basis: Basis
+    top_degree: int
+    coefficients: tuple[Rational, ...]
+    normalization: Normalization
+    provenance: str
+
+    def __init__(
+        self,
+        basis: Basis,
+        top_degree: int,
+        coefficients: Iterable[object],
+        normalization: Normalization,
+        provenance: str,
+    ) -> None:
+        values = tuple(coerce_rational(value) for value in coefficients)
+        if len(values) != basis.dimension or top_degree < 0 or not provenance.strip():
+            raise ValueError("pushforwards require basis-sized coefficients and provenance")
+        object.__setattr__(self, "basis", basis)
+        object.__setattr__(self, "top_degree", top_degree)
+        object.__setattr__(self, "coefficients", values)
+        object.__setattr__(self, "normalization", normalization)
+        object.__setattr__(self, "provenance", provenance)
+
+    def integrate(self, class_data: CharacteristicClass) -> Rational:
+        """Push a top-degree class to an exact scalar."""
+
+        if (
+            class_data.basis != self.basis
+            or class_data.normalization != self.normalization
+            or class_data.degree != self.top_degree
+        ):
+            raise ValueError("pushforward input is incompatible with its internal space")
+        return sum(
+            (
+                coordinate * coefficient
+                for coordinate, coefficient in zip(
+                    class_data.coordinates, self.coefficients, strict=True
+                )
+            ),
+            Rational(0),
+        )
+
+
+def cup_pairing(
+    pairing: WedgePairing,
+    left: CharacteristicClass,
+    right: CharacteristicClass,
+) -> Rational:
+    """Evaluate a named cup/wedge pairing."""
+
+    return pairing.evaluate(left, right)
+
+
+GeometryObject = Divisor | Curve | CharacteristicClass | TripleIntersectionTensor
 
 
 def triple_product(
@@ -629,12 +945,20 @@ def cover_to_quotient(value: GeometryObject, covering_degree: int) -> GeometryOb
 
 __all__ = [
     "Basis",
+    "ClassKind",
     "CharacteristicClass",
+    "ChernCharacter",
+    "ChernWeilRepresentative",
     "Curve",
     "Divisor",
     "Normalization",
+    "PontryaginClass",
+    "Pushforward",
     "TripleIntersectionTensor",
+    "VectorBundle",
+    "WedgePairing",
     "cover_to_quotient",
+    "cup_pairing",
     "divisor_square",
     "quotient_to_cover",
     "slope",

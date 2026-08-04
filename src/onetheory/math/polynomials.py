@@ -552,6 +552,325 @@ class PolynomialMatrix:
         return all(entry.is_zero() for row in self.rows for entry in row)
 
 
+@dataclass(frozen=True, slots=True)
+class PolynomialFreeModule:
+    """A named finite free module with exact basis shifts."""
+
+    name: str
+    basis: tuple[str, ...]
+    shifts: tuple[tuple[int, ...], ...]
+    variable_count: int
+    scalar_type: ScalarType
+
+    def __post_init__(self) -> None:
+        if not self.name.strip() or not self.basis:
+            raise ValueError("polynomial free modules require a name and basis")
+        if len(set(self.basis)) != len(self.basis):
+            raise ValueError("polynomial free-module basis labels must be unique")
+        if len(self.shifts) != len(self.basis):
+            raise ValueError("every free-module basis vector needs one shift")
+        if _validate_variable_count(self.variable_count) != self.variable_count:
+            raise ValueError("variable_count must be a nonnegative integer")
+        if any(len(shift) != self.variable_count for shift in self.shifts):
+            raise ValueError("free-module shifts must use the declared variable count")
+        if self.scalar_type not in (Rational, Eisenstein):
+            raise TypeError("free modules require Rational or Eisenstein coefficients")
+
+    @property
+    def rank(self) -> int:
+        """Return the number of named free generators."""
+
+        return len(self.basis)
+
+    def direct_sum(
+        self,
+        other: PolynomialFreeModule,
+        name: str | None = None,
+    ) -> PolynomialFreeModule:
+        """Return the ordered direct sum of two compatible free modules."""
+
+        if self.variable_count != other.variable_count:
+            raise ValueError("free modules use incompatible polynomial variables")
+        if self.scalar_type is not other.scalar_type:
+            raise TypeError("free modules use incompatible exact coefficient fields")
+        prefix = name or f"{self.name}⊕{other.name}"
+        return PolynomialFreeModule(
+            prefix,
+            tuple(f"left:{label}" for label in self.basis)
+            + tuple(f"right:{label}" for label in other.basis),
+            self.shifts + other.shifts,
+            self.variable_count,
+            self.scalar_type,
+        )
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class PolynomialMap:
+    """An exact polynomial-valued map between named free modules."""
+
+    domain: PolynomialFreeModule
+    codomain: PolynomialFreeModule
+    matrix: PolynomialMatrix
+
+    def __init__(
+        self,
+        domain: PolynomialFreeModule,
+        codomain: PolynomialFreeModule,
+        matrix: PolynomialMatrix,
+    ) -> None:
+        if matrix.shape != (codomain.rank, domain.rank):
+            raise ValueError("polynomial map matrix shape does not match its modules")
+        if matrix.variable_count != domain.variable_count:
+            raise ValueError("polynomial map variables do not match its modules")
+        if matrix.scalar_type is not domain.scalar_type:
+            raise TypeError("polynomial map coefficients do not match its modules")
+        if codomain.variable_count != domain.variable_count:
+            raise ValueError("polynomial map modules use incompatible variables")
+        if codomain.scalar_type is not domain.scalar_type:
+            raise TypeError("polynomial map modules use incompatible coefficient fields")
+        object.__setattr__(self, "domain", domain)
+        object.__setattr__(self, "codomain", codomain)
+        object.__setattr__(self, "matrix", matrix)
+
+    @classmethod
+    def zero(cls, domain: PolynomialFreeModule, codomain: PolynomialFreeModule) -> PolynomialMap:
+        """Construct the exact zero map between positive-rank modules."""
+
+        zero = Polynomial.zero(domain.variable_count, scalar_type=domain.scalar_type)
+        return cls(
+            domain,
+            codomain,
+            PolynomialMatrix(tuple(tuple(zero for _ in domain.basis) for _ in codomain.basis)),
+        )
+
+    @classmethod
+    def identity(cls, module: PolynomialFreeModule) -> PolynomialMap:
+        """Construct the exact identity map in one named module basis."""
+
+        one = Polynomial.one(module.variable_count, scalar_type=module.scalar_type)
+        zero = Polynomial.zero(module.variable_count, scalar_type=module.scalar_type)
+        return cls(
+            module,
+            module,
+            PolynomialMatrix(
+                tuple(
+                    tuple(one if row == column else zero for column in range(module.rank))
+                    for row in range(module.rank)
+                )
+            ),
+        )
+
+    @classmethod
+    def block(cls, blocks: Sequence[Sequence[PolynomialMap]]) -> PolynomialMap:
+        """Assemble a complete rectangular block map over compatible modules."""
+
+        if not blocks or not blocks[0] or any(len(row) != len(blocks[0]) for row in blocks):
+            raise ValueError("a polynomial block map must be nonempty and rectangular")
+        column_domains = tuple(blocks[0][column].domain for column in range(len(blocks[0])))
+        row_codomains = tuple(blocks[row][0].codomain for row in range(len(blocks)))
+        for row_index, row in enumerate(blocks):
+            for column_index, block in enumerate(row):
+                if block.domain != column_domains[column_index]:
+                    raise ValueError("polynomial block domains are incompatible")
+                if block.codomain != row_codomains[row_index]:
+                    raise ValueError("polynomial block codomains are incompatible")
+        rows: list[tuple[Polynomial, ...]] = []
+        for block_row, codomain in zip(blocks, row_codomains, strict=True):
+            for local_row in range(codomain.rank):
+                rows.append(
+                    tuple(
+                        entry
+                        for block in block_row
+                        for entry in block.matrix.rows[local_row]
+                    )
+                )
+        domain = column_domains[0]
+        for component in column_domains[1:]:
+            domain = domain.direct_sum(component)
+        codomain = row_codomains[0]
+        for component in row_codomains[1:]:
+            codomain = codomain.direct_sum(component)
+        return cls(domain, codomain, PolynomialMatrix(rows))
+
+    def compose(self, previous: PolynomialMap) -> PolynomialMap:
+        """Compose this map after a compatible exact polynomial map."""
+
+        if previous.codomain != self.domain:
+            raise ValueError("polynomial maps require matching named modules")
+        return PolynomialMap(
+            previous.domain,
+            self.codomain,
+            self.matrix.compose(previous.matrix),
+        )
+
+    def scale(self, scalar: object) -> PolynomialMap:
+        """Scale every matrix entry by one exact coefficient."""
+
+        return PolynomialMap(
+            self.domain,
+            self.codomain,
+            PolynomialMatrix(
+                tuple(
+                    tuple(entry.scale(scalar) for entry in row)
+                    for row in self.matrix.rows
+                )
+            ),
+        )
+
+    def __neg__(self) -> PolynomialMap:
+        """Return the exact additive inverse map."""
+
+        return self.scale(-1)
+
+    def is_zero(self) -> bool:
+        """Return whether every entry of the map vanishes exactly."""
+
+        return self.matrix.is_zero()
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class PolynomialChainComplex:
+    """A finite chain complex of positive-rank polynomial free modules."""
+
+    modules: tuple[tuple[int, PolynomialFreeModule], ...]
+    differentials: tuple[tuple[int, PolynomialMap], ...]
+
+    def __init__(
+        self,
+        modules: Mapping[int, PolynomialFreeModule]
+        | Iterable[tuple[int, PolynomialFreeModule]],
+        differentials: Mapping[int, PolynomialMap]
+        | Iterable[tuple[int, PolynomialMap]],
+    ) -> None:
+        module_pairs = tuple(sorted(modules.items() if isinstance(modules, Mapping) else modules))
+        differential_pairs = tuple(
+            sorted(differentials.items() if isinstance(differentials, Mapping) else differentials)
+        )
+        module_map = dict(module_pairs)
+        if not module_pairs or len(module_map) != len(module_pairs):
+            raise ValueError("polynomial complexes require unique nonempty terms")
+        if len(dict(differential_pairs)) != len(differential_pairs):
+            raise ValueError("polynomial differentials require unique source degrees")
+        for degree, differential in differential_pairs:
+            if module_map.get(degree) != differential.domain:
+                raise ValueError("polynomial differential domain does not match its term")
+            if module_map.get(degree - 1) != differential.codomain:
+                raise ValueError("polynomial differential codomain does not match its term")
+        object.__setattr__(self, "modules", module_pairs)
+        object.__setattr__(self, "differentials", differential_pairs)
+        differential_map = dict(differential_pairs)
+        for degree, differential in differential_pairs:
+            previous = differential_map.get(degree - 1)
+            if previous is not None and not previous.compose(differential).is_zero():
+                raise ValueError("polynomial complex differentials must square to zero")
+
+    @property
+    def degrees(self) -> tuple[int, ...]:
+        """Return the ordered degrees of the free-module terms."""
+
+        return tuple(degree for degree, _ in self.modules)
+
+    def module(self, degree: int) -> PolynomialFreeModule:
+        """Return one named term module."""
+
+        try:
+            return dict(self.modules)[degree]
+        except KeyError as error:
+            raise KeyError(f"polynomial complex has no degree {degree}") from error
+
+    @property
+    def squared_zero(self) -> bool:
+        """Return the exact polynomial square-zero certificate."""
+
+        differential_map = dict(self.differentials)
+        return all(
+            degree - 1 not in differential_map
+            or differential_map[degree - 1].compose(differential).is_zero()
+            for degree, differential in self.differentials
+        )
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class PolynomialChainMap:
+    """A degree-preserving polynomial chain map with exact commutation."""
+
+    source: PolynomialChainComplex
+    target: PolynomialChainComplex
+    components: tuple[tuple[int, PolynomialMap], ...]
+
+    def __init__(
+        self,
+        source: PolynomialChainComplex,
+        target: PolynomialChainComplex,
+        components: Mapping[int, PolynomialMap]
+        | Iterable[tuple[int, PolynomialMap]],
+    ) -> None:
+        if source.degrees != target.degrees:
+            raise ValueError("polynomial chain maps require equal degree supports")
+        pairs = tuple(sorted(components.items() if isinstance(components, Mapping) else components))
+        if tuple(degree for degree, _ in pairs) != source.degrees:
+            raise ValueError("polynomial chain maps require one component per degree")
+        for degree, component in pairs:
+            if component.domain != source.module(degree):
+                raise ValueError("polynomial chain-map component has the wrong domain")
+            if component.codomain != target.module(degree):
+                raise ValueError("polynomial chain-map component has the wrong codomain")
+        object.__setattr__(self, "source", source)
+        object.__setattr__(self, "target", target)
+        object.__setattr__(self, "components", pairs)
+        component_map = dict(pairs)
+        source_differentials = dict(source.differentials)
+        target_differentials = dict(target.differentials)
+        for degree, differential in source_differentials.items():
+            left = target_differentials[degree].compose(component_map[degree])
+            right = component_map[degree - 1].compose(differential)
+            if not (left.matrix == right.matrix):
+                raise ValueError("polynomial chain-map components must commute exactly")
+
+    def component(self, degree: int) -> PolynomialMap:
+        """Return one exact degree component."""
+
+        return dict(self.components)[degree]
+
+
+def polynomial_mapping_cone(chain_map: PolynomialChainMap) -> PolynomialChainComplex:
+    """Construct the exact two-term mapping cone of a polynomial chain map."""
+
+    if chain_map.source.degrees != (0, 1) or chain_map.target.degrees != (0, 1):
+        raise ValueError("the polynomial mapping-cone helper currently requires degrees 0 and 1")
+    source_differential = dict(chain_map.source.differentials)[1]
+    target_differential = dict(chain_map.target.differentials)[1]
+    source_one = chain_map.source.module(1)
+    target_one = chain_map.target.module(1)
+    target_zero = chain_map.target.module(0)
+    source_zero = chain_map.source.module(0)
+    cone_one = target_one.direct_sum(source_zero)
+    differential_one = PolynomialMap.block((
+        (
+            target_differential,
+            chain_map.component(0),
+        ),
+    ))
+    negative_source_differential = PolynomialMap(
+        source_one,
+        source_zero,
+        PolynomialMatrix(
+            tuple(
+                tuple(entry.scale(-1) for entry in row)
+                for row in source_differential.matrix.rows
+            )
+        ),
+    )
+    differential_two = PolynomialMap.block((
+        (chain_map.component(1),),
+        (negative_source_differential,),
+    ))
+    return PolynomialChainComplex(
+        {0: target_zero, 1: cone_one, 2: source_one},
+        {1: differential_one, 2: differential_two},
+    )
+
+
 @dataclass(frozen=True, slots=True, init=False)
 class PolynomialFreeResolution:
     """A finite chain of free polynomial modules with exact square-zero checks."""
@@ -716,7 +1035,11 @@ def substitute_monomials(
 __all__ = [
     "Monomial",
     "Polynomial",
+    "PolynomialChainComplex",
+    "PolynomialChainMap",
     "PolynomialFreeResolution",
+    "PolynomialFreeModule",
+    "PolynomialMap",
     "PolynomialMatrix",
     "derivative",
     "determinant",
@@ -725,6 +1048,7 @@ __all__ = [
     "maximal_minors",
     "monic",
     "polynomial_determinant",
+    "polynomial_mapping_cone",
     "substitute",
     "substitute_monomials",
 ]

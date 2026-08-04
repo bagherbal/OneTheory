@@ -29,6 +29,8 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "math/numbers.py",
     "math/linear.py",
     "math/polynomials.py",
+    "math/cech.py",
+    "math/sheaves.py",
     "math/finite.py",
     "math/lattices.py",
     "math/geometry.py",

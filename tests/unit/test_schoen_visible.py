@@ -41,6 +41,10 @@ def test_point_schemes_reproduce_exact_hilbert_burch_lengths() -> None:
     assert length_three.resolution.basis_shape.space(1).dimension == 2
     assert length_six.resolution.basis_shape.space(0).dimension == 4
     assert length_six.resolution.basis_shape.space(1).dimension == 3
+    assert length_three.resolution.polynomial_complex.squared_zero
+    assert length_six.resolution.polynomial_complex.squared_zero
+    assert length_three.resolution.polynomial_complex.module(0).shifts == ((2, 2, 2),) * 3
+    assert length_six.resolution.polynomial_complex.module(0).shifts == ((3, 3, 3),) * 4
     assert length_three.length == 3
     assert length_six.length == 6
 

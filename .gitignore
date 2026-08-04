@@ -36,5 +36,7 @@ data/generated/*
 !data/generated/README.md
 !data/generated/visible_carrier/
 !data/generated/visible_carrier/**
+!data/generated/computable_carrier/
+!data/generated/computable_carrier/**
 
 .gitmessage

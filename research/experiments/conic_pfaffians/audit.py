@@ -87,7 +87,7 @@ SOURCE_HASHES: Final[tuple[tuple[str, str], ...]] = (
     ),
     (
         "src/onetheory/models/heterotic_schoen/visible.py",
-        "4ad5f63e5078234707c4410d6b093589d3c1352f9dbf099024c6997dd2bcdc29",
+        "fe44306da979e92a06487db76a224158d7f6849872070ff662bb4ed2c92df6c5",
     ),
     (
         "Experimental_Draft_OneTheory.py",

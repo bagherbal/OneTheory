@@ -39,7 +39,10 @@ from onetheory.math.linear import Matrix, Vector
 from onetheory.math.numbers import OMEGA, OMEGA2, Eisenstein, Rational, coerce_rational
 from onetheory.math.polynomials import (
     Polynomial,
+    PolynomialChainComplex,
+    PolynomialFreeModule,
     PolynomialFreeResolution,
+    PolynomialMap,
     PolynomialMatrix,
     determinant,
     maximal_minors,
@@ -127,6 +130,45 @@ class HilbertBurchResolution:
             {0: len(self.matrix), 1: len(self.matrix[0])},
             {1: PolynomialMatrix(self.matrix)},
         )
+
+    @property
+    def polynomial_complex(self) -> PolynomialChainComplex:
+        """Return the basis-shifted polynomial complex behind the matrix."""
+
+        generator_degree = next(
+            (entry.degree for row in self.matrix for entry in row if not entry.is_zero()),
+            None,
+        )
+        if generator_degree is None:
+            raise ValueError("a Hilbert–Burch matrix needs a nonzero entry")
+        entry_degrees = {
+            entry.degree for row in self.matrix for entry in row if not entry.is_zero()
+        }
+        if len(entry_degrees) != 1:
+            raise ValueError("Hilbert–Burch entries must have one homogeneous degree")
+        generator_shift = max(generator.degree for generator in self.generators)
+        target = PolynomialFreeModule(
+            f"{self.name}:F0",
+            tuple(f"g{index}" for index in range(len(self.matrix))),
+            tuple(
+                (generator_shift,) * self.matrix[0][0].variable_count
+                for _ in self.matrix
+            ),
+            self.matrix[0][0].variable_count,
+            self.matrix[0][0].scalar_type,
+        )
+        source = PolynomialFreeModule(
+            f"{self.name}:F1",
+            tuple(f"s{index}" for index in range(len(self.matrix[0]))),
+            tuple(
+                (generator_shift + next(iter(entry_degrees)),)
+                * self.matrix[0][0].variable_count
+                  for _ in self.matrix[0]),
+            self.matrix[0][0].variable_count,
+            self.matrix[0][0].scalar_type,
+        )
+        differential = PolynomialMap(source, target, PolynomialMatrix(self.matrix))
+        return PolynomialChainComplex({0: target, 1: source}, {1: differential})
 
     @property
     def scheme_length(self) -> Rational:

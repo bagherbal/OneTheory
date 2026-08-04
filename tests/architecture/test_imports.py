@@ -33,6 +33,12 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "math/lattices.py",
     "math/geometry.py",
     "math/homological.py",
+    "core/errors.py",
+    "core/precision.py",
+    "physics/gauge.py",
+    "physics/matter.py",
+    "physics/strings.py",
+    "models/standard_model.py",
 }
 
 

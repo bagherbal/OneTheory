@@ -6,7 +6,7 @@ Models contains concrete physical realizations of general laws. It currently res
 
 ## Belongs here
 
-`standard_model.py` will hold the low-energy gauge representations, charges, Higgs representation, and interaction structure. `heterotic_schoen` will hold only published carrier data and calculations directly attached to that carrier, including geometry, visible and hidden sectors, flavor, metrics, instantons, consistency, and vacuum work.
+`standard_model.py` holds the low-energy gauge representations, charges, Higgs representation, and exact B-L extension used by the carrier. `heterotic_schoen` will hold only published carrier data and calculations directly attached to that carrier, including geometry, visible and hidden sectors, flavor, metrics, instantons, consistency, and vacuum work.
 
 ## Does not belong here
 

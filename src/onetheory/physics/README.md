@@ -6,7 +6,7 @@ Physics contains general physical laws and concepts that do not depend on the se
 
 ## Belongs here
 
-Spacetime, quantum kinematics, fields, gauge theory, matter and flavor, gravity, heterotic string principles, vacuum structure, and terminal observable interfaces belong in the named modules. The modules provide future homes for laws used by both general computation and concrete models.
+Spacetime, quantum kinematics, fields, gauge theory, matter and flavor, gravity, heterotic string principles, vacuum structure, and terminal observable interfaces belong in the named modules. `gauge.py` now owns exact group and representation metadata, `matter.py` owns immutable particle multiplets and spectra, and `strings.py` owns compactification, bundle, Wilson-line, and published-input descriptors. The modules provide homes for laws used by both general computation and concrete models.
 
 ## Does not belong here
 

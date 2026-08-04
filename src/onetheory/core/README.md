@@ -6,7 +6,7 @@ Core contains universal engineering primitives required by every later layer.
 
 ## Belongs here
 
-`units.py` will own dimensions, units, conversions, and dimensional-consistency policy. `precision.py` will own exact-versus-numerical policy, tolerances, and convergence rules. `errors.py` will own explicit missing-input, normalization, convergence, and dimension failures.
+`units.py` will own dimensions, units, conversions, and dimensional-consistency policy. `precision.py` owns exact-versus-numerical policy, tolerances, exact-input admission, and convergence rules. `errors.py` owns explicit missing-input, convention, normalization, convergence, dimension, and dependency failures.
 
 ## Does not belong here
 

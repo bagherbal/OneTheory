@@ -36,9 +36,12 @@ from onetheory.reality import (
 )
 from onetheory.verification.certificates import (
     certify_established_carrier,
+    certify_metric_boundary,
     certify_observable_frontier,
+    metric_input_gate,
 )
 from onetheory.verification.evidence import EvidenceClass
+from onetheory.verification.gates import GateState
 
 
 def test_reality_composes_only_established_carrier_objects() -> None:
@@ -59,6 +62,7 @@ def test_reality_composes_only_established_carrier_objects() -> None:
         "common_dga_input_status",
         "conic_pfaffian_input_status",
         "hidden_bundle_input_status",
+        "metric_input_status",
     )
     assert "hidden bundle" in state.unresolved
     assert "physical Yukawa matrices" in state.unresolved
@@ -68,6 +72,21 @@ def test_reality_composes_only_established_carrier_objects() -> None:
     )
     assert not state.value("conic_pfaffian_input_status").physical_seed_maps_available
     assert not state.value("hidden_bundle_input_status").candidate750_matrices_available
+    assert not state.value("metric_input_status").extension_cocycle_available
+
+
+def test_metric_boundary_is_external_and_fail_closed() -> None:
+    state = assemble_reality()
+    gate = metric_input_gate(state)
+    certificates = certify_metric_boundary(state)
+
+    assert gate.state is GateState.MISSING_INPUT
+    assert gate.prerequisites[0].startswith("four local non-split extension cocycles")
+    assert all(certificate.passed for certificate in certificates)
+    assert all(
+        certificate.evidence.evidence_class is EvidenceClass.MISSING_INPUT
+        for certificate in certificates
+    )
 
 
 def test_external_certificates_pass_for_the_assembled_state() -> None:

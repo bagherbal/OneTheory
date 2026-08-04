@@ -44,6 +44,7 @@ from onetheory.models.heterotic_schoen.instantons import (
     CONIC_PFAFFIAN_MISSING_CHAIN,
     conic_pfaffian_input_status,
 )
+from onetheory.models.heterotic_schoen.metrics import METRIC_MISSING_CHAIN, metric_input_status
 from onetheory.models.heterotic_schoen.visible import (
     MixedMaurerCartanBranch,
     ObservableAdmissibility,
@@ -107,6 +108,10 @@ def _hidden_bundle(_: Mapping[str, object]) -> object:
     return hidden_bundle_input_status()
 
 
+def _metric_input(_: Mapping[str, object]) -> object:
+    return metric_input_status()
+
+
 def _assemble(values: Mapping[str, object]) -> tuple[StateEntry, ...]:
     return (
         StateEntry("standard_model", values["standard_model"]),
@@ -121,6 +126,7 @@ def _assemble(values: Mapping[str, object]) -> tuple[StateEntry, ...]:
         StateEntry("common_dga_input_status", values["common_dga_input_status"]),
         StateEntry("conic_pfaffian_input_status", values["conic_pfaffian_input_status"]),
         StateEntry("hidden_bundle_input_status", values["hidden_bundle_input_status"]),
+        StateEntry("metric_input_status", values["metric_input_status"]),
     )
 
 
@@ -144,6 +150,7 @@ def _reality_graph() -> ComputationGraph:
         GraphNode("common_dga_input_status", (), _common_dga),
         GraphNode("conic_pfaffian_input_status", (), _conic_pfaffians),
         GraphNode("hidden_bundle_input_status", (), _hidden_bundle),
+        GraphNode("metric_input_status", (), _metric_input),
         GraphNode(
             "established_carrier_state",
             (
@@ -159,6 +166,7 @@ def _reality_graph() -> ComputationGraph:
                 "common_dga_input_status",
                 "conic_pfaffian_input_status",
                 "hidden_bundle_input_status",
+                "metric_input_status",
             ),
             _assemble,
         ),
@@ -171,6 +179,7 @@ UNRESOLVED_REALITY_OUTPUTS = (
     "nonperturbative superpotential",
     "hidden bundle",
     "hidden spectrum",
+    "metric package",
     "vacuum",
     "physical Yukawa matrices",
     "rank-three holomorphic Yukawa matrix",
@@ -216,6 +225,7 @@ UNRESOLVED_REALITY_CHAINS = {
     ),
     "hidden bundle": HIDDEN_BUNDLE_MISSING_CHAIN,
     "hidden spectrum": (*HIDDEN_BUNDLE_MISSING_CHAIN, "certified descended hidden bundle"),
+    "metric package": METRIC_MISSING_CHAIN,
 }
 
 
@@ -246,7 +256,7 @@ def _missing_output(output: str, chain: tuple[str, ...]) -> NoReturn:
 def request_metrics() -> NoReturn:
     """Reject unresolved metric requests explicitly."""
 
-    _missing_output("metrics", ("Ricci-flat metric", "HYM connection", "matter metrics"))
+    _missing_output("metrics", METRIC_MISSING_CHAIN)
 
 
 def request_physical_yukawas() -> NoReturn:

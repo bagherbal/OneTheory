@@ -43,6 +43,10 @@ from onetheory.models.heterotic_schoen.instantons import (
     CONIC_PFAFFIAN_MISSING_CHAIN,
     ConicPfaffianInputStatus,
 )
+from onetheory.models.heterotic_schoen.metrics import (
+    METRIC_MISSING_CHAIN,
+    MetricInputStatus,
+)
 from onetheory.models.heterotic_schoen.visible import (
     MixedMaurerCartanBranch,
     ObservableAdmissibility,
@@ -357,6 +361,44 @@ def hidden_bundle_input_gate(state: PhysicalState) -> GateResult:
         "hidden.bundle_inputs",
         f"First missing input: {status.first_missing_input}.",
         "bounded objective-(28) hidden-bundle reconstruction",
+        status.prerequisite_chain,
+    )
+
+
+def certify_metric_boundary(state: PhysicalState) -> tuple[ExactCertificate, ...]:
+    """Certify the positive-twist metric boundary without inventing sections."""
+
+    status = cast(MetricInputStatus, state.value("metric_input_status"))
+    return (
+        exact_certificate(
+            "metric.first_missing_input",
+            METRIC_MISSING_CHAIN[0],
+            status.first_missing_input,
+            evidence_class=EvidenceClass.MISSING_INPUT,
+            statement="The first positive-twist metric input is absent from the declared data.",
+            scope="positive-twist section and metric gateway",
+            prerequisites=status.prerequisite_chain,
+        ),
+        exact_certificate(
+            "metric.global_generation",
+            False,
+            status.global_generation_certified,
+            evidence_class=EvidenceClass.MISSING_INPUT,
+            statement="Global generation is not certified before the full section basis exists.",
+            scope="404-section evaluation matrix",
+            prerequisites=status.prerequisite_chain,
+        ),
+    )
+
+
+def metric_input_gate(state: PhysicalState) -> GateResult:
+    """Expose the first positive-twist metric input as a fail-closed gate."""
+
+    status = cast(MetricInputStatus, state.value("metric_input_status"))
+    return gate_missing_input(
+        "metric.positive_twist_inputs",
+        f"First missing input: {status.first_missing_input}.",
+        "positive-twist section and metric gateway",
         status.prerequisite_chain,
     )
 

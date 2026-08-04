@@ -26,11 +26,12 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
+from typing import cast
 
 from onetheory.core.errors import MissingPhysicalInput, NonExactInput
 from onetheory.math.homological import CyclicPairing, GradedElement, HPLTransfer, TransferWord
 from onetheory.math.linear import Matrix, Vector
-from onetheory.math.numbers import Eisenstein, Rational, coerce_rational
+from onetheory.math.numbers import E_ZERO, Eisenstein, Rational, coerce_rational
 from onetheory.math.polynomials import Polynomial, determinant
 
 
@@ -676,6 +677,13 @@ def _sum_frontier_vectors(
 def _frontier_matrix(value: object, label: str) -> Matrix:
     """Validate one exact 2-by-2 active tree block."""
 
+    if isinstance(value, Matrix):
+        matrix = value
+        if matrix.scalar_type is not Eisenstein:
+            raise TypeError(f"{label} must use Q(omega) coefficients")
+        if matrix.shape != (2, 2) or matrix != matrix.transpose() or matrix.determinant().is_zero():
+            raise ValueError(f"{label} must be symmetric and invertible")
+        return matrix
     if isinstance(value, (str, bytes)) or not isinstance(value, Sequence):
         raise ValueError(f"{label} must be an exact matrix")
     matrix = Matrix(
@@ -1026,6 +1034,247 @@ def star_triangular_typing_identifiability() -> TypingIdentifiability:
         not (distinct and same_retained),
         "conditional transport typing is not inferred for the physical carrier",
     )
+
+
+F3_COMMON_CYCLIC_CERTIFICATES = (
+    "common_basis_frozen",
+    "effective_FE_response_chain_certified",
+    "contraction_side_conditions",
+    "cyclic_trace_normalized",
+    "cyclic_orientation_sign_certified",
+    "matter_slot_symmetry_certified",
+    "physical_open_component_inherited",
+)
+F3_COMMON_CYCLIC_PROVENANCE = (
+    "external_states_sha256",
+    "effective_FE_response_sha256",
+    "contractions_sha256",
+    "cyclic_tensors_sha256",
+    "normalization_sha256",
+)
+
+
+def f3_common_cyclic_contract() -> Mapping[str, object]:
+    """Describe the exact package boundary before the four first traces."""
+
+    return {
+        "object": "F3CommonCyclicTracePackage",
+        "field": "Q(omega)",
+        "required_certificates": F3_COMMON_CYCLIC_CERTIFICATES,
+        "required_provenance_digests": F3_COMMON_CYCLIC_PROVENANCE,
+        "sector_blocks": ("A", "H", "B"),
+        "oriented_contraction_count": 8,
+        "independent_normalized_scalar_count": 4,
+        "physical_carrier_package_available": False,
+        "scope": "one frozen common cyclic gauge; physical package remains missing",
+    }
+
+
+def _exact_matrix(value: object, rows: int, columns: int, label: str) -> Matrix:
+    """Parse an exact Eisenstein matrix with an explicit shape."""
+
+    if isinstance(value, (str, bytes)) or not isinstance(value, Sequence) or len(value) != rows:
+        raise ValueError(f"{label} must have {rows} rows")
+    parsed = tuple(
+        tuple(_frontier_scalar(entry) for entry in row)
+        if isinstance(row, Sequence) and not isinstance(row, (str, bytes)) and len(row) == columns
+        else tuple()
+        for row in value
+    )
+    if any(len(row) != columns for row in parsed):
+        raise ValueError(f"{label} must have {columns} columns")
+    return Matrix(parsed, scalar_type=Eisenstein)
+
+
+def _exact_tensor(
+    value: object,
+    dimensions: tuple[int, int, int],
+    label: str,
+) -> tuple[tuple[tuple[Eisenstein, ...], ...], ...]:
+    """Parse an exact rank-three cyclic tensor."""
+
+    if (
+        isinstance(value, (str, bytes))
+        or not isinstance(value, Sequence)
+        or len(value) != dimensions[0]
+    ):
+        raise ValueError(f"{label} has the wrong first dimension")
+    planes: list[tuple[tuple[Eisenstein, ...], ...]] = []
+    for first, plane in enumerate(value):
+        if (
+            isinstance(plane, (str, bytes))
+            or not isinstance(plane, Sequence)
+            or len(plane) != dimensions[1]
+        ):
+            raise ValueError(f"{label}[{first}] has the wrong second dimension")
+        rows: list[tuple[Eisenstein, ...]] = []
+        for second, row in enumerate(plane):
+            if (
+                isinstance(row, (str, bytes))
+                or not isinstance(row, Sequence)
+                or len(row) != dimensions[2]
+            ):
+                raise ValueError(f"{label}[{first}][{second}] has the wrong third dimension")
+            rows.append(tuple(_frontier_scalar(entry) for entry in row))
+        planes.append(tuple(rows))
+    return tuple(planes)
+
+
+def _trilinear(
+    tensor: Sequence[Sequence[Sequence[Eisenstein]]],
+    left: Sequence[Eisenstein],
+    middle: Sequence[Eisenstein],
+    right: Sequence[Eisenstein],
+) -> Eisenstein:
+    """Contract an exact rank-three tensor with three exact vectors."""
+
+    return Eisenstein.coerce(sum(
+        (
+            tensor[i][j][k] * left[i] * middle[j] * right[k]
+            for i in range(len(left))
+            for j in range(len(middle))
+            for k in range(len(right))
+        ),
+        E_ZERO,
+    ))
+
+
+def _digest(value: object, label: str) -> str:
+    """Validate one lowercase SHA-256 provenance digest."""
+
+    if not isinstance(value, str) or len(value) != 64 or value.lower() != value:
+        raise ValueError(f"{label} must be a lowercase SHA-256 digest")
+    try:
+        int(value, 16)
+    except ValueError as error:
+        raise ValueError(f"{label} must be a lowercase SHA-256 digest") from error
+    return value
+
+
+def _basis_names(value: object, label: str) -> tuple[str, ...]:
+    """Validate one nonempty ordered exact basis."""
+
+    if isinstance(value, (str, bytes)) or not isinstance(value, Sequence) or not value:
+        raise ValueError(f"{label} must be a nonempty ordered basis")
+    names = tuple(value)
+    if (
+        any(not isinstance(name, str) or not name for name in names)
+        or len(set(names)) != len(names)
+    ):
+        raise ValueError(f"{label} basis names must be unique nonempty strings")
+    return names
+
+
+def compile_f3_common_cyclic_package(package: Mapping[str, object]) -> Mapping[str, object]:
+    """Derive the four f3 columns from one complete common cyclic package."""
+
+    if package.get("object") != "F3CommonCyclicTracePackage" or package.get("field") != "Q(omega)":
+        raise ValueError("wrong common-cyclic f3 package header")
+    package_class = package.get("package_class")
+    if package_class not in {"physical_carrier", "synthetic_test"}:
+        raise MissingPhysicalInput("common-cyclic package class", ("complete physical package",))
+    _require_certificate_mapping(package, F3_COMMON_CYCLIC_CERTIFICATES)
+    provenance = package.get("provenance")
+    if not isinstance(provenance, Mapping) or set(provenance) != set(F3_COMMON_CYCLIC_PROVENANCE):
+        raise MissingPhysicalInput("common-cyclic provenance", ("frozen source digests",))
+    pinned = {
+        name: _digest(provenance[name], f"provenance.{name}")
+        for name in F3_COMMON_CYCLIC_PROVENANCE
+    }
+    sectors_data = package.get("sectors")
+    if not isinstance(sectors_data, Mapping) or set(sectors_data) != {"u", "d"}:
+        raise MissingPhysicalInput("up/down common-cyclic sectors", ("complete raw f3 package",))
+    sector_results: dict[str, Mapping[str, object]] = {}
+    for sector in ("u", "d"):
+        data = sectors_data[sector]
+        if not isinstance(data, Mapping):
+            raise ValueError(f"sectors.{sector} must be a mapping")
+        basis = data.get("basis")
+        if not isinstance(basis, Mapping) or set(basis) != {"A", "H", "B"}:
+            raise ValueError(f"sectors.{sector}.basis must contain A, H, and B")
+        names = {
+            block: _basis_names(basis[block], f"{sector}.{block}")
+            for block in ("A", "H", "B")
+        }
+        dimensions = {block: len(value) for block, value in names.items()}
+        a: tuple[Eisenstein, ...] = tuple(
+            _frontier_scalar(value) for value in data.get("a", ())
+        )
+        higgs: tuple[Eisenstein, ...] = tuple(
+            _frontier_scalar(value) for value in data.get("H", ())
+        )
+        active = data.get("b_active")
+        if isinstance(active, (str, bytes)) or not isinstance(active, Sequence) or len(active) != 2:
+            raise ValueError(f"{sector}.b_active must contain two vectors")
+        b_active = tuple(
+            tuple(_frontier_scalar(entry) for entry in vector)
+            if isinstance(vector, Sequence) and not isinstance(vector, (str, bytes))
+            else tuple()
+            for vector in active
+        )
+        if len(a) != dimensions["A"] or len(higgs) != dimensions["H"] or any(
+            len(vector) != dimensions["B"] for vector in b_active
+        ):
+            raise ValueError(f"{sector} external-state dimensions do not match its basis")
+        effective = _exact_matrix(
+            data.get("effective_FE_B"), dimensions["B"], dimensions["B"],
+            f"{sector}.effective_FE_B",
+        )
+        tau_ahb = _exact_tensor(
+            data.get("tau_AHB"), (dimensions["A"], dimensions["H"], dimensions["B"]),
+            f"{sector}.tau_AHB",
+        )
+        tau_bha = _exact_tensor(
+            data.get("tau_BHA"), (dimensions["B"], dimensions["H"], dimensions["A"]),
+            f"{sector}.tau_BHA",
+        )
+        active_block = _frontier_matrix(data.get("M0"), f"{sector}.M0")
+        responses: tuple[tuple[Eisenstein, ...], ...] = tuple(
+            tuple(Eisenstein.coerce(value) for value in effective.matvec(
+                Vector(vector, scalar_type=Eisenstein)
+            ).values)
+            for vector in b_active
+        )
+        right = tuple(_trilinear(tau_ahb, a, higgs, response) for response in responses)
+        left = tuple(_trilinear(tau_bha, response, higgs, a) for response in responses)
+        if right != left:
+            raise ValueError(f"{sector} cyclic orientations disagree")
+        sector_results[sector] = {
+            "basis_dimensions": dimensions,
+            "effective_FE_responses": responses,
+            "right_orientation_traces": right,
+            "left_orientation_traces": left,
+            "orientation_pairs_equal": right == left,
+            "p_f3": right,
+            "M0": active_block,
+        }
+    adaptive = compile_direction_adaptive_frontier({
+        "package_class": package_class,
+        "field": "Q(omega)",
+        "certificates": {name: True for name in ADAPTIVE_RESIDUE_CERTIFICATES},
+        "M0": {
+            sector: cast(Matrix, sector_results[sector]["M0"]).rows
+            for sector in ("u", "d")
+        },
+        "normalized_residues": {
+            sector: {"3": {"B_neutral_FE": sector_results[sector]["p_f3"]}}
+            for sector in ("u", "d")
+        },
+        "scope": package.get("scope", "complete common-cyclic package"),
+    })
+    return {
+        "object": "F3CommonCyclicTraceCompilation",
+        "package_class": package_class,
+        "provenance": pinned,
+        "sector_traces": sector_results,
+        "independent_normalized_scalar_count": 4,
+        "oriented_contraction_count": 8,
+        "all_orientation_pairs_equal": all(
+            bool(result["orientation_pairs_equal"]) for result in sector_results.values()
+        ),
+        "adaptive_compilation": adaptive,
+        "scope": package.get("scope", "complete common-cyclic package"),
+    }
 
 
 def finite_frontier_status() -> Mapping[str, object]:

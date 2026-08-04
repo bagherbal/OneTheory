@@ -2,7 +2,8 @@
 
 Owns:
     Named state entries, established-state status, explicit unresolved-output
-    declarations, deterministic lookup, and fail-closed output requirements.
+    declarations, deterministic lookup, scoped prerequisite chains, and fail-closed
+    output requirements.
 
 Depends on:
     `onetheory.core.errors` only; state remains generic and imports no concrete
@@ -19,7 +20,7 @@ Phase 0:
 
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 
 from onetheory.core.errors import MissingPhysicalInput
@@ -44,6 +45,7 @@ class PhysicalState:
     model_name: str
     entries: tuple[StateEntry, ...]
     unresolved: tuple[str, ...]
+    unresolved_chains: tuple[tuple[str, tuple[str, ...]], ...]
     established: bool
 
     def __init__(
@@ -52,6 +54,7 @@ class PhysicalState:
         entries: Iterable[StateEntry],
         unresolved: Iterable[str],
         established: bool,
+        unresolved_chains: Mapping[str, Iterable[str]] | None = None,
     ) -> None:
         values = tuple(entries)
         open_outputs = tuple(unresolved)
@@ -61,9 +64,21 @@ class PhysicalState:
             raise ValueError("state entry names must be unique")
         if any(not output.strip() for output in open_outputs):
             raise ValueError("unresolved outputs require nonempty names")
+        chains = tuple(
+            (name, tuple(chain))
+            for name, chain in (unresolved_chains or {}).items()
+        )
+        if any(name not in open_outputs for name, _ in chains):
+            raise ValueError("unresolved prerequisite chains must name unresolved outputs")
+        if any(
+            any(not item.strip() for item in chain)
+            for _, chain in chains
+        ):
+            raise ValueError("unresolved prerequisite chains require nonempty names")
         object.__setattr__(self, "model_name", model_name)
         object.__setattr__(self, "entries", values)
         object.__setattr__(self, "unresolved", open_outputs)
+        object.__setattr__(self, "unresolved_chains", tuple(sorted(chains)))
         object.__setattr__(self, "established", established)
 
     @property
@@ -84,6 +99,9 @@ class PhysicalState:
         """Require an output that may be explicitly unresolved."""
 
         if output in self.unresolved:
+            chain = dict(self.unresolved_chains).get(output)
+            if chain is not None:
+                raise MissingPhysicalInput(output, chain)
             remaining = tuple(item for item in self.unresolved if item != output)
             raise MissingPhysicalInput(output, remaining)
         return self.value(output)

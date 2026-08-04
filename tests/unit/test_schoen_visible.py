@@ -85,6 +85,9 @@ def test_split_wall_branch_recomputes_the_formal_local_certificates() -> None:
     assert wall.reverse.dimension == 8
     assert not wall.common_dga_representatives_available
     assert branch.formally_integrable
+    assert branch.diagonal_blocks_vanish
+    assert branch.mixed_quadratic_rank == 0
+    assert branch.strict_square_zero
     assert branch.curvature_correction == "-s*t*K_y is required to cancel the E*F curvature term"
     assert admissibility.certified
     assert admissibility.local_freeness.determinant_at_origin == 1

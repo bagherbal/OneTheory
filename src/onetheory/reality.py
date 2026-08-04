@@ -143,6 +143,38 @@ UNRESOLVED_REALITY_OUTPUTS = (
     "low-energy predictions",
 )
 
+UNRESOLVED_REALITY_CHAINS = {
+    "rank-three holomorphic Yukawa matrix": (
+        "nonzero null-family normal displacement",
+        "sector Hessian / second-normal form",
+        "twelve physical amplitudes",
+        "normalized carrier residues",
+        "complete common-DGA representatives and contractions",
+    ),
+    "physical Yukawa matrices": (
+        "rank-three holomorphic Yukawa matrix",
+        "nonzero null-family normal displacement",
+        "sector Hessian / second-normal form",
+        "twelve physical amplitudes",
+        "normalized carrier residues",
+        "complete common-DGA representatives and contractions",
+        "matter metrics",
+        "stabilized common vacuum",
+    ),
+    "physical masses": (
+        "rank-three holomorphic Yukawa matrix",
+        "matter metrics",
+        "canonical normalization",
+        "stabilized common vacuum",
+    ),
+    "CKM and CP observables": (
+        "rank-three physical Yukawa matrices",
+        "matter metrics",
+        "canonical normalization",
+        "stabilized common vacuum",
+    ),
+}
+
 
 def assemble_reality() -> PhysicalState:
     """Assemble only the established carrier state from the exact graph."""
@@ -154,6 +186,7 @@ def assemble_reality() -> PhysicalState:
         entries,
         UNRESOLVED_REALITY_OUTPUTS,
         True,
+        UNRESOLVED_REALITY_CHAINS,
     )
 
 

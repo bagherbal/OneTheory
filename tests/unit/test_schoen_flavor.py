@@ -24,7 +24,10 @@ from onetheory.core.errors import MissingPhysicalInput
 from onetheory.math.linear import Matrix, Vector
 from onetheory.math.numbers import Eisenstein
 from onetheory.models.heterotic_schoen.flavor import (
+    F3_COMMON_CYCLIC_CERTIFICATES,
+    F3_COMMON_CYCLIC_PROVENANCE,
     binary_gram_certificate,
+    compile_f3_common_cyclic_package,
     complete_forward_slice_obstruction,
     degree_three_obstruction,
     direct_order_five_exclusion,
@@ -89,3 +92,35 @@ def test_binary_gram_frontier_certificate_recomputes_exact_identities() -> None:
 
     assert certificate["all_exact_checks_pass"]
     assert star_triangular_typing_identifiability().typing_is_identifiable is False
+
+
+def test_raw_common_cyclic_compiler_collapses_both_orientations() -> None:
+    def sector(label: str) -> dict[str, object]:
+        return {
+            "basis": {
+                "A": (f"{label}_a",),
+                "H": (f"{label}_h",),
+                "B": (f"{label}_b0", f"{label}_b1"),
+            },
+            "M0": ((0, 1), (1, 0)),
+            "a": (1,),
+            "H": (1,),
+            "b_active": ((1, 0), (0, 1)),
+            "effective_FE_B": ((1, 0), (0, 1)),
+            "tau_AHB": (((1, 1),),),
+            "tau_BHA": (((1,),), ((1,),)),
+        }
+
+    package = {
+        "object": "F3CommonCyclicTracePackage",
+        "field": "Q(omega)",
+        "package_class": "synthetic_test",
+        "certificates": {name: True for name in F3_COMMON_CYCLIC_CERTIFICATES},
+        "provenance": {name: "0" * 64 for name in F3_COMMON_CYCLIC_PROVENANCE},
+        "sectors": {"u": sector("u"), "d": sector("d")},
+    }
+    result = compile_f3_common_cyclic_package(package)
+
+    assert result["all_orientation_pairs_equal"]
+    assert result["oriented_contraction_count"] == 8
+    assert result["independent_normalized_scalar_count"] == 4

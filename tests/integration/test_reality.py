@@ -74,7 +74,7 @@ def test_external_certificates_pass_for_the_assembled_state() -> None:
 def test_frontier_certificates_recompute_formal_results() -> None:
     certificates = certify_observable_frontier(assemble_reality())
 
-    assert len(certificates) == 10
+    assert len(certificates) == 14
     assert all(certificate.passed for certificate in certificates)
 
 

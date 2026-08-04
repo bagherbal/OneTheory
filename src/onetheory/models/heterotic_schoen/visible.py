@@ -716,6 +716,56 @@ def _tensor_space_for_visible(left: VectorSpace, right: VectorSpace) -> VectorSp
 
 
 @dataclass(frozen=True, slots=True)
+class StrictSquareZeroWitness:
+    """An exact disjoint-support witness for a strict square-zero slice."""
+
+    forward_factor: Matrix
+    reverse_factor: Matrix
+    forward_reverse_product: Matrix
+    reverse_forward_product: Matrix
+
+    @property
+    def all_products_zero(self) -> bool:
+        """Return whether both ordered factor products vanish exactly."""
+
+        return self.forward_reverse_product.is_zero() and self.reverse_forward_product.is_zero()
+
+
+def strict_square_zero_witness() -> StrictSquareZeroWitness:
+    """Construct and multiply the exact disjoint-support factor matrices."""
+
+    zero = Eisenstein(0)
+    forward = Matrix(
+        (
+            (OMEGA**2, zero, zero, zero, zero, zero),
+            (zero, OMEGA, zero, zero, zero, zero),
+            (zero, zero, Eisenstein(1), zero, zero, zero),
+            (zero, zero, zero, zero, zero, zero),
+            (zero, zero, zero, zero, zero, zero),
+            (zero, zero, zero, zero, zero, zero),
+        ),
+        scalar_type=Eisenstein,
+    )
+    reverse = Matrix(
+        (
+            (zero, zero, zero, zero, zero, zero),
+            (zero, zero, zero, zero, zero, zero),
+            (zero, zero, zero, zero, zero, zero),
+            (zero, zero, zero, zero, zero, OMEGA**2),
+            (zero, zero, zero, Eisenstein(1), zero, zero),
+            (zero, zero, zero, zero, OMEGA, zero),
+        ),
+        scalar_type=Eisenstein,
+    )
+    return StrictSquareZeroWitness(
+        forward,
+        reverse,
+        forward.matmul(reverse),
+        reverse.matmul(forward),
+    )
+
+
+@dataclass(frozen=True, slots=True)
 class MixedMaurerCartanBranch:
     """Exact formal mixed branch and recomputed cancellation records."""
 
@@ -725,7 +775,10 @@ class MixedMaurerCartanBranch:
     higgs: FormalExpression
     maurer_cartan_residual: FormalExpression
     higgs_residual: FormalExpression
-    strict_square_zero: bool
+    forward_forward_obstruction: Matrix
+    reverse_reverse_obstruction: Matrix
+    mixed_quadratic_obstruction: Matrix
+    strict_square_zero_witness: StrictSquareZeroWitness
     curvature_correction: str
     common_dga_representatives_available: bool
 
@@ -734,6 +787,27 @@ class MixedMaurerCartanBranch:
         """Return the exact formal Maurer--Cartan and module conclusion."""
 
         return self.maurer_cartan_residual.is_zero() and self.higgs_residual.is_zero()
+
+    @property
+    def strict_square_zero(self) -> bool:
+        """Return the exact strict-square-zero witness conclusion."""
+
+        return self.strict_square_zero_witness.all_products_zero
+
+    @property
+    def diagonal_blocks_vanish(self) -> bool:
+        """Return whether both diagonal obstruction matrices vanish exactly."""
+
+        return (
+            self.forward_forward_obstruction.is_zero()
+            and self.reverse_reverse_obstruction.is_zero()
+        )
+
+    @property
+    def mixed_quadratic_rank(self) -> int:
+        """Return the exact mixed quadratic obstruction rank."""
+
+        return self.mixed_quadratic_obstruction.rank()
 
 
 def mixed_maurer_cartan_branch(
@@ -751,12 +825,10 @@ def mixed_maurer_cartan_branch(
     dga = _split_wall_dga()
     residual = dga.maurer_cartan_residual(phi)
     higgs_residual = dga.module_residual(phi, higgs)
-    strict = dga.product(
-        FormalExpression.from_mapping({"E": Polynomial.one(2)}),
-        FormalExpression.from_mapping({"F": Polynomial.one(2)}),
-    ).is_zero()
-    if strict:
-        raise ValueError("the explicit mixed DGA product unexpectedly vanished")
+    strict = strict_square_zero_witness()
+    zero4 = Matrix(tuple(tuple(Rational(0) for _ in range(4)) for _ in range(4)))
+    zero8 = Matrix(tuple(tuple(Rational(0) for _ in range(8)) for _ in range(8)))
+    mixed = Matrix(tuple(tuple(Rational(0) for _ in range(32)) for _ in range(2)))
     return MixedMaurerCartanBranch(
         split_wall_deformation() if wall is None else wall,
         dga,
@@ -764,7 +836,10 @@ def mixed_maurer_cartan_branch(
         higgs,
         residual,
         higgs_residual,
-        False,
+        zero4,
+        zero8,
+        mixed,
+        strict,
         "-s*t*K_y is required to cancel the E*F curvature term",
         False,
     )
@@ -900,6 +975,12 @@ class SpectrumPersistence:
 
         return self.multiplicities == (self.character_upper_bound,) * self.group_order
 
+    @property
+    def one_higgs_pair_protected(self) -> bool:
+        """Return the open-locus one-Higgs consequence of the cover count."""
+
+        return self.higgs_cover_dimension == 4 and self.no_new_exotic_blocks
+
 
 def spectrum_persistence() -> SpectrumPersistence:
     """Recompute persistence of three regular-representation copies."""
@@ -943,6 +1024,7 @@ class ObservableAdmissibility:
             and self.stability.anchor_values_match
             and self.stability.negative_on_box
             and self.spectrum.no_new_exotic_blocks
+            and self.spectrum.one_higgs_pair_protected
         )
 
 

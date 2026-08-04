@@ -60,8 +60,13 @@ def test_graph_rejects_cycles_and_state_rejects_unresolved_outputs() -> None:
         (StateEntry("geometry", "established"),),
         ("physical CKM matrix",),
         True,
+        {"physical CKM matrix": ("matter metrics", "stabilized common vacuum")},
     )
     assert state.value("geometry") == "established"
     with pytest.raises(MissingPhysicalInput) as failure:
         state.require("physical CKM matrix")
-    assert failure.value.chain == ("physical CKM matrix",)
+    assert failure.value.chain == (
+        "physical CKM matrix",
+        "matter metrics",
+        "stabilized common vacuum",
+    )

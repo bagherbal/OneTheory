@@ -25,6 +25,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from onetheory.math.numbers import Eisenstein
+from onetheory.math.sheaves import LaurentMatrix, LaurentPolynomial
 
 from .pencil import TierAPencilModel, tier_a_pencil_model
 from .serre_local import LocalSerreModel, local_serre_model
@@ -40,12 +41,31 @@ class AtlasSerreLocal:
     local_coordinates: tuple[str, str]
     fiber_coordinate: Eisenstein
     local_model: LocalSerreModel
+    local_to_du: LaurentMatrix
+    local_to_dv: LaurentMatrix
+    punctured_cocycle: LaurentMatrix
+    local_cocycle_exact: bool
     hypersurface_incidence: bool
     fiber_derivative_nonzero: bool
     global_gluing_status: str
 
     def as_record(self) -> dict[str, object]:
         """Serialize local atlas incidence and the pushout presentation."""
+
+        def matrix_record(matrix: LaurentMatrix) -> list[list[list[object]]]:
+            return [
+                [
+                    [
+                        {
+                            "exponents": list(exponents),
+                            "coefficient": str(coefficient),
+                        }
+                        for exponents, coefficient in entry.terms
+                    ]
+                    for entry in row
+                ]
+                for row in matrix.rows
+            ]
 
         return {
             "scheme": self.scheme,
@@ -54,6 +74,10 @@ class AtlasSerreLocal:
             "local_coordinates": list(self.local_coordinates),
             "fiber_coordinate_nu_over_mu": str(self.fiber_coordinate),
             "local_model": self.local_model.as_record(),
+            "local_to_du": matrix_record(self.local_to_du),
+            "local_to_dv": matrix_record(self.local_to_dv),
+            "punctured_cocycle": matrix_record(self.punctured_cocycle),
+            "local_cocycle_exact": self.local_cocycle_exact,
             "hypersurface_incidence": self.hypersurface_incidence,
             "fiber_derivative_nonzero": self.fiber_derivative_nonzero,
             "global_gluing_status": self.global_gluing_status,
@@ -93,6 +117,9 @@ def _local_record(
     local_model = local_serre_model(scheme)
     if not certificate.verified or not local_model.locally_free:
         raise ValueError("the declared local unit pushout failed an exact local gate")
+    local_to_du, local_to_dv, punctured_cocycle, cocycle_exact = _punctured_transitions(
+        local_model.multiplicity,
+    )
     return AtlasSerreLocal(
         scheme,
         point_name,
@@ -100,10 +127,38 @@ def _local_record(
         (certificate.linear_coordinate, certificate.nilpotent_coordinate),
         fiber_coordinate,
         local_model,
+        local_to_du,
+        local_to_dv,
+        punctured_cocycle,
+        cocycle_exact,
         incidence,
         not derivative.is_zero(),
         "global Cech gluing and Serre linearization pending",
     )
+
+
+def _punctured_transitions(
+    multiplicity: int,
+) -> tuple[LaurentMatrix, LaurentMatrix, LaurentMatrix, bool]:
+    """Construct the exact two-chart local Serre Cech transition."""
+
+    u = LaurentPolynomial.monomial((1, 0), scalar_type=Eisenstein)
+    u_inverse = LaurentPolynomial.monomial((-1, 0), scalar_type=Eisenstein)
+    v_power = LaurentPolynomial.monomial((0, multiplicity), scalar_type=Eisenstein)
+    v_inverse_power = LaurentPolynomial.monomial((0, -multiplicity), scalar_type=Eisenstein)
+    one = LaurentPolynomial.one(2, scalar_type=Eisenstein)
+    zero = LaurentPolynomial.zero(2, scalar_type=Eisenstein)
+    local_to_du = LaurentMatrix(((-v_power, u_inverse), (u, zero)))
+    local_to_dv = LaurentMatrix(((-v_power, zero), (u, v_inverse_power)))
+    inverse_du = LaurentMatrix(((zero, u_inverse), (u, v_power)))
+    punctured_cocycle = LaurentMatrix(
+        ((one, u_inverse * v_inverse_power), (zero, one))
+    )
+    exact = (
+        inverse_du.compose(local_to_du).is_identity()
+        and inverse_du.compose(local_to_dv) == punctured_cocycle
+    )
+    return local_to_du, local_to_dv, punctured_cocycle, exact
 
 
 def tier_a_atlas_serre_locals(

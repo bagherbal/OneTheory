@@ -50,8 +50,10 @@ not a global Serre transition construction.
 
 Each coordinate singular point is now tied to its mu-chart fiber coordinate,
 local hypersurface incidence, nonzero fiber derivative, and exact unit Serre
-pushout. The six local presentations are still only local data: their global
-Cech gluing and equivariant linearization remain promotion gates.
+pushout. Their punctured-neighborhood Cech transitions are explicit, with
+pole orders (1,1) for I3 and (1,2) for I6. The six presentations are still
+only local data: global complement gluing and equivariant linearization remain
+promotion gates.
 
 The I3 and I6 Hilbert--Burch matrices are also pulled back to all six atlas
 charts. Their degree-one chain comparisons agree on every ordered overlap,

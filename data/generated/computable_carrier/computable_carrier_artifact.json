@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "fcd52f15577fbcfca8abead71e289fcd41a1f81fd132c913ebca198e2afb21be",
+  "artifact_digest": "6813c661687e5b0030ffb361cee1750dbabdede08c084add68bf91b3fed97dbc",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -11959,6 +11959,7 @@
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
+        "local_cocycle_exact": true,
         "local_coordinates": [
           "b/a",
           "c/a"
@@ -12139,7 +12140,109 @@
             }
           ]
         },
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -1
+                ]
+              }
+            ]
+          ]
+        ],
         "point": "p_a",
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
         "scheme": "I3"
       },
       {
@@ -12148,6 +12251,7 @@
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
+        "local_cocycle_exact": true,
         "local_coordinates": [
           "c/b",
           "a/b"
@@ -12328,7 +12432,109 @@
             }
           ]
         },
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -1
+                ]
+              }
+            ]
+          ]
+        ],
         "point": "p_b",
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
         "scheme": "I3"
       },
       {
@@ -12337,6 +12543,7 @@
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
+        "local_cocycle_exact": true,
         "local_coordinates": [
           "a/c",
           "b/c"
@@ -12517,7 +12724,109 @@
             }
           ]
         },
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -1
+                ]
+              }
+            ]
+          ]
+        ],
         "point": "p_c",
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
         "scheme": "I3"
       },
       {
@@ -12526,6 +12835,7 @@
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
+        "local_cocycle_exact": true,
         "local_coordinates": [
           "b/a",
           "c/a"
@@ -12706,7 +13016,109 @@
             }
           ]
         },
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -2
+                ]
+              }
+            ]
+          ]
+        ],
         "point": "p_a",
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -2
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
         "scheme": "I6"
       },
       {
@@ -12715,6 +13127,7 @@
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
+        "local_cocycle_exact": true,
         "local_coordinates": [
           "c/b",
           "a/b"
@@ -12895,7 +13308,109 @@
             }
           ]
         },
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -2
+                ]
+              }
+            ]
+          ]
+        ],
         "point": "p_b",
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -2
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
         "scheme": "I6"
       },
       {
@@ -12904,6 +13419,7 @@
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
+        "local_cocycle_exact": true,
         "local_coordinates": [
           "a/c",
           "b/c"
@@ -13084,7 +13600,109 @@
             }
           ]
         },
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -2
+                ]
+              }
+            ]
+          ]
+        ],
         "point": "p_c",
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -2
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
         "scheme": "I6"
       }
     ],

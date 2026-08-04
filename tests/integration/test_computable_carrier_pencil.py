@@ -32,6 +32,17 @@ def test_pencil_deck_actions_are_exact_order_three_and_commuting() -> None:
     assert model.actions_commute
 
 
+def test_pencil_blowup_atlas_has_exact_overlap_identities() -> None:
+    """The six affine hypersurface charts glue by checked Laurent maps."""
+
+    model = tier_a_pencil_model()
+    assert model.base_locus.reduced_and_transverse
+    assert len(model.blowup_atlas.charts) == 6
+    assert len(model.blowup_atlas.overlaps) == 30
+    assert model.blowup_atlas.atlas_consistent
+    assert all(overlap.equation_compatible for overlap in model.blowup_atlas.overlaps)
+
+
 def test_coordinate_singular_points_have_distinct_singular_fibers() -> None:
     """The three coordinate support points are exact singular points."""
 

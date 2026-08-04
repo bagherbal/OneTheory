@@ -28,6 +28,7 @@ from dataclasses import dataclass
 
 from onetheory.math.numbers import OMEGA, OMEGA2, Eisenstein
 from onetheory.math.polynomials import Polynomial
+from onetheory.math.sheaves import LaurentPolynomial
 from onetheory.models.heterotic_schoen.geometry import schoen_geometry
 from onetheory.models.heterotic_schoen.visible import PointScheme, point_schemes
 
@@ -131,6 +132,7 @@ class BaseLocusAlgebra:
     degree: int
     square_free: bool
     boundary_empty: bool
+    transverse_jacobian_unit: bool
     pencil_relations_hold: bool
 
     @property
@@ -141,6 +143,12 @@ class BaseLocusAlgebra:
             1,
             scalar_type=Eisenstein,
         )
+
+    @property
+    def reduced_and_transverse(self) -> bool:
+        """Return the exact finite-basepoint smoothness certificate."""
+
+        return self.square_free and self.transverse_jacobian_unit
 
     def as_record(self) -> dict[str, object]:
         """Serialize the finite algebra without calling it a blow-up atlas."""
@@ -160,6 +168,8 @@ class BaseLocusAlgebra:
             "degree": self.degree,
             "square_free": self.square_free,
             "boundary_empty": self.boundary_empty,
+            "transverse_jacobian_unit": self.transverse_jacobian_unit,
+            "reduced_and_transverse": self.reduced_and_transverse,
             "x_inverse_identity": self.x_inverse_identity,
             "pencil_relations_hold": self.pencil_relations_hold,
             "status": "exact affine base-locus algebra; blow-up atlas pending",
@@ -250,10 +260,96 @@ class LocalIdealCertificate:
 
 
 @dataclass(frozen=True, slots=True)
+class BlowupChart:
+    """One exact affine chart of the pencil blow-up hypersurface."""
+
+    name: str
+    base_pivot: int
+    fiber_chart: str
+    variables: tuple[str, str, str]
+    equation: Polynomial
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize the affine chart equation and coordinate convention."""
+
+        return {
+            "name": self.name,
+            "base_pivot": self.base_pivot,
+            "fiber_chart": self.fiber_chart,
+            "variables": list(self.variables),
+            "equation": {
+                "terms": [
+                    {
+                        "exponents": list(exponents),
+                        "coefficient": str(coefficient),
+                    }
+                    for exponents, coefficient in self.equation.terms
+                ]
+            },
+        }
+
+
+@dataclass(frozen=True, slots=True)
+class BlowupOverlap:
+    """An exact Laurent transition and equation compatibility identity."""
+
+    source: str
+    target: str
+    base_images: tuple[LaurentPolynomial, LaurentPolynomial]
+    fiber_image: LaurentPolynomial
+    equation_unit: LaurentPolynomial
+    equation_compatible: bool
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize one overlap map without hiding its Laurent inverses."""
+
+        def terms(polynomial: LaurentPolynomial) -> list[dict[str, object]]:
+            return [
+                {
+                    "exponents": list(exponents),
+                    "coefficient": str(coefficient),
+                }
+                for exponents, coefficient in polynomial.terms
+            ]
+
+        return {
+            "source": self.source,
+            "target": self.target,
+            "base_images": [terms(item) for item in self.base_images],
+            "fiber_image": terms(self.fiber_image),
+            "equation_unit": terms(self.equation_unit),
+            "equation_compatible": self.equation_compatible,
+        }
+
+
+@dataclass(frozen=True, slots=True)
+class PencilBlowupAtlas:
+    """The exact six-chart hypersurface atlas of the cubic pencil blow-up."""
+
+    charts: tuple[BlowupChart, ...]
+    overlaps: tuple[BlowupOverlap, ...]
+    equation_model: str
+    atlas_consistent: bool
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize charts, all ordered overlaps, and their identities."""
+
+        return {
+            "equation_model": self.equation_model,
+            "charts": [chart.as_record() for chart in self.charts],
+            "overlaps": [overlap.as_record() for overlap in self.overlaps],
+            "overlap_count": len(self.overlaps),
+            "atlas_consistent": self.atlas_consistent,
+            "status": "exact blow-up hypersurface atlas; Serre patching pending",
+        }
+
+
+@dataclass(frozen=True, slots=True)
 class TierAPencilModel:
     """Exact dP9 pencil data feeding the still-open global patching gate."""
 
     base_locus: BaseLocusAlgebra
+    blowup_atlas: PencilBlowupAtlas
     actions: tuple[PencilDeckAction, ...]
     actions_commute: bool
     singular_points: tuple[SingularPencilPoint, ...]
@@ -266,6 +362,7 @@ class TierAPencilModel:
 
         return {
             "base_locus": self.base_locus.as_record(),
+            "blowup_atlas": self.blowup_atlas.as_record(),
             "actions": [action.as_record() for action in self.actions],
             "actions_commute": self.actions_commute,
             "singular_points": [point.as_record() for point in self.singular_points],
@@ -334,6 +431,15 @@ def _base_locus_algebra() -> BaseLocusAlgebra:
          .is_zero)
         and h_identity
     )
+    jacobian = f.derivative(0) * g.derivative(1) - f.derivative(1) * g.derivative(0)
+    jacobian_element = QuotientPolynomial(
+        modulus,
+        jacobian.substitute((x, quotient_y.representative)),
+    )
+    transverse_jacobian_unit = (
+        not jacobian_element.is_zero
+        and modulus.gcd(jacobian_element.representative).univariate_degree == 0
+    )
     return BaseLocusAlgebra(
         modulus,
         quotient_x,
@@ -343,6 +449,7 @@ def _base_locus_algebra() -> BaseLocusAlgebra:
         modulus.univariate_degree,
         derivative_gcd == one,
         _boundary_has_no_basepoint(),
+        transverse_jacobian_unit,
         pencil_relations,
     )
 
@@ -404,6 +511,183 @@ def _pencil_actions(base: BaseLocusAlgebra) -> tuple[PencilDeckAction, ...]:
     return (
         PencilDeckAction("P", p_x, p_y, _action_order_three(p_x, p_y, x, y)),
         PencilDeckAction("T", t_x, t_y, _action_order_three(t_x, t_y, x, y)),
+    )
+
+
+def _pivot_images(pivot: int) -> tuple[Polynomial, Polynomial, Polynomial]:
+    """Return the affine P2 coordinates for one projective pivot chart."""
+
+    u = Polynomial.monomial((1, 0), scalar_type=Eisenstein)
+    v = Polynomial.monomial((0, 1), scalar_type=Eisenstein)
+    one = Polynomial.one(2, scalar_type=Eisenstein)
+    if pivot == 0:
+        return one, u, v
+    if pivot == 1:
+        return u, one, v
+    if pivot == 2:
+        return u, v, one
+    raise ValueError("projective pivot charts are indexed by 0, 1, and 2")
+
+
+def _embed_affine_polynomial(polynomial: Polynomial) -> Polynomial:
+    """Add the affine fiber coordinate to a two-variable polynomial."""
+
+    return Polynomial(
+        (((exponents[0], exponents[1], 0), coefficient)
+         for exponents, coefficient in polynomial.terms),
+        variable_count=3,
+        scalar_type=Eisenstein,
+    )
+
+
+def _blowup_chart(pivot: int, fiber_chart: str) -> BlowupChart:
+    """Construct one affine equation of the pencil blow-up."""
+
+    if fiber_chart not in {"mu", "nu"}:
+        raise ValueError("the pencil fiber has mu and nu affine charts")
+    cox = schoen_geometry().cover.cox
+    images = _pivot_images(pivot)
+    f = cox.cubic_f.substitute(images)
+    g = cox.cubic_g.substitute(images)
+    f_three = _embed_affine_polynomial(f)
+    g_three = _embed_affine_polynomial(g)
+    fiber = Polynomial.monomial((0, 0, 1), scalar_type=Eisenstein)
+    equation = f_three + fiber * g_three if fiber_chart == "mu" else fiber * f_three + g_three
+    fiber_variable = "r=nu/mu" if fiber_chart == "mu" else "s=mu/nu"
+    return BlowupChart(
+        f"U_{pivot}_{fiber_chart}",
+        pivot,
+        fiber_chart,
+        ("u", "v", fiber_variable),
+        equation,
+    )
+
+
+def _laurent_monomial(exponents: tuple[int, int, int]) -> LaurentPolynomial:
+    """Return one exact Laurent monomial in a source affine chart."""
+
+    return LaurentPolynomial.monomial(exponents, scalar_type=Eisenstein)
+
+
+def _source_projective_coordinates(pivot: int) -> tuple[tuple[int, int, int], ...]:
+    """Return monomial exponent vectors for (a,b,c) in one pivot chart."""
+
+    zero = (0, 0, 0)
+    u = (1, 0, 0)
+    v = (0, 1, 0)
+    if pivot == 0:
+        return zero, u, v
+    if pivot == 1:
+        return u, zero, v
+    if pivot == 2:
+        return u, v, zero
+    raise ValueError("projective pivot charts are indexed by 0, 1, and 2")
+
+
+def _base_transition(
+    source_pivot: int,
+    target_pivot: int,
+) -> tuple[LaurentPolynomial, LaurentPolynomial, LaurentPolynomial]:
+    """Return target base coordinates and the cubic scaling factor."""
+
+    source = _source_projective_coordinates(source_pivot)
+    denominator = source[target_pivot]
+    target_coordinates = {
+        0: (source[1], source[2]),
+        1: (source[0], source[2]),
+        2: (source[0], source[1]),
+    }[target_pivot]
+
+    def ratio(numerator: tuple[int, int, int]) -> LaurentPolynomial:
+        return _laurent_monomial(tuple(
+            numerator[index] - denominator[index]
+            for index in range(3)
+        ))
+
+    target_u, target_v = (ratio(item) for item in target_coordinates)
+    cubic_factor = _laurent_monomial(tuple(-3 * value for value in denominator))
+    return target_u, target_v, cubic_factor
+
+
+def _fiber_transition(
+    source_chart: str,
+    target_chart: str,
+) -> tuple[LaurentPolynomial, LaurentPolynomial]:
+    """Return the target fiber coordinate and switch unit."""
+
+    source_fiber = _laurent_monomial((0, 0, 1))
+    if source_chart == target_chart:
+        return source_fiber, LaurentPolynomial.one(3, scalar_type=Eisenstein)
+    if source_chart == "mu" and target_chart == "nu":
+        inverse = _laurent_monomial((0, 0, -1))
+        return inverse, inverse
+    if source_chart == "nu" and target_chart == "mu":
+        inverse = _laurent_monomial((0, 0, -1))
+        return inverse, inverse
+    raise ValueError("the pencil fiber charts must be mu or nu")
+
+
+def _monomial_image(polynomial: LaurentPolynomial) -> tuple[object, tuple[int, ...]]:
+    """Extract a single Laurent monomial for exact substitution."""
+
+    if len(polynomial.terms) != 1:
+        raise ValueError("blow-up coordinate transitions must be monomials")
+    exponents, coefficient = polynomial.terms[0]
+    return coefficient, exponents
+
+
+def _blowup_overlap(
+    source: BlowupChart,
+    target: BlowupChart,
+) -> BlowupOverlap:
+    """Construct and verify one ordered affine blow-up overlap."""
+
+    target_u, target_v, cubic_factor = _base_transition(
+        source.base_pivot,
+        target.base_pivot,
+    )
+    target_fiber, fiber_switch_unit = _fiber_transition(
+        source.fiber_chart,
+        target.fiber_chart,
+    )
+    unit = cubic_factor * fiber_switch_unit
+    source_equation = LaurentPolynomial.from_polynomial(source.equation)
+    target_equation = LaurentPolynomial.from_polynomial(target.equation)
+    images = (
+        _monomial_image(target_u),
+        _monomial_image(target_v),
+        _monomial_image(target_fiber),
+    )
+    pulled_target = target_equation.substitute_monomials(images)
+    return BlowupOverlap(
+        source.name,
+        target.name,
+        (target_u, target_v),
+        target_fiber,
+        unit,
+        pulled_target == source_equation * unit,
+    )
+
+
+def _pencil_blowup_atlas() -> PencilBlowupAtlas:
+    """Build all exact affine charts and ordered overlap identities."""
+
+    charts = tuple(
+        _blowup_chart(pivot, fiber_chart)
+        for pivot in range(3)
+        for fiber_chart in ("mu", "nu")
+    )
+    overlaps = tuple(
+        _blowup_overlap(source, target)
+        for source in charts
+        for target in charts
+        if source != target
+    )
+    return PencilBlowupAtlas(
+        charts,
+        overlaps,
+        "Bl(P2,(F,G)) = {mu F + nu G = 0} in P2 x P1",
+        all(overlap.equation_compatible for overlap in overlaps),
     )
 
 
@@ -537,25 +821,34 @@ def tier_a_pencil_model() -> TierAPencilModel:
     """Build the exact dP9 pencil frontier for the Tier A search."""
 
     base_locus = _base_locus_algebra()
+    blowup_atlas = _pencil_blowup_atlas()
+    if not base_locus.reduced_and_transverse:
+        raise ValueError("the pencil base locus is not an exact reduced transverse scheme")
+    if not blowup_atlas.atlas_consistent:
+        raise ValueError("the exact blow-up overlap equations are inconsistent")
     actions = _pencil_actions(base_locus)
     if not all(action.order_three for action in actions):
         raise ValueError("the exact pencil deck actions failed order-three checks")
     actions_commute = _actions_commute(base_locus, actions)
     return TierAPencilModel(
         base_locus,
+        blowup_atlas,
         actions,
         actions_commute,
         _singular_points(),
         _local_ideal_certificates(),
-        "not constructed: affine blow-up charts and transition maps are pending",
+        "constructed: six affine hypersurface charts and 30 checked overlaps",
         "not constructed: global Serre cocycles and constituent patching are pending",
     )
 
 
 __all__ = [
     "BaseLocusAlgebra",
+    "BlowupChart",
+    "BlowupOverlap",
     "LocalIdealCertificate",
     "PencilDeckAction",
+    "PencilBlowupAtlas",
     "ProjectivePoint",
     "QuotientPolynomial",
     "SingularPencilPoint",

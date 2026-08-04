@@ -44,8 +44,9 @@ The frozen cubic pencil now has an exact affine base-locus algebra: its monic
 modulus has degree nine and is square-free, the c=0 boundary has no base point,
 and the induced P/T actions have exact order three and commute projectively.
 The three coordinate singular points and their I3/I6 chart-local ideal types
-are serialized as well. This is the algebraic input to a blow-up atlas, not
-the atlas or a global Serre transition construction.
+are serialized as well. Its six affine blow-up hypersurface charts and all 30
+Laurent overlap identities are checked exactly. This is a geometric atlas,
+not a global Serre transition construction.
 
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).

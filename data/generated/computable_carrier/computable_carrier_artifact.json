@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "d5a38ff55f26a4f997c3e1ebe6c51c1acf1360b4f2d22c30e6e4724507e4947d",
+  "artifact_digest": "b5b3b567b22c95b28e93fd4cd779af5eb5ca08d158cc1d6921afcc1dd612e32d",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -12323,11 +12323,1853 @@
           ]
         },
         "pencil_relations_hold": true,
+        "reduced_and_transverse": true,
         "square_free": true,
         "status": "exact affine base-locus algebra; blow-up atlas pending",
+        "transverse_jacobian_unit": true,
         "x_inverse_identity": true
       },
-      "blowup_atlas_status": "not constructed: affine blow-up charts and transition maps are pending",
+      "blowup_atlas": {
+        "atlas_consistent": true,
+        "charts": [
+          {
+            "base_pivot": 0,
+            "equation": {
+              "terms": [
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    3,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "3",
+                  "exponents": [
+                    3,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "36+18*omega",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    3,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "3*omega",
+                  "exponents": [
+                    0,
+                    3,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-3*omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "fiber_chart": "mu",
+            "name": "U_0_mu",
+            "variables": [
+              "u",
+              "v",
+              "r=nu/mu"
+            ]
+          },
+          {
+            "base_pivot": 0,
+            "equation": {
+              "terms": [
+                {
+                  "coefficient": "3",
+                  "exponents": [
+                    3,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    3,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "36+18*omega",
+                  "exponents": [
+                    1,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "3*omega",
+                  "exponents": [
+                    0,
+                    3,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    3,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-3-3*omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "fiber_chart": "nu",
+            "name": "U_0_nu",
+            "variables": [
+              "u",
+              "v",
+              "s=mu/nu"
+            ]
+          },
+          {
+            "base_pivot": 1,
+            "equation": {
+              "terms": [
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    3,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-3*omega",
+                  "exponents": [
+                    3,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "36+18*omega",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    3,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "3*omega",
+                  "exponents": [
+                    0,
+                    3,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "3",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "fiber_chart": "mu",
+            "name": "U_1_mu",
+            "variables": [
+              "u",
+              "v",
+              "r=nu/mu"
+            ]
+          },
+          {
+            "base_pivot": 1,
+            "equation": {
+              "terms": [
+                {
+                  "coefficient": "-3-3*omega",
+                  "exponents": [
+                    3,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    3,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "36+18*omega",
+                  "exponents": [
+                    1,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "3*omega",
+                  "exponents": [
+                    0,
+                    3,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    3,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "3",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "fiber_chart": "nu",
+            "name": "U_1_nu",
+            "variables": [
+              "u",
+              "v",
+              "s=mu/nu"
+            ]
+          },
+          {
+            "base_pivot": 2,
+            "equation": {
+              "terms": [
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    3,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-3*omega",
+                  "exponents": [
+                    3,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "36+18*omega",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    3,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "3",
+                  "exponents": [
+                    0,
+                    3,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "3*omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "fiber_chart": "mu",
+            "name": "U_2_mu",
+            "variables": [
+              "u",
+              "v",
+              "r=nu/mu"
+            ]
+          },
+          {
+            "base_pivot": 2,
+            "equation": {
+              "terms": [
+                {
+                  "coefficient": "-3-3*omega",
+                  "exponents": [
+                    3,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    3,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "36+18*omega",
+                  "exponents": [
+                    1,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "3",
+                  "exponents": [
+                    0,
+                    3,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    3,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "3*omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-3-6*omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "fiber_chart": "nu",
+            "name": "U_2_nu",
+            "variables": [
+              "u",
+              "v",
+              "s=mu/nu"
+            ]
+          }
+        ],
+        "equation_model": "Bl(P2,(F,G)) = {mu F + nu G = 0} in P2 x P1",
+        "overlap_count": 30,
+        "overlaps": [
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_0_mu",
+            "target": "U_0_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_0_mu",
+            "target": "U_1_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_0_mu",
+            "target": "U_1_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_0_mu",
+            "target": "U_2_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_0_mu",
+            "target": "U_2_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_0_nu",
+            "target": "U_0_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_0_nu",
+            "target": "U_1_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_0_nu",
+            "target": "U_1_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_0_nu",
+            "target": "U_2_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_0_nu",
+            "target": "U_2_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_1_mu",
+            "target": "U_0_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_1_mu",
+            "target": "U_0_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_1_mu",
+            "target": "U_1_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_1_mu",
+            "target": "U_2_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_1_mu",
+            "target": "U_2_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_1_nu",
+            "target": "U_0_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_1_nu",
+            "target": "U_0_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_1_nu",
+            "target": "U_1_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_1_nu",
+            "target": "U_2_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_1_nu",
+            "target": "U_2_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_2_mu",
+            "target": "U_0_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_2_mu",
+            "target": "U_0_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_2_mu",
+            "target": "U_1_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_2_mu",
+            "target": "U_1_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_2_mu",
+            "target": "U_2_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_2_nu",
+            "target": "U_0_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -3,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_2_nu",
+            "target": "U_0_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_2_nu",
+            "target": "U_1_mu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    -1,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3,
+                  0
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "source": "U_2_nu",
+            "target": "U_1_nu"
+          },
+          {
+            "base_images": [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            ],
+            "equation_compatible": true,
+            "equation_unit": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "fiber_image": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  -1
+                ]
+              }
+            ],
+            "source": "U_2_nu",
+            "target": "U_2_mu"
+          }
+        ],
+        "status": "exact blow-up hypersurface atlas; Serre patching pending"
+      },
+      "blowup_atlas_status": "constructed: six affine hypersurface charts and 30 checked overlaps",
       "local_ideals": [
         {
           "chart_pivot": 0,

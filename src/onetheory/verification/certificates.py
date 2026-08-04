@@ -35,6 +35,10 @@ from onetheory.models.heterotic_schoen.flavor import (
     finite_frontier_status,
 )
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry
+from onetheory.models.heterotic_schoen.hidden import (
+    HIDDEN_BUNDLE_MISSING_CHAIN,
+    HiddenBundleInputStatus,
+)
 from onetheory.models.heterotic_schoen.instantons import (
     CONIC_PFAFFIAN_MISSING_CHAIN,
     ConicPfaffianInputStatus,
@@ -315,6 +319,44 @@ def conic_pfaffian_input_gate(state: PhysicalState) -> GateResult:
         "instanton.conic_pfaffian_inputs",
         f"First missing input: {status.first_missing_input}.",
         "physical conic Pfaffian reconstruction",
+        status.prerequisite_chain,
+    )
+
+
+def certify_hidden_boundary(state: PhysicalState) -> tuple[ExactCertificate, ...]:
+    """Certify only the hidden-bundle missing-input boundary."""
+
+    status = cast(HiddenBundleInputStatus, state.value("hidden_bundle_input_status"))
+    return (
+        exact_certificate(
+            "hidden.first_missing_input",
+            HIDDEN_BUNDLE_MISSING_CHAIN[0],
+            status.first_missing_input,
+            evidence_class=EvidenceClass.MISSING_INPUT,
+            statement="The first hidden-bundle input is absent from the declared data.",
+            scope="bounded objective-(28) hidden-bundle reconstruction",
+            prerequisites=status.prerequisite_chain,
+        ),
+        exact_certificate(
+            "hidden.spectrum_available",
+            False,
+            status.spectrum_available,
+            evidence_class=EvidenceClass.MISSING_INPUT,
+            statement="No hidden spectrum can be computed before bundle existence and stability.",
+            scope="hidden spectrum and gauge-group computation",
+            prerequisites=status.prerequisite_chain,
+        ),
+    )
+
+
+def hidden_bundle_input_gate(state: PhysicalState) -> GateResult:
+    """Expose the first hidden-bundle input as a fail-closed gate."""
+
+    status = cast(HiddenBundleInputStatus, state.value("hidden_bundle_input_status"))
+    return gate_missing_input(
+        "hidden.bundle_inputs",
+        f"First missing input: {status.first_missing_input}.",
+        "bounded objective-(28) hidden-bundle reconstruction",
         status.prerequisite_chain,
     )
 

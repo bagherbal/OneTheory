@@ -36,6 +36,10 @@ from onetheory.models.heterotic_schoen.flavor import (
     tree_level_flavor,
 )
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry, schoen_geometry
+from onetheory.models.heterotic_schoen.hidden import (
+    HIDDEN_BUNDLE_MISSING_CHAIN,
+    hidden_bundle_input_status,
+)
 from onetheory.models.heterotic_schoen.instantons import (
     CONIC_PFAFFIAN_MISSING_CHAIN,
     conic_pfaffian_input_status,
@@ -99,6 +103,10 @@ def _conic_pfaffians(_: Mapping[str, object]) -> object:
     return conic_pfaffian_input_status()
 
 
+def _hidden_bundle(_: Mapping[str, object]) -> object:
+    return hidden_bundle_input_status()
+
+
 def _assemble(values: Mapping[str, object]) -> tuple[StateEntry, ...]:
     return (
         StateEntry("standard_model", values["standard_model"]),
@@ -112,6 +120,7 @@ def _assemble(values: Mapping[str, object]) -> tuple[StateEntry, ...]:
         StateEntry("finite_flavor_frontier", values["finite_flavor_frontier"]),
         StateEntry("common_dga_input_status", values["common_dga_input_status"]),
         StateEntry("conic_pfaffian_input_status", values["conic_pfaffian_input_status"]),
+        StateEntry("hidden_bundle_input_status", values["hidden_bundle_input_status"]),
     )
 
 
@@ -134,6 +143,7 @@ def _reality_graph() -> ComputationGraph:
         ),
         GraphNode("common_dga_input_status", (), _common_dga),
         GraphNode("conic_pfaffian_input_status", (), _conic_pfaffians),
+        GraphNode("hidden_bundle_input_status", (), _hidden_bundle),
         GraphNode(
             "established_carrier_state",
             (
@@ -148,6 +158,7 @@ def _reality_graph() -> ComputationGraph:
                 "finite_flavor_frontier",
                 "common_dga_input_status",
                 "conic_pfaffian_input_status",
+                "hidden_bundle_input_status",
             ),
             _assemble,
         ),
@@ -159,6 +170,7 @@ UNRESOLVED_REALITY_OUTPUTS = (
     "instanton amplitudes",
     "nonperturbative superpotential",
     "hidden bundle",
+    "hidden spectrum",
     "vacuum",
     "physical Yukawa matrices",
     "rank-three holomorphic Yukawa matrix",
@@ -202,6 +214,8 @@ UNRESOLVED_REALITY_CHAINS = {
         *CONIC_PFAFFIAN_MISSING_CHAIN,
         "stabilized common vacuum",
     ),
+    "hidden bundle": HIDDEN_BUNDLE_MISSING_CHAIN,
+    "hidden spectrum": (*HIDDEN_BUNDLE_MISSING_CHAIN, "certified descended hidden bundle"),
 }
 
 
@@ -314,8 +328,15 @@ def request_nonperturbative_superpotential() -> NoReturn:
 def request_hidden_bundle() -> NoReturn:
     """Reject hidden-bundle requests because only its Chern target is established."""
 
+    _missing_output("hidden bundle", HIDDEN_BUNDLE_MISSING_CHAIN)
+
+
+def request_hidden_spectrum() -> NoReturn:
+    """Reject hidden-spectrum requests until a certified bundle exists."""
+
     _missing_output(
-        "hidden bundle", ("required hidden topological class", "stable equivariant bundle")
+        "hidden spectrum",
+        (*HIDDEN_BUNDLE_MISSING_CHAIN, "certified descended hidden bundle"),
     )
 
 

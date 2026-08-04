@@ -2,7 +2,8 @@
 
 Owns:
     Monomial normalization, sparse polynomial arithmetic and substitution,
-    polynomial-matrix determinants and maximal minors, and exact univariate
+    polynomial-matrix determinants and minors, finite determinantal and Fitting
+    ideals, monomial-ideal saturation, exact rank loci, and exact univariate
     division, derivatives, and monic greatest common divisors.
 
 Depends on:
@@ -10,12 +11,12 @@ Depends on:
     arithmetic. The algorithms are shared across both supported coefficient fields.
 
 Must not:
-    Implement ideals, Groebner bases, geometry, carrier objects, physical claims,
+    Implement Groebner bases, geometry, carrier objects, physical claims,
     approximate roots, numerical algorithms, or interpretations of algebraic data.
 
 Phase 0:
-    The reusable exact polynomial foundation is implemented; higher symbolic and
-    physical domains remain structural only.
+    Exact finite ideal operations are implemented where their algebraic scope is
+    explicit; general Groebner elimination and physical domains remain outside.
 """
 
 from __future__ import annotations
@@ -551,6 +552,97 @@ class PolynomialMatrix:
 
         return all(entry.is_zero() for row in self.rows for entry in row)
 
+    def minors(self, size: int) -> tuple[Polynomial, ...]:
+        """Return all exact minors of the declared square size."""
+
+        return _minor_polynomials(self.rows, size)
+
+
+@dataclass(frozen=True, slots=True, init=False)
+class PolynomialIdeal:
+    """An immutable finitely generated ideal in one exact polynomial ring."""
+
+    generators: tuple[Polynomial, ...]
+    variable_count: int
+    scalar_type: ScalarType
+
+    def __init__(
+        self,
+        generators: Iterable[Polynomial] = (),
+        *,
+        variable_count: int | None = None,
+        scalar_type: ScalarType | None = None,
+    ) -> None:
+        supplied = tuple(generators)
+        if any(not isinstance(generator, Polynomial) for generator in supplied):
+            raise TypeError("polynomial ideals require polynomial generators")
+        inferred_count = (
+            supplied[0].variable_count
+            if supplied
+            else (0 if variable_count is None else variable_count)
+        )
+        inferred_count = _validate_variable_count(inferred_count)
+        if variable_count is not None and variable_count != inferred_count:
+            raise ValueError("ideal generators use a different variable count")
+        resolved_scalar = (
+            supplied[0].scalar_type
+            if supplied and scalar_type is None
+            else (Rational if scalar_type is None else scalar_type)
+        )
+        if resolved_scalar not in (Rational, Eisenstein):
+            raise TypeError("ideals require Rational or Eisenstein coefficients")
+        if any(
+            generator.variable_count != inferred_count
+            or generator.scalar_type is not resolved_scalar
+            for generator in supplied
+        ):
+            raise TypeError("ideal generators use incompatible exact rings")
+        normalized = tuple(
+            generator
+            for index, generator in enumerate(supplied)
+            if not generator.is_zero() and generator not in supplied[:index]
+        )
+        object.__setattr__(self, "generators", normalized)
+        object.__setattr__(self, "variable_count", inferred_count)
+        object.__setattr__(self, "scalar_type", resolved_scalar)
+
+    @property
+    def is_zero(self) -> bool:
+        """Return whether this is the zero ideal in its declared ring."""
+
+        return not self.generators
+
+    @property
+    def is_monomial(self) -> bool:
+        """Return whether every nonzero generator is one monomial."""
+
+        return all(len(generator.terms) == 1 for generator in self.generators)
+
+    @property
+    def monomials(self) -> tuple[Monomial, ...]:
+        """Return monomial exponents, rejecting non-monomial generators."""
+
+        if not self.is_monomial:
+            raise ValueError("monomial exponents require a monomial ideal")
+        return tuple(generator.terms[0][0] for generator in self.generators)
+
+    def as_record(self) -> dict[str, object]:
+        """Return exact generators without claiming ideal membership tests."""
+
+        return {
+            "variable_count": self.variable_count,
+            "scalar_type": self.scalar_type.__name__,
+            "generators": [
+                {
+                    "terms": [
+                        {"exponents": list(exponents), "coefficient": str(coefficient)}
+                        for exponents, coefficient in generator.terms
+                    ]
+                }
+                for generator in self.generators
+            ],
+        }
+
 
 @dataclass(frozen=True, slots=True)
 class PolynomialFreeModule:
@@ -967,6 +1059,122 @@ def maximal_minors(matrix: Iterable[Iterable[Polynomial]]) -> tuple[Polynomial, 
     )
 
 
+def _minor_polynomials(
+    matrix: Iterable[Iterable[Polynomial]],
+    size: int,
+) -> tuple[Polynomial, ...]:
+    """Return all row-and-column minors of one exact size."""
+
+    rows = _matrix_rows(matrix)
+    if isinstance(size, bool) or not isinstance(size, int) or size < 0:
+        raise ValueError("minor sizes must be nonnegative integers")
+    row_count, column_count = len(rows), len(rows[0])
+    if size == 0:
+        return (Polynomial.one(rows[0][0].variable_count, scalar_type=rows[0][0].scalar_type),)
+    if size > min(row_count, column_count):
+        return ()
+    return tuple(
+        polynomial_determinant(
+            tuple(tuple(rows[row][column] for column in column_set) for row in row_set)
+        )
+        for row_set in combinations(range(row_count), size)
+        for column_set in combinations(range(column_count), size)
+    )
+
+
+def determinantal_ideal(
+    matrix: PolynomialMatrix | Iterable[Iterable[Polynomial]],
+    size: int,
+) -> PolynomialIdeal:
+    """Return the ideal generated by all exact minors of one size."""
+
+    rows = matrix.rows if isinstance(matrix, PolynomialMatrix) else matrix
+    values = _matrix_rows(rows)
+    minors = _minor_polynomials(values, size)
+    first = values[0][0]
+    return PolynomialIdeal(
+        minors,
+        variable_count=first.variable_count,
+        scalar_type=first.scalar_type,
+    )
+
+
+def rank_locus_ideal(
+    matrix: PolynomialMatrix | Iterable[Iterable[Polynomial]],
+    maximum_rank: int,
+) -> PolynomialIdeal:
+    """Return the determinantal ideal for the locus of rank at most ``maximum_rank``."""
+
+    if isinstance(maximum_rank, bool) or not isinstance(maximum_rank, int) or maximum_rank < 0:
+        raise ValueError("rank bounds must be nonnegative integers")
+    return determinantal_ideal(matrix, maximum_rank + 1)
+
+
+def fitting_ideal(
+    matrix: PolynomialMatrix | Iterable[Iterable[Polynomial]],
+    index: int,
+) -> PolynomialIdeal:
+    """Return the ``index``-th Fitting ideal of a matrix presentation."""
+
+    if isinstance(index, bool) or not isinstance(index, int) or index < 0:
+        raise ValueError("Fitting indices must be nonnegative integers")
+    rows = matrix.rows if isinstance(matrix, PolynomialMatrix) else matrix
+    values = _matrix_rows(rows)
+    generator_count = len(values)
+    first = values[0][0]
+    size = generator_count - index
+    if size <= 0:
+        return PolynomialIdeal(
+            (Polynomial.one(first.variable_count, scalar_type=first.scalar_type),),
+        )
+    return determinantal_ideal(values, size)
+
+
+def _minimal_monomials(monomials: Iterable[Monomial]) -> tuple[Monomial, ...]:
+    """Remove monomial generators divisible by another generator."""
+
+    unique = tuple(dict.fromkeys(monomials))
+    return tuple(
+        candidate
+        for candidate in unique
+        if not any(
+            other != candidate
+            and all(left <= right for left, right in zip(other, candidate, strict=True))
+            for other in unique
+        )
+    )
+
+
+def saturate_by_monomial(
+    ideal: PolynomialIdeal,
+    monomial: Iterable[int],
+) -> PolynomialIdeal:
+    """Saturate a monomial ideal by the declared monomial.
+
+    This exact operation is intentionally limited to monomial ideals. General
+    polynomial saturation requires an elimination algorithm and is not inferred
+    from a finite exponent window.
+    """
+
+    exponents = _validate_monomial(monomial, ideal.variable_count)
+    if not ideal.is_monomial:
+        raise ValueError("exact saturation currently requires a monomial ideal")
+    saturated = tuple(
+        tuple(0 if factor > 0 else exponent
+              for exponent, factor in zip(generator, exponents, strict=True))
+        for generator in ideal.monomials
+    )
+    minimal = _minimal_monomials(saturated)
+    return PolynomialIdeal(
+        tuple(
+            Polynomial.monomial(exponent, scalar_type=ideal.scalar_type)
+            for exponent in minimal
+        ),
+        variable_count=ideal.variable_count,
+        scalar_type=ideal.scalar_type,
+    )
+
+
 def _matrix_rows(matrix: Iterable[Iterable[Polynomial]]) -> tuple[tuple[Polynomial, ...], ...]:
     rows = tuple(tuple(row) for row in matrix)
     if not rows or not rows[0]:
@@ -1039,16 +1247,21 @@ __all__ = [
     "PolynomialChainMap",
     "PolynomialFreeResolution",
     "PolynomialFreeModule",
+    "PolynomialIdeal",
     "PolynomialMap",
     "PolynomialMatrix",
+    "determinantal_ideal",
     "derivative",
     "determinant",
     "divmod_univariate",
+    "fitting_ideal",
     "gcd",
     "maximal_minors",
     "monic",
     "polynomial_determinant",
     "polynomial_mapping_cone",
+    "rank_locus_ideal",
+    "saturate_by_monomial",
     "substitute",
     "substitute_monomials",
 ]

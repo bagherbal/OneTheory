@@ -25,9 +25,14 @@ from onetheory.math.polynomials import (
     PolynomialChainComplex,
     PolynomialChainMap,
     PolynomialFreeModule,
+    PolynomialIdeal,
     PolynomialMap,
     PolynomialMatrix,
+    determinantal_ideal,
+    fitting_ideal,
     polynomial_mapping_cone,
+    rank_locus_ideal,
+    saturate_by_monomial,
 )
 
 
@@ -112,3 +117,26 @@ def test_polynomial_map_rejects_wrong_module_shape() -> None:
     module = _module("rank-one")
     with pytest.raises(ValueError, match="shape"):
         PolynomialMap(module, module, PolynomialMatrix(((Polynomial.one(1), Polynomial.one(1)),)))
+
+
+def test_exact_determinantal_fitting_rank_and_monomial_saturation() -> None:
+    """Finite ideal operations preserve exact generators and ring scope."""
+
+    x = Polynomial.monomial((1, 0), scalar_type=Rational)
+    y = Polynomial.monomial((0, 1), scalar_type=Rational)
+    matrix = PolynomialMatrix(((x, y), (Polynomial.zero(2), x)))
+    maximal = determinantal_ideal(matrix, 2)
+    rank_zero = rank_locus_ideal(matrix, 0)
+    first_fitting = fitting_ideal(matrix, 1)
+
+    assert maximal.generators == (x**2,)
+    assert set(rank_zero.generators) == {x, y}
+    assert set(first_fitting.generators) == {x, y}
+
+    ideal = PolynomialIdeal((x * y, y**2), variable_count=2, scalar_type=Rational)
+    saturated = saturate_by_monomial(ideal, (1, 0))
+    assert saturated.is_monomial
+    assert saturated.monomials == ((0, 1),)
+
+    with pytest.raises(ValueError, match="monomial ideal"):
+        saturate_by_monomial(PolynomialIdeal((x + y,)), (1, 0))

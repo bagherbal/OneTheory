@@ -20,6 +20,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PRODUCTION_ROOT = PROJECT_ROOT / "src" / "onetheory"
+IMPLEMENTED_PRODUCTION_MODULES = {"math/numbers.py"}
 
 
 def _production_python_files() -> list[Path]:
@@ -40,9 +41,11 @@ def test_production_modules_have_scope_docstrings() -> None:
     assert not failures, "\n".join(failures)
 
 
-def test_production_modules_define_no_functions_or_classes() -> None:
+def test_unimplemented_production_modules_define_no_functions_or_classes() -> None:
     failures: list[str] = []
     for path in _production_python_files():
+        if path.relative_to(PRODUCTION_ROOT).as_posix() in IMPLEMENTED_PRODUCTION_MODULES:
+            continue
         tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
         definitions = [
             node

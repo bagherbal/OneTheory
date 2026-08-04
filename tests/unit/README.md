@@ -2,11 +2,13 @@
 
 ## Purpose
 
-This directory is reserved for focused tests of promoted mathematical primitives, core policies, and general physical objects once those objects have real implementations.
+This directory contains focused tests of promoted mathematical primitives and will
+later cover core policies and general physical objects. The first implementation
+under test is the exact rational and Eisenstein-number foundation in `math/numbers.py`.
 
 ## Belongs here
 
-Deterministic tests for exact arithmetic, linear algebra, geometry, homological constructions, units, precision policy, and general law objects belong here when their contracts are established.
+Deterministic tests for exact arithmetic, linear algebra, geometry, homological constructions, units, precision policy, and general law objects belong here when their contracts are established. Property tests should exercise algebraic laws without importing migration sources.
 
 ## Does not belong here
 

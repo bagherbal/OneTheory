@@ -25,6 +25,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PRODUCTION_ROOT = PROJECT_ROOT / "src" / "onetheory"
+IMPLEMENTED_PRODUCTION_MODULES = {"math/numbers.py"}
 
 
 def _module_name(path: Path) -> str:
@@ -56,9 +57,11 @@ def test_package_and_subpackages_import_successfully_and_quietly() -> None:
     assert stderr.getvalue() == ""
 
 
-def test_importable_production_modules_have_no_runtime_definitions() -> None:
+def test_unimplemented_production_modules_have_no_runtime_definitions() -> None:
     failures: list[str] = []
     for path in sorted(PRODUCTION_ROOT.rglob("*.py")):
+        if path.relative_to(PRODUCTION_ROOT).as_posix() in IMPLEMENTED_PRODUCTION_MODULES:
+            continue
         tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
         if len(tree.body) != 1 or not isinstance(tree.body[0], ast.Expr):
             failures.append(str(path))

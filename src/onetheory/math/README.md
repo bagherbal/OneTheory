@@ -6,7 +6,7 @@ Math contains exact, reusable mathematics independent of OneTheory’s physical 
 
 ## Belongs here
 
-`numbers.py` will receive rational and Q(ω) arithmetic; `linear.py` exact ranks, determinants, kernels, and tensors; `polynomials.py` polynomial, ideal, minor, and elimination work; `finite.py` finite fields and exhaustive actions; `lattices.py` root and Mordell–Weil lattices; `geometry.py` divisors, intersections, Chern and curve data; and `homological.py` Čech, Koszul, DGA, homotopy, and transferred-product machinery.
+`numbers.py` owns the first promoted foundation: strict rational and Q(ω) arithmetic. `linear.py` will receive exact ranks, determinants, kernels, and tensors; `polynomials.py` polynomial, ideal, minor, and elimination work; `finite.py` finite fields and exhaustive actions; `lattices.py` root and Mordell–Weil lattices; `geometry.py` divisors, intersections, Chern and curve data; and `homological.py` Čech, Koszul, DGA, homotopy, and transferred-product machinery.
 
 ## Does not belong here
 

@@ -134,6 +134,7 @@ def test_production_directory_set_is_exact() -> None:
 def test_every_created_directory_has_a_readme() -> None:
     ignored_directory_names = {
         ".git",
+        ".hypothesis",
         ".mypy_cache",
         ".pytest_cache",
         ".ruff_cache",

@@ -40,6 +40,13 @@ The local Serre pushout boundary is also explicit: the reduced I3 ideal uses
 Fitting generator. The I6 nilpotent direction fails that local freeness test.
 These local presentations still require global dP9 patching and linearization.
 
+The frozen cubic pencil now has an exact affine base-locus algebra: its monic
+modulus has degree nine and is square-free, the c=0 boundary has no base point,
+and the induced P/T actions have exact order three and commute projectively.
+The three coordinate singular points and their I3/I6 chart-local ideal types
+are serialized as well. This is the algebraic input to a blow-up atlas, not
+the atlas or a global Serre transition construction.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

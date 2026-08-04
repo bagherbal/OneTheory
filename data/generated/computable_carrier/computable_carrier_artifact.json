@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "3a0cafab2acd6ce1a23beb8f1812e37dbd780c5538fe400f042d1088905c16f3",
+  "artifact_digest": "d5a38ff55f26a4f997c3e1ebe6c51c1acf1360b4f2d22c30e6e4724507e4947d",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -12278,6 +12278,203 @@
         ]
       }
     ],
+    "dP9_pencil": {
+      "actions": [
+        {
+          "image_x": "Polynomial(_terms=(((7,), Eisenstein(a=Rational(-1, 6), b=Rational(1, 6))), ((4,), Eisenstein(a=Rational(1, 2), b=Rational(13, 1))), ((1,), Eisenstein(a=Rational(38, 3), b=Rational(1, 3)))), _variable_count=1, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+          "image_y": "Polynomial(_terms=(((8,), Eisenstein(a=Rational(-1, 1), b=Rational(-1, 1))), ((5,), Eisenstein(a=Rational(-51, 1), b=Rational(-24, 1))), ((2,), Eisenstein(a=Rational(24, 1), b=Rational(51, 1)))), _variable_count=1, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+          "name": "P",
+          "order_three": true
+        },
+        {
+          "image_x": "Polynomial(_terms=(((1,), Eisenstein(a=Rational(0, 1), b=Rational(1, 1))),), _variable_count=1, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+          "image_y": "Polynomial(_terms=(((8,), Eisenstein(a=Rational(-1, 6), b=Rational(-1, 3))), ((5,), Eisenstein(a=Rational(-13, 1), b=Rational(-25, 2))), ((2,), Eisenstein(a=Rational(-1, 3), b=Rational(37, 3)))), _variable_count=1, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+          "name": "T",
+          "order_three": true
+        }
+      ],
+      "actions_commute": true,
+      "base_locus": {
+        "affine_relation": "Polynomial(_terms=(((3, 0), Eisenstein(a=Rational(0, 1), b=Rational(-1, 1))), ((1, 1), Eisenstein(a=Rational(4, 1), b=Rational(2, 1))), ((0, 0), Eisenstein(a=Rational(-1, 1), b=Rational(-1, 1)))), _variable_count=2, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+        "boundary_empty": true,
+        "coordinate_x": "Polynomial(_terms=(((1,), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=1, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+        "coordinate_y": "Polynomial(_terms=(((8,), Eisenstein(a=Rational(1, 3), b=Rational(1, 6))), ((5,), Eisenstein(a=Rational(25, 2), b=Rational(-1, 2))), ((2,), Eisenstein(a=Rational(-37, 3), b=Rational(-38, 3)))), _variable_count=1, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+        "degree": 9,
+        "inverse_x": "Polynomial(_terms=(((8,), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))), ((5,), Eisenstein(a=Rational(24, 1), b=Rational(-27, 1))), ((2,), Eisenstein(a=Rational(-51, 1), b=Rational(-27, 1)))), _variable_count=1, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+        "modulus": {
+          "degree": 9,
+          "terms": [
+            {
+              "coefficient": "1",
+              "degree": 9
+            },
+            {
+              "coefficient": "24-27*omega",
+              "degree": 6
+            },
+            {
+              "coefficient": "-51-27*omega",
+              "degree": 3
+            },
+            {
+              "coefficient": "-1",
+              "degree": 0
+            }
+          ]
+        },
+        "pencil_relations_hold": true,
+        "square_free": true,
+        "status": "exact affine base-locus algebra; blow-up atlas pending",
+        "x_inverse_identity": true
+      },
+      "blowup_atlas_status": "not constructed: affine blow-up charts and transition maps are pending",
+      "local_ideals": [
+        {
+          "chart_pivot": 0,
+          "generators": [
+            "Polynomial(_terms=(((1, 1, 0), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((1, 0, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((0, 1, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)"
+          ],
+          "ideal_type": "(u,v)",
+          "linear_coordinate": "b/a",
+          "nilpotent_coordinate": "c/a",
+          "point": "p_a",
+          "scheme": "I3",
+          "verified": true
+        },
+        {
+          "chart_pivot": 1,
+          "generators": [
+            "Polynomial(_terms=(((1, 1, 0), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((1, 0, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((0, 1, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)"
+          ],
+          "ideal_type": "(u,v)",
+          "linear_coordinate": "c/b",
+          "nilpotent_coordinate": "a/b",
+          "point": "p_b",
+          "scheme": "I3",
+          "verified": true
+        },
+        {
+          "chart_pivot": 2,
+          "generators": [
+            "Polynomial(_terms=(((1, 1, 0), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((1, 0, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((0, 1, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)"
+          ],
+          "ideal_type": "(u,v)",
+          "linear_coordinate": "a/c",
+          "nilpotent_coordinate": "b/c",
+          "point": "p_c",
+          "scheme": "I3",
+          "verified": true
+        },
+        {
+          "chart_pivot": 0,
+          "generators": [
+            "Polynomial(_terms=(((0, 2, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((1, 0, 2), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((1, 1, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((2, 1, 0), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)"
+          ],
+          "ideal_type": "(u,v^2)",
+          "linear_coordinate": "b/a",
+          "nilpotent_coordinate": "c/a",
+          "point": "p_a",
+          "scheme": "I6",
+          "verified": true
+        },
+        {
+          "chart_pivot": 1,
+          "generators": [
+            "Polynomial(_terms=(((0, 2, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((1, 0, 2), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((1, 1, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((2, 1, 0), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)"
+          ],
+          "ideal_type": "(u,v^2)",
+          "linear_coordinate": "c/b",
+          "nilpotent_coordinate": "a/b",
+          "point": "p_b",
+          "scheme": "I6",
+          "verified": true
+        },
+        {
+          "chart_pivot": 2,
+          "generators": [
+            "Polynomial(_terms=(((0, 2, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((1, 0, 2), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((1, 1, 1), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)",
+            "Polynomial(_terms=(((2, 1, 0), Eisenstein(a=Rational(1, 1), b=Rational(0, 1))),), _variable_count=3, _scalar_type=<class 'onetheory.math.numbers.Eisenstein'>)"
+          ],
+          "ideal_type": "(u,v^2)",
+          "linear_coordinate": "a/c",
+          "nilpotent_coordinate": "b/c",
+          "point": "p_c",
+          "scheme": "I6",
+          "verified": true
+        }
+      ],
+      "serre_patching_status": "not constructed: global Serre cocycles and constituent patching are pending",
+      "singular_points": [
+        {
+          "coordinates": [
+            1,
+            0,
+            0
+          ],
+          "fiber_parameter": [
+            "-3-6*omega",
+            "3+3*omega"
+          ],
+          "gradient": [
+            "0",
+            "0",
+            "0"
+          ],
+          "name": "p_a",
+          "singular": true
+        },
+        {
+          "coordinates": [
+            0,
+            1,
+            0
+          ],
+          "fiber_parameter": [
+            "-3-6*omega",
+            "-3"
+          ],
+          "gradient": [
+            "0",
+            "0",
+            "0"
+          ],
+          "name": "p_b",
+          "singular": true
+        },
+        {
+          "coordinates": [
+            0,
+            0,
+            1
+          ],
+          "fiber_parameter": [
+            "-3-6*omega",
+            "-3*omega"
+          ],
+          "gradient": [
+            "0",
+            "0",
+            "0"
+          ],
+          "name": "p_c",
+          "singular": true
+        }
+      ]
+    },
     "downstream_frontier": {
       "gates": [
         {

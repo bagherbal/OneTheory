@@ -33,6 +33,7 @@ from .equivariance import tier_a_equivariance, tier_a_split_equivariance
 from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
 from .hom_cech import tier_a_hom_cech
 from .outer import split_rank_four_baseline
+from .pencil import tier_a_pencil_model
 from .pushdown import tier_a_pushdown_constraints
 from .rank_four import rank_four_frontier
 from .resolution_actions import tier_a_resolution_actions
@@ -59,6 +60,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     resolution_actions = tier_a_resolution_actions()
     dual_cokernels = tier_a_dual_cokernels()
     local_serre_models = tier_a_local_serre_models()
+    pencil_model = tier_a_pencil_model()
     pushdown_constraints = tier_a_pushdown_constraints()
     reference_artifact = root / "data/generated/visible_carrier/visible_carrier_artifact.json"
     return {
@@ -130,6 +132,7 @@ def build_artifact(root: Path) -> dict[str, object]:
             "local_serre_models": [
                 model.as_record() for model in local_serre_models
             ],
+            "dP9_pencil": pencil_model.as_record(),
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],
                 "I6": [

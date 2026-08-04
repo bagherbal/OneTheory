@@ -34,6 +34,10 @@ def test_point_schemes_reproduce_exact_hilbert_burch_lengths() -> None:
 
     assert length_three.resolution.verifies_generators()
     assert length_six.resolution.verifies_generators()
+    assert length_three.resolution.basis_shape.space(0).dimension == 3
+    assert length_three.resolution.basis_shape.space(1).dimension == 2
+    assert length_six.resolution.basis_shape.space(0).dimension == 4
+    assert length_six.resolution.basis_shape.space(1).dimension == 3
     assert length_three.length == 3
     assert length_six.length == 6
 

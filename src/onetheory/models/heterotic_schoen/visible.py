@@ -6,8 +6,8 @@ Owns:
     published one-Higgs rank-four SU(4) extension, Wilson-line breaking, and
     observable spectrum counts.
 
-Depends on:
-    `onetheory.math.polynomials`, `linear`, and `numbers`; general physical types;
+    Depends on:
+    `onetheory.math.polynomials`, `homological`, `linear`, and `numbers`; general physical types;
     the sibling Standard Model metadata; and concrete Schoen geometry. It must
     not import engine, verification, research, or unresolved metric data.
 
@@ -25,6 +25,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from onetheory.math.homological import GradedVectorSpace, VectorSpace
 from onetheory.math.linear import Matrix, Vector
 from onetheory.math.numbers import OMEGA, OMEGA2, Eisenstein, Rational
 from onetheory.math.polynomials import Polynomial, maximal_minors
@@ -85,6 +86,22 @@ class HilbertBurchResolution:
         """Return exact signed maximal minors."""
 
         return maximal_minors(self.matrix)
+
+    @property
+    def basis_shape(self) -> GradedVectorSpace:
+        """Return the typed finite-free rank shape behind the polynomial complex."""
+
+        generator_space = VectorSpace(
+            f"{self.name}:generators",
+            tuple(f"g{index}" for index in range(len(self.matrix))),
+            Eisenstein,
+        )
+        syzygy_space = VectorSpace(
+            f"{self.name}:syzygies",
+            tuple(f"s{index}" for index in range(len(self.matrix[0]))),
+            Eisenstein,
+        )
+        return GradedVectorSpace(self.name, {0: generator_space, 1: syzygy_space})
 
     @property
     def scheme_length(self) -> Rational:

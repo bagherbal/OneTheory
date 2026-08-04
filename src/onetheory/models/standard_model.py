@@ -69,7 +69,7 @@ def _representation(
 Q = _representation("Q", 3, 2, Fraction(1, 6), Fraction(1, 3))
 UP_ANTIQUARK = _representation("u^c", 3, 1, Fraction(-2, 3), Fraction(-1, 3), True)
 DOWN_ANTIQUARK = _representation("d^c", 3, 1, Fraction(1, 3), Fraction(-1, 3), True)
-LEPTON_DOUBLEt = _representation("L", 1, 2, Fraction(-1, 2), Fraction(-1))
+LEPTON_DOUBLET = _representation("L", 1, 2, Fraction(-1, 2), Fraction(-1))
 ELECTRON_ANTILEPTON = _representation("e^c", 1, 1, Fraction(1), Fraction(1), True)
 NEUTRINO_ANTILEPTON = _representation("ν^c", 1, 1, Fraction(0), Fraction(1), True)
 HIGGS_UP = _representation("H_u", 1, 2, Fraction(1, 2), Fraction(0))
@@ -93,7 +93,7 @@ def standard_model_spectrum() -> Spectrum:
         ParticleMultiplet("Q", Q, Chirality.LEFT, 3, "quark"),
         ParticleMultiplet("u^c", UP_ANTIQUARK, Chirality.LEFT, 3, "quark"),
         ParticleMultiplet("d^c", DOWN_ANTIQUARK, Chirality.LEFT, 3, "quark"),
-        ParticleMultiplet("L", LEPTON_DOUBLEt, Chirality.LEFT, 3, "lepton"),
+        ParticleMultiplet("L", LEPTON_DOUBLET, Chirality.LEFT, 3, "lepton"),
         ParticleMultiplet("e^c", ELECTRON_ANTILEPTON, Chirality.LEFT, 3, "lepton"),
         ParticleMultiplet("ν^c", NEUTRINO_ANTILEPTON, Chirality.LEFT, 3, "neutrino"),
         ParticleMultiplet("H_u", HIGGS_UP, Chirality.SCALAR, 1, "higgs"),

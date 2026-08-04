@@ -36,6 +36,8 @@ IMPLEMENTED_PRODUCTION_MODULES = {
     "models/standard_model.py",
     "models/heterotic_schoen/geometry.py",
     "models/heterotic_schoen/visible.py",
+    "models/heterotic_schoen/flavor.py",
+    "models/heterotic_schoen/consistency.py",
 }
 
 

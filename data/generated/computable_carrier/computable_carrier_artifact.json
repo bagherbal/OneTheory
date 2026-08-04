@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "4499258ef851cf5eaa730ba950ef977706d97a3e347d6e9064d4f7d8046e5a29",
+  "artifact_digest": "070201f856cd975344ea3845b7a8fc72b5f6a3f8b343e55d68c3a65d63e4e2fd",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -10664,6 +10664,42 @@
         ]
       }
     ],
+    "bounded_hom_cech": {
+      "basis_sizes": [
+        [
+          0,
+          12
+        ],
+        [
+          1,
+          48
+        ],
+        [
+          2,
+          23
+        ]
+      ],
+      "bound": 0,
+      "cohomology_dimensions": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "h1_representative_count": 14,
+      "left_scheme": "I3",
+      "right_scheme": "I6",
+      "squared_zero": true,
+      "status": "bounded Hom Cech complex; full Ext and equivariance remain unproved"
+    },
     "constituent_candidates": [
       {
         "chart_names": [
@@ -11488,6 +11524,161 @@
         ]
       }
     ],
+    "equivariance": {
+      "checks": [
+        {
+          "chart_permutation": [
+            1,
+            2,
+            0
+          ],
+          "failed_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "gauge_lift_constructed": false,
+          "honest": false,
+          "invariant": false,
+          "name": "I3:P"
+        },
+        {
+          "chart_permutation": [
+            0,
+            1,
+            2
+          ],
+          "failed_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "gauge_lift_constructed": false,
+          "honest": false,
+          "invariant": false,
+          "name": "I3:T"
+        },
+        {
+          "chart_permutation": [
+            1,
+            2,
+            0
+          ],
+          "failed_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "gauge_lift_constructed": false,
+          "honest": false,
+          "invariant": false,
+          "name": "I6:P"
+        },
+        {
+          "chart_permutation": [
+            0,
+            1,
+            2
+          ],
+          "failed_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "gauge_lift_constructed": false,
+          "honest": false,
+          "invariant": false,
+          "name": "I6:T"
+        }
+      ],
+      "group_relations_verified": true,
+      "honest": false,
+      "status": "coordinate equivariance checked; no honest gauge lifts constructed"
+    },
     "point_schemes": [
       {
         "name": "I3",
@@ -11694,6 +11885,61 @@
           ]
         ]
       ]
+    },
+    "split_equivariance": {
+      "checks": [
+        {
+          "chart_permutation": [
+            1,
+            2,
+            0
+          ],
+          "failed_pairs": [],
+          "gauge_lift_constructed": true,
+          "honest": true,
+          "invariant": true,
+          "name": "I3:P"
+        },
+        {
+          "chart_permutation": [
+            0,
+            1,
+            2
+          ],
+          "failed_pairs": [],
+          "gauge_lift_constructed": true,
+          "honest": true,
+          "invariant": true,
+          "name": "I3:T"
+        },
+        {
+          "chart_permutation": [
+            1,
+            2,
+            0
+          ],
+          "failed_pairs": [],
+          "gauge_lift_constructed": true,
+          "honest": true,
+          "invariant": true,
+          "name": "I6:P"
+        },
+        {
+          "chart_permutation": [
+            0,
+            1,
+            2
+          ],
+          "failed_pairs": [],
+          "gauge_lift_constructed": true,
+          "honest": true,
+          "invariant": true,
+          "name": "I6:T"
+        }
+      ],
+      "group_relations_verified": false,
+      "honest": false,
+      "status": "split-derived gauge lifts checked; group-level linearization remains unproved"
     },
     "status": "exact complexes and local candidate transitions available; Serre gate pending"
   }

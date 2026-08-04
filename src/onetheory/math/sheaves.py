@@ -20,7 +20,7 @@ Phase 0:
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from typing import Any, cast
 
@@ -217,6 +217,15 @@ class LaurentPolynomial:
 
         return not self.terms
 
+    def coefficient(self, exponents: Iterable[int]) -> Scalar:
+        """Return one exact Laurent coefficient, defaulting to zero."""
+
+        monomial = _validate_exponents(exponents, self.variable_count)
+        for existing, coefficient in self.terms:
+            if existing == monomial:
+                return coefficient
+        return _zero(self.scalar_type)
+
     def __pow__(self, exponent: int) -> LaurentPolynomial:
         if isinstance(exponent, bool) or not isinstance(exponent, int):
             raise TypeError("Laurent polynomial powers require an integer")
@@ -230,6 +239,46 @@ class LaurentPolynomial:
                 result = result * base
             base = base * base
             power >>= 1
+        return result
+
+    def substitute_monomials(
+        self,
+        images: Sequence[tuple[object, Iterable[int]]],
+    ) -> LaurentPolynomial:
+        """Apply an exact scalar-monomial substitution, including inverses."""
+
+        if len(images) != self.variable_count:
+            raise ValueError("Laurent substitution count must match variable_count")
+        raw_images = tuple((scalar, tuple(exponents)) for scalar, exponents in images)
+        target_counts = {len(exponents) for _, exponents in raw_images}
+        if len(target_counts) > 1:
+            raise ValueError("Laurent substitution images use different target dimensions")
+        target_count = next(iter(target_counts), 0)
+        normalized = tuple(
+            (
+                _coerce(scalar, self.scalar_type),
+                _validate_exponents(exponents, target_count),
+            )
+            for scalar, exponents in raw_images
+        )
+        result = LaurentPolynomial.zero(target_count, scalar_type=self.scalar_type)
+        for exponents, coefficient in self.terms:
+            target_exponents = [0] * target_count
+            target_coefficient = coefficient
+            for (scalar, image_exponents), power in zip(normalized, exponents, strict=True):
+                target_coefficient = _multiply(
+                    target_coefficient,
+                    cast(Scalar, cast(Any, scalar) ** power),
+                )
+                target_exponents = [
+                    current + power * image
+                    for current, image in zip(target_exponents, image_exponents, strict=True)
+                ]
+            result = result + LaurentPolynomial.monomial(
+                target_exponents,
+                target_coefficient,
+                scalar_type=self.scalar_type,
+            )
         return result
 
 

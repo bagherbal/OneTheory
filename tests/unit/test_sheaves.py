@@ -49,6 +49,11 @@ def test_localization_preserves_exact_terms_and_declares_inversions() -> None:
     assert localized.terms == (((1, 0, 0), Rational(1)),)
     assert (localized * inverse).terms == (((0, 0, 0), Rational(1)),)
 
+    inverse_image = inverse.substitute_monomials(
+        ((2, (0, 1, 0)), (1, (0, 0, 1)), (1, (1, 0, 0)))
+    )
+    assert inverse_image.terms == (((0, -1, 0), Rational(1, 2)),)
+
 
 def test_chart_intersections_and_transition_cocycle_are_exact() -> None:
     """Coboundary transitions satisfy every ordered triple identity exactly."""

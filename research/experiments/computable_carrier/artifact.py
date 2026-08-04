@@ -27,6 +27,8 @@ from onetheory.models.heterotic_schoen.visible import point_schemes
 
 from .cech_sections import bounded_cech_sections
 from .constituents import tier_a_constituents
+from .equivariance import tier_a_equivariance, tier_a_split_equivariance
+from .hom_cech import tier_a_hom_cech
 from .outer import split_rank_four_baseline
 from .search import finite_tier_search
 from .specification import computable_carrier_specification
@@ -122,6 +124,9 @@ def build_artifact(root: Path) -> dict[str, object]:
                 for candidate in tier_a_constituents()
             ],
             "rank_four_baseline": split_rank_four_baseline().as_record(),
+            "bounded_hom_cech": tier_a_hom_cech().as_record(),
+            "equivariance": tier_a_equivariance().as_record(),
+            "split_equivariance": tier_a_split_equivariance().as_record(),
         },
         "promotion": {
             "production_import_allowed": False,

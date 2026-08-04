@@ -84,5 +84,6 @@ class PhysicalState:
         """Require an output that may be explicitly unresolved."""
 
         if output in self.unresolved:
-            raise MissingPhysicalInput(output, self.unresolved)
+            remaining = tuple(item for item in self.unresolved if item != output)
+            raise MissingPhysicalInput(output, remaining)
         return self.value(output)

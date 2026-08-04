@@ -33,6 +33,7 @@ from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
 from .hom_cech import tier_a_hom_cech
 from .outer import split_rank_four_baseline
 from .rank_four import rank_four_frontier
+from .resolution_actions import tier_a_resolution_actions
 from .search import finite_tier_search
 from .specification import computable_carrier_specification
 
@@ -52,6 +53,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     rank_four = rank_four_frontier(hom)
     downstream = downstream_frontier(rank_four)
     bounded_equivariance = cached_tier_a_bounded_extension_equivariance(2)
+    resolution_actions = tier_a_resolution_actions()
     reference_artifact = root / "data/generated/visible_carrier/visible_carrier_artifact.json"
     return {
         "schema": {
@@ -112,6 +114,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "constituent_candidates": [
                 candidate.as_record() for candidate in tier_a_constituents()
+            ],
+            "resolution_actions": [
+                action_pair.as_record() for action_pair in resolution_actions
             ],
             "bounded_cech_windows": [
                 {

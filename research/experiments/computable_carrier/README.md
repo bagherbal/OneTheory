@@ -24,6 +24,12 @@ research-only because the global horseshoe or mapping cone, deck linearization,
 stability chamber, spectrum, DGA, metric, instanton, and hidden consistency
 certificates are not yet present.
 
+The Tier A point-scheme resolutions now also carry derived exact P/T actions.
+Each lift is obtained by solving the Hilbert--Burch chain equation over
+Q(omega), then checked for invertibility, order three, and its termwise
+projective commutator. These are resolution-level actions only; they do not
+constitute Serre linearizations or quotient descent.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

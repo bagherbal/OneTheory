@@ -35,6 +35,10 @@ from onetheory.models.heterotic_schoen.flavor import (
     finite_frontier_status,
 )
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry
+from onetheory.models.heterotic_schoen.instantons import (
+    CONIC_PFAFFIAN_MISSING_CHAIN,
+    ConicPfaffianInputStatus,
+)
 from onetheory.models.heterotic_schoen.visible import (
     MixedMaurerCartanBranch,
     ObservableAdmissibility,
@@ -72,13 +76,21 @@ def exact_certificate(
     statement: str,
     provenance: tuple[Provenance, ...] = (EXACT_PROJECT,),
     scope: str = "established carrier vertical slice",
+    prerequisites: tuple[str, ...] = (),
 ) -> ExactCertificate:
     """Create a deterministic exact equality certificate."""
 
     passed = observed == expected
     payload = f"{identifier}|{expected!r}|{observed!r}|{passed!r}".encode()
     digest = sha256(payload).hexdigest()
-    record = EvidenceRecord(identifier, evidence_class, statement, provenance, scope)
+    record = EvidenceRecord(
+        identifier,
+        evidence_class,
+        statement,
+        provenance,
+        scope,
+        prerequisites,
+    )
     return ExactCertificate(identifier, expected, observed, passed, record, digest)
 
 
@@ -266,6 +278,44 @@ def unresolved_frontier_evidence() -> tuple[EvidenceRecord, ...]:
             (EXACT_PROJECT,),
             "physical observables",
         ),
+    )
+
+
+def certify_instanton_boundary(state: PhysicalState) -> tuple[ExactCertificate, ...]:
+    """Certify the unresolved conic Pfaffian boundary without attaching values."""
+
+    status = cast(ConicPfaffianInputStatus, state.value("conic_pfaffian_input_status"))
+    return (
+        exact_certificate(
+            "instanton.first_missing_input",
+            CONIC_PFAFFIAN_MISSING_CHAIN[0],
+            status.first_missing_input,
+            evidence_class=EvidenceClass.MISSING_INPUT,
+            statement="The first conic Pfaffian input is absent from the declared data.",
+            scope="physical seed-conic reconstruction",
+            prerequisites=status.prerequisite_chain,
+        ),
+        exact_certificate(
+            "instanton.common_determinant_line",
+            False,
+            status.common_determinant_line_available,
+            evidence_class=EvidenceClass.MISSING_INPUT,
+            statement="No common determinant-line trivialization is available.",
+            scope="eighteen conic orbit transport and instanton sum",
+            prerequisites=status.prerequisite_chain,
+        ),
+    )
+
+
+def conic_pfaffian_input_gate(state: PhysicalState) -> GateResult:
+    """Expose the first missing conic input as a fail-closed scientific gate."""
+
+    status = cast(ConicPfaffianInputStatus, state.value("conic_pfaffian_input_status"))
+    return gate_missing_input(
+        "instanton.conic_pfaffian_inputs",
+        f"First missing input: {status.first_missing_input}.",
+        "physical conic Pfaffian reconstruction",
+        status.prerequisite_chain,
     )
 
 

@@ -36,6 +36,10 @@ from onetheory.models.heterotic_schoen.flavor import (
     tree_level_flavor,
 )
 from onetheory.models.heterotic_schoen.geometry import SchoenGeometry, schoen_geometry
+from onetheory.models.heterotic_schoen.instantons import (
+    CONIC_PFAFFIAN_MISSING_CHAIN,
+    conic_pfaffian_input_status,
+)
 from onetheory.models.heterotic_schoen.visible import (
     MixedMaurerCartanBranch,
     ObservableAdmissibility,
@@ -91,6 +95,10 @@ def _common_dga(_: Mapping[str, object]) -> object:
     return common_dga_input_status()
 
 
+def _conic_pfaffians(_: Mapping[str, object]) -> object:
+    return conic_pfaffian_input_status()
+
+
 def _assemble(values: Mapping[str, object]) -> tuple[StateEntry, ...]:
     return (
         StateEntry("standard_model", values["standard_model"]),
@@ -103,6 +111,7 @@ def _assemble(values: Mapping[str, object]) -> tuple[StateEntry, ...]:
         StateEntry("observable_admissibility", values["observable_admissibility"]),
         StateEntry("finite_flavor_frontier", values["finite_flavor_frontier"]),
         StateEntry("common_dga_input_status", values["common_dga_input_status"]),
+        StateEntry("conic_pfaffian_input_status", values["conic_pfaffian_input_status"]),
     )
 
 
@@ -124,6 +133,7 @@ def _reality_graph() -> ComputationGraph:
             _frontier,
         ),
         GraphNode("common_dga_input_status", (), _common_dga),
+        GraphNode("conic_pfaffian_input_status", (), _conic_pfaffians),
         GraphNode(
             "established_carrier_state",
             (
@@ -137,6 +147,7 @@ def _reality_graph() -> ComputationGraph:
                 "observable_admissibility",
                 "finite_flavor_frontier",
                 "common_dga_input_status",
+                "conic_pfaffian_input_status",
             ),
             _assemble,
         ),
@@ -146,6 +157,7 @@ def _reality_graph() -> ComputationGraph:
 UNRESOLVED_REALITY_OUTPUTS = (
     "metrics",
     "instanton amplitudes",
+    "nonperturbative superpotential",
     "hidden bundle",
     "vacuum",
     "physical Yukawa matrices",
@@ -183,6 +195,11 @@ UNRESOLVED_REALITY_CHAINS = {
         "rank-three physical Yukawa matrices",
         "matter metrics",
         "canonical normalization",
+        "stabilized common vacuum",
+    ),
+    "instanton amplitudes": CONIC_PFAFFIAN_MISSING_CHAIN,
+    "nonperturbative superpotential": (
+        *CONIC_PFAFFIAN_MISSING_CHAIN,
         "stabilized common vacuum",
     ),
 }
@@ -282,9 +299,15 @@ def request_ckm_cp() -> NoReturn:
 def request_instanton_amplitudes() -> NoReturn:
     """Reject instanton requests before Pfaffians and determinant lines exist."""
 
+    _missing_output("instanton amplitudes", CONIC_PFAFFIAN_MISSING_CHAIN)
+
+
+def request_nonperturbative_superpotential() -> NoReturn:
+    """Reject the instanton sum until visible, hidden, phase, and vacuum data exist."""
+
     _missing_output(
-        "instanton amplitudes",
-        ("bundle restrictions", "Pfaffians", "Quillen normalization"),
+        "nonperturbative superpotential",
+        (*CONIC_PFAFFIAN_MISSING_CHAIN, "stabilized common vacuum"),
     )
 
 

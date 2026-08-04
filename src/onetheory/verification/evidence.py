@@ -60,10 +60,13 @@ class EvidenceRecord:
     statement: str
     provenance: tuple[Provenance, ...]
     scope: str
+    prerequisites: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         if any(not value.strip() for value in (self.claim, self.statement, self.scope)):
             raise ValueError("evidence records require claim, statement, and scope")
+        if any(not prerequisite.strip() for prerequisite in self.prerequisites):
+            raise ValueError("evidence prerequisites require nonempty names")
 
 
 PUBLISHED_CARRIER = Provenance(

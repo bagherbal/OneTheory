@@ -28,6 +28,7 @@ from onetheory.reality import (
     request_low_energy_predictions,
     request_masses,
     request_metrics,
+    request_nonperturbative_superpotential,
     request_physical_yukawas,
     request_rank_three_yukawa,
     request_vacuum,
@@ -55,6 +56,7 @@ def test_reality_composes_only_established_carrier_objects() -> None:
         "observable_admissibility",
         "finite_flavor_frontier",
         "common_dga_input_status",
+        "conic_pfaffian_input_status",
     )
     assert "hidden bundle" in state.unresolved
     assert "physical Yukawa matrices" in state.unresolved
@@ -62,6 +64,7 @@ def test_reality_composes_only_established_carrier_objects() -> None:
     assert state.value("common_dga_input_status")["first_missing_input"].startswith(
         "carrier-specific V1/V2"
     )
+    assert not state.value("conic_pfaffian_input_status").physical_seed_maps_available
 
 
 def test_external_certificates_pass_for_the_assembled_state() -> None:
@@ -92,6 +95,7 @@ def test_frontier_certificates_recompute_formal_results() -> None:
         request_masses,
         request_ckm_cp,
         request_instanton_amplitudes,
+        request_nonperturbative_superpotential,
         request_hidden_bundle,
         request_vacuum,
         request_low_energy_predictions,

@@ -27,7 +27,11 @@ from dataclasses import dataclass
 from onetheory.math.numbers import Eisenstein
 from onetheory.math.sheaves import LaurentMatrix, LaurentPolynomial
 
-from .pencil import TierAPencilModel, tier_a_pencil_model
+from .pencil import (
+    BlowupChart,
+    TierAPencilModel,
+    tier_a_pencil_model,
+)
 from .serre_local import LocalSerreModel, local_serre_model
 
 
@@ -84,6 +88,53 @@ class AtlasSerreLocal:
         }
 
 
+@dataclass(frozen=True, slots=True)
+class SerrePushoutAtlas:
+    """Bare rank-two pushout transitions on the six affine charts."""
+
+    scheme: str
+    multiplicity: int
+    transitions: tuple[tuple[str, str, LaurentMatrix], ...]
+    all_invertible: bool
+    cocycle_consistent: bool
+    status: str
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize exact local pushout transitions and their gates."""
+
+        def matrix_record(matrix: LaurentMatrix) -> list[list[list[object]]]:
+            return [
+                [
+                    [
+                        {
+                            "exponents": list(exponents),
+                            "coefficient": str(coefficient),
+                        }
+                        for exponents, coefficient in entry.terms
+                    ]
+                    for entry in row
+                ]
+                for row in matrix.rows
+            ]
+
+        return {
+            "scheme": self.scheme,
+            "multiplicity": self.multiplicity,
+            "transitions": [
+                {
+                    "source": source,
+                    "target": target,
+                    "matrix": matrix_record(matrix),
+                }
+                for source, target, matrix in self.transitions
+            ],
+            "transition_count": len(self.transitions),
+            "all_invertible": self.all_invertible,
+            "cocycle_consistent": self.cocycle_consistent,
+            "status": self.status,
+        }
+
+
 def _point_chart(model: TierAPencilModel, point_name: str) -> tuple[str, int]:
     """Return the mu-chart and pivot containing one coordinate point."""
 
@@ -92,6 +143,162 @@ def _point_chart(model: TierAPencilModel, point_name: str) -> tuple[str, int]:
     if chart not in {item.name for item in model.blowup_atlas.charts}:
         raise ValueError("the coordinate point has no declared mu blow-up chart")
     return chart, pivot
+
+
+def _local_generator_pair(
+    pivot: int,
+    multiplicity: int,
+    homogeneous_coordinates: tuple[tuple[int, int, int], ...],
+) -> tuple[LaurentPolynomial, LaurentPolynomial]:
+    """Return the ordered (linear, nilpotent-power) ideal generators."""
+
+    neighbors = ((1, 2), (2, 0), (0, 1))[pivot]
+    denominator = homogeneous_coordinates[pivot]
+
+    def ratio(numerator: tuple[int, int, int]) -> LaurentPolynomial:
+        return LaurentPolynomial.monomial(
+            tuple(numerator[index] - denominator[index] for index in range(3)),
+            scalar_type=Eisenstein,
+        )
+
+    linear = ratio(homogeneous_coordinates[neighbors[0]])
+    nilpotent = ratio(homogeneous_coordinates[neighbors[1]])
+    return linear, LaurentPolynomial.monomial(
+        tuple(multiplicity * exponent for exponent in nilpotent.terms[0][0]),
+        scalar_type=Eisenstein,
+    )
+
+
+def _homogeneous_coordinate_exponents() -> tuple[tuple[int, int, int], ...]:
+    """Return the common Laurent torus basis for homogeneous coordinates."""
+
+    return ((1, 0, 0), (0, 1, 0), (0, 0, 1))
+
+
+def _monomial_quotient(
+    numerator: LaurentPolynomial,
+    denominator: LaurentPolynomial,
+) -> LaurentPolynomial:
+    """Divide two unit Laurent monomials by subtracting their exponents."""
+
+    if len(numerator.terms) != 1 or len(denominator.terms) != 1:
+        raise ValueError("pushout generator changes require Laurent monomials")
+    numerator_exponents, numerator_coefficient = numerator.terms[0]
+    denominator_exponents, denominator_coefficient = denominator.terms[0]
+    return LaurentPolynomial.monomial(
+        tuple(
+            numerator_value - denominator_value
+            for numerator_value, denominator_value in zip(
+                numerator_exponents,
+                denominator_exponents,
+                strict=True,
+            )
+        ),
+        numerator_coefficient / denominator_coefficient,
+        scalar_type=Eisenstein,
+    )
+
+
+def _transition_matrix(
+    source: BlowupChart,
+    target: BlowupChart,
+    multiplicity: int,
+) -> LaurentMatrix:
+    """Return the exact generator-change matrix from target to source."""
+
+    if source.base_pivot == target.base_pivot:
+        return LaurentMatrix.identity(2, 3, scalar_type=Eisenstein)
+    homogeneous_coordinates = _homogeneous_coordinate_exponents()
+    source_row = _local_generator_pair(
+        source.base_pivot,
+        multiplicity,
+        homogeneous_coordinates,
+    )
+    target_row = _local_generator_pair(
+        target.base_pivot,
+        multiplicity,
+        homogeneous_coordinates,
+    )
+    matrix = LaurentMatrix(
+        (
+            (
+                _monomial_quotient(target_row[0], source_row[0]),
+                LaurentPolynomial.zero(3, scalar_type=Eisenstein),
+            ),
+            (
+                LaurentPolynomial.zero(3, scalar_type=Eisenstein),
+                _monomial_quotient(target_row[1], source_row[1]),
+            ),
+        )
+    )
+    if _row_times_matrix(source_row, matrix) != target_row:
+        raise ValueError("local pushout generator change failed exactly")
+    return matrix
+
+
+def _row_times_matrix(
+    row: tuple[LaurentPolynomial, LaurentPolynomial],
+    matrix: LaurentMatrix,
+) -> tuple[LaurentPolynomial, LaurentPolynomial]:
+    """Multiply one Laurent row by a two-by-two matrix."""
+
+    zero = LaurentPolynomial.zero(3, scalar_type=Eisenstein)
+    return tuple(
+        sum((row[index] * matrix.rows[index][column] for index in range(2)), zero)
+        for column in range(2)
+    )  # type: ignore[return-value]
+
+
+def _pushout_atlas(
+    scheme: str,
+    multiplicity: int,
+    model: TierAPencilModel,
+) -> SerrePushoutAtlas:
+    """Construct and check all bare pushout chart transitions."""
+
+    charts = model.blowup_atlas.charts
+    transitions = tuple(
+        (
+            source.name,
+            target.name,
+            _transition_matrix(source, target, multiplicity),
+        )
+        for source in charts
+        for target in charts
+        if source != target
+    )
+    by_pair = {(source, target): matrix for source, target, matrix in transitions}
+    inverses = all(
+        matrix.compose(by_pair[(target, source)]).is_identity()
+        for source, target, matrix in transitions
+    )
+    cocycle = all(
+        by_pair[(source, middle)].compose(by_pair[(middle, target)]) == by_pair[(source, target)]
+        for source in (chart.name for chart in charts)
+        for middle in (chart.name for chart in charts)
+        for target in (chart.name for chart in charts)
+        if len({source, middle, target}) == 3
+    )
+    return SerrePushoutAtlas(
+        scheme,
+        multiplicity,
+        transitions,
+        inverses,
+        cocycle,
+        "bare ideal-level pushout transitions; line frames and global Serre gluing pending",
+    )
+
+
+def tier_a_serre_pushout_atlases(
+    model: TierAPencilModel | None = None,
+) -> tuple[SerrePushoutAtlas, ...]:
+    """Return exact bare pushout transition atlases for I3 and I6."""
+
+    current = tier_a_pencil_model() if model is None else model
+    return tuple(
+        _pushout_atlas(scheme, multiplicity, current)
+        for scheme, multiplicity in (("I3", 1), ("I6", 2))
+    )
 
 
 def _local_record(

@@ -65,6 +65,12 @@ charts. Their degree-one chain comparisons agree on every ordered overlap,
 with shapes (3,2) and (4,3), respectively. These are exact ideal resolutions;
 the Serre extension map is still not supplied by the resolution alone.
 
+Bare rank-two pushout transitions are now expressed in the common homogeneous
+Laurent torus for all six atlas charts. The I3 and I6 transition records each
+pass all 30 inverse and ordered triple-cocycle checks. They remain ideal-level
+records: line-bundle frames, global Serre gluing, and equivariant descent are
+still unresolved.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

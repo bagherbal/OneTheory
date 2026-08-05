@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "7b0a11fe90fb9e5e572f0757088cfb34482581532414de876b4eafe7c861fcbf",
+  "artifact_digest": "ed0160a97dd437727d9cd09e1d0a748e021dec2cb80811422e90ed18c4bbcaee",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -20777,6 +20777,1948 @@
         "source_commutator_scalar": "-1-omega",
         "status": "resolution-level action; Serre linearization pending",
         "target_commutator_scalar": "1"
+      }
+    ],
+    "serre_pushout_atlases": [
+      {
+        "all_invertible": true,
+        "cocycle_consistent": true,
+        "multiplicity": 1,
+        "scheme": "I3",
+        "status": "bare ideal-level pushout transitions; line frames and global Serre gluing pending",
+        "transition_count": 30,
+        "transitions": [
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_mu",
+            "target": "U_0_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_mu",
+            "target": "U_1_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_mu",
+            "target": "U_1_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_mu",
+            "target": "U_2_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_mu",
+            "target": "U_2_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_nu",
+            "target": "U_0_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_nu",
+            "target": "U_1_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_nu",
+            "target": "U_1_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_nu",
+            "target": "U_2_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_nu",
+            "target": "U_2_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_mu",
+            "target": "U_0_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_mu",
+            "target": "U_0_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_mu",
+            "target": "U_1_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_mu",
+            "target": "U_2_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_mu",
+            "target": "U_2_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_nu",
+            "target": "U_0_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_nu",
+            "target": "U_0_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_nu",
+            "target": "U_1_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_nu",
+            "target": "U_2_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_nu",
+            "target": "U_2_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_mu",
+            "target": "U_0_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_mu",
+            "target": "U_0_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_mu",
+            "target": "U_1_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_mu",
+            "target": "U_1_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_mu",
+            "target": "U_2_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_nu",
+            "target": "U_0_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_nu",
+            "target": "U_0_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_nu",
+            "target": "U_1_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_nu",
+            "target": "U_1_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_nu",
+            "target": "U_2_mu"
+          }
+        ]
+      },
+      {
+        "all_invertible": true,
+        "cocycle_consistent": true,
+        "multiplicity": 2,
+        "scheme": "I6",
+        "status": "bare ideal-level pushout transitions; line frames and global Serre gluing pending",
+        "transition_count": 30,
+        "transitions": [
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_mu",
+            "target": "U_0_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      4,
+                      -2,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_mu",
+            "target": "U_1_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      4,
+                      -2,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_mu",
+            "target": "U_1_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      2,
+                      -4
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_mu",
+            "target": "U_2_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      2,
+                      -4
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_mu",
+            "target": "U_2_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_nu",
+            "target": "U_0_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      4,
+                      -2,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_nu",
+            "target": "U_1_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      -2,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      4,
+                      -2,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_nu",
+            "target": "U_1_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      2,
+                      -4
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_nu",
+            "target": "U_2_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -1,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      2,
+                      -4
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_0_nu",
+            "target": "U_2_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -4,
+                      2,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_mu",
+            "target": "U_0_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -4,
+                      2,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_mu",
+            "target": "U_0_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_mu",
+            "target": "U_1_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      4,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_mu",
+            "target": "U_2_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      4,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_mu",
+            "target": "U_2_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -4,
+                      2,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_nu",
+            "target": "U_0_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      2,
+                      -1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -4,
+                      2,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_nu",
+            "target": "U_0_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_nu",
+            "target": "U_1_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      4,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_nu",
+            "target": "U_2_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      1,
+                      -2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      4,
+                      -2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_1_nu",
+            "target": "U_2_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      -2,
+                      4
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_mu",
+            "target": "U_0_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      -2,
+                      4
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_mu",
+            "target": "U_0_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -4,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_mu",
+            "target": "U_1_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -4,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_mu",
+            "target": "U_1_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_mu",
+            "target": "U_2_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      -2,
+                      4
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_nu",
+            "target": "U_0_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      1,
+                      1
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -2,
+                      -2,
+                      4
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_nu",
+            "target": "U_0_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -4,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_nu",
+            "target": "U_1_mu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      -1,
+                      -1,
+                      2
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      2,
+                      -4,
+                      2
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_nu",
+            "target": "U_1_nu"
+          },
+          {
+            "matrix": [
+              [
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                []
+              ],
+              [
+                [],
+                [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              ]
+            ],
+            "source": "U_2_nu",
+            "target": "U_2_mu"
+          }
+        ]
       }
     ],
     "split_equivariance": {

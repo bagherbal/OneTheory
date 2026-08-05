@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 from research.experiments.computable_carrier.pencil import tier_a_pencil_model
-from research.experiments.computable_carrier.serre_atlas import tier_a_atlas_serre_locals
+from research.experiments.computable_carrier.serre_atlas import (
+    tier_a_atlas_serre_locals,
+    tier_a_serre_pushout_atlases,
+)
 
 
 def test_all_coordinate_points_have_checked_local_unit_pushouts() -> None:
@@ -35,3 +38,15 @@ def test_punctured_cocycles_record_the_i3_and_i6_pole_orders() -> None:
         for item in locals_
     }
     assert pole_orders == {"I3": (-1, -1), "I6": (-1, -2)}
+
+
+def test_bare_pushout_atlases_have_exact_torus_transitions() -> None:
+    """The ideal-level chart transitions pass inverse and triple-cocycle gates."""
+
+    atlases = tier_a_serre_pushout_atlases(tier_a_pencil_model())
+
+    assert {item.scheme for item in atlases} == {"I3", "I6"}
+    assert all(len(item.transitions) == 30 for item in atlases)
+    assert all(item.all_invertible for item in atlases)
+    assert all(item.cocycle_consistent for item in atlases)
+    assert all("line frames" in item.status for item in atlases)

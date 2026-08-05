@@ -40,6 +40,7 @@ from .outer_actions import bounded_outer_action
 from .pencil import tier_a_pencil_model
 from .polynomial_hom import polynomial_hom_degree_slice, tier_a_polynomial_hom_complex
 from .projective_hom_action import projective_hom_deck_audit
+from .projective_hom_search import tier_a_projective_hom_pair_audits
 from .projective_hyperhom import tier_a_projective_hom_hypercohomology
 from .pushdown import tier_a_pushdown_constraints
 from .pushout_linearization import tier_a_pushout_relation_linearizations
@@ -112,6 +113,11 @@ def build_artifact(root: Path) -> dict[str, object]:
     serre_eigenclass_variants = tier_a_serre_eigenclass_variants(
         explicit_serre_pushouts,
         resolution_actions,
+    )
+    projective_hom_pair_audits = tier_a_projective_hom_pair_audits(
+        explicit_serre_pushouts,
+        resolution_actions,
+        serre_eigenclass_variants,
     )
     local_cech_actions = tier_a_local_cech_deck_actions(
         pencil_model,
@@ -215,6 +221,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "projective_hom_hypercohomology": projective_hypercohomology.as_record(),
             "projective_hom_deck_audit": projective_deck_audit.as_record(),
+            "projective_hom_ray_pair_audits": [
+                item.as_record() for item in projective_hom_pair_audits
+            ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],

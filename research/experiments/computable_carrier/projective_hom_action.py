@@ -38,7 +38,7 @@ from .projective_hyperhom import (
 )
 from .pushout_linearization import _middle_action
 from .resolution_actions import ResolutionActionPair, tier_a_resolution_actions
-from .serre_pushout import tier_a_serre_pushouts
+from .serre_pushout import SerrePushoutCandidate, tier_a_serre_pushouts
 
 
 def _hom_action_matrix(left: Matrix, right: Matrix) -> Matrix:
@@ -279,6 +279,84 @@ def _fixed_representatives(
     )
 
 
+def _matrix_record(matrix: Matrix | None) -> list[list[str]] | None:
+    """Serialize one exact matrix, preserving ``None`` for zero cohomology."""
+
+    if matrix is None:
+        return None
+    return [[str(value) for value in row] for row in matrix.rows]
+
+
+def _sparse_map_matrix_record(
+    rows: tuple[tuple[object, ...], ...],
+    column_count: int,
+) -> dict[str, object]:
+    """Serialize a typed map matrix by shape and nonzero entries."""
+
+    return {
+        "shape": [len(rows), column_count],
+        "entries": [
+            {
+                "row": row,
+                "column": column,
+                "coefficient": str(value),
+            }
+            for row, values in enumerate(rows)
+            for column, value in enumerate(values)
+            if not value.is_zero()
+        ],
+    }
+
+
+def _linear_map_record(map_: LinearMap) -> dict[str, object]:
+    """Serialize one exact typed linear map with both ordered bases."""
+
+    return {
+        "domain": {
+            "name": map_.domain.name,
+            "basis": list(map_.domain.basis),
+        },
+        "codomain": {
+            "name": map_.codomain.name,
+            "basis": list(map_.codomain.basis),
+        },
+        "matrix": _sparse_map_matrix_record(
+            map_.rows,
+            map_.domain.dimension,
+        ),
+    }
+
+
+def _chain_map_record(map_: ChainMap) -> dict[str, object]:
+    """Serialize every component of one exact complex action."""
+
+    return {
+        "source_degrees": list(map_.source.degrees),
+        "target_degrees": list(map_.target.degrees),
+        "components": [
+            {
+                "degree": degree,
+                "map": _linear_map_record(component),
+            }
+            for degree, component in map_.components
+        ],
+    }
+
+
+def _reynolds_projector(
+    p_matrix: Matrix | None,
+    t_matrix: Matrix | None,
+) -> Matrix | None:
+    """Return the exact trivial-character projector when H¹ is nonzero."""
+
+    if p_matrix is None or t_matrix is None:
+        return None
+    identity = Matrix.identity(p_matrix.row_count, scalar_type=Eisenstein)
+    p_sum = identity + p_matrix + p_matrix.matmul(p_matrix)
+    t_sum = identity + t_matrix + t_matrix.matmul(t_matrix)
+    return p_sum.matmul(t_sum).scale(Eisenstein(1) / Eisenstein(9))
+
+
 @dataclass(frozen=True, slots=True)
 class ProjectiveHomDeckAudit:
     """Exact finite-group action and invariant audit for projective Hom data."""
@@ -292,6 +370,8 @@ class ProjectiveHomDeckAudit:
     h0_induced_t: Matrix | None
     h2_induced_p: Matrix | None
     h2_induced_t: Matrix | None
+    h0_invariant_projector: Matrix | None
+    h2_invariant_projector: Matrix | None
     h0_ext_representatives: tuple[CoordinateVector, ...]
     h2_ext_representatives: tuple[CoordinateVector, ...]
     h0_invariants: tuple[CoordinateVector, ...]
@@ -302,6 +382,19 @@ class ProjectiveHomDeckAudit:
         """Return the trivial-character degree-one dimension."""
 
         return len(self.h0_invariants) + len(self.h2_invariants)
+
+    @property
+    def reynolds_projectors_idempotent(self) -> bool:
+        """Return whether every defined trivial-character projector is exact."""
+
+        return all(
+            projector is None
+            or projector.matmul(projector) == projector
+            for projector in (
+                self.h0_invariant_projector,
+                self.h2_invariant_projector,
+            )
+        )
 
     @property
     def p_t_commute(self) -> bool:
@@ -357,6 +450,17 @@ class ProjectiveHomDeckAudit:
             "invariant_ext1_dimension": self.invariant_ext_one_dimension,
             "invariant_h0_representative_count": len(self.h0_invariants),
             "invariant_h2_representative_count": len(self.h2_invariants),
+            "h0_action_p": _chain_map_record(self.h0_action_p),
+            "h0_action_t": _chain_map_record(self.h0_action_t),
+            "h2_action_p": _chain_map_record(self.h2_action_p),
+            "h2_action_t": _chain_map_record(self.h2_action_t),
+            "h0_induced_p": _matrix_record(self.h0_induced_p),
+            "h0_induced_t": _matrix_record(self.h0_induced_t),
+            "h2_induced_p": _matrix_record(self.h2_induced_p),
+            "h2_induced_t": _matrix_record(self.h2_induced_t),
+            "h0_invariant_projector": _matrix_record(self.h0_invariant_projector),
+            "h2_invariant_projector": _matrix_record(self.h2_invariant_projector),
+            "reynolds_projectors_idempotent": self.reynolds_projectors_idempotent,
             "invariant_h0_representatives": [
                 self._representative_record(item) for item in self.h0_invariants
             ],
@@ -374,12 +478,27 @@ class ProjectiveHomDeckAudit:
 
 def projective_hom_deck_audit(
     hypercohomology: ProjectiveHomHypercohomology,
+    left_candidate: SerrePushoutCandidate | None = None,
+    right_candidate: SerrePushoutCandidate | None = None,
+    resolution_pairs: tuple[ResolutionActionPair, ...] | None = None,
 ) -> ProjectiveHomDeckAudit:
-    """Audit exact P/T actions on both projective Hom complexes."""
+    """Audit exact P/T actions on both projective Hom complexes.
 
-    candidates = tier_a_serre_pushouts()
-    pairs = tier_a_resolution_actions()
-    left, right = candidates
+    Optional candidates and resolution actions make the same exact audit
+    reusable for every declared Tier A eigenray pair. The defaults preserve
+    the original selected I3/I6 presentation route.
+    """
+
+    if (left_candidate is None) != (right_candidate is None):
+        raise ValueError("both projective Hom candidates must be supplied together")
+    if left_candidate is None:
+        candidates = tier_a_serre_pushouts()
+        left, right = candidates
+    else:
+        left, right = left_candidate, right_candidate
+    pairs = tier_a_resolution_actions() if resolution_pairs is None else resolution_pairs
+    if len(pairs) != 2:
+        raise ValueError("projective Hom actions require I3 and I6 resolution pairs")
     left_pair, right_pair = pairs
     h0_action_p = _chain_action(
         hypercohomology.h0,
@@ -424,19 +543,25 @@ def projective_hom_deck_audit(
         h2_action_t, hypercohomology.h2, -1, h2_ext_representatives
     )
     return ProjectiveHomDeckAudit(
-        hypercohomology,
-        h0_action_p,
-        h0_action_t,
-        h2_action_p,
-        h2_action_t,
-        h0_induced_p,
-        h0_induced_t,
-        h2_induced_p,
-        h2_induced_t,
-        h0_ext_representatives,
-        h2_ext_representatives,
-        _fixed_representatives(h0_ext_representatives, h0_induced_p, h0_induced_t),
-        _fixed_representatives(h2_ext_representatives, h2_induced_p, h2_induced_t),
+        hypercohomology=hypercohomology,
+        h0_action_p=h0_action_p,
+        h0_action_t=h0_action_t,
+        h2_action_p=h2_action_p,
+        h2_action_t=h2_action_t,
+        h0_induced_p=h0_induced_p,
+        h0_induced_t=h0_induced_t,
+        h2_induced_p=h2_induced_p,
+        h2_induced_t=h2_induced_t,
+        h0_invariant_projector=_reynolds_projector(h0_induced_p, h0_induced_t),
+        h2_invariant_projector=_reynolds_projector(h2_induced_p, h2_induced_t),
+        h0_ext_representatives=h0_ext_representatives,
+        h2_ext_representatives=h2_ext_representatives,
+        h0_invariants=_fixed_representatives(
+            h0_ext_representatives, h0_induced_p, h0_induced_t
+        ),
+        h2_invariants=_fixed_representatives(
+            h2_ext_representatives, h2_induced_p, h2_induced_t
+        ),
     )
 
 

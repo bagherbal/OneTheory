@@ -157,6 +157,14 @@ zero trivial-character classes. This excludes only the selected projective
 presentation route; it is not a no-go for all Tier A rays or for the full dP9
 comparison.
 
+The complete declared Tier A ray family is now audited pairwise: two locally
+free I3 eigenrays times three locally free I6 eigenrays. Every one of the six
+projective presentation pairs has raw Ext-one dimension 5, no H2 contribution,
+exact commuting order-three actions, and zero trivial-character classes. Each
+record includes the finite cochain maps, cycles, boundaries, representatives,
+induced actions, and exact Reynolds projector. This closes the finite
+projective-ray choice loophole only; it is not a global dP9 Ext no-go.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

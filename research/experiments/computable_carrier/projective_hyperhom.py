@@ -39,6 +39,95 @@ Monomial = tuple[int, ...]
 BasisLabel = tuple[int, Monomial]
 
 
+def _vector_record(vector: CoordinateVector) -> dict[str, object]:
+    """Serialize one based exact vector without losing zero coordinates."""
+
+    return {
+        "space": vector.space.name,
+        "dimension": vector.space.dimension,
+        "coordinates": [
+            {
+                "index": index,
+                "basis": vector.space.basis[index],
+                "coefficient": str(value),
+            }
+            for index, value in enumerate(vector.coordinates)
+            if not value.is_zero()
+        ],
+    }
+
+
+def _sparse_matrix_record(
+    rows: tuple[tuple[object, ...], ...],
+    column_count: int,
+) -> dict[str, object]:
+    """Serialize an exact matrix by shape and nonzero entries."""
+
+    return {
+        "shape": [len(rows), column_count],
+        "entries": [
+            {
+                "row": row,
+                "column": column,
+                "coefficient": str(value),
+            }
+            for row, values in enumerate(rows)
+            for column, value in enumerate(values)
+            if not value.is_zero()
+        ],
+    }
+
+
+def _complex_record(complex_: CochainComplex) -> dict[str, object]:
+    """Serialize spaces, differentials, cycles, boundaries, and representatives."""
+
+    return {
+        "direction": complex_.direction,
+        "degrees": list(complex_.degrees),
+        "spaces": [
+            {
+                "degree": degree,
+                "name": complex_.spaces.space(degree).name,
+                "basis": list(complex_.spaces.space(degree).basis),
+            }
+            for degree in complex_.degrees
+        ],
+        "differentials": [
+            {
+                "degree": degree,
+                "domain": list(differential.domain.basis),
+                "codomain": list(differential.codomain.basis),
+                "matrix": _sparse_matrix_record(
+                    differential.rows,
+                    differential.domain.dimension,
+                ),
+            }
+            for degree, differential in complex_.differentials
+        ],
+        "squared_zero": all(
+            complex_.differential(degree + 1).compose(
+                complex_.differential(degree)
+            ).is_zero()
+            for degree in complex_.degrees
+        ),
+        "cohomology": [
+            {
+                "degree": degree,
+                "dimension": complex_.cohomology_dimension(degree),
+                "cycles": [_vector_record(vector) for vector in complex_.cycles(degree)],
+                "boundaries": [
+                    _vector_record(vector) for vector in complex_.boundaries(degree)
+                ],
+                "representatives": [
+                    _vector_record(vector)
+                    for vector in complex_.cohomology_representatives(degree)
+                ],
+            }
+            for degree in complex_.degrees
+        ],
+    }
+
+
 def _h0_basis(degree: int, variable_count: int) -> tuple[Monomial, ...]:
     """Return the monomial basis of H0(P^2,O(degree))."""
 
@@ -150,6 +239,27 @@ class ProjectiveHomCohomology:
 
         return self.complex.cohomology_representatives(cochain_degree)
 
+    def as_record(self) -> dict[str, object]:
+        """Serialize the full finite projective cochain complex."""
+
+        return {
+            "sheaf_cohomology_degree": self.sheaf_cohomology_degree,
+            "bases": [
+                {
+                    "degree": degree,
+                    "basis": [
+                        {
+                            "generator": generator,
+                            "monomial": list(monomial),
+                        }
+                        for generator, monomial in basis
+                    ],
+                }
+                for degree, basis in self.bases
+            ],
+            "complex": _complex_record(self.complex),
+        }
+
 
 @dataclass(frozen=True, slots=True)
 class ProjectiveHomHypercohomology:
@@ -220,6 +330,8 @@ class ProjectiveHomHypercohomology:
                 self._sparse_record(label, representative)
                 for label, representative in self.ext_one_representatives
             ],
+            "h0": self.h0.as_record(),
+            "h2": self.h2.as_record(),
             "squared_zero": all(
                 complex_.differential(degree + 1).compose(
                     complex_.differential(degree)

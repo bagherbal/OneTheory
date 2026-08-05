@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "6d8ea853c41e2b0ad1ea89476dfec0ae31e79df7653205861fecddccf2b73c0d",
+  "artifact_digest": "b723558613c28236aa86d9ae7bc49bd6b32cf0fdf74c552945c91165689bbcff",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -29685,6 +29685,11 @@
             "relation_equation": true
           }
         ],
+        "compatible_variant_counts": [
+          6,
+          12
+        ],
+        "complete_variant_pair_count": 0,
         "failures": [
           "middle-generator P/T actions do not commute"
         ],
@@ -29692,6 +29697,10 @@
         "middle_actions_commute": false,
         "relation_actions_commute": true,
         "relation_equations_hold": true,
+        "resolution_variant_counts": [
+          6,
+          12
+        ],
         "scheme": "I3",
         "status": "presentation-level action diagnostic; dP9 descent pending"
       },
@@ -29712,6 +29721,11 @@
             "relation_equation": true
           }
         ],
+        "compatible_variant_counts": [
+          6,
+          12
+        ],
+        "complete_variant_pair_count": 0,
         "failures": [
           "relation-row P/T actions do not commute"
         ],
@@ -29719,6 +29733,10 @@
         "middle_actions_commute": true,
         "relation_actions_commute": false,
         "relation_equations_hold": true,
+        "resolution_variant_counts": [
+          6,
+          12
+        ],
         "scheme": "I6",
         "status": "presentation-level action diagnostic; dP9 descent pending"
       }

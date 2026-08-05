@@ -25,8 +25,18 @@ from dataclasses import dataclass
 from onetheory.math.linear import Matrix
 from onetheory.math.numbers import Eisenstein
 from onetheory.math.polynomials import Polynomial, PolynomialMatrix
+from onetheory.models.heterotic_schoen.visible import PointScheme
 
-from .resolution_actions import ResolutionAction, tier_a_resolution_actions
+from .resolution_actions import (
+    _UNITS,
+    ResolutionAction,
+    _coordinate_images,
+    _generator_action,
+    _generator_matrix,
+    _solve_source_lift,
+    _transformed_matrix,
+    tier_a_resolution_actions,
+)
 from .serre_pushout import SerrePushoutCandidate, tier_a_serre_pushouts
 
 
@@ -143,6 +153,9 @@ class PushoutRelationLinearization:
     relation_actions_commute: bool
     middle_actions_commute: bool
     failures: tuple[str, ...]
+    resolution_variant_counts: tuple[int, int]
+    compatible_variant_counts: tuple[int, int]
+    complete_variant_pair_count: int
     status: str
 
     @property
@@ -177,9 +190,112 @@ class PushoutRelationLinearization:
             "relation_actions_commute": self.relation_actions_commute,
             "middle_actions_commute": self.middle_actions_commute,
             "failures": list(self.failures),
+            "resolution_variant_counts": list(self.resolution_variant_counts),
+            "compatible_variant_counts": list(self.compatible_variant_counts),
+            "complete_variant_pair_count": self.complete_variant_pair_count,
             "group_relations_verified": self.group_relations_verified,
             "status": self.status,
         }
+
+
+def _resolution_variants(
+    scheme: PointScheme,
+    generator: str,
+) -> tuple[ResolutionAction, ...]:
+    """Enumerate all finite monomial Hilbert--Burch lifts."""
+
+    images = _coordinate_images(generator)
+    matrix = scheme.resolution.matrix
+    transformed = _transformed_matrix(matrix, images)
+    permutation, scalars = _generator_action(scheme, images)
+    variants = []
+    for transpose in (False, True):
+        for global_scalar in _UNITS:
+            target_action = _generator_matrix(
+                permutation,
+                scalars,
+                transpose,
+                global_scalar,
+            )
+            source_action = _solve_source_lift(matrix, transformed, target_action)
+            if source_action is None:
+                continue
+            if target_action.determinant().is_zero() or source_action.determinant().is_zero():
+                continue
+            variants.append(
+                ResolutionAction(
+                    scheme,
+                    generator,
+                    images,
+                    target_action,
+                    source_action,
+                    permutation,
+                    scalars,
+                )
+            )
+    return tuple(variants)
+
+
+def _relation_compatible(
+    candidate: SerrePushoutCandidate,
+    action: ResolutionAction,
+    character: Eisenstein,
+) -> tuple[bool, Matrix]:
+    """Check one extension character against one resolution lift."""
+
+    relation_action = action.source_action.transpose()
+    middle_action = _middle_action(action, character)
+    transformed = _transformed_relation(candidate.relation, action)
+    return (
+        _left_constant_product(relation_action, candidate.relation).rows
+        == _right_constant_product(transformed, middle_action).rows,
+        middle_action,
+    )
+
+
+def _alternative_variant_counts(
+    candidate: SerrePushoutCandidate,
+) -> tuple[tuple[int, int], tuple[int, int], int]:
+    """Search the finite monomial lift family for complete group pairs."""
+
+    variants = tuple(
+        _resolution_variants(candidate.scheme, generator)
+        for generator in ("P", "T")
+    )
+    compatible = []
+    for generator_variants in variants:
+        compatible.append(
+            tuple(
+                (action, character, middle)
+                for action in generator_variants
+                for character in _UNITS
+                for valid, middle in (
+                    _relation_compatible(candidate, action, character),
+                )
+                if valid
+            )
+        )
+    complete = 0
+    identity_relation = Matrix.identity(2, scalar_type=Eisenstein)
+    identity_middle = Matrix.identity(4, scalar_type=Eisenstein)
+    for p_action, _, p_middle in compatible[0]:
+        for t_action, _, t_middle in compatible[1]:
+            p_relation = p_action.source_action.transpose()
+            t_relation = t_action.source_action.transpose()
+            if p_relation**3 != identity_relation or t_relation**3 != identity_relation:
+                continue
+            if p_middle**3 != identity_middle or t_middle**3 != identity_middle:
+                continue
+            if p_relation @ t_relation != t_relation @ p_relation:
+                continue
+            if p_middle @ t_middle != t_middle @ p_middle:
+                continue
+            complete += 1
+    return (
+        tuple(len(item) for item in variants),
+        tuple(len(item) for item in compatible),
+        complete,
+    )
 
 
 def _one_linearization(
@@ -223,6 +339,9 @@ def _one_linearization(
         failures.append("relation-row P/T actions do not commute")
     if middle_matrices[0] @ middle_matrices[1] != middle_matrices[1] @ middle_matrices[0]:
         failures.append("middle-generator P/T actions do not commute")
+    variant_counts, compatible_counts, complete_count = _alternative_variant_counts(
+        candidate
+    )
     return PushoutRelationLinearization(
         candidate.scheme.name,
         tuple(actions),
@@ -231,6 +350,9 @@ def _one_linearization(
         middle_matrices[0] @ middle_matrices[1]
         == middle_matrices[1] @ middle_matrices[0],
         tuple(failures),
+        variant_counts,
+        compatible_counts,
+        complete_count,
         "presentation-level action diagnostic; dP9 descent pending",
     )
 

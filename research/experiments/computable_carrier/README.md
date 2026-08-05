@@ -107,6 +107,13 @@ middle-generator action and I6 fails the commuting relation-row action. Thus
 the selected eigenclasses do not yet provide honest Z3 x Z3 presentation
 linearizations.
 
+The finite resolution-action family has also been enumerated rather than
+silently accepting the first lift: six P lifts and twelve T lifts are checked
+against all six Eisenstein unit characters. I3 has compatible individual
+variants but no complete commuting pair; I6 has no compatible individual
+variant in this family. This is a scoped monomial-lift result, not a complete
+no-go theorem for all possible presentation gauges.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

@@ -36,3 +36,9 @@ def test_pushout_relation_equations_are_exact_but_group_gates_remain_open() -> N
     assert all(not record.group_relations_verified for record in records)
     assert records[0].failures == ("middle-generator P/T actions do not commute",)
     assert records[1].failures == ("relation-row P/T actions do not commute",)
+    assert all(record.resolution_variant_counts == (6, 12) for record in records)
+    assert tuple(record.compatible_variant_counts for record in records) == (
+        (6, 12),
+        (6, 12),
+    )
+    assert all(record.complete_variant_pair_count == 0 for record in records)

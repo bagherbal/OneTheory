@@ -225,6 +225,13 @@ exact monomial Hilbert--Burch matrix whose signed maximal minors and Hilbert
 numerator reproduce its stated length; this remains projective scheme data,
 not a dP9 pullback or Serre constituent.
 
+The same six resolutions now have deterministic exact P/T lifts. All pass the
+finite chain-equation, invertibility, and order-three checks, but no pair has
+one common projective commutator scalar on both free-resolution terms. This is
+an explicit resolution-level obstruction diagnostic only: it does not prove a
+Serre no-go, because a global extension comparison and its linearization are
+still absent.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

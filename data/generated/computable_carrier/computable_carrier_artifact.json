@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "3ce1dce462dbb2120c4736015917d2276fdba88c2c0e1f15b696f195cfd3b102",
+  "artifact_digest": "44531653233e1af70b3df3d2f9775dc3ae7f1318a97c69dfa008bae80c1a1f8e",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -111120,6 +111120,1160 @@
       "tier_a_pair_count": 6,
       "twist_radius": 2,
       "unlocked": true
-    }
+    },
+    "tier_b_monomial_resolution_actions": [
+      {
+        "actions": {
+          "actions": [
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                1,
+                2,
+                0
+              ],
+              "generator_scalars": [
+                "-1-omega",
+                "omega",
+                "1"
+              ],
+              "invertible": true,
+              "name": "P",
+              "scheme": "B-monomial-coordinate-orbit-0",
+              "source_action": [
+                [
+                  "-1",
+                  "-1"
+                ],
+                [
+                  "1",
+                  "0"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "0",
+                  "0",
+                  "1"
+                ],
+                [
+                  "-1-omega",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "omega",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                0,
+                1,
+                2
+              ],
+              "generator_scalars": [
+                "1",
+                "-1-omega",
+                "omega"
+              ],
+              "invertible": true,
+              "name": "T",
+              "scheme": "B-monomial-coordinate-orbit-0",
+              "source_action": [
+                [
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "-1-omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "omega"
+                ]
+              ]
+            }
+          ],
+          "chain_equations": true,
+          "invertible": true,
+          "order_three": true,
+          "scheme": "B-monomial-coordinate-orbit-0",
+          "source_commutator_scalar": "1",
+          "status": "resolution-level action; Serre linearization pending",
+          "target_commutator_scalar": "omega"
+        },
+        "chain_equations": true,
+        "common_projective_commutator": false,
+        "exact_resolution_gate": true,
+        "invertible": true,
+        "order_three": true,
+        "scheme": "B-monomial-coordinate-orbit-0",
+        "source_commutator_scalar": "1",
+        "status": "resolution-level deck lift only; common projective commutator, Serre linearization, and quotient descent remain unresolved",
+        "target_commutator_scalar": "omega"
+      },
+      {
+        "actions": {
+          "actions": [
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "generator_scalars": [
+                "omega",
+                "omega",
+                "1",
+                "omega"
+              ],
+              "invertible": true,
+              "name": "P",
+              "scheme": "B-monomial-coordinate-orbit-1",
+              "source_action": [
+                [
+                  "0",
+                  "0",
+                  "-omega"
+                ],
+                [
+                  "-1-omega",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "-1",
+                  "0"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "omega"
+                ],
+                [
+                  "omega",
+                  "0",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "omega",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "generator_scalars": [
+                "omega",
+                "omega",
+                "1",
+                "omega"
+              ],
+              "invertible": true,
+              "name": "T",
+              "scheme": "B-monomial-coordinate-orbit-1",
+              "source_action": [
+                [
+                  "omega",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "-1-omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "omega",
+                  "0",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "omega",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "omega"
+                ]
+              ]
+            }
+          ],
+          "chain_equations": true,
+          "invertible": true,
+          "order_three": true,
+          "scheme": "B-monomial-coordinate-orbit-1",
+          "source_commutator_scalar": "-1-omega",
+          "status": "resolution-level action; Serre linearization pending",
+          "target_commutator_scalar": "1"
+        },
+        "chain_equations": true,
+        "common_projective_commutator": false,
+        "exact_resolution_gate": true,
+        "invertible": true,
+        "order_three": true,
+        "scheme": "B-monomial-coordinate-orbit-1",
+        "source_commutator_scalar": "-1-omega",
+        "status": "resolution-level deck lift only; common projective commutator, Serre linearization, and quotient descent remain unresolved",
+        "target_commutator_scalar": "1"
+      },
+      {
+        "actions": {
+          "actions": [
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "generator_scalars": [
+                "-1-omega",
+                "1",
+                "-1-omega",
+                "-1-omega"
+              ],
+              "invertible": true,
+              "name": "P",
+              "scheme": "B-monomial-coordinate-orbit-2",
+              "source_action": [
+                [
+                  "0",
+                  "1+omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "omega"
+                ],
+                [
+                  "-1",
+                  "0",
+                  "0"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "0",
+                  "0",
+                  "-1-omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "-1-omega"
+                ],
+                [
+                  "-1-omega",
+                  "0",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "generator_scalars": [
+                "-1-omega",
+                "1",
+                "-1-omega",
+                "-1-omega"
+              ],
+              "invertible": true,
+              "name": "T",
+              "scheme": "B-monomial-coordinate-orbit-2",
+              "source_action": [
+                [
+                  "-1-omega",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "-1-omega",
+                  "0",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "-1-omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "-1-omega"
+                ]
+              ]
+            }
+          ],
+          "chain_equations": true,
+          "invertible": true,
+          "order_three": true,
+          "scheme": "B-monomial-coordinate-orbit-2",
+          "source_commutator_scalar": "-1-omega",
+          "status": "resolution-level action; Serre linearization pending",
+          "target_commutator_scalar": "1"
+        },
+        "chain_equations": true,
+        "common_projective_commutator": false,
+        "exact_resolution_gate": true,
+        "invertible": true,
+        "order_three": true,
+        "scheme": "B-monomial-coordinate-orbit-2",
+        "source_commutator_scalar": "-1-omega",
+        "status": "resolution-level deck lift only; common projective commutator, Serre linearization, and quotient descent remain unresolved",
+        "target_commutator_scalar": "1"
+      },
+      {
+        "actions": {
+          "actions": [
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "generator_scalars": [
+                "1",
+                "omega",
+                "1",
+                "-1-omega"
+              ],
+              "invertible": true,
+              "name": "P",
+              "scheme": "B-monomial-coordinate-orbit-3",
+              "source_action": [
+                [
+                  "0",
+                  "0",
+                  "1+omega"
+                ],
+                [
+                  "omega",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "-1",
+                  "0"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "-1-omega"
+                ],
+                [
+                  "1",
+                  "0",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "omega",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "generator_scalars": [
+                "-1-omega",
+                "1",
+                "1",
+                "omega"
+              ],
+              "invertible": true,
+              "name": "T",
+              "scheme": "B-monomial-coordinate-orbit-3",
+              "source_action": [
+                [
+                  "-1-omega",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "-1-omega",
+                  "0",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "omega"
+                ]
+              ]
+            }
+          ],
+          "chain_equations": true,
+          "invertible": true,
+          "order_three": true,
+          "scheme": "B-monomial-coordinate-orbit-3",
+          "source_commutator_scalar": "omega",
+          "status": "resolution-level action; Serre linearization pending",
+          "target_commutator_scalar": null
+        },
+        "chain_equations": true,
+        "common_projective_commutator": false,
+        "exact_resolution_gate": true,
+        "invertible": true,
+        "order_three": true,
+        "scheme": "B-monomial-coordinate-orbit-3",
+        "source_commutator_scalar": "omega",
+        "status": "resolution-level deck lift only; common projective commutator, Serre linearization, and quotient descent remain unresolved",
+        "target_commutator_scalar": null
+      },
+      {
+        "actions": {
+          "actions": [
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "generator_scalars": [
+                "omega",
+                "1",
+                "-1-omega",
+                "1"
+              ],
+              "invertible": true,
+              "name": "P",
+              "scheme": "B-monomial-coordinate-orbit-4",
+              "source_action": [
+                [
+                  "0",
+                  "0",
+                  "-1"
+                ],
+                [
+                  "1+omega",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "omega",
+                  "0"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "1"
+                ],
+                [
+                  "0",
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "omega",
+                  "0",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "-1-omega",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "generator_scalars": [
+                "1",
+                "1",
+                "omega",
+                "-1-omega"
+              ],
+              "invertible": true,
+              "name": "T",
+              "scheme": "B-monomial-coordinate-orbit-4",
+              "source_action": [
+                [
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "-1-omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "omega"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "1",
+                  "0",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "-1-omega"
+                ]
+              ]
+            }
+          ],
+          "chain_equations": true,
+          "invertible": true,
+          "order_three": true,
+          "scheme": "B-monomial-coordinate-orbit-4",
+          "source_commutator_scalar": "omega",
+          "status": "resolution-level action; Serre linearization pending",
+          "target_commutator_scalar": null
+        },
+        "chain_equations": true,
+        "common_projective_commutator": false,
+        "exact_resolution_gate": true,
+        "invertible": true,
+        "order_three": true,
+        "scheme": "B-monomial-coordinate-orbit-4",
+        "source_commutator_scalar": "omega",
+        "status": "resolution-level deck lift only; common projective commutator, Serre linearization, and quotient descent remain unresolved",
+        "target_commutator_scalar": null
+      },
+      {
+        "actions": {
+          "actions": [
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "generator_scalars": [
+                "-1-omega",
+                "1",
+                "omega",
+                "1"
+              ],
+              "invertible": true,
+              "name": "P",
+              "scheme": "B-monomial-coordinate-orbit-5",
+              "source_action": [
+                [
+                  "0",
+                  "-omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "-1-omega"
+                ],
+                [
+                  "-1",
+                  "0",
+                  "0"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "0",
+                  "0",
+                  "omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "1"
+                ],
+                [
+                  "-1-omega",
+                  "0",
+                  "0",
+                  "0"
+                ]
+              ]
+            },
+            {
+              "chain_equation": true,
+              "coordinate_images": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ],
+              "generator_permutation": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "generator_scalars": [
+                "omega",
+                "1",
+                "1",
+                "-1-omega"
+              ],
+              "invertible": true,
+              "name": "T",
+              "scheme": "B-monomial-coordinate-orbit-5",
+              "source_action": [
+                [
+                  "omega",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "-1-omega",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1"
+                ]
+              ],
+              "status": "Hilbert--Burch resolution action only; Serre lift pending",
+              "target_action": [
+                [
+                  "omega",
+                  "0",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "-1-omega"
+                ]
+              ]
+            }
+          ],
+          "chain_equations": true,
+          "invertible": true,
+          "order_three": true,
+          "scheme": "B-monomial-coordinate-orbit-5",
+          "source_commutator_scalar": "omega",
+          "status": "resolution-level action; Serre linearization pending",
+          "target_commutator_scalar": null
+        },
+        "chain_equations": true,
+        "common_projective_commutator": false,
+        "exact_resolution_gate": true,
+        "invertible": true,
+        "order_three": true,
+        "scheme": "B-monomial-coordinate-orbit-5",
+        "source_commutator_scalar": "omega",
+        "status": "resolution-level deck lift only; common projective commutator, Serre linearization, and quotient descent remain unresolved",
+        "target_commutator_scalar": null
+      }
+    ]
   }
 }

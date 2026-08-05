@@ -57,7 +57,10 @@ from .serre_local import local_serre_model, tier_a_local_serre_models
 from .serre_pushout import tier_a_serre_pushouts
 from .serre_rays import tier_a_serre_eigenclass_variants
 from .specification import computable_carrier_specification
-from .tier_b_monomial import tier_b_invariant_monomial_schemes
+from .tier_b_monomial import (
+    tier_b_invariant_monomial_schemes,
+    tier_b_monomial_resolution_actions,
+)
 from .tier_b_search import tier_b_known_scheme_search
 
 
@@ -142,6 +145,9 @@ def build_artifact(root: Path) -> dict[str, object]:
     )
     tier_b_monomial_schemes = tier_b_invariant_monomial_schemes(
         tier_b_known_schemes.maximum_point_length,
+    )
+    tier_b_monomial_actions = tier_b_monomial_resolution_actions(
+        tier_b_monomial_schemes,
     )
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
         pencil_model,
@@ -266,6 +272,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             "tier_b_known_scheme_search": tier_b_known_schemes.as_record(),
             "tier_b_invariant_monomial_schemes": [
                 item.as_record() for item in tier_b_monomial_schemes
+            ],
+            "tier_b_monomial_resolution_actions": [
+                item.as_record() for item in tier_b_monomial_actions
             ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {

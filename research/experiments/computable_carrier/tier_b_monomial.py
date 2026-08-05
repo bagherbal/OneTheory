@@ -28,9 +28,13 @@ from itertools import combinations, product
 
 from onetheory.math.numbers import Eisenstein
 from onetheory.math.polynomials import Polynomial, PolynomialIdeal, saturate_by_monomial
-from onetheory.models.heterotic_schoen.visible import HilbertBurchResolution
+from onetheory.models.heterotic_schoen.visible import (
+    HilbertBurchResolution,
+    PointScheme,
+)
 
 from .dp9_actions import published_coordinate_images
+from .resolution_actions import ResolutionActionPair, _derive_action
 
 Monomial = tuple[int, ...]
 LocalMonomial = tuple[int, int]
@@ -354,6 +358,73 @@ class InvariantMonomialScheme:
         }
 
 
+@dataclass(frozen=True, slots=True)
+class MonomialResolutionActionAudit:
+    """Audit one deterministic deck lift on a monomial resolution."""
+
+    scheme: InvariantMonomialScheme
+    actions: ResolutionActionPair
+
+    @property
+    def chain_equations(self) -> bool:
+        """Return whether both lifted generators satisfy their chain equations."""
+
+        return all(action.chain_equation for action in self.actions.actions)
+
+    @property
+    def invertible(self) -> bool:
+        """Return whether both free-resolution lifts are invertible."""
+
+        return all(action.invertible for action in self.actions.actions)
+
+    @property
+    def order_three(self) -> bool:
+        """Return whether both free-resolution lifts have exact order three."""
+
+        return self.actions.order_three
+
+    @property
+    def common_projective_commutator(self) -> bool:
+        """Return whether the two resolution terms share one commutator scalar."""
+
+        target = self.actions.target_commutator_scalar
+        source = self.actions.source_commutator_scalar
+        return target is not None and target == source
+
+    @property
+    def exact_resolution_gate(self) -> bool:
+        """Return the finite resolution-level gate without claiming descent."""
+
+        return self.chain_equations and self.invertible and self.order_three
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize the exact lift and its unresolved linearization boundary."""
+
+        return {
+            "scheme": self.scheme.name,
+            "chain_equations": self.chain_equations,
+            "invertible": self.invertible,
+            "order_three": self.order_three,
+            "target_commutator_scalar": (
+                None
+                if self.actions.target_commutator_scalar is None
+                else str(self.actions.target_commutator_scalar)
+            ),
+            "source_commutator_scalar": (
+                None
+                if self.actions.source_commutator_scalar is None
+                else str(self.actions.source_commutator_scalar)
+            ),
+            "common_projective_commutator": self.common_projective_commutator,
+            "exact_resolution_gate": self.exact_resolution_gate,
+            "actions": self.actions.as_record(),
+            "status": (
+                "resolution-level deck lift only; common projective commutator, "
+                "Serre linearization, and quotient descent remain unresolved"
+            ),
+        }
+
+
 def _scheme(standard: tuple[LocalMonomial, ...], index: int) -> InvariantMonomialScheme:
     """Construct and certify one orbit scheme from its local order ideal."""
 
@@ -398,4 +469,33 @@ def tier_b_invariant_monomial_schemes(
     return tuple(_scheme(standard, index) for index, standard in enumerate(standards))
 
 
-__all__ = ["InvariantMonomialScheme", "tier_b_invariant_monomial_schemes"]
+def tier_b_monomial_resolution_actions(
+    schemes: tuple[InvariantMonomialScheme, ...] | None = None,
+) -> tuple[MonomialResolutionActionAudit, ...]:
+    """Derive the exact P/T resolution lifts for the bounded monomial family."""
+
+    selected = tier_b_invariant_monomial_schemes() if schemes is None else schemes
+    result = []
+    for scheme in selected:
+        point_scheme = PointScheme(
+            scheme.name,
+            tuple(scheme.ideal.generators),
+            scheme.resolution,
+        )
+        pair = ResolutionActionPair(
+            point_scheme,
+            (_derive_action(point_scheme, "P"), _derive_action(point_scheme, "T")),
+        )
+        audit = MonomialResolutionActionAudit(scheme, pair)
+        if not audit.exact_resolution_gate:
+            raise ValueError("monomial resolution action failed its exact chain gate")
+        result.append(audit)
+    return tuple(result)
+
+
+__all__ = [
+    "InvariantMonomialScheme",
+    "MonomialResolutionActionAudit",
+    "tier_b_invariant_monomial_schemes",
+    "tier_b_monomial_resolution_actions",
+]

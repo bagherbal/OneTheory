@@ -30,6 +30,7 @@ from research.experiments.computable_carrier.specification import (
 )
 from research.experiments.computable_carrier.tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
+    tier_b_monomial_resolution_actions,
 )
 
 
@@ -81,6 +82,16 @@ def test_tier_b_coordinate_monomial_schemes_are_exact() -> None:
     assert [scheme.resolution.scheme_length for scheme in schemes] == [3, 6, 6, 9, 9, 9]
     assert all(scheme.p_invariant and scheme.t_invariant for scheme in schemes)
     assert all(scheme.irrelevant_saturated for scheme in schemes)
+
+
+def test_tier_b_monomial_resolution_actions_stop_before_serre_descent() -> None:
+    """Resolution lifts pass finite gates without being called linearizations."""
+
+    audits = tier_b_monomial_resolution_actions()
+
+    assert len(audits) == 6
+    assert all(audit.exact_resolution_gate for audit in audits)
+    assert all(not audit.common_projective_commutator for audit in audits)
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "f5d6acf4de5e84b1a9f7f1bdfcc0b01005e2fd222f9679f780a44a1187c13b8a",
+  "artifact_digest": "15458ee6b2751680b15aa8919ea135580899944a42d8b8ddbd7bb051da672d40",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -17707,6 +17707,236 @@
       "promotable": false,
       "status": "downstream calculations blocked by explicit prerequisites"
     },
+    "dp9_hypersurface_comparisons": [
+      {
+        "dP9_matches_projective": true,
+        "fiber_degree": 0,
+        "hypersurface_bidegree": [
+          3,
+          1
+        ],
+        "koszul_correction_dimensions": [
+          [
+            -1,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "koszul_correction_vanishes": true,
+        "koszul_source_fiber_degree": -1,
+        "left_scheme": "I3",
+        "projective_ext1_dimension": 5,
+        "restriction_is_exact": true,
+        "right_scheme": "I6",
+        "status": "exact dP9 hypersurface restriction for zero fiber twist; nonzero fiber twists and quotient descent remain unresolved"
+      },
+      {
+        "dP9_matches_projective": true,
+        "fiber_degree": 0,
+        "hypersurface_bidegree": [
+          3,
+          1
+        ],
+        "koszul_correction_dimensions": [
+          [
+            -1,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "koszul_correction_vanishes": true,
+        "koszul_source_fiber_degree": -1,
+        "left_scheme": "I3",
+        "projective_ext1_dimension": 5,
+        "restriction_is_exact": true,
+        "right_scheme": "I6",
+        "status": "exact dP9 hypersurface restriction for zero fiber twist; nonzero fiber twists and quotient descent remain unresolved"
+      },
+      {
+        "dP9_matches_projective": true,
+        "fiber_degree": 0,
+        "hypersurface_bidegree": [
+          3,
+          1
+        ],
+        "koszul_correction_dimensions": [
+          [
+            -1,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "koszul_correction_vanishes": true,
+        "koszul_source_fiber_degree": -1,
+        "left_scheme": "I3",
+        "projective_ext1_dimension": 5,
+        "restriction_is_exact": true,
+        "right_scheme": "I6",
+        "status": "exact dP9 hypersurface restriction for zero fiber twist; nonzero fiber twists and quotient descent remain unresolved"
+      },
+      {
+        "dP9_matches_projective": true,
+        "fiber_degree": 0,
+        "hypersurface_bidegree": [
+          3,
+          1
+        ],
+        "koszul_correction_dimensions": [
+          [
+            -1,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "koszul_correction_vanishes": true,
+        "koszul_source_fiber_degree": -1,
+        "left_scheme": "I3",
+        "projective_ext1_dimension": 5,
+        "restriction_is_exact": true,
+        "right_scheme": "I6",
+        "status": "exact dP9 hypersurface restriction for zero fiber twist; nonzero fiber twists and quotient descent remain unresolved"
+      },
+      {
+        "dP9_matches_projective": true,
+        "fiber_degree": 0,
+        "hypersurface_bidegree": [
+          3,
+          1
+        ],
+        "koszul_correction_dimensions": [
+          [
+            -1,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "koszul_correction_vanishes": true,
+        "koszul_source_fiber_degree": -1,
+        "left_scheme": "I3",
+        "projective_ext1_dimension": 5,
+        "restriction_is_exact": true,
+        "right_scheme": "I6",
+        "status": "exact dP9 hypersurface restriction for zero fiber twist; nonzero fiber twists and quotient descent remain unresolved"
+      },
+      {
+        "dP9_matches_projective": true,
+        "fiber_degree": 0,
+        "hypersurface_bidegree": [
+          3,
+          1
+        ],
+        "koszul_correction_dimensions": [
+          [
+            -1,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "koszul_correction_vanishes": true,
+        "koszul_source_fiber_degree": -1,
+        "left_scheme": "I3",
+        "projective_ext1_dimension": 5,
+        "restriction_is_exact": true,
+        "right_scheme": "I6",
+        "status": "exact dP9 hypersurface restriction for zero fiber twist; nonzero fiber twists and quotient descent remain unresolved"
+      }
+    ],
     "dual_cokernels": [
       {
         "action_commutes": false,

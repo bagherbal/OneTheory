@@ -28,6 +28,7 @@ from onetheory.models.heterotic_schoen.visible import point_schemes
 from .cech_sections import bounded_cech_sections
 from .constituents import tier_a_constituents
 from .downstream import downstream_frontier
+from .dp9_hypersurface import tier_a_dp9_hypersurface_comparisons
 from .dual_cokernels import tier_a_dual_cokernels
 from .equivariance import tier_a_equivariance, tier_a_split_equivariance
 from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
@@ -122,6 +123,9 @@ def build_artifact(root: Path) -> dict[str, object]:
         serre_eigenclass_variants,
     )
     projective_outer_frontier = tier_a_projective_outer_frontier(
+        projective_hom_pair_audits,
+    )
+    dp9_hypersurface_comparisons = tier_a_dp9_hypersurface_comparisons(
         projective_hom_pair_audits,
     )
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
@@ -239,6 +243,9 @@ def build_artifact(root: Path) -> dict[str, object]:
                 item.as_record() for item in projective_hom_pair_audits
             ],
             "projective_outer_frontier": projective_outer_frontier.as_record(),
+            "dp9_hypersurface_comparisons": [
+                item.as_record() for item in dp9_hypersurface_comparisons
+            ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],

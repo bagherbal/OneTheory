@@ -183,6 +183,13 @@ cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new
 construction, not proof that either global constituent has been rebuilt.
 
+For the current zero-fiber-twist presentation category, the explicit dP9
+blow-up is treated as the bidegree-(3,1) hypersurface in P2 x P1. Its Koszul
+correction is O_P1(-1), whose H0 and H1 both vanish, so the six projective
+Hom-pair calculations have an exact hypersurface restriction certificate with
+the same dimensions. This comparison is not extended to nonzero fiber twists,
+full sheafification, or quotient descent.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

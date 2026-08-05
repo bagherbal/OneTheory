@@ -118,6 +118,11 @@ The source-lift coefficient systems for all 36 variants have exact nullity
 zero, so the finite result does not omit homogeneous RREF freedoms within
 those target-action choices.
 
+The graded pushout presentation also has zero kernel for every allowed
+extension-generator mixing polynomial: degree-one mixing is tested for I3,
+and constant mixing for I6. The block-diagonal action search therefore has no
+hidden graded off-diagonal repair inside these presentations.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

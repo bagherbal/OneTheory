@@ -49,3 +49,4 @@ def test_pushout_relation_equations_are_exact_but_group_gates_remain_open() -> N
         (6, 12),
     )
     assert all(record.complete_variant_pair_count == 0 for record in records)
+    assert all(record.graded_extension_mix_nullities == (0, 0) for record in records)

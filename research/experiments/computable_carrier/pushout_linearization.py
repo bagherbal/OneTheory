@@ -21,6 +21,7 @@ Phase 0:
 from __future__ import annotations
 
 from dataclasses import dataclass
+from itertools import product
 
 from onetheory.math.linear import Matrix
 from onetheory.math.numbers import Eisenstein
@@ -155,6 +156,7 @@ class PushoutRelationLinearization:
     failures: tuple[str, ...]
     resolution_variant_counts: tuple[int, int]
     resolution_lift_nullities: tuple[tuple[int, ...], tuple[int, ...]]
+    graded_extension_mix_nullities: tuple[int, int]
     compatible_variant_counts: tuple[int, int]
     complete_variant_pair_count: int
     status: str
@@ -195,6 +197,7 @@ class PushoutRelationLinearization:
             "resolution_lift_nullities": [
                 list(nullities) for nullities in self.resolution_lift_nullities
             ],
+            "graded_extension_mix_nullities": list(self.graded_extension_mix_nullities),
             "compatible_variant_counts": list(self.compatible_variant_counts),
             "complete_variant_pair_count": self.complete_variant_pair_count,
             "group_relations_verified": self.group_relations_verified,
@@ -295,6 +298,55 @@ def _source_lift_nullity(action: ResolutionAction) -> int:
     return columns * columns - rank
 
 
+def _graded_extension_mix_nullity(
+    candidate: SerrePushoutCandidate,
+    action: ResolutionAction,
+) -> int:
+    """Compute allowed graded mixing freedom into the extension generator."""
+
+    original_shifts = candidate.target_shifts[:-1]
+    extension_shift = candidate.target_shifts[-1]
+    if len(set(original_shifts)) != 1:
+        raise ValueError("pushout original target shifts must be uniform")
+    degree = extension_shift - original_shifts[0]
+    if degree < 0:
+        return 0
+    monomials = tuple(
+        exponent
+        for exponent in product(range(degree + 1), repeat=3)
+        if sum(exponent) == degree
+    )
+    relation = _transformed_relation(candidate.relation, action)
+    original_columns = candidate.relation.shape[1] - 1
+    unknown_count = original_columns * len(monomials)
+    equations = []
+    exponents = sorted({
+        tuple(left + right for left, right in zip(term, monomial, strict=True))
+        for row in relation.rows
+        for polynomial in row[:-1]
+        for term, _ in polynomial.terms
+        for monomial in monomials
+    })
+    for row in range(relation.shape[0]):
+        for exponent in exponents:
+            coefficients = [Eisenstein(0) for _ in range(unknown_count)]
+            for column in range(original_columns):
+                for monomial_index, monomial in enumerate(monomials):
+                    source_exponent = tuple(
+                        value - shift
+                        for value, shift in zip(exponent, monomial, strict=True)
+                    )
+                    if any(value < 0 for value in source_exponent):
+                        continue
+                    coefficients[column * len(monomials) + monomial_index] = (
+                        relation.rows[row][column].coefficient(source_exponent)
+                    )
+            if any(not coefficient.is_zero() for coefficient in coefficients):
+                equations.append(coefficients)
+    rank = Matrix(equations, scalar_type=Eisenstein).rank() if equations else 0
+    return unknown_count - rank
+
+
 def _alternative_variant_counts(
     candidate: SerrePushoutCandidate,
 ) -> tuple[
@@ -393,6 +445,10 @@ def _one_linearization(
     variant_counts, lift_nullities, compatible_counts, complete_count = _alternative_variant_counts(
         candidate
     )
+    graded_mix_nullities = tuple(
+        _graded_extension_mix_nullity(candidate, action)
+        for action in resolution_actions
+    )
     return PushoutRelationLinearization(
         candidate.scheme.name,
         tuple(actions),
@@ -403,6 +459,7 @@ def _one_linearization(
         tuple(failures),
         variant_counts,
         lift_nullities,
+        graded_mix_nullities,
         compatible_counts,
         complete_count,
         "presentation-level action diagnostic; dP9 descent pending",

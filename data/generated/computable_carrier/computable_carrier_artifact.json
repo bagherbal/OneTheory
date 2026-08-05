@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "c13683b13f817b1074331115927ba6ee1dcc550f0cfa9da22a5794b26bba5cc2",
+  "artifact_digest": "b99e0f93751886d9a81f818cfd81408fe19f8deb279b0ec74089d0568ed6ad36",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -29793,6 +29793,10 @@
         "failures": [
           "middle-generator P/T actions do not commute"
         ],
+        "graded_extension_mix_nullities": [
+          0,
+          0
+        ],
         "group_relations_verified": false,
         "middle_actions_commute": false,
         "relation_actions_commute": true,
@@ -29852,6 +29856,10 @@
         "complete_variant_pair_count": 0,
         "failures": [
           "relation-row P/T actions do not commute"
+        ],
+        "graded_extension_mix_nullities": [
+          0,
+          0
         ],
         "group_relations_verified": false,
         "middle_actions_commute": true,

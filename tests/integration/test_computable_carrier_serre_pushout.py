@@ -31,6 +31,12 @@ def test_tier_a_pushouts_have_exact_rank_two_relations() -> None:
     assert tuple(item.relation.shape for item in candidates) == ((2, 4), (3, 5))
     assert tuple(item.middle_rank for item in candidates) == (2, 2)
     assert all(item.relation_composes_to_zero for item in candidates)
+    assert tuple(item.source_shifts for item in candidates) == ((3, 3), (4, 4, 4))
+    assert tuple(item.target_shifts for item in candidates) == (
+        (2, 2, 2, 3),
+        (3, 3, 3, 3, 3),
+    )
+    assert all(item.graded_relation for item in candidates)
     assert all(len(item.chart_records) == 6 for item in candidates)
     assert all(
         all(record.relation_composes_to_zero for record in item.chart_records)

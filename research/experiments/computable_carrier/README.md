@@ -79,6 +79,11 @@ coordinate support point. Their selected extension classes are exact P/T
 eigenclasses with class-level order-three commuting checks. This is a base
 projective pushout artifact; dP9 line frames and quotient descent remain open.
 
+The pushout records now include source and target free-module shifts, and every
+nonzero relation entry matches its declared graded degree. Thus the mixed
+constant/linear I3 map is represented with an explicit line summand shift,
+rather than being silently treated as an ungraded matrix.
+
 The same pushout relations are pulled into all six affine blow-up charts and
 retain exact quotient composition there. This records chart-local algebra but
 does not yet provide line-frame transition matrices on the dP9 overlaps.

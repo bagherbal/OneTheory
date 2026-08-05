@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "53c92d03031aab0eabac1172ac18a59cfbff9f51440143df626cad6d2c4bcd26",
+  "artifact_digest": "d9e84bbb14cd092ebb9e5e712f7617ed89cb3577f816da31130ad98d1306168e",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -18238,6 +18238,7 @@
             ]
           }
         ],
+        "graded_relation": true,
         "linearizations": [
           {
             "character": "omega",
@@ -18413,7 +18414,17 @@
           4
         ],
         "scheme": "I3",
-        "status": "base projective Serre pushout constructed; dP9 line-frame descent and full bundle promotion pending"
+        "source_shifts": [
+          3,
+          3
+        ],
+        "status": "base projective Serre pushout constructed; dP9 line-frame descent and full bundle promotion pending",
+        "target_shifts": [
+          2,
+          2,
+          2,
+          3
+        ]
       },
       {
         "character_pair": [
@@ -18520,6 +18531,7 @@
             ]
           }
         ],
+        "graded_relation": true,
         "linearizations": [
           {
             "character": "1",
@@ -18757,7 +18769,19 @@
           5
         ],
         "scheme": "I6",
-        "status": "base projective Serre pushout constructed; dP9 line-frame descent and full bundle promotion pending"
+        "source_shifts": [
+          4,
+          4,
+          4
+        ],
+        "status": "base projective Serre pushout constructed; dP9 line-frame descent and full bundle promotion pending",
+        "target_shifts": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
       }
     ],
     "local_cech_deck_actions": [

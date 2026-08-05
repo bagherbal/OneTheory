@@ -150,6 +150,44 @@ def _relation_composes_to_zero(
     return relation.compose(quotient_column).is_zero()
 
 
+def _relation_shifts(
+    scheme: PointScheme,
+    extension_map: tuple[Polynomial, ...],
+) -> tuple[tuple[int, ...], tuple[int, ...], bool]:
+    """Derive free-module shifts and verify every pushout entry is graded."""
+
+    generator_degrees = {
+        generator.degree
+        for generator in scheme.ideal_generators
+        if not generator.is_zero()
+    }
+    matrix_degrees = {
+        entry.degree
+        for row in scheme.resolution.matrix
+        for entry in row
+        if not entry.is_zero()
+    }
+    extension_degrees = {entry.degree for entry in extension_map if not entry.is_zero()}
+    if len(generator_degrees) != 1 or len(matrix_degrees) != 1 or len(extension_degrees) != 1:
+        raise ValueError("Serre pushout terms must have homogeneous degree data")
+    generator_degree = next(iter(generator_degrees))
+    matrix_degree = next(iter(matrix_degrees))
+    extension_degree = next(iter(extension_degrees))
+    source_shift = generator_degree + matrix_degree
+    target_shifts = (generator_degree,) * len(scheme.resolution.matrix) + (
+        source_shift - extension_degree,
+    )
+    source_shifts = (source_shift,) * len(scheme.resolution.matrix[0])
+    relation = _relation_matrix(scheme, extension_map)
+    graded = all(
+        entry.is_zero()
+        or entry.degree == source_shifts[row] - target_shifts[column]
+        for row, relation_row in enumerate(relation.rows)
+        for column, entry in enumerate(relation_row)
+    )
+    return source_shifts, target_shifts, graded
+
+
 def _local_fitting_data(
     relation: PolynomialMatrix,
 ) -> tuple[tuple[str, bool, tuple[int, ...]], ...]:
@@ -326,6 +364,9 @@ class SerrePushoutCandidate:
     relation: PolynomialMatrix
     quotient: PolynomialMatrix
     relation_composes_to_zero: bool
+    source_shifts: tuple[int, ...]
+    target_shifts: tuple[int, ...]
+    graded_relation: bool
     local_fitting: tuple[tuple[str, bool, tuple[int, ...]], ...]
     chart_records: tuple[ChartPushoutRecord, ...]
     linearizations: tuple[PushoutLinearization, ...]
@@ -372,6 +413,9 @@ class SerrePushoutCandidate:
                 for row in self.quotient.rows
             ],
             "relation_composes_to_zero": self.relation_composes_to_zero,
+            "source_shifts": list(self.source_shifts),
+            "target_shifts": list(self.target_shifts),
+            "graded_relation": self.graded_relation,
             "relation_shape": list(self.relation.shape),
             "relation_rank": self.relation_rank,
             "middle_rank": self.middle_rank,
@@ -443,6 +487,10 @@ def _candidate(
         raise ValueError("Tier A pushouts require I3 or I6")
     relation = _relation_matrix(scheme, extension_map)
     quotient = _quotient_row(scheme)
+    source_shifts, target_shifts, graded_relation = _relation_shifts(
+        scheme,
+        extension_map,
+    )
     local_fitting = _local_fitting_data(relation)
     chart_records = _chart_pushout_records(relation, quotient, model)
     linearizations = _linearization_records(
@@ -458,6 +506,9 @@ def _candidate(
         relation,
         quotient,
         _relation_composes_to_zero(relation, quotient),
+        source_shifts,
+        target_shifts,
+        graded_relation,
         local_fitting,
         chart_records,
         linearizations,

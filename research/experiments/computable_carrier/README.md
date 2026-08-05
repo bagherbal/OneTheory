@@ -241,6 +241,13 @@ all square-zero checks and give ideal-resolution H1 dimensions
 resolution; it is not yet the Ext group of a Serre constituent and supplies
 no missing global transition or quotient-linearization data.
 
+The local Serre gate is now explicit as well. Five local order ideals are
+two-generator complete intersections and admit unit pushout relations whose
+Fitting ideals contain one; the remaining length-three local staircase has
+three minimal generators and fails the local complete-intersection gate. This
+excludes that one scheme from the classical local Serre route only; it is not
+a no-go for other constructions or for the remaining global descent problem.
+
 The same six resolutions now have deterministic exact P/T lifts. All pass the
 finite chain-equation, invertibility, and order-three checks, but no pair has
 one common projective commutator scalar on both free-resolution terms. This is

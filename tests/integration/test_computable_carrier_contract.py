@@ -31,6 +31,9 @@ from research.experiments.computable_carrier.specification import (
 from research.experiments.computable_carrier.tier_b_dp9_ideals import (
     tier_b_dp9_monomial_ideal_resolutions,
 )
+from research.experiments.computable_carrier.tier_b_local_serre import (
+    tier_b_local_monomial_serre_audits,
+)
 from research.experiments.computable_carrier.tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
     tier_b_monomial_resolution_actions,
@@ -134,6 +137,23 @@ def test_tier_b_d_p9_ideal_resolutions_are_exact_but_not_serre_objects() -> None
     assert len(resolutions) == 6
     assert all(item.squared_zero and item.all_line_bundles_squared_zero for item in resolutions)
     assert [dict(item.cohomology_dimensions)[1] for item in resolutions] == [2, 5, 5, 8, 8, 8]
+
+
+def test_tier_b_local_serre_gate_excludes_only_the_non_lci_staircase() -> None:
+    """Unit local pushouts exist exactly for the five lci local ideals."""
+
+    audits = tier_b_local_monomial_serre_audits()
+
+    assert len(audits) == 6
+    assert [audit.lci for audit in audits] == [True, True, True, True, False, True]
+    assert [audit.unit_extension_available for audit in audits] == [
+        True,
+        True,
+        True,
+        True,
+        False,
+        True,
+    ]
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

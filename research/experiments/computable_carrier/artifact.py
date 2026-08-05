@@ -68,7 +68,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     atlas_ideal_resolutions = tier_a_atlas_ideal_resolutions(pencil_model)
     atlas_serre_locals = tier_a_atlas_serre_locals(pencil_model)
     serre_pushout_atlases = tier_a_serre_pushout_atlases(pencil_model)
-    explicit_serre_pushouts = tier_a_serre_pushouts()
+    explicit_serre_pushouts = tier_a_serre_pushouts(pencil_model)
     local_cech_actions = tier_a_local_cech_deck_actions(
         pencil_model,
         atlas_serre_locals,

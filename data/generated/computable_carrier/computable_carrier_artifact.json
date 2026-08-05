@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "e4cf6e2bdd7726cd123e987bda19fdd577f00598a8bbb997646a70a29a317bd6",
+  "artifact_digest": "53c92d03031aab0eabac1172ac18a59cfbff9f51440143df626cad6d2c4bcd26",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -18150,6 +18150,68 @@
           "omega",
           "1"
         ],
+        "chart_records": [
+          {
+            "base_pivot": 0,
+            "chart": "U_0_mu",
+            "fiber_chart": "mu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              2,
+              4
+            ]
+          },
+          {
+            "base_pivot": 0,
+            "chart": "U_0_nu",
+            "fiber_chart": "nu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              2,
+              4
+            ]
+          },
+          {
+            "base_pivot": 1,
+            "chart": "U_1_mu",
+            "fiber_chart": "mu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              2,
+              4
+            ]
+          },
+          {
+            "base_pivot": 1,
+            "chart": "U_1_nu",
+            "fiber_chart": "nu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              2,
+              4
+            ]
+          },
+          {
+            "base_pivot": 2,
+            "chart": "U_2_mu",
+            "fiber_chart": "mu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              2,
+              4
+            ]
+          },
+          {
+            "base_pivot": 2,
+            "chart": "U_2_nu",
+            "fiber_chart": "nu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              2,
+              4
+            ]
+          }
+        ],
         "extension_map": [
           {
             "terms": [
@@ -18357,6 +18419,68 @@
         "character_pair": [
           "1",
           "-1-omega"
+        ],
+        "chart_records": [
+          {
+            "base_pivot": 0,
+            "chart": "U_0_mu",
+            "fiber_chart": "mu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ]
+          },
+          {
+            "base_pivot": 0,
+            "chart": "U_0_nu",
+            "fiber_chart": "nu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ]
+          },
+          {
+            "base_pivot": 1,
+            "chart": "U_1_mu",
+            "fiber_chart": "mu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ]
+          },
+          {
+            "base_pivot": 1,
+            "chart": "U_1_nu",
+            "fiber_chart": "nu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ]
+          },
+          {
+            "base_pivot": 2,
+            "chart": "U_2_mu",
+            "fiber_chart": "mu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ]
+          },
+          {
+            "base_pivot": 2,
+            "chart": "U_2_nu",
+            "fiber_chart": "nu",
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ]
+          }
         ],
         "extension_map": [
           {

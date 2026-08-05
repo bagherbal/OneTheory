@@ -35,6 +35,13 @@ from .dual_cokernels import (
     _target_action,
     dual_resolution_cokernel,
 )
+from .pencil import (
+    BlowupChart,
+    TierAPencilModel,
+    _embed_affine_polynomial,
+    _pivot_images,
+    tier_a_pencil_model,
+)
 from .resolution_actions import ResolutionActionPair, tier_a_resolution_actions
 
 Point = tuple[int, int, int]
@@ -161,6 +168,66 @@ def _local_fitting_data(
     return tuple(records)
 
 
+def _chart_matrix(matrix: PolynomialMatrix, chart: BlowupChart) -> PolynomialMatrix:
+    """Pull one homogeneous matrix into a three-variable affine chart."""
+
+    images = _pivot_images(chart.base_pivot)
+    return PolynomialMatrix(
+        tuple(
+            tuple(_embed_affine_polynomial(entry.substitute(images)) for entry in row)
+            for row in matrix.rows
+        )
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class ChartPushoutRecord:
+    """One exact affine chart presentation of a base pushout."""
+
+    chart: str
+    base_pivot: int
+    fiber_chart: str
+    relation_shape: tuple[int, int]
+    relation_composes_to_zero: bool
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize chart identity and its local quotient check."""
+
+        return {
+            "chart": self.chart,
+            "base_pivot": self.base_pivot,
+            "fiber_chart": self.fiber_chart,
+            "relation_shape": list(self.relation_shape),
+            "relation_composes_to_zero": self.relation_composes_to_zero,
+        }
+
+
+def _chart_pushout_records(
+    relation: PolynomialMatrix,
+    quotient: PolynomialMatrix,
+    model: TierAPencilModel,
+) -> tuple[ChartPushoutRecord, ...]:
+    """Pull one pushout to every declared affine blow-up chart."""
+
+    records = []
+    for chart in model.blowup_atlas.charts:
+        local_relation = _chart_matrix(relation, chart)
+        local_quotient = _chart_matrix(quotient, chart)
+        quotient_column = PolynomialMatrix(
+            tuple((entry,) for entry in local_quotient.rows[0])
+        )
+        records.append(
+            ChartPushoutRecord(
+                chart.name,
+                chart.base_pivot,
+                chart.fiber_chart,
+                local_relation.shape,
+                local_relation.compose(quotient_column).is_zero(),
+            )
+        )
+    return tuple(records)
+
+
 def _i3_class(
     pair: ResolutionActionPair,
 ) -> tuple[tuple[Polynomial, ...], tuple[Eisenstein, Eisenstein]]:
@@ -260,6 +327,7 @@ class SerrePushoutCandidate:
     quotient: PolynomialMatrix
     relation_composes_to_zero: bool
     local_fitting: tuple[tuple[str, bool, tuple[int, ...]], ...]
+    chart_records: tuple[ChartPushoutRecord, ...]
     linearizations: tuple[PushoutLinearization, ...]
     source_rank: int
     middle_rank: int
@@ -316,6 +384,7 @@ class SerrePushoutCandidate:
                 for point, unit, indices in self.local_fitting
             ],
             "locally_free_at_support": self.locally_free_at_support,
+            "chart_records": [item.as_record() for item in self.chart_records],
             "linearizations": [item.as_record() for item in self.linearizations],
             "status": self.status,
         }
@@ -361,6 +430,7 @@ def _linearization_records(
 def _candidate(
     scheme: PointScheme,
     pair: ResolutionActionPair,
+    model: TierAPencilModel,
 ) -> SerrePushoutCandidate:
     """Build one deterministic exact pushout candidate."""
 
@@ -374,6 +444,7 @@ def _candidate(
     relation = _relation_matrix(scheme, extension_map)
     quotient = _quotient_row(scheme)
     local_fitting = _local_fitting_data(relation)
+    chart_records = _chart_pushout_records(relation, quotient, model)
     linearizations = _linearization_records(
         pair,
         character_pair,
@@ -388,6 +459,7 @@ def _candidate(
         quotient,
         _relation_composes_to_zero(relation, quotient),
         local_fitting,
+        chart_records,
         linearizations,
         len(scheme.resolution.matrix[0]),
         len(scheme.resolution.matrix) + 1 - len(scheme.resolution.matrix[0]),
@@ -398,12 +470,18 @@ def _candidate(
     )
 
 
-def tier_a_serre_pushouts() -> tuple[SerrePushoutCandidate, ...]:
+def tier_a_serre_pushouts(
+    model: TierAPencilModel | None = None,
+) -> tuple[SerrePushoutCandidate, ...]:
     """Construct exact I3/I6 pushouts from newly derived extension maps."""
 
     schemes = point_schemes()
     actions = tier_a_resolution_actions()
-    return tuple(_candidate(scheme, pair) for scheme, pair in zip(schemes, actions, strict=True))
+    current = tier_a_pencil_model() if model is None else model
+    return tuple(
+        _candidate(scheme, pair, current)
+        for scheme, pair in zip(schemes, actions, strict=True)
+    )
 
 
 __all__ = ["PushoutLinearization", "SerrePushoutCandidate", "tier_a_serre_pushouts"]

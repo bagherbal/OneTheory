@@ -79,6 +79,10 @@ coordinate support point. Their selected extension classes are exact P/T
 eigenclasses with class-level order-three commuting checks. This is a base
 projective pushout artifact; dP9 line frames and quotient descent remain open.
 
+The same pushout relations are pulled into all six affine blow-up charts and
+retain exact quotient composition there. This records chart-local algebra but
+does not yet provide line-frame transition matrices on the dP9 overlaps.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

@@ -31,6 +31,11 @@ def test_tier_a_pushouts_have_exact_rank_two_relations() -> None:
     assert tuple(item.relation.shape for item in candidates) == ((2, 4), (3, 5))
     assert tuple(item.middle_rank for item in candidates) == (2, 2)
     assert all(item.relation_composes_to_zero for item in candidates)
+    assert all(len(item.chart_records) == 6 for item in candidates)
+    assert all(
+        all(record.relation_composes_to_zero for record in item.chart_records)
+        for item in candidates
+    )
 
 
 def test_tier_a_pushouts_are_free_at_every_declared_support_point() -> None:

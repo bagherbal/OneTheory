@@ -172,6 +172,12 @@ record includes the finite cochain maps, cycles, boundaries, representatives,
 induced actions, and exact Reynolds projector. This closes the finite
 projective-ray choice loophole only; it is not a global dP9 Ext no-go.
 
+The resulting projective outer frontier is now fail-closed: all six pair
+audits contribute zero invariant classes, so zero rank-four candidates are
+constructed in this declared category. The record is a scoped no-candidate
+gate, not a global no-go; dP9 sheafification must be compared independently
+before Tier B can be considered.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

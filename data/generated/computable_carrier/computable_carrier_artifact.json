@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "fcfd35db6a1da7d3071a35a6aafb0f2234154affccd2559c3d1f6f7f5291d810",
+  "artifact_digest": "f5d6acf4de5e84b1a9f7f1bdfcc0b01005e2fd222f9679f780a44a1187c13b8a",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -86186,6 +86186,81 @@
         "status": "exact projective-presentation ray-pair audit; global dP9 sheafification and quotient descent remain unresolved"
       }
     ],
+    "projective_outer_frontier": {
+      "invariant_class_count": 0,
+      "pair_count": 6,
+      "pair_invariant_dimensions": [
+        {
+          "invariant_ext1_dimension": 0,
+          "left_character_pair": [
+            "omega",
+            "1"
+          ],
+          "right_character_pair": [
+            "1",
+            "-1-omega"
+          ]
+        },
+        {
+          "invariant_ext1_dimension": 0,
+          "left_character_pair": [
+            "omega",
+            "1"
+          ],
+          "right_character_pair": [
+            "omega",
+            "-1-omega"
+          ]
+        },
+        {
+          "invariant_ext1_dimension": 0,
+          "left_character_pair": [
+            "omega",
+            "1"
+          ],
+          "right_character_pair": [
+            "-1-omega",
+            "-1-omega"
+          ]
+        },
+        {
+          "invariant_ext1_dimension": 0,
+          "left_character_pair": [
+            "-1-omega",
+            "1"
+          ],
+          "right_character_pair": [
+            "1",
+            "-1-omega"
+          ]
+        },
+        {
+          "invariant_ext1_dimension": 0,
+          "left_character_pair": [
+            "-1-omega",
+            "1"
+          ],
+          "right_character_pair": [
+            "omega",
+            "-1-omega"
+          ]
+        },
+        {
+          "invariant_ext1_dimension": 0,
+          "left_character_pair": [
+            "-1-omega",
+            "1"
+          ],
+          "right_character_pair": [
+            "-1-omega",
+            "-1-omega"
+          ]
+        }
+      ],
+      "rank_four_candidate_count": 0,
+      "scoped_no_candidate": true,
+      "status": "scoped projective-presentation no-candidate result; global dP9 Ext comparison and Tier B search remain unresolved"
+    },
     "pushdown_constraints": [
       {
         "character_multiplicities": [

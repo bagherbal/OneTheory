@@ -43,6 +43,7 @@ from .polynomial_hom import polynomial_hom_degree_slice, tier_a_polynomial_hom_c
 from .projective_hom_action import projective_hom_deck_audit
 from .projective_hom_search import tier_a_projective_hom_pair_audits
 from .projective_hyperhom import tier_a_projective_hom_hypercohomology
+from .projective_outer_frontier import tier_a_projective_outer_frontier
 from .pushdown import tier_a_pushdown_constraints
 from .pushout_linearization import tier_a_pushout_relation_linearizations
 from .rank_four import rank_four_frontier
@@ -119,6 +120,9 @@ def build_artifact(root: Path) -> dict[str, object]:
         explicit_serre_pushouts,
         resolution_actions,
         serre_eigenclass_variants,
+    )
+    projective_outer_frontier = tier_a_projective_outer_frontier(
+        projective_hom_pair_audits,
     )
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
         pencil_model,
@@ -234,6 +238,7 @@ def build_artifact(root: Path) -> dict[str, object]:
             "projective_hom_ray_pair_audits": [
                 item.as_record() for item in projective_hom_pair_audits
             ],
+            "projective_outer_frontier": projective_outer_frontier.as_record(),
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],

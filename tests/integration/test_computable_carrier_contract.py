@@ -28,6 +28,9 @@ from research.experiments.computable_carrier.search import finite_tier_search
 from research.experiments.computable_carrier.specification import (
     computable_carrier_specification,
 )
+from research.experiments.computable_carrier.tier_b_dp9_ideals import (
+    tier_b_dp9_monomial_ideal_resolutions,
+)
 from research.experiments.computable_carrier.tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
     tier_b_monomial_resolution_actions,
@@ -121,6 +124,16 @@ def test_tier_b_projective_serre_sections_are_explicit_and_scope_limited() -> No
     assert [len(audit.character_sections) for audit in audits] == [0, 0, 0, 9, 9, 9]
     assert [len(audit.unit_character_sections) for audit in audits] == [0, 0, 0, 3, 3, 3]
     assert all(audit.projective_serre_candidate for audit in audits[3:])
+
+
+def test_tier_b_d_p9_ideal_resolutions_are_exact_but_not_serre_objects() -> None:
+    """The dP9 ideal comparison is square-zero and explicitly scope-limited."""
+
+    resolutions = tier_b_dp9_monomial_ideal_resolutions()
+
+    assert len(resolutions) == 6
+    assert all(item.squared_zero and item.all_line_bundles_squared_zero for item in resolutions)
+    assert [dict(item.cohomology_dimensions)[1] for item in resolutions] == [2, 5, 5, 8, 8, 8]
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

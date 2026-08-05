@@ -57,6 +57,7 @@ from .serre_local import local_serre_model, tier_a_local_serre_models
 from .serre_pushout import tier_a_serre_pushouts
 from .serre_rays import tier_a_serre_eigenclass_variants
 from .specification import computable_carrier_specification
+from .tier_b_dp9_ideals import tier_b_dp9_monomial_ideal_resolutions
 from .tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
     tier_b_monomial_resolution_actions,
@@ -155,6 +156,9 @@ def build_artifact(root: Path) -> dict[str, object]:
         tier_b_known_schemes.twist_radius,
     )
     tier_b_projective_sections = tier_b_projective_serre_section_audits(
+        tier_b_monomial_schemes,
+    )
+    tier_b_dp9_ideals = tier_b_dp9_monomial_ideal_resolutions(
         tier_b_monomial_schemes,
     )
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
@@ -287,6 +291,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             "tier_b_twist_descent_screen": tier_b_twist_screen.as_record(),
             "tier_b_projective_serre_sections": [
                 item.as_record() for item in tier_b_projective_sections
+            ],
+            "tier_b_dp9_ideal_resolutions": [
+                item.as_record() for item in tier_b_dp9_ideals
             ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {

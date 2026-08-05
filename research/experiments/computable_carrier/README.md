@@ -234,6 +234,13 @@ scheme has three character lines with explicit local-unit representatives.
 These are projective diagnostics, not dP9 Ext classes or global Serre
 constituents.
 
+Those six Hilbert--Burch resolutions are also pulled through the exact dP9
+line-bundle Koszul cones at fiber degree zero. The signed totalizations pass
+all square-zero checks and give ideal-resolution H1 dimensions
+2, 5, 5, 8, 8, and 8. This is a direct dP9 comparison for the ideal
+resolution; it is not yet the Ext group of a Serre constituent and supplies
+no missing global transition or quotient-linearization data.
+
 The same six resolutions now have deterministic exact P/T lifts. All pass the
 finite chain-equation, invertibility, and order-three checks, but no pair has
 one common projective commutator scalar on both free-resolution terms. This is

@@ -275,6 +275,15 @@ length-nine staircase therefore fails this declared Serre presentation gate;
 the surviving rays still require global dP9 frame comparison and honest
 quotient linearization.
 
+Those fourteen rays have now been pulled through the complete six-chart dP9
+presentation atlas. All relations remain graded and compose to the ideal on
+every chart. Eight rays (the two length-three and six length-six rays) have
+unit Fitting covers and exact 30-transition line-frame atlases with inverse
+and triple-cocycle identities. All six length-nine rays fail the global unit
+Fitting test on the declared chart family, beginning at U_0_mu. This is an
+exact presentation-level local-freeness result, not a global Serre no-go and
+not quotient descent.
+
 The same six resolutions now have deterministic exact P/T lifts. All pass the
 finite chain-equation, invertibility, and order-three checks, but no pair has
 one common projective commutator scalar on both free-resolution terms. This is

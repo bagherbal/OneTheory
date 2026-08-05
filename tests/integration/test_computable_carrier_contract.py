@@ -34,6 +34,9 @@ from research.experiments.computable_carrier.tier_b_dp9_actions import (
 from research.experiments.computable_carrier.tier_b_dp9_ideals import (
     tier_b_dp9_monomial_ideal_resolutions,
 )
+from research.experiments.computable_carrier.tier_b_global_serre import (
+    tier_b_global_serre_audits,
+)
 from research.experiments.computable_carrier.tier_b_local_serre import (
     tier_b_local_monomial_serre_audits,
 )
@@ -235,6 +238,39 @@ def test_tier_b_graded_serre_rays_are_explicit_and_scope_limited() -> None:
         for index in range(6)
     ] == [2, 3, 3, 3, 0, 3]
     assert all(ray.locally_free_at_support for ray in rays)
+
+
+def test_tier_b_global_serre_gate_records_successes_and_failures() -> None:
+    """The complete dP9 atlas distinguishes global presentation outcomes."""
+
+    audits = tier_b_global_serre_audits()
+
+    assert len(audits) == 14
+    assert all(item.graded_relation and item.relation_composition_verified for item in audits)
+    assert [item.globally_locally_free for item in audits] == [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+    ]
+    assert all(
+        item.line_frame_all_invertible and item.line_frame_cocycle_consistent
+        for item in audits[:8]
+    )
+    assert all(
+        any(chart == "U_0_mu" for chart, _ in item.fitting_failures)
+        for item in audits[8:]
+    )
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

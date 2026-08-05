@@ -137,6 +137,13 @@ declared presentation diagnostics. Every one has zero complete commuting-pair
 count in the finite monomial resolution-lift family. This closes a finite
 choice loophole, but it is not a no-go theorem for the full sheaf Ext problem.
 
+The same five rays are now rebuilt separately on the six affine blow-up charts.
+Each ray has an exact unit Fitting identity on every chart and exact inverse
+and triple-cocycle checks for its shift-corrected line frames. These are
+ray-specific pullback-presentations rather than inherited records from the
+selected reference ray. Quotient linearization, global sheaf cohomology, and
+dP9 descent remain explicit gates.
+
 The two rank-two graded pushout presentations now also generate an exact
 three-term polynomial Hom complex with term ranks (10, 26, 12). Its maps
 preserve the displayed module shifts and square to zero by polynomial

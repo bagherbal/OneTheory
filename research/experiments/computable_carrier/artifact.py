@@ -32,6 +32,7 @@ from .dual_cokernels import tier_a_dual_cokernels
 from .equivariance import tier_a_equivariance, tier_a_split_equivariance
 from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
 from .global_serre import tier_a_global_serre_pushout_audits
+from .global_serre_search import tier_a_global_serre_ray_audits
 from .hom_cech import cached_tier_a_hom_cech, tier_a_hom_cech
 from .ideal_atlas import tier_a_atlas_ideal_resolutions
 from .local_equivariance import tier_a_local_cech_deck_actions
@@ -115,6 +116,12 @@ def build_artifact(root: Path) -> dict[str, object]:
         resolution_actions,
     )
     projective_hom_pair_audits = tier_a_projective_hom_pair_audits(
+        explicit_serre_pushouts,
+        resolution_actions,
+        serre_eigenclass_variants,
+    )
+    global_serre_ray_audits = tier_a_global_serre_ray_audits(
+        pencil_model,
         explicit_serre_pushouts,
         resolution_actions,
         serre_eigenclass_variants,
@@ -210,6 +217,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "global_serre_pushout_audits": [
                 item.as_record() for item in global_serre_pushouts
+            ],
+            "global_serre_ray_audits": [
+                item.as_record() for item in global_serre_ray_audits
             ],
             "serre_eigenclass_variants": [
                 item.as_record() for item in serre_eigenclass_variants

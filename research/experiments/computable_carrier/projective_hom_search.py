@@ -34,7 +34,9 @@ from .projective_hyperhom import (
 from .resolution_actions import ResolutionActionPair, tier_a_resolution_actions
 from .serre_pushout import (
     SerrePushoutCandidate,
+    _chart_pushout_records,
     _relation_matrix,
+    _transition_atlas,
     tier_a_serre_pushouts,
 )
 from .serre_rays import (
@@ -46,18 +48,34 @@ from .serre_rays import (
 def _presentation_candidate(
     variant: SerreEigenclassVariant,
     base: SerrePushoutCandidate,
+    model=None,
 ) -> SerrePushoutCandidate:
     """Attach one exact eigenray to its matching presentation metadata."""
 
     if variant.scheme != base.scheme.name:
         raise ValueError("an eigenray must match its presentation scheme")
-    return replace(
+    candidate = replace(
         base,
         extension_map=variant.extension_map,
         character_pair=variant.character_pair,
         relation=_relation_matrix(base.scheme, variant.extension_map),
         local_fitting=variant.local_fitting,
     )
+    if model is not None:
+        candidate = replace(
+            candidate,
+            chart_records=_chart_pushout_records(
+                candidate.relation,
+                candidate.quotient,
+                model,
+            ),
+            transition_atlas=_transition_atlas(
+                candidate.scheme,
+                candidate.relation,
+                model,
+            ),
+        )
+    return candidate
 
 
 @dataclass(frozen=True, slots=True)

@@ -123,6 +123,14 @@ extension-generator mixing polynomial: degree-one mixing is tested for I3,
 and constant mixing for I6. The block-diagonal action search therefore has no
 hidden graded off-diagonal repair inside these presentations.
 
+The graded pushout relations are now audited on every affine dP9 hypersurface
+chart. Exact constant-coefficient identities show that the maximal Fitting
+minors generate the unit ideal for both I3 and I6, so local freeness is not
+limited to the three support points. The selected graded frames also receive
+shift-corrected line transitions across all 30 ordered chart overlaps; their
+inverse and triple-cocycle identities pass exactly. This is a global
+pullback-presentation certificate, not quotient linearization or descent.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

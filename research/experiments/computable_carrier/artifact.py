@@ -31,6 +31,7 @@ from .downstream import downstream_frontier
 from .dual_cokernels import tier_a_dual_cokernels
 from .equivariance import tier_a_equivariance, tier_a_split_equivariance
 from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
+from .global_serre import tier_a_global_serre_pushout_audits
 from .hom_cech import cached_tier_a_hom_cech, tier_a_hom_cech
 from .ideal_atlas import tier_a_atlas_ideal_resolutions
 from .local_equivariance import tier_a_local_cech_deck_actions
@@ -96,6 +97,10 @@ def build_artifact(root: Path) -> dict[str, object]:
     explicit_serre_pushouts = tier_a_serre_pushouts(pencil_model)
     pushout_relation_linearizations = tier_a_pushout_relation_linearizations(
         explicit_serre_pushouts
+    )
+    global_serre_pushouts = tier_a_global_serre_pushout_audits(
+        pencil_model,
+        explicit_serre_pushouts,
     )
     local_cech_actions = tier_a_local_cech_deck_actions(
         pencil_model,
@@ -185,6 +190,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "pushout_relation_linearizations": [
                 item.as_record() for item in pushout_relation_linearizations
+            ],
+            "global_serre_pushout_audits": [
+                item.as_record() for item in global_serre_pushouts
             ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {

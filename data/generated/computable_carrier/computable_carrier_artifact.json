@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b99e0f93751886d9a81f818cfd81408fe19f8deb279b0ec74089d0568ed6ad36",
+  "artifact_digest": "51f7ab26b531ae7daae85f4afba4dd2c19c9ec480e5477386f5b9ea57d2c6142",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -28367,6 +28367,747 @@
             }
           ]
         }
+      }
+    ],
+    "global_serre_pushout_audits": [
+      {
+        "canonical_frames": [
+          {
+            "chart": "U_0_base",
+            "denominator": {
+              "terms": [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "eliminated_columns": [
+              2,
+              3
+            ]
+          },
+          {
+            "chart": "U_1_base",
+            "denominator": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            "eliminated_columns": [
+              1,
+              3
+            ]
+          },
+          {
+            "chart": "U_2_base",
+            "denominator": {
+              "terms": [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            "eliminated_columns": [
+              0,
+              3
+            ]
+          }
+        ],
+        "fitting_cover": [
+          {
+            "chart": "U_0_mu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 6,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 5
+              }
+            ],
+            "verified": true
+          },
+          {
+            "chart": "U_0_nu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 6,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 5
+              }
+            ],
+            "verified": true
+          },
+          {
+            "chart": "U_1_mu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 6,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "1",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 4
+              }
+            ],
+            "verified": true
+          },
+          {
+            "chart": "U_1_nu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 6,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "1",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 4
+              }
+            ],
+            "verified": true
+          },
+          {
+            "chart": "U_2_mu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 6,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-1-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 2
+              }
+            ],
+            "verified": true
+          },
+          {
+            "chart": "U_2_nu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 6,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-1-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 2
+              }
+            ],
+            "verified": true
+          }
+        ],
+        "fitting_cover_verified": true,
+        "graded_relation": true,
+        "line_frame_all_invertible": true,
+        "line_frame_cocycle_consistent": true,
+        "line_frame_transition_count": 30,
+        "line_frame_transition_digest": "364724c5d154ac66be68c529799d2303211496058a7178cc7c38dd47ce5ae063",
+        "local_relation_composition": [
+          [
+            "U_0_mu",
+            true
+          ],
+          [
+            "U_0_nu",
+            true
+          ],
+          [
+            "U_1_mu",
+            true
+          ],
+          [
+            "U_1_nu",
+            true
+          ],
+          [
+            "U_2_mu",
+            true
+          ],
+          [
+            "U_2_nu",
+            true
+          ]
+        ],
+        "relation_shape": [
+          2,
+          4
+        ],
+        "scheme": "I3",
+        "status": "graded pullback presentation is locally free on the six-chart dP9 atlas; quotient linearization and physical promotion remain pending"
+      },
+      {
+        "canonical_frames": [
+          {
+            "chart": "U_0_base",
+            "denominator": {
+              "terms": [
+                {
+                  "coefficient": "1+omega",
+                  "exponents": [
+                    3,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            "eliminated_columns": [
+              0,
+              2,
+              4
+            ]
+          },
+          {
+            "chart": "U_1_base",
+            "denominator": {
+              "terms": [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    3,
+                    0
+                  ]
+                }
+              ]
+            },
+            "eliminated_columns": [
+              1,
+              2,
+              4
+            ]
+          },
+          {
+            "chart": "U_2_base",
+            "denominator": {
+              "terms": [
+                {
+                  "coefficient": "1+omega",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    3
+                  ]
+                }
+              ]
+            },
+            "eliminated_columns": [
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "fitting_cover": [
+          {
+            "chart": "U_0_mu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 10,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 1
+              },
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 4
+              }
+            ],
+            "verified": true
+          },
+          {
+            "chart": "U_0_nu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 10,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 1
+              },
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 4
+              }
+            ],
+            "verified": true
+          },
+          {
+            "chart": "U_1_mu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 10,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 1
+              },
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-1",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 7
+              }
+            ],
+            "verified": true
+          },
+          {
+            "chart": "U_1_nu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 10,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 1
+              },
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-1",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 7
+              }
+            ],
+            "verified": true
+          },
+          {
+            "chart": "U_2_mu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 10,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 1
+              },
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-1-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 9
+              }
+            ],
+            "verified": true
+          },
+          {
+            "chart": "U_2_nu",
+            "coefficient_degree_bound": 0,
+            "identity": {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            "minor_count": 10,
+            "nonzero_coefficients": [
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 1
+              },
+              {
+                "coefficient": {
+                  "terms": [
+                    {
+                      "coefficient": "-1-omega",
+                      "exponents": [
+                        0,
+                        0,
+                        0
+                      ]
+                    }
+                  ]
+                },
+                "minor_index": 9
+              }
+            ],
+            "verified": true
+          }
+        ],
+        "fitting_cover_verified": true,
+        "graded_relation": true,
+        "line_frame_all_invertible": true,
+        "line_frame_cocycle_consistent": true,
+        "line_frame_transition_count": 30,
+        "line_frame_transition_digest": "c4832f6ea7377e66f4beca1dd22b7e01ca8b38e2ee91e91fb60223b2938257a9",
+        "local_relation_composition": [
+          [
+            "U_0_mu",
+            true
+          ],
+          [
+            "U_0_nu",
+            true
+          ],
+          [
+            "U_1_mu",
+            true
+          ],
+          [
+            "U_1_nu",
+            true
+          ],
+          [
+            "U_2_mu",
+            true
+          ],
+          [
+            "U_2_nu",
+            true
+          ]
+        ],
+        "relation_shape": [
+          3,
+          5
+        ],
+        "scheme": "I6",
+        "status": "graded pullback presentation is locally free on the six-chart dP9 atlas; quotient linearization and physical promotion remain pending"
       }
     ],
     "local_cech_deck_actions": [

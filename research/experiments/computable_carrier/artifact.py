@@ -31,7 +31,7 @@ from .downstream import downstream_frontier
 from .dual_cokernels import tier_a_dual_cokernels
 from .equivariance import tier_a_equivariance, tier_a_split_equivariance
 from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
-from .hom_cech import tier_a_hom_cech
+from .hom_cech import cached_tier_a_hom_cech, tier_a_hom_cech
 from .ideal_atlas import tier_a_atlas_ideal_resolutions
 from .local_equivariance import tier_a_local_cech_deck_actions
 from .outer import split_rank_four_baseline
@@ -54,13 +54,35 @@ def _sha256(path: Path) -> str:
     return sha256(path.read_bytes()).hexdigest()
 
 
+def _bounded_hom_window_record(hom) -> dict[str, object]:
+    """Serialize finite-window dimensions without recomputing representatives."""
+
+    return {
+        "bound": hom.bound,
+        "basis_sizes": [
+            [degree, len(hom.basis(degree))]
+            for degree in hom.complex.degrees
+        ],
+        "h1_dimension": hom.h1_dimension,
+        "squared_zero": all(
+            hom.complex.differential(degree + 1).compose(
+                hom.complex.differential(degree)
+            ).is_zero()
+            for degree in (0, 1)
+        ),
+        "status": hom.status,
+    }
+
+
 def build_artifact(root: Path) -> dict[str, object]:
     """Build a deterministic frontier artifact for the new carrier."""
 
     specification = computable_carrier_specification()
     search = finite_tier_search(specification)
     hom = tier_a_hom_cech()
+    hom_bound_one = cached_tier_a_hom_cech(1)
     outer_actions = bounded_outer_action(hom)
+    outer_actions_bound_one = bounded_outer_action(hom_bound_one)
     rank_four = rank_four_frontier(hom)
     downstream = downstream_frontier(rank_four)
     bounded_equivariance = cached_tier_a_bounded_extension_equivariance(2)
@@ -198,7 +220,12 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "rank_four_baseline": split_rank_four_baseline().as_record(),
             "bounded_hom_cech": hom.as_record(),
+            "bounded_hom_windows": [
+                _bounded_hom_window_record(hom),
+                _bounded_hom_window_record(hom_bound_one),
+            ],
             "bounded_outer_action": outer_actions.as_record(),
+            "bounded_outer_action_bound_one": outer_actions_bound_one.as_record(),
             "rank_four_frontier": rank_four.as_record(),
             "bounded_equivariant_extensions": {
                 "bound": 2,

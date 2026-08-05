@@ -22,8 +22,10 @@ from __future__ import annotations
 from research.experiments.computable_carrier.constituents import tier_a_constituents
 from research.experiments.computable_carrier.hom_cech import (
     _monomial_window,
+    cached_tier_a_hom_cech,
     tier_a_hom_cech,
 )
+from research.experiments.computable_carrier.outer_actions import bounded_outer_action
 
 
 def test_bounded_hom_cech_builds_exact_cycles_and_boundaries() -> None:
@@ -66,3 +68,25 @@ def test_hom_window_respects_each_chart_localization() -> None:
     assert _monomial_window(chart, 0) == ((0, 0, 0),)
     assert (-1, 0, 0) in _monomial_window(chart, 1)
     assert (0, -1, 0) not in _monomial_window(chart, 1)
+
+
+def test_bound_one_builds_a_larger_exact_hom_complex() -> None:
+    """The first expanded window has a distinct exact bounded H1 space."""
+
+    hom = cached_tier_a_hom_cech(1)
+
+    assert tuple(hom.complex.spaces.space(i).dimension for i in hom.complex.degrees) == (
+        144,
+        439,
+        210,
+    )
+    assert hom.h1_dimension == 94
+    assert all(
+        hom.complex.differential(degree + 1).compose(
+            hom.complex.differential(degree)
+        ).is_zero()
+        for degree in (0, 1)
+    )
+    action = bounded_outer_action(hom)
+    assert all(not item.closed for item in action.actions)
+    assert action.invariant_projector_defined is False

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b723558613c28236aa86d9ae7bc49bd6b32cf0fdf74c552945c91165689bbcff",
+  "artifact_digest": "ad13dd627175ff1da062c583f0374266e9dd523c928e9844a1af399abb3cc01e",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -14337,6 +14337,48 @@
       "squared_zero": true,
       "status": "bounded Hom Cech complex; full Ext and equivariance remain unproved"
     },
+    "bounded_hom_windows": [
+      {
+        "basis_sizes": [
+          [
+            0,
+            12
+          ],
+          [
+            1,
+            48
+          ],
+          [
+            2,
+            23
+          ]
+        ],
+        "bound": 0,
+        "h1_dimension": 14,
+        "squared_zero": true,
+        "status": "bounded Hom Cech complex; full Ext and equivariance remain unproved"
+      },
+      {
+        "basis_sizes": [
+          [
+            0,
+            144
+          ],
+          [
+            1,
+            439
+          ],
+          [
+            2,
+            210
+          ]
+        ],
+        "bound": 1,
+        "h1_dimension": 94,
+        "squared_zero": true,
+        "status": "bounded Hom Cech complex; full Ext and equivariance remain unproved"
+      }
+    ],
     "bounded_outer_action": {
       "actions": [
         {
@@ -14391,6 +14433,64 @@
         }
       ],
       "bound": 0,
+      "invariant_projector_defined": false,
+      "invariant_representative_count": 0,
+      "status": "bounded outer deck-action diagnostic; invariant projector and cocycles remain unavailable until the declared basis closes"
+    },
+    "bounded_outer_action_bound_one": {
+      "actions": [
+        {
+          "bound": 1,
+          "chart_permutation": [
+            1,
+            2,
+            0
+          ],
+          "closed": false,
+          "degree_closed": [
+            false,
+            false,
+            false
+          ],
+          "differential_compatible": false,
+          "escaped_term_counts": [
+            320,
+            236,
+            90
+          ],
+          "generator": "P",
+          "group_relation_failures": [],
+          "group_relations_verified": false,
+          "invariant_projector_defined": false,
+          "invariant_representative_count": 0
+        },
+        {
+          "bound": 1,
+          "chart_permutation": [
+            0,
+            1,
+            2
+          ],
+          "closed": false,
+          "degree_closed": [
+            false,
+            false,
+            false
+          ],
+          "differential_compatible": false,
+          "escaped_term_counts": [
+            106,
+            39,
+            8
+          ],
+          "generator": "T",
+          "group_relation_failures": [],
+          "group_relations_verified": false,
+          "invariant_projector_defined": false,
+          "invariant_representative_count": 0
+        }
+      ],
+      "bound": 1,
       "invariant_projector_defined": false,
       "invariant_representative_count": 0,
       "status": "bounded outer deck-action diagnostic; invariant projector and cocycles remain unavailable until the declared basis closes"

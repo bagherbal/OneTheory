@@ -22,6 +22,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from functools import cache
 from itertools import combinations, product
 
 from onetheory.math.homological import CochainComplex, GradedVectorSpace, LinearMap, VectorSpace
@@ -367,8 +368,20 @@ def bounded_hom_cech(
 def tier_a_hom_cech() -> BoundedHomCech:
     """Construct the first bounded Hom complex for Tier A."""
 
+    return cached_tier_a_hom_cech()
+
+
+@cache
+def cached_tier_a_hom_cech(bound: int = 0) -> BoundedHomCech:
+    """Cache one immutable Tier A Hom complex for a declared cutoff."""
+
     left, right = tier_a_constituents()
-    return bounded_hom_cech(left, right, 0)
+    return bounded_hom_cech(left, right, bound)
 
 
-__all__ = ["BoundedHomCech", "bounded_hom_cech", "tier_a_hom_cech"]
+__all__ = [
+    "BoundedHomCech",
+    "bounded_hom_cech",
+    "cached_tier_a_hom_cech",
+    "tier_a_hom_cech",
+]

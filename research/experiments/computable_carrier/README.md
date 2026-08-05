@@ -131,6 +131,12 @@ and T escapes in degree zero. No invariant projector or outer cocycle is
 serialized from that nonclosed window; a larger converged complex remains
 required.
 
+The first expanded window is now computed with the same exact engine: its
+Hom-space dimensions are (144,439,210) and its bounded H1 dimension is 94,
+versus 14 at bound zero. P and T still escape the expanded basis in every
+degree, so this is convergence evidence and an explicit obstruction to the
+current finite action, not an Ext or invariant-subspace claim.
+
 The external-algebra manifest records pinned reproduction commands separately.
 An unavailable external executable is a verification failure, not a reason to
 claim a completed carrier.

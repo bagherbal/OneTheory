@@ -110,6 +110,13 @@ representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in
 that window. This is a scoped finite result, not a completeness claim.
 
+The bounded Hom complex now honors its Laurent cutoff on each Cox chart. Its
+derived P/T outer-action diagnostic records exact simplex orientation and local
+gauge transport: at bound zero, P escapes the represented basis in all degrees
+and T escapes in degree zero. No invariant projector or outer cocycle is
+serialized from that nonclosed window; a larger converged complex remains
+required.
+
 The external-algebra manifest records pinned reproduction commands separately.
 An unavailable external executable is a verification failure, not a reason to
 claim a completed carrier.

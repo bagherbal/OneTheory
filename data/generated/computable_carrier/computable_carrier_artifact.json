@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "615276b210855f1ca3872302c9f4fbd5dd408d58fc728d724067e1129dd87eaa",
+  "artifact_digest": "e59dd46b577f9dfd5271d5be1bc6bd62ea6a9d34fae5c6fd33ed2ef32b985a2d",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -14336,6 +14336,64 @@
       ],
       "squared_zero": true,
       "status": "bounded Hom Cech complex; full Ext and equivariance remain unproved"
+    },
+    "bounded_outer_action": {
+      "actions": [
+        {
+          "bound": 0,
+          "chart_permutation": [
+            1,
+            2,
+            0
+          ],
+          "closed": false,
+          "degree_closed": [
+            false,
+            false,
+            false
+          ],
+          "differential_compatible": false,
+          "escaped_term_counts": [
+            31,
+            34,
+            5
+          ],
+          "generator": "P",
+          "group_relation_failures": [],
+          "group_relations_verified": false,
+          "invariant_projector_defined": false,
+          "invariant_representative_count": 0
+        },
+        {
+          "bound": 0,
+          "chart_permutation": [
+            0,
+            1,
+            2
+          ],
+          "closed": false,
+          "degree_closed": [
+            false,
+            true,
+            true
+          ],
+          "differential_compatible": false,
+          "escaped_term_counts": [
+            10,
+            0,
+            0
+          ],
+          "generator": "T",
+          "group_relation_failures": [],
+          "group_relations_verified": false,
+          "invariant_projector_defined": false,
+          "invariant_representative_count": 0
+        }
+      ],
+      "bound": 0,
+      "invariant_projector_defined": false,
+      "invariant_representative_count": 0,
+      "status": "bounded outer deck-action diagnostic; invariant projector and cocycles remain unavailable until the declared basis closes"
     },
     "constituent_candidates": [
       {

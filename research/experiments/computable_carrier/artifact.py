@@ -35,6 +35,7 @@ from .hom_cech import tier_a_hom_cech
 from .ideal_atlas import tier_a_atlas_ideal_resolutions
 from .local_equivariance import tier_a_local_cech_deck_actions
 from .outer import split_rank_four_baseline
+from .outer_actions import bounded_outer_action
 from .pencil import tier_a_pencil_model
 from .pushdown import tier_a_pushdown_constraints
 from .rank_four import rank_four_frontier
@@ -58,6 +59,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     specification = computable_carrier_specification()
     search = finite_tier_search(specification)
     hom = tier_a_hom_cech()
+    outer_actions = bounded_outer_action(hom)
     rank_four = rank_four_frontier(hom)
     downstream = downstream_frontier(rank_four)
     bounded_equivariance = cached_tier_a_bounded_extension_equivariance(2)
@@ -189,6 +191,7 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "rank_four_baseline": split_rank_four_baseline().as_record(),
             "bounded_hom_cech": hom.as_record(),
+            "bounded_outer_action": outer_actions.as_record(),
             "rank_four_frontier": rank_four.as_record(),
             "bounded_equivariant_extensions": {
                 "bound": 2,

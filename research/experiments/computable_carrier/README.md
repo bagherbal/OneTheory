@@ -55,6 +55,11 @@ pole orders (1,1) for I3 and (1,2) for I6. The six presentations are still
 only local data: global complement gluing and equivariant linearization remain
 promotion gates.
 
+The raw deck action on these local Cech classes is also serialized. I3 has
+multiplier 1 and raw invariant dimension 1; I6 has multiplier omega and raw
+invariant dimension 0 before the line characters are included. This is an
+equivariance diagnostic, not a descent certificate.
+
 The I3 and I6 Hilbert--Burch matrices are also pulled back to all six atlas
 charts. Their degree-one chain comparisons agree on every ordered overlap,
 with shapes (3,2) and (4,3), respectively. These are exact ideal resolutions;

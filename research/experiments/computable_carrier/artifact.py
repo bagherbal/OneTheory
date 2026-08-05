@@ -33,6 +33,7 @@ from .equivariance import tier_a_equivariance, tier_a_split_equivariance
 from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
 from .hom_cech import tier_a_hom_cech
 from .ideal_atlas import tier_a_atlas_ideal_resolutions
+from .local_equivariance import tier_a_local_cech_deck_actions
 from .outer import split_rank_four_baseline
 from .pencil import tier_a_pencil_model
 from .pushdown import tier_a_pushdown_constraints
@@ -65,6 +66,10 @@ def build_artifact(root: Path) -> dict[str, object]:
     pencil_model = tier_a_pencil_model()
     atlas_ideal_resolutions = tier_a_atlas_ideal_resolutions(pencil_model)
     atlas_serre_locals = tier_a_atlas_serre_locals(pencil_model)
+    local_cech_actions = tier_a_local_cech_deck_actions(
+        pencil_model,
+        atlas_serre_locals,
+    )
     pushdown_constraints = tier_a_pushdown_constraints()
     reference_artifact = root / "data/generated/visible_carrier/visible_carrier_artifact.json"
     return {
@@ -141,6 +146,7 @@ def build_artifact(root: Path) -> dict[str, object]:
                 item.as_record() for item in atlas_ideal_resolutions
             ],
             "atlas_serre_locals": [item.as_record() for item in atlas_serre_locals],
+            "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],
                 "I6": [

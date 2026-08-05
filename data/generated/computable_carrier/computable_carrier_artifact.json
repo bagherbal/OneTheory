@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "6813c661687e5b0030ffb361cee1750dbabdede08c084add68bf91b3fed97dbc",
+  "artifact_digest": "7b0a11fe90fb9e5e572f0757088cfb34482581532414de876b4eafe7c861fcbf",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -18114,6 +18114,172 @@
       "honest": false,
       "status": "coordinate equivariance checked; no honest gauge lifts constructed"
     },
+    "local_cech_deck_actions": [
+      {
+        "action_matrix": {
+          "rows": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ]
+          ],
+          "shape": [
+            3,
+            3
+          ]
+        },
+        "cocycle_multiplier": "1",
+        "commutes_with_other_generator": true,
+        "coordinate_weights": [
+          "omega",
+          "-1-omega"
+        ],
+        "generator": "P",
+        "order_three": true,
+        "point_images": [
+          "p_c",
+          "p_a",
+          "p_b"
+        ],
+        "raw_invariant_dimension": 1,
+        "scheme": "I3",
+        "status": "raw local action; line-character compensation and global gluing pending"
+      },
+      {
+        "action_matrix": {
+          "rows": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "shape": [
+            3,
+            3
+          ]
+        },
+        "cocycle_multiplier": "1",
+        "commutes_with_other_generator": true,
+        "coordinate_weights": [
+          "omega",
+          "-1-omega"
+        ],
+        "generator": "T",
+        "order_three": true,
+        "point_images": [
+          "p_a",
+          "p_b",
+          "p_c"
+        ],
+        "raw_invariant_dimension": 1,
+        "scheme": "I3",
+        "status": "raw local action; line-character compensation and global gluing pending"
+      },
+      {
+        "action_matrix": {
+          "rows": [
+            [
+              "0",
+              "omega",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "omega"
+            ],
+            [
+              "omega",
+              "0",
+              "0"
+            ]
+          ],
+          "shape": [
+            3,
+            3
+          ]
+        },
+        "cocycle_multiplier": "omega",
+        "commutes_with_other_generator": true,
+        "coordinate_weights": [
+          "omega",
+          "-1-omega"
+        ],
+        "generator": "P",
+        "order_three": true,
+        "point_images": [
+          "p_c",
+          "p_a",
+          "p_b"
+        ],
+        "raw_invariant_dimension": 0,
+        "scheme": "I6",
+        "status": "raw local action; line-character compensation and global gluing pending"
+      },
+      {
+        "action_matrix": {
+          "rows": [
+            [
+              "omega",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "omega",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "omega"
+            ]
+          ],
+          "shape": [
+            3,
+            3
+          ]
+        },
+        "cocycle_multiplier": "omega",
+        "commutes_with_other_generator": true,
+        "coordinate_weights": [
+          "omega",
+          "-1-omega"
+        ],
+        "generator": "T",
+        "order_three": true,
+        "point_images": [
+          "p_a",
+          "p_b",
+          "p_c"
+        ],
+        "raw_invariant_dimension": 0,
+        "scheme": "I6",
+        "status": "raw local action; line-character compensation and global gluing pending"
+      }
+    ],
     "local_class_boundary": {
       "I3": [
         {

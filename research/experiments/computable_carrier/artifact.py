@@ -38,6 +38,7 @@ from .local_equivariance import tier_a_local_cech_deck_actions
 from .outer import split_rank_four_baseline
 from .outer_actions import bounded_outer_action
 from .pencil import tier_a_pencil_model
+from .polynomial_hom import tier_a_polynomial_hom_complex
 from .pushdown import tier_a_pushdown_constraints
 from .pushout_linearization import tier_a_pushout_relation_linearizations
 from .rank_four import rank_four_frontier
@@ -103,6 +104,7 @@ def build_artifact(root: Path) -> dict[str, object]:
         pencil_model,
         explicit_serre_pushouts,
     )
+    polynomial_hom = tier_a_polynomial_hom_complex()
     serre_eigenclass_variants = tier_a_serre_eigenclass_variants(
         explicit_serre_pushouts,
         resolution_actions,
@@ -202,6 +204,7 @@ def build_artifact(root: Path) -> dict[str, object]:
             "serre_eigenclass_variants": [
                 item.as_record() for item in serre_eigenclass_variants
             ],
+            "polynomial_hom_presentation": polynomial_hom.as_record(),
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],

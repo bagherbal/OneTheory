@@ -137,6 +137,14 @@ declared presentation diagnostics. Every one has zero complete commuting-pair
 count in the finite monomial resolution-lift family. This closes a finite
 choice loophole, but it is not a no-go theorem for the full sheaf Ext problem.
 
+The two rank-two graded pushout presentations now also generate an exact
+three-term polynomial Hom complex with term ranks (10, 26, 12). Its maps
+preserve the displayed module shifts and square to zero by polynomial
+composition. This is the actual presentation-level derived Hom input for the
+outer extension calculation; projective sheaf cohomology, dP9 fiber
+hypercohomology, and quotient descent still have to be constructed before it
+can be called an Ext complex.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

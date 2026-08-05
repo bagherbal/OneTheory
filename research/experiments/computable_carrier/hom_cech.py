@@ -22,11 +22,11 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from itertools import combinations
+from itertools import combinations, product
 
 from onetheory.math.homological import CochainComplex, GradedVectorSpace, LinearMap, VectorSpace
 from onetheory.math.numbers import Eisenstein
-from onetheory.math.sheaves import LaurentMatrix, LaurentPolynomial
+from onetheory.math.sheaves import CoxChart, LaurentMatrix, LaurentPolynomial
 
 from .constituents import SerreConstituentCandidate, tier_a_constituents
 
@@ -34,6 +34,21 @@ HomBasis = tuple[int, int, tuple[int, ...]]
 Simplex = tuple[int, ...]
 SimplexBasisRecords = tuple[tuple[Simplex, tuple[HomBasis, ...]], ...]
 MatrixTransform = Callable[[LaurentMatrix], LaurentMatrix]
+
+
+def _monomial_window(chart: CoxChart, bound: int) -> tuple[tuple[int, ...], ...]:
+    """Enumerate the declared finite Laurent section window on one chart."""
+
+    inverted = {
+        chart.variables.index(variable)
+        for variable in chart.inverted_variables
+    }
+    values = range(-bound, bound + 1)
+    return tuple(
+        exponent
+        for exponent in product(values, repeat=chart.variable_count)
+        if all(value >= 0 or index in inverted for index, value in enumerate(exponent))
+    )
 
 
 def _identity_transform(matrix: LaurentMatrix) -> LaurentMatrix:
@@ -237,12 +252,12 @@ def bounded_hom_cech(
         raise ValueError("Hom Čech bounds must be nonnegative integers")
     chart_count = len(left.cover.charts)
     variable_count = left.cover.charts[0].variable_count
-    zero_exponents = (0,) * variable_count
     degree_zero = {
         (index,): tuple(
-            (row, column, zero_exponents)
+            (row, column, exponent)
             for row in range(2)
             for column in range(2)
+            for exponent in _monomial_window(left.cover.charts[index], bound)
         )
         for index in range(chart_count)
     }

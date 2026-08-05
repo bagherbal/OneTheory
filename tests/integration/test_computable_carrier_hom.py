@@ -19,7 +19,11 @@ Phase 0:
 
 from __future__ import annotations
 
-from research.experiments.computable_carrier.hom_cech import tier_a_hom_cech
+from research.experiments.computable_carrier.constituents import tier_a_constituents
+from research.experiments.computable_carrier.hom_cech import (
+    _monomial_window,
+    tier_a_hom_cech,
+)
 
 
 def test_bounded_hom_cech_builds_exact_cycles_and_boundaries() -> None:
@@ -52,3 +56,13 @@ def test_bounded_hom_cech_does_not_claim_full_ext_or_invariance() -> None:
     assert hom.status == (
         "bounded Hom Cech complex; full Ext and equivariance remain unproved"
     )
+
+
+def test_hom_window_respects_each_chart_localization() -> None:
+    """Higher bounds admit poles only in the declared inverted Cox variable."""
+
+    chart = tier_a_constituents()[0].cover.charts[0]
+
+    assert _monomial_window(chart, 0) == ((0, 0, 0),)
+    assert (-1, 0, 0) in _monomial_window(chart, 1)
+    assert (0, -1, 0) not in _monomial_window(chart, 1)

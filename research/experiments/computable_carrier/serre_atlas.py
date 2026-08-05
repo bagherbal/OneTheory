@@ -49,6 +49,8 @@ class AtlasSerreLocal:
     local_to_dv: LaurentMatrix
     punctured_cocycle: LaurentMatrix
     local_cocycle_exact: bool
+    local_cocycle_nonboundary: bool
+    cocycle_monomial_exponents: tuple[int, int]
     hypersurface_incidence: bool
     fiber_derivative_nonzero: bool
     global_gluing_status: str
@@ -82,6 +84,8 @@ class AtlasSerreLocal:
             "local_to_dv": matrix_record(self.local_to_dv),
             "punctured_cocycle": matrix_record(self.punctured_cocycle),
             "local_cocycle_exact": self.local_cocycle_exact,
+            "local_cocycle_nonboundary": self.local_cocycle_nonboundary,
+            "cocycle_monomial_exponents": list(self.cocycle_monomial_exponents),
             "hypersurface_incidence": self.hypersurface_incidence,
             "fiber_derivative_nonzero": self.fiber_derivative_nonzero,
             "global_gluing_status": self.global_gluing_status,
@@ -167,6 +171,15 @@ def _local_generator_pair(
         tuple(multiplicity * exponent for exponent in nilpotent.terms[0][0]),
         scalar_type=Eisenstein,
     )
+
+
+def _local_cocycle_nonboundary(multiplicity: int) -> tuple[bool, tuple[int, int]]:
+    """Certify that the pole monomial is absent from both local section rings."""
+
+    exponents = (-1, -multiplicity)
+    on_du = exponents[1] >= 0
+    on_dv = exponents[0] >= 0
+    return not on_du and not on_dv, exponents
 
 
 def _homogeneous_coordinate_exponents() -> tuple[tuple[int, int, int], ...]:
@@ -327,6 +340,9 @@ def _local_record(
     local_to_du, local_to_dv, punctured_cocycle, cocycle_exact = _punctured_transitions(
         local_model.multiplicity,
     )
+    cocycle_nonboundary, cocycle_exponents = _local_cocycle_nonboundary(
+        local_model.multiplicity,
+    )
     return AtlasSerreLocal(
         scheme,
         point_name,
@@ -338,6 +354,8 @@ def _local_record(
         local_to_dv,
         punctured_cocycle,
         cocycle_exact,
+        cocycle_nonboundary,
+        cocycle_exponents,
         incidence,
         not derivative.is_zero(),
         "global Cech gluing and Serre linearization pending",

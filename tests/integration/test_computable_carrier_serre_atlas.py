@@ -18,6 +18,7 @@ def test_all_coordinate_points_have_checked_local_unit_pushouts() -> None:
     assert all(item.fiber_derivative_nonzero for item in locals_)
     assert all(item.local_model.locally_free for item in locals_)
     assert all(item.local_cocycle_exact for item in locals_)
+    assert all(item.local_cocycle_nonboundary for item in locals_)
 
 
 def test_local_serre_atlas_keeps_global_gluing_unresolved() -> None:
@@ -38,6 +39,17 @@ def test_punctured_cocycles_record_the_i3_and_i6_pole_orders() -> None:
         for item in locals_
     }
     assert pole_orders == {"I3": (-1, -1), "I6": (-1, -2)}
+
+
+def test_local_cocycle_poles_are_absent_from_both_section_rings() -> None:
+    """Each displayed pole has a negative exponent in both local directions."""
+
+    locals_ = tier_a_atlas_serre_locals(tier_a_pencil_model())
+
+    assert {
+        item.scheme: item.cocycle_monomial_exponents
+        for item in locals_
+    } == {"I3": (-1, -1), "I6": (-1, -2)}
 
 
 def test_bare_pushout_atlases_have_exact_torus_transitions() -> None:

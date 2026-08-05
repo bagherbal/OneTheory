@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "ed0160a97dd437727d9cd09e1d0a748e021dec2cb80811422e90ed18c4bbcaee",
+  "artifact_digest": "8a3e3fd397ffb32f4f27c088621e40b2cb2ab483e6299f213da21f1c686aac6e",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -11955,11 +11955,16 @@
     "atlas_serre_locals": [
       {
         "chart": "U_0_mu",
+        "cocycle_monomial_exponents": [
+          -1,
+          -1
+        ],
         "fiber_coordinate_nu_over_mu": "-1/3+1/3*omega",
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
         "local_cocycle_exact": true,
+        "local_cocycle_nonboundary": true,
         "local_coordinates": [
           "b/a",
           "c/a"
@@ -12247,11 +12252,16 @@
       },
       {
         "chart": "U_1_mu",
+        "cocycle_monomial_exponents": [
+          -1,
+          -1
+        ],
         "fiber_coordinate_nu_over_mu": "-1/3-2/3*omega",
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
         "local_cocycle_exact": true,
+        "local_cocycle_nonboundary": true,
         "local_coordinates": [
           "c/b",
           "a/b"
@@ -12539,11 +12549,16 @@
       },
       {
         "chart": "U_2_mu",
+        "cocycle_monomial_exponents": [
+          -1,
+          -1
+        ],
         "fiber_coordinate_nu_over_mu": "2/3+1/3*omega",
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
         "local_cocycle_exact": true,
+        "local_cocycle_nonboundary": true,
         "local_coordinates": [
           "a/c",
           "b/c"
@@ -12831,11 +12846,16 @@
       },
       {
         "chart": "U_0_mu",
+        "cocycle_monomial_exponents": [
+          -1,
+          -2
+        ],
         "fiber_coordinate_nu_over_mu": "-1/3+1/3*omega",
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
         "local_cocycle_exact": true,
+        "local_cocycle_nonboundary": true,
         "local_coordinates": [
           "b/a",
           "c/a"
@@ -13123,11 +13143,16 @@
       },
       {
         "chart": "U_1_mu",
+        "cocycle_monomial_exponents": [
+          -1,
+          -2
+        ],
         "fiber_coordinate_nu_over_mu": "-1/3-2/3*omega",
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
         "local_cocycle_exact": true,
+        "local_cocycle_nonboundary": true,
         "local_coordinates": [
           "c/b",
           "a/b"
@@ -13415,11 +13440,16 @@
       },
       {
         "chart": "U_2_mu",
+        "cocycle_monomial_exponents": [
+          -1,
+          -2
+        ],
         "fiber_coordinate_nu_over_mu": "2/3+1/3*omega",
         "fiber_derivative_nonzero": true,
         "global_gluing_status": "global Cech gluing and Serre linearization pending",
         "hypersurface_incidence": true,
         "local_cocycle_exact": true,
+        "local_cocycle_nonboundary": true,
         "local_coordinates": [
           "a/c",
           "b/c"

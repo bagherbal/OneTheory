@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "d9e84bbb14cd092ebb9e5e712f7617ed89cb3577f816da31130ad98d1306168e",
+  "artifact_digest": "087ba49963948820edc30b8e50a589ec899884b33e2caf76b37b40207ecb428b",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -18146,6 +18146,13 @@
     },
     "explicit_serre_pushouts": [
       {
+        "base_chern": {
+          "c2_degree": "3",
+          "ch2_degree": "3/2",
+          "determinant_degree": "-3",
+          "normalization": "projective-base hyperplane degree",
+          "rank": 2
+        },
         "character_pair": [
           "omega",
           "1"
@@ -18427,6 +18434,13 @@
         ]
       },
       {
+        "base_chern": {
+          "c2_degree": "6",
+          "ch2_degree": "-3/2",
+          "determinant_degree": "-3",
+          "normalization": "projective-base hyperplane degree",
+          "rank": 2
+        },
         "character_pair": [
           "1",
           "-1-omega"

@@ -84,6 +84,11 @@ nonzero relation entry matches its declared graded degree. Thus the mixed
 constant/linear I3 map is represented with an explicit line summand shift,
 rather than being silently treated as an ungraded matrix.
 
+The same shifts give formal projective-base K-theory data: both constituents
+have rank two and determinant degree -3; their exact second Chern degrees are
+3 for I3 and 6 for I6. These are base-resolution invariants, not yet the
+quotient-normalized Chern classes of a descended Schoen bundle.
+
 The same pushout relations are pulled into all six affine blow-up charts and
 retain exact quotient composition there. This records chart-local algebra but
 does not yet provide line-frame transition matrices on the dP9 overlaps.

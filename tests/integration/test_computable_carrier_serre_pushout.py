@@ -19,6 +19,7 @@ Phase 0:
 
 from __future__ import annotations
 
+from onetheory.math.numbers import Rational
 from research.experiments.computable_carrier.serre_pushout import tier_a_serre_pushouts
 
 
@@ -37,6 +38,18 @@ def test_tier_a_pushouts_have_exact_rank_two_relations() -> None:
         (3, 3, 3, 3, 3),
     )
     assert all(item.graded_relation for item in candidates)
+    assert tuple(
+        (
+            item.base_chern.rank,
+            item.base_chern.determinant_degree,
+            item.base_chern.ch2_degree,
+            item.base_chern.c2_degree,
+        )
+        for item in candidates
+    ) == (
+        (2, Rational(-3), Rational(3, 2), Rational(3)),
+        (2, Rational(-3), Rational(-3, 2), Rational(6)),
+    )
     assert all(len(item.chart_records) == 6 for item in candidates)
     assert all(
         all(record.relation_composes_to_zero for record in item.chart_records)

@@ -26,7 +26,7 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 
 from onetheory.math.linear import Matrix
-from onetheory.math.numbers import OMEGA, OMEGA2, Eisenstein
+from onetheory.math.numbers import OMEGA, OMEGA2, Eisenstein, Rational
 from onetheory.math.polynomials import Polynomial, PolynomialMatrix
 from onetheory.models.heterotic_schoen.visible import PointScheme, point_schemes
 
@@ -240,6 +240,44 @@ class ChartPushoutRecord:
         }
 
 
+@dataclass(frozen=True, slots=True)
+class BaseChernData:
+    """Formal base-projective Chern data derived from a graded resolution."""
+
+    rank: int
+    determinant_degree: Rational
+    ch2_degree: Rational
+    c2_degree: Rational
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize exact hyperplane-degree Chern data."""
+
+        return {
+            "rank": self.rank,
+            "determinant_degree": str(self.determinant_degree),
+            "ch2_degree": str(self.ch2_degree),
+            "c2_degree": str(self.c2_degree),
+            "normalization": "projective-base hyperplane degree",
+        }
+
+
+def _base_chern_data(
+    source_shifts: tuple[int, ...],
+    target_shifts: tuple[int, ...],
+) -> BaseChernData:
+    """Apply exact K-theory expansion to one graded two-term presentation."""
+
+    rank = len(target_shifts) - len(source_shifts)
+    determinant_degree = Rational(sum(source_shifts) - sum(target_shifts))
+    ch2_degree = Rational(
+        sum(shift * shift for shift in target_shifts)
+        - sum(shift * shift for shift in source_shifts),
+        2,
+    )
+    c2_degree = determinant_degree * determinant_degree / 2 - ch2_degree
+    return BaseChernData(rank, determinant_degree, ch2_degree, c2_degree)
+
+
 def _chart_pushout_records(
     relation: PolynomialMatrix,
     quotient: PolynomialMatrix,
@@ -367,6 +405,7 @@ class SerrePushoutCandidate:
     source_shifts: tuple[int, ...]
     target_shifts: tuple[int, ...]
     graded_relation: bool
+    base_chern: BaseChernData
     local_fitting: tuple[tuple[str, bool, tuple[int, ...]], ...]
     chart_records: tuple[ChartPushoutRecord, ...]
     linearizations: tuple[PushoutLinearization, ...]
@@ -416,6 +455,7 @@ class SerrePushoutCandidate:
             "source_shifts": list(self.source_shifts),
             "target_shifts": list(self.target_shifts),
             "graded_relation": self.graded_relation,
+            "base_chern": self.base_chern.as_record(),
             "relation_shape": list(self.relation.shape),
             "relation_rank": self.relation_rank,
             "middle_rank": self.middle_rank,
@@ -491,6 +531,7 @@ def _candidate(
         scheme,
         extension_map,
     )
+    base_chern = _base_chern_data(source_shifts, target_shifts)
     local_fitting = _local_fitting_data(relation)
     chart_records = _chart_pushout_records(relation, quotient, model)
     linearizations = _linearization_records(
@@ -509,6 +550,7 @@ def _candidate(
         source_shifts,
         target_shifts,
         graded_relation,
+        base_chern,
         local_fitting,
         chart_records,
         linearizations,

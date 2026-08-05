@@ -2,10 +2,10 @@
 
 Owns:
     Monomial normalization, sparse polynomial arithmetic and substitution,
-    polynomial-matrix determinants and minors, finite determinantal and Fitting
-    ideals, monomial-ideal saturation, exact rank loci, and exact univariate
-    division, derivatives, monic greatest common divisors, and polynomial chain
-    homotopies.
+    exact polynomial fractions, polynomial-matrix determinants and minors,
+    finite determinantal and Fitting ideals, monomial-ideal saturation, exact
+    rank loci, and exact univariate division, derivatives, monic greatest
+    common divisors, and polynomial chain homotopies.
 
 Depends on:
     `onetheory.math.numbers` for exact Rational and Eisenstein scalar coercion and
@@ -557,6 +557,146 @@ class PolynomialMatrix:
         """Return all exact minors of the declared square size."""
 
         return _minor_polynomials(self.rows, size)
+
+
+@dataclass(frozen=True, slots=True)
+class PolynomialFraction:
+    """An immutable exact element of a polynomial fraction field."""
+
+    numerator: Polynomial
+    denominator: Polynomial
+
+    def __post_init__(self) -> None:
+        if self.numerator.variable_count != self.denominator.variable_count:
+            raise ValueError("polynomial fractions require one variable count")
+        if self.numerator.scalar_type is not self.denominator.scalar_type:
+            raise TypeError("polynomial fractions require one exact scalar field")
+        if self.denominator.is_zero():
+            raise ZeroDivisionError("polynomial fraction denominator cannot be zero")
+
+    @classmethod
+    def from_polynomial(cls, polynomial: Polynomial) -> PolynomialFraction:
+        """Embed one exact polynomial into its fraction field."""
+
+        return cls(
+            polynomial,
+            Polynomial.one(polynomial.variable_count, scalar_type=polynomial.scalar_type),
+        )
+
+    @classmethod
+    def zero(
+        cls,
+        variable_count: int,
+        *,
+        scalar_type: ScalarType = Rational,
+    ) -> PolynomialFraction:
+        """Return the exact zero fraction in a declared polynomial ring."""
+
+        return cls(
+            Polynomial.zero(variable_count, scalar_type=scalar_type),
+            Polynomial.one(variable_count, scalar_type=scalar_type),
+        )
+
+    @classmethod
+    def one(
+        cls,
+        variable_count: int,
+        *,
+        scalar_type: ScalarType = Rational,
+    ) -> PolynomialFraction:
+        """Return the exact unit fraction in a declared polynomial ring."""
+
+        return cls.from_polynomial(Polynomial.one(variable_count, scalar_type=scalar_type))
+
+    @property
+    def variable_count(self) -> int:
+        """Return the common polynomial variable count."""
+
+        return self.numerator.variable_count
+
+    @property
+    def scalar_type(self) -> ScalarType:
+        """Return the common exact scalar field."""
+
+        return self.numerator.scalar_type
+
+    @staticmethod
+    def _coerce(value: Polynomial | PolynomialFraction) -> PolynomialFraction:
+        return (
+            value
+            if isinstance(value, PolynomialFraction)
+            else PolynomialFraction.from_polynomial(value)
+        )
+
+    def _check(self, other: PolynomialFraction) -> None:
+        if self.variable_count != other.variable_count:
+            raise ValueError("polynomial fractions use different variable counts")
+        if self.scalar_type is not other.scalar_type:
+            raise TypeError("polynomial fractions use different exact scalar fields")
+
+    def __add__(self, other: Polynomial | PolynomialFraction) -> PolynomialFraction:
+        rhs = self._coerce(other)
+        self._check(rhs)
+        return PolynomialFraction(
+            self.numerator * rhs.denominator + rhs.numerator * self.denominator,
+            self.denominator * rhs.denominator,
+        )
+
+    def __radd__(self, other: Polynomial | PolynomialFraction) -> PolynomialFraction:
+        return self + other
+
+    def __neg__(self) -> PolynomialFraction:
+        return PolynomialFraction(-self.numerator, self.denominator)
+
+    def __sub__(self, other: Polynomial | PolynomialFraction) -> PolynomialFraction:
+        return self + (-self._coerce(other))
+
+    def __rsub__(self, other: Polynomial | PolynomialFraction) -> PolynomialFraction:
+        return self._coerce(other) - self
+
+    def __mul__(self, other: Polynomial | PolynomialFraction) -> PolynomialFraction:
+        rhs = self._coerce(other)
+        self._check(rhs)
+        return PolynomialFraction(
+            self.numerator * rhs.numerator,
+            self.denominator * rhs.denominator,
+        )
+
+    def __rmul__(  # type: ignore[misc]
+        self, other: Polynomial | PolynomialFraction
+    ) -> PolynomialFraction:
+        return self * other
+
+    def __truediv__(self, other: Polynomial | PolynomialFraction) -> PolynomialFraction:
+        return self * self._coerce(other).inverse()
+
+    def inverse(self) -> PolynomialFraction:
+        """Return the exact inverse of a nonzero fraction."""
+
+        if self.numerator.is_zero():
+            raise ZeroDivisionError("zero polynomial fraction has no inverse")
+        return PolynomialFraction(self.denominator, self.numerator)
+
+    def scale(self, scalar: object) -> PolynomialFraction:
+        """Scale the numerator by one exact field scalar."""
+
+        return PolynomialFraction(self.numerator.scale(scalar), self.denominator)
+
+    def is_zero(self) -> bool:
+        """Return whether the numerator is exactly zero."""
+
+        return self.numerator.is_zero()
+
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, Polynomial):
+            other = self.from_polynomial(other)
+        if not isinstance(other, PolynomialFraction):
+            return False
+        if self.variable_count != other.variable_count or self.scalar_type is not other.scalar_type:
+            return False
+        return self.numerator * other.denominator == other.numerator * self.denominator
+
+    __hash__ = None  # type: ignore[assignment]
 
 
 @dataclass(frozen=True, slots=True, init=False)
@@ -1347,6 +1487,7 @@ __all__ = [
     "PolynomialChainComplex",
     "PolynomialChainHomotopy",
     "PolynomialChainMap",
+    "PolynomialFraction",
     "PolynomialFreeResolution",
     "PolynomialFreeModule",
     "PolynomialIdeal",

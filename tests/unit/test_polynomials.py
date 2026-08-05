@@ -2,7 +2,8 @@
 
 Owns:
     Unit and property tests for normalized sparse terms, exact arithmetic,
-    substitution, polynomial-matrix minors, and univariate field algorithms.
+    substitution, polynomial-matrix minors, polynomial fraction fields, and
+    univariate field algorithms.
 
 Depends on:
     `onetheory.math.polynomials`, `onetheory.math.numbers`, Hypothesis, pytest,
@@ -29,6 +30,7 @@ from hypothesis import strategies as st
 from onetheory.math.numbers import E_ONE, OMEGA, Eisenstein, Rational
 from onetheory.math.polynomials import (
     Polynomial,
+    PolynomialFraction,
     derivative,
     determinant,
     divmod_univariate,
@@ -203,6 +205,27 @@ def test_univariate_division_and_monic_gcd_are_exact() -> None:
         divmod_univariate(dividend, Polynomial.zero(1, scalar_type=Eisenstein))
     with pytest.raises(ValueError):
         Polynomial.zero(2).gcd(Polynomial.zero(2))
+
+
+def test_polynomial_fractions_support_exact_principal_localization() -> None:
+    """Non-monomial Fitting opens use exact numerator and denominator data."""
+
+    x = Polynomial.monomial((1, 0), scalar_type=Eisenstein)
+    y = Polynomial.monomial((0, 1), scalar_type=Eisenstein)
+    denominator = x + y
+    fraction = PolynomialFraction(x, denominator)
+    inverse = PolynomialFraction(denominator, x)
+
+    assert fraction * inverse == PolynomialFraction.one(2, scalar_type=Eisenstein)
+    assert fraction + fraction == PolynomialFraction(2 * x, denominator)
+    assert (fraction - fraction).is_zero()
+    with pytest.raises(ZeroDivisionError):
+        PolynomialFraction(x, Polynomial.zero(2, scalar_type=Eisenstein))
+    with pytest.raises(ZeroDivisionError):
+        PolynomialFraction(
+            Polynomial.zero(2, scalar_type=Eisenstein),
+            Polynomial.one(2, scalar_type=Eisenstein),
+        ).inverse()
 
 
 @given(

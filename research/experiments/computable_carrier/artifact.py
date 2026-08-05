@@ -46,6 +46,7 @@ from .search import finite_tier_search
 from .serre_atlas import tier_a_atlas_serre_locals, tier_a_serre_pushout_atlases
 from .serre_local import local_serre_model, tier_a_local_serre_models
 from .serre_pushout import tier_a_serre_pushouts
+from .serre_rays import tier_a_serre_eigenclass_variants
 from .specification import computable_carrier_specification
 
 
@@ -101,6 +102,10 @@ def build_artifact(root: Path) -> dict[str, object]:
     global_serre_pushouts = tier_a_global_serre_pushout_audits(
         pencil_model,
         explicit_serre_pushouts,
+    )
+    serre_eigenclass_variants = tier_a_serre_eigenclass_variants(
+        explicit_serre_pushouts,
+        resolution_actions,
     )
     local_cech_actions = tier_a_local_cech_deck_actions(
         pencil_model,
@@ -193,6 +198,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "global_serre_pushout_audits": [
                 item.as_record() for item in global_serre_pushouts
+            ],
+            "serre_eigenclass_variants": [
+                item.as_record() for item in serre_eigenclass_variants
             ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {

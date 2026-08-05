@@ -131,6 +131,12 @@ shift-corrected line transitions across all 30 ordered chart overlaps; their
 inverse and triple-cocycle identities pass exactly. This is a global
 pullback-presentation certificate, not quotient linearization or descent.
 
+The finite eigenray audit no longer assumes only the first derived ray: it
+enumerates two locally free I3 rays and three locally free I6 rays in the
+declared presentation diagnostics. Every one has zero complete commuting-pair
+count in the finite monomial resolution-lift family. This closes a finite
+choice loophole, but it is not a no-go theorem for the full sheaf Ext problem.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "51f7ab26b531ae7daae85f4afba4dd2c19c9ec480e5477386f5b9ea57d2c6142",
+  "artifact_digest": "484860331288c0440fc96600de1bbd449f416c83623945e91a1492791eb57e63",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -31903,6 +31903,359 @@
         "source_commutator_scalar": "-1-omega",
         "status": "resolution-level action; Serre linearization pending",
         "target_commutator_scalar": "1"
+      }
+    ],
+    "serre_eigenclass_variants": [
+      {
+        "character_pair": [
+          "omega",
+          "1"
+        ],
+        "compatible_variant_counts": [
+          6,
+          12
+        ],
+        "complete_variant_pair_count": 0,
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              5
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "I3",
+        "status": "finite presentation eigenray; sheaf Ext comparison and quotient descent remain unresolved"
+      },
+      {
+        "character_pair": [
+          "-1-omega",
+          "1"
+        ],
+        "compatible_variant_counts": [
+          6,
+          12
+        ],
+        "complete_variant_pair_count": 0,
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              5
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "I3",
+        "status": "finite presentation eigenray; sheaf Ext comparison and quotient descent remain unresolved"
+      },
+      {
+        "character_pair": [
+          "1",
+          "-1-omega"
+        ],
+        "compatible_variant_counts": [
+          6,
+          12
+        ],
+        "complete_variant_pair_count": 0,
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              9
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "I6",
+        "status": "finite presentation eigenray; sheaf Ext comparison and quotient descent remain unresolved"
+      },
+      {
+        "character_pair": [
+          "omega",
+          "-1-omega"
+        ],
+        "compatible_variant_counts": [
+          6,
+          12
+        ],
+        "complete_variant_pair_count": 0,
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              9
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "I6",
+        "status": "finite presentation eigenray; sheaf Ext comparison and quotient descent remain unresolved"
+      },
+      {
+        "character_pair": [
+          "-1-omega",
+          "-1-omega"
+        ],
+        "compatible_variant_counts": [
+          6,
+          12
+        ],
+        "complete_variant_pair_count": 0,
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              9
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "I6",
+        "status": "finite presentation eigenray; sheaf Ext comparison and quotient descent remain unresolved"
       }
     ],
     "serre_pushout_atlases": [

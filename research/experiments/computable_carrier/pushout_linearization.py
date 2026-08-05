@@ -154,6 +154,7 @@ class PushoutRelationLinearization:
     middle_actions_commute: bool
     failures: tuple[str, ...]
     resolution_variant_counts: tuple[int, int]
+    resolution_lift_nullities: tuple[tuple[int, ...], tuple[int, ...]]
     compatible_variant_counts: tuple[int, int]
     complete_variant_pair_count: int
     status: str
@@ -191,6 +192,9 @@ class PushoutRelationLinearization:
             "middle_actions_commute": self.middle_actions_commute,
             "failures": list(self.failures),
             "resolution_variant_counts": list(self.resolution_variant_counts),
+            "resolution_lift_nullities": [
+                list(nullities) for nullities in self.resolution_lift_nullities
+            ],
             "compatible_variant_counts": list(self.compatible_variant_counts),
             "complete_variant_pair_count": self.complete_variant_pair_count,
             "group_relations_verified": self.group_relations_verified,
@@ -253,9 +257,52 @@ def _relation_compatible(
     )
 
 
+def _source_lift_nullity(action: ResolutionAction) -> int:
+    """Return the exact homogeneous freedom in one source lift equation."""
+
+    matrix = action.scheme.resolution.matrix
+    transformed = _transformed_matrix(matrix, action.coordinate_images)
+    columns = len(matrix[0])
+    exponents = sorted({
+        exponent
+        for row in (*matrix, *transformed)
+        for polynomial in row
+        for exponent, _ in polynomial.terms
+    })
+    equations = []
+    for row in range(len(matrix)):
+        for column in range(columns):
+            for exponent in exponents:
+                coefficients = [Eisenstein(0) for _ in range(columns * columns)]
+                for inner in range(columns):
+                    coefficients[inner * columns + column] = matrix[row][inner].coefficient(
+                        exponent
+                    )
+                value = sum(
+                    (
+                        action.target_action[row][inner]
+                        * transformed[inner][column].coefficient(exponent)
+                        for inner in range(len(matrix))
+                    ),
+                    Eisenstein(0),
+                )
+                if (
+                    any(not coefficient.is_zero() for coefficient in coefficients)
+                    or not value.is_zero()
+                ):
+                    equations.append(coefficients)
+    rank = Matrix(equations, scalar_type=Eisenstein).rank() if equations else 0
+    return columns * columns - rank
+
+
 def _alternative_variant_counts(
     candidate: SerrePushoutCandidate,
-) -> tuple[tuple[int, int], tuple[int, int], int]:
+) -> tuple[
+    tuple[int, int],
+    tuple[tuple[int, ...], tuple[int, ...]],
+    tuple[int, int],
+    int,
+]:
     """Search the finite monomial lift family for complete group pairs."""
 
     variants = tuple(
@@ -293,6 +340,10 @@ def _alternative_variant_counts(
             complete += 1
     return (
         tuple(len(item) for item in variants),
+        tuple(
+            tuple(_source_lift_nullity(action) for action in generator_variants)
+            for generator_variants in variants
+        ),
         tuple(len(item) for item in compatible),
         complete,
     )
@@ -339,7 +390,7 @@ def _one_linearization(
         failures.append("relation-row P/T actions do not commute")
     if middle_matrices[0] @ middle_matrices[1] != middle_matrices[1] @ middle_matrices[0]:
         failures.append("middle-generator P/T actions do not commute")
-    variant_counts, compatible_counts, complete_count = _alternative_variant_counts(
+    variant_counts, lift_nullities, compatible_counts, complete_count = _alternative_variant_counts(
         candidate
     )
     return PushoutRelationLinearization(
@@ -351,6 +402,7 @@ def _one_linearization(
         == middle_matrices[1] @ middle_matrices[0],
         tuple(failures),
         variant_counts,
+        lift_nullities,
         compatible_counts,
         complete_count,
         "presentation-level action diagnostic; dP9 descent pending",

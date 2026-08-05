@@ -114,6 +114,10 @@ variants but no complete commuting pair; I6 has no compatible individual
 variant in this family. This is a scoped monomial-lift result, not a complete
 no-go theorem for all possible presentation gauges.
 
+The source-lift coefficient systems for all 36 variants have exact nullity
+zero, so the finite result does not omit homogeneous RREF freedoms within
+those target-action choices.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

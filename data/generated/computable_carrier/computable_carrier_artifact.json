@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "ad13dd627175ff1da062c583f0374266e9dd523c928e9844a1af399abb3cc01e",
+  "artifact_digest": "c13683b13f817b1074331115927ba6ee1dcc550f0cfa9da22a5794b26bba5cc2",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -29797,6 +29797,30 @@
         "middle_actions_commute": false,
         "relation_actions_commute": true,
         "relation_equations_hold": true,
+        "resolution_lift_nullities": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
         "resolution_variant_counts": [
           6,
           12
@@ -29833,6 +29857,30 @@
         "middle_actions_commute": true,
         "relation_actions_commute": false,
         "relation_equations_hold": true,
+        "resolution_lift_nullities": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
         "resolution_variant_counts": [
           6,
           12

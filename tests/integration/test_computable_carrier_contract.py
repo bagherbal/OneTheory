@@ -28,6 +28,9 @@ from research.experiments.computable_carrier.search import finite_tier_search
 from research.experiments.computable_carrier.specification import (
     computable_carrier_specification,
 )
+from research.experiments.computable_carrier.tier_b_dp9_actions import (
+    tier_b_dp9_deck_action_audits,
+)
 from research.experiments.computable_carrier.tier_b_dp9_ideals import (
     tier_b_dp9_monomial_ideal_resolutions,
 )
@@ -143,6 +146,17 @@ def test_tier_b_d_p9_ideal_resolutions_are_exact_but_not_serre_objects() -> None
     assert len(resolutions) == 6
     assert all(item.squared_zero and item.all_line_bundles_squared_zero for item in resolutions)
     assert [dict(item.cohomology_dimensions)[1] for item in resolutions] == [2, 5, 5, 8, 8, 8]
+
+
+def test_tier_b_d_p9_deck_actions_are_exact_but_not_descent() -> None:
+    """The dP9 ideal totalizations have exact commuting deck actions."""
+
+    audits = tier_b_dp9_deck_action_audits()
+
+    assert len(audits) == 6
+    assert all(item.total_squared_zero for item in audits)
+    assert all(item.actions_commute and item.actions_order_three for item in audits)
+    assert [item.invariant_h1_dimension for item in audits] == [0, 0, 0, 0, 0, 0]
 
 
 def test_tier_b_local_serre_gate_excludes_only_the_non_lci_staircase() -> None:

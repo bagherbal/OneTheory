@@ -259,6 +259,13 @@ five lci types. Their Laurent transition inverses, cocycle identities, and
 non-boundary pole tests pass exactly; the non-lci case has no cocycle record.
 These are local extension representatives only, not global dP9 Cech classes.
 
+The same six ideal-resolution totalizations now carry exact P/T chain maps
+induced by the published dP9 coordinate deck substitutions. The maps commute,
+have order three, and induce zero common fixed H1 dimension for every bounded
+monomial scheme. This is a presentation-level quotient-action diagnostic only:
+it is not the action on a Serre Ext group and does not prove a global descent
+no-go for the missing sheaf comparison.
+
 The same six resolutions now have deterministic exact P/T lifts. All pass the
 finite chain-equation, invertibility, and order-three checks, but no pair has
 one common projective commutator scalar on both free-resolution terms. This is

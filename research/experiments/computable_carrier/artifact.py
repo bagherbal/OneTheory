@@ -57,6 +57,7 @@ from .serre_local import local_serre_model, tier_a_local_serre_models
 from .serre_pushout import tier_a_serre_pushouts
 from .serre_rays import tier_a_serre_eigenclass_variants
 from .specification import computable_carrier_specification
+from .tier_b_dp9_actions import tier_b_dp9_deck_action_audits
 from .tier_b_dp9_ideals import tier_b_dp9_monomial_ideal_resolutions
 from .tier_b_local_serre import tier_b_local_monomial_serre_audits
 from .tier_b_monomial import (
@@ -163,6 +164,10 @@ def build_artifact(root: Path) -> dict[str, object]:
     )
     tier_b_dp9_ideals = tier_b_dp9_monomial_ideal_resolutions(
         tier_b_monomial_schemes,
+    )
+    tier_b_dp9_actions = tier_b_dp9_deck_action_audits(
+        tier_b_dp9_ideals,
+        tier_b_monomial_actions,
     )
     tier_b_local_serre = tier_b_local_monomial_serre_audits(
         tier_b_monomial_schemes,
@@ -306,6 +311,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "tier_b_dp9_ideal_resolutions": [
                 item.as_record() for item in tier_b_dp9_ideals
+            ],
+            "tier_b_dp9_deck_actions": [
+                item.as_record() for item in tier_b_dp9_actions
             ],
             "tier_b_local_serre_audits": [
                 item.as_record() for item in tier_b_local_serre

@@ -23,6 +23,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from .dp9_linebundles import DPSurfaceLineBundle, dp9_line_bundle
 from .polynomial_hom import PolynomialHomComplex
 from .projective_hom_search import (
     TierAProjectiveHomPairAudit,
@@ -53,6 +54,7 @@ class DPSurfaceHomComparison:
     hypersurface_bidegree: tuple[int, int]
     koszul_source_fiber_degree: int
     koszul_correction_dimensions: tuple[tuple[int, tuple[int, int]], ...]
+    line_bundles: tuple[DPSurfaceLineBundle, ...]
 
     @property
     def koszul_correction_vanishes(self) -> bool:
@@ -82,6 +84,12 @@ class DPSurfaceHomComparison:
             + self.projective.h2.complex.cohomology_dimension(-1)
         )
 
+    @property
+    def line_bundle_cones_squared_zero(self) -> bool:
+        """Return the exact square-zero result for every term restriction."""
+
+        return all(bundle.squared_zero for bundle in self.line_bundles)
+
     def as_record(self) -> dict[str, object]:
         """Serialize the hypersurface equation and exact restriction gates."""
 
@@ -98,6 +106,11 @@ class DPSurfaceHomComparison:
             "koszul_correction_vanishes": self.koszul_correction_vanishes,
             "restriction_is_exact": self.restriction_is_exact,
             "dP9_matches_projective": self.dP9_matches_projective,
+            "line_bundle_count": len(self.line_bundles),
+            "line_bundle_cones_squared_zero": self.line_bundle_cones_squared_zero,
+            "line_bundle_restrictions": [
+                bundle.as_record() for bundle in self.line_bundles
+            ],
             "projective_ext1_dimension": self.projective.ext_one_dimension,
             "status": (
                 "exact dP9 hypersurface restriction for zero fiber twist; "
@@ -119,14 +132,16 @@ def dP9_hypersurface_hom_comparison(
         raise ValueError(
             "the current exact restriction certificate supports fiber degree zero only"
         )
+    line_bundles = tuple(
+        dp9_line_bundle(-shift[0], fiber_degree)
+        for _, module in parent.terms
+        for shift in module.shifts
+    )
     correction = tuple(
         (
             degree,
             tuple(
-                sum(
-                    _p1_dimensions(fiber_degree - 1)[index]
-                    for _ in module.shifts
-                )
+                _p1_dimensions(fiber_degree - 1)[index] * len(module.shifts)
                 for index in (0, 1)
             ),
         )
@@ -139,6 +154,7 @@ def dP9_hypersurface_hom_comparison(
         (3, 1),
         fiber_degree - 1,
         correction,
+        line_bundles,
     )
 
 

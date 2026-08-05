@@ -24,6 +24,7 @@ from research.experiments.computable_carrier.dp9_hypersurface import (
     dP9_hypersurface_hom_comparison,
     tier_a_dp9_hypersurface_comparisons,
 )
+from research.experiments.computable_carrier.dp9_linebundles import dp9_line_bundle
 
 
 def test_dp9_koszul_correction_vanishes_for_zero_fiber_twist() -> None:
@@ -37,6 +38,8 @@ def test_dp9_koszul_correction_vanishes_for_zero_fiber_twist() -> None:
     assert all(item.koszul_correction_vanishes for item in comparisons)
     assert all(item.restriction_is_exact for item in comparisons)
     assert all(item.dP9_matches_projective for item in comparisons)
+    assert all(item.line_bundle_cones_squared_zero for item in comparisons)
+    assert all(len(item.line_bundles) == 48 for item in comparisons)
 
 
 def test_dp9_comparison_rejects_unproved_fiber_twists() -> None:
@@ -50,3 +53,12 @@ def test_dp9_comparison_rejects_unproved_fiber_twists() -> None:
             comparison.projective,
             fiber_degree=1,
         )
+
+
+def test_dp9_line_bundle_cone_supports_nonzero_fiber_twists() -> None:
+    """The reusable line-bundle engine handles a nonzero twist independently."""
+
+    line_bundle = dp9_line_bundle(-3, 1)
+
+    assert line_bundle.squared_zero is True
+    assert line_bundle.cohomology_dimensions == ((0, 0), (1, 8), (2, 0), (3, 0))

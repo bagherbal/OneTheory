@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "15458ee6b2751680b15aa8919ea135580899944a42d8b8ddbd7bb051da672d40",
+  "artifact_digest": "3fdf175f0c6bac8b19e60828c13f02a6e5d910d54155425a3d70b35af0de46de",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -17741,6 +17741,1258 @@
         "koszul_correction_vanishes": true,
         "koszul_source_fiber_degree": -1,
         "left_scheme": "I3",
+        "line_bundle_cones_squared_zero": true,
+        "line_bundle_count": 48,
+        "line_bundle_restrictions": [
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          }
+        ],
         "projective_ext1_dimension": 5,
         "restriction_is_exact": true,
         "right_scheme": "I6",
@@ -17779,6 +19031,1258 @@
         "koszul_correction_vanishes": true,
         "koszul_source_fiber_degree": -1,
         "left_scheme": "I3",
+        "line_bundle_cones_squared_zero": true,
+        "line_bundle_count": 48,
+        "line_bundle_restrictions": [
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          }
+        ],
         "projective_ext1_dimension": 5,
         "restriction_is_exact": true,
         "right_scheme": "I6",
@@ -17817,6 +20321,1258 @@
         "koszul_correction_vanishes": true,
         "koszul_source_fiber_degree": -1,
         "left_scheme": "I3",
+        "line_bundle_cones_squared_zero": true,
+        "line_bundle_count": 48,
+        "line_bundle_restrictions": [
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          }
+        ],
         "projective_ext1_dimension": 5,
         "restriction_is_exact": true,
         "right_scheme": "I6",
@@ -17855,6 +21611,1258 @@
         "koszul_correction_vanishes": true,
         "koszul_source_fiber_degree": -1,
         "left_scheme": "I3",
+        "line_bundle_cones_squared_zero": true,
+        "line_bundle_count": 48,
+        "line_bundle_restrictions": [
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          }
+        ],
         "projective_ext1_dimension": 5,
         "restriction_is_exact": true,
         "right_scheme": "I6",
@@ -17893,6 +22901,1258 @@
         "koszul_correction_vanishes": true,
         "koszul_source_fiber_degree": -1,
         "left_scheme": "I3",
+        "line_bundle_cones_squared_zero": true,
+        "line_bundle_count": 48,
+        "line_bundle_restrictions": [
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          }
+        ],
         "projective_ext1_dimension": 5,
         "restriction_is_exact": true,
         "right_scheme": "I6",
@@ -17931,6 +24191,1258 @@
         "koszul_correction_vanishes": true,
         "koszul_source_fiber_degree": -1,
         "left_scheme": "I3",
+        "line_bundle_cones_squared_zero": true,
+        "line_bundle_count": 48,
+        "line_bundle_restrictions": [
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 0,
+            "cohomology_dimensions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 2,
+            "cohomology_dimensions": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          },
+          {
+            "ambient_source_fiber_degree": -1,
+            "ambient_target_fiber_degree": 0,
+            "base_degree": 1,
+            "cohomology_dimensions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation"
+          }
+        ],
         "projective_ext1_dimension": 5,
         "restriction_is_exact": true,
         "right_scheme": "I6",

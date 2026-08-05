@@ -3,7 +3,8 @@
 Owns:
     Exact coordinate-supported monomial ideals obtained by taking the orbit of
     one local monomial order ideal at the three projective coordinate points,
-    including their P-invariance, irrelevant saturation, and local lengths.
+    including their P/T-invariance, irrelevant saturation, local lengths, and
+    signed monomial Hilbert--Burch certificates.
 
 Depends on:
     Exact Eisenstein polynomial ideals, monomial saturation, and the published
@@ -27,6 +28,7 @@ from itertools import combinations, product
 
 from onetheory.math.numbers import Eisenstein
 from onetheory.math.polynomials import Polynomial, PolynomialIdeal, saturate_by_monomial
+from onetheory.models.heterotic_schoen.visible import HilbertBurchResolution
 
 from .dp9_actions import published_coordinate_images
 
@@ -186,6 +188,110 @@ def _invariant_under(ideal: PolynomialIdeal, name: str) -> bool:
     return transformed == tuple(sorted(ideal.monomials))
 
 
+def _lcm(left: Monomial, right: Monomial) -> Monomial:
+    """Return the componentwise least common multiple of two monomials."""
+
+    return tuple(max(a, b) for a, b in zip(left, right, strict=True))
+
+
+def _spanning_edges(generators: tuple[Monomial, ...]) -> tuple[tuple[int, int, Monomial], ...]:
+    """Choose the lowest-degree monomial syzygy tree deterministically."""
+
+    candidates = tuple(
+        sorted(
+            (
+                (sum(_lcm(left, right)), left_index, right_index, _lcm(left, right))
+                for left_index, left in enumerate(generators)
+                for right_index, right in enumerate(generators[left_index + 1 :], left_index + 1)
+            )
+        )
+    )
+    parents = list(range(len(generators)))
+
+    def root(index: int) -> int:
+        while parents[index] != index:
+            parents[index] = parents[parents[index]]
+            index = parents[index]
+        return index
+
+    selected: list[tuple[int, int, Monomial]] = []
+    for _, left_index, right_index, least_common_multiple in candidates:
+        left_root = root(left_index)
+        right_root = root(right_index)
+        if left_root == right_root:
+            continue
+        parents[left_root] = right_root
+        selected.append((left_index, right_index, least_common_multiple))
+    if len(selected) != len(generators) - 1:
+        raise ValueError("monomial generators did not yield a syzygy tree")
+    return tuple(selected)
+
+
+def _monomial_resolution(
+    name: str,
+    ideal: PolynomialIdeal,
+) -> HilbertBurchResolution:
+    """Construct and verify the minimal monomial Hilbert--Burch matrix."""
+
+    generators = ideal.monomials
+    zero = Polynomial.zero(ideal.variable_count, scalar_type=Eisenstein)
+    columns: list[list[Polynomial]] = []
+    syzygy_degrees: list[int] = []
+    for left_index, right_index, least_common_multiple in _spanning_edges(generators):
+        column = [zero for _ in generators]
+        left_factor = tuple(
+            common - generator
+            for common, generator in zip(
+                least_common_multiple,
+                generators[left_index],
+                strict=True,
+            )
+        )
+        right_factor = tuple(
+            common - generator
+            for common, generator in zip(
+                least_common_multiple,
+                generators[right_index],
+                strict=True,
+            )
+        )
+        column[left_index] = Polynomial.monomial(left_factor, scalar_type=Eisenstein)
+        column[right_index] = -Polynomial.monomial(right_factor, scalar_type=Eisenstein)
+        columns.append(column)
+        syzygy_degrees.append(sum(least_common_multiple))
+    matrix = tuple(
+        tuple(column[row] for column in columns)
+        for row in range(len(generators))
+    )
+    numerator = [0] * (max((*map(sum, generators), *syzygy_degrees)) + 1)
+    numerator[0] = 1
+    for generator in generators:
+        numerator[sum(generator)] -= 1
+    for degree in syzygy_degrees:
+        numerator[degree] += 1
+    resolution = HilbertBurchResolution(
+        name,
+        matrix,
+        tuple(
+            Polynomial.monomial(generator, scalar_type=Eisenstein)
+            for generator in generators
+        ),
+        tuple(numerator),
+    )
+    if not resolution.verifies_generators():
+        raise ValueError("monomial Hilbert--Burch minors failed exact verification")
+    return resolution
+
+
+def _polynomial_record(polynomial: Polynomial) -> list[dict[str, object]]:
+    """Serialize one exact polynomial without hiding its coefficients."""
+
+    return [
+        {"exponents": list(exponents), "coefficient": str(coefficient)}
+        for exponents, coefficient in polynomial.terms
+    ]
+
+
 @dataclass(frozen=True, slots=True)
 class InvariantMonomialScheme:
     """One exact coordinate-supported invariant monomial point scheme."""
@@ -193,6 +299,7 @@ class InvariantMonomialScheme:
     name: str
     local_standard_monomials: tuple[LocalMonomial, ...]
     ideal: PolynomialIdeal
+    resolution: HilbertBurchResolution
     local_lengths: tuple[int, int, int]
     p_invariant: bool
     t_invariant: bool
@@ -211,6 +318,8 @@ class InvariantMonomialScheme:
         return (
             self.length == 3 * len(self.local_standard_monomials)
             and self.local_lengths == (len(self.local_standard_monomials),) * 3
+            and self.resolution.verifies_generators()
+            and self.resolution.scheme_length == self.length
             and self.p_invariant
             and self.t_invariant
             and self.irrelevant_saturated
@@ -224,6 +333,15 @@ class InvariantMonomialScheme:
             "local_standard_monomials": [list(item) for item in self.local_standard_monomials],
             "length": self.length,
             "ideal": self.ideal.as_record(),
+            "hilbert_burch": {
+                "matrix": [
+                    [_polynomial_record(entry) for entry in row]
+                    for row in self.resolution.matrix
+                ],
+                "hilbert_numerator": list(self.resolution.hilbert_numerator),
+                "scheme_length": str(self.resolution.scheme_length),
+                "verifies_generators": self.resolution.verifies_generators(),
+            },
             "local_lengths": list(self.local_lengths),
             "p_invariant": self.p_invariant,
             "t_invariant": self.t_invariant,
@@ -241,6 +359,10 @@ def _scheme(standard: tuple[LocalMonomial, ...], index: int) -> InvariantMonomia
 
     monomials = _coordinate_point_orbit(standard)
     ideal = _ideal_from_monomials(monomials)
+    resolution = _monomial_resolution(
+        f"B-monomial-coordinate-orbit-{index}",
+        ideal,
+    )
     p_invariant = _invariant_under(ideal, "P")
     t_invariant = _invariant_under(ideal, "T")
     local_lengths = tuple(_local_standard_length(ideal, vertex) for vertex in range(3))
@@ -248,6 +370,7 @@ def _scheme(standard: tuple[LocalMonomial, ...], index: int) -> InvariantMonomia
         f"B-monomial-coordinate-orbit-{index}",
         standard,
         ideal,
+        resolution,
         local_lengths,
         p_invariant,
         t_invariant,

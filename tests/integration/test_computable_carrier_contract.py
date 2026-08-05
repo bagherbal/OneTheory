@@ -77,6 +77,8 @@ def test_tier_b_coordinate_monomial_schemes_are_exact() -> None:
     assert len(schemes) == 6
     assert [scheme.length for scheme in schemes] == [3, 6, 6, 9, 9, 9]
     assert all(scheme.exact for scheme in schemes)
+    assert all(scheme.resolution.verifies_generators() for scheme in schemes)
+    assert [scheme.resolution.scheme_length for scheme in schemes] == [3, 6, 6, 9, 9, 9]
     assert all(scheme.p_invariant and scheme.t_invariant for scheme in schemes)
     assert all(scheme.irrelevant_saturated for scheme in schemes)
 

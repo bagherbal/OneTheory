@@ -220,7 +220,10 @@ enumerates six cyclic-orbit schemes. Their local order ideals have lengths
 one, two, or three, giving projective lengths three, six, or nine; each ideal
 is P/T invariant and irrelevant-saturated by exact monomial operations. This
 is a finite algebraic subcategory, not a claim that non-monomial invariant
-orbits or their Serre extensions have been exhausted.
+orbits or their Serre extensions have been exhausted. Each ideal also has an
+exact monomial Hilbert--Burch matrix whose signed maximal minors and Hilbert
+numerator reproduce its stated length; this remains projective scheme data,
+not a dP9 pullback or Serre constituent.
 
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group

@@ -37,6 +37,7 @@ from .equivariant_extensions import cached_tier_a_bounded_extension_equivariance
 from .global_serre import tier_a_global_serre_pushout_audits
 from .global_serre_search import tier_a_global_serre_ray_audits
 from .hom_cech import cached_tier_a_hom_cech, tier_a_hom_cech
+from .horseshoe import tier_a_horseshoe_presentations
 from .ideal_atlas import tier_a_atlas_ideal_resolutions
 from .local_equivariance import tier_a_local_cech_deck_actions
 from .outer import split_rank_four_baseline
@@ -141,6 +142,10 @@ def build_artifact(root: Path) -> dict[str, object]:
         explicit_serre_pushouts,
         resolution_actions,
         serre_eigenclass_variants,
+    )
+    tier_a_horseshoes = tier_a_horseshoe_presentations(
+        projective_hom_pair_audits,
+        pencil_model,
     )
     projective_outer_frontier = tier_a_projective_outer_frontier(
         projective_hom_pair_audits,
@@ -320,6 +325,25 @@ def build_artifact(root: Path) -> dict[str, object]:
                 item.as_record() for item in projective_hom_pair_audits
             ],
             "projective_outer_frontier": projective_outer_frontier.as_record(),
+            "rank_four_horseshoe": {
+                "candidate_count": len(tier_a_horseshoes),
+                "presentation_gate_count": sum(
+                    item.presentation_gate for item in tier_a_horseshoes
+                ),
+                "local_freeness_on_atlas_count": sum(
+                    item.local_freeness_on_atlas for item in tier_a_horseshoes
+                ),
+                "invariant_outer_class_count": sum(
+                    item.invariant_ext_one_dimension
+                    for item in projective_hom_pair_audits
+                ),
+                "candidates": [item.as_record() for item in tier_a_horseshoes],
+                "status": (
+                    "exact polynomial horseshoe presentations for raw projective "
+                    "Hom classes; no invariant class, quotient descent, or physical "
+                    "carrier is selected"
+                ),
+            },
             "dp9_hypersurface_comparisons": [
                 item.as_record() for item in dp9_hypersurface_comparisons
             ],

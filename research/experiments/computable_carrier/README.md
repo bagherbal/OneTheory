@@ -178,6 +178,15 @@ constructed in this declared category. The record is a scoped no-candidate
 gate, not a global no-go; dP9 sheafification must be compared independently
 before Tier B can be considered.
 
+The same raw degree-zero Hom representatives are now assembled into thirty
+exact polynomial horseshoe presentations, five for each of the six ray pairs.
+Their rank-four differentials are homogeneous, square-zero as two-term chain
+complexes, non-boundary, and sit in degreewise short exact presentation maps;
+all thirty also pass the six-chart maximal-column-minor Fitting cover. None is
+an invariant outer class, so this is an explicit raw-extension presentation
+frontier rather than an equivariant descended carrier or a physical SU(4)
+object.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

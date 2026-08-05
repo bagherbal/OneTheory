@@ -22,7 +22,15 @@ Phase 0:
 from __future__ import annotations
 
 from dataclasses import dataclass
+from itertools import product
 
+from onetheory.math.homological import (
+    CochainComplex,
+    CoordinateVector,
+    GradedVectorSpace,
+    LinearMap,
+    VectorSpace,
+)
 from onetheory.math.polynomials import (
     PolynomialFreeModule,
     PolynomialMap,
@@ -115,6 +123,60 @@ class PolynomialHomComplex:
         }
 
 
+@dataclass(frozen=True, slots=True)
+class PolynomialHomDegreeSlice:
+    """A finite exact homogeneous component of a polynomial Hom complex."""
+
+    parent: PolynomialHomComplex
+    degree: int
+    complex: CochainComplex
+    bases: tuple[tuple[int, tuple[tuple[int, tuple[int, ...]], ...]], ...]
+
+    def basis(self, cochain_degree: int) -> tuple[tuple[int, tuple[int, ...]], ...]:
+        """Return ``(free-generator, monomial)`` labels in one term."""
+
+        return dict(self.bases)[cochain_degree]
+
+    @property
+    def h1_dimension(self) -> int:
+        """Return the exact first cohomology dimension of the slice."""
+
+        return self.complex.cohomology_dimension(1)
+
+    @property
+    def h1_representatives(self) -> tuple[CoordinateVector, ...]:
+        """Return exact based first-cohomology representatives."""
+
+        return self.complex.cohomology_representatives(1)
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize the finite slice and its exact cohomology count."""
+
+        return {
+            "degree": self.degree,
+            "term_ranks": [
+                [cochain_degree, len(self.basis(cochain_degree))]
+                for cochain_degree in self.complex.degrees
+            ],
+            "differential_shapes": [
+                [cochain_degree, [map_.codomain.dimension, map_.domain.dimension]]
+                for cochain_degree, map_ in self.complex.differentials
+            ],
+            "squared_zero": all(
+                self.complex.differential(cochain_degree + 1).compose(
+                    self.complex.differential(cochain_degree)
+                ).is_zero()
+                for cochain_degree in (-1, 0)
+            ),
+            "h1_dimension": self.h1_dimension,
+            "h1_representative_count": len(self.h1_representatives),
+            "status": (
+                "finite exact homogeneous presentation slice; global dP9 "
+                "hypercohomology and quotient descent remain unresolved"
+            ),
+        }
+
+
 def _free_module(
     name: str,
     labels: tuple[str, ...],
@@ -182,6 +244,109 @@ def _hom_module(
         for source_index in range(source.rank)
     )
     return _free_module(name, labels, shifts, target.variable_count, target.scalar_type)
+
+
+def _monomials(total_degree: int, variable_count: int) -> tuple[tuple[int, ...], ...]:
+    """Enumerate the ordered monomial basis of one homogeneous degree."""
+
+    if total_degree < 0:
+        return ()
+    return tuple(
+        exponents
+        for exponents in product(range(total_degree + 1), repeat=variable_count)
+        if sum(exponents) == total_degree
+    )
+
+
+def _degree_slice_map(
+    map_: PolynomialMap,
+    source_basis: tuple[tuple[int, tuple[int, ...]], ...],
+    target_basis: tuple[tuple[int, tuple[int, ...]], ...],
+    source_space: VectorSpace,
+    target_space: VectorSpace,
+) -> LinearMap:
+    """Evaluate one homogeneous polynomial map on exact monomial bases."""
+
+    target_index = {label: index for index, label in enumerate(target_basis)}
+    zero = map_.domain.scalar_type(0)
+    rows = [
+        [zero for _ in source_basis]
+        for _ in target_basis
+    ]
+    target_monomials = {
+        target_generator: tuple(
+            monomial
+            for generator, monomial in target_basis
+            if generator == target_generator
+        )
+        for target_generator in range(map_.codomain.rank)
+    }
+    for source_position, (source_generator, source_monomial) in enumerate(source_basis):
+        for target_generator in range(map_.codomain.rank):
+            entry = map_.matrix.rows[target_generator][source_generator]
+            for exponent, coefficient in entry.terms:
+                image = tuple(
+                    source_value + entry_value
+                    for source_value, entry_value in zip(
+                        source_monomial,
+                        exponent,
+                        strict=True,
+                    )
+                )
+                if image not in target_monomials[target_generator]:
+                    continue
+                target_position = target_index[(target_generator, image)]
+                rows[target_position][source_position] += coefficient
+    return LinearMap(
+        source_space,
+        target_space,
+        rows,
+    )
+
+
+def polynomial_hom_degree_slice(
+    parent: PolynomialHomComplex,
+    degree: int,
+) -> PolynomialHomDegreeSlice:
+    """Evaluate one polynomial Hom complex at a finite total degree."""
+
+    if isinstance(degree, bool) or not isinstance(degree, int):
+        raise TypeError("homogeneous degrees must be integers")
+    bases: dict[int, tuple[tuple[int, tuple[int, ...]], ...]] = {}
+    for cochain_degree, module in parent.terms:
+        bases[cochain_degree] = tuple(
+            (generator, monomial)
+            for generator, shift in enumerate(module.shifts)
+            for monomial in _monomials(degree - shift[0], module.variable_count)
+        )
+    spaces = {
+        cochain_degree: VectorSpace(
+            f"{parent.left.scheme.name}/{parent.right.scheme.name} Hom^{cochain_degree}",
+            tuple(str(label) for label in basis),
+            parent.term(cochain_degree).scalar_type,
+        )
+        for cochain_degree, basis in bases.items()
+    }
+    graded = GradedVectorSpace("polynomial Hom degree slice", spaces)
+    differentials: dict[int, LinearMap] = {}
+    for cochain_degree, map_ in parent.differentials:
+        source_basis = bases[cochain_degree]
+        target_basis = bases[cochain_degree + 1]
+        evaluated = _degree_slice_map(
+            map_,
+            source_basis,
+            target_basis,
+            spaces[cochain_degree],
+            spaces[cochain_degree + 1],
+        )
+        differentials[cochain_degree] = evaluated
+    complex_ = CochainComplex(graded, differentials)
+    return PolynomialHomDegreeSlice(
+        parent,
+        degree,
+        complex_,
+        tuple(sorted(bases.items())),
+    )
 
 
 def _left_composition(
@@ -325,4 +490,10 @@ def tier_a_polynomial_hom_complex() -> PolynomialHomComplex:
     return polynomial_hom_complex(left, right)
 
 
-__all__ = ["PolynomialHomComplex", "polynomial_hom_complex", "tier_a_polynomial_hom_complex"]
+__all__ = [
+    "PolynomialHomComplex",
+    "PolynomialHomDegreeSlice",
+    "polynomial_hom_complex",
+    "polynomial_hom_degree_slice",
+    "tier_a_polynomial_hom_complex",
+]

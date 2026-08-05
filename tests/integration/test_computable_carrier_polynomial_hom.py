@@ -19,6 +19,7 @@ Phase 0:
 from __future__ import annotations
 
 from research.experiments.computable_carrier.polynomial_hom import (
+    polynomial_hom_degree_slice,
     tier_a_polynomial_hom_complex,
 )
 
@@ -46,3 +47,22 @@ def test_presentation_hom_keeps_global_scope_unresolved() -> None:
         "exact presentation-level derived Hom complex; global dP9 "
         "hypercohomology and quotient descent remain unresolved"
     )
+
+
+def test_low_degree_slices_produce_explicit_cohomology() -> None:
+    """Small homogeneous components expose computed, not guessed, classes."""
+
+    parent = tier_a_polynomial_hom_complex()
+    observed = {
+        degree: polynomial_hom_degree_slice(parent, degree)
+        for degree in (-2, -1, 0)
+    }
+
+    assert [observed[degree].h1_dimension for degree in (-2, -1, 0)] == [9, 9, 5]
+    for _degree, slice_ in observed.items():
+        assert slice_.h1_dimension == len(slice_.h1_representatives)
+        assert all(
+            slice_.complex.differential(1)(representative).is_zero()
+            for representative in slice_.h1_representatives
+        )
+        assert slice_.as_record()["squared_zero"] is True

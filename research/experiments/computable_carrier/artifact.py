@@ -38,7 +38,7 @@ from .local_equivariance import tier_a_local_cech_deck_actions
 from .outer import split_rank_four_baseline
 from .outer_actions import bounded_outer_action
 from .pencil import tier_a_pencil_model
-from .polynomial_hom import tier_a_polynomial_hom_complex
+from .polynomial_hom import polynomial_hom_degree_slice, tier_a_polynomial_hom_complex
 from .pushdown import tier_a_pushdown_constraints
 from .pushout_linearization import tier_a_pushout_relation_linearizations
 from .rank_four import rank_four_frontier
@@ -205,6 +205,10 @@ def build_artifact(root: Path) -> dict[str, object]:
                 item.as_record() for item in serre_eigenclass_variants
             ],
             "polynomial_hom_presentation": polynomial_hom.as_record(),
+            "polynomial_hom_degree_slices": [
+                polynomial_hom_degree_slice(polynomial_hom, degree).as_record()
+                for degree in (-2, -1, 0)
+            ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],

@@ -145,6 +145,11 @@ outer extension calculation; projective sheaf cohomology, dP9 fiber
 hypercohomology, and quotient descent still have to be constructed before it
 can be called an Ext complex.
 
+Its audited low homogeneous components at degrees -2, -1, and 0 have exact
+first-cohomology dimensions 9, 9, and 5, respectively, with representatives
+returned by the exact kernel/boundary engine. Higher-degree RREF scans are not
+silently treated as converged global Ext data.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

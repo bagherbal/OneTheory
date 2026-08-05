@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "81bb7f661edc936bb923d26f82f00692d18daa1fefbe88f6c86cd054125e962e",
+  "artifact_digest": "45dbdc9c2af603313a3b1d3f9f65734a06baad0eaadf1966e3e49785e68f9882",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -30311,6 +30311,119 @@
           ],
           "squared_zero": true
         }
+      }
+    ],
+    "polynomial_hom_degree_slices": [
+      {
+        "degree": -2,
+        "differential_shapes": [
+          [
+            -1,
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              9,
+              0
+            ]
+          ]
+        ],
+        "h1_dimension": 9,
+        "h1_representative_count": 9,
+        "squared_zero": true,
+        "status": "finite exact homogeneous presentation slice; global dP9 hypercohomology and quotient descent remain unresolved",
+        "term_ranks": [
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            9
+          ]
+        ]
+      },
+      {
+        "degree": -1,
+        "differential_shapes": [
+          [
+            -1,
+            [
+              21,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              30,
+              21
+            ]
+          ]
+        ],
+        "h1_dimension": 9,
+        "h1_representative_count": 9,
+        "squared_zero": true,
+        "status": "finite exact homogeneous presentation slice; global dP9 hypercohomology and quotient descent remain unresolved",
+        "term_ranks": [
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            21
+          ],
+          [
+            1,
+            30
+          ]
+        ]
+      },
+      {
+        "degree": 0,
+        "differential_shapes": [
+          [
+            -1,
+            [
+              68,
+              10
+            ]
+          ],
+          [
+            0,
+            [
+              63,
+              68
+            ]
+          ]
+        ],
+        "h1_dimension": 5,
+        "h1_representative_count": 5,
+        "squared_zero": true,
+        "status": "finite exact homogeneous presentation slice; global dP9 hypercohomology and quotient descent remain unresolved",
+        "term_ranks": [
+          [
+            -1,
+            10
+          ],
+          [
+            0,
+            68
+          ],
+          [
+            1,
+            63
+          ]
+        ]
       }
     ],
     "polynomial_hom_presentation": {

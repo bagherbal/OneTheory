@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b4eae736da95e0e48fdffde284a523fd21120cdc99f95de547a089751bf883a4",
+  "artifact_digest": "03785be7f5850297740d52e331695e8cec3c7f882c8a20d87ed77b510b2828fd",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -161369,6 +161369,528 @@
       "twist_radius": 2,
       "unlocked": true
     },
+    "tier_b_linearization_audits": [
+      {
+        "character_pair": [
+          "omega",
+          "1"
+        ],
+        "compatible_variant_counts": [
+          1,
+          2
+        ],
+        "compatible_variant_pairs": [
+          {
+            "complete": false,
+            "middle_commutes": false,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": true,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          },
+          {
+            "complete": false,
+            "middle_commutes": false,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": true,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          }
+        ],
+        "complete_variant_pair_count": 0,
+        "direct_group_relations_verified": false,
+        "direct_middle_commutes": false,
+        "direct_relation_commutes": true,
+        "finite_group_gate_passes": false,
+        "generators": [
+          {
+            "character": "omega",
+            "middle_order_three": true,
+            "name": "P",
+            "relation_equation": true,
+            "relation_order_three": true
+          },
+          {
+            "character": "1",
+            "middle_order_three": true,
+            "name": "T",
+            "relation_equation": true,
+            "relation_order_three": true
+          }
+        ],
+        "resolution_variant_counts": [
+          6,
+          12
+        ],
+        "scheme": "B-monomial-coordinate-orbit-0",
+        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+      },
+      {
+        "character_pair": [
+          "-1-omega",
+          "1"
+        ],
+        "compatible_variant_counts": [
+          1,
+          2
+        ],
+        "compatible_variant_pairs": [
+          {
+            "complete": false,
+            "middle_commutes": false,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": true,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          },
+          {
+            "complete": false,
+            "middle_commutes": false,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": true,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          }
+        ],
+        "complete_variant_pair_count": 0,
+        "direct_group_relations_verified": false,
+        "direct_middle_commutes": false,
+        "direct_relation_commutes": true,
+        "finite_group_gate_passes": false,
+        "generators": [
+          {
+            "character": "-1-omega",
+            "middle_order_three": true,
+            "name": "P",
+            "relation_equation": true,
+            "relation_order_three": true
+          },
+          {
+            "character": "1",
+            "middle_order_three": true,
+            "name": "T",
+            "relation_equation": true,
+            "relation_order_three": true
+          }
+        ],
+        "resolution_variant_counts": [
+          6,
+          12
+        ],
+        "scheme": "B-monomial-coordinate-orbit-0",
+        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+      },
+      {
+        "character_pair": [
+          "1",
+          "-1-omega"
+        ],
+        "compatible_variant_counts": [
+          1,
+          2
+        ],
+        "compatible_variant_pairs": [
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          },
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          }
+        ],
+        "complete_variant_pair_count": 0,
+        "direct_group_relations_verified": false,
+        "direct_middle_commutes": true,
+        "direct_relation_commutes": false,
+        "finite_group_gate_passes": false,
+        "generators": [
+          {
+            "character": "1",
+            "middle_order_three": true,
+            "name": "P",
+            "relation_equation": true,
+            "relation_order_three": true
+          },
+          {
+            "character": "-1-omega",
+            "middle_order_three": true,
+            "name": "T",
+            "relation_equation": true,
+            "relation_order_three": true
+          }
+        ],
+        "resolution_variant_counts": [
+          6,
+          12
+        ],
+        "scheme": "B-monomial-coordinate-orbit-1",
+        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+      },
+      {
+        "character_pair": [
+          "omega",
+          "-1-omega"
+        ],
+        "compatible_variant_counts": [
+          1,
+          2
+        ],
+        "compatible_variant_pairs": [
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          },
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          }
+        ],
+        "complete_variant_pair_count": 0,
+        "direct_group_relations_verified": false,
+        "direct_middle_commutes": true,
+        "direct_relation_commutes": false,
+        "finite_group_gate_passes": false,
+        "generators": [
+          {
+            "character": "omega",
+            "middle_order_three": true,
+            "name": "P",
+            "relation_equation": true,
+            "relation_order_three": true
+          },
+          {
+            "character": "-1-omega",
+            "middle_order_three": true,
+            "name": "T",
+            "relation_equation": true,
+            "relation_order_three": true
+          }
+        ],
+        "resolution_variant_counts": [
+          6,
+          12
+        ],
+        "scheme": "B-monomial-coordinate-orbit-1",
+        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+      },
+      {
+        "character_pair": [
+          "-1-omega",
+          "-1-omega"
+        ],
+        "compatible_variant_counts": [
+          1,
+          2
+        ],
+        "compatible_variant_pairs": [
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          },
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          }
+        ],
+        "complete_variant_pair_count": 0,
+        "direct_group_relations_verified": false,
+        "direct_middle_commutes": true,
+        "direct_relation_commutes": false,
+        "finite_group_gate_passes": false,
+        "generators": [
+          {
+            "character": "-1-omega",
+            "middle_order_three": true,
+            "name": "P",
+            "relation_equation": true,
+            "relation_order_three": true
+          },
+          {
+            "character": "-1-omega",
+            "middle_order_three": true,
+            "name": "T",
+            "relation_equation": true,
+            "relation_order_three": true
+          }
+        ],
+        "resolution_variant_counts": [
+          6,
+          12
+        ],
+        "scheme": "B-monomial-coordinate-orbit-1",
+        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+      },
+      {
+        "character_pair": [
+          "1",
+          "omega"
+        ],
+        "compatible_variant_counts": [
+          1,
+          2
+        ],
+        "compatible_variant_pairs": [
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          },
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          }
+        ],
+        "complete_variant_pair_count": 0,
+        "direct_group_relations_verified": false,
+        "direct_middle_commutes": true,
+        "direct_relation_commutes": false,
+        "finite_group_gate_passes": false,
+        "generators": [
+          {
+            "character": "1",
+            "middle_order_three": true,
+            "name": "P",
+            "relation_equation": true,
+            "relation_order_three": true
+          },
+          {
+            "character": "omega",
+            "middle_order_three": true,
+            "name": "T",
+            "relation_equation": true,
+            "relation_order_three": true
+          }
+        ],
+        "resolution_variant_counts": [
+          6,
+          12
+        ],
+        "scheme": "B-monomial-coordinate-orbit-2",
+        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+      },
+      {
+        "character_pair": [
+          "omega",
+          "omega"
+        ],
+        "compatible_variant_counts": [
+          1,
+          2
+        ],
+        "compatible_variant_pairs": [
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          },
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          }
+        ],
+        "complete_variant_pair_count": 0,
+        "direct_group_relations_verified": false,
+        "direct_middle_commutes": true,
+        "direct_relation_commutes": false,
+        "finite_group_gate_passes": false,
+        "generators": [
+          {
+            "character": "omega",
+            "middle_order_three": true,
+            "name": "P",
+            "relation_equation": true,
+            "relation_order_three": true
+          },
+          {
+            "character": "omega",
+            "middle_order_three": true,
+            "name": "T",
+            "relation_equation": true,
+            "relation_order_three": true
+          }
+        ],
+        "resolution_variant_counts": [
+          6,
+          12
+        ],
+        "scheme": "B-monomial-coordinate-orbit-2",
+        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+      },
+      {
+        "character_pair": [
+          "-1-omega",
+          "omega"
+        ],
+        "compatible_variant_counts": [
+          1,
+          2
+        ],
+        "compatible_variant_pairs": [
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          },
+          {
+            "complete": false,
+            "middle_commutes": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_commutes": false,
+            "relation_order_three": [
+              true,
+              true
+            ]
+          }
+        ],
+        "complete_variant_pair_count": 0,
+        "direct_group_relations_verified": false,
+        "direct_middle_commutes": true,
+        "direct_relation_commutes": false,
+        "finite_group_gate_passes": false,
+        "generators": [
+          {
+            "character": "-1-omega",
+            "middle_order_three": true,
+            "name": "P",
+            "relation_equation": true,
+            "relation_order_three": true
+          },
+          {
+            "character": "omega",
+            "middle_order_three": true,
+            "name": "T",
+            "relation_equation": true,
+            "relation_order_three": true
+          }
+        ],
+        "resolution_variant_counts": [
+          6,
+          12
+        ],
+        "scheme": "B-monomial-coordinate-orbit-2",
+        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+      }
+    ],
     "tier_b_local_serre_audits": [
       {
         "fitting_ideal": {

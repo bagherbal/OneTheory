@@ -60,6 +60,7 @@ from .specification import computable_carrier_specification
 from .tier_b_dp9_actions import tier_b_dp9_deck_action_audits
 from .tier_b_dp9_ideals import tier_b_dp9_monomial_ideal_resolutions
 from .tier_b_global_serre import tier_b_global_serre_audits
+from .tier_b_linearization import tier_b_linearization_audits
 from .tier_b_local_serre import tier_b_local_monomial_serre_audits
 from .tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
@@ -194,6 +195,15 @@ def build_artifact(root: Path) -> dict[str, object]:
     tier_b_global_serre = tier_b_global_serre_audits(
         tier_b_serre_rays,
         pencil_model,
+    )
+    tier_b_linearization = tier_b_linearization_audits(
+        tier_b_serre_rays,
+        frozenset(
+            audit.ray.cokernel.scheme.name
+            for audit in tier_b_global_serre
+            if audit.globally_locally_free
+        ),
+        tier_b_monomial_actions,
     )
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
         pencil_model,
@@ -349,6 +359,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "tier_b_global_serre_audits": [
                 item.as_record() for item in tier_b_global_serre
+            ],
+            "tier_b_linearization_audits": [
+                item.as_record() for item in tier_b_linearization
             ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {

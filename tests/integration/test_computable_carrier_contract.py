@@ -291,5 +291,8 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
         artifact["tier_a_chain_inputs"]["bounded_equivariant_extensions"]["candidate_count"]
         == 14
     )
+    linearization = artifact["tier_a_chain_inputs"]["tier_b_linearization_audits"]
+    assert len(linearization) == 8
+    assert all(item["complete_variant_pair_count"] == 0 for item in linearization)
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

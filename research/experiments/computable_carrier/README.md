@@ -284,6 +284,15 @@ Fitting test on the declared chart family, beginning at U_0_mu. This is an
 exact presentation-level local-freeness result, not a global Serre no-go and
 not quotient descent.
 
+The eight rays that pass that chart gate are now checked against the complete
+declared finite monomial resolution-lift family. Each has six P lifts and
+twelve T lifts, with one P and two T relation-compatible choices and two
+joint compatible pairs; every compatible pair fails at least one exact
+commutator gate, so the complete-pair count is zero for all eight rays. This
+is a bounded resolution-level obstruction diagnostic. It does not replace
+the missing global sheaf Ext comparison, prove a Serre linearization no-go,
+or establish quotient descent.
+
 The same six resolutions now have deterministic exact P/T lifts. All pass the
 finite chain-equation, invertibility, and order-three checks, but no pair has
 one common projective commutator scalar on both free-resolution terms. This is

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "d0c34de1c7dcf86bd79cd2dd0118e737b63aa44cb905aeac256e0f87eb5a9c37",
+  "artifact_digest": "d915a487263bcb1ab664a7c1207f7a51522fff488a0e7bc45c56dd9cac552e5e",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -17707,6 +17707,524 @@
       "promotable": false,
       "status": "downstream calculations blocked by explicit prerequisites"
     },
+    "dp9_deck_actions": [
+      {
+        "actions_commute": true,
+        "actions_order_three": true,
+        "fiber_degree": 0,
+        "invariant_h1_dimension": 0,
+        "invariant_representatives": [],
+        "left_scheme": "I3",
+        "p_induced": [
+          [
+            "-1-omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-omega"
+          ],
+          [
+            "0",
+            "0",
+            "1+omega",
+            "0",
+            "0"
+          ]
+        ],
+        "right_scheme": "I6",
+        "status": "exact zero-fiber dP9 presentation-totalization action; global sheafification and quotient descent remain unresolved",
+        "t_induced": [
+          [
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega"
+          ]
+        ],
+        "total_h1_dimension": 5,
+        "total_squared_zero": true
+      },
+      {
+        "actions_commute": true,
+        "actions_order_three": true,
+        "fiber_degree": 0,
+        "invariant_h1_dimension": 0,
+        "invariant_representatives": [],
+        "left_scheme": "I3",
+        "p_induced": [
+          [
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0",
+            "1+omega",
+            "0",
+            "0"
+          ]
+        ],
+        "right_scheme": "I6",
+        "status": "exact zero-fiber dP9 presentation-totalization action; global sheafification and quotient descent remain unresolved",
+        "t_induced": [
+          [
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega"
+          ]
+        ],
+        "total_h1_dimension": 5,
+        "total_squared_zero": true
+      },
+      {
+        "actions_commute": true,
+        "actions_order_three": true,
+        "fiber_degree": 0,
+        "invariant_h1_dimension": 0,
+        "invariant_representatives": [],
+        "left_scheme": "I3",
+        "p_induced": [
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1+omega"
+          ],
+          [
+            "0",
+            "0",
+            "1+omega",
+            "0",
+            "0"
+          ]
+        ],
+        "right_scheme": "I6",
+        "status": "exact zero-fiber dP9 presentation-totalization action; global sheafification and quotient descent remain unresolved",
+        "t_induced": [
+          [
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega"
+          ]
+        ],
+        "total_h1_dimension": 5,
+        "total_squared_zero": true
+      },
+      {
+        "actions_commute": true,
+        "actions_order_three": true,
+        "fiber_degree": 0,
+        "invariant_h1_dimension": 0,
+        "invariant_representatives": [],
+        "left_scheme": "I3",
+        "p_induced": [
+          [
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-omega"
+          ],
+          [
+            "0",
+            "0",
+            "1+omega",
+            "0",
+            "0"
+          ]
+        ],
+        "right_scheme": "I6",
+        "status": "exact zero-fiber dP9 presentation-totalization action; global sheafification and quotient descent remain unresolved",
+        "t_induced": [
+          [
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega"
+          ]
+        ],
+        "total_h1_dimension": 5,
+        "total_squared_zero": true
+      },
+      {
+        "actions_commute": true,
+        "actions_order_three": true,
+        "fiber_degree": 0,
+        "invariant_h1_dimension": 0,
+        "invariant_representatives": [],
+        "left_scheme": "I3",
+        "p_induced": [
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0",
+            "1+omega",
+            "0",
+            "0"
+          ]
+        ],
+        "right_scheme": "I6",
+        "status": "exact zero-fiber dP9 presentation-totalization action; global sheafification and quotient descent remain unresolved",
+        "t_induced": [
+          [
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega"
+          ]
+        ],
+        "total_h1_dimension": 5,
+        "total_squared_zero": true
+      },
+      {
+        "actions_commute": true,
+        "actions_order_three": true,
+        "fiber_degree": 0,
+        "invariant_h1_dimension": 0,
+        "invariant_representatives": [],
+        "left_scheme": "I3",
+        "p_induced": [
+          [
+            "-1-omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1+omega"
+          ],
+          [
+            "0",
+            "0",
+            "1+omega",
+            "0",
+            "0"
+          ]
+        ],
+        "right_scheme": "I6",
+        "status": "exact zero-fiber dP9 presentation-totalization action; global sheafification and quotient descent remain unresolved",
+        "t_induced": [
+          [
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega"
+          ]
+        ],
+        "total_h1_dimension": 5,
+        "total_squared_zero": true
+      }
+    ],
     "dp9_derived_homs": [
       {
         "all_line_bundles_squared_zero": true,

@@ -199,6 +199,14 @@ whose degree-one dimension is 5 in every pair. This remains a
 presentation-level restriction calculation: it is not global sheaf Ext,
 quotient descent, or a physical rank-four candidate.
 
+The zero-fiber dP9 totalizations now receive the published P and T coordinate
+pullbacks, converted directly from the production Heisenberg lifts. Their
+presentation-term actions are combined with exact line-bundle cohomology
+actions and checked as chain maps on the signed total complexes. All six
+ray-pair actions have order three, commute, and leave zero common degree-one
+classes. This closes only the declared zero-fiber presentation category; it
+does not call the result a descended Serre linearization or a global bundle.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

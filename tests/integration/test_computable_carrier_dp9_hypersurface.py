@@ -22,6 +22,7 @@ import pytest
 
 from onetheory.math.numbers import Eisenstein
 from onetheory.math.polynomials import Polynomial
+from research.experiments.computable_carrier.dp9_actions import dp9_deck_action_audit
 from research.experiments.computable_carrier.dp9_homology import (
     dp9_derived_hom,
     tier_a_dp9_derived_homs,
@@ -99,6 +100,12 @@ def test_dp9_totalization_matches_projective_h1_for_all_ray_pairs() -> None:
     assert all(item.squared_zero for item in totals)
     assert all(item.all_line_bundles_squared_zero for item in totals)
     assert all(item.total_h1_dimension == 5 for item in totals)
+
+    actions = tuple(dp9_deck_action_audit(item) for item in totals)
+
+    assert all(item.actions_commute for item in actions)
+    assert all(item.actions_order_three for item in actions)
+    assert all(item.invariant_dimension == 0 for item in actions)
 
 
 def test_dp9_totalization_accepts_a_single_parent_pair() -> None:

@@ -28,6 +28,9 @@ from research.experiments.computable_carrier.search import finite_tier_search
 from research.experiments.computable_carrier.specification import (
     computable_carrier_specification,
 )
+from research.experiments.computable_carrier.tier_b_monomial import (
+    tier_b_invariant_monomial_schemes,
+)
 
 
 def test_computable_carrier_contract_is_distinct_and_selection_safe() -> None:
@@ -64,6 +67,18 @@ def test_finite_search_keeps_later_tiers_locked() -> None:
     assert report.tier_b_locked
     assert report.tier_c_locked
     assert report.candidate_count == 500
+
+
+def test_tier_b_coordinate_monomial_schemes_are_exact() -> None:
+    """The bounded coordinate-supported invariant scheme family is certified."""
+
+    schemes = tier_b_invariant_monomial_schemes()
+
+    assert len(schemes) == 6
+    assert [scheme.length for scheme in schemes] == [3, 6, 6, 9, 9, 9]
+    assert all(scheme.exact for scheme in schemes)
+    assert all(scheme.p_invariant and scheme.t_invariant for scheme in schemes)
+    assert all(scheme.irrelevant_saturated for scheme in schemes)
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

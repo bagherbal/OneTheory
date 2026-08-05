@@ -215,6 +215,13 @@ It is complete only for that known-scheme category; the full bounded search
 over invariant zero-dimensional schemes, constituent cocycles, and honest
 linearizations remains open.
 
+Within that bound, the exact coordinate-supported monomial subcategory now
+enumerates six cyclic-orbit schemes. Their local order ideals have lengths
+one, two, or three, giving projective lengths three, six, or nine; each ideal
+is P/T invariant and irrelevant-saturated by exact monomial operations. This
+is a finite algebraic subcategory, not a claim that non-monomial invariant
+orbits or their Serre extensions have been exhausted.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "8b1b1d86f7fa93d868d913267576a02f81a92a497b16b5b1a20ef696f54db944",
+  "artifact_digest": "4441dfd569b6724d3dc0f6b8764f30e5f780e45f7e66f60ae209fe31a872c9ca",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -99164,6 +99164,472 @@
       "status": "split-derived gauge lifts checked; exact group relations remain unresolved"
     },
     "status": "exact complexes and local candidate transitions available; Serre gate pending",
+    "tier_b_invariant_monomial_schemes": [
+      {
+        "exact": true,
+        "ideal": {
+          "generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            }
+          ],
+          "scalar_type": "Eisenstein",
+          "variable_count": 3
+        },
+        "irrelevant_saturated": true,
+        "length": 3,
+        "local_lengths": [
+          1,
+          1,
+          1
+        ],
+        "local_standard_monomials": [
+          [
+            0,
+            0
+          ]
+        ],
+        "name": "B-monomial-coordinate-orbit-0",
+        "p_invariant": true,
+        "status": "exact coordinate-supported monomial scheme; Hilbert--Burch, Serre extension, and quotient descent remain unresolved",
+        "t_invariant": true
+      },
+      {
+        "exact": true,
+        "ideal": {
+          "generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    2,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    2
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    2,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            }
+          ],
+          "scalar_type": "Eisenstein",
+          "variable_count": 3
+        },
+        "irrelevant_saturated": true,
+        "length": 6,
+        "local_lengths": [
+          2,
+          2,
+          2
+        ],
+        "local_standard_monomials": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "name": "B-monomial-coordinate-orbit-1",
+        "p_invariant": true,
+        "status": "exact coordinate-supported monomial scheme; Hilbert--Burch, Serre extension, and quotient descent remain unresolved",
+        "t_invariant": true
+      },
+      {
+        "exact": true,
+        "ideal": {
+          "generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    2
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    2,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    2,
+                    0,
+                    1
+                  ]
+                }
+              ]
+            }
+          ],
+          "scalar_type": "Eisenstein",
+          "variable_count": 3
+        },
+        "irrelevant_saturated": true,
+        "length": 6,
+        "local_lengths": [
+          2,
+          2,
+          2
+        ],
+        "local_standard_monomials": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "name": "B-monomial-coordinate-orbit-2",
+        "p_invariant": true,
+        "status": "exact coordinate-supported monomial scheme; Hilbert--Burch, Serre extension, and quotient descent remain unresolved",
+        "t_invariant": true
+      },
+      {
+        "exact": true,
+        "ideal": {
+          "generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    3,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    3
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    3,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            }
+          ],
+          "scalar_type": "Eisenstein",
+          "variable_count": 3
+        },
+        "irrelevant_saturated": true,
+        "length": 9,
+        "local_lengths": [
+          3,
+          3,
+          3
+        ],
+        "local_standard_monomials": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "name": "B-monomial-coordinate-orbit-3",
+        "p_invariant": true,
+        "status": "exact coordinate-supported monomial scheme; Hilbert--Burch, Serre extension, and quotient descent remain unresolved",
+        "t_invariant": true
+      },
+      {
+        "exact": true,
+        "ideal": {
+          "generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    2,
+                    2
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    2,
+                    0,
+                    2
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    2,
+                    2,
+                    0
+                  ]
+                }
+              ]
+            }
+          ],
+          "scalar_type": "Eisenstein",
+          "variable_count": 3
+        },
+        "irrelevant_saturated": true,
+        "length": 9,
+        "local_lengths": [
+          3,
+          3,
+          3
+        ],
+        "local_standard_monomials": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "name": "B-monomial-coordinate-orbit-4",
+        "p_invariant": true,
+        "status": "exact coordinate-supported monomial scheme; Hilbert--Burch, Serre extension, and quotient descent remain unresolved",
+        "t_invariant": true
+      },
+      {
+        "exact": true,
+        "ideal": {
+          "generators": [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    3
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    3,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    3,
+                    0,
+                    1
+                  ]
+                }
+              ]
+            }
+          ],
+          "scalar_type": "Eisenstein",
+          "variable_count": 3
+        },
+        "irrelevant_saturated": true,
+        "length": 9,
+        "local_lengths": [
+          3,
+          3,
+          3
+        ],
+        "local_standard_monomials": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "name": "B-monomial-coordinate-orbit-5",
+        "p_invariant": true,
+        "status": "exact coordinate-supported monomial scheme; Hilbert--Burch, Serre extension, and quotient descent remain unresolved",
+        "t_invariant": true
+      }
+    ],
     "tier_b_known_scheme_search": {
       "category": "known invariant I3/I6 schemes with bounded twists",
       "complete_for_declared_category": true,

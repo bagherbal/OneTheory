@@ -225,6 +225,15 @@ exact monomial Hilbert--Burch matrix whose signed maximal minors and Hilbert
 numerator reproduce its stated length; this remains projective scheme data,
 not a dP9 pullback or Serre constituent.
 
+For each ideal, the stabilized projective quotient section space is now
+computed explicitly. The length-three scheme has degree-one dimension three,
+the two length-six schemes have degree-two dimension six, and the three
+length-nine schemes have degree-three dimension nine. The raw P/T actions
+have no simultaneous characters for lengths three and six; each length-nine
+scheme has three character lines with explicit local-unit representatives.
+These are projective diagnostics, not dP9 Ext classes or global Serre
+constituents.
+
 The same six resolutions now have deterministic exact P/T lifts. All pass the
 finite chain-equation, invertibility, and order-three checks, but no pair has
 one common projective commutator scalar on both free-resolution terms. This is

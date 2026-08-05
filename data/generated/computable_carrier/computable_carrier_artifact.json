@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "3df515921b6e95cd626a3c217ff090a85688413f04b2d0b56d29d23a9dd74355",
+  "artifact_digest": "42bbefed3b8df9fbfb943268a41d093ee9db49914eaa5c861df67c0d4e448d22",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -112273,6 +112273,1763 @@
         "source_commutator_scalar": "omega",
         "status": "resolution-level deck lift only; common projective commutator, Serre linearization, and quotient descent remain unresolved",
         "target_commutator_scalar": null
+      }
+    ],
+    "tier_b_projective_serre_sections": [
+      {
+        "basis": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "character_sections": [],
+        "commutator_scalar": "-1-omega",
+        "degree": 1,
+        "extension_space_dimension": 3,
+        "p_action": [
+          [
+            "0",
+            "-1-omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "omega"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ],
+        "projective_serre_candidate": false,
+        "scheme": "B-monomial-coordinate-orbit-0",
+        "status": "projective monomial quotient-section diagnostic only; dP9 Ext, global Serre gluing, and quotient descent remain unresolved",
+        "t_action": [
+          [
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "unit_character_count": 0
+      },
+      {
+        "basis": [
+          [
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ]
+        ],
+        "character_sections": [],
+        "commutator_scalar": "omega",
+        "degree": 2,
+        "extension_space_dimension": 6,
+        "p_action": [
+          [
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "projective_serre_candidate": false,
+        "scheme": "B-monomial-coordinate-orbit-1",
+        "status": "projective monomial quotient-section diagnostic only; dP9 Ext, global Serre gluing, and quotient descent remain unresolved",
+        "t_action": [
+          [
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "unit_character_count": 0
+      },
+      {
+        "basis": [
+          [
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ]
+        ],
+        "character_sections": [],
+        "commutator_scalar": "omega",
+        "degree": 2,
+        "extension_space_dimension": 6,
+        "p_action": [
+          [
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "projective_serre_candidate": false,
+        "scheme": "B-monomial-coordinate-orbit-2",
+        "status": "projective monomial quotient-section diagnostic only; dP9 Ext, global Serre gluing, and quotient descent remain unresolved",
+        "t_action": [
+          [
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "unit_character_count": 0
+      },
+      {
+        "basis": [
+          [
+            0,
+            0,
+            3
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            1
+          ],
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ]
+        ],
+        "character_sections": [
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "1",
+            "unit_representative": [
+              "1",
+              "0",
+              "0",
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "vectors": [
+              [
+                "1",
+                "0",
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "-1-omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "1",
+            "unit_representative": [
+              "omega",
+              "0",
+              "0",
+              "-1-omega",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "vectors": [
+              [
+                "omega",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "1",
+                "0",
+                "0",
+                "1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "-1-omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "omega",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "1",
+            "unit_representative": [
+              "-1-omega",
+              "0",
+              "0",
+              "omega",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "vectors": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "-1-omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "1",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "commutator_scalar": "1",
+        "degree": 3,
+        "extension_space_dimension": 9,
+        "p_action": [
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "projective_serre_candidate": true,
+        "scheme": "B-monomial-coordinate-orbit-3",
+        "status": "projective monomial quotient-section diagnostic only; dP9 Ext, global Serre gluing, and quotient descent remain unresolved",
+        "t_action": [
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "unit_character_count": 3
+      },
+      {
+        "basis": [
+          [
+            0,
+            0,
+            3
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            1
+          ],
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ]
+        ],
+        "character_sections": [
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "1",
+            "unit_representative": [
+              "1",
+              "0",
+              "0",
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "vectors": [
+              [
+                "1",
+                "0",
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "-1-omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "1",
+            "unit_representative": [
+              "omega",
+              "0",
+              "0",
+              "-1-omega",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "vectors": [
+              [
+                "omega",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "1",
+                "0",
+                "0",
+                "1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "-1-omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "omega",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "1",
+            "unit_representative": [
+              "-1-omega",
+              "0",
+              "0",
+              "omega",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "vectors": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "-1-omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "1",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "commutator_scalar": "1",
+        "degree": 3,
+        "extension_space_dimension": 9,
+        "p_action": [
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "projective_serre_candidate": true,
+        "scheme": "B-monomial-coordinate-orbit-4",
+        "status": "projective monomial quotient-section diagnostic only; dP9 Ext, global Serre gluing, and quotient descent remain unresolved",
+        "t_action": [
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "unit_character_count": 3
+      },
+      {
+        "basis": [
+          [
+            0,
+            0,
+            3
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            1
+          ],
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ]
+        ],
+        "character_sections": [
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "1",
+            "unit_representative": [
+              "1",
+              "0",
+              "0",
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "vectors": [
+              [
+                "1",
+                "0",
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "-1-omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "1",
+            "unit_representative": [
+              "omega",
+              "0",
+              "0",
+              "-1-omega",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "vectors": [
+              [
+                "omega",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "1",
+                "0",
+                "0",
+                "1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "-1-omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "omega",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "1",
+            "unit_representative": [
+              "-1-omega",
+              "0",
+              "0",
+              "omega",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "vectors": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": false,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "-1-omega",
+            "unit_representative": null,
+            "vectors": [
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "1",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "commutator_scalar": "1",
+        "degree": 3,
+        "extension_space_dimension": 9,
+        "p_action": [
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "projective_serre_candidate": true,
+        "scheme": "B-monomial-coordinate-orbit-5",
+        "status": "projective monomial quotient-section diagnostic only; dP9 Ext, global Serre gluing, and quotient descent remain unresolved",
+        "t_action": [
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1-omega",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "omega",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "unit_character_count": 3
       }
     ],
     "tier_b_twist_descent_screen": {

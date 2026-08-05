@@ -32,6 +32,9 @@ from research.experiments.computable_carrier.tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
     tier_b_monomial_resolution_actions,
 )
+from research.experiments.computable_carrier.tier_b_serre_sections import (
+    tier_b_projective_serre_section_audits,
+)
 from research.experiments.computable_carrier.tier_b_twists import (
     tier_b_twist_descent_screen,
 )
@@ -105,6 +108,19 @@ def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
     assert len(screen.audits) == 125
     assert len(screen.compatible_audits) == 45
     assert (-1, 1, 0) in {item.left_twist for item in screen.compatible_audits}
+
+
+def test_tier_b_projective_serre_sections_are_explicit_and_scope_limited() -> None:
+    """Projective quotient sections expose local units without claiming dP9 Ext."""
+
+    audits = tier_b_projective_serre_section_audits()
+
+    assert len(audits) == 6
+    assert [audit.degree for audit in audits] == [1, 2, 2, 3, 3, 3]
+    assert [audit.extension_space_dimension for audit in audits] == [3, 6, 6, 9, 9, 9]
+    assert [len(audit.character_sections) for audit in audits] == [0, 0, 0, 9, 9, 9]
+    assert [len(audit.unit_character_sections) for audit in audits] == [0, 0, 0, 3, 3, 3]
+    assert all(audit.projective_serre_candidate for audit in audits[3:])
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

@@ -299,5 +299,10 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert horseshoe["presentation_gate_count"] == 30
     assert horseshoe["local_freeness_on_atlas_count"] == 30
     assert horseshoe["invariant_outer_class_count"] == 0
+    outer = artifact["tier_a_chain_inputs"]["tier_b_outer_frontier"]
+    assert outer["pair_count"] == 12
+    assert outer["complete_for_declared_category"] is True
+    assert outer["invariant_outer_class_count"] == 0
+    assert outer["no_candidate_in_declared_category"] is True
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

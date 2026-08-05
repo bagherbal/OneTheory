@@ -187,6 +187,14 @@ an invariant outer class, so this is an explicit raw-extension presentation
 frontier rather than an equivariant descended carrier or a physical SU(4)
 object.
 
+The eligible coordinate-supported Tier B rays now receive an independent
+outer audit. All twelve declared I3/I6 monomial ray pairs have exact
+projective and zero-fiber dP9 Hom totalizations with degree-one dimension
+five, commuting order-three deck actions, and zero invariant outer classes.
+This is a scoped no-candidate result for that monomial category only; it does
+not exclude non-monomial schemes, unexamined twists, broader Serre classes,
+stability, or the physical carrier.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

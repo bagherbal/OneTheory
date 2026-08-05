@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "6fe4b505a2061d8dffded0b3ae9a01a1107fc7580fb99194f8f34b69c21a7d89",
+  "artifact_digest": "2006495683ead46d317dbbaac5513197917f01b4eafee2cf0abf4e6b16d9936a",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -113253,6 +113253,569 @@
         ],
         "status": "exact local Serre gate only; global dP9 patching, linearization, and quotient descent remain unresolved",
         "unit_extension_available": true
+      }
+    ],
+    "tier_b_local_serre_cocycles": [
+      {
+        "available": true,
+        "exact": true,
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -1
+                ]
+              }
+            ]
+          ]
+        ],
+        "multiplicity": 1,
+        "nonboundary": true,
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
+        "scheme": "B-monomial-coordinate-orbit-0",
+        "status": "local punctured-chart cocycle only; global dP9 Cech gluing, linearization, and quotient descent remain unresolved"
+      },
+      {
+        "available": true,
+        "exact": true,
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -2
+                ]
+              }
+            ]
+          ]
+        ],
+        "multiplicity": 2,
+        "nonboundary": true,
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -2
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
+        "scheme": "B-monomial-coordinate-orbit-1",
+        "status": "local punctured-chart cocycle only; global dP9 Cech gluing, linearization, and quotient descent remain unresolved"
+      },
+      {
+        "available": true,
+        "exact": true,
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -2
+                ]
+              }
+            ]
+          ]
+        ],
+        "multiplicity": 2,
+        "nonboundary": true,
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -2
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
+        "scheme": "B-monomial-coordinate-orbit-2",
+        "status": "local punctured-chart cocycle only; global dP9 Cech gluing, linearization, and quotient descent remain unresolved"
+      },
+      {
+        "available": true,
+        "exact": true,
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  3
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  3
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3
+                ]
+              }
+            ]
+          ]
+        ],
+        "multiplicity": 3,
+        "nonboundary": true,
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -3
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
+        "scheme": "B-monomial-coordinate-orbit-3",
+        "status": "local punctured-chart cocycle only; global dP9 Cech gluing, linearization, and quotient descent remain unresolved"
+      },
+      {
+        "available": false,
+        "exact": false,
+        "local_to_du": null,
+        "local_to_dv": null,
+        "multiplicity": 3,
+        "nonboundary": false,
+        "punctured_cocycle": null,
+        "scheme": "B-monomial-coordinate-orbit-4",
+        "status": "local punctured-chart cocycle only; global dP9 Cech gluing, linearization, and quotient descent remain unresolved"
+      },
+      {
+        "available": true,
+        "exact": true,
+        "local_to_du": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  3
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            []
+          ]
+        ],
+        "local_to_dv": [
+          [
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  3
+                ]
+              }
+            ],
+            []
+          ],
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  -3
+                ]
+              }
+            ]
+          ]
+        ],
+        "multiplicity": 3,
+        "nonboundary": true,
+        "punctured_cocycle": [
+          [
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  -1,
+                  -3
+                ]
+              }
+            ]
+          ],
+          [
+            [],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ]
+        ],
+        "scheme": "B-monomial-coordinate-orbit-5",
+        "status": "local punctured-chart cocycle only; global dP9 Cech gluing, linearization, and quotient descent remain unresolved"
       }
     ],
     "tier_b_monomial_resolution_actions": [

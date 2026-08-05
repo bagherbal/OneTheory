@@ -254,6 +254,11 @@ Every transition is invertible and every bare cocycle identity holds. The
 non-lci staircase receives no atlas. These matrices are still ideal-level
 coordinates; dP9 frame comparison and global Serre gluing are not claimed.
 
+The corresponding punctured-chart unit cocycles are also generated for those
+five lci types. Their Laurent transition inverses, cocycle identities, and
+non-boundary pole tests pass exactly; the non-lci case has no cocycle record.
+These are local extension representatives only, not global dP9 Cech classes.
+
 The same six resolutions now have deterministic exact P/T lifts. All pass the
 finite chain-equation, invertibility, and order-three checks, but no pair has
 one common projective commutator scalar on both free-resolution terms. This is

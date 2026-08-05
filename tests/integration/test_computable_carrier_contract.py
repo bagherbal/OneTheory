@@ -41,6 +41,9 @@ from research.experiments.computable_carrier.tier_b_monomial import (
 from research.experiments.computable_carrier.tier_b_serre_atlas import (
     tier_b_serre_atlas_audits,
 )
+from research.experiments.computable_carrier.tier_b_serre_cocycles import (
+    tier_b_local_cocycle_audits,
+)
 from research.experiments.computable_carrier.tier_b_serre_sections import (
     tier_b_projective_serre_section_audits,
 )
@@ -181,6 +184,23 @@ def test_tier_b_bare_serre_atlases_are_exact_and_non_lci_safe() -> None:
     assert sum(
         len(audit.atlas.transitions) for audit in audits if audit.atlas is not None
     ) == 150
+
+
+def test_tier_b_local_cocycles_are_exact_and_non_lci_safe() -> None:
+    """Local unit cocycles pass exact tests only for the five lci types."""
+
+    audits = tier_b_local_cocycle_audits()
+
+    assert len(audits) == 6
+    assert [audit.available for audit in audits] == [
+        True,
+        True,
+        True,
+        True,
+        False,
+        True,
+    ]
+    assert all(audit.exact and audit.nonboundary for audit in audits if audit.available)
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

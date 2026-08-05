@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "e59dd46b577f9dfd5271d5be1bc6bd62ea6a9d34fae5c6fd33ed2ef32b985a2d",
+  "artifact_digest": "6d8ea853c41e2b0ad1ea89476dfec0ae31e79df7653205861fecddccf2b73c0d",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -29665,6 +29665,62 @@
           "hep-th/0602073 eq. (63)"
         ],
         "status": "source-backed pushdown constraint; global bundle pending"
+      }
+    ],
+    "pushout_relation_linearizations": [
+      {
+        "actions": [
+          {
+            "extension_character": "omega",
+            "generator": "P",
+            "middle_action_order_three": true,
+            "relation_action_order_three": true,
+            "relation_equation": true
+          },
+          {
+            "extension_character": "1",
+            "generator": "T",
+            "middle_action_order_three": true,
+            "relation_action_order_three": true,
+            "relation_equation": true
+          }
+        ],
+        "failures": [
+          "middle-generator P/T actions do not commute"
+        ],
+        "group_relations_verified": false,
+        "middle_actions_commute": false,
+        "relation_actions_commute": true,
+        "relation_equations_hold": true,
+        "scheme": "I3",
+        "status": "presentation-level action diagnostic; dP9 descent pending"
+      },
+      {
+        "actions": [
+          {
+            "extension_character": "1",
+            "generator": "P",
+            "middle_action_order_three": false,
+            "relation_action_order_three": false,
+            "relation_equation": true
+          },
+          {
+            "extension_character": "-1-omega",
+            "generator": "T",
+            "middle_action_order_three": false,
+            "relation_action_order_three": false,
+            "relation_equation": true
+          }
+        ],
+        "failures": [
+          "relation-row P/T actions do not commute"
+        ],
+        "group_relations_verified": false,
+        "middle_actions_commute": true,
+        "relation_actions_commute": false,
+        "relation_equations_hold": true,
+        "scheme": "I6",
+        "status": "presentation-level action diagnostic; dP9 descent pending"
       }
     ],
     "rank_four_baseline": {

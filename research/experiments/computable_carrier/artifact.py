@@ -38,6 +38,7 @@ from .outer import split_rank_four_baseline
 from .outer_actions import bounded_outer_action
 from .pencil import tier_a_pencil_model
 from .pushdown import tier_a_pushdown_constraints
+from .pushout_linearization import tier_a_pushout_relation_linearizations
 from .rank_four import rank_four_frontier
 from .resolution_actions import tier_a_resolution_actions
 from .search import finite_tier_search
@@ -71,6 +72,9 @@ def build_artifact(root: Path) -> dict[str, object]:
     atlas_serre_locals = tier_a_atlas_serre_locals(pencil_model)
     serre_pushout_atlases = tier_a_serre_pushout_atlases(pencil_model)
     explicit_serre_pushouts = tier_a_serre_pushouts(pencil_model)
+    pushout_relation_linearizations = tier_a_pushout_relation_linearizations(
+        explicit_serre_pushouts
+    )
     local_cech_actions = tier_a_local_cech_deck_actions(
         pencil_model,
         atlas_serre_locals,
@@ -156,6 +160,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "explicit_serre_pushouts": [
                 item.as_record() for item in explicit_serre_pushouts
+            ],
+            "pushout_relation_linearizations": [
+                item.as_record() for item in pushout_relation_linearizations
             ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {

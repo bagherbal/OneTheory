@@ -100,6 +100,13 @@ their inverse and ordered triple-cocycle identities pass exactly. This is a
 refined base-projective transition artifact; it is not yet a dP9 line-frame,
 global Serre, or quotient-descent certificate.
 
+The full pushout relation is now checked against the transposed derived
+Hilbert--Burch actions and the selected extension-line characters. Both I3 and
+I6 satisfy the individual relation equations, but I3 fails the commuting
+middle-generator action and I6 fails the commuting relation-row action. Thus
+the selected eigenclasses do not yet provide honest Z3 x Z3 presentation
+linearizations.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

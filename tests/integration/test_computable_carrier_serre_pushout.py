@@ -83,3 +83,26 @@ def test_selected_extension_classes_have_exact_character_actions() -> None:
         )
         for candidate in candidates
     )
+
+
+def test_relation_derived_transitions_use_refined_fitting_opens() -> None:
+    """The exact quotient frames glue on the selected principal opens."""
+
+    candidates = tier_a_serre_pushouts()
+
+    assert tuple(
+        candidate.transition_atlas.eliminated_columns for candidate in candidates
+    ) == (
+        ((2, 3), (1, 3), (0, 3)),
+        ((0, 2, 4), (1, 2, 4), (2, 3, 4)),
+    )
+    for candidate in candidates:
+        atlas = candidate.transition_atlas
+        assert len(atlas.transitions) == 30
+        assert atlas.all_invertible
+        assert atlas.cocycle_consistent
+        assert all(not denominator.is_zero() for denominator in atlas.denominators)
+    assert any(
+        len(denominator.terms) > 1
+        for denominator in candidates[1].transition_atlas.denominators
+    )

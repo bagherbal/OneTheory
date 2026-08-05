@@ -93,6 +93,13 @@ The same pushout relations are pulled into all six affine blow-up charts and
 retain exact quotient composition there. This records chart-local algebra but
 does not yet provide line-frame transition matrices on the dP9 overlaps.
 
+The relation presentations now also produce exact rank-two quotient frames on
+the three selected principal Fitting opens. All 30 ordered six-chart changes
+are stored as polynomial fractions, including the non-monomial I6 minors, and
+their inverse and ordered triple-cocycle identities pass exactly. This is a
+refined base-projective transition artifact; it is not yet a dP9 line-frame,
+global Serre, or quotient-descent certificate.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

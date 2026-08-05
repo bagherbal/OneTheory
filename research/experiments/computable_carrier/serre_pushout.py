@@ -3,7 +3,8 @@
 Owns:
     New Tier A extension maps from the displayed point-scheme resolutions,
     their polynomial pushout relations, quotient identities, local Fitting
-    minors, and exact character-action checks on the selected extension line.
+    minors, relation-derived principal-open transition matrices, and exact
+    character-action checks on the selected extension line.
 
 Depends on:
     The production I3/I6 resolutions, derived resolution actions, the finite
@@ -15,19 +16,25 @@ Must not:
     cocycle, infer stability or spectrum, or hide a failed full linearization.
 
 Phase 0:
-    Exact base pushout presentations and support-local freeness are provided;
-    dP9 line-frame descent, global atlas gluing, and quotient promotion remain
-    explicit gates.
+    Exact base pushout presentations, support-local freeness, and refined
+    principal-open transitions are provided; dP9 line-frame descent, global
+    atlas gluing, and quotient promotion remain explicit gates.
 """
 
 from __future__ import annotations
 
 from collections.abc import Iterable
 from dataclasses import dataclass
+from itertools import combinations
 
 from onetheory.math.linear import Matrix
 from onetheory.math.numbers import OMEGA, OMEGA2, Eisenstein, Rational
-from onetheory.math.polynomials import Polynomial, PolynomialMatrix
+from onetheory.math.polynomials import (
+    Polynomial,
+    PolynomialFraction,
+    PolynomialMatrix,
+    determinant,
+)
 from onetheory.models.heterotic_schoen.visible import PointScheme, point_schemes
 
 from .dual_cokernels import (
@@ -240,6 +247,326 @@ class ChartPushoutRecord:
         }
 
 
+@dataclass(frozen=True, slots=True, init=False)
+class FractionMatrix:
+    """An immutable exact matrix over one polynomial fraction field."""
+
+    rows: tuple[tuple[PolynomialFraction, ...], ...]
+
+    def __init__(self, rows: Iterable[Iterable[PolynomialFraction]]) -> None:
+        normalized = tuple(tuple(row) for row in rows)
+        if not normalized or not normalized[0]:
+            raise ValueError("fraction matrix must be nonempty")
+        width = len(normalized[0])
+        if any(len(row) != width for row in normalized):
+            raise ValueError("fraction matrix must be rectangular")
+        first = normalized[0][0]
+        for row in normalized:
+            for entry in row:
+                if entry.variable_count != first.variable_count:
+                    raise ValueError("fraction matrix variable counts do not agree")
+                if entry.scalar_type is not first.scalar_type:
+                    raise TypeError("fraction matrix scalar types do not agree")
+        object.__setattr__(self, "rows", normalized)
+
+    @classmethod
+    def identity(
+        cls,
+        size: int,
+        variable_count: int = 3,
+    ) -> FractionMatrix:
+        """Return an exact identity matrix in the carrier fraction field."""
+
+        if isinstance(size, bool) or not isinstance(size, int) or size < 1:
+            raise ValueError("identity size must be a positive integer")
+        zero = PolynomialFraction.zero(variable_count, scalar_type=Eisenstein)
+        one = PolynomialFraction.one(variable_count, scalar_type=Eisenstein)
+        return cls(
+            tuple(
+                tuple(one if row == column else zero for column in range(size))
+                for row in range(size)
+            )
+        )
+
+    @classmethod
+    def from_polynomials(
+        cls,
+        rows: Iterable[Iterable[Polynomial]],
+    ) -> FractionMatrix:
+        """Embed a rectangular polynomial matrix into its fraction field."""
+
+        return cls(
+            tuple(
+                tuple(PolynomialFraction.from_polynomial(entry) for entry in row)
+                for row in rows
+            )
+        )
+
+    @property
+    def shape(self) -> tuple[int, int]:
+        """Return the matrix row and column counts."""
+
+        return len(self.rows), len(self.rows[0])
+
+    @property
+    def variable_count(self) -> int:
+        """Return the number of polynomial variables in every entry."""
+
+        return self.rows[0][0].variable_count
+
+    def compose(self, previous: FractionMatrix) -> FractionMatrix:
+        """Compose this matrix after a compatible matrix."""
+
+        if self.shape[1] != previous.shape[0]:
+            raise ValueError("fraction matrices have incompatible ranks")
+        zero = PolynomialFraction.zero(
+            self.variable_count,
+            scalar_type=Eisenstein,
+        )
+        return FractionMatrix(
+            tuple(
+                tuple(
+                    sum(
+                        (
+                            self.rows[row][inner] * previous.rows[inner][column]
+                            for inner in range(self.shape[1])
+                        ),
+                        zero,
+                    )
+                    for column in range(previous.shape[1])
+                )
+                for row in range(self.shape[0])
+            )
+        )
+
+    def scale(self, scalar: object) -> FractionMatrix:
+        """Scale every entry by one exact coefficient-field scalar."""
+
+        return FractionMatrix(
+            tuple(
+                tuple(entry.scale(scalar) for entry in row)
+                for row in self.rows
+            )
+        )
+
+    def inverse(self) -> FractionMatrix:
+        """Invert a square matrix by exact fraction-field elimination."""
+
+        row_count, column_count = self.shape
+        if row_count != column_count:
+            raise ValueError("only square fraction matrices are invertible")
+        identity = FractionMatrix.identity(row_count, self.variable_count)
+        augmented = [
+            list(self.rows[row]) + list(identity.rows[row])
+            for row in range(row_count)
+        ]
+        for column in range(column_count):
+            pivot = next(
+                (
+                    row
+                    for row in range(column, row_count)
+                    if not augmented[row][column].is_zero()
+                ),
+                None,
+            )
+            if pivot is None:
+                raise ZeroDivisionError("fraction matrix is singular")
+            if pivot != column:
+                augmented[column], augmented[pivot] = (
+                    augmented[pivot],
+                    augmented[column],
+                )
+            pivot_inverse = augmented[column][column].inverse()
+            augmented[column] = [
+                entry * pivot_inverse for entry in augmented[column]
+            ]
+            for row in range(row_count):
+                if row == column or augmented[row][column].is_zero():
+                    continue
+                factor = augmented[row][column]
+                augmented[row] = [
+                    left - factor * right
+                    for left, right in zip(
+                        augmented[row],
+                        augmented[column],
+                        strict=True,
+                    )
+                ]
+        return FractionMatrix(
+            tuple(tuple(row[column_count:]) for row in augmented)
+        )
+
+    def is_identity(self) -> bool:
+        """Return whether the square matrix is exactly the identity."""
+
+        row_count, column_count = self.shape
+        if row_count != column_count:
+            return False
+        identity = FractionMatrix.identity(row_count, self.variable_count)
+        return self == identity
+
+
+def _polynomial_record(polynomial: Polynomial) -> dict[str, object]:
+    """Serialize one exact polynomial without lossy string conversion."""
+
+    return {
+        "terms": [
+            {
+                "exponents": list(exponents),
+                "coefficient": str(coefficient),
+            }
+            for exponents, coefficient in polynomial.terms
+        ]
+    }
+
+
+def _fraction_record(fraction: PolynomialFraction) -> dict[str, object]:
+    """Serialize one exact numerator and denominator pair."""
+
+    return {
+        "numerator": _polynomial_record(fraction.numerator),
+        "denominator": _polynomial_record(fraction.denominator),
+    }
+
+
+def _selected_fitting_columns(
+    relation: PolynomialMatrix,
+) -> tuple[tuple[int, ...], ...]:
+    """Choose the first exact unit maximal minor at every support point."""
+
+    combinations_by_rank = tuple(
+        tuple(combination)
+        for combination in combinations(
+            range(relation.shape[1]),
+            relation.shape[0],
+        )
+    )
+    records = _local_fitting_data(relation)
+    selected = []
+    for point, unit, indices in records:
+        if not unit or not indices:
+            raise ValueError(f"no principal Fitting open at {point}")
+        selected.append(combinations_by_rank[indices[0]])
+    return tuple(selected)
+
+
+def _frame_coordinates(
+    relation: PolynomialMatrix,
+    eliminated_columns: tuple[int, ...],
+) -> tuple[tuple[int, ...], FractionMatrix, Polynomial]:
+    """Express every pushout generator in a principal-open free frame."""
+
+    relation_rows, generator_count = relation.shape
+    if len(eliminated_columns) != relation_rows:
+        raise ValueError("a Fitting frame must eliminate one column per relation")
+    if len(set(eliminated_columns)) != len(eliminated_columns):
+        raise ValueError("Fitting frame columns must be distinct")
+    if any(column < 0 or column >= generator_count for column in eliminated_columns):
+        raise IndexError("Fitting frame column is out of range")
+    free_columns = tuple(
+        column
+        for column in range(generator_count)
+        if column not in eliminated_columns
+    )
+    eliminated = FractionMatrix.from_polynomials(
+        tuple(
+            tuple(relation.rows[row][column] for column in eliminated_columns)
+            for row in range(relation_rows)
+        )
+    )
+    free = FractionMatrix.from_polynomials(
+        tuple(
+            tuple(relation.rows[row][column] for column in free_columns)
+            for row in range(relation_rows)
+        )
+    )
+    coordinates_of_eliminated = eliminated.inverse().compose(free).scale(-1)
+    coordinates = []
+    for column in range(generator_count):
+        if column in eliminated_columns:
+            coordinates.append(
+                coordinates_of_eliminated.rows[eliminated_columns.index(column)]
+            )
+        else:
+            free_index = free_columns.index(column)
+            coordinates.append(
+                tuple(
+                    PolynomialFraction.one(
+                        relation.variable_count,
+                        scalar_type=Eisenstein,
+                    )
+                    if row == free_index
+                    else PolynomialFraction.zero(
+                        relation.variable_count,
+                        scalar_type=Eisenstein,
+                    )
+                    for row in range(len(free_columns))
+                )
+            )
+    denominator = determinant(
+        tuple(
+            tuple(relation.rows[row][column] for column in eliminated_columns)
+            for row in range(relation_rows)
+        )
+    )
+    return free_columns, FractionMatrix(tuple(coordinates)), denominator
+
+
+def _frame_transition(
+    source_coordinates: FractionMatrix,
+    target_free_columns: tuple[int, ...],
+) -> FractionMatrix:
+    """Express a target frame in the source frame coordinates."""
+
+    dimension = len(target_free_columns)
+    return FractionMatrix(
+        tuple(
+            tuple(
+                source_coordinates.rows[target_free_columns[column]][row]
+                for column in range(dimension)
+            )
+            for row in range(dimension)
+        )
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class SerreTransitionAtlas:
+    """Relation-derived transitions on the refined principal-open cover."""
+
+    scheme: str
+    transitions: tuple[tuple[str, str, FractionMatrix], ...]
+    eliminated_columns: tuple[tuple[int, ...], ...]
+    denominators: tuple[Polynomial, ...]
+    all_invertible: bool
+    cocycle_consistent: bool
+    status: str
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize exact rational transitions and their open conditions."""
+
+        return {
+            "scheme": self.scheme,
+            "transitions": [
+                {
+                    "source": source,
+                    "target": target,
+                    "matrix": [
+                        [_fraction_record(entry) for entry in row]
+                        for row in matrix.rows
+                    ],
+                }
+                for source, target, matrix in self.transitions
+            ],
+            "transition_count": len(self.transitions),
+            "eliminated_columns": [list(columns) for columns in self.eliminated_columns],
+            "denominators": [_polynomial_record(item) for item in self.denominators],
+            "all_invertible": self.all_invertible,
+            "cocycle_consistent": self.cocycle_consistent,
+            "status": self.status,
+        }
+
+
 @dataclass(frozen=True, slots=True)
 class BaseChernData:
     """Formal base-projective Chern data derived from a graded resolution."""
@@ -302,6 +629,66 @@ def _chart_pushout_records(
             )
         )
     return tuple(records)
+
+
+def _transition_atlas(
+    scheme: PointScheme,
+    relation: PolynomialMatrix,
+    model: TierAPencilModel,
+) -> SerreTransitionAtlas:
+    """Construct transitions from exact principal-open quotient frames."""
+
+    fitting_columns = _selected_fitting_columns(relation)
+    frame_data = tuple(
+        _frame_coordinates(relation, columns)
+        for columns in fitting_columns
+    )
+    charts = model.blowup_atlas.charts
+    transitions = []
+    for source in charts:
+        source_coordinates = frame_data[source.base_pivot][1]
+        for target in charts:
+            if source == target:
+                continue
+            if source.base_pivot == target.base_pivot:
+                matrix = FractionMatrix.identity(2, relation.variable_count)
+            else:
+                matrix = _frame_transition(
+                    source_coordinates,
+                    frame_data[target.base_pivot][0],
+                )
+            transitions.append((source.name, target.name, matrix))
+    by_pair = {(source, target): matrix for source, target, matrix in transitions}
+    identity = FractionMatrix.identity(2, relation.variable_count)
+
+    def transition(source: str, target: str) -> FractionMatrix:
+        return identity if source == target else by_pair[(source, target)]
+
+    all_invertible = all(
+        transition(source, target).compose(transition(target, source)).is_identity()
+        and transition(target, source).compose(transition(source, target)).is_identity()
+        for source in (chart.name for chart in charts)
+        for target in (chart.name for chart in charts)
+    )
+    cocycle_consistent = all(
+        transition(source, middle).compose(transition(middle, target))
+        == transition(source, target)
+        for source in (chart.name for chart in charts)
+        for middle in (chart.name for chart in charts)
+        for target in (chart.name for chart in charts)
+    )
+    return SerreTransitionAtlas(
+        scheme.name,
+        tuple(transitions),
+        fitting_columns,
+        tuple(item[2] for item in frame_data),
+        all_invertible,
+        cocycle_consistent,
+        (
+            "relation-derived transitions on the refined principal Fitting-open "
+            "cover; dP9 line-frame and quotient descent pending"
+        ),
+    )
 
 
 def _i3_class(
@@ -408,6 +795,7 @@ class SerrePushoutCandidate:
     base_chern: BaseChernData
     local_fitting: tuple[tuple[str, bool, tuple[int, ...]], ...]
     chart_records: tuple[ChartPushoutRecord, ...]
+    transition_atlas: SerreTransitionAtlas
     linearizations: tuple[PushoutLinearization, ...]
     source_rank: int
     middle_rank: int
@@ -428,27 +816,16 @@ class SerrePushoutCandidate:
     def as_record(self) -> dict[str, object]:
         """Serialize the complete base pushout presentation and gates."""
 
-        def polynomial_record(polynomial: Polynomial) -> dict[str, object]:
-            return {
-                "terms": [
-                    {
-                        "exponents": list(exponents),
-                        "coefficient": str(coefficient),
-                    }
-                    for exponents, coefficient in polynomial.terms
-                ]
-            }
-
         return {
             "scheme": self.scheme.name,
-            "extension_map": [polynomial_record(item) for item in self.extension_map],
+            "extension_map": [_polynomial_record(item) for item in self.extension_map],
             "character_pair": [str(value) for value in self.character_pair],
             "relation": [
-                [polynomial_record(item) for item in row]
+                [_polynomial_record(item) for item in row]
                 for row in self.relation.rows
             ],
             "quotient": [
-                [polynomial_record(item) for item in row]
+                [_polynomial_record(item) for item in row]
                 for row in self.quotient.rows
             ],
             "relation_composes_to_zero": self.relation_composes_to_zero,
@@ -469,6 +846,7 @@ class SerrePushoutCandidate:
             ],
             "locally_free_at_support": self.locally_free_at_support,
             "chart_records": [item.as_record() for item in self.chart_records],
+            "transition_atlas": self.transition_atlas.as_record(),
             "linearizations": [item.as_record() for item in self.linearizations],
             "status": self.status,
         }
@@ -534,6 +912,7 @@ def _candidate(
     base_chern = _base_chern_data(source_shifts, target_shifts)
     local_fitting = _local_fitting_data(relation)
     chart_records = _chart_pushout_records(relation, quotient, model)
+    transition_atlas = _transition_atlas(scheme, relation, model)
     linearizations = _linearization_records(
         pair,
         character_pair,
@@ -553,6 +932,7 @@ def _candidate(
         base_chern,
         local_fitting,
         chart_records,
+        transition_atlas,
         linearizations,
         len(scheme.resolution.matrix[0]),
         len(scheme.resolution.matrix) + 1 - len(scheme.resolution.matrix[0]),
@@ -577,4 +957,10 @@ def tier_a_serre_pushouts(
     )
 
 
-__all__ = ["PushoutLinearization", "SerrePushoutCandidate", "tier_a_serre_pushouts"]
+__all__ = [
+    "FractionMatrix",
+    "PushoutLinearization",
+    "SerrePushoutCandidate",
+    "SerreTransitionAtlas",
+    "tier_a_serre_pushouts",
+]

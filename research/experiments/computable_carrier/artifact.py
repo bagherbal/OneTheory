@@ -62,6 +62,7 @@ from .tier_b_monomial import (
     tier_b_monomial_resolution_actions,
 )
 from .tier_b_search import tier_b_known_scheme_search
+from .tier_b_twists import tier_b_twist_descent_screen
 
 
 def _sha256(path: Path) -> str:
@@ -148,6 +149,9 @@ def build_artifact(root: Path) -> dict[str, object]:
     )
     tier_b_monomial_actions = tier_b_monomial_resolution_actions(
         tier_b_monomial_schemes,
+    )
+    tier_b_twist_screen = tier_b_twist_descent_screen(
+        tier_b_known_schemes.twist_radius,
     )
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
         pencil_model,
@@ -276,6 +280,7 @@ def build_artifact(root: Path) -> dict[str, object]:
             "tier_b_monomial_resolution_actions": [
                 item.as_record() for item in tier_b_monomial_actions
             ],
+            "tier_b_twist_descent_screen": tier_b_twist_screen.as_record(),
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],

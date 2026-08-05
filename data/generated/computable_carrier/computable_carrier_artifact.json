@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "44531653233e1af70b3df3d2f9775dc3ae7f1318a97c69dfa008bae80c1a1f8e",
+  "artifact_digest": "3df515921b6e95cd626a3c217ff090a85688413f04b2d0b56d29d23a9dd74355",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -112274,6 +112274,2366 @@
         "status": "resolution-level deck lift only; common projective commutator, Serre linearization, and quotient descent remain unresolved",
         "target_commutator_scalar": null
       }
-    ]
+    ],
+    "tier_b_twist_descent_screen": {
+      "audits": [
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            -2,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            2,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            -2,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            2,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            -2,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            2,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            -2,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            2,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            -2,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            2,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -2,
+            -1,
+            -2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            2,
+            1,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -2,
+            -1,
+            -1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            2,
+            1,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -2,
+            -1,
+            0
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            2,
+            1,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -2,
+            -1,
+            1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            2,
+            1,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -2,
+            -1,
+            2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            2,
+            1,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            0,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            0,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            0,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            0,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            0,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            0,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            0,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            0,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            0,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            0,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            1,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            -1,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            1,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            -1,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            1,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            -1,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            1,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            -1,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -2,
+            1,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            2,
+            -1,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -2,
+            2,
+            -2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            2,
+            -2,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -2,
+            2,
+            -1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            2,
+            -2,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -2,
+            2,
+            0
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            2,
+            -2,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -2,
+            2,
+            1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            2,
+            -2,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -2,
+            2,
+            2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            2,
+            -2,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -1,
+            -2,
+            -2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            1,
+            2,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -1,
+            -2,
+            -1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            1,
+            2,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -1,
+            -2,
+            0
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            1,
+            2,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -1,
+            -2,
+            1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            1,
+            2,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -1,
+            -2,
+            2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            1,
+            2,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            -1,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            1,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            -1,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            1,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            -1,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            1,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            -1,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            1,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            -1,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            1,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            0,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            0,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            0,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            0,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            0,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            0,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            0,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            0,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            0,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            0,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -1,
+            1,
+            -2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            1,
+            -1,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -1,
+            1,
+            -1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            1,
+            -1,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -1,
+            1,
+            0
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            1,
+            -1,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -1,
+            1,
+            1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            1,
+            -1,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            -1,
+            1,
+            2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            1,
+            -1,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            2,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            -2,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            2,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            -2,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            2,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            -2,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            2,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            -2,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            -1,
+            2,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            1,
+            -2,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            -2,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            2,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            -2,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            2,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            -2,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            2,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            -2,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            2,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            -2,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            2,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            -1,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            1,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            -1,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            1,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            -1,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            1,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            -1,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            1,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            -1,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            1,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            0,
+            0,
+            -2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            0,
+            0,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            0,
+            0,
+            -1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            0,
+            0,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            0,
+            0,
+            0
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            0,
+            0,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            0,
+            0,
+            1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            0,
+            0,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            0,
+            0,
+            2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            0,
+            0,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            1,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            -1,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            1,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            -1,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            1,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            -1,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            1,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            -1,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            1,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            -1,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            2,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            -2,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            2,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            -2,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            2,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            -2,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            2,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            -2,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            0,
+            2,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            0,
+            -2,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            -2,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            2,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            -2,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            2,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            -2,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            2,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            -2,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            2,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            -2,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            2,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            1,
+            -1,
+            -2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -1,
+            1,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            1,
+            -1,
+            -1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -1,
+            1,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            1,
+            -1,
+            0
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -1,
+            1,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            1,
+            -1,
+            1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -1,
+            1,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            1,
+            -1,
+            2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -1,
+            1,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            0,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            0,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            0,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            0,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            0,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            0,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            0,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            0,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            0,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            0,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            1,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            -1,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            1,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            -1,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            1,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            -1,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            1,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            -1,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            1,
+            1,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -1,
+            -1,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            1,
+            2,
+            -2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -1,
+            -2,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            1,
+            2,
+            -1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -1,
+            -2,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            1,
+            2,
+            0
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -1,
+            -2,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            1,
+            2,
+            1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -1,
+            -2,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            1,
+            2,
+            2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -1,
+            -2,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            2,
+            -2,
+            -2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -2,
+            2,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            2,
+            -2,
+            -1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -2,
+            2,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            2,
+            -2,
+            0
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -2,
+            2,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            2,
+            -2,
+            1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -2,
+            2,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            2,
+            -2,
+            2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -2,
+            2,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            -1,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            1,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            -1,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            1,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            -1,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            1,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            -1,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            1,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            -1,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            1,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            0,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            0,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            0,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            0,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            0,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            0,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            0,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            0,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            0,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            0,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            2,
+            1,
+            -2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -2,
+            -1,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            2,
+            1,
+            -1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -2,
+            -1,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            2,
+            1,
+            0
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -2,
+            -1,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            2,
+            1,
+            1
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -2,
+            -1,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": true,
+          "left_twist": [
+            2,
+            1,
+            2
+          ],
+          "necessary_descent_gate": true,
+          "right_class_congruence": true,
+          "right_twist": [
+            -2,
+            -1,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            2,
+            -2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            -2,
+            2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            2,
+            -1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            -2,
+            1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            2,
+            0
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            -2,
+            0
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            2,
+            1
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            -2,
+            -1
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        },
+        {
+          "determinant_cancels": true,
+          "left_class_congruence": false,
+          "left_twist": [
+            2,
+            2,
+            2
+          ],
+          "necessary_descent_gate": false,
+          "right_class_congruence": false,
+          "right_twist": [
+            -2,
+            -2,
+            -2
+          ],
+          "status": "necessary divisor-class screen only; line linearization, Serre construction, and quotient descent remain unresolved"
+        }
+      ],
+      "necessary_descent_count": 45,
+      "necessary_descent_twists": [
+        [
+          -2,
+          -1,
+          -2
+        ],
+        [
+          -2,
+          -1,
+          -1
+        ],
+        [
+          -2,
+          -1,
+          0
+        ],
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -2,
+          -1,
+          2
+        ],
+        [
+          -2,
+          2,
+          -2
+        ],
+        [
+          -2,
+          2,
+          -1
+        ],
+        [
+          -2,
+          2,
+          0
+        ],
+        [
+          -2,
+          2,
+          1
+        ],
+        [
+          -2,
+          2,
+          2
+        ],
+        [
+          -1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          -2,
+          -1
+        ],
+        [
+          -1,
+          -2,
+          0
+        ],
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          -1,
+          -2,
+          2
+        ],
+        [
+          -1,
+          1,
+          -2
+        ],
+        [
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          1,
+          2
+        ],
+        [
+          0,
+          0,
+          -2
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          -1,
+          -2
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          -1,
+          2
+        ],
+        [
+          1,
+          2,
+          -2
+        ],
+        [
+          1,
+          2,
+          -1
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          -2,
+          -2
+        ],
+        [
+          2,
+          -2,
+          -1
+        ],
+        [
+          2,
+          -2,
+          0
+        ],
+        [
+          2,
+          -2,
+          1
+        ],
+        [
+          2,
+          -2,
+          2
+        ],
+        [
+          2,
+          1,
+          -2
+        ],
+        [
+          2,
+          1,
+          -1
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "radius": 2,
+      "status": "complete bounded divisor-class screen; honest line and Serre linearizations remain unresolved",
+      "twist_count": 125
+    }
   }
 }

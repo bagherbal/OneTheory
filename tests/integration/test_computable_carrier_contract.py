@@ -32,6 +32,9 @@ from research.experiments.computable_carrier.tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
     tier_b_monomial_resolution_actions,
 )
+from research.experiments.computable_carrier.tier_b_twists import (
+    tier_b_twist_descent_screen,
+)
 
 
 def test_computable_carrier_contract_is_distinct_and_selection_safe() -> None:
@@ -92,6 +95,16 @@ def test_tier_b_monomial_resolution_actions_stop_before_serre_descent() -> None:
     assert len(audits) == 6
     assert all(audit.exact_resolution_gate for audit in audits)
     assert all(not audit.common_projective_commutator for audit in audits)
+
+
+def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
+    """The radius-two class screen is exact but does not claim linearization."""
+
+    screen = tier_b_twist_descent_screen()
+
+    assert len(screen.audits) == 125
+    assert len(screen.compatible_audits) == 45
+    assert (-1, 1, 0) in {item.left_twist for item in screen.compatible_audits}
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

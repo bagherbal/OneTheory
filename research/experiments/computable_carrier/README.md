@@ -232,6 +232,11 @@ an explicit resolution-level obstruction diagnostic only: it does not prove a
 Serre no-go, because a global extension comparison and its linearization are
 still absent.
 
+The radius-two determinant-cancelling twist cube is also screened against the
+published quotient divisor-class congruence. Exactly 45 of its 125 twists
+pass this necessary class gate, including the reference twist; this does not
+construct line-bundle linearizations or establish descent of any constituent.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

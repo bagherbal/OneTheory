@@ -38,6 +38,9 @@ from research.experiments.computable_carrier.tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
     tier_b_monomial_resolution_actions,
 )
+from research.experiments.computable_carrier.tier_b_serre_atlas import (
+    tier_b_serre_atlas_audits,
+)
 from research.experiments.computable_carrier.tier_b_serre_sections import (
     tier_b_projective_serre_section_audits,
 )
@@ -154,6 +157,30 @@ def test_tier_b_local_serre_gate_excludes_only_the_non_lci_staircase() -> None:
         False,
         True,
     ]
+
+
+def test_tier_b_bare_serre_atlases_are_exact_and_non_lci_safe() -> None:
+    """Bare chart transitions pass exact gates only for lci local types."""
+
+    audits = tier_b_serre_atlas_audits()
+
+    assert len(audits) == 6
+    assert [audit.transitions_available for audit in audits] == [
+        True,
+        True,
+        True,
+        True,
+        False,
+        True,
+    ]
+    assert all(
+        audit.all_invertible and audit.cocycle_consistent
+        for audit in audits
+        if audit.transitions_available
+    )
+    assert sum(
+        len(audit.atlas.transitions) for audit in audits if audit.atlas is not None
+    ) == 150
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

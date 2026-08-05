@@ -248,6 +248,12 @@ three minimal generators and fails the local complete-intersection gate. This
 excludes that one scheme from the classical local Serre route only; it is not
 a no-go for other constructions or for the remaining global descent problem.
 
+For the five lci cases, the exact bare two-by-two pushout transitions are
+also generated across all 30 ordered pairs of the six-chart blow-up atlas.
+Every transition is invertible and every bare cocycle identity holds. The
+non-lci staircase receives no atlas. These matrices are still ideal-level
+coordinates; dP9 frame comparison and global Serre gluing are not claimed.
+
 The same six resolutions now have deterministic exact P/T lifts. All pass the
 finite chain-equation, invertibility, and order-three checks, but no pair has
 one common projective commutator scalar on both free-resolution terms. This is

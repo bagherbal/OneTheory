@@ -207,6 +207,14 @@ ray-pair actions have order three, commute, and leave zero common degree-one
 classes. This closes only the declared zero-fiber presentation category; it
 does not call the result a descended Serre linearization or a global bundle.
 
+The exact Tier A exclusion now unlocks a narrowly declared Tier B category:
+the verified invariant I3 and I6 schemes paired in every ordered combination
+with determinant-cancelling twists in the specification's radius-two cube.
+This enumerates 499 unresolved descriptors after removing the Tier A pair.
+It is complete only for that known-scheme category; the full bounded search
+over invariant zero-dimensional schemes, constituent cocycles, and honest
+linearizations remains open.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

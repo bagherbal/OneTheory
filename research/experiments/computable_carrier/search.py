@@ -176,7 +176,11 @@ def _tier_b() -> tuple[CandidateDescriptor, ...]:
         )
         for index, (left, right, twist) in enumerate(
             item for item in product(schemes, schemes, twists)
-            if item[2] != (-1, 1, 0)
+            if not (
+                item[0] == "I3"
+                and item[1] == "I6"
+                and item[2] == (-1, 1, 0)
+            )
         )
     )
 

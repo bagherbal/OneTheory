@@ -37,6 +37,9 @@ from research.experiments.computable_carrier.dp9_linebundles import (
 from research.experiments.computable_carrier.projective_hom_search import (
     tier_a_projective_hom_pair_audits,
 )
+from research.experiments.computable_carrier.tier_b_search import (
+    tier_b_known_scheme_search,
+)
 
 
 def test_dp9_koszul_correction_vanishes_for_zero_fiber_twist() -> None:
@@ -106,6 +109,12 @@ def test_dp9_totalization_matches_projective_h1_for_all_ray_pairs() -> None:
     assert all(item.actions_commute for item in actions)
     assert all(item.actions_order_three for item in actions)
     assert all(item.invariant_dimension == 0 for item in actions)
+
+    tier_b = tier_b_known_scheme_search(audits, actions)
+
+    assert tier_b.unlocked
+    assert tier_b.complete_for_declared_category
+    assert len(tier_b.descriptors) == 499
 
 
 def test_dp9_totalization_accepts_a_single_parent_pair() -> None:

@@ -63,6 +63,7 @@ def test_finite_search_keeps_later_tiers_locked() -> None:
     assert report.tier_c == ()
     assert report.tier_b_locked
     assert report.tier_c_locked
+    assert report.candidate_count == 500
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

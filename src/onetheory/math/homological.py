@@ -347,11 +347,16 @@ class LinearMap:
             raise ValueError("map composition requires matching named spaces")
         rows = tuple(
             tuple(
-                sum((_multiply(left, right) for left, right in zip(
-                        self.rows[row], column, strict=True
-                    )),
-                    _zero(self.domain.scalar_type))
-                for column in zip(*previous.rows, strict=True) if previous.rows
+                sum(
+                    (
+                        _multiply(self.rows[row][inner], previous.rows[inner][column])
+                        for inner in range(self.domain.dimension)
+                        if not self.rows[row][inner].is_zero()
+                        and not previous.rows[inner][column].is_zero()
+                    ),
+                    _zero(self.domain.scalar_type),
+                )
+                for column in range(previous.domain.dimension)
             )
             for row in range(self.codomain.dimension)
         )

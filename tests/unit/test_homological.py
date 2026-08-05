@@ -161,6 +161,23 @@ def test_shift_direct_sum_and_mapping_cone_preserve_exactness() -> None:
     assert cone.cohomology_dimension(1) == 0
 
 
+def test_linear_map_direct_sum_keeps_distinct_block_frames() -> None:
+    """Block-diagonal maps retain each distinct domain and codomain basis."""
+
+    left_domain = VectorSpace("left domain", ("x",))
+    left_codomain = VectorSpace("left codomain", ("u",))
+    right_domain = VectorSpace("right domain", ("y",))
+    right_codomain = VectorSpace("right codomain", ("v",))
+    summed = LinearMap.direct_sum(
+        LinearMap(left_domain, left_codomain, ((2,),)),
+        LinearMap(right_domain, right_codomain, ((3,),)),
+    )
+
+    assert summed.domain.dimension == 2
+    assert summed.codomain.dimension == 2
+    assert summed.rows == ((Rational(2), Rational(0)), (Rational(0), Rational(3)))
+
+
 def test_eisenstein_complexes_use_exact_coefficients() -> None:
     e0 = VectorSpace("E0", ("e0",), Eisenstein)
     e1 = VectorSpace("E1", ("e1",), Eisenstein)

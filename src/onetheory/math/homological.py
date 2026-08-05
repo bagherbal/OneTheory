@@ -450,10 +450,10 @@ class LinearMap:
             (
                 (
                     left,
-                    cls.zero(left.domain, right.codomain),
+                    cls.zero(right.domain, left.codomain),
                 ),
                 (
-                    cls.zero(right.domain, left.codomain),
+                    cls.zero(left.domain, right.codomain),
                     right,
                 ),
             )

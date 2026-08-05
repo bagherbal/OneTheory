@@ -21,9 +21,11 @@ Phase 0:
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import cache
 from itertools import product
 
 from onetheory.math.homological import (
+    ChainMap,
     CochainComplex,
     GradedVectorSpace,
     LinearMap,
@@ -377,6 +379,91 @@ def _equation_map(
     return LinearMap(source_space, target_space, rows)
 
 
+def _ambient_multiplication(
+    source_base_degree: int,
+    target_base_degree: int,
+    fiber_degree: int,
+    total_degree: int,
+    polynomial: Polynomial,
+) -> LinearMap:
+    """Multiply one ambient Kunneth space by a base polynomial."""
+
+    source_space, source_records = _kunneth_space(
+        source_base_degree,
+        fiber_degree,
+        total_degree,
+    )
+    target_space, target_records = _kunneth_space(
+        target_base_degree,
+        fiber_degree,
+        total_degree,
+    )
+    base_maps = []
+    for base_cohomology_degree, fiber_cohomology_degree, _, _ in source_records:
+        base_maps.append(
+            (
+                _p2_multiplication(
+                    source_base_degree,
+                    target_base_degree,
+                    base_cohomology_degree,
+                    polynomial,
+                ),
+                _p1_multiplication(
+                    fiber_degree,
+                    fiber_degree,
+                    fiber_cohomology_degree,
+                    (((0, 0), Eisenstein(1)),),
+                ),
+            )
+        )
+    rows = [
+        [Eisenstein(0) for _ in range(source_space.dimension)]
+        for _ in range(target_space.dimension)
+    ]
+    source_offset = 0
+    target_offset = 0
+    for record_index, (base_map, fiber_map) in enumerate(base_maps):
+        source_record = (source_records[record_index],)
+        target_record = tuple(
+            record
+            for record in target_records
+            if record[0] == source_records[record_index][0]
+            and record[1] == source_records[record_index][1]
+        )
+        local_source = VectorSpace(
+            "ambient multiplication source",
+            tuple(
+                str((base, fiber))
+                for base in source_record[0][2]
+                for fiber in source_record[0][3]
+            ),
+            Eisenstein,
+        )
+        local_target = VectorSpace(
+            "ambient multiplication target",
+            tuple(
+                str((base, fiber))
+                for base in target_record[0][2]
+                for fiber in target_record[0][3]
+            ),
+            Eisenstein,
+        )
+        local = _tensor_map(
+            local_source,
+            local_target,
+            source_record,
+            target_record,
+            base_map,
+            fiber_map,
+        )
+        for row in range(local.codomain.dimension):
+            for column in range(local.domain.dimension):
+                rows[target_offset + row][source_offset + column] = local.rows[row][column]
+        source_offset += local.domain.dimension
+        target_offset += local.codomain.dimension
+    return LinearMap(source_space, target_space, rows)
+
+
 @dataclass(frozen=True, slots=True)
 class AmbientLineBundle:
     """Ambient Kunneth cohomology spaces for one ``P2 x P1`` line bundle."""
@@ -457,7 +544,69 @@ class DPSurfaceLineBundle:
             "status": "exact dP9 line-bundle Koszul cone; no bundle interpretation",
         }
 
+    def multiplication(self, target: DPSurfaceLineBundle, polynomial: Polynomial) -> ChainMap:
+        """Return multiplication by a homogeneous base polynomial on the cone."""
 
+        if self.fiber_degree != target.fiber_degree:
+            raise ValueError("line-bundle multiplication requires equal fiber degrees")
+        if polynomial.is_zero():
+            return ChainMap(
+                self.complex,
+                target.complex,
+                {
+                    degree: LinearMap.zero(
+                        self.complex.spaces.space(degree),
+                        target.complex.spaces.space(degree),
+                    )
+                    for degree in self.complex.degrees
+                },
+            )
+        if target.base_degree != self.base_degree + polynomial.degree:
+            raise ValueError("polynomial degree does not match line-bundle degrees")
+        components = {}
+        for degree in self.complex.degrees:
+            target_space = target.complex.spaces.space(degree)
+            source_space = self.complex.spaces.space(degree)
+            base_map = _ambient_multiplication(
+                self.base_degree,
+                target.base_degree,
+                self.fiber_degree,
+                degree,
+                polynomial,
+            )
+            source_correction = _ambient_multiplication(
+                self.base_degree - 3,
+                target.base_degree - 3,
+                self.fiber_degree - 1,
+                degree + 1,
+                polynomial,
+            )
+            components[degree] = LinearMap.block(
+                (
+                    (
+                        base_map,
+                        LinearMap.zero(
+                            self.ambient_source.space(degree + 1),
+                            target.ambient_target.space(degree),
+                        ),
+                    ),
+                    (
+                        LinearMap.zero(
+                            self.ambient_target.space(degree),
+                            target.ambient_source.space(degree + 1),
+                        ),
+                        source_correction,
+                    ),
+                )
+            )
+            if components[degree].domain != source_space:
+                raise ValueError("line-bundle multiplication source frame mismatch")
+            if components[degree].codomain != target_space:
+                raise ValueError("line-bundle multiplication target frame mismatch")
+        return ChainMap(self.complex, target.complex, components)
+
+
+@cache
 def dp9_line_bundle(base_degree: int, fiber_degree: int) -> DPSurfaceLineBundle:
     """Construct the exact restriction cone for ``O_D(base_degree,fiber_degree)``."""
 

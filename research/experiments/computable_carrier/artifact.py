@@ -28,6 +28,7 @@ from onetheory.models.heterotic_schoen.visible import point_schemes
 from .cech_sections import bounded_cech_sections
 from .constituents import tier_a_constituents
 from .downstream import downstream_frontier
+from .dp9_homology import tier_a_dp9_derived_homs
 from .dp9_hypersurface import tier_a_dp9_hypersurface_comparisons
 from .dual_cokernels import tier_a_dual_cokernels
 from .equivariance import tier_a_equivariance, tier_a_split_equivariance
@@ -128,6 +129,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     dp9_hypersurface_comparisons = tier_a_dp9_hypersurface_comparisons(
         projective_hom_pair_audits,
     )
+    dp9_derived_homs = tier_a_dp9_derived_homs(projective_hom_pair_audits)
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
         pencil_model,
         explicit_serre_pushouts,
@@ -246,6 +248,7 @@ def build_artifact(root: Path) -> dict[str, object]:
             "dp9_hypersurface_comparisons": [
                 item.as_record() for item in dp9_hypersurface_comparisons
             ],
+            "dp9_derived_homs": [item.as_record() for item in dp9_derived_homs],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],

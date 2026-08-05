@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "3fdf175f0c6bac8b19e60828c13f02a6e5d910d54155425a3d70b35af0de46de",
+  "artifact_digest": "d0c34de1c7dcf86bd79cd2dd0118e737b63aa44cb905aeac256e0f87eb5a9c37",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -17707,6 +17707,638 @@
       "promotable": false,
       "status": "downstream calculations blocked by explicit prerequisites"
     },
+    "dp9_derived_homs": [
+      {
+        "all_line_bundles_squared_zero": true,
+        "bicomplex_cells": [
+          [
+            -1,
+            0,
+            10
+          ],
+          [
+            -1,
+            1,
+            0
+          ],
+          [
+            -1,
+            2,
+            0
+          ],
+          [
+            -1,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            68
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            0,
+            63
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            3,
+            0
+          ]
+        ],
+        "fiber_degree": 0,
+        "left_scheme": "I3",
+        "right_scheme": "I6",
+        "squared_zero": true,
+        "status": "exact presentation-level dP9 line-bundle totalization; global sheafification and quotient descent remain unresolved",
+        "total_degrees": [
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "total_dimensions": [
+          [
+            -1,
+            10
+          ],
+          [
+            0,
+            68
+          ],
+          [
+            1,
+            63
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "total_h1_dimension": 5
+      },
+      {
+        "all_line_bundles_squared_zero": true,
+        "bicomplex_cells": [
+          [
+            -1,
+            0,
+            10
+          ],
+          [
+            -1,
+            1,
+            0
+          ],
+          [
+            -1,
+            2,
+            0
+          ],
+          [
+            -1,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            68
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            0,
+            63
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            3,
+            0
+          ]
+        ],
+        "fiber_degree": 0,
+        "left_scheme": "I3",
+        "right_scheme": "I6",
+        "squared_zero": true,
+        "status": "exact presentation-level dP9 line-bundle totalization; global sheafification and quotient descent remain unresolved",
+        "total_degrees": [
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "total_dimensions": [
+          [
+            -1,
+            10
+          ],
+          [
+            0,
+            68
+          ],
+          [
+            1,
+            63
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "total_h1_dimension": 5
+      },
+      {
+        "all_line_bundles_squared_zero": true,
+        "bicomplex_cells": [
+          [
+            -1,
+            0,
+            10
+          ],
+          [
+            -1,
+            1,
+            0
+          ],
+          [
+            -1,
+            2,
+            0
+          ],
+          [
+            -1,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            68
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            0,
+            63
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            3,
+            0
+          ]
+        ],
+        "fiber_degree": 0,
+        "left_scheme": "I3",
+        "right_scheme": "I6",
+        "squared_zero": true,
+        "status": "exact presentation-level dP9 line-bundle totalization; global sheafification and quotient descent remain unresolved",
+        "total_degrees": [
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "total_dimensions": [
+          [
+            -1,
+            10
+          ],
+          [
+            0,
+            68
+          ],
+          [
+            1,
+            63
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "total_h1_dimension": 5
+      },
+      {
+        "all_line_bundles_squared_zero": true,
+        "bicomplex_cells": [
+          [
+            -1,
+            0,
+            10
+          ],
+          [
+            -1,
+            1,
+            0
+          ],
+          [
+            -1,
+            2,
+            0
+          ],
+          [
+            -1,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            68
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            0,
+            63
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            3,
+            0
+          ]
+        ],
+        "fiber_degree": 0,
+        "left_scheme": "I3",
+        "right_scheme": "I6",
+        "squared_zero": true,
+        "status": "exact presentation-level dP9 line-bundle totalization; global sheafification and quotient descent remain unresolved",
+        "total_degrees": [
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "total_dimensions": [
+          [
+            -1,
+            10
+          ],
+          [
+            0,
+            68
+          ],
+          [
+            1,
+            63
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "total_h1_dimension": 5
+      },
+      {
+        "all_line_bundles_squared_zero": true,
+        "bicomplex_cells": [
+          [
+            -1,
+            0,
+            10
+          ],
+          [
+            -1,
+            1,
+            0
+          ],
+          [
+            -1,
+            2,
+            0
+          ],
+          [
+            -1,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            68
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            0,
+            63
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            3,
+            0
+          ]
+        ],
+        "fiber_degree": 0,
+        "left_scheme": "I3",
+        "right_scheme": "I6",
+        "squared_zero": true,
+        "status": "exact presentation-level dP9 line-bundle totalization; global sheafification and quotient descent remain unresolved",
+        "total_degrees": [
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "total_dimensions": [
+          [
+            -1,
+            10
+          ],
+          [
+            0,
+            68
+          ],
+          [
+            1,
+            63
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "total_h1_dimension": 5
+      },
+      {
+        "all_line_bundles_squared_zero": true,
+        "bicomplex_cells": [
+          [
+            -1,
+            0,
+            10
+          ],
+          [
+            -1,
+            1,
+            0
+          ],
+          [
+            -1,
+            2,
+            0
+          ],
+          [
+            -1,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            68
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            0,
+            63
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            3,
+            0
+          ]
+        ],
+        "fiber_degree": 0,
+        "left_scheme": "I3",
+        "right_scheme": "I6",
+        "squared_zero": true,
+        "status": "exact presentation-level dP9 line-bundle totalization; global sheafification and quotient descent remain unresolved",
+        "total_degrees": [
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "total_dimensions": [
+          [
+            -1,
+            10
+          ],
+          [
+            0,
+            68
+          ],
+          [
+            1,
+            63
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "total_h1_dimension": 5
+      }
+    ],
     "dp9_hypersurface_comparisons": [
       {
         "dP9_matches_projective": true,

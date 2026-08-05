@@ -190,6 +190,15 @@ Hom-pair calculations have an exact hypersurface restriction certificate with
 the same dimensions. This comparison is not extended to nonzero fiber twists,
 full sheafification, or quotient descent.
 
+The reusable line-bundle engine now supplies exact P2 x P1 Kunneth spaces and
+the dP9 Koszul cone for arbitrary integral base and fiber twists. Homogeneous
+base-polynomial multiplication is represented by typed chain maps, rather than
+by cohomology-dimension bookkeeping. For the six zero-fiber ray pairs, these
+maps assemble a signed bicomplex whose total differential squares to zero and
+whose degree-one dimension is 5 in every pair. This remains a
+presentation-level restriction calculation: it is not global sheaf Ext,
+quotient descent, or a physical rank-four candidate.
+
 The declared degree-two affine gauge window has also been audited for all 14
 representatives. Two admit local P/T transition lifts but fail exact group
 relations; the remaining candidates have at least one unsolved generator in

@@ -47,6 +47,10 @@ from research.experiments.computable_carrier.tier_b_serre_atlas import (
 from research.experiments.computable_carrier.tier_b_serre_cocycles import (
     tier_b_local_cocycle_audits,
 )
+from research.experiments.computable_carrier.tier_b_serre_extensions import (
+    tier_b_serre_dual_cokernels,
+    tier_b_serre_eigenrays,
+)
 from research.experiments.computable_carrier.tier_b_serre_sections import (
     tier_b_projective_serre_section_audits,
 )
@@ -215,6 +219,22 @@ def test_tier_b_local_cocycles_are_exact_and_non_lci_safe() -> None:
         True,
     ]
     assert all(audit.exact and audit.nonboundary for audit in audits if audit.available)
+
+
+def test_tier_b_graded_serre_rays_are_explicit_and_scope_limited() -> None:
+    """The fixed-target-line comparison produces only exact local rays."""
+
+    cokernels = tier_b_serre_dual_cokernels()
+    rays = tier_b_serre_eigenrays()
+
+    assert [item.dimension for item in cokernels] == [2, 5, 5, 8, 8, 8]
+    assert all(item.relations_preserved and item.actions_commute for item in cokernels)
+    assert len(rays) == 14
+    assert [
+        sum(ray.cokernel.scheme.name == f"B-monomial-coordinate-orbit-{index}" for ray in rays)
+        for index in range(6)
+    ] == [2, 3, 3, 3, 0, 3]
+    assert all(ray.locally_free_at_support for ray in rays)
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

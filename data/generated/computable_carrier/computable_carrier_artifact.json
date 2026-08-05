@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b352de0d0c1ddc8ae78088156b6d96fbad849979d955fddf057687ab2299f3b1",
+  "artifact_digest": "83a3cd95b93e9d25d0628d4a4f86bf7725a8ba9dc2b5c787f956404a553ff02f",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -122350,6 +122350,2832 @@
         "scheme": "B-monomial-coordinate-orbit-5",
         "status": "bare ideal-level chart atlas only; dP9 line frames, global Serre gluing, linearization, and quotient descent remain unresolved",
         "transitions_available": true
+      }
+    ],
+    "tier_b_serre_dual_cokernels": [
+      {
+        "actions": [
+          {
+            "matrix": [
+              [
+                "-1",
+                "1"
+              ],
+              [
+                "-1",
+                "0"
+              ]
+            ],
+            "name": "P",
+            "order_three": true,
+            "preserves_relations": true
+          },
+          {
+            "matrix": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "name": "T",
+            "order_three": true,
+            "preserves_relations": true
+          }
+        ],
+        "actions_commute": true,
+        "dimension": 2,
+        "generator_degrees": [
+          2,
+          2,
+          2
+        ],
+        "presentation_rank": 0,
+        "presentation_shape": null,
+        "relations_preserved": true,
+        "representative_indices": [
+          0,
+          1
+        ],
+        "scheme": "B-monomial-coordinate-orbit-0",
+        "source_basis": [],
+        "status": "exact fixed-target-line graded Serre comparison; global dP9 Ext, frame gluing, and quotient descent remain unresolved",
+        "syzygy_degrees": [
+          3,
+          3
+        ],
+        "target_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "target_line_shift": 3
+      },
+      {
+        "actions": [
+          {
+            "matrix": [
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ]
+            ],
+            "name": "P",
+            "order_three": true,
+            "preserves_relations": true
+          },
+          {
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "name": "T",
+            "order_three": true,
+            "preserves_relations": true
+          }
+        ],
+        "actions_commute": true,
+        "dimension": 5,
+        "generator_degrees": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "presentation_rank": 4,
+        "presentation_shape": [
+          9,
+          4
+        ],
+        "relations_preserved": true,
+        "representative_indices": [
+          0,
+          3,
+          5,
+          7,
+          8
+        ],
+        "scheme": "B-monomial-coordinate-orbit-1",
+        "source_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            3,
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "status": "exact fixed-target-line graded Serre comparison; global dP9 Ext, frame gluing, and quotient descent remain unresolved",
+        "syzygy_degrees": [
+          4,
+          4,
+          4
+        ],
+        "target_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        ],
+        "target_line_shift": 3
+      },
+      {
+        "actions": [
+          {
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "name": "P",
+            "order_three": true,
+            "preserves_relations": true
+          },
+          {
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "name": "T",
+            "order_three": true,
+            "preserves_relations": true
+          }
+        ],
+        "actions_commute": true,
+        "dimension": 5,
+        "generator_degrees": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "presentation_rank": 4,
+        "presentation_shape": [
+          9,
+          4
+        ],
+        "relations_preserved": true,
+        "representative_indices": [
+          1,
+          4,
+          5,
+          6,
+          8
+        ],
+        "scheme": "B-monomial-coordinate-orbit-2",
+        "source_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            3,
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "status": "exact fixed-target-line graded Serre comparison; global dP9 Ext, frame gluing, and quotient descent remain unresolved",
+        "syzygy_degrees": [
+          4,
+          4,
+          4
+        ],
+        "target_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        ],
+        "target_line_shift": 3
+      },
+      {
+        "actions": [
+          {
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ]
+            ],
+            "name": "P",
+            "order_three": true,
+            "preserves_relations": true
+          },
+          {
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "name": "T",
+            "order_three": true,
+            "preserves_relations": true
+          }
+        ],
+        "actions_commute": true,
+        "dimension": 8,
+        "generator_degrees": [
+          4,
+          4,
+          3,
+          4
+        ],
+        "presentation_rank": 10,
+        "presentation_shape": [
+          18,
+          10
+        ],
+        "relations_preserved": true,
+        "representative_indices": [
+          0,
+          1,
+          6,
+          9,
+          11,
+          14,
+          16,
+          17
+        ],
+        "scheme": "B-monomial-coordinate-orbit-3",
+        "source_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            3,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            3,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            3,
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        ],
+        "status": "exact fixed-target-line graded Serre comparison; global dP9 Ext, frame gluing, and quotient descent remain unresolved",
+        "syzygy_degrees": [
+          5,
+          5,
+          5
+        ],
+        "target_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              2,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              2,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              2,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        ],
+        "target_line_shift": 3
+      },
+      {
+        "actions": [
+          {
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ]
+            ],
+            "name": "P",
+            "order_three": true,
+            "preserves_relations": true
+          },
+          {
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "name": "T",
+            "order_three": true,
+            "preserves_relations": true
+          }
+        ],
+        "actions_commute": true,
+        "dimension": 8,
+        "generator_degrees": [
+          4,
+          3,
+          4,
+          4
+        ],
+        "presentation_rank": 10,
+        "presentation_shape": [
+          18,
+          10
+        ],
+        "relations_preserved": true,
+        "representative_indices": [
+          0,
+          2,
+          6,
+          9,
+          11,
+          14,
+          16,
+          17
+        ],
+        "scheme": "B-monomial-coordinate-orbit-4",
+        "source_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            3,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            3,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            3,
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        ],
+        "status": "exact fixed-target-line graded Serre comparison; global dP9 Ext, frame gluing, and quotient descent remain unresolved",
+        "syzygy_degrees": [
+          5,
+          5,
+          5
+        ],
+        "target_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              2,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              2,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              2,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        ],
+        "target_line_shift": 3
+      },
+      {
+        "actions": [
+          {
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "name": "P",
+            "order_three": true,
+            "preserves_relations": true
+          },
+          {
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "name": "T",
+            "order_three": true,
+            "preserves_relations": true
+          }
+        ],
+        "actions_commute": true,
+        "dimension": 8,
+        "generator_degrees": [
+          4,
+          3,
+          4,
+          4
+        ],
+        "presentation_rank": 10,
+        "presentation_shape": [
+          18,
+          10
+        ],
+        "relations_preserved": true,
+        "representative_indices": [
+          1,
+          2,
+          8,
+          10,
+          11,
+          12,
+          15,
+          17
+        ],
+        "scheme": "B-monomial-coordinate-orbit-5",
+        "source_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            3,
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            3,
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          [
+            3,
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        ],
+        "status": "exact fixed-target-line graded Serre comparison; global dP9 Ext, frame gluing, and quotient descent remain unresolved",
+        "syzygy_degrees": [
+          5,
+          5,
+          5
+        ],
+        "target_basis": [
+          [
+            0,
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              2,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              0,
+              2,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          [
+            1,
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              0,
+              2,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            2,
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          [
+            2,
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        ],
+        "target_line_shift": 3
+      }
+    ],
+    "tier_b_serre_eigenrays": [
+      {
+        "character_pair": [
+          "omega",
+          "1"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              5
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-0",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "-1-omega",
+          "1"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              5
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-0",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "1",
+          "-1-omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              9
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-1",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "omega",
+          "-1-omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              9
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-1",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "-1-omega",
+          "-1-omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              9
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-1",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "1",
+          "omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              8
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-2",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "omega",
+          "omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              8
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-2",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "-1-omega",
+          "omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              8
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-2",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "1",
+          "omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  2
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  2,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              9
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-3",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "omega",
+          "omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  2
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  2,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              9
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-3",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "-1-omega",
+          "omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  2
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  2,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              9
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-3",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "1",
+          "-1-omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  2,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  2
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              8
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-5",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "omega",
+          "-1-omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  2,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  2
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              8
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-5",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
+      },
+      {
+        "character_pair": [
+          "-1-omega",
+          "-1-omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  2,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  2
+                ]
+              }
+            ]
+          }
+        ],
+        "full_target_eigenvector": true,
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              8
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "scheme": "B-monomial-coordinate-orbit-5",
+        "status": "support-local graded Serre eigenray; global dP9 sheafification, linearization, and quotient descent remain unresolved",
+        "target_line_shift": 3
       }
     ],
     "tier_b_twist_descent_screen": {

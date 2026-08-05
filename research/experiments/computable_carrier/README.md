@@ -266,6 +266,15 @@ monomial scheme. This is a presentation-level quotient-action diagnostic only:
 it is not the action on a Serre Ext group and does not prove a global descent
 no-go for the missing sheaf comparison.
 
+The fixed target-line graded comparison is now explicit as well. With the
+declared target line O(-3), the six dual presentation quotients have dimensions
+2, 5, 5, 8, 8, and 8. Their P/T actions preserve relations and commute. Full
+target eigenvector and support-local Fitting checks leave fourteen exact rays:
+two, three, three, three, zero, and three across the six schemes. The fourth
+length-nine staircase therefore fails this declared Serre presentation gate;
+the surviving rays still require global dP9 frame comparison and honest
+quotient linearization.
+
 The same six resolutions now have deterministic exact P/T lifts. All pass the
 finite chain-equation, invertibility, and order-three checks, but no pair has
 one common projective commutator scalar on both free-resolution terms. This is

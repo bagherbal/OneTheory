@@ -67,6 +67,10 @@ from .tier_b_monomial import (
 from .tier_b_search import tier_b_known_scheme_search
 from .tier_b_serre_atlas import tier_b_serre_atlas_audits
 from .tier_b_serre_cocycles import tier_b_local_cocycle_audits
+from .tier_b_serre_extensions import (
+    tier_b_serre_dual_cokernels,
+    tier_b_serre_eigenrays,
+)
 from .tier_b_serre_sections import tier_b_projective_serre_section_audits
 from .tier_b_twists import tier_b_twist_descent_screen
 
@@ -177,6 +181,14 @@ def build_artifact(root: Path) -> dict[str, object]:
     )
     tier_b_serre_cocycles = tier_b_local_cocycle_audits(
         tier_b_monomial_schemes,
+    )
+    tier_b_serre_cokernels = tier_b_serre_dual_cokernels(
+        tier_b_monomial_schemes,
+        tier_b_monomial_actions,
+    )
+    tier_b_serre_rays = tier_b_serre_eigenrays(
+        tier_b_monomial_schemes,
+        tier_b_monomial_actions,
     )
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
         pencil_model,
@@ -323,6 +335,12 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "tier_b_local_serre_cocycles": [
                 item.as_record() for item in tier_b_serre_cocycles
+            ],
+            "tier_b_serre_dual_cokernels": [
+                item.as_record() for item in tier_b_serre_cokernels
+            ],
+            "tier_b_serre_eigenrays": [
+                item.as_record() for item in tier_b_serre_rays
             ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {

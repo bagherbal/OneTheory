@@ -545,14 +545,24 @@ class _ComplexMixin:
 
         space = self.spaces.space(degree)
         boundaries = self.boundaries(degree)
-        selected: list[CoordinateVector] = []
-        current_rank = _rank_of_vectors(boundaries, space)
-        for cycle in self.cycles(degree):
-            candidate_rank = _rank_of_vectors((*boundaries, *selected, cycle), space)
-            if candidate_rank > current_rank:
-                selected.append(cycle)
-                current_rank = candidate_rank
-        return tuple(selected)
+        cycles = self.cycles(degree)
+        if not cycles:
+            return ()
+        columns = (*boundaries, *cycles)
+        matrix = Matrix(
+            tuple(
+                tuple(vector.coordinates[column] for vector in columns)
+                for column in range(space.dimension)
+            ),
+            scalar_type=space.scalar_type,
+        )
+        _, pivots = matrix.rref()
+        boundary_count = len(boundaries)
+        return tuple(
+            cycles[pivot - boundary_count]
+            for pivot in pivots
+            if pivot >= boundary_count
+        )
 
     def shift(self, amount: int) -> ChainComplex | CochainComplex:
         """Shift degrees by ``amount`` and apply the standard parity sign."""
@@ -1868,7 +1878,7 @@ GroupAction = FiniteComplexAction
 def _coordinate_in_basis(
     basis: Sequence[CoordinateVector], vector: CoordinateVector,
 ) -> tuple[Scalar, ...]:
-    """Express a vector in an independent exact basis by a pivot-row inverse."""
+    """Express a vector in an independent exact basis by augmented RREF."""
 
     if not basis:
         if not vector.is_zero():
@@ -1876,44 +1886,31 @@ def _coordinate_in_basis(
         return ()
     if any(candidate.space != vector.space for candidate in basis):
         raise ValueError("coordinate basis and vector use different named spaces")
-    rows = tuple(
-        tuple(candidate.coordinates[column] for candidate in basis)
-        for column in range(vector.space.dimension)
+    augmented = Matrix(
+        tuple(
+            tuple(candidate.coordinates[row] for candidate in basis)
+            + (vector.coordinates[row],)
+            for row in range(vector.space.dimension)
+        ),
+        scalar_type=vector.space.scalar_type,
     )
-    for selected_rows in product(range(vector.space.dimension), repeat=len(basis)):
-        if len(set(selected_rows)) != len(selected_rows):
-            continue
-        square = Matrix(
-            tuple(
-                tuple(rows[row][column] for column in range(len(basis)))
-                for row in selected_rows
-            ),
-            scalar_type=vector.space.scalar_type,
-        )
-        try:
-            inverse = square.inverse()
-        except ValueError:
-            continue
-        rhs = Matrix(
-            tuple((vector.coordinates[row],) for row in selected_rows),
-            scalar_type=vector.space.scalar_type,
-        )
-        coordinates = inverse.matmul(rhs)
-        result = tuple(coordinates[row][0] for row in range(len(basis)))
-        reconstructed = CoordinateVector(
-            vector.space,
-            tuple(
-                sum(
-                    (_multiply(result[index], basis[index].coordinates[row])
-                     for index in range(len(basis))),
-                    _zero(vector.space.scalar_type),
-                )
-                for row in range(vector.space.dimension)
-            ),
-        )
-        if reconstructed == vector:
-            return result
-    raise ValueError("vector is not in the declared exact basis span")
+    reduced, pivots = augmented.rref()
+    unknown_count = len(basis)
+    if any(
+        all(reduced[row][column].is_zero() for column in range(unknown_count))
+        and not reduced[row][unknown_count].is_zero()
+        for row in range(reduced.row_count)
+    ):
+        raise ValueError("vector is not in the declared exact basis span")
+    if any(pivot >= unknown_count for pivot in pivots) or len(
+        tuple(pivot for pivot in pivots if pivot < unknown_count)
+    ) != unknown_count:
+        raise ValueError("the declared coordinate basis is not independent")
+    result = [_zero(vector.space.scalar_type) for _ in basis]
+    for row, pivot in enumerate(pivots):
+        if pivot < unknown_count:
+            result[pivot] = reduced[row][unknown_count]
+    return tuple(result)
 
 
 @dataclass(frozen=True, slots=True, init=False)

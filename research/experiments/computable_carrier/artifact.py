@@ -39,6 +39,8 @@ from .outer import split_rank_four_baseline
 from .outer_actions import bounded_outer_action
 from .pencil import tier_a_pencil_model
 from .polynomial_hom import polynomial_hom_degree_slice, tier_a_polynomial_hom_complex
+from .projective_hom_action import projective_hom_deck_audit
+from .projective_hyperhom import tier_a_projective_hom_hypercohomology
 from .pushdown import tier_a_pushdown_constraints
 from .pushout_linearization import tier_a_pushout_relation_linearizations
 from .rank_four import rank_four_frontier
@@ -105,6 +107,8 @@ def build_artifact(root: Path) -> dict[str, object]:
         explicit_serre_pushouts,
     )
     polynomial_hom = tier_a_polynomial_hom_complex()
+    projective_hypercohomology = tier_a_projective_hom_hypercohomology()
+    projective_deck_audit = projective_hom_deck_audit(projective_hypercohomology)
     serre_eigenclass_variants = tier_a_serre_eigenclass_variants(
         explicit_serre_pushouts,
         resolution_actions,
@@ -209,6 +213,8 @@ def build_artifact(root: Path) -> dict[str, object]:
                 polynomial_hom_degree_slice(polynomial_hom, degree).as_record()
                 for degree in (-2, -1, 0)
             ],
+            "projective_hom_hypercohomology": projective_hypercohomology.as_record(),
+            "projective_hom_deck_audit": projective_deck_audit.as_record(),
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],

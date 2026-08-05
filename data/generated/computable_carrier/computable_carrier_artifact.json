@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "45dbdc9c2af603313a3b1d3f9f65734a06baad0eaadf1966e3e49785e68f9882",
+  "artifact_digest": "8cc108238c5afb385c7d750be4987b51b66cf9402acb683b31f3fc36af07c78b",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -30719,6 +30719,104 @@
           ]
         ]
       ]
+    },
+    "projective_hom_deck_audit": {
+      "group_order": 9,
+      "h0_ext1_dimension": 5,
+      "h2_ext_minus1_dimension": 0,
+      "invariant_ext1_dimension": 0,
+      "invariant_h0_representative_count": 0,
+      "invariant_h0_representatives": [],
+      "invariant_h2_representative_count": 0,
+      "invariant_h2_representatives": [],
+      "left_scheme": "I3",
+      "p_order_three": true,
+      "p_t_commute": true,
+      "right_scheme": "I6",
+      "status": "exact projective-presentation Z3 x Z3 invariant audit; dP9 sheafification and quotient descent remain unresolved"
+    },
+    "projective_hom_hypercohomology": {
+      "ext1_dimension": 5,
+      "ext1_representative_count": 5,
+      "ext1_representatives": [
+        {
+          "coordinates": [
+            {
+              "basis": "(0, (0, 0, 2))",
+              "coefficient": "1"
+            }
+          ],
+          "sheaf_cohomology": "H0"
+        },
+        {
+          "coordinates": [
+            {
+              "basis": "(0, (0, 1, 1))",
+              "coefficient": "1"
+            }
+          ],
+          "sheaf_cohomology": "H0"
+        },
+        {
+          "coordinates": [
+            {
+              "basis": "(0, (0, 2, 0))",
+              "coefficient": "1"
+            }
+          ],
+          "sheaf_cohomology": "H0"
+        },
+        {
+          "coordinates": [
+            {
+              "basis": "(3, (0, 0, 2))",
+              "coefficient": "1"
+            }
+          ],
+          "sheaf_cohomology": "H0"
+        },
+        {
+          "coordinates": [
+            {
+              "basis": "(6, (0, 1, 1))",
+              "coefficient": "1"
+            }
+          ],
+          "sheaf_cohomology": "H0"
+        }
+      ],
+      "h0_derived_dimensions": [
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "h2_derived_dimensions": [
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "left_scheme": "I3",
+      "right_scheme": "I6",
+      "squared_zero": true,
+      "status": "exact projective-presentation hypercohomology; comparison with the dP9 sheafification, deck action, and quotient descent remains unresolved"
     },
     "pushdown_constraints": [
       {

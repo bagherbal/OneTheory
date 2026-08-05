@@ -41,6 +41,7 @@ from onetheory.math.homological import (
     InvariantSubcomplex,
     LinearMap,
     VectorSpace,
+    _coordinate_in_basis,
     graded_commutator,
     induced_action_on_cohomology,
     mapping_cone,
@@ -65,6 +66,19 @@ def test_spaces_and_maps_preserve_named_bases_and_are_immutable() -> None:
         map_(CoordinateVector(VectorSpace("other", ("x", "y")), (3, 4)))
     with pytest.raises(ValueError):
         LinearMap(domain, codomain, ((1,),))
+
+
+def test_exact_coordinate_recovery_uses_full_basis_rref() -> None:
+    """Independent exact coordinates remain recoverable in a wide basis."""
+
+    space = VectorSpace("wide", ("x", "y", "z"), Eisenstein)
+    first = CoordinateVector(space, (1, 0, 1))
+    second = CoordinateVector(space, (0, 1, 1))
+    vector = CoordinateVector(space, (2, 3, 5))
+    assert _coordinate_in_basis((first, second), vector) == (
+        Eisenstein(2),
+        Eisenstein(3),
+    )
 
 
 def test_chain_exactness_cycles_boundaries_and_nontrivial_homology() -> None:

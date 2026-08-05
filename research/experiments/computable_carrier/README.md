@@ -150,6 +150,13 @@ first-cohomology dimensions 9, 9, and 5, respectively, with representatives
 returned by the exact kernel/boundary engine. Higher-degree RREF scans are not
 silently treated as converged global Ext data.
 
+The selected I3/I6 presentation has also been sheafified at the projective
+line-bundle level: its exact H0/H2 derived Hom complex has raw degree-one
+dimension 5, and the derived P/T action has order three, commutes, and leaves
+zero trivial-character classes. This excludes only the selected projective
+presentation route; it is not a no-go for all Tier A rays or for the full dP9
+comparison.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

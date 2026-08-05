@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "8a3e3fd397ffb32f4f27c088621e40b2cb2ab483e6299f213da21f1c686aac6e",
+  "artifact_digest": "e4cf6e2bdd7726cd123e987bda19fdd577f00598a8bbb997646a70a29a317bd6",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -18144,6 +18144,498 @@
       "honest": false,
       "status": "coordinate equivariance checked; no honest gauge lifts constructed"
     },
+    "explicit_serre_pushouts": [
+      {
+        "character_pair": [
+          "omega",
+          "1"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "linearizations": [
+          {
+            "character": "omega",
+            "class_eigenvector": true,
+            "full_action_order_three": true,
+            "full_actions_commute": true,
+            "generator": "P"
+          },
+          {
+            "character": "1",
+            "class_eigenvector": true,
+            "full_action_order_three": true,
+            "full_actions_commute": true,
+            "generator": "T"
+          }
+        ],
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              5
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              2
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "middle_rank": 2,
+        "quotient": [
+          [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": []
+            }
+          ]
+        ],
+        "relation": [
+          [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": []
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": []
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        ],
+        "relation_composes_to_zero": true,
+        "relation_rank": 2,
+        "relation_shape": [
+          2,
+          4
+        ],
+        "scheme": "I3",
+        "status": "base projective Serre pushout constructed; dP9 line-frame descent and full bundle promotion pending"
+      },
+      {
+        "character_pair": [
+          "1",
+          "-1-omega"
+        ],
+        "extension_map": [
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "linearizations": [
+          {
+            "character": "1",
+            "class_eigenvector": true,
+            "full_action_order_three": true,
+            "full_actions_commute": true,
+            "generator": "P"
+          },
+          {
+            "character": "-1-omega",
+            "class_eigenvector": true,
+            "full_action_order_three": true,
+            "full_actions_commute": true,
+            "generator": "T"
+          }
+        ],
+        "local_fitting": [
+          {
+            "point": "p_a",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              4
+            ]
+          },
+          {
+            "point": "p_b",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              7
+            ]
+          },
+          {
+            "point": "p_c",
+            "unit_minor_exists": true,
+            "unit_minor_indices": [
+              9
+            ]
+          }
+        ],
+        "locally_free_at_support": true,
+        "middle_rank": 2,
+        "quotient": [
+          [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    2,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    2
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    2,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": []
+            }
+          ]
+        ],
+        "relation": [
+          [
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": []
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": []
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "terms": []
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": []
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "terms": []
+            },
+            {
+              "terms": []
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "terms": [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        ],
+        "relation_composes_to_zero": true,
+        "relation_rank": 3,
+        "relation_shape": [
+          3,
+          5
+        ],
+        "scheme": "I6",
+        "status": "base projective Serre pushout constructed; dP9 line-frame descent and full bundle promotion pending"
+      }
+    ],
     "local_cech_deck_actions": [
       {
         "action_matrix": {

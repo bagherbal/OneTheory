@@ -72,6 +72,13 @@ pass all 30 inverse and ordered triple-cocycle checks. They remain ideal-level
 records: line-bundle frames, global Serre gluing, and equivariant descent are
 still unresolved.
 
+The full Hilbert--Burch relations are now also pushed out by newly derived
+extension maps. Both middle presentations have rank two, compose exactly to
+the declared ideal quotient, and have a unit maximal relation minor at each
+coordinate support point. Their selected extension classes are exact P/T
+eigenclasses with class-level order-three commuting checks. This is a base
+projective pushout artifact; dP9 line frames and quotient descent remain open.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

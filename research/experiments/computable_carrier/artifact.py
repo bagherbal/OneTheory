@@ -62,6 +62,7 @@ from .tier_b_dp9_actions import tier_b_dp9_deck_action_audits
 from .tier_b_dp9_ideals import tier_b_dp9_monomial_ideal_resolutions
 from .tier_b_global_serre import tier_b_global_serre_audits
 from .tier_b_linearization import tier_b_linearization_audits
+from .tier_b_local_families import tier_b_local_invariant_normal_forms
 from .tier_b_local_serre import tier_b_local_monomial_serre_audits
 from .tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
@@ -224,6 +225,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     tier_b_reduced_actions = tier_b_reduced_resolution_actions()
     tier_b_transported_schemes = tier_b_transported_invariant_schemes()
     tier_b_transported_actions = tier_b_transported_resolution_actions()
+    tier_b_local_families = tier_b_local_invariant_normal_forms()
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
         pencil_model,
         explicit_serre_pushouts,
@@ -418,6 +420,7 @@ def build_artifact(root: Path) -> dict[str, object]:
             "tier_b_transported_resolution_actions": [
                 item.as_record() for item in tier_b_transported_actions
             ],
+            "tier_b_local_invariant_normal_forms": tier_b_local_families.as_record(),
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "802e35d0886f676e19c78c2f3300fe5bc3e673740228289774711ef1747f0bf6",
+  "artifact_digest": "efd40e44c292c89ea65a1a4953d2907fe044c3a81cf75bbf26c1c52964ba04f9",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -183170,6 +183170,1845 @@
         "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
       }
     ],
+    "tier_b_local_invariant_normal_forms": {
+      "category": "special-orbit completed-local invariant normal forms",
+      "exact": true,
+      "global_parameterized_ideal_search": "unresolved",
+      "global_serre_constituents": "unresolved",
+      "group_order": 9,
+      "local_length_bound": 3,
+      "normal_form_count": 32,
+      "normal_forms": [
+        {
+          "exact": true,
+          "length": 1,
+          "name": "length-one",
+          "orbit": "coordinate-fixed-orbit",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 2,
+          "name": "length-two-u-axis",
+          "orbit": "coordinate-fixed-orbit",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 2,
+          "name": "length-two-v-axis",
+          "orbit": "coordinate-fixed-orbit",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-double-point",
+          "orbit": "coordinate-fixed-orbit",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-u-curve-family",
+          "orbit": "coordinate-fixed-orbit",
+          "parameter_domain": "Eisenstein coefficients excluding alpha=0 specialization",
+          "parameter_symbol": "alpha",
+          "parameterized": true,
+          "relations": [
+            {
+              "coefficients": [
+                "1",
+                "-alpha"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  3,
+                  0
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-v-curve-family",
+          "orbit": "coordinate-fixed-orbit",
+          "parameter_domain": "Eisenstein coefficients excluding beta=0 specialization",
+          "parameter_symbol": "beta",
+          "parameterized": true,
+          "relations": [
+            {
+              "coefficients": [
+                "1",
+                "-beta"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  3
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-u-curve-zero-specialization",
+          "orbit": "coordinate-fixed-orbit",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  3,
+                  0
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-v-curve-zero-specialization",
+          "orbit": "coordinate-fixed-orbit",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  3
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 1,
+          "name": "length-one",
+          "orbit": "nonmonomial-fixed-orbit-1",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 2,
+          "name": "length-two-u-axis",
+          "orbit": "nonmonomial-fixed-orbit-1",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 2,
+          "name": "length-two-v-axis",
+          "orbit": "nonmonomial-fixed-orbit-1",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-double-point",
+          "orbit": "nonmonomial-fixed-orbit-1",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-u-curve-family",
+          "orbit": "nonmonomial-fixed-orbit-1",
+          "parameter_domain": "Eisenstein coefficients excluding alpha=0 specialization",
+          "parameter_symbol": "alpha",
+          "parameterized": true,
+          "relations": [
+            {
+              "coefficients": [
+                "1",
+                "-alpha"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  3,
+                  0
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-v-curve-family",
+          "orbit": "nonmonomial-fixed-orbit-1",
+          "parameter_domain": "Eisenstein coefficients excluding beta=0 specialization",
+          "parameter_symbol": "beta",
+          "parameterized": true,
+          "relations": [
+            {
+              "coefficients": [
+                "1",
+                "-beta"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  3
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-u-curve-zero-specialization",
+          "orbit": "nonmonomial-fixed-orbit-1",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  3,
+                  0
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-v-curve-zero-specialization",
+          "orbit": "nonmonomial-fixed-orbit-1",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  3
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 1,
+          "name": "length-one",
+          "orbit": "nonmonomial-fixed-orbit-2",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 2,
+          "name": "length-two-u-axis",
+          "orbit": "nonmonomial-fixed-orbit-2",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 2,
+          "name": "length-two-v-axis",
+          "orbit": "nonmonomial-fixed-orbit-2",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-double-point",
+          "orbit": "nonmonomial-fixed-orbit-2",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-u-curve-family",
+          "orbit": "nonmonomial-fixed-orbit-2",
+          "parameter_domain": "Eisenstein coefficients excluding alpha=0 specialization",
+          "parameter_symbol": "alpha",
+          "parameterized": true,
+          "relations": [
+            {
+              "coefficients": [
+                "1",
+                "-alpha"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  3,
+                  0
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-v-curve-family",
+          "orbit": "nonmonomial-fixed-orbit-2",
+          "parameter_domain": "Eisenstein coefficients excluding beta=0 specialization",
+          "parameter_symbol": "beta",
+          "parameterized": true,
+          "relations": [
+            {
+              "coefficients": [
+                "1",
+                "-beta"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  3
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-u-curve-zero-specialization",
+          "orbit": "nonmonomial-fixed-orbit-2",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  3,
+                  0
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-v-curve-zero-specialization",
+          "orbit": "nonmonomial-fixed-orbit-2",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  3
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 1,
+          "name": "length-one",
+          "orbit": "nonmonomial-fixed-orbit-3",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 2,
+          "name": "length-two-u-axis",
+          "orbit": "nonmonomial-fixed-orbit-3",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 2,
+          "name": "length-two-v-axis",
+          "orbit": "nonmonomial-fixed-orbit-3",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-double-point",
+          "orbit": "nonmonomial-fixed-orbit-3",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-u-curve-family",
+          "orbit": "nonmonomial-fixed-orbit-3",
+          "parameter_domain": "Eisenstein coefficients excluding alpha=0 specialization",
+          "parameter_symbol": "alpha",
+          "parameterized": true,
+          "relations": [
+            {
+              "coefficients": [
+                "1",
+                "-alpha"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  3,
+                  0
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-v-curve-family",
+          "orbit": "nonmonomial-fixed-orbit-3",
+          "parameter_domain": "Eisenstein coefficients excluding beta=0 specialization",
+          "parameter_symbol": "beta",
+          "parameterized": true,
+          "relations": [
+            {
+              "coefficients": [
+                "1",
+                "-beta"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  3
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-u-curve-zero-specialization",
+          "orbit": "nonmonomial-fixed-orbit-3",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "weight_mod_3": 2,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  3,
+                  0
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        },
+        {
+          "exact": true,
+          "length": 3,
+          "name": "length-three-v-curve-zero-specialization",
+          "orbit": "nonmonomial-fixed-orbit-3",
+          "parameter_domain": null,
+          "parameter_symbol": null,
+          "parameterized": false,
+          "relations": [
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  1,
+                  0
+                ]
+              ],
+              "weight_mod_3": 1,
+              "weighted": true
+            },
+            {
+              "coefficients": [
+                "1"
+              ],
+              "monomials": [
+                [
+                  0,
+                  3
+                ]
+              ],
+              "weight_mod_3": 0,
+              "weighted": true
+            }
+          ],
+          "standard_monomials": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "status": "exact completed-local stabilizer normal form only; global ideal construction and quotient Serre descent remain unresolved",
+          "tangent_weights": [
+            1,
+            2
+          ]
+        }
+      ],
+      "parameter_free_count": 24,
+      "parameterized_family_count": 8,
+      "special_orbit_count": 4,
+      "status": "exact local stabilizer normal-form category; global polynomial ideals, Serre extensions, and quotient descent remain unresolved",
+      "tangent_weights": [
+        1,
+        2
+      ]
+    },
     "tier_b_local_serre_audits": [
       {
         "fitting_ideal": {

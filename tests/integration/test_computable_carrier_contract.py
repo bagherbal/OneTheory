@@ -37,6 +37,9 @@ from research.experiments.computable_carrier.tier_b_dp9_ideals import (
 from research.experiments.computable_carrier.tier_b_global_serre import (
     tier_b_global_serre_audits,
 )
+from research.experiments.computable_carrier.tier_b_local_families import (
+    tier_b_local_invariant_normal_forms,
+)
 from research.experiments.computable_carrier.tier_b_local_serre import (
     tier_b_local_monomial_serre_audits,
 )
@@ -221,6 +224,26 @@ def test_tier_b_transported_resolution_lifts_have_no_finite_commuting_pair() -> 
     assert all(audit.exact for audit in audits)
     assert all(audit.scoped_no_pair for audit in audits)
     assert all(audit.complete_commuting_pair_count == 0 for audit in audits)
+
+
+def test_tier_b_local_normal_forms_expose_parameterized_curves() -> None:
+    """The bounded local category includes non-monomial length-three families."""
+
+    report = tier_b_local_invariant_normal_forms()
+
+    assert report.exact
+    assert report.special_orbit_count == 4
+    assert report.finite_normal_form_count == 24
+    assert report.parameterized_family_count == 8
+    assert {
+        item.name
+        for item in report.normal_forms
+        if item.parameterized
+    } == {
+        "length-three-u-curve-family",
+        "length-three-v-curve-family",
+    }
+    assert all(item.tangent_weights == (1, 2) for item in report.normal_forms)
 
 
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
@@ -425,5 +448,9 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     transported_actions = artifact["tier_a_chain_inputs"]["tier_b_transported_resolution_actions"]
     assert len(transported_actions) == 24
     assert all(item["scoped_no_pair"] for item in transported_actions)
+    local_families = artifact["tier_a_chain_inputs"]["tier_b_local_invariant_normal_forms"]
+    assert local_families["exact"] is True
+    assert local_families["normal_form_count"] == 32
+    assert local_families["parameterized_family_count"] == 8
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

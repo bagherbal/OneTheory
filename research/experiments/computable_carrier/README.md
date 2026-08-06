@@ -383,3 +383,10 @@ current finite action, not an Ext or invariant-subspace claim.
 The external-algebra manifest records pinned reproduction commands separately.
 An unavailable external executable is a verification failure, not a reason to
 claim a completed carrier.
+
+The local Tier B category is now widened beyond the six monomial types. Exact
+stabilizer-weighted normal forms expose two non-monomial curvilinear
+length-three families at each of the four special reduced orbits. The 24
+parameter-free strata and eight family strata are local completed-ring data;
+their global polynomial ideals, Serre extensions, and quotient descent remain
+unresolved.

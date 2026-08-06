@@ -57,6 +57,9 @@ from research.experiments.computable_carrier.tier_b_reduced_schemes import (
 from research.experiments.computable_carrier.tier_b_reduced_serre import (
     tier_b_reduced_serre_prerequisites,
 )
+from research.experiments.computable_carrier.tier_b_reduced_thickenings import (
+    tier_b_transported_invariant_schemes,
+)
 from research.experiments.computable_carrier.tier_b_serre_atlas import (
     tier_b_serre_atlas_audits,
 )
@@ -190,6 +193,20 @@ def test_tier_b_reduced_resolution_lifts_have_no_finite_commuting_pair() -> None
     assert [len(audit.p_actions) for audit in audits] == [3, 3, 3, 3]
     assert [len(audit.t_actions) for audit in audits] == [6, 6, 6, 6]
     assert all(audit.scoped_no_pair for audit in audits)
+
+
+def test_tier_b_transported_special_orbit_schemes_are_exact() -> None:
+    """All four special supports carry the six declared local scheme types."""
+
+    schemes = tier_b_transported_invariant_schemes()
+
+    assert len(schemes) == 24
+    assert all(scheme.exact for scheme in schemes)
+    assert all(scheme.p_invariant and scheme.t_invariant for scheme in schemes)
+    assert [
+        sum(scheme.length == length for scheme in schemes)
+        for length in (3, 6, 9)
+    ] == [4, 8, 12]
 
 
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
@@ -388,5 +405,8 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     reduced_actions = artifact["tier_a_chain_inputs"]["tier_b_reduced_resolution_actions"]
     assert len(reduced_actions) == 4
     assert all(item["scoped_no_pair"] for item in reduced_actions)
+    transported = artifact["tier_a_chain_inputs"]["tier_b_transported_invariant_schemes"]
+    assert len(transported) == 24
+    assert all(item["exact"] for item in transported)
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

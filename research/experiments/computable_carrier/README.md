@@ -222,6 +222,13 @@ orientation and cubic-root search, but no pair commutes exactly on both
 resolution terms. This is a scoped resolution-level linearization exclusion;
 it does not exclude a sheaf-level gauge or a different Serre presentation.
 
+The six coordinate-local monomial types are now transported to all four
+special fixed-point orbits by exact inverse projective coordinate changes.
+The resulting 24 presentations have lengths 3, 6, or 9 and pass independent
+Hilbert--Burch and P/T invariance checks. This closes only the declared
+transported local-type category; arbitrary non-reduced invariant schemes and
+their Serre constructions remain unresolved.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

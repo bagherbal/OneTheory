@@ -72,6 +72,7 @@ from .tier_b_outer import tier_b_outer_frontier
 from .tier_b_reduced_actions import tier_b_reduced_resolution_actions
 from .tier_b_reduced_schemes import tier_b_reduced_orbit_schemes
 from .tier_b_reduced_serre import tier_b_reduced_serre_prerequisites
+from .tier_b_reduced_thickenings import tier_b_transported_invariant_schemes
 from .tier_b_search import tier_b_known_scheme_search
 from .tier_b_serre_atlas import tier_b_serre_atlas_audits
 from .tier_b_serre_cocycles import tier_b_local_cocycle_audits
@@ -220,6 +221,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     tier_b_reduced_schemes = tier_b_reduced_orbit_schemes()
     tier_b_reduced_serre = tier_b_reduced_serre_prerequisites()
     tier_b_reduced_actions = tier_b_reduced_resolution_actions()
+    tier_b_transported_schemes = tier_b_transported_invariant_schemes()
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
         pencil_model,
         explicit_serre_pushouts,
@@ -407,6 +409,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "tier_b_reduced_resolution_actions": [
                 item.as_record() for item in tier_b_reduced_actions
+            ],
+            "tier_b_transported_invariant_schemes": [
+                item.as_record() for item in tier_b_transported_schemes
             ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {

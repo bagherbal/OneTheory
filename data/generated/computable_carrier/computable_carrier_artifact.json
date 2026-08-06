@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "2cdbc8703898372ddc2c55048d23505d150a615555f31acb43d67a1961cabe8d",
+  "artifact_digest": "21b33620ae852e3654aa03b84768364fb1f03232485ad66b75047a1795842b8c",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -280229,6 +280229,1432 @@
         "p_invariant": true,
         "status": "exact reduced orbit ideal and Hilbert--Burch presentation; Serre construction and quotient descent remain unresolved",
         "t_invariant": true
+      }
+    ],
+    "tier_b_reduced_resolution_actions": [
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "p_action_count": 3,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "1",
+            "scheme": "coordinate-fixed-orbit",
+            "source_action": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "-1",
+                "-1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ],
+              [
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "omega",
+            "scheme": "coordinate-fixed-orbit",
+            "source_action": [
+              [
+                "0",
+                "omega"
+              ],
+              [
+                "-omega",
+                "-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "-1-omega",
+            "scheme": "coordinate-fixed-orbit",
+            "source_action": [
+              [
+                "0",
+                "-1-omega"
+              ],
+              [
+                "1+omega",
+                "1+omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "scheme": "coordinate-fixed-orbit",
+        "scoped_no_pair": true,
+        "status": "finite reduced-resolution lift audit only; full sheaf-level linearization and quotient descent remain unresolved",
+        "t_action_count": 6,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "1",
+            "scheme": "coordinate-fixed-orbit",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "omega",
+            "scheme": "coordinate-fixed-orbit",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "-1-omega",
+            "scheme": "coordinate-fixed-orbit",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "1",
+            "scheme": "coordinate-fixed-orbit",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "omega",
+            "scheme": "coordinate-fixed-orbit",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "-1-omega",
+            "scheme": "coordinate-fixed-orbit",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "p_action_count": 3,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "1",
+            "scheme": "nonmonomial-fixed-orbit-1",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "omega",
+            "scheme": "nonmonomial-fixed-orbit-1",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "-1-omega",
+            "scheme": "nonmonomial-fixed-orbit-1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "scheme": "nonmonomial-fixed-orbit-1",
+        "scoped_no_pair": true,
+        "status": "finite reduced-resolution lift audit only; full sheaf-level linearization and quotient descent remain unresolved",
+        "t_action_count": 6,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "1",
+            "scheme": "nonmonomial-fixed-orbit-1",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "omega",
+            "scheme": "nonmonomial-fixed-orbit-1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "-1-omega",
+            "scheme": "nonmonomial-fixed-orbit-1",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "1",
+            "scheme": "nonmonomial-fixed-orbit-1",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "omega",
+            "scheme": "nonmonomial-fixed-orbit-1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "-1-omega",
+            "scheme": "nonmonomial-fixed-orbit-1",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "p_action_count": 3,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "1",
+            "scheme": "nonmonomial-fixed-orbit-2",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "omega",
+            "scheme": "nonmonomial-fixed-orbit-2",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "-1-omega",
+            "scheme": "nonmonomial-fixed-orbit-2",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "scheme": "nonmonomial-fixed-orbit-2",
+        "scoped_no_pair": true,
+        "status": "finite reduced-resolution lift audit only; full sheaf-level linearization and quotient descent remain unresolved",
+        "t_action_count": 6,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "1",
+            "scheme": "nonmonomial-fixed-orbit-2",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "omega",
+            "scheme": "nonmonomial-fixed-orbit-2",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "-1-omega",
+            "scheme": "nonmonomial-fixed-orbit-2",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "1",
+            "scheme": "nonmonomial-fixed-orbit-2",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "omega",
+            "scheme": "nonmonomial-fixed-orbit-2",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "-1-omega",
+            "scheme": "nonmonomial-fixed-orbit-2",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "p_action_count": 3,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "1",
+            "scheme": "nonmonomial-fixed-orbit-3",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "omega",
+            "scheme": "nonmonomial-fixed-orbit-3",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "-1-omega",
+            "scheme": "nonmonomial-fixed-orbit-3",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "scheme": "nonmonomial-fixed-orbit-3",
+        "scoped_no_pair": true,
+        "status": "finite reduced-resolution lift audit only; full sheaf-level linearization and quotient descent remain unresolved",
+        "t_action_count": 6,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "1",
+            "scheme": "nonmonomial-fixed-orbit-3",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "omega",
+            "scheme": "nonmonomial-fixed-orbit-3",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "base",
+            "scalar": "-1-omega",
+            "scheme": "nonmonomial-fixed-orbit-3",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "1",
+            "scheme": "nonmonomial-fixed-orbit-3",
+            "source_action": [
+              [
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "omega",
+            "scheme": "nonmonomial-fixed-orbit-3",
+            "source_action": [
+              [
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientation": "transpose",
+            "scalar": "-1-omega",
+            "scheme": "nonmonomial-fixed-orbit-3",
+            "source_action": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite Hilbert--Burch lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          }
+        ]
       }
     ],
     "tier_b_reduced_serre_prerequisites": [

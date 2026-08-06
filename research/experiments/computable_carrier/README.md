@@ -216,6 +216,12 @@ lines, and a local-unit vector in every line. This does not construct a
 global Ext class or rank-two bundle: dP9 patching, equivariant linearization,
 and quotient descent remain explicit gates.
 
+The reduced Hilbert--Burch resolutions now receive an exhaustive finite lift
+audit. Each has three exact P lifts and six exact T lifts after the declared
+orientation and cubic-root search, but no pair commutes exactly on both
+resolution terms. This is a scoped resolution-level linearization exclusion;
+it does not exclude a sheaf-level gauge or a different Serre presentation.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

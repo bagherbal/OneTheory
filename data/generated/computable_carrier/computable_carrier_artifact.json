@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "bfc20d7e6642ade9e22ce8a2d6262df1eee56aa633ee09f7d20d42d2c6e1e90f",
+  "artifact_digest": "2cdbc8703898372ddc2c55048d23505d150a615555f31acb43d67a1961cabe8d",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -280229,6 +280229,344 @@
         "p_invariant": true,
         "status": "exact reduced orbit ideal and Hilbert--Burch presentation; Serre construction and quotient descent remain unresolved",
         "t_invariant": true
+      }
+    ],
+    "tier_b_reduced_serre_prerequisites": [
+      {
+        "characters": [
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "1",
+            "vectors": [
+              [
+                "1",
+                "1",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "1",
+            "vectors": [
+              [
+                "omega",
+                "-1-omega",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "1",
+            "vectors": [
+              [
+                "-1-omega",
+                "omega",
+                "1"
+              ]
+            ]
+          }
+        ],
+        "exact": true,
+        "extension_space_dimension": 3,
+        "global_serre_constructed": false,
+        "local_lci": true,
+        "local_unit_character_count": 3,
+        "p_action": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ],
+        "scheme": "coordinate-fixed-orbit",
+        "status": "exact reduced-support Serre prerequisite only; global Ext, patching, linearization, and quotient descent remain unresolved",
+        "t_action": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ]
+      },
+      {
+        "characters": [
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "1",
+            "vectors": [
+              [
+                "1",
+                "1",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "omega",
+            "vectors": [
+              [
+                "omega",
+                "-1-omega",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "-1-omega",
+            "vectors": [
+              [
+                "-1-omega",
+                "omega",
+                "1"
+              ]
+            ]
+          }
+        ],
+        "exact": true,
+        "extension_space_dimension": 3,
+        "global_serre_constructed": false,
+        "local_lci": true,
+        "local_unit_character_count": 3,
+        "p_action": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "scheme": "nonmonomial-fixed-orbit-1",
+        "status": "exact reduced-support Serre prerequisite only; global Ext, patching, linearization, and quotient descent remain unresolved",
+        "t_action": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "characters": [
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "1",
+            "vectors": [
+              [
+                "1",
+                "1",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "-1-omega",
+            "vectors": [
+              [
+                "omega",
+                "-1-omega",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "omega",
+            "vectors": [
+              [
+                "-1-omega",
+                "omega",
+                "1"
+              ]
+            ]
+          }
+        ],
+        "exact": true,
+        "extension_space_dimension": 3,
+        "global_serre_constructed": false,
+        "local_lci": true,
+        "local_unit_character_count": 3,
+        "p_action": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ],
+        "scheme": "nonmonomial-fixed-orbit-2",
+        "status": "exact reduced-support Serre prerequisite only; global Ext, patching, linearization, and quotient descent remain unresolved",
+        "t_action": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ]
+        ]
+      },
+      {
+        "characters": [
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "1",
+            "t_character": "1",
+            "vectors": [
+              [
+                "1",
+                "1",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "omega",
+            "t_character": "omega",
+            "vectors": [
+              [
+                "omega",
+                "-1-omega",
+                "1"
+              ]
+            ]
+          },
+          {
+            "contains_local_unit": true,
+            "dimension": 1,
+            "p_character": "-1-omega",
+            "t_character": "-1-omega",
+            "vectors": [
+              [
+                "-1-omega",
+                "omega",
+                "1"
+              ]
+            ]
+          }
+        ],
+        "exact": true,
+        "extension_space_dimension": 3,
+        "global_serre_constructed": false,
+        "local_lci": true,
+        "local_unit_character_count": 3,
+        "p_action": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ],
+        "scheme": "nonmonomial-fixed-orbit-3",
+        "status": "exact reduced-support Serre prerequisite only; global Ext, patching, linearization, and quotient descent remain unresolved",
+        "t_action": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ]
       }
     ],
     "tier_b_serre_atlas_audits": [

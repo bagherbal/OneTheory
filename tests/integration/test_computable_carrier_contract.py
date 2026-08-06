@@ -51,6 +51,9 @@ from research.experiments.computable_carrier.tier_b_orbits import (
 from research.experiments.computable_carrier.tier_b_reduced_schemes import (
     tier_b_reduced_orbit_schemes,
 )
+from research.experiments.computable_carrier.tier_b_reduced_serre import (
+    tier_b_reduced_serre_prerequisites,
+)
 from research.experiments.computable_carrier.tier_b_serre_atlas import (
     tier_b_serre_atlas_audits,
 )
@@ -160,6 +163,18 @@ def test_tier_b_reduced_orbit_schemes_have_exact_invariant_presentations() -> No
         any(len(generator.terms) > 1 for generator in scheme.generators)
         for scheme in schemes[1:]
     )
+
+
+def test_tier_b_reduced_serre_prerequisites_remain_local() -> None:
+    """Reduced supports have local-unit characters without global promotion."""
+
+    prerequisites = tier_b_reduced_serre_prerequisites()
+
+    assert len(prerequisites) == 4
+    assert all(item.exact for item in prerequisites)
+    assert all(item.extension_space_dimension == 3 for item in prerequisites)
+    assert all(item.local_unit_character_count == 3 for item in prerequisites)
+    assert all(not item.global_serre_constructed for item in prerequisites)
 
 
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
@@ -351,5 +366,9 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     reduced_schemes = artifact["tier_a_chain_inputs"]["tier_b_reduced_orbit_schemes"]
     assert len(reduced_schemes) == 4
     assert all(item["exact"] for item in reduced_schemes)
+    reduced_serre = artifact["tier_a_chain_inputs"]["tier_b_reduced_serre_prerequisites"]
+    assert len(reduced_serre) == 4
+    assert all(item["exact"] for item in reduced_serre)
+    assert all(item["global_serre_constructed"] is False for item in reduced_serre)
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

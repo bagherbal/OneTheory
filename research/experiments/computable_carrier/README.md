@@ -210,6 +210,12 @@ preserve each quadratic space. These are concrete invariant ideal
 presentations, not sheaves or Serre constituents; non-reduced schemes and
 global descent remain outside this certificate.
 
+Their reduced-support function spaces are now audited as local Serre
+prerequisites. Each has dimension three, three simultaneous P/T character
+lines, and a local-unit vector in every line. This does not construct a
+global Ext class or rank-two bundle: dP9 patching, equivariant linearization,
+and quotient descent remain explicit gates.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

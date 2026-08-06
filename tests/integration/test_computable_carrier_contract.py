@@ -35,6 +35,9 @@ from research.experiments.computable_carrier.tier_b_curvilinear_actions import (
 from research.experiments.computable_carrier.tier_b_curvilinear_global import (
     tier_b_global_curvilinear_specializations,
 )
+from research.experiments.computable_carrier.tier_b_curvilinear_linearization import (
+    tier_b_curvilinear_linearization_audits,
+)
 from research.experiments.computable_carrier.tier_b_curvilinear_serre import (
     tier_b_curvilinear_serre_audits,
 )
@@ -299,6 +302,22 @@ def test_tier_b_curvilinear_serre_presentations_are_locally_free() -> None:
     assert all(audit.exact for audit in audits)
 
 
+def test_tier_b_curvilinear_extension_actions_stop_before_descent() -> None:
+    """Induced actions are exact but no declared pair linearizes the witness."""
+
+    audits = tier_b_curvilinear_linearization_audits()
+
+    assert len(audits) == 8
+    assert all(audit.induced_actions_exact for audit in audits)
+    assert all(audit.source_commuting_pair_count == 0 for audit in audits)
+    assert all(audit.complete_variant_pair_count == 0 for audit in audits)
+    assert [
+        (len(audit.p_compatible_variants), len(audit.t_compatible_variants))
+        for audit in audits
+    ] == [(0, 12), (0, 12), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0)]
+    assert all(audit.scoped_no_complete_pair for audit in audits)
+
+
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
     """The radius-two class screen is exact but does not claim linearization."""
 
@@ -524,6 +543,13 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert all(item["presentation_locally_free"] for item in curvilinear_serre)
     assert all(item["finite_lift_no_pair"] for item in curvilinear_serre)
     assert all(item["parameter_is_selected_physics"] is False for item in curvilinear_serre)
+    curvilinear_linearization = artifact["tier_a_chain_inputs"][
+        "tier_b_curvilinear_linearization_audits"
+    ]
+    assert len(curvilinear_linearization) == 8
+    assert all(item["induced_actions_exact"] for item in curvilinear_linearization)
+    assert all(item["source_commuting_pair_count"] == 0 for item in curvilinear_linearization)
+    assert all(item["complete_variant_pair_count"] == 0 for item in curvilinear_linearization)
     external = artifact["external_algebra"]
     assert external["status"] == "passed"
     assert external["image_digest"].startswith("sha256:")

@@ -38,6 +38,12 @@ ideal with coefficient degree one. These are non-equivariant presentation
 witnesses; the finite lift family has no complete commuting pair, so honest
 sheaf linearization and quotient descent remain open.
 
+The extension witnesses now receive induced actions on their exact quotient
+cokernels. All induced matrices have order three and preserve their relations,
+but the bounded action family has zero source-term commuting pairs and zero
+complete extension-compatible pairs. This is a scoped finite action boundary,
+not a proof that every possible global Ext linearization is impossible.
+
 The Tier A point-scheme resolutions now also carry derived exact P/T actions.
 Each lift is obtained by solving the Hilbert--Burch chain equation over
 Q(omega), then checked for invertibility, order three, and its termwise

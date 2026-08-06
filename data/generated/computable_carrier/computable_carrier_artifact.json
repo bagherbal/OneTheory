@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "d3c7f0a015f28df058e88ddf7e68db46c3e784c1930fae0a382e808c581bf019",
+  "artifact_digest": "6814e23ec7b2deaae4a708bd8208cadc778c256fe30e4750df0e86d4a5f93951",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -131322,6 +131322,979 @@
         ]
       }
     ],
+    "tier_b_curvilinear_outer_frontier": {
+      "candidate_count": 8,
+      "category": "all eight diagonal presentation pairs with projective hypercohomology",
+      "complete_for_declared_category": true,
+      "diagonal_pair_count": 8,
+      "exact": true,
+      "no_equivariant_candidate_selected": true,
+      "pair_audits": [
+        {
+          "exact": true,
+          "left": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 131
+          },
+          "parent": {
+            "differential_shapes": [
+              [
+                -1,
+                [
+                  34,
+                  15
+                ]
+              ],
+              [
+                0,
+                [
+                  15,
+                  34
+                ]
+              ]
+            ],
+            "homogeneous": true,
+            "left_scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "right_scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "squared_zero": true,
+            "term_ranks": [
+              [
+                -1,
+                15
+              ],
+              [
+                0,
+                34
+              ],
+              [
+                1,
+                15
+              ]
+            ]
+          },
+          "projective_hypercohomology": {
+            "ext1_dimension": 24,
+            "h0_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                24
+              ]
+            ],
+            "h2_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "squared_zero": true,
+            "status": "exact projective-presentation hypercohomology summary; full cochain objects remain available on the returned audit"
+          },
+          "raw_projective_ext1_dimension": 24,
+          "right": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 131
+          },
+          "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
+        },
+        {
+          "exact": true,
+          "left": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 131
+          },
+          "parent": {
+            "differential_shapes": [
+              [
+                -1,
+                [
+                  34,
+                  15
+                ]
+              ],
+              [
+                0,
+                [
+                  15,
+                  34
+                ]
+              ]
+            ],
+            "homogeneous": true,
+            "left_scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "right_scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "squared_zero": true,
+            "term_ranks": [
+              [
+                -1,
+                15
+              ],
+              [
+                0,
+                34
+              ],
+              [
+                1,
+                15
+              ]
+            ]
+          },
+          "projective_hypercohomology": {
+            "ext1_dimension": 24,
+            "h0_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                24
+              ]
+            ],
+            "h2_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "squared_zero": true,
+            "status": "exact projective-presentation hypercohomology summary; full cochain objects remain available on the returned audit"
+          },
+          "raw_projective_ext1_dimension": 24,
+          "right": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 131
+          },
+          "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
+        },
+        {
+          "exact": true,
+          "left": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "parent": {
+            "differential_shapes": [
+              [
+                -1,
+                [
+                  34,
+                  15
+                ]
+              ],
+              [
+                0,
+                [
+                  15,
+                  34
+                ]
+              ]
+            ],
+            "homogeneous": true,
+            "left_scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "right_scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "squared_zero": true,
+            "term_ranks": [
+              [
+                -1,
+                15
+              ],
+              [
+                0,
+                34
+              ],
+              [
+                1,
+                15
+              ]
+            ]
+          },
+          "projective_hypercohomology": {
+            "ext1_dimension": 24,
+            "h0_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                24
+              ]
+            ],
+            "h2_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "squared_zero": true,
+            "status": "exact projective-presentation hypercohomology summary; full cochain objects remain available on the returned audit"
+          },
+          "raw_projective_ext1_dimension": 24,
+          "right": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
+        },
+        {
+          "exact": true,
+          "left": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "parent": {
+            "differential_shapes": [
+              [
+                -1,
+                [
+                  34,
+                  15
+                ]
+              ],
+              [
+                0,
+                [
+                  15,
+                  34
+                ]
+              ]
+            ],
+            "homogeneous": true,
+            "left_scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "right_scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "squared_zero": true,
+            "term_ranks": [
+              [
+                -1,
+                15
+              ],
+              [
+                0,
+                34
+              ],
+              [
+                1,
+                15
+              ]
+            ]
+          },
+          "projective_hypercohomology": {
+            "ext1_dimension": 24,
+            "h0_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                24
+              ]
+            ],
+            "h2_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "squared_zero": true,
+            "status": "exact projective-presentation hypercohomology summary; full cochain objects remain available on the returned audit"
+          },
+          "raw_projective_ext1_dimension": 24,
+          "right": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
+        },
+        {
+          "exact": true,
+          "left": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "parent": {
+            "differential_shapes": [
+              [
+                -1,
+                [
+                  34,
+                  15
+                ]
+              ],
+              [
+                0,
+                [
+                  15,
+                  34
+                ]
+              ]
+            ],
+            "homogeneous": true,
+            "left_scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "right_scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "squared_zero": true,
+            "term_ranks": [
+              [
+                -1,
+                15
+              ],
+              [
+                0,
+                34
+              ],
+              [
+                1,
+                15
+              ]
+            ]
+          },
+          "projective_hypercohomology": {
+            "ext1_dimension": 24,
+            "h0_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                24
+              ]
+            ],
+            "h2_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "squared_zero": true,
+            "status": "exact projective-presentation hypercohomology summary; full cochain objects remain available on the returned audit"
+          },
+          "raw_projective_ext1_dimension": 24,
+          "right": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
+        },
+        {
+          "exact": true,
+          "left": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "parent": {
+            "differential_shapes": [
+              [
+                -1,
+                [
+                  34,
+                  15
+                ]
+              ],
+              [
+                0,
+                [
+                  15,
+                  34
+                ]
+              ]
+            ],
+            "homogeneous": true,
+            "left_scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "right_scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "squared_zero": true,
+            "term_ranks": [
+              [
+                -1,
+                15
+              ],
+              [
+                0,
+                34
+              ],
+              [
+                1,
+                15
+              ]
+            ]
+          },
+          "projective_hypercohomology": {
+            "ext1_dimension": 24,
+            "h0_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                24
+              ]
+            ],
+            "h2_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "squared_zero": true,
+            "status": "exact projective-presentation hypercohomology summary; full cochain objects remain available on the returned audit"
+          },
+          "raw_projective_ext1_dimension": 24,
+          "right": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
+        },
+        {
+          "exact": true,
+          "left": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "parent": {
+            "differential_shapes": [
+              [
+                -1,
+                [
+                  34,
+                  15
+                ]
+              ],
+              [
+                0,
+                [
+                  15,
+                  34
+                ]
+              ]
+            ],
+            "homogeneous": true,
+            "left_scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "right_scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "squared_zero": true,
+            "term_ranks": [
+              [
+                -1,
+                15
+              ],
+              [
+                0,
+                34
+              ],
+              [
+                1,
+                15
+              ]
+            ]
+          },
+          "projective_hypercohomology": {
+            "ext1_dimension": 24,
+            "h0_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                24
+              ]
+            ],
+            "h2_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "squared_zero": true,
+            "status": "exact projective-presentation hypercohomology summary; full cochain objects remain available on the returned audit"
+          },
+          "raw_projective_ext1_dimension": 24,
+          "right": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
+        },
+        {
+          "exact": true,
+          "left": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "parent": {
+            "differential_shapes": [
+              [
+                -1,
+                [
+                  34,
+                  15
+                ]
+              ],
+              [
+                0,
+                [
+                  15,
+                  34
+                ]
+              ]
+            ],
+            "homogeneous": true,
+            "left_scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "right_scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "squared_zero": true,
+            "term_ranks": [
+              [
+                -1,
+                15
+              ],
+              [
+                0,
+                34
+              ],
+              [
+                1,
+                15
+              ]
+            ]
+          },
+          "projective_hypercohomology": {
+            "ext1_dimension": 24,
+            "h0_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                24
+              ]
+            ],
+            "h2_derived_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "squared_zero": true,
+            "status": "exact projective-presentation hypercohomology summary; full cochain objects remain available on the returned audit"
+          },
+          "raw_projective_ext1_dimension": 24,
+          "right": {
+            "exact": true,
+            "relation_composes_to_zero": true,
+            "relation_shape": [
+              3,
+              5
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "research-only curvilinear presentation adapter; no sheaf-level linearization or quotient descent is supplied",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ],
+            "witness_mask": 11
+          },
+          "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
+        }
+      ],
+      "projective_pair_count": 8,
+      "raw_projective_ext1_total": 192,
+      "status": "complete diagonal curvilinear presentation-pair audit only; no global Ext, invariant projector, or physical carrier is selected"
+    },
     "tier_b_curvilinear_resolution_actions": [
       {
         "commuting_pairs": [],

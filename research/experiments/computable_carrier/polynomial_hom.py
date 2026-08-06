@@ -23,6 +23,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from itertools import product
+from typing import Protocol
 
 from onetheory.math.homological import (
     CochainComplex,
@@ -36,16 +37,26 @@ from onetheory.math.polynomials import (
     PolynomialMap,
     PolynomialMatrix,
 )
+from onetheory.models.heterotic_schoen.visible import PointScheme
 
-from .serre_pushout import SerrePushoutCandidate, tier_a_serre_pushouts
+from .serre_pushout import tier_a_serre_pushouts
+
+
+class PresentationCandidate(Protocol):
+    """Structural input required by the presentation Hom construction."""
+
+    scheme: PointScheme
+    relation: PolynomialMatrix
+    source_shifts: tuple[int, ...]
+    target_shifts: tuple[int, ...]
 
 
 @dataclass(frozen=True, slots=True)
 class PolynomialHomComplex:
     """A three-term polynomial derived Hom complex with visible bases."""
 
-    left: SerrePushoutCandidate
-    right: SerrePushoutCandidate
+    left: PresentationCandidate
+    right: PresentationCandidate
     terms: tuple[tuple[int, PolynomialFreeModule], ...]
     differentials: tuple[tuple[int, PolynomialMap], ...]
 
@@ -196,7 +207,7 @@ def _free_module(
 
 
 def _presentation_map(
-    candidate: SerrePushoutCandidate,
+    candidate: PresentationCandidate,
     prefix: str,
 ) -> PolynomialMap:
     """Return the transposed relation map from its shifted modules."""
@@ -446,8 +457,8 @@ def _horizontal_concat(
 
 
 def polynomial_hom_complex(
-    left: SerrePushoutCandidate,
-    right: SerrePushoutCandidate,
+    left: PresentationCandidate,
+    right: PresentationCandidate,
 ) -> PolynomialHomComplex:
     """Build ``Hom(right presentation, left presentation)`` exactly."""
 
@@ -493,6 +504,7 @@ def tier_a_polynomial_hom_complex() -> PolynomialHomComplex:
 __all__ = [
     "PolynomialHomComplex",
     "PolynomialHomDegreeSlice",
+    "PresentationCandidate",
     "polynomial_hom_complex",
     "polynomial_hom_degree_slice",
     "tier_a_polynomial_hom_complex",

@@ -38,6 +38,9 @@ from research.experiments.computable_carrier.tier_b_curvilinear_global import (
 from research.experiments.computable_carrier.tier_b_curvilinear_linearization import (
     tier_b_curvilinear_linearization_audits,
 )
+from research.experiments.computable_carrier.tier_b_curvilinear_outer import (
+    tier_b_curvilinear_outer_frontier,
+)
 from research.experiments.computable_carrier.tier_b_curvilinear_serre import (
     tier_b_curvilinear_serre_audits,
 )
@@ -318,6 +321,32 @@ def test_tier_b_curvilinear_extension_actions_stop_before_descent() -> None:
     assert all(audit.scoped_no_complete_pair for audit in audits)
 
 
+def test_tier_b_curvilinear_outer_presentations_are_complete_and_unpromoted() -> None:
+    """Every diagonal witness pair has exact raw Hom data only."""
+
+    frontier = tier_b_curvilinear_outer_frontier()
+
+    assert frontier.candidate_count == 8
+    assert len(frontier.pair_audits) == 8
+    assert frontier.projective_pair_count == 8
+    assert frontier.raw_projective_ext1_total == 192
+    assert frontier.complete_for_declared_category
+    assert frontier.exact
+    assert all(
+        audit.parent_squared_zero
+        and audit.parent_homogeneous
+        and (
+            audit.projective is None
+            or audit.raw_projective_ext_one_dimension is not None
+        )
+        for audit in frontier.pair_audits
+    )
+    assert [
+        audit.raw_projective_ext_one_dimension for audit in frontier.pair_audits
+    ] == [24] * 8
+    assert frontier.no_equivariant_candidate_selected
+
+
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
     """The radius-two class screen is exact but does not claim linearization."""
 
@@ -550,6 +579,15 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert all(item["induced_actions_exact"] for item in curvilinear_linearization)
     assert all(item["source_commuting_pair_count"] == 0 for item in curvilinear_linearization)
     assert all(item["complete_variant_pair_count"] == 0 for item in curvilinear_linearization)
+    curvilinear_outer = artifact["tier_a_chain_inputs"][
+        "tier_b_curvilinear_outer_frontier"
+    ]
+    assert curvilinear_outer["candidate_count"] == 8
+    assert curvilinear_outer["diagonal_pair_count"] == 8
+    assert curvilinear_outer["projective_pair_count"] == 8
+    assert curvilinear_outer["complete_for_declared_category"] is True
+    assert curvilinear_outer["exact"] is True
+    assert curvilinear_outer["no_equivariant_candidate_selected"] is True
     external = artifact["external_algebra"]
     assert external["status"] == "passed"
     assert external["image_digest"].startswith("sha256:")

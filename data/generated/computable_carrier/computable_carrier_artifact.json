@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "797209aaf3eeed43772e5eded6e31726ad232d8d349a1747a6401446f03bdc5c",
+  "artifact_digest": "6fcd43bfd470deac8e759b3e2e50a3e00850e107e0bd35afdca1a9218e2a7745",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -279530,6 +279530,131 @@
         "unit_character_count": 3
       }
     ],
+    "tier_b_reduced_orbit_classification": {
+      "category": "reduced invariant projective point orbits",
+      "complete_for_reduced_orbit_types": true,
+      "generic_orbit_size": 9,
+      "group_order": 9,
+      "maximum_point_length": 9,
+      "nonidentity_fixed_point_count": 12,
+      "nonreduced_schemes": "unresolved",
+      "reduced_lengths_within_bound": [
+        3,
+        6,
+        9
+      ],
+      "serre_constituents": "unresolved",
+      "special_orbit_count": 4,
+      "special_orbit_sizes": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "special_orbits": [
+        {
+          "exact": true,
+          "identifier": "coordinate-fixed-orbit",
+          "invariant": true,
+          "points": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "size": 3,
+          "stabilizer_order": 3,
+          "status": "reduced projective orbit only; scheme and Serre data unresolved"
+        },
+        {
+          "exact": true,
+          "identifier": "nonmonomial-fixed-orbit-1",
+          "invariant": true,
+          "points": [
+            [
+              "1",
+              "-1-omega",
+              "1"
+            ],
+            [
+              "1",
+              "1",
+              "-1-omega"
+            ],
+            [
+              "1",
+              "omega",
+              "omega"
+            ]
+          ],
+          "size": 3,
+          "stabilizer_order": 3,
+          "status": "reduced projective orbit only; scheme and Serre data unresolved"
+        },
+        {
+          "exact": true,
+          "identifier": "nonmonomial-fixed-orbit-2",
+          "invariant": true,
+          "points": [
+            [
+              "1",
+              "omega",
+              "1"
+            ],
+            [
+              "1",
+              "1",
+              "omega"
+            ],
+            [
+              "1",
+              "-1-omega",
+              "-1-omega"
+            ]
+          ],
+          "size": 3,
+          "stabilizer_order": 3,
+          "status": "reduced projective orbit only; scheme and Serre data unresolved"
+        },
+        {
+          "exact": true,
+          "identifier": "nonmonomial-fixed-orbit-3",
+          "invariant": true,
+          "points": [
+            [
+              "1",
+              "1",
+              "1"
+            ],
+            [
+              "1",
+              "omega",
+              "-1-omega"
+            ],
+            [
+              "1",
+              "-1-omega",
+              "omega"
+            ]
+          ],
+          "size": 3,
+          "stabilizer_order": 3,
+          "status": "reduced projective orbit only; scheme and Serre data unresolved"
+        }
+      ],
+      "status": "exact reduced orbit classification; non-reduced schemes, ideal presentations, Serre extensions, and descent remain unresolved"
+    },
     "tier_b_serre_atlas_audits": [
       {
         "all_invertible": true,

@@ -195,6 +195,14 @@ This is a scoped no-candidate result for that monomial category only; it does
 not exclude non-monomial schemes, unexamined twists, broader Serre classes,
 stability, or the physical carrier.
 
+The fixed projective deck action is also classified at the reduced orbit level.
+Its eight nonidentity elements have twelve distinct fixed points, partitioned
+into four special invariant orbits of length three; a generic projective point
+has orbit length nine. This exposes three non-monomial reduced orbit types that
+the coordinate-supported monomial search does not cover. The result is complete
+for reduced orbit types within the length-nine bound only. Non-reduced schemes,
+ideal presentations, Serre constituents, and descent remain unresolved.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

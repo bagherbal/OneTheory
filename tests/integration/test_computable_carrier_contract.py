@@ -44,6 +44,10 @@ from research.experiments.computable_carrier.tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
     tier_b_monomial_resolution_actions,
 )
+from research.experiments.computable_carrier.tier_b_orbits import (
+    projective_orbit,
+    tier_b_reduced_orbit_classification,
+)
 from research.experiments.computable_carrier.tier_b_serre_atlas import (
     tier_b_serre_atlas_audits,
 )
@@ -120,6 +124,20 @@ def test_tier_b_monomial_resolution_actions_stop_before_serre_descent() -> None:
     assert len(audits) == 6
     assert all(audit.exact_resolution_gate for audit in audits)
     assert all(not audit.common_projective_commutator for audit in audits)
+
+
+def test_tier_b_reduced_orbit_types_include_nonmonomial_fixed_orbits() -> None:
+    """The fixed projective action has four special reduced length-three orbits."""
+
+    classification = tier_b_reduced_orbit_classification()
+
+    assert classification.complete_for_reduced_orbit_types
+    assert classification.nonidentity_fixed_point_count == 12
+    assert classification.special_orbit_sizes == (3, 3, 3, 3)
+    assert classification.reduced_lengths_within_bound == (3, 6, 9)
+    assert len(projective_orbit(classification.special_orbits[0].points[0])) == 3
+    assert len(projective_orbit((1, 2, 3))) == 9
+    assert all(orbit.invariant and orbit.exact for orbit in classification.special_orbits)
 
 
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
@@ -304,5 +322,9 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert outer["complete_for_declared_category"] is True
     assert outer["invariant_outer_class_count"] == 0
     assert outer["no_candidate_in_declared_category"] is True
+    reduced_orbits = artifact["tier_a_chain_inputs"]["tier_b_reduced_orbit_classification"]
+    assert reduced_orbits["complete_for_reduced_orbit_types"] is True
+    assert reduced_orbits["special_orbit_sizes"] == [3, 3, 3, 3]
+    assert reduced_orbits["nonreduced_schemes"] == "unresolved"
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

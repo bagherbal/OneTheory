@@ -29,6 +29,7 @@ from onetheory.math.numbers import Eisenstein
 from onetheory.math.polynomials import PolynomialMatrix
 from onetheory.models.heterotic_schoen.visible import PointScheme
 
+from .dp9_homology import DPSurfaceDerivedHom, dp9_derived_hom
 from .polynomial_hom import (
     PolynomialHomComplex,
     PresentationCandidate,
@@ -112,11 +113,13 @@ class TierBCurvilinearOuterPairAudit:
     right: CurvilinearPresentationCandidate
     parent: PolynomialHomComplex
     projective: ProjectiveHomHypercohomology | None
+    dp9: DPSurfaceDerivedHom
     parent_squared_zero: bool
     parent_homogeneous: bool
     projective_h0_dimensions: tuple[tuple[int, int], ...]
     projective_h2_dimensions: tuple[tuple[int, int], ...]
     projective_ext1_dimension: int | None
+    dp9_h1_dimension: int
 
     @property
     def exact(self) -> bool:
@@ -127,6 +130,8 @@ class TierBCurvilinearOuterPairAudit:
             and self.right.exact
             and self.parent_squared_zero
             and self.parent_homogeneous
+            and self.dp9.squared_zero
+            and self.dp9.all_line_bundles_squared_zero
         )
 
     @property
@@ -170,7 +175,23 @@ class TierBCurvilinearOuterPairAudit:
             "right": self.right.as_record(),
             "parent": parent_record,
             "projective_hypercohomology": projective_record,
+            "dP9_totalization": {
+                "fiber_degree": self.dp9.fiber_degree,
+                "total_degrees": list(self.dp9.total.degrees),
+                "total_dimensions": [
+                    [degree, self.dp9.total.spaces.space(degree).dimension]
+                    for degree in self.dp9.total.degrees
+                ],
+                "total_h1_dimension": self.dp9_h1_dimension,
+                "squared_zero": True,
+                "all_line_bundles_squared_zero": True,
+                "status": (
+                    "exact presentation-level dP9 totalization; global "
+                    "sheafification and quotient descent remain unresolved"
+                ),
+            },
             "raw_projective_ext1_dimension": self.raw_projective_ext_one_dimension,
+            "dP9_total_h1_dimension": self.dp9_h1_dimension,
             "exact": self.exact,
             "status": (
                 "exact projective-presentation outer audit; dP9 sheafification, "
@@ -259,6 +280,7 @@ def _cached_frontier(parameter: Eisenstein) -> TierBCurvilinearOuterFrontier:
     for left in candidates:
         parent = polynomial_hom_complex(left, left)
         projective = projective_hom_hypercohomology(parent)
+        dp9 = dp9_derived_hom(parent)
         parent_squared_zero = parent.squared_zero
         parent_homogeneous = parent.homogeneous
         h0_dimensions = tuple(
@@ -278,11 +300,13 @@ def _cached_frontier(parameter: Eisenstein) -> TierBCurvilinearOuterFrontier:
             left,
             parent,
             projective,
+            dp9,
             parent_squared_zero,
             parent_homogeneous,
             h0_dimensions,
             h2_dimensions,
             ext_one_dimension,
+            dp9.total_h1_dimension,
         )
         if not audit.exact:
             raise ValueError("curvilinear outer presentation failed an exact gate")

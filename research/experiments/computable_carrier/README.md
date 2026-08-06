@@ -420,7 +420,9 @@ Serre extension classes and quotient linearization remain unresolved.
 
 The eight curvilinear witnesses now feed a diagonal outer-presentation audit.
 Each diagonal pair has an exact polynomial Hom complex and projective-plane
-hypercohomology with explicit cochain data and representatives. This is a
-tractable first-principles slice; off-diagonal pair materialization is
-explicitly deferred, and no result is called global dP9 Ext or an invariant
-outer class because the witness linearization gate still fails.
+hypercohomology with explicit cochain data and representatives, followed by
+the signed zero-fiber dP9 totalization. Each total differential squares to
+zero and has degree-one dimension 24. This is a tractable first-principles
+slice; off-diagonal pair materialization is explicitly deferred, and no
+result is called global dP9 Ext or an invariant outer class because the
+witness linearization gate still fails.

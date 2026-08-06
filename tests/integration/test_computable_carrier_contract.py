@@ -330,11 +330,14 @@ def test_tier_b_curvilinear_outer_presentations_are_complete_and_unpromoted() ->
     assert len(frontier.pair_audits) == 8
     assert frontier.projective_pair_count == 8
     assert frontier.raw_projective_ext1_total == 192
+    assert [audit.dp9_h1_dimension for audit in frontier.pair_audits] == [24] * 8
     assert frontier.complete_for_declared_category
     assert frontier.exact
     assert all(
         audit.parent_squared_zero
         and audit.parent_homogeneous
+        and audit.dp9.squared_zero
+        and audit.dp9.all_line_bundles_squared_zero
         and (
             audit.projective is None
             or audit.raw_projective_ext_one_dimension is not None
@@ -585,6 +588,11 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert curvilinear_outer["candidate_count"] == 8
     assert curvilinear_outer["diagonal_pair_count"] == 8
     assert curvilinear_outer["projective_pair_count"] == 8
+    assert curvilinear_outer["raw_projective_ext1_total"] == 192
+    assert all(
+        item["dP9_total_h1_dimension"] == 24
+        for item in curvilinear_outer["pair_audits"]
+    )
     assert curvilinear_outer["complete_for_declared_category"] is True
     assert curvilinear_outer["exact"] is True
     assert curvilinear_outer["no_equivariant_candidate_selected"] is True

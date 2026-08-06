@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "6814e23ec7b2deaae4a708bd8208cadc778c256fe30e4750df0e86d4a5f93951",
+  "artifact_digest": "3f2f2228819b2b198726aaf675e3bc2b2f559f92a76bbe578370e2b951001765",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -131331,6 +131331,48 @@
       "no_equivariant_candidate_selected": true,
       "pair_audits": [
         {
+          "dP9_total_h1_dimension": 24,
+          "dP9_totalization": {
+            "all_line_bundles_squared_zero": true,
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact presentation-level dP9 totalization; global sheafification and quotient descent remain unresolved",
+            "total_degrees": [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "total_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                40
+              ],
+              [
+                1,
+                63
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "total_h1_dimension": 24
+          },
           "exact": true,
           "left": {
             "exact": true,
@@ -131451,6 +131493,48 @@
           "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
         },
         {
+          "dP9_total_h1_dimension": 24,
+          "dP9_totalization": {
+            "all_line_bundles_squared_zero": true,
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact presentation-level dP9 totalization; global sheafification and quotient descent remain unresolved",
+            "total_degrees": [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "total_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                40
+              ],
+              [
+                1,
+                63
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "total_h1_dimension": 24
+          },
           "exact": true,
           "left": {
             "exact": true,
@@ -131571,6 +131655,48 @@
           "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
         },
         {
+          "dP9_total_h1_dimension": 24,
+          "dP9_totalization": {
+            "all_line_bundles_squared_zero": true,
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact presentation-level dP9 totalization; global sheafification and quotient descent remain unresolved",
+            "total_degrees": [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "total_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                40
+              ],
+              [
+                1,
+                63
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "total_h1_dimension": 24
+          },
           "exact": true,
           "left": {
             "exact": true,
@@ -131691,6 +131817,48 @@
           "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
         },
         {
+          "dP9_total_h1_dimension": 24,
+          "dP9_totalization": {
+            "all_line_bundles_squared_zero": true,
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact presentation-level dP9 totalization; global sheafification and quotient descent remain unresolved",
+            "total_degrees": [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "total_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                40
+              ],
+              [
+                1,
+                63
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "total_h1_dimension": 24
+          },
           "exact": true,
           "left": {
             "exact": true,
@@ -131811,6 +131979,48 @@
           "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
         },
         {
+          "dP9_total_h1_dimension": 24,
+          "dP9_totalization": {
+            "all_line_bundles_squared_zero": true,
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact presentation-level dP9 totalization; global sheafification and quotient descent remain unresolved",
+            "total_degrees": [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "total_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                40
+              ],
+              [
+                1,
+                63
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "total_h1_dimension": 24
+          },
           "exact": true,
           "left": {
             "exact": true,
@@ -131931,6 +132141,48 @@
           "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
         },
         {
+          "dP9_total_h1_dimension": 24,
+          "dP9_totalization": {
+            "all_line_bundles_squared_zero": true,
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact presentation-level dP9 totalization; global sheafification and quotient descent remain unresolved",
+            "total_degrees": [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "total_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                40
+              ],
+              [
+                1,
+                63
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "total_h1_dimension": 24
+          },
           "exact": true,
           "left": {
             "exact": true,
@@ -132051,6 +132303,48 @@
           "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
         },
         {
+          "dP9_total_h1_dimension": 24,
+          "dP9_totalization": {
+            "all_line_bundles_squared_zero": true,
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact presentation-level dP9 totalization; global sheafification and quotient descent remain unresolved",
+            "total_degrees": [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "total_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                40
+              ],
+              [
+                1,
+                63
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "total_h1_dimension": 24
+          },
           "exact": true,
           "left": {
             "exact": true,
@@ -132171,6 +132465,48 @@
           "status": "exact projective-presentation outer audit; dP9 sheafification, deck-linearized Ext, and quotient descent remain unresolved"
         },
         {
+          "dP9_total_h1_dimension": 24,
+          "dP9_totalization": {
+            "all_line_bundles_squared_zero": true,
+            "fiber_degree": 0,
+            "squared_zero": true,
+            "status": "exact presentation-level dP9 totalization; global sheafification and quotient descent remain unresolved",
+            "total_degrees": [
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "total_dimensions": [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                40
+              ],
+              [
+                1,
+                63
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "total_h1_dimension": 24
+          },
           "exact": true,
           "left": {
             "exact": true,

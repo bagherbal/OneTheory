@@ -73,6 +73,9 @@ from research.experiments.computable_carrier.tier_b_serre_extensions import (
 from research.experiments.computable_carrier.tier_b_serre_sections import (
     tier_b_projective_serre_section_audits,
 )
+from research.experiments.computable_carrier.tier_b_transported_actions import (
+    tier_b_transported_resolution_actions,
+)
 from research.experiments.computable_carrier.tier_b_twists import (
     tier_b_twist_descent_screen,
 )
@@ -207,6 +210,17 @@ def test_tier_b_transported_special_orbit_schemes_are_exact() -> None:
         sum(scheme.length == length for scheme in schemes)
         for length in (3, 6, 9)
     ] == [4, 8, 12]
+
+
+def test_tier_b_transported_resolution_lifts_have_no_finite_commuting_pair() -> None:
+    """All transported presentations fail only the scoped finite lift pair gate."""
+
+    audits = tier_b_transported_resolution_actions()
+
+    assert len(audits) == 24
+    assert all(audit.exact for audit in audits)
+    assert all(audit.scoped_no_pair for audit in audits)
+    assert all(audit.complete_commuting_pair_count == 0 for audit in audits)
 
 
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
@@ -408,5 +422,8 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     transported = artifact["tier_a_chain_inputs"]["tier_b_transported_invariant_schemes"]
     assert len(transported) == 24
     assert all(item["exact"] for item in transported)
+    transported_actions = artifact["tier_a_chain_inputs"]["tier_b_transported_resolution_actions"]
+    assert len(transported_actions) == 24
+    assert all(item["scoped_no_pair"] for item in transported_actions)
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

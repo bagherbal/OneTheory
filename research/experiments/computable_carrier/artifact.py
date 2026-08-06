@@ -81,6 +81,7 @@ from .tier_b_serre_extensions import (
     tier_b_serre_eigenrays,
 )
 from .tier_b_serre_sections import tier_b_projective_serre_section_audits
+from .tier_b_transported_actions import tier_b_transported_resolution_actions
 from .tier_b_twists import tier_b_twist_descent_screen
 
 
@@ -222,6 +223,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     tier_b_reduced_serre = tier_b_reduced_serre_prerequisites()
     tier_b_reduced_actions = tier_b_reduced_resolution_actions()
     tier_b_transported_schemes = tier_b_transported_invariant_schemes()
+    tier_b_transported_actions = tier_b_transported_resolution_actions()
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
         pencil_model,
         explicit_serre_pushouts,
@@ -412,6 +414,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "tier_b_transported_invariant_schemes": [
                 item.as_record() for item in tier_b_transported_schemes
+            ],
+            "tier_b_transported_resolution_actions": [
+                item.as_record() for item in tier_b_transported_actions
             ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {

@@ -229,6 +229,12 @@ Hilbert--Burch and P/T invariance checks. This closes only the declared
 transported local-type category; arbitrary non-reduced invariant schemes and
 their Serre constructions remain unresolved.
 
+The transported mixed-degree resolutions now receive the same finite lift
+audit. All 24 presentations pass their chain, invertibility, and order-three
+checks, while every one has zero exact commuting P/T lift pairs. This closes a
+finite resolution-level gauge category only; it is not a no-go for arbitrary
+sheaf-level linearizations or global Serre constructions.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

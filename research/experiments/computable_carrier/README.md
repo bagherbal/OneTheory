@@ -24,6 +24,13 @@ research-only because the global horseshoe or mapping cone, deck linearization,
 stability chamber, spectrum, DGA, metric, instanton, and hidden consistency
 certificates are not yet present.
 
+The bounded global curvilinear Tier B specializations now have a separate
+resolution-action audit. Every one of the eight exact length-nine
+specializations has finite order-three P/T lifts, but no complete commuting
+pair in this enumerated degree-block family. This is a presentation-level
+diagnostic only: it does not replace the missing Serre extension,
+linearization, or quotient-descent construction.
+
 The Tier A point-scheme resolutions now also carry derived exact P/T actions.
 Each lift is obtained by solving the Hilbert--Burch chain equation over
 Q(omega), then checked for invertibility, order three, and its termwise

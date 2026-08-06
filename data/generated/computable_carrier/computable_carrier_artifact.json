@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "406d562cd65f7dd883567579c1b1cd5d6d25fd8dbec4b700cd38c7e2b188a2e1",
+  "artifact_digest": "c820498b91a66c8bbb0232ca40b94ac2d89213e4484115bb5a8aa134fd3be62f",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -120454,6 +120454,7344 @@
       "status": "split-derived gauge lifts checked; exact group relations remain unresolved"
     },
     "status": "exact complexes and local candidate transitions available; Serre gate pending",
+    "tier_b_curvilinear_resolution_actions": [
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "family": "u",
+        "orbit": "coordinate-fixed-orbit",
+        "p_action_count": 6,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "parameter": "1",
+        "scoped_no_pair": true,
+        "specialization": "coordinate-fixed-orbit:curvilinear-u:1",
+        "status": "finite global resolution-lift diagnostic only; sheaf linearization and quotient descent remain unresolved",
+        "t_action_count": 12,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "family": "v",
+        "orbit": "coordinate-fixed-orbit",
+        "p_action_count": 6,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "parameter": "1",
+        "scoped_no_pair": true,
+        "specialization": "coordinate-fixed-orbit:curvilinear-v:1",
+        "status": "finite global resolution-lift diagnostic only; sheaf linearization and quotient descent remain unresolved",
+        "t_action_count": 12,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "family": "u",
+        "orbit": "nonmonomial-fixed-orbit-1",
+        "p_action_count": 12,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          }
+        ],
+        "parameter": "1",
+        "scoped_no_pair": true,
+        "specialization": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+        "status": "finite global resolution-lift diagnostic only; sheaf linearization and quotient descent remain unresolved",
+        "t_action_count": 6,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "family": "v",
+        "orbit": "nonmonomial-fixed-orbit-1",
+        "p_action_count": 12,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              false
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              false
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ]
+          }
+        ],
+        "parameter": "1",
+        "scoped_no_pair": true,
+        "specialization": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+        "status": "finite global resolution-lift diagnostic only; sheaf linearization and quotient descent remain unresolved",
+        "t_action_count": 6,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "family": "u",
+        "orbit": "nonmonomial-fixed-orbit-2",
+        "p_action_count": 6,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "parameter": "1",
+        "scoped_no_pair": true,
+        "specialization": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+        "status": "finite global resolution-lift diagnostic only; sheaf linearization and quotient descent remain unresolved",
+        "t_action_count": 6,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "family": "v",
+        "orbit": "nonmonomial-fixed-orbit-2",
+        "p_action_count": 6,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "parameter": "1",
+        "scoped_no_pair": true,
+        "specialization": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+        "status": "finite global resolution-lift diagnostic only; sheaf linearization and quotient descent remain unresolved",
+        "t_action_count": 6,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "family": "u",
+        "orbit": "nonmonomial-fixed-orbit-3",
+        "p_action_count": 6,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "parameter": "1",
+        "scoped_no_pair": true,
+        "specialization": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+        "status": "finite global resolution-lift diagnostic only; sheaf linearization and quotient descent remain unresolved",
+        "t_action_count": 6,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "commuting_pairs": [],
+        "complete_commuting_pair_count": 0,
+        "exact": true,
+        "family": "v",
+        "orbit": "nonmonomial-fixed-orbit-3",
+        "p_action_count": 6,
+        "p_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "P",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ],
+        "parameter": "1",
+        "scoped_no_pair": true,
+        "specialization": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+        "status": "finite global resolution-lift diagnostic only; sheaf linearization and quotient descent remain unresolved",
+        "t_action_count": 6,
+        "t_actions": [
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              false,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "1",
+              "1"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "omega",
+              "omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ]
+            ]
+          },
+          {
+            "chain_equation": true,
+            "exact": true,
+            "invertible": true,
+            "name": "T",
+            "order_three": true,
+            "orientations": [
+              true,
+              true
+            ],
+            "scalars": [
+              "-1-omega",
+              "-1-omega"
+            ],
+            "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+            "source_action": [
+              [
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0"
+              ]
+            ],
+            "status": "finite transported-resolution lift only; sheaf linearization pending",
+            "target_action": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ]
+      }
+    ],
     "tier_b_dp9_deck_actions": [
       {
         "actions_commute": true,

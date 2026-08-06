@@ -59,6 +59,7 @@ from .serre_local import local_serre_model, tier_a_local_serre_models
 from .serre_pushout import tier_a_serre_pushouts
 from .serre_rays import tier_a_serre_eigenclass_variants
 from .specification import computable_carrier_specification
+from .tier_b_curvilinear_actions import tier_b_curvilinear_resolution_actions
 from .tier_b_curvilinear_global import tier_b_global_curvilinear_specializations
 from .tier_b_dp9_actions import tier_b_dp9_deck_action_audits
 from .tier_b_dp9_ideals import tier_b_dp9_monomial_ideal_resolutions
@@ -229,6 +230,9 @@ def build_artifact(root: Path) -> dict[str, object]:
     tier_b_transported_actions = tier_b_transported_resolution_actions()
     tier_b_local_families = tier_b_local_invariant_normal_forms()
     tier_b_curvilinear_global = tier_b_global_curvilinear_specializations(
+        Eisenstein(1),
+    )
+    tier_b_curvilinear_actions = tier_b_curvilinear_resolution_actions(
         Eisenstein(1),
     )
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
@@ -429,6 +433,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             "tier_b_local_invariant_normal_forms": tier_b_local_families.as_record(),
             "tier_b_global_curvilinear_specializations": [
                 item.as_record() for item in tier_b_curvilinear_global
+            ],
+            "tier_b_curvilinear_resolution_actions": [
+                item.as_record() for item in tier_b_curvilinear_actions
             ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {

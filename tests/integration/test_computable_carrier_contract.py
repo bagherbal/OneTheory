@@ -29,6 +29,9 @@ from research.experiments.computable_carrier.search import finite_tier_search
 from research.experiments.computable_carrier.specification import (
     computable_carrier_specification,
 )
+from research.experiments.computable_carrier.tier_b_curvilinear_actions import (
+    tier_b_curvilinear_resolution_actions,
+)
 from research.experiments.computable_carrier.tier_b_curvilinear_global import (
     tier_b_global_curvilinear_specializations,
 )
@@ -264,6 +267,17 @@ def test_tier_b_curvilinear_specializations_have_global_hilbert_burch_data() -> 
         assert all(item.p_invariant and item.t_invariant for item in specializations)
 
 
+def test_tier_b_curvilinear_resolution_lifts_have_no_finite_commuting_pair() -> None:
+    """Global curvilinear presentations stop at the finite lift boundary."""
+
+    audits = tier_b_curvilinear_resolution_actions()
+
+    assert len(audits) == 8
+    assert all(audit.exact for audit in audits)
+    assert all(audit.scoped_no_pair for audit in audits)
+    assert all(audit.commuting_pairs == () for audit in audits)
+
+
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
     """The radius-two class screen is exact but does not claim linearization."""
 
@@ -476,6 +490,12 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert len(global_curvilinear) == 8
     assert all(item["exact"] for item in global_curvilinear)
     assert all(item["parameter_is_selected_physics"] is False for item in global_curvilinear)
+    curvilinear_actions = artifact["tier_a_chain_inputs"][
+        "tier_b_curvilinear_resolution_actions"
+    ]
+    assert len(curvilinear_actions) == 8
+    assert all(item["exact"] for item in curvilinear_actions)
+    assert all(item["scoped_no_pair"] for item in curvilinear_actions)
     external = artifact["external_algebra"]
     assert external["status"] == "passed"
     assert external["image_digest"].startswith("sha256:")

@@ -35,6 +35,9 @@ from research.experiments.computable_carrier.tier_b_curvilinear_actions import (
 from research.experiments.computable_carrier.tier_b_curvilinear_global import (
     tier_b_global_curvilinear_specializations,
 )
+from research.experiments.computable_carrier.tier_b_curvilinear_serre import (
+    tier_b_curvilinear_serre_audits,
+)
 from research.experiments.computable_carrier.tier_b_dp9_actions import (
     tier_b_dp9_deck_action_audits,
 )
@@ -278,6 +281,24 @@ def test_tier_b_curvilinear_resolution_lifts_have_no_finite_commuting_pair() -> 
     assert all(audit.commuting_pairs == () for audit in audits)
 
 
+def test_tier_b_curvilinear_serre_presentations_are_locally_free() -> None:
+    """Global curvilinear extensions pass presentation-level Fitting gates."""
+
+    audits = tier_b_curvilinear_serre_audits()
+
+    assert len(audits) == 8
+    assert [audit.cokernel.dimension for audit in audits] == [8] * 8
+    assert all(audit.presentation_locally_free for audit in audits)
+    assert all(audit.support_fitting_verified for audit in audits)
+    assert all(audit.chart_fitting_verified for audit in audits)
+    assert all(
+        {certificate.coefficient_degree_bound for certificate in audit.fitting_certificates}
+        == {1}
+        for audit in audits
+    )
+    assert all(audit.exact for audit in audits)
+
+
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
     """The radius-two class screen is exact but does not claim linearization."""
 
@@ -496,6 +517,13 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert len(curvilinear_actions) == 8
     assert all(item["exact"] for item in curvilinear_actions)
     assert all(item["scoped_no_pair"] for item in curvilinear_actions)
+    curvilinear_serre = artifact["tier_a_chain_inputs"][
+        "tier_b_curvilinear_serre_audits"
+    ]
+    assert len(curvilinear_serre) == 8
+    assert all(item["presentation_locally_free"] for item in curvilinear_serre)
+    assert all(item["finite_lift_no_pair"] for item in curvilinear_serre)
+    assert all(item["parameter_is_selected_physics"] is False for item in curvilinear_serre)
     external = artifact["external_algebra"]
     assert external["status"] == "passed"
     assert external["image_digest"].startswith("sha256:")

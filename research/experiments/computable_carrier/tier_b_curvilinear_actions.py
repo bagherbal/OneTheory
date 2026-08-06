@@ -67,6 +67,12 @@ class TierBCurvilinearResolutionActionAudit:
 
         return self.exact and not self.commuting_pairs
 
+    @property
+    def complete_commuting_pair_count(self) -> int:
+        """Return the exact number of complete commuting lift pairs."""
+
+        return len(self.commuting_pairs)
+
     def as_record(self) -> dict[str, object]:
         """Serialize the finite result with its sheaf-level boundary."""
 

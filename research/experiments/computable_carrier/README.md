@@ -31,6 +31,13 @@ pair in this enumerated degree-block family. This is a presentation-level
 diagnostic only: it does not replace the missing Serre extension,
 linearization, or quotient-descent construction.
 
+The same eight presentations now have explicit fixed-target-line cokernels and
+deterministic extension witnesses. Their relations compose on every declared
+dP9 chart, and bounded polynomial Bezout identities certify the unit Fitting
+ideal with coefficient degree one. These are non-equivariant presentation
+witnesses; the finite lift family has no complete commuting pair, so honest
+sheaf linearization and quotient descent remain open.
+
 The Tier A point-scheme resolutions now also carry derived exact P/T actions.
 Each lift is obtained by solving the Hilbert--Burch chain equation over
 Q(omega), then checked for invertibility, order three, and its termwise

@@ -285,6 +285,15 @@ class TierBGlobalCurvilinearSpecialization:
         return PointScheme(self.name, self.generators, self.resolution)
 
     @property
+    def support_points(self) -> tuple[tuple[Eisenstein, Eisenstein, Eisenstein], ...]:
+        """Return the exact reduced orbit supporting this specialization."""
+
+        for orbit in tier_b_reduced_orbit_classification().special_orbits:
+            if orbit.identifier == self.orbit_identifier:
+                return orbit.points
+        raise ValueError(f"unknown special orbit: {self.orbit_identifier}")
+
+    @property
     def parameter_is_selected_physics(self) -> bool:
         """Return the fixed nonphysical-selection guard for this diagnostic."""
 
@@ -313,6 +322,10 @@ class TierBGlobalCurvilinearSpecialization:
             "parameter": str(self.parameter),
             "parameter_field": "Q(omega)",
             "parameter_is_selected_physics": self.parameter_is_selected_physics,
+            "support_points": [
+                [str(value) for value in point]
+                for point in self.support_points
+            ],
             "length": self.length,
             "jet_constraint_rank": self.jet_constraint_rank,
             "generators": [

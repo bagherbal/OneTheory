@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "6fcd43bfd470deac8e759b3e2e50a3e00850e107e0bd35afdca1a9218e2a7745",
+  "artifact_digest": "bfc20d7e6642ade9e22ce8a2d6262df1eee56aa633ee09f7d20d42d2c6e1e90f",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -279655,6 +279655,582 @@
       ],
       "status": "exact reduced orbit classification; non-reduced schemes, ideal presentations, Serre extensions, and descent remain unresolved"
     },
+    "tier_b_reduced_orbit_schemes": [
+      {
+        "exact": true,
+        "generators": [
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  1,
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  1
+                ]
+              }
+            ]
+          }
+        ],
+        "hilbert_burch": {
+          "matrix": [
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": []
+              }
+            ],
+            [
+              {
+                "terms": []
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ]
+          ],
+          "scheme_length": "3",
+          "verifies_generators": true
+        },
+        "length": 3,
+        "orbit": "coordinate-fixed-orbit",
+        "p_invariant": true,
+        "status": "exact reduced orbit ideal and Hilbert--Burch presentation; Serre construction and quotient descent remain unresolved",
+        "t_invariant": true
+      },
+      {
+        "exact": true,
+        "generators": [
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  1,
+                  0,
+                  1
+                ]
+              },
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  2,
+                  0,
+                  0
+                ]
+              },
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  2
+                ]
+              }
+            ]
+          }
+        ],
+        "hilbert_burch": {
+          "matrix": [
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1-omega",
+                    "exponents": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "omega",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1+omega",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ]
+          ],
+          "scheme_length": "3",
+          "verifies_generators": true
+        },
+        "length": 3,
+        "orbit": "nonmonomial-fixed-orbit-1",
+        "p_invariant": true,
+        "status": "exact reduced orbit ideal and Hilbert--Burch presentation; Serre construction and quotient descent remain unresolved",
+        "t_invariant": true
+      },
+      {
+        "exact": true,
+        "generators": [
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  1
+                ]
+              },
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  2,
+                  0,
+                  0
+                ]
+              },
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  2
+                ]
+              }
+            ]
+          }
+        ],
+        "hilbert_burch": {
+          "matrix": [
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "omega",
+                    "exponents": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1-omega",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "-omega",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ]
+          ],
+          "scheme_length": "3",
+          "verifies_generators": true
+        },
+        "length": 3,
+        "orbit": "nonmonomial-fixed-orbit-2",
+        "p_invariant": true,
+        "status": "exact reduced orbit ideal and Hilbert--Burch presentation; Serre construction and quotient descent remain unresolved",
+        "t_invariant": true
+      },
+      {
+        "exact": true,
+        "generators": [
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  1,
+                  0,
+                  1
+                ]
+              },
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  2,
+                  0,
+                  0
+                ]
+              },
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  2
+                ]
+              }
+            ]
+          }
+        ],
+        "hilbert_burch": {
+          "matrix": [
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "-1",
+                    "exponents": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ]
+          ],
+          "scheme_length": "3",
+          "verifies_generators": true
+        },
+        "length": 3,
+        "orbit": "nonmonomial-fixed-orbit-3",
+        "p_invariant": true,
+        "status": "exact reduced orbit ideal and Hilbert--Burch presentation; Serre construction and quotient descent remain unresolved",
+        "t_invariant": true
+      }
+    ],
     "tier_b_serre_atlas_audits": [
       {
         "all_invertible": true,

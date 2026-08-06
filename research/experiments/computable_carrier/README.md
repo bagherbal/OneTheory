@@ -203,6 +203,13 @@ the coordinate-supported monomial search does not cover. The result is complete
 for reduced orbit types within the length-nine bound only. Non-reduced schemes,
 ideal presentations, Serre constituents, and descent remain unresolved.
 
+The four special reduced orbits now have independently computed quadratic
+vanishing ideals. Exact two-column linear syzygy matrices reproduce their
+length-three Hilbert--Burch resolutions, and both published deck generators
+preserve each quadratic space. These are concrete invariant ideal
+presentations, not sheaves or Serre constituents; non-reduced schemes and
+global descent remain outside this certificate.
+
 The fixed dP9 Leray constraints are serialized separately with exact P1
 cohomology bases: W1 has total dimensions (0,1,0), while W2 has (0,4,0).
 Their source equation labels and coboundary statuses remain inputs to the new

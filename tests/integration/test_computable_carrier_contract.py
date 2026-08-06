@@ -48,6 +48,9 @@ from research.experiments.computable_carrier.tier_b_orbits import (
     projective_orbit,
     tier_b_reduced_orbit_classification,
 )
+from research.experiments.computable_carrier.tier_b_reduced_schemes import (
+    tier_b_reduced_orbit_schemes,
+)
 from research.experiments.computable_carrier.tier_b_serre_atlas import (
     tier_b_serre_atlas_audits,
 )
@@ -138,6 +141,25 @@ def test_tier_b_reduced_orbit_types_include_nonmonomial_fixed_orbits() -> None:
     assert len(projective_orbit(classification.special_orbits[0].points[0])) == 3
     assert len(projective_orbit((1, 2, 3))) == 9
     assert all(orbit.invariant and orbit.exact for orbit in classification.special_orbits)
+
+
+def test_tier_b_reduced_orbit_schemes_have_exact_invariant_presentations() -> None:
+    """All four reduced special orbits have exact quadratic resolutions."""
+
+    schemes = tier_b_reduced_orbit_schemes()
+
+    assert len(schemes) == 4
+    assert [scheme.length for scheme in schemes] == [3, 3, 3, 3]
+    assert all(scheme.exact for scheme in schemes)
+    assert all(scheme.p_invariant and scheme.t_invariant for scheme in schemes)
+    assert not any(
+        len(generator.terms) > 1
+        for generator in schemes[0].generators
+    )
+    assert all(
+        any(len(generator.terms) > 1 for generator in scheme.generators)
+        for scheme in schemes[1:]
+    )
 
 
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
@@ -326,5 +348,8 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert reduced_orbits["complete_for_reduced_orbit_types"] is True
     assert reduced_orbits["special_orbit_sizes"] == [3, 3, 3, 3]
     assert reduced_orbits["nonreduced_schemes"] == "unresolved"
+    reduced_schemes = artifact["tier_a_chain_inputs"]["tier_b_reduced_orbit_schemes"]
+    assert len(reduced_schemes) == 4
+    assert all(item["exact"] for item in reduced_schemes)
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

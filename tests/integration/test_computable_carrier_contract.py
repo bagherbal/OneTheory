@@ -23,10 +23,14 @@ import json
 from hashlib import sha256
 from pathlib import Path
 
+from onetheory.math.numbers import OMEGA, Eisenstein
 from research.experiments.computable_carrier.artifact import write_artifact
 from research.experiments.computable_carrier.search import finite_tier_search
 from research.experiments.computable_carrier.specification import (
     computable_carrier_specification,
+)
+from research.experiments.computable_carrier.tier_b_curvilinear_global import (
+    tier_b_global_curvilinear_specializations,
 )
 from research.experiments.computable_carrier.tier_b_dp9_actions import (
     tier_b_dp9_deck_action_audits,
@@ -246,6 +250,20 @@ def test_tier_b_local_normal_forms_expose_parameterized_curves() -> None:
     assert all(item.tangent_weights == (1, 2) for item in report.normal_forms)
 
 
+def test_tier_b_curvilinear_specializations_have_global_hilbert_burch_data() -> None:
+    """Exact nonphysical parameter specializations are globally presented."""
+
+    for parameter in (Eisenstein(1), OMEGA):
+        specializations = tier_b_global_curvilinear_specializations(parameter)
+
+        assert len(specializations) == 8
+        assert all(item.exact for item in specializations)
+        assert all(item.length == 9 for item in specializations)
+        assert all(item.parameter_is_selected_physics is False for item in specializations)
+        assert {item.family for item in specializations} == {"u", "v"}
+        assert all(item.p_invariant and item.t_invariant for item in specializations)
+
+
 def test_tier_b_twists_apply_only_the_necessary_descent_congruence() -> None:
     """The radius-two class screen is exact but does not claim linearization."""
 
@@ -452,5 +470,16 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert local_families["exact"] is True
     assert local_families["normal_form_count"] == 32
     assert local_families["parameterized_family_count"] == 8
+    global_curvilinear = artifact["tier_a_chain_inputs"][
+        "tier_b_global_curvilinear_specializations"
+    ]
+    assert len(global_curvilinear) == 8
+    assert all(item["exact"] for item in global_curvilinear)
+    assert all(item["parameter_is_selected_physics"] is False for item in global_curvilinear)
+    external = artifact["external_algebra"]
+    assert external["status"] == "passed"
+    assert external["image_digest"].startswith("sha256:")
+    assert len(external["script_sha256"]) == 64
+    assert external["output"][-1] == "split_rank_four_status: excluded"
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

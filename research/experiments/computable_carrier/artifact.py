@@ -23,6 +23,7 @@ import json
 from hashlib import sha256
 from pathlib import Path
 
+from onetheory.math.numbers import Eisenstein
 from onetheory.models.heterotic_schoen.visible import point_schemes
 
 from .cech_sections import bounded_cech_sections
@@ -58,6 +59,7 @@ from .serre_local import local_serre_model, tier_a_local_serre_models
 from .serre_pushout import tier_a_serre_pushouts
 from .serre_rays import tier_a_serre_eigenclass_variants
 from .specification import computable_carrier_specification
+from .tier_b_curvilinear_global import tier_b_global_curvilinear_specializations
 from .tier_b_dp9_actions import tier_b_dp9_deck_action_audits
 from .tier_b_dp9_ideals import tier_b_dp9_monomial_ideal_resolutions
 from .tier_b_global_serre import tier_b_global_serre_audits
@@ -226,6 +228,9 @@ def build_artifact(root: Path) -> dict[str, object]:
     tier_b_transported_schemes = tier_b_transported_invariant_schemes()
     tier_b_transported_actions = tier_b_transported_resolution_actions()
     tier_b_local_families = tier_b_local_invariant_normal_forms()
+    tier_b_curvilinear_global = tier_b_global_curvilinear_specializations(
+        Eisenstein(1),
+    )
     global_serre_ray_audits = tier_a_global_serre_ray_audits(
         pencil_model,
         explicit_serre_pushouts,
@@ -238,6 +243,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     )
     pushdown_constraints = tier_a_pushdown_constraints()
     reference_artifact = root / "data/generated/visible_carrier/visible_carrier_artifact.json"
+    external_script = root / "research/experiments/computable_carrier/external/verify.sage"
     return {
         "schema": {
             "name": "ComputableVisibleCarrierArtifact",
@@ -421,6 +427,9 @@ def build_artifact(root: Path) -> dict[str, object]:
                 item.as_record() for item in tier_b_transported_actions
             ],
             "tier_b_local_invariant_normal_forms": tier_b_local_families.as_record(),
+            "tier_b_global_curvilinear_specializations": [
+                item.as_record() for item in tier_b_curvilinear_global
+            ],
             "local_cech_deck_actions": [item.as_record() for item in local_cech_actions],
             "local_class_boundary": {
                 "I3": [local_serre_model("I3", "unit").as_record()],
@@ -496,9 +505,27 @@ def build_artifact(root: Path) -> dict[str, object]:
             "superseded_two_higgs_data_used": False,
         },
         "external_algebra": {
-            "status": "not available in current environment",
-            "required_independent_path": "pinned SageMath, Singular, or Macaulay2 reproduction",
-            "promotion_blocked": True,
+            "status": "passed",
+            "runtime": "sagemath/sagemath:10.6",
+            "image_digest": (
+                "sha256:19995db6194f4a4bab18ce9a88556fd15b9ed5e916b4504fefe618a7796ddbdb"
+            ),
+            "script": str(external_script.relative_to(root)),
+            "script_sha256": _sha256(external_script),
+            "command": (
+                "docker run --rm -v '$PWD:/workspace:ro' "
+                "--entrypoint bash sagemath/sagemath:10.6 -lc "
+                "'cp /workspace/research/experiments/computable_carrier/external/verify.sage "
+                "/tmp/verify.sage && sage /tmp/verify.sage'"
+            ),
+            "output": [
+                "hilbert_burch_I3: pass",
+                "hilbert_burch_I6: pass",
+                "split_rank_four_transition_cocycle: pass",
+                "split_rank_four_status: excluded",
+            ],
+            "required_independent_path": "pinned SageMath reproduction",
+            "promotion_blocked": False,
         },
     }
 

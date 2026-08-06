@@ -14,6 +14,10 @@ Run from the repository root:
 
 ```bash
 docker run --rm -v "$PWD:/workspace:ro" \
-  --entrypoint sage sagemath/sagemath:10.6 \
-  /workspace/research/experiments/computable_carrier/external/verify.sage
+  --entrypoint bash sagemath/sagemath:10.6 -lc \
+  'cp /workspace/research/experiments/computable_carrier/external/verify.sage /tmp/verify.sage && sage /tmp/verify.sage'
+
+The copy into `/tmp` is required because Sage preparse writes a temporary
+Python file beside its input script; the repository mount intentionally stays
+read-only during independent verification.
 ```

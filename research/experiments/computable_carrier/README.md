@@ -390,3 +390,10 @@ length-three families at each of the four special reduced orbits. The 24
 parameter-free strata and eight family strata are local completed-ring data;
 their global polynomial ideals, Serre extensions, and quotient descent remain
 unresolved.
+
+For a declared exact nonzero Eisenstein specialization, the two curvilinear
+families now produce global length-nine ideals on every special orbit. Their
+degree slices have one cubic and three quartic minimal generators with an
+exact Hilbert--Burch resolution, and P/T preserve each ideal. The artifact
+records the `alpha=1` specialization only as a nonphysical regression path;
+Serre extension classes and quotient linearization remain unresolved.

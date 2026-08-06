@@ -22,7 +22,7 @@ M6 = matrix(R, ((a, 0, 0), (0, b, 0), (-b, -c, a), (0, 0, -c)))
 
 assert tuple(M3_minors := unsigned_maximal_minors(M3)) == (a*b, -a*c, b*c)
 assert tuple(M6_minors := unsigned_maximal_minors(M6)) == (
-    b^2*c, -a*c^2, a*b*c, -a^2*b
+    -b^2*c, a*c^2, -a*b*c, a^2*b
 )
 
 N = matrix(R, ((0, 1), (0, 0)))

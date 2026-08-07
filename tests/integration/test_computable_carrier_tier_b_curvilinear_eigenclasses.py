@@ -17,6 +17,9 @@ Phase 0:
 """
 
 from onetheory.math.numbers import Eisenstein
+from research.experiments.computable_carrier.tier_b_curvilinear_corrections import (
+    tier_b_curvilinear_correction_audits,
+)
 from research.experiments.computable_carrier.tier_b_curvilinear_eigenclasses import (
     tier_b_curvilinear_eigenclass_audits,
 )
@@ -80,4 +83,43 @@ def test_curvilinear_eigenlines_expose_three_support_free_classes() -> None:
         eigenclass.as_record()["selected_as_physics"] is False
         for audit in audits
         for eigenclass in audit.eigenclasses
+    )
+
+
+def test_curvilinear_eigenlines_have_exact_correction_frontiers() -> None:
+    """Coordinate lines correct individually but no strict P/T pair survives."""
+
+    audits = tier_b_curvilinear_correction_audits()
+
+    assert len(audits) == 8
+    assert [item.corrected_eigenline_count for item in audits] == [3, 3, 0, 0, 0, 0, 0, 0]
+    assert [item.scoped_no_correction_eigenline_count for item in audits] == [
+        0,
+        0,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+    ]
+    assert all(item.strict_group_law_eigenline_count == 0 for item in audits)
+    assert all(item.exact for item in audits)
+    assert all(
+        correction.p_compatible_count == 6
+        and correction.t_compatible_count == 12
+        and correction.corrected_character_occurrence_count == 72
+        and correction.representative_correction_complete
+        and correction.strict_middle_commuting_occurrence_count == 0
+        and correction.strict_resolution_commuting_occurrence_count == 0
+        and correction.strict_complete_occurrence_count == 0
+        for audit in audits[:2]
+        for correction in audit.corrections
+    )
+    assert all(
+        correction.p_compatible_count == 0
+        and correction.t_compatible_count == 0
+        and correction.scoped_no_representative_correction
+        for audit in audits[2:]
+        for correction in audit.corrections
     )

@@ -431,6 +431,14 @@ replaces the arbitrary first-mask witness as the class-level equivariance
 frontier; representative correction, dP9 linearization, global Ext
 identification, and quotient descent remain unresolved.
 
+All 24 support-free eigenlines now receive exact representative-correction
+solves. The six coordinate-orbit lines admit unique P and T corrected pushout
+actions for every one of their 72 action/character occurrences. The remaining
+18 lines have no correction in the declared finite resolution-lift family.
+No corrected coordinate line has a strictly commuting P/T presentation pair,
+so dP9 line-frame comparison is the next required gate. These are scoped
+chain-level results, not a sheaf-linearization no-go or descent certificate.
+
 The eight curvilinear witnesses now feed all 64 ordered outer-presentation
 pairs. Every pair has an exact polynomial Hom complex, projective-plane
 hypercohomology, and a signed zero-fiber dP9 totalization with explicit

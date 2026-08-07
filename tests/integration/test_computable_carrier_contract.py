@@ -609,6 +609,25 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
         for item in curvilinear_eigenclasses
     )
     assert all(item["exact"] for item in curvilinear_eigenclasses)
+    curvilinear_corrections = artifact["tier_a_chain_inputs"][
+        "tier_b_curvilinear_correction_audits"
+    ]
+    assert len(curvilinear_corrections) == 8
+    assert [item["corrected_eigenline_count"] for item in curvilinear_corrections] == [
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+    ]
+    assert all(
+        item["strict_group_law_eigenline_count"] == 0
+        for item in curvilinear_corrections
+    )
+    assert all(item["exact"] for item in curvilinear_corrections)
     curvilinear_serre = artifact["tier_a_chain_inputs"][
         "tier_b_curvilinear_serre_audits"
     ]

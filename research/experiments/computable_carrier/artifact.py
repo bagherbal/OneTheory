@@ -60,6 +60,7 @@ from .serre_pushout import tier_a_serre_pushouts
 from .serre_rays import tier_a_serre_eigenclass_variants
 from .specification import computable_carrier_specification
 from .tier_b_curvilinear_actions import tier_b_curvilinear_resolution_actions
+from .tier_b_curvilinear_eigenclasses import tier_b_curvilinear_eigenclass_audits
 from .tier_b_curvilinear_global import tier_b_global_curvilinear_specializations
 from .tier_b_curvilinear_linearization import tier_b_curvilinear_linearization_audits
 from .tier_b_curvilinear_outer import tier_b_curvilinear_outer_frontier
@@ -237,6 +238,10 @@ def build_artifact(root: Path) -> dict[str, object]:
     )
     tier_b_curvilinear_actions = tier_b_curvilinear_resolution_actions(
         Eisenstein(1),
+    )
+    tier_b_curvilinear_eigenclasses = tier_b_curvilinear_eigenclass_audits(
+        Eisenstein(1),
+        action_audits=tier_b_curvilinear_actions,
     )
     tier_b_curvilinear_serre = tier_b_curvilinear_serre_audits(
         Eisenstein(1),
@@ -446,6 +451,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "tier_b_curvilinear_resolution_actions": [
                 item.as_record() for item in tier_b_curvilinear_actions
+            ],
+            "tier_b_curvilinear_eigenclass_audits": [
+                item.as_record() for item in tier_b_curvilinear_eigenclasses
             ],
             "tier_b_curvilinear_serre_audits": [
                 item.as_record() for item in tier_b_curvilinear_serre

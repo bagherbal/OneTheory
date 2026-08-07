@@ -32,6 +32,9 @@ from research.experiments.computable_carrier.specification import (
 from research.experiments.computable_carrier.tier_b_curvilinear_actions import (
     tier_b_curvilinear_resolution_actions,
 )
+from research.experiments.computable_carrier.tier_b_curvilinear_eigenclasses import (
+    tier_b_curvilinear_eigenclass_audits,
+)
 from research.experiments.computable_carrier.tier_b_curvilinear_global import (
     tier_b_global_curvilinear_specializations,
 )
@@ -305,6 +308,18 @@ def test_tier_b_curvilinear_serre_presentations_are_locally_free() -> None:
         == {1}
         for audit in audits
     )
+    assert all(audit.exact for audit in audits)
+
+
+def test_tier_b_curvilinear_common_eigenclasses_precede_linearization() -> None:
+    """Class-level invariance yields three support-free lines per scheme."""
+
+    audits = tier_b_curvilinear_eigenclass_audits()
+
+    assert len(audits) == 8
+    assert all(audit.eigenclass_count == 8 for audit in audits)
+    assert all(audit.support_locally_free_eigenclass_count == 3 for audit in audits)
+    assert all(audit.commuting_pairs_diagonalize_completely for audit in audits)
     assert all(audit.exact for audit in audits)
 
 
@@ -584,6 +599,16 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert len(curvilinear_actions) == 8
     assert all(item["exact"] for item in curvilinear_actions)
     assert all(item["scoped_no_pair"] for item in curvilinear_actions)
+    curvilinear_eigenclasses = artifact["tier_a_chain_inputs"][
+        "tier_b_curvilinear_eigenclass_audits"
+    ]
+    assert len(curvilinear_eigenclasses) == 8
+    assert all(item["eigenclass_count"] == 8 for item in curvilinear_eigenclasses)
+    assert all(
+        item["support_locally_free_eigenclass_count"] == 3
+        for item in curvilinear_eigenclasses
+    )
+    assert all(item["exact"] for item in curvilinear_eigenclasses)
     curvilinear_serre = artifact["tier_a_chain_inputs"][
         "tier_b_curvilinear_serre_audits"
     ]

@@ -422,6 +422,15 @@ certificates from the common basis-change construction. This closes
 non-equivariant line-frame gluing only; honest deck
 linearization, quotient descent, and physical promotion remain unresolved.
 
+The fixed-target-line cokernels are now searched before choosing an extension
+representative. For each of the eight global specializations, every commuting
+quotient-action pair diagonalizes into eight exact common eigenlines. Exactly
+three projective lines per specialization lift to extension maps whose maximal
+relation minors remain nonzero at every transported support point. This
+replaces the arbitrary first-mask witness as the class-level equivariance
+frontier; representative correction, dP9 linearization, global Ext
+identification, and quotient descent remain unresolved.
+
 The eight curvilinear witnesses now feed all 64 ordered outer-presentation
 pairs. Every pair has an exact polynomial Hom complex, projective-plane
 hypercohomology, and a signed zero-fiber dP9 totalization with explicit

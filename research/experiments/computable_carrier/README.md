@@ -490,6 +490,17 @@ symbolic index identity, and bounded counts. This is a scoped no-candidate
 certificate for the current curvilinear Chern type, not for other Tier B
 architectures.
 
+The same resolution now has a complete target-line topology screen under the
+Tier B extension-dimension bound. Its exact graded Hilbert function is nine
+for every shift at most two, then eight, six, and three at shifts three,
+four, and five, before vanishing from shift six onward. Thus only shifts
+three through five are admissible. Across all 36 ordered factor/type pairs,
+the full radius-two integral twist cube contains 340 determinant-compatible
+pairs and none has quotient index of absolute value three. This stronger
+no-candidate result assumes no individual line descent, but remains scoped to
+the curvilinear Hilbert--Burch architecture; other Tier B resolutions remain
+open.
+
 The eight earlier non-equivariant presentation witnesses still feed all 64
 ordered outer-presentation pairs. Every pair has an exact polynomial Hom
 complex, projective-plane hypercohomology, and a signed zero-fiber dP9

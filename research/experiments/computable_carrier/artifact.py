@@ -72,7 +72,10 @@ from .tier_b_curvilinear_projective_cocycles import (
     tier_b_curvilinear_projective_cocycle_audits,
 )
 from .tier_b_curvilinear_serre import tier_b_curvilinear_serre_audits
-from .tier_b_curvilinear_topology import curvilinear_topology_screen
+from .tier_b_curvilinear_topology import (
+    curvilinear_tier_b_topology_screen,
+    curvilinear_topology_screen,
+)
 from .tier_b_dp9_actions import tier_b_dp9_deck_action_audits
 from .tier_b_dp9_ideals import tier_b_dp9_monomial_ideal_resolutions
 from .tier_b_global_serre import tier_b_global_serre_audits
@@ -282,6 +285,9 @@ def build_artifact(root: Path) -> dict[str, object]:
         deck_atlas=deck_atlas,
     )
     tier_b_curvilinear_topology = curvilinear_topology_screen(
+        tier_b_known_schemes.twist_radius,
+    )
+    tier_b_curvilinear_all_shift_topology = curvilinear_tier_b_topology_screen(
         tier_b_known_schemes.twist_radius,
     )
     tier_b_curvilinear_serre = tier_b_curvilinear_serre_audits(
@@ -514,6 +520,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             "tier_b_curvilinear_topology_screen": (
                 tier_b_curvilinear_topology.as_record()
             ),
+            "tier_b_curvilinear_all_shift_topology_screen": (
+                tier_b_curvilinear_all_shift_topology.as_record()
+            ),
             "tier_b_curvilinear_serre_audits": [
                 item.as_record() for item in tier_b_curvilinear_serre
             ],
@@ -585,6 +594,7 @@ def build_artifact(root: Path) -> dict[str, object]:
                 "spectrum": "unresolved",
                 "independent_external_algebra": "unresolved",
                 "current_curvilinear_rank_four_topology": "failed",
+                "tier_b_curvilinear_hilbert_burch_topology": "failed",
             },
         },
         "provenance": {
@@ -629,11 +639,13 @@ def build_artifact(root: Path) -> dict[str, object]:
                     "conditional_on_published_free_quotient"
                 ),
                 "curvilinear_rank_four_topology: excluded_index_zero",
+                "curvilinear_tier_b_topology: excluded_no_index_three",
             ],
             "verified_scopes": {
                 "baseline_hilbert_burch_and_split_transition": "passed",
                 "curvilinear_rank_two_descent_inputs": "passed",
                 "curvilinear_rank_four_topology": "excluded",
+                "curvilinear_tier_b_hilbert_burch_topology": "excluded",
             },
             "conditional_inputs": [
                 {

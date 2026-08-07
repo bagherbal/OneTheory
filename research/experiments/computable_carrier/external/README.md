@@ -6,7 +6,10 @@ recomputes the I3/I6 baseline, both curvilinear Hilbert--Burch resolutions, all
 six maximal-minor covers, graded Chern data, projective cocycles, and the dP9
 deck atlas from plain Sage polynomial matrices. It also reproduces the exact
 rank-four determinant parity obstruction, the formal zero-index identity, and
-the bounded lawful-twist counts for the current curvilinear Chern type.
+the bounded lawful-twist counts for the current curvilinear Chern type. The
+same script independently derives the complete target-line dimension
+frontier and excludes index three across every curvilinear Chern type admitted
+by the Tier B bound without assuming individual line descent.
 
 The pinned runtime is the Docker image `sagemath/sagemath:10.6`; the resolved
 image digest and command output belong in the generated carrier artifact after

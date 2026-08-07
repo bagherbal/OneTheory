@@ -328,13 +328,14 @@ def formal_triple(left, middle, right):
     )
 
 
-def curvilinear_ch_three(factor, twist):
+def curvilinear_ch_three(factor, target_line_shift, twist):
     """Return the integrated twisted degree-three Chern character."""
 
     hyperplane = tuple(S(1 if index == factor else 0) for index in range(3))
     return (
-        -QQ(9)/2 * formal_triple(hyperplane, hyperplane, twist)
-        -QQ(3)/2 * formal_triple(hyperplane, twist, twist)
+        (QQ(target_line_shift^2)/2 - 9)
+        * formal_triple(hyperplane, hyperplane, twist)
+        -QQ(target_line_shift)/2 * formal_triple(hyperplane, twist, twist)
         +QQ(1)/3 * formal_triple(twist, twist, twist)
     )
 
@@ -348,8 +349,8 @@ def assert_curvilinear_rank_four_topology():
     for factor in (0, 1):
         hyperplane = tuple(1 if index == factor else 0 for index in range(3))
         complement = tuple(3*hyperplane[index] - variables[index] for index in range(3))
-        assert curvilinear_ch_three(factor, variables) + curvilinear_ch_three(
-            factor, complement
+        assert curvilinear_ch_three(factor, 3, variables) + curvilinear_ch_three(
+            factor, 3, complement
         ) == 0
         lawful = []
         for left in bounded:
@@ -361,11 +362,90 @@ def assert_curvilinear_rank_four_topology():
             lawful.append((left, right))
         assert len(lawful) == 20
         assert all(
-            curvilinear_ch_three(factor, left)
-            + curvilinear_ch_three(factor, right)
+            curvilinear_ch_three(factor, 3, left)
+            + curvilinear_ch_three(factor, 3, right)
             == 0
             for left, right in lawful
         )
+
+
+def projective_section_dimension(degree):
+    """Return the exact number of degree-``degree`` ternary monomials."""
+
+    return 0 if degree < 0 else (degree + 1)*(degree + 2)//2
+
+
+def curvilinear_cokernel_dimension(target_line_shift):
+    """Return the graded dual-cokernel dimension from the exact resolution."""
+
+    h = projective_section_dimension
+    e = target_line_shift
+    return 3*h(5-e) - h(3-e) - 3*h(4-e) + h(-e)
+
+
+def assert_curvilinear_tier_b_topology():
+    """Exclude every target-line shift allowed by the Tier B dimension bound."""
+
+    e = polygen(QQ, 'e')
+    low_shift_dimension = (
+        3*(7-e)*(6-e)/2
+        -(5-e)*(4-e)/2
+        -3*(6-e)*(5-e)/2
+        +(-e+1)*(-e+2)/2
+    )
+    assert low_shift_dimension == 9
+    assert [curvilinear_cokernel_dimension(shift) for shift in (1, 2)] == [9, 9]
+    assert [curvilinear_cokernel_dimension(shift) for shift in (3, 4, 5)] == [8, 6, 3]
+    assert curvilinear_cokernel_dimension(6) == 0
+
+    admissible = (3, 4, 5)
+    bounded = tuple(product(range(-2, 3), repeat=3))
+    bounded_set = set(bounded)
+    constituent_types = tuple(product((0, 1), admissible))
+    integral_type_count = 0
+    pair_count = 0
+    target_count = 0
+    for (left_factor, left_shift), (right_factor, right_shift) in product(
+        constituent_types,
+        repeat=2,
+    ):
+        left_hyperplane = tuple(
+            1 if index == left_factor else 0 for index in range(3)
+        )
+        right_hyperplane = tuple(
+            1 if index == right_factor else 0 for index in range(3)
+        )
+        base_sum = tuple(
+            left_shift*left_hyperplane[index]
+            +right_shift*right_hyperplane[index]
+            for index in range(3)
+        )
+        if any(value % 2 for value in base_sum):
+            continue
+        integral_type_count += 1
+        required = tuple(value//2 for value in base_sum)
+        for left_twist in bounded:
+            right_twist = tuple(
+                required[index] - left_twist[index]
+                for index in range(3)
+            )
+            if right_twist not in bounded_set:
+                continue
+            quotient_index = curvilinear_ch_three(
+                left_factor,
+                left_shift,
+                left_twist,
+            ) + curvilinear_ch_three(
+                right_factor,
+                right_shift,
+                right_twist,
+            )
+            pair_count += 1
+            target_count += quotient_index in (S(3), S(-3))
+    assert len(constituent_types)^2 == 36
+    assert integral_type_count == 12
+    assert pair_count == 340
+    assert target_count == 0
 
 
 assert_hilbert_burch(HB_U, GENERATORS_U)
@@ -391,6 +471,7 @@ assert_projective_cocycles(
 )
 assert_dp9_deck_atlas()
 assert_curvilinear_rank_four_topology()
+assert_curvilinear_tier_b_topology()
 
 
 M3 = matrix(R, ((c, c), (-b, 0), (0, -a)))
@@ -441,3 +522,4 @@ print("curvilinear_projective_cocycles: pass")
 print("dp9_deck_atlas: pass")
 print("curvilinear_descent_status: conditional_on_published_free_quotient")
 print("curvilinear_rank_four_topology: excluded_index_zero")
+print("curvilinear_tier_b_topology: excluded_no_index_three")

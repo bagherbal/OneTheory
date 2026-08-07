@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "8e4ee27117c334747c3acd62baffd8cffa4c1b31745b40a01d3bae3b5dc22be9",
+  "artifact_digest": "8711ed60b71233c8731a458b4f927ba9001097aaa7dff160cc96ef329293a72d",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -33,18 +33,20 @@
       "curvilinear_projective_cocycles: pass",
       "dp9_deck_atlas: pass",
       "curvilinear_descent_status: conditional_on_published_free_quotient",
-      "curvilinear_rank_four_topology: excluded_index_zero"
+      "curvilinear_rank_four_topology: excluded_index_zero",
+      "curvilinear_tier_b_topology: excluded_no_index_three"
     ],
     "promotion_blocked": false,
     "required_independent_path": "pinned SageMath reproduction",
     "runtime": "sagemath/sagemath:10.6",
     "script": "research/experiments/computable_carrier/external/verify.sage",
-    "script_sha256": "1045099275bc2ce1c3e43ab2f1a2b78e01813f7d307136fca78b557f4063a187",
+    "script_sha256": "691c2f7fe2f1263152cf004fc084928271acafffac78253dd1413e636e06d896",
     "status": "passed",
     "verified_scopes": {
       "baseline_hilbert_burch_and_split_transition": "passed",
       "curvilinear_rank_four_topology": "excluded",
-      "curvilinear_rank_two_descent_inputs": "passed"
+      "curvilinear_rank_two_descent_inputs": "passed",
+      "curvilinear_tier_b_hilbert_burch_topology": "excluded"
     }
   },
   "finite_search": {
@@ -10572,7 +10574,8 @@
       "independent_external_algebra": "unresolved",
       "local_freeness": "unresolved",
       "spectrum": "unresolved",
-      "stability": "unresolved"
+      "stability": "unresolved",
+      "tier_b_curvilinear_hilbert_burch_topology": "failed"
     },
     "production_import_allowed": false
   },
@@ -120894,6 +120897,662 @@
       "status": "split-derived gauge lifts checked; exact group relations remain unresolved"
     },
     "status": "exact complexes and local candidate transitions available; Serre gate pending",
+    "tier_b_curvilinear_all_shift_topology_screen": {
+      "admissible_target_line_shifts": [
+        3,
+        4,
+        5
+      ],
+      "architecture": "length-nine curvilinear Hilbert-Burch resolution with shifts 0 -> O(-5)^3 -> O(-3)+O(-4)^3",
+      "bounded_twist_pair_count": 340,
+      "constituent_chern_types": [
+        {
+          "c1_hyperplane": -3,
+          "c2_hyperplane_squared": "9",
+          "ch2_hyperplane_squared": "-9/2",
+          "rank": 2,
+          "target_line_shift": 3
+        },
+        {
+          "c1_hyperplane": -4,
+          "c2_hyperplane_squared": "9",
+          "ch2_hyperplane_squared": "-1",
+          "rank": 2,
+          "target_line_shift": 4
+        },
+        {
+          "c1_hyperplane": -5,
+          "c2_hyperplane_squared": "9",
+          "ch2_hyperplane_squared": "7/2",
+          "rank": 2,
+          "target_line_shift": 5
+        }
+      ],
+      "dimension_regions": [
+        {
+          "dimension": 9,
+          "target_line_shift": "e <= 2"
+        },
+        {
+          "dimension": 8,
+          "target_line_shift": "e = 3"
+        },
+        {
+          "dimension": 6,
+          "target_line_shift": "e = 4"
+        },
+        {
+          "dimension": 3,
+          "target_line_shift": "e = 5"
+        },
+        {
+          "dimension": 0,
+          "target_line_shift": "e >= 6"
+        }
+      ],
+      "exact": true,
+      "generator_shifts": [
+        3,
+        4,
+        4,
+        4
+      ],
+      "graded_cokernel_dimension_formula": "3*h(5-e)-h(3-e)-3*h(4-e)+h(-e), h(n)=binomial(n+2,2) for n>=0 and 0 otherwise",
+      "individual_line_descent_assumed": false,
+      "maximum_extension_dimension": 8,
+      "ordered_type_count": 36,
+      "promotion_ready": false,
+      "quotient_index_computation": "integrated ch3 after rank-two line twists, evaluated with the exact Schoen quotient intersection tensor",
+      "rank_four_outer_ext_available": false,
+      "status": "scoped no-candidate certificate for every target-line shift admitted by the Tier B extension-dimension bound; other Hilbert-Burch and Serre architectures remain open",
+      "syzygy_shifts": [
+        5,
+        5,
+        5
+      ],
+      "target_index_candidate_count": 0,
+      "twist_radius": 2,
+      "type_audits": [
+        {
+          "bounded_twist_pair_count": 50,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [
+            {
+              "count": 50,
+              "index": "0"
+            }
+          ],
+          "right_factor": 1,
+          "right_target_line_shift": 3,
+          "status": "exact bounded index distribution",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 4,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 25,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [
+            {
+              "count": 5,
+              "index": "-8/3"
+            },
+            {
+              "count": 5,
+              "index": "-4/3"
+            },
+            {
+              "count": 5,
+              "index": "0"
+            },
+            {
+              "count": 5,
+              "index": "4/3"
+            },
+            {
+              "count": 5,
+              "index": "8/3"
+            }
+          ],
+          "right_factor": 1,
+          "right_target_line_shift": 5,
+          "status": "exact bounded index distribution",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 3,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 4,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 5,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 3,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 25,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [
+            {
+              "count": 25,
+              "index": "0"
+            }
+          ],
+          "right_factor": 1,
+          "right_target_line_shift": 4,
+          "status": "exact bounded index distribution",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 5,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 3,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 45,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [
+            {
+              "count": 5,
+              "index": "-20/3"
+            },
+            {
+              "count": 10,
+              "index": "-5"
+            },
+            {
+              "count": 15,
+              "index": "-10/3"
+            },
+            {
+              "count": 10,
+              "index": "-5/3"
+            },
+            {
+              "count": 5,
+              "index": "0"
+            }
+          ],
+          "right_factor": 2,
+          "right_target_line_shift": 4,
+          "status": "exact bounded index distribution",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 5,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 25,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [
+            {
+              "count": 5,
+              "index": "-8/3"
+            },
+            {
+              "count": 5,
+              "index": "-4/3"
+            },
+            {
+              "count": 5,
+              "index": "0"
+            },
+            {
+              "count": 5,
+              "index": "4/3"
+            },
+            {
+              "count": 5,
+              "index": "8/3"
+            }
+          ],
+          "right_factor": 1,
+          "right_target_line_shift": 3,
+          "status": "exact bounded index distribution",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 4,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 5,
+          "status": "no determinant solution in the bounded twist cube",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 3,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 4,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 1,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 5,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 3,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 4,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 5,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 50,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [
+            {
+              "count": 50,
+              "index": "0"
+            }
+          ],
+          "right_factor": 2,
+          "right_target_line_shift": 3,
+          "status": "exact bounded index distribution",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 4,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 25,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 3,
+          "quotient_index_distribution": [
+            {
+              "count": 5,
+              "index": "-8/3"
+            },
+            {
+              "count": 5,
+              "index": "-4/3"
+            },
+            {
+              "count": 5,
+              "index": "0"
+            },
+            {
+              "count": 5,
+              "index": "4/3"
+            },
+            {
+              "count": 5,
+              "index": "8/3"
+            }
+          ],
+          "right_factor": 2,
+          "right_target_line_shift": 5,
+          "status": "exact bounded index distribution",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 3,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 45,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [
+            {
+              "count": 5,
+              "index": "-20/3"
+            },
+            {
+              "count": 10,
+              "index": "-5"
+            },
+            {
+              "count": 15,
+              "index": "-10/3"
+            },
+            {
+              "count": 10,
+              "index": "-5/3"
+            },
+            {
+              "count": 5,
+              "index": "0"
+            }
+          ],
+          "right_factor": 1,
+          "right_target_line_shift": 4,
+          "status": "exact bounded index distribution",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 5,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 3,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 25,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [
+            {
+              "count": 25,
+              "index": "0"
+            }
+          ],
+          "right_factor": 2,
+          "right_target_line_shift": 4,
+          "status": "exact bounded index distribution",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 4,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 5,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 3,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 4,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [],
+          "right_factor": 1,
+          "right_target_line_shift": 5,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 25,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [
+            {
+              "count": 5,
+              "index": "-8/3"
+            },
+            {
+              "count": 5,
+              "index": "-4/3"
+            },
+            {
+              "count": 5,
+              "index": "0"
+            },
+            {
+              "count": 5,
+              "index": "4/3"
+            },
+            {
+              "count": 5,
+              "index": "8/3"
+            }
+          ],
+          "right_factor": 2,
+          "right_target_line_shift": 3,
+          "status": "exact bounded index distribution",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": false,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 4,
+          "status": "determinant parity obstruction",
+          "target_index_pair_count": 0
+        },
+        {
+          "bounded_twist_pair_count": 0,
+          "determinant_integral": true,
+          "exact": true,
+          "left_factor": 2,
+          "left_target_line_shift": 5,
+          "quotient_index_distribution": [],
+          "right_factor": 2,
+          "right_target_line_shift": 5,
+          "status": "no determinant solution in the bounded twist cube",
+          "target_index_pair_count": 0
+        }
+      ]
+    },
     "tier_b_curvilinear_correction_audits": [
       {
         "corrected_eigenline_count": 3,

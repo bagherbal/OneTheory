@@ -86,6 +86,7 @@ from .tier_b_monomial import (
     tier_b_invariant_monomial_schemes,
     tier_b_monomial_resolution_actions,
 )
+from .tier_b_monomial_topology import tier_b_monomial_topology_screen
 from .tier_b_orbits import tier_b_reduced_orbit_classification
 from .tier_b_outer import tier_b_outer_frontier
 from .tier_b_reduced_actions import tier_b_reduced_resolution_actions
@@ -290,6 +291,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     tier_b_curvilinear_all_shift_topology = curvilinear_tier_b_topology_screen(
         tier_b_known_schemes.twist_radius,
     )
+    tier_b_monomial_topology = tier_b_monomial_topology_screen()
     tier_b_curvilinear_serre = tier_b_curvilinear_serre_audits(
         Eisenstein(1),
     )
@@ -523,6 +525,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             "tier_b_curvilinear_all_shift_topology_screen": (
                 tier_b_curvilinear_all_shift_topology.as_record()
             ),
+            "tier_b_monomial_topology_screen": (
+                tier_b_monomial_topology.as_record()
+            ),
             "tier_b_curvilinear_serre_audits": [
                 item.as_record() for item in tier_b_curvilinear_serre
             ],
@@ -595,6 +600,9 @@ def build_artifact(root: Path) -> dict[str, object]:
                 "independent_external_algebra": "unresolved",
                 "current_curvilinear_rank_four_topology": "failed",
                 "tier_b_curvilinear_hilbert_burch_topology": "failed",
+                "tier_b_monomial_topology_frontier": "passed",
+                "tier_b_monomial_constituent_descent": "unresolved",
+                "tier_b_monomial_outer_extension": "unresolved",
             },
         },
         "provenance": {

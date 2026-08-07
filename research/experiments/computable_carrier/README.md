@@ -501,6 +501,18 @@ no-candidate result assumes no individual line descent, but remains scoped to
 the curvilinear Hilbert--Burch architecture; other Tier B resolutions remain
 open.
 
+The topology-first screen now covers the six declared invariant monomial
+schemes as three exact Betti types of lengths three, six, and nine. Determinant
+cancellation makes the negative target-shift tail finite despite the length-
+three and length-six cokernels remaining below the extension-dimension bound.
+Of 1,200 bounded index-three topologies, 340 have constituent determinant
+classes satisfying quotient descent. Exact quotient deck actions and support
+Fitting tests then leave only the two length-six schemes at target shifts
+minus six and zero. Their 40 surviving twist topologies expand to 1,440
+scheme/eigenray presentation choices. This unlocks outer-Ext computation; it
+does not establish dP9 sheafification, constituent descent, an outer
+extension, or a carrier.
+
 The eight earlier non-equivariant presentation witnesses still feed all 64
 ordered outer-presentation pairs. Every pair has an exact polynomial Hom
 complex, projective-plane hypercohomology, and a signed zero-fiber dP9

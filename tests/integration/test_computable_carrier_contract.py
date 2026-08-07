@@ -720,6 +720,20 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert all_shift_topology["individual_line_descent_assumed"] is False
     assert all_shift_topology["rank_four_outer_ext_available"] is False
     assert all_shift_topology["exact"] is True
+    monomial_topology = artifact["tier_a_chain_inputs"][
+        "tier_b_monomial_topology_screen"
+    ]
+    assert monomial_topology["raw_target_index_candidate_count"] == 1200
+    assert monomial_topology["determinant_descended_candidate_count"] == 340
+    assert monomial_topology["available_resolution_shifts"] == [
+        ["length-6-monomial", -6],
+        ["length-6-monomial", 0],
+    ]
+    assert monomial_topology["surviving_topology_candidate_count"] == 40
+    assert monomial_topology["surviving_presentation_count"] == 1440
+    assert monomial_topology["outer_ext_computation_available"] is True
+    assert monomial_topology["outer_extension_constructed"] is False
+    assert monomial_topology["exact"] is True
     curvilinear_serre = artifact["tier_a_chain_inputs"][
         "tier_b_curvilinear_serre_audits"
     ]

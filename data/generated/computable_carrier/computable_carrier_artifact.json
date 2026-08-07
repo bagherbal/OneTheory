@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "0eae197d529c46cb02c3391d907c3c9d1a917a60779f2c25c24e272d00b7fef8",
+  "artifact_digest": "562618bdb612cae6ea1add14673ca91b698789d185fad93b8fafe90d8ea558e2",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -34,19 +34,22 @@
       "dp9_deck_atlas: pass",
       "curvilinear_descent_status: conditional_on_published_free_quotient",
       "curvilinear_rank_four_topology: excluded_index_zero",
-      "curvilinear_tier_b_topology: excluded_no_index_three"
+      "curvilinear_tier_b_topology: excluded_no_index_three",
+      "monomial_tier_b_topology_counts: pass",
+      "monomial_length_six_shift_frontier: pass"
     ],
     "promotion_blocked": false,
     "required_independent_path": "pinned SageMath reproduction",
     "runtime": "sagemath/sagemath:10.6",
     "script": "research/experiments/computable_carrier/external/verify.sage",
-    "script_sha256": "691c2f7fe2f1263152cf004fc084928271acafffac78253dd1413e636e06d896",
+    "script_sha256": "725eb494e2ce0ef05ea415dcb6acd09f394ff209be274c128cfc147640a6034e",
     "status": "passed",
     "verified_scopes": {
       "baseline_hilbert_burch_and_split_transition": "passed",
       "curvilinear_rank_four_topology": "excluded",
       "curvilinear_rank_two_descent_inputs": "passed",
-      "curvilinear_tier_b_hilbert_burch_topology": "excluded"
+      "curvilinear_tier_b_hilbert_burch_topology": "excluded",
+      "monomial_topology_counts_and_length_six_frontier": "passed"
     }
   },
   "finite_search": {
@@ -10577,6 +10580,7 @@
       "stability": "unresolved",
       "tier_b_curvilinear_hilbert_burch_topology": "failed",
       "tier_b_monomial_constituent_descent": "unresolved",
+      "tier_b_monomial_external_topology_and_length_six": "passed",
       "tier_b_monomial_outer_extension": "unresolved",
       "tier_b_monomial_topology_frontier": "passed"
     },

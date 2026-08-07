@@ -11,6 +11,15 @@ same script independently derives the complete target-line dimension
 frontier and excludes index three across every curvilinear Chern type admitted
 by the Tier B bound without assuming individual line descent.
 
+For the invariant monomial frontier, Sage independently recomputes the three
+Betti dimension functions, all 1,200 index-three topologies, and the 340 cases
+whose constituent determinant classes descend. It separately constructs the
+two explicit length-six Hilbert--Burch resolutions, derives their graded
+quotient actions at every topology-relevant shift, and verifies that shifts
+minus six and zero each have three support-locally-free common character rays.
+The external scope does not yet include independent action calculations for
+the rejected length-three or length-nine resolutions.
+
 The pinned runtime is the Docker image `sagemath/sagemath:10.6`; the resolved
 image digest and command output belong in the generated carrier artifact after
 the image has run successfully. A missing container or a discrepancy is a

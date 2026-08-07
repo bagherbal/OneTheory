@@ -513,6 +513,14 @@ scheme/eigenray presentation choices. This unlocks outer-Ext computation; it
 does not establish dP9 sheafification, constituent descent, an outer
 extension, or a carrier.
 
+Pinned SageMath independently reproduces the three monomial Betti dimension
+functions, the 1,200/340 topology counts, and both surviving length-six shift
+calculations. For each of the two length-six resolutions at shifts minus six
+and zero, it derives commuting order-three quotient actions and three
+support-locally-free common character rays. External action verification for
+the rejected length-three and length-nine cases remains open, as do all sheaf
+and outer-extension gates.
+
 The eight earlier non-equivariant presentation witnesses still feed all 64
 ordered outer-presentation pairs. Every pair has an exact polynomial Hom
 complex, projective-plane hypercohomology, and a signed zero-fiber dP9

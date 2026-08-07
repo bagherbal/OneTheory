@@ -784,13 +784,14 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert external["image_digest"].startswith("sha256:")
     assert len(external["script_sha256"]) == 64
     assert external["output"][-1] == (
-        "curvilinear_tier_b_topology: excluded_no_index_three"
+        "monomial_length_six_shift_frontier: pass"
     )
     assert external["verified_scopes"] == {
         "baseline_hilbert_burch_and_split_transition": "passed",
         "curvilinear_rank_two_descent_inputs": "passed",
         "curvilinear_rank_four_topology": "excluded",
         "curvilinear_tier_b_hilbert_burch_topology": "excluded",
+        "monomial_topology_counts_and_length_six_frontier": "passed",
     }
     assert external["conditional_inputs"] == [
         {

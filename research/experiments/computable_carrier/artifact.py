@@ -603,6 +603,7 @@ def build_artifact(root: Path) -> dict[str, object]:
                 "tier_b_monomial_topology_frontier": "passed",
                 "tier_b_monomial_constituent_descent": "unresolved",
                 "tier_b_monomial_outer_extension": "unresolved",
+                "tier_b_monomial_external_topology_and_length_six": "passed",
             },
         },
         "provenance": {
@@ -648,12 +649,15 @@ def build_artifact(root: Path) -> dict[str, object]:
                 ),
                 "curvilinear_rank_four_topology: excluded_index_zero",
                 "curvilinear_tier_b_topology: excluded_no_index_three",
+                "monomial_tier_b_topology_counts: pass",
+                "monomial_length_six_shift_frontier: pass",
             ],
             "verified_scopes": {
                 "baseline_hilbert_burch_and_split_transition": "passed",
                 "curvilinear_rank_two_descent_inputs": "passed",
                 "curvilinear_rank_four_topology": "excluded",
                 "curvilinear_tier_b_hilbert_burch_topology": "excluded",
+                "monomial_topology_counts_and_length_six_frontier": "passed",
             },
             "conditional_inputs": [
                 {

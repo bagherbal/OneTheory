@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "e97e372d82d371b8c7a239ae0a719a67c3cb80efd7d7d39184362f16df35a214",
+  "artifact_digest": "3b940cd687a75a0d6016135e20265d6ff11ddae4b2f11ec7e7c6155fe5c1a2ba",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -14,19 +14,36 @@
   },
   "external_algebra": {
     "command": "docker run --rm -v '$PWD:/workspace:ro' --entrypoint bash sagemath/sagemath:10.6 -lc 'cp /workspace/research/experiments/computable_carrier/external/verify.sage /tmp/verify.sage && sage /tmp/verify.sage'",
+    "conditional_inputs": [
+      {
+        "input": "published free order-nine Schoen quotient",
+        "recomputed_by_external_script": false,
+        "source": "src/onetheory/models/heterotic_schoen/geometry.py"
+      }
+    ],
     "image_digest": "sha256:19995db6194f4a4bab18ce9a88556fd15b9ed5e916b4504fefe618a7796ddbdb",
     "output": [
       "hilbert_burch_I3: pass",
       "hilbert_burch_I6: pass",
       "split_rank_four_transition_cocycle: pass",
-      "split_rank_four_status: excluded"
+      "split_rank_four_status: excluded",
+      "curvilinear_hilbert_burch: pass",
+      "curvilinear_fitting_cover: pass",
+      "curvilinear_chern_data: pass",
+      "curvilinear_projective_cocycles: pass",
+      "dp9_deck_atlas: pass",
+      "curvilinear_descent_status: conditional_on_published_free_quotient"
     ],
     "promotion_blocked": false,
     "required_independent_path": "pinned SageMath reproduction",
     "runtime": "sagemath/sagemath:10.6",
     "script": "research/experiments/computable_carrier/external/verify.sage",
-    "script_sha256": "2df5119df8a590cd7ce33ce1f1f5ca5afdab01e3ea503f6474103860057ecebf",
-    "status": "passed"
+    "script_sha256": "16ff1f0684c0a7e739f1ba5f90979912f6124761569113906e3686d5f20d45b7",
+    "status": "passed",
+    "verified_scopes": {
+      "baseline_hilbert_burch_and_split_transition": "passed",
+      "curvilinear_rank_two_descent_inputs": "passed"
+    }
   },
   "finite_search": {
     "candidate_count": 500,

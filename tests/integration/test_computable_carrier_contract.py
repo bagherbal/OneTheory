@@ -750,6 +750,19 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert external["status"] == "passed"
     assert external["image_digest"].startswith("sha256:")
     assert len(external["script_sha256"]) == 64
-    assert external["output"][-1] == "split_rank_four_status: excluded"
+    assert external["output"][-1] == (
+        "curvilinear_descent_status: conditional_on_published_free_quotient"
+    )
+    assert external["verified_scopes"] == {
+        "baseline_hilbert_burch_and_split_transition": "passed",
+        "curvilinear_rank_two_descent_inputs": "passed",
+    }
+    assert external["conditional_inputs"] == [
+        {
+            "input": "published free order-nine Schoen quotient",
+            "recomputed_by_external_script": False,
+            "source": "src/onetheory/models/heterotic_schoen/geometry.py",
+        }
+    ]
     assert artifact["tier_a_chain_inputs"]["downstream_frontier"]["promotable"] is False
     assert write_artifact(root) == {**artifact, "artifact_digest": digest}

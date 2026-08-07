@@ -467,9 +467,17 @@ deck atlas, and the published free order-nine Schoen quotient now gives an
 internal equivariant-descent certificate for all six corrected rank-two
 sheaves. Their graded resolutions give rank two, `c1 = -3 H`, and
 `c2 = 9 H^2`; the determinant degree is compatible with the projective
-descent modulus. This is not physical promotion: independent external
-verification, constituent twists, a rank-four outer extension, stability,
-spectrum, and every later physical gate remain unresolved.
+descent modulus. This is not physical promotion: constituent twists, a
+rank-four outer extension, stability, spectrum, and every later physical gate
+remain unresolved.
+
+The pinned SageMath 10.6 path now independently recomputes both curvilinear
+Hilbert--Burch resolutions, every maximal-minor affine cover, the graded Chern
+data, all six projective cocycles, and all twelve dP9 deck-chart actions. This
+closes the external-algebra gate for the rank-two descent inputs conditional
+on the published free order-nine quotient. Constituent selection, twists, the
+rank-four extension, stability, spectrum, and later external checks remain
+open.
 
 The eight curvilinear witnesses now feed all 64 ordered outer-presentation
 pairs. Every pair has an exact polynomial Hom complex, projective-plane

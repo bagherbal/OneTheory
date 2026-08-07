@@ -606,6 +606,26 @@ def build_artifact(root: Path) -> dict[str, object]:
                 "hilbert_burch_I6: pass",
                 "split_rank_four_transition_cocycle: pass",
                 "split_rank_four_status: excluded",
+                "curvilinear_hilbert_burch: pass",
+                "curvilinear_fitting_cover: pass",
+                "curvilinear_chern_data: pass",
+                "curvilinear_projective_cocycles: pass",
+                "dp9_deck_atlas: pass",
+                (
+                    "curvilinear_descent_status: "
+                    "conditional_on_published_free_quotient"
+                ),
+            ],
+            "verified_scopes": {
+                "baseline_hilbert_burch_and_split_transition": "passed",
+                "curvilinear_rank_two_descent_inputs": "passed",
+            },
+            "conditional_inputs": [
+                {
+                    "input": "published free order-nine Schoen quotient",
+                    "recomputed_by_external_script": False,
+                    "source": "src/onetheory/models/heterotic_schoen/geometry.py",
+                }
             ],
             "required_independent_path": "pinned SageMath reproduction",
             "promotion_blocked": False,

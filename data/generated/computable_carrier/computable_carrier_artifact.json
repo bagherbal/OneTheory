@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "314e177f36d57074693bbc2838a4add26f44feb0386d6e76f6760a11b2bb2a85",
+  "artifact_digest": "96c5ea03e217622e0312dd5f822b2e489007e17cfffa3bcff8f09fdb56fb2937",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -404735,12 +404735,669 @@
             "relation_order_three": true
           }
         ],
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
+        "p_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          }
+        ],
+        "p_mixed_compatible_count": 3,
         "resolution_variant_counts": [
           6,
           12
         ],
         "scheme": "B-monomial-coordinate-orbit-0",
-        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+        "status": "exact bounded resolution-lift diagnostic including the full declared same-degree mixing block; no finite result is a Serre linearization or quotient-descent certificate",
+        "t_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          }
+        ],
+        "t_mixed_compatible_count": 6
       },
       {
         "character_pair": [
@@ -404800,12 +405457,669 @@
             "relation_order_three": true
           }
         ],
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
+        "p_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          }
+        ],
+        "p_mixed_compatible_count": 3,
         "resolution_variant_counts": [
           6,
           12
         ],
         "scheme": "B-monomial-coordinate-orbit-0",
-        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+        "status": "exact bounded resolution-lift diagnostic including the full declared same-degree mixing block; no finite result is a Serre linearization or quotient-descent certificate",
+        "t_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          }
+        ],
+        "t_mixed_compatible_count": 6
       },
       {
         "character_pair": [
@@ -404865,12 +406179,957 @@
             "relation_order_three": true
           }
         ],
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
+        "p_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          }
+        ],
+        "p_mixed_compatible_count": 3,
         "resolution_variant_counts": [
           6,
           12
         ],
         "scheme": "B-monomial-coordinate-orbit-1",
-        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+        "status": "exact bounded resolution-lift diagnostic including the full declared same-degree mixing block; no finite result is a Serre linearization or quotient-descent certificate",
+        "t_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          }
+        ],
+        "t_mixed_compatible_count": 6
       },
       {
         "character_pair": [
@@ -404930,12 +407189,957 @@
             "relation_order_three": true
           }
         ],
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
+        "p_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          }
+        ],
+        "p_mixed_compatible_count": 3,
         "resolution_variant_counts": [
           6,
           12
         ],
         "scheme": "B-monomial-coordinate-orbit-1",
-        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+        "status": "exact bounded resolution-lift diagnostic including the full declared same-degree mixing block; no finite result is a Serre linearization or quotient-descent certificate",
+        "t_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          }
+        ],
+        "t_mixed_compatible_count": 6
       },
       {
         "character_pair": [
@@ -404995,12 +408199,957 @@
             "relation_order_three": true
           }
         ],
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
+        "p_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          }
+        ],
+        "p_mixed_compatible_count": 3,
         "resolution_variant_counts": [
           6,
           12
         ],
         "scheme": "B-monomial-coordinate-orbit-1",
-        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+        "status": "exact bounded resolution-lift diagnostic including the full declared same-degree mixing block; no finite result is a Serre linearization or quotient-descent certificate",
+        "t_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          }
+        ],
+        "t_mixed_compatible_count": 6
       },
       {
         "character_pair": [
@@ -405060,12 +409209,957 @@
             "relation_order_three": true
           }
         ],
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
+        "p_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          }
+        ],
+        "p_mixed_compatible_count": 3,
         "resolution_variant_counts": [
           6,
           12
         ],
         "scheme": "B-monomial-coordinate-orbit-2",
-        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+        "status": "exact bounded resolution-lift diagnostic including the full declared same-degree mixing block; no finite result is a Serre linearization or quotient-descent certificate",
+        "t_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          }
+        ],
+        "t_mixed_compatible_count": 6
       },
       {
         "character_pair": [
@@ -405125,12 +410219,957 @@
             "relation_order_three": true
           }
         ],
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
+        "p_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          }
+        ],
+        "p_mixed_compatible_count": 3,
         "resolution_variant_counts": [
           6,
           12
         ],
         "scheme": "B-monomial-coordinate-orbit-2",
-        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+        "status": "exact bounded resolution-lift diagnostic including the full declared same-degree mixing block; no finite result is a Serre linearization or quotient-descent certificate",
+        "t_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          }
+        ],
+        "t_mixed_compatible_count": 6
       },
       {
         "character_pair": [
@@ -405190,12 +411229,957 @@
             "relation_order_three": true
           }
         ],
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
+        "p_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": true,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": [
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "P"
+          }
+        ],
+        "p_mixed_compatible_count": 3,
         "resolution_variant_counts": [
           6,
           12
         ],
         "scheme": "B-monomial-coordinate-orbit-2",
-        "status": "exact bounded resolution-lift group diagnostic; no complete finite pair is a Serre linearization or quotient-descent certificate"
+        "status": "exact bounded resolution-lift diagnostic including the full declared same-degree mixing block; no finite result is a Serre linearization or quotient-descent certificate",
+        "t_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "1+omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1+omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1+omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1+omega"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": [
+              [
+                "-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1+omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1"
+              ]
+            ],
+            "mixing_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "order_three": false,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T"
+          }
+        ],
+        "t_mixed_compatible_count": 6
       }
     ],
     "tier_b_local_invariant_normal_forms": {

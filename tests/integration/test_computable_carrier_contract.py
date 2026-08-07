@@ -535,6 +535,9 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     linearization = artifact["tier_a_chain_inputs"]["tier_b_linearization_audits"]
     assert len(linearization) == 8
     assert all(item["complete_variant_pair_count"] == 0 for item in linearization)
+    assert all(item["mixed_action_solves_exact"] for item in linearization)
+    assert all(item["mixed_complete_variant_pair_count"] == 0 for item in linearization)
+    assert all(item["mixed_scoped_no_complete_pair"] for item in linearization)
     horseshoe = artifact["tier_a_chain_inputs"]["rank_four_horseshoe"]
     assert horseshoe["candidate_count"] == 30
     assert horseshoe["presentation_gate_count"] == 30

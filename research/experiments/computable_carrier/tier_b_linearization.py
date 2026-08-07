@@ -39,6 +39,12 @@ from .pushout_linearization import (
 )
 from .resolution_actions import ResolutionAction
 from .serre_pushout import _relation_matrix
+from .tier_b_mixed_linearization import (
+    MixedExtensionAction,
+    action_identifier,
+    mixed_pair_count,
+    solve_mixed_extension_action,
+)
 from .tier_b_monomial import (
     MonomialResolutionActionAudit,
     tier_b_monomial_resolution_actions,
@@ -115,6 +121,9 @@ class TierBLinearizationAudit:
     resolution_variant_counts: tuple[int, int]
     compatible_variant_counts: tuple[int, int]
     compatible_variant_pairs: tuple[TierBCompatibleVariantPair, ...]
+    p_mixed_actions: tuple[MixedExtensionAction, ...]
+    t_mixed_actions: tuple[MixedExtensionAction, ...]
+    mixed_complete_variant_pair_count: int
     status: str
 
     @property
@@ -144,6 +153,26 @@ class TierBLinearizationAudit:
 
         return self.complete_variant_pair_count > 0
 
+    @property
+    def mixed_action_solves_exact(self) -> bool:
+        """Return whether every full graded mixed solve is certified."""
+
+        actions = (*self.p_mixed_actions, *self.t_mixed_actions)
+        return all(
+            action.relation_equation or not action.solution_exists
+            for action in actions
+        ) and all(
+            action.solution_nullity == 0
+            for action in actions
+            if action.solution_exists
+        )
+
+    @property
+    def mixed_scoped_no_complete_pair(self) -> bool:
+        """Return the finite no-pair result after graded mixing."""
+
+        return self.mixed_action_solves_exact and self.mixed_complete_variant_pair_count == 0
+
     def as_record(self) -> dict[str, object]:
         """Serialize exact bounded results and preserve the unresolved boundary."""
 
@@ -161,6 +190,17 @@ class TierBLinearizationAudit:
             ],
             "complete_variant_pair_count": self.complete_variant_pair_count,
             "finite_group_gate_passes": self.finite_group_gate_passes,
+            "p_mixed_actions": [item.as_record() for item in self.p_mixed_actions],
+            "t_mixed_actions": [item.as_record() for item in self.t_mixed_actions],
+            "p_mixed_compatible_count": sum(
+                item.compatible for item in self.p_mixed_actions
+            ),
+            "t_mixed_compatible_count": sum(
+                item.compatible for item in self.t_mixed_actions
+            ),
+            "mixed_complete_variant_pair_count": self.mixed_complete_variant_pair_count,
+            "mixed_action_solves_exact": self.mixed_action_solves_exact,
+            "mixed_scoped_no_complete_pair": self.mixed_scoped_no_complete_pair,
             "status": self.status,
         }
 
@@ -298,6 +338,28 @@ def tier_b_linearization_audit(
     pair_audits = tuple(
         _pair_audit(pair, ray.character_pair) for pair in compatible
     )
+    p_mixed = tuple(
+        solve_mixed_extension_action(
+            relation,
+            "P",
+            action_identifier(action),
+            action,
+            ray.cokernel.generator_degrees,
+            ray.cokernel.target_line_shift,
+        )
+        for action in p_variants
+    )
+    t_mixed = tuple(
+        solve_mixed_extension_action(
+            relation,
+            "T",
+            action_identifier(action),
+            action,
+            ray.cokernel.generator_degrees,
+            ray.cokernel.target_line_shift,
+        )
+        for action in t_variants
+    )
     return TierBLinearizationAudit(
         ray.cokernel.scheme.name,
         ray.character_pair,
@@ -309,9 +371,13 @@ def tier_b_linearization_audit(
         (len(p_variants), len(t_variants)),
         compatible_counts,
         pair_audits,
+        p_mixed,
+        t_mixed,
+        mixed_pair_count(p_variants, t_variants, p_mixed, t_mixed),
         (
-            "exact bounded resolution-lift group diagnostic; no complete finite "
-            "pair is a Serre linearization or quotient-descent certificate"
+            "exact bounded resolution-lift diagnostic including the full declared "
+            "same-degree mixing block; no finite result is a Serre linearization "
+            "or quotient-descent certificate"
         ),
     )
 

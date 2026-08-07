@@ -63,4 +63,7 @@ def test_tier_b_linearization_records_the_finite_obstruction() -> None:
     assert all(audit.complete_variant_pair_count == 0 for audit in audits)
     assert all(not audit.finite_group_gate_passes for audit in audits)
     assert all(not audit.direct_group_relations_verified for audit in audits)
+    assert all(audit.mixed_action_solves_exact for audit in audits)
+    assert all(audit.mixed_complete_variant_pair_count == 0 for audit in audits)
+    assert all(audit.mixed_scoped_no_complete_pair for audit in audits)
     assert all("quotient-descent certificate" in audit.status for audit in audits)

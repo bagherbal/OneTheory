@@ -2,8 +2,9 @@
 
 Owns:
     Induced dual-cokernel actions, exact extension-line character tests,
-    pushout relation compatibility, and finite commuting-pair enumeration for
-    the global curvilinear Tier B presentations.
+    full graded degree-three mixing solves, pushout relation compatibility,
+    and finite commuting-pair enumeration for the global curvilinear Tier B
+    presentations.
 
 Depends on:
     Curvilinear Serre presentation audits, exact resolution lifts, polynomial
@@ -15,9 +16,9 @@ Must not:
     stability, spectrum, or carrier promotion.
 
 Phase 0:
-    The induced presentation actions and their finite compatibility boundary
-    are exact; global sheaf linearization, dP9 gluing, quotient descent, and
-    physical promotion remain unresolved.
+    The induced presentation actions and the declared finite mixed-action
+    boundary are exact; honest global sheaf linearization, quotient descent,
+    and physical promotion remain unresolved.
 """
 
 from __future__ import annotations
@@ -109,6 +110,53 @@ class CurvilinearCompatibleVariant:
 
 
 @dataclass(frozen=True, slots=True)
+class CurvilinearMixedExtensionAction:
+    """One exact graded action solve allowing degree-three extension mixing."""
+
+    generator: str
+    variant: str
+    matrix: Matrix | None
+    relation_equation: bool
+    order_three: bool
+    solution_nullity: int
+
+    @property
+    def solution_exists(self) -> bool:
+        """Return whether the exact graded action equations are consistent."""
+
+        return self.matrix is not None
+
+    @property
+    def compatible(self) -> bool:
+        """Return whether a unique order-three mixed action was certified."""
+
+        return (
+            self.solution_exists
+            and self.relation_equation
+            and self.order_three
+            and self.solution_nullity == 0
+        )
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize the mixed solve and its exact negative boundary."""
+
+        return {
+            "generator": self.generator,
+            "variant": self.variant,
+            "solution_exists": self.solution_exists,
+            "relation_equation": self.relation_equation,
+            "order_three": self.order_three,
+            "solution_nullity": self.solution_nullity,
+            "compatible": self.compatible,
+            "matrix": (
+                None
+                if self.matrix is None
+                else [[str(value) for value in row] for row in self.matrix.rows]
+            ),
+        }
+
+
+@dataclass(frozen=True, slots=True)
 class TierBCurvilinearLinearizationAudit:
     """Finite extension-level linearization audit for one specialization."""
 
@@ -117,10 +165,13 @@ class TierBCurvilinearLinearizationAudit:
     t_dual_actions: tuple[CurvilinearDualAction, ...]
     p_compatible_variants: tuple[CurvilinearCompatibleVariant, ...]
     t_compatible_variants: tuple[CurvilinearCompatibleVariant, ...]
+    p_mixed_actions: tuple[CurvilinearMixedExtensionAction, ...]
+    t_mixed_actions: tuple[CurvilinearMixedExtensionAction, ...]
     source_commuting_pair_count: int
     middle_commuting_pair_count: int
     dual_commuting_pair_count: int
     complete_variant_pair_count: int
+    mixed_complete_variant_pair_count: int
     resolution_action_audit: TierBCurvilinearResolutionActionAudit
 
     @property
@@ -145,6 +196,26 @@ class TierBCurvilinearLinearizationAudit:
         return self.induced_actions_exact and self.complete_variant_pair_count == 0
 
     @property
+    def mixed_action_solves_exact(self) -> bool:
+        """Return whether every finite mixed-action solve is certified."""
+
+        return all(
+            action.relation_equation
+            or not action.solution_exists
+            for action in (*self.p_mixed_actions, *self.t_mixed_actions)
+        ) and all(
+            action.solution_nullity == 0
+            for action in (*self.p_mixed_actions, *self.t_mixed_actions)
+            if action.solution_exists
+        )
+
+    @property
+    def mixed_scoped_no_complete_pair(self) -> bool:
+        """Return the no-pair result after allowing graded extension mixing."""
+
+        return self.mixed_action_solves_exact and self.mixed_complete_variant_pair_count == 0
+
+    @property
     def exact(self) -> bool:
         """Return whether this finite action boundary is internally certified."""
 
@@ -152,6 +223,7 @@ class TierBCurvilinearLinearizationAudit:
             self.serre_audit.exact
             and self.resolution_action_audit.exact
             and self.induced_actions_exact
+            and self.mixed_action_solves_exact
         )
 
     def as_record(self) -> dict[str, object]:
@@ -169,17 +241,33 @@ class TierBCurvilinearLinearizationAudit:
             ],
             "p_compatible_variant_count": len(self.p_compatible_variants),
             "t_compatible_variant_count": len(self.t_compatible_variants),
+            "p_mixed_actions": [
+                item.as_record() for item in self.p_mixed_actions
+            ],
+            "t_mixed_actions": [
+                item.as_record() for item in self.t_mixed_actions
+            ],
+            "p_mixed_compatible_count": sum(
+                item.compatible for item in self.p_mixed_actions
+            ),
+            "t_mixed_compatible_count": sum(
+                item.compatible for item in self.t_mixed_actions
+            ),
             "source_commuting_pair_count": self.source_commuting_pair_count,
             "middle_commuting_pair_count": self.middle_commuting_pair_count,
             "dual_commuting_pair_count": self.dual_commuting_pair_count,
             "complete_variant_pair_count": self.complete_variant_pair_count,
+            "mixed_complete_variant_pair_count": self.mixed_complete_variant_pair_count,
             "induced_actions_exact": self.induced_actions_exact,
             "finite_group_gate_passes": self.finite_group_gate_passes,
             "scoped_no_complete_pair": self.scoped_no_complete_pair,
+            "mixed_action_solves_exact": self.mixed_action_solves_exact,
+            "mixed_scoped_no_complete_pair": self.mixed_scoped_no_complete_pair,
             "exact": self.exact,
             "status": (
-                "exact finite extension-level action diagnostic; no complete "
-                "pair is a sheaf linearization or quotient-descent certificate"
+                "exact finite extension-level action diagnostic including the "
+                "full declared degree-three mixing block; no complete pair is "
+                "a sheaf linearization or quotient-descent certificate"
             ),
         }
 
@@ -245,6 +333,155 @@ def _compatible_variants(
         for character in CHARACTERS
         if _relation_compatible(relation, action, character)
     )
+
+
+def _mixed_extension_action(
+    relation,
+    generator: str,
+    action: object,
+) -> CurvilinearMixedExtensionAction:
+    """Solve the full constant degree-three extension mixing block."""
+
+    if relation.shape != (3, 5):
+        raise ValueError("curvilinear pushout relations must have shape (3, 5)")
+    target = action.target_action.transpose()
+    if target.shape != (4, 4):
+        raise ValueError("curvilinear ideal actions must have shape (4, 4)")
+
+    left = _left_constant_product(action.source_action.transpose(), relation)
+    transformed = _transformed_relation(relation, action)
+    fixed = [
+        [Eisenstein(0) for _ in range(5)]
+        for _ in range(5)
+    ]
+    for row in range(4):
+        for column in range(4):
+            fixed[row][column] = target[row][column]
+
+    exponents = sorted(
+        {
+            exponent
+            for polynomial_row in (*left.rows, *transformed.rows)
+            for polynomial in polynomial_row
+            for exponent, _ in polynomial.terms
+        }
+    )
+    equations: list[tuple[Eisenstein, Eisenstein, Eisenstein, Eisenstein]] = []
+    zero = Eisenstein(0)
+    for row in range(3):
+        for column in range(5):
+            for exponent in exponents:
+                fixed_value = zero
+                for inner in range(5):
+                    fixed_value += (
+                        transformed.rows[row][inner].coefficient(exponent)
+                        * fixed[inner][column]
+                    )
+                coefficients = (
+                    transformed.rows[row][4].coefficient(exponent)
+                    if column == 0
+                    else zero,
+                    transformed.rows[row][0].coefficient(exponent)
+                    if column == 4
+                    else zero,
+                    transformed.rows[row][4].coefficient(exponent)
+                    if column == 4
+                    else zero,
+                )
+                value = left.rows[row][column].coefficient(exponent) - fixed_value
+                if (
+                    any(not coefficient.is_zero() for coefficient in coefficients)
+                    or not value.is_zero()
+                ):
+                    equations.append((*coefficients, value))
+
+    if not equations:
+        equations.append((zero, zero, zero, zero))
+    augmented = Matrix(equations, scalar_type=Eisenstein)
+    coefficients = Matrix(
+        (equation[:3] for equation in equations),
+        scalar_type=Eisenstein,
+    )
+    reduced, pivots = augmented.rref()
+    inconsistent = any(
+        all(reduced[row][column].is_zero() for column in range(3))
+        and not reduced[row][3].is_zero()
+        for row in range(reduced.row_count)
+    )
+    if inconsistent:
+        return CurvilinearMixedExtensionAction(
+            generator,
+            _action_identifier(action),
+            None,
+            False,
+            False,
+            0,
+        )
+
+    values = [zero, zero, zero]
+    for row, pivot in enumerate(pivots):
+        if pivot < 3:
+            values[pivot] = reduced[row][3]
+    mixed_rows = [row[:] for row in fixed]
+    mixed_rows[4][0] = values[0]
+    mixed_rows[0][4] = values[1]
+    mixed_rows[4][4] = values[2]
+    mixed = Matrix(mixed_rows, scalar_type=Eisenstein)
+    relation_equation = left.rows == _right_constant_product(transformed, mixed).rows
+    order_three = mixed**3 == Matrix.identity(5, scalar_type=Eisenstein)
+    return CurvilinearMixedExtensionAction(
+        generator,
+        _action_identifier(action),
+        mixed,
+        relation_equation,
+        order_three,
+        3 - coefficients.rank(),
+    )
+
+
+def _mixed_actions(
+    relation,
+    generator: str,
+    actions: tuple[object, ...],
+) -> tuple[CurvilinearMixedExtensionAction, ...]:
+    """Solve the declared mixed action space for every finite lift."""
+
+    return tuple(
+        _mixed_extension_action(relation, generator, action)
+        for action in actions
+    )
+
+
+def _mixed_pair_count(
+    p_actions: tuple[object, ...],
+    t_actions: tuple[object, ...],
+    p_mixed: tuple[CurvilinearMixedExtensionAction, ...],
+    t_mixed: tuple[CurvilinearMixedExtensionAction, ...],
+) -> int:
+    """Count complete pairs after exact mixed-block action solving."""
+
+    p_by_variant = {action.variant: action for action in p_mixed}
+    t_by_variant = {action.variant: action for action in t_mixed}
+    complete = 0
+    for p_action in p_actions:
+        for t_action in t_actions:
+            p_mixed_action = p_by_variant[_action_identifier(p_action)]
+            t_mixed_action = t_by_variant[_action_identifier(t_action)]
+            if not p_mixed_action.compatible or not t_mixed_action.compatible:
+                continue
+            source_commutes = (
+                p_action.source_action @ t_action.source_action
+                == t_action.source_action @ p_action.source_action
+                and p_action.target_action @ t_action.target_action
+                == t_action.target_action @ p_action.target_action
+            )
+            mixed_commutes = (
+                p_mixed_action.matrix @ t_mixed_action.matrix
+                == t_mixed_action.matrix @ p_mixed_action.matrix
+            )
+            if source_commutes and mixed_commutes:
+                complete += 1
+    return complete
 
 
 def _pair_counts(
@@ -321,6 +558,8 @@ def _audit_one(
     t_dual = _dual_actions(serre_audit, "T", action_audit.t_actions)
     p_variants = _compatible_variants(relation, "P", action_audit.p_actions)
     t_variants = _compatible_variants(relation, "T", action_audit.t_actions)
+    p_mixed = _mixed_actions(relation, "P", action_audit.p_actions)
+    t_mixed = _mixed_actions(relation, "T", action_audit.t_actions)
     source, middle, dual, complete = _pair_counts(
         action_audit.p_actions,
         action_audit.t_actions,
@@ -335,10 +574,18 @@ def _audit_one(
         t_dual,
         p_variants,
         t_variants,
+        p_mixed,
+        t_mixed,
         source,
         middle,
         dual,
         complete,
+        _mixed_pair_count(
+            action_audit.p_actions,
+            action_audit.t_actions,
+            p_mixed,
+            t_mixed,
+        ),
         action_audit,
     )
 
@@ -377,6 +624,7 @@ def tier_b_curvilinear_linearization_audits(
 __all__ = [
     "CurvilinearCompatibleVariant",
     "CurvilinearDualAction",
+    "CurvilinearMixedExtensionAction",
     "TierBCurvilinearLinearizationAudit",
     "tier_b_curvilinear_linearization_audits",
 ]

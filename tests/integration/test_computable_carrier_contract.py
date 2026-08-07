@@ -317,6 +317,8 @@ def test_tier_b_curvilinear_extension_actions_stop_before_descent() -> None:
     assert all(audit.induced_actions_exact for audit in audits)
     assert all(audit.source_commuting_pair_count == 0 for audit in audits)
     assert all(audit.complete_variant_pair_count == 0 for audit in audits)
+    assert all(audit.mixed_action_solves_exact for audit in audits)
+    assert all(audit.mixed_complete_variant_pair_count == 0 for audit in audits)
     assert [
         (len(audit.p_compatible_variants), len(audit.t_compatible_variants))
         for audit in audits
@@ -597,6 +599,12 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert all(item["induced_actions_exact"] for item in curvilinear_linearization)
     assert all(item["source_commuting_pair_count"] == 0 for item in curvilinear_linearization)
     assert all(item["complete_variant_pair_count"] == 0 for item in curvilinear_linearization)
+    assert all(item["mixed_action_solves_exact"] for item in curvilinear_linearization)
+    assert all(
+        item["mixed_complete_variant_pair_count"] == 0
+        for item in curvilinear_linearization
+    )
+    assert all(item["mixed_scoped_no_complete_pair"] for item in curvilinear_linearization)
     curvilinear_outer = artifact["tier_a_chain_inputs"][
         "tier_b_curvilinear_outer_frontier"
     ]

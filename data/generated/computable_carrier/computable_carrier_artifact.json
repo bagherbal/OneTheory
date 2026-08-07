@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "343ffeaa248a6673125e3a3565775a963eeffb2f82b5f1a312068ecd0b2c410f",
+  "artifact_digest": "314e177f36d57074693bbc2838a4add26f44feb0386d6e76f6760a11b2bb2a85",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -120462,6 +120462,9 @@
         "finite_group_gate_passes": false,
         "induced_actions_exact": true,
         "middle_commuting_pair_count": 0,
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
         "p_compatible_variant_count": 0,
         "p_compatible_variants": [],
         "p_dual_actions": [
@@ -120994,10 +120997,73 @@
             "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
           }
         ],
+        "p_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "p_mixed_compatible_count": 0,
         "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
         "scoped_no_complete_pair": true,
         "source_commuting_pair_count": 0,
-        "status": "exact finite extension-level action diagnostic; no complete pair is a sheaf linearization or quotient-descent certificate",
+        "status": "exact finite extension-level action diagnostic including the full declared degree-three mixing block; no complete pair is a sheaf linearization or quotient-descent certificate",
         "t_compatible_variant_count": 12,
         "t_compatible_variants": [
           {
@@ -122130,7 +122196,562 @@
             "preserves_relations": true,
             "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
           }
-        ]
+        ],
+        "t_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,0:scalars=1,1"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,0:scalars=omega,omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,0:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,0:scalars=1,1"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,0:scalars=omega,omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,0:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "t_mixed_compatible_count": 12
       },
       {
         "complete_variant_pair_count": 0,
@@ -122139,6 +122760,9 @@
         "finite_group_gate_passes": false,
         "induced_actions_exact": true,
         "middle_commuting_pair_count": 0,
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
         "p_compatible_variant_count": 0,
         "p_compatible_variants": [],
         "p_dual_actions": [
@@ -122671,10 +123295,73 @@
             "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
           }
         ],
+        "p_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "p_mixed_compatible_count": 0,
         "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
         "scoped_no_complete_pair": true,
         "source_commuting_pair_count": 0,
-        "status": "exact finite extension-level action diagnostic; no complete pair is a sheaf linearization or quotient-descent certificate",
+        "status": "exact finite extension-level action diagnostic including the full declared degree-three mixing block; no complete pair is a sheaf linearization or quotient-descent certificate",
         "t_compatible_variant_count": 12,
         "t_compatible_variants": [
           {
@@ -123807,7 +124494,562 @@
             "preserves_relations": true,
             "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
           }
-        ]
+        ],
+        "t_mixed_actions": [
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,0:scalars=1,1"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,0:scalars=omega,omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,0:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,0:scalars=1,1"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,0:scalars=omega,omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,0:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-1-omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-1-omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1-omega",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": true,
+            "generator": "T",
+            "matrix": [
+              [
+                "-1-omega",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "omega",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-1-omega",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "omega"
+              ]
+            ],
+            "order_three": true,
+            "relation_equation": true,
+            "solution_exists": true,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "t_mixed_compatible_count": 12
       },
       {
         "complete_variant_pair_count": 0,
@@ -123816,6 +125058,9 @@
         "finite_group_gate_passes": false,
         "induced_actions_exact": true,
         "middle_commuting_pair_count": 0,
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
         "p_compatible_variant_count": 0,
         "p_compatible_variants": [],
         "p_dual_actions": [
@@ -124876,10 +126121,133 @@
             "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
           }
         ],
+        "p_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,0:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,0:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,0:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,0:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,0:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,0:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "p_mixed_compatible_count": 0,
         "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
         "scoped_no_complete_pair": true,
         "source_commuting_pair_count": 0,
-        "status": "exact finite extension-level action diagnostic; no complete pair is a sheaf linearization or quotient-descent certificate",
+        "status": "exact finite extension-level action diagnostic including the full declared degree-three mixing block; no complete pair is a sheaf linearization or quotient-descent certificate",
         "t_compatible_variant_count": 0,
         "t_compatible_variants": [],
         "t_dual_actions": [
@@ -125411,7 +126779,70 @@
             "preserves_relations": true,
             "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
           }
-        ]
+        ],
+        "t_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "t_mixed_compatible_count": 0
       },
       {
         "complete_variant_pair_count": 0,
@@ -125420,6 +126851,9 @@
         "finite_group_gate_passes": false,
         "induced_actions_exact": true,
         "middle_commuting_pair_count": 0,
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
         "p_compatible_variant_count": 0,
         "p_compatible_variants": [],
         "p_dual_actions": [
@@ -126480,10 +127914,133 @@
             "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
           }
         ],
+        "p_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,0:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,0:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,0:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,0:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,0:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,0:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "p_mixed_compatible_count": 0,
         "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
         "scoped_no_complete_pair": true,
         "source_commuting_pair_count": 0,
-        "status": "exact finite extension-level action diagnostic; no complete pair is a sheaf linearization or quotient-descent certificate",
+        "status": "exact finite extension-level action diagnostic including the full declared degree-three mixing block; no complete pair is a sheaf linearization or quotient-descent certificate",
         "t_compatible_variant_count": 0,
         "t_compatible_variants": [],
         "t_dual_actions": [
@@ -127015,7 +128572,70 @@
             "preserves_relations": true,
             "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
           }
-        ]
+        ],
+        "t_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "t_mixed_compatible_count": 0
       },
       {
         "complete_variant_pair_count": 0,
@@ -127024,6 +128644,9 @@
         "finite_group_gate_passes": false,
         "induced_actions_exact": true,
         "middle_commuting_pair_count": 0,
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
         "p_compatible_variant_count": 0,
         "p_compatible_variants": [],
         "p_dual_actions": [
@@ -127556,10 +129179,73 @@
             "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
           }
         ],
+        "p_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "p_mixed_compatible_count": 0,
         "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
         "scoped_no_complete_pair": true,
         "source_commuting_pair_count": 0,
-        "status": "exact finite extension-level action diagnostic; no complete pair is a sheaf linearization or quotient-descent certificate",
+        "status": "exact finite extension-level action diagnostic including the full declared degree-three mixing block; no complete pair is a sheaf linearization or quotient-descent certificate",
         "t_compatible_variant_count": 0,
         "t_compatible_variants": [],
         "t_dual_actions": [
@@ -128091,7 +129777,70 @@
             "preserves_relations": true,
             "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
           }
-        ]
+        ],
+        "t_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "t_mixed_compatible_count": 0
       },
       {
         "complete_variant_pair_count": 0,
@@ -128100,6 +129849,9 @@
         "finite_group_gate_passes": false,
         "induced_actions_exact": true,
         "middle_commuting_pair_count": 0,
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
         "p_compatible_variant_count": 0,
         "p_compatible_variants": [],
         "p_dual_actions": [
@@ -128632,10 +130384,73 @@
             "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
           }
         ],
+        "p_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "p_mixed_compatible_count": 0,
         "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
         "scoped_no_complete_pair": true,
         "source_commuting_pair_count": 0,
-        "status": "exact finite extension-level action diagnostic; no complete pair is a sheaf linearization or quotient-descent certificate",
+        "status": "exact finite extension-level action diagnostic including the full declared degree-three mixing block; no complete pair is a sheaf linearization or quotient-descent certificate",
         "t_compatible_variant_count": 0,
         "t_compatible_variants": [],
         "t_dual_actions": [
@@ -129167,7 +130982,70 @@
             "preserves_relations": true,
             "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
           }
-        ]
+        ],
+        "t_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "t_mixed_compatible_count": 0
       },
       {
         "complete_variant_pair_count": 0,
@@ -129176,6 +131054,9 @@
         "finite_group_gate_passes": false,
         "induced_actions_exact": true,
         "middle_commuting_pair_count": 0,
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
         "p_compatible_variant_count": 0,
         "p_compatible_variants": [],
         "p_dual_actions": [
@@ -129708,10 +131589,73 @@
             "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
           }
         ],
+        "p_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "p_mixed_compatible_count": 0,
         "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
         "scoped_no_complete_pair": true,
         "source_commuting_pair_count": 0,
-        "status": "exact finite extension-level action diagnostic; no complete pair is a sheaf linearization or quotient-descent certificate",
+        "status": "exact finite extension-level action diagnostic including the full declared degree-three mixing block; no complete pair is a sheaf linearization or quotient-descent certificate",
         "t_compatible_variant_count": 0,
         "t_compatible_variants": [],
         "t_dual_actions": [
@@ -130243,7 +132187,70 @@
             "preserves_relations": true,
             "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
           }
-        ]
+        ],
+        "t_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "t_mixed_compatible_count": 0
       },
       {
         "complete_variant_pair_count": 0,
@@ -130252,6 +132259,9 @@
         "finite_group_gate_passes": false,
         "induced_actions_exact": true,
         "middle_commuting_pair_count": 0,
+        "mixed_action_solves_exact": true,
+        "mixed_complete_variant_pair_count": 0,
+        "mixed_scoped_no_complete_pair": true,
         "p_compatible_variant_count": 0,
         "p_compatible_variants": [],
         "p_dual_actions": [
@@ -130784,10 +132794,73 @@
             "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
           }
         ],
+        "p_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "P",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "P:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "p_mixed_compatible_count": 0,
         "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
         "scoped_no_complete_pair": true,
         "source_commuting_pair_count": 0,
-        "status": "exact finite extension-level action diagnostic; no complete pair is a sheaf linearization or quotient-descent certificate",
+        "status": "exact finite extension-level action diagnostic including the full declared degree-three mixing block; no complete pair is a sheaf linearization or quotient-descent certificate",
         "t_compatible_variant_count": 0,
         "t_compatible_variants": [],
         "t_dual_actions": [
@@ -131319,7 +133392,70 @@
             "preserves_relations": true,
             "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
           }
-        ]
+        ],
+        "t_mixed_actions": [
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=0,1:scalars=-1-omega,-1-omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=1,1"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=omega,omega"
+          },
+          {
+            "compatible": false,
+            "generator": "T",
+            "matrix": null,
+            "order_three": false,
+            "relation_equation": false,
+            "solution_exists": false,
+            "solution_nullity": 0,
+            "variant": "T:orientations=1,1:scalars=-1-omega,-1-omega"
+          }
+        ],
+        "t_mixed_compatible_count": 0
       }
     ],
     "tier_b_curvilinear_outer_frontier": {

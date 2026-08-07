@@ -429,3 +429,10 @@ cochain data and representatives. Diagonal pairs have degree-one dimension
 24; off-diagonal pairs have degree-one dimension 23. Global Ext
 identification and invariant outer classes remain unresolved because the
 witness linearization gate still fails.
+
+The finite linearization screen also solves the full declared constant
+degree-three mixing block between the cubic ideal generator and the extension
+generator. Its complete P/T commuting-pair count remains zero, so the scoped
+negative result is not caused solely by a block-diagonal extension-line
+ansatz. This remains a resolution-level action diagnostic, not a sheaf
+linearization or quotient-descent certificate.

@@ -133,6 +133,8 @@ def test_production_directory_set_is_exact() -> None:
 
 def test_every_created_directory_has_a_readme() -> None:
     ignored_directory_names = {
+        ".agents",
+        ".codex",
         ".git",
         ".hypothesis",
         ".mypy_cache",

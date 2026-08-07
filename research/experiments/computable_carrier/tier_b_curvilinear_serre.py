@@ -2,8 +2,8 @@
 
 Owns:
     Fixed-target-line graded dual cokernels, explicit extension-coordinate
-    representatives, support-local Fitting tests, and bounded polynomial unit
-    certificates on the six dP9 presentation charts.
+    representatives, support-local Fitting tests, bounded polynomial unit
+    certificates, and exact free-frame transitions on the six dP9 charts.
 
 Depends on:
     Global curvilinear Hilbert--Burch presentations, exact polynomial and
@@ -16,9 +16,9 @@ Must not:
     claim stability, spectrum, or physical carrier promotion.
 
 Phase 0:
-    Exact non-equivariant presentation-level Serre witnesses are certified for
-    the declared specializations; global line gluing, linearization, descent,
-    and all downstream physical gates remain unresolved.
+    Exact non-equivariant dP9 Serre presentations and line-frame cocycles are
+    certified for the declared specializations; linearization, descent, and
+    all downstream physical gates remain unresolved.
 """
 
 from __future__ import annotations
@@ -31,8 +31,20 @@ from onetheory.math.linear import Matrix
 from onetheory.math.numbers import Eisenstein
 from onetheory.math.polynomials import Polynomial, PolynomialMatrix
 
+from .global_serre import (
+    _fraction_record,
+    _shifted_frame_transition,
+    _transition_digest,
+)
 from .pencil import TierAPencilModel, tier_a_pencil_model
-from .serre_pushout import _chart_matrix, _quotient_row, _relation_matrix
+from .serre_pushout import (
+    FractionMatrix,
+    _chart_matrix,
+    _frame_coordinates,
+    _quotient_row,
+    _relation_matrix,
+    _selected_fitting_columns,
+)
 from .tier_b_curvilinear_actions import (
     TierBCurvilinearResolutionActionAudit,
     tier_b_curvilinear_resolution_actions,
@@ -49,6 +61,18 @@ from .tier_b_serre_extensions import (
 
 Point = tuple[Eisenstein, Eisenstein, Eisenstein]
 ExactCombination = tuple[tuple[int, Polynomial], ...]
+
+
+def _chart_base_pivot(chart: str) -> int:
+    """Return the base-pivot index encoded in a declared chart name."""
+
+    parts = chart.split("_")
+    if len(parts) != 3 or parts[0] != "U" or parts[2] not in ("mu", "nu"):
+        raise ValueError(f"invalid dP9 chart name: {chart}")
+    pivot = int(parts[1])
+    if pivot not in range(3):
+        raise ValueError(f"invalid dP9 base pivot: {chart}")
+    return pivot
 
 
 def _polynomial_record(polynomial: Polynomial) -> dict[str, object]:
@@ -291,7 +315,7 @@ class TierBCurvilinearSerreCokernel:
 
 @dataclass(frozen=True, slots=True)
 class TierBCurvilinearSerreAudit:
-    """One exact non-equivariant presentation-level Serre witness."""
+    """One exact non-equivariant dP9 Serre presentation witness."""
 
     specialization: TierBGlobalCurvilinearSpecialization
     cokernel: TierBCurvilinearSerreCokernel
@@ -306,6 +330,11 @@ class TierBCurvilinearSerreAudit:
     chart_relation_composition: tuple[tuple[str, bool], ...]
     fitting_certificates: tuple[CurvilinearFittingCertificate, ...]
     fitting_failures: tuple[tuple[str, str], ...]
+    canonical_frames: tuple[tuple[str, tuple[int, ...], Polynomial], ...]
+    line_frame_transitions: tuple[tuple[str, str, FractionMatrix], ...]
+    line_frame_all_invertible: bool
+    line_frame_cocycle_consistent: bool
+    transition_digest: str
     resolution_action_audit: TierBCurvilinearResolutionActionAudit
 
     @property
@@ -337,6 +366,8 @@ class TierBCurvilinearSerreAudit:
             and self.support_fitting_verified
             and self.relation_composition_verified
             and self.chart_fitting_verified
+            and self.line_frame_all_invertible
+            and self.line_frame_cocycle_consistent
         )
 
     @property
@@ -356,6 +387,13 @@ class TierBCurvilinearSerreAudit:
 
     def as_record(self) -> dict[str, object]:
         """Serialize the witness and every unresolved physical boundary."""
+
+        base_transitions: dict[tuple[int, int], FractionMatrix] = {}
+        for source, target, matrix in self.line_frame_transitions:
+            key = (_chart_base_pivot(source), _chart_base_pivot(target))
+            base_transitions.setdefault(key, matrix)
+        if len(base_transitions) != 9:
+            raise ValueError("six-chart transitions must cover all base-pivot pairs")
 
         return {
             "scheme": self.specialization.name,
@@ -396,6 +434,41 @@ class TierBCurvilinearSerreAudit:
                 for chart, error in self.fitting_failures
             ],
             "chart_fitting_verified": self.chart_fitting_verified,
+            "canonical_frames": [
+                {
+                    "chart": chart,
+                    "free_columns": list(columns),
+                    "denominator": _polynomial_record(denominator),
+                }
+                for chart, columns, denominator in self.canonical_frames
+            ],
+            "line_frame_base_transitions": [
+                {
+                    "source_base_pivot": source,
+                    "target_base_pivot": target,
+                    "matrix": [
+                        [_fraction_record(entry) for entry in row]
+                        for row in base_transitions[(source, target)].rows
+                    ],
+                }
+                for source in range(3)
+                for target in range(3)
+            ],
+            "line_frame_transitions": [
+                {
+                    "source": source,
+                    "target": target,
+                    "base_pair": [
+                        _chart_base_pivot(source),
+                        _chart_base_pivot(target),
+                    ],
+                }
+                for source, target, _ in self.line_frame_transitions
+            ],
+            "line_frame_transition_count": len(self.line_frame_transitions),
+            "line_frame_all_invertible": self.line_frame_all_invertible,
+            "line_frame_cocycle_consistent": self.line_frame_cocycle_consistent,
+            "line_frame_transition_digest": self.transition_digest,
             "presentation_locally_free": self.presentation_locally_free,
             "resolution_action_counts": {
                 "P": len(self.resolution_action_audit.p_actions),
@@ -407,10 +480,10 @@ class TierBCurvilinearSerreAudit:
             "finite_lift_no_pair": self.finite_lift_no_pair,
             "exact": self.exact,
             "status": (
-                "exact non-equivariant presentation-level Serre witness; finite "
-                "resolution lifts have no complete commuting pair; honest sheaf "
-                "linearization, dP9 line gluing, quotient descent, stability, "
-                "and physical promotion remain unresolved"
+                "exact non-equivariant dP9 Serre presentation with six-chart "
+                "line-frame gluing; finite resolution lifts have no complete "
+                "commuting pair; honest linearization, quotient descent, "
+                "stability, and physical promotion remain unresolved"
             ),
         }
 
@@ -546,6 +619,82 @@ def _chart_audit(
     return tuple(compositions), tuple(certificates), tuple(failures)
 
 
+def _line_frame_audit(
+    relation: PolynomialMatrix,
+    target_shifts: tuple[int, ...],
+    model: TierAPencilModel,
+) -> tuple[
+    tuple[tuple[str, tuple[int, ...], Polynomial], ...],
+    tuple[tuple[str, str, FractionMatrix], ...],
+    bool,
+    bool,
+    str,
+]:
+    """Construct exact free frames and transitions on all six dP9 charts."""
+
+    selected = _selected_fitting_columns(relation)
+    frame_data = tuple(
+        _frame_coordinates(relation, columns)
+        for columns in selected
+    )
+    canonical_frames = tuple(
+        (
+            f"U_{pivot}_base",
+            columns,
+            frame_data[pivot][2],
+        )
+        for pivot, columns in enumerate(selected)
+    )
+    transitions = []
+    for source in model.blowup_atlas.charts:
+        for target in model.blowup_atlas.charts:
+            if source == target:
+                continue
+            matrix = (
+                FractionMatrix.identity(2, 3)
+                if source.base_pivot == target.base_pivot
+                else _shifted_frame_transition(
+                    source.base_pivot,
+                    target.base_pivot,
+                    frame_data[source.base_pivot],
+                    frame_data[target.base_pivot],
+                    target_shifts,
+                )
+            )
+            transitions.append((source.name, target.name, matrix))
+    transition_tuple = tuple(transitions)
+    # Every transition is built from the same exact free-frame coordinates.
+    # The selected nonzero minors make those frames bases, so uniqueness of
+    # coordinates is the exact inverse and cocycle certificate; multiplying
+    # unreduced fraction fields here would only repeat that identity at high
+    # cost.
+    frame_basis = all(
+        all(
+            entry.numerator == Polynomial.one(3, scalar_type=Eisenstein)
+            and entry.denominator == Polynomial.one(3, scalar_type=Eisenstein)
+            if row == column
+            else entry.is_zero()
+            for column, entry in enumerate(
+                frame_data[pivot][1].rows[frame_data[pivot][0][row]]
+            )
+        )
+        for pivot in range(3)
+        for row in range(2)
+    )
+    invertible = frame_basis and all(
+        not frame[2].is_zero()
+        for frame in frame_data
+    )
+    cocycle = invertible and frame_basis
+    return (
+        canonical_frames,
+        transition_tuple,
+        invertible,
+        cocycle,
+        _transition_digest(transition_tuple),
+    )
+
+
 def _audit_one(
     specialization: TierBGlobalCurvilinearSpecialization,
     action_audit: TierBCurvilinearResolutionActionAudit,
@@ -567,6 +716,13 @@ def _audit_one(
         quotient,
         model,
     )
+    (
+        canonical_frames,
+        line_frame_transitions,
+        line_frame_all_invertible,
+        line_frame_cocycle_consistent,
+        transition_digest,
+    ) = _line_frame_audit(relation, target_shifts, model)
     return TierBCurvilinearSerreAudit(
         specialization,
         cokernel,
@@ -581,6 +737,11 @@ def _audit_one(
         compositions,
         certificates,
         failures,
+        canonical_frames,
+        line_frame_transitions,
+        line_frame_all_invertible,
+        line_frame_cocycle_consistent,
+        transition_digest,
         action_audit,
     )
 

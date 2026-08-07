@@ -415,8 +415,12 @@ For a declared exact nonzero Eisenstein specialization, the two curvilinear
 families now produce global length-nine ideals on every special orbit. Their
 degree slices have one cubic and three quartic minimal generators with an
 exact Hilbert--Burch resolution, and P/T preserve each ideal. The artifact
-records the `alpha=1` specialization only as a nonphysical regression path;
-Serre extension classes and quotient linearization remain unresolved.
+records the `alpha=1` specialization only as a nonphysical regression path.
+Each explicit Serre presentation now has principal Fitting frames, all 30
+ordered transitions on the six-chart dP9 atlas, and exact inverse/cocycle
+certificates from the common basis-change construction. This closes
+non-equivariant line-frame gluing only; honest deck
+linearization, quotient descent, and physical promotion remain unresolved.
 
 The eight curvilinear witnesses now feed all 64 ordered outer-presentation
 pairs. Every pair has an exact polynomial Hom complex, projective-plane

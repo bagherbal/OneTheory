@@ -297,6 +297,9 @@ def test_tier_b_curvilinear_serre_presentations_are_locally_free() -> None:
     assert all(audit.presentation_locally_free for audit in audits)
     assert all(audit.support_fitting_verified for audit in audits)
     assert all(audit.chart_fitting_verified for audit in audits)
+    assert all(audit.line_frame_all_invertible for audit in audits)
+    assert all(audit.line_frame_cocycle_consistent for audit in audits)
+    assert all(len(audit.line_frame_transitions) == 30 for audit in audits)
     assert all(
         {certificate.coefficient_degree_bound for certificate in audit.fitting_certificates}
         == {1}
@@ -581,6 +584,10 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     ]
     assert len(curvilinear_serre) == 8
     assert all(item["presentation_locally_free"] for item in curvilinear_serre)
+    assert all(len(item["line_frame_base_transitions"]) == 9 for item in curvilinear_serre)
+    assert all(item["line_frame_transition_count"] == 30 for item in curvilinear_serre)
+    assert all(item["line_frame_all_invertible"] for item in curvilinear_serre)
+    assert all(item["line_frame_cocycle_consistent"] for item in curvilinear_serre)
     assert all(item["finite_lift_no_pair"] for item in curvilinear_serre)
     assert all(item["parameter_is_selected_physics"] is False for item in curvilinear_serre)
     curvilinear_linearization = artifact["tier_a_chain_inputs"][

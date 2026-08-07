@@ -479,13 +479,26 @@ on the published free order-nine quotient. Constituent selection, twists, the
 rank-four extension, stability, spectrum, and later external checks remain
 open.
 
-The eight curvilinear witnesses now feed all 64 ordered outer-presentation
-pairs. Every pair has an exact polynomial Hom complex, projective-plane
-hypercohomology, and a signed zero-fiber dP9 totalization with explicit
-cochain data and representatives. Diagonal pairs have degree-one dimension
-24; off-diagonal pairs have degree-one dimension 23. Global Ext
-identification and invariant outer classes remain unresolved because the
-witness linearization gate still fails.
+Exact Schoen-basis Chern arithmetic now stops this six-sheaf branch before an
+outer Ext calculation. A constituent pulled from each dP9 factor leaves odd
+`tau1` and `tau2` determinant coefficients that rank-two integral twists
+cannot cancel. Same-factor pairs have 20 lawful ordered twist pairs per factor
+inside the Tier B radius-two cube, but determinant cancellation forces their
+degree-three Chern characters to cancel identically, so every quotient index
+is zero instead of three. SageMath independently reproduces the parity,
+symbolic index identity, and bounded counts. This is a scoped no-candidate
+certificate for the current curvilinear Chern type, not for other Tier B
+architectures.
+
+The eight earlier non-equivariant presentation witnesses still feed all 64
+ordered outer-presentation pairs. Every pair has an exact polynomial Hom
+complex, projective-plane hypercohomology, and a signed zero-fiber dP9
+totalization with explicit cochain data and representatives. Diagonal pairs
+have degree-one dimension 24; off-diagonal pairs have degree-one dimension
+23. These diagnostics concern a broader unresolved presentation category and
+do not bypass the topology exclusion above. Global Ext identification and
+invariant outer classes remain unresolved because the witness linearization
+gate still fails.
 
 The finite linearization screen also solves the full declared constant
 degree-three mixing block between the cubic ideal generator and the extension

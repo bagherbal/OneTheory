@@ -4,7 +4,9 @@ This directory contains the independent SageMath reproduction path for the
 computable-carrier frontier. The script imports no OneTheory Python module. It
 recomputes the I3/I6 baseline, both curvilinear Hilbert--Burch resolutions, all
 six maximal-minor covers, graded Chern data, projective cocycles, and the dP9
-deck atlas from plain Sage polynomial matrices.
+deck atlas from plain Sage polynomial matrices. It also reproduces the exact
+rank-four determinant parity obstruction, the formal zero-index identity, and
+the bounded lawful-twist counts for the current curvilinear Chern type.
 
 The pinned runtime is the Docker image `sagemath/sagemath:10.6`; the resolved
 image digest and command output belong in the generated carrier artifact after

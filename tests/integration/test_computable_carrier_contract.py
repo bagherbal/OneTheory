@@ -701,6 +701,15 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
         for line in item["lines"]
     )
     assert all(item["exact"] for item in curvilinear_descents)
+    curvilinear_topology = artifact["tier_a_chain_inputs"][
+        "tier_b_curvilinear_topology_screen"
+    ]
+    assert curvilinear_topology["cross_factor_parity_obstruction"] is True
+    assert curvilinear_topology["same_factor_index_identities"] == [True, True]
+    assert curvilinear_topology["bounded_lawful_twist_pair_count"] == 40
+    assert curvilinear_topology["target_index_candidate_count"] == 0
+    assert curvilinear_topology["rank_four_outer_ext_available"] is False
+    assert curvilinear_topology["exact"] is True
     curvilinear_serre = artifact["tier_a_chain_inputs"][
         "tier_b_curvilinear_serre_audits"
     ]
@@ -751,11 +760,12 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert external["image_digest"].startswith("sha256:")
     assert len(external["script_sha256"]) == 64
     assert external["output"][-1] == (
-        "curvilinear_descent_status: conditional_on_published_free_quotient"
+        "curvilinear_rank_four_topology: excluded_index_zero"
     )
     assert external["verified_scopes"] == {
         "baseline_hilbert_burch_and_split_transition": "passed",
         "curvilinear_rank_two_descent_inputs": "passed",
+        "curvilinear_rank_four_topology": "excluded",
     }
     assert external["conditional_inputs"] == [
         {

@@ -1,6 +1,6 @@
 """Independent exact SageMath checks for the computable carrier frontier."""
 
-from itertools import combinations
+from itertools import combinations, product
 
 
 K.<omega> = CyclotomicField(3)
@@ -300,6 +300,74 @@ def assert_dp9_deck_atlas():
             )
 
 
+S.<x1,x2,x3> = PolynomialRing(QQ)
+
+
+def quotient_intersection(first, second, third):
+    """Return the exact symmetric Schoen quotient intersection number."""
+
+    indices = tuple(sorted((first, second, third)))
+    return {
+        (0, 0, 1): QQ(1)/3,
+        (0, 1, 1): QQ(1)/3,
+        (0, 1, 2): QQ(1),
+    }.get(indices, QQ(0))
+
+
+def formal_triple(left, middle, right):
+    """Evaluate the quotient intersection tensor on formal divisors."""
+
+    return sum(
+        left[first]
+        * middle[second]
+        * right[third]
+        * quotient_intersection(first, second, third)
+        for first in range(3)
+        for second in range(3)
+        for third in range(3)
+    )
+
+
+def curvilinear_ch_three(factor, twist):
+    """Return the integrated twisted degree-three Chern character."""
+
+    hyperplane = tuple(S(1 if index == factor else 0) for index in range(3))
+    return (
+        -QQ(9)/2 * formal_triple(hyperplane, hyperplane, twist)
+        -QQ(3)/2 * formal_triple(hyperplane, twist, twist)
+        +QQ(1)/3 * formal_triple(twist, twist, twist)
+    )
+
+
+def assert_curvilinear_rank_four_topology():
+    """Exclude all current determinant-compatible pairs by exact index."""
+
+    assert any(value % 2 for value in (-3, -3, 0))
+    variables = (x1, x2, x3)
+    bounded = tuple(product(range(-2, 3), repeat=3))
+    for factor in (0, 1):
+        hyperplane = tuple(1 if index == factor else 0 for index in range(3))
+        complement = tuple(3*hyperplane[index] - variables[index] for index in range(3))
+        assert curvilinear_ch_three(factor, variables) + curvilinear_ch_three(
+            factor, complement
+        ) == 0
+        lawful = []
+        for left in bounded:
+            right = tuple(3*hyperplane[index] - left[index] for index in range(3))
+            if right not in bounded:
+                continue
+            if (left[0]+left[1]) % 3 or (right[0]+right[1]) % 3:
+                continue
+            lawful.append((left, right))
+        assert len(lawful) == 20
+        assert all(
+            curvilinear_ch_three(factor, left)
+            + curvilinear_ch_three(factor, right)
+            == 0
+            for left, right in lawful
+        )
+
+
 assert_hilbert_burch(HB_U, GENERATORS_U)
 assert_hilbert_burch(HB_V, GENERATORS_V)
 assert_chern_data()
@@ -322,6 +390,7 @@ assert_projective_cocycles(
     omega^2,
 )
 assert_dp9_deck_atlas()
+assert_curvilinear_rank_four_topology()
 
 
 M3 = matrix(R, ((c, c), (-b, 0), (0, -a)))
@@ -371,3 +440,4 @@ print("curvilinear_chern_data: pass")
 print("curvilinear_projective_cocycles: pass")
 print("dp9_deck_atlas: pass")
 print("curvilinear_descent_status: conditional_on_published_free_quotient")
+print("curvilinear_rank_four_topology: excluded_index_zero")

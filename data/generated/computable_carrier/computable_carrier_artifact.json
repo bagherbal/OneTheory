@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "3b940cd687a75a0d6016135e20265d6ff11ddae4b2f11ec7e7c6155fe5c1a2ba",
+  "artifact_digest": "8e4ee27117c334747c3acd62baffd8cffa4c1b31745b40a01d3bae3b5dc22be9",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -32,16 +32,18 @@
       "curvilinear_chern_data: pass",
       "curvilinear_projective_cocycles: pass",
       "dp9_deck_atlas: pass",
-      "curvilinear_descent_status: conditional_on_published_free_quotient"
+      "curvilinear_descent_status: conditional_on_published_free_quotient",
+      "curvilinear_rank_four_topology: excluded_index_zero"
     ],
     "promotion_blocked": false,
     "required_independent_path": "pinned SageMath reproduction",
     "runtime": "sagemath/sagemath:10.6",
     "script": "research/experiments/computable_carrier/external/verify.sage",
-    "script_sha256": "16ff1f0684c0a7e739f1ba5f90979912f6124761569113906e3686d5f20d45b7",
+    "script_sha256": "1045099275bc2ce1c3e43ab2f1a2b78e01813f7d307136fca78b557f4063a187",
     "status": "passed",
     "verified_scopes": {
       "baseline_hilbert_burch_and_split_transition": "passed",
+      "curvilinear_rank_four_topology": "excluded",
       "curvilinear_rank_two_descent_inputs": "passed"
     }
   },
@@ -10565,6 +10567,7 @@
   "promotion": {
     "gates": {
       "chain_level": "unresolved",
+      "current_curvilinear_rank_four_topology": "failed",
       "equivariance": "unresolved",
       "independent_external_algebra": "unresolved",
       "local_freeness": "unresolved",
@@ -10576,6 +10579,10 @@
   "provenance": {
     "measured_parameters_used": false,
     "observations_used": false,
+    "published_source_manifest": {
+      "path": "data/published/visible_carrier/source_manifest.json",
+      "sha256": "1d524ce9960d8d86dd54884fb22ba9ecd43fa248febde9173379e108f4509860"
+    },
     "reference_artifact": {
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -454956,6 +454963,1648 @@
         "witness_mask": 11
       }
     ],
+    "tier_b_curvilinear_topology_screen": {
+      "audits": [
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-1",
+            "-2",
+            "-4"
+          ],
+          "left_twist": [
+            1,
+            -1,
+            -2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "1",
+            "2",
+            "4"
+          ],
+          "right_twist": [
+            2,
+            1,
+            2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-28/3",
+            "-1/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-1",
+            "-2",
+            "-2"
+          ],
+          "left_twist": [
+            1,
+            -1,
+            -1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "1",
+            "2",
+            "2"
+          ],
+          "right_twist": [
+            2,
+            1,
+            1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-16/3",
+            "5/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-1",
+            "-2",
+            "0"
+          ],
+          "left_twist": [
+            1,
+            -1,
+            0
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "1",
+            "2",
+            "0"
+          ],
+          "right_twist": [
+            2,
+            1,
+            0
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-4/3",
+            "11/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-1",
+            "-2",
+            "2"
+          ],
+          "left_twist": [
+            1,
+            -1,
+            1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "1",
+            "2",
+            "-2"
+          ],
+          "right_twist": [
+            2,
+            1,
+            -1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "8/3",
+            "17/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-1",
+            "-2",
+            "4"
+          ],
+          "left_twist": [
+            1,
+            -1,
+            2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "1",
+            "2",
+            "-4"
+          ],
+          "right_twist": [
+            2,
+            1,
+            -2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "20/3",
+            "23/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-1",
+            "4",
+            "-4"
+          ],
+          "left_twist": [
+            1,
+            2,
+            -2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "1",
+            "-4",
+            "4"
+          ],
+          "right_twist": [
+            2,
+            -2,
+            2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "44/3",
+            "5/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-1",
+            "4",
+            "-2"
+          ],
+          "left_twist": [
+            1,
+            2,
+            -1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "1",
+            "-4",
+            "2"
+          ],
+          "right_twist": [
+            2,
+            -2,
+            1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "20/3",
+            "11/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-1",
+            "4",
+            "0"
+          ],
+          "left_twist": [
+            1,
+            2,
+            0
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "1",
+            "-4",
+            "0"
+          ],
+          "right_twist": [
+            2,
+            -2,
+            0
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-4/3",
+            "17/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-1",
+            "4",
+            "2"
+          ],
+          "left_twist": [
+            1,
+            2,
+            1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "1",
+            "-4",
+            "-2"
+          ],
+          "right_twist": [
+            2,
+            -2,
+            -1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-28/3",
+            "23/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-1",
+            "4",
+            "4"
+          ],
+          "left_twist": [
+            1,
+            2,
+            2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "1",
+            "-4",
+            "-4"
+          ],
+          "right_twist": [
+            2,
+            -2,
+            -2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-52/3",
+            "29/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "1",
+            "-4",
+            "-4"
+          ],
+          "left_twist": [
+            2,
+            -2,
+            -2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-1",
+            "4",
+            "4"
+          ],
+          "right_twist": [
+            1,
+            2,
+            2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-52/3",
+            "29/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "1",
+            "-4",
+            "-2"
+          ],
+          "left_twist": [
+            2,
+            -2,
+            -1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-1",
+            "4",
+            "2"
+          ],
+          "right_twist": [
+            1,
+            2,
+            1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-28/3",
+            "23/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "1",
+            "-4",
+            "0"
+          ],
+          "left_twist": [
+            2,
+            -2,
+            0
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-1",
+            "4",
+            "0"
+          ],
+          "right_twist": [
+            1,
+            2,
+            0
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-4/3",
+            "17/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "1",
+            "-4",
+            "2"
+          ],
+          "left_twist": [
+            2,
+            -2,
+            1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-1",
+            "4",
+            "-2"
+          ],
+          "right_twist": [
+            1,
+            2,
+            -1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "20/3",
+            "11/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "1",
+            "-4",
+            "4"
+          ],
+          "left_twist": [
+            2,
+            -2,
+            2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-1",
+            "4",
+            "-4"
+          ],
+          "right_twist": [
+            1,
+            2,
+            -2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "44/3",
+            "5/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "1",
+            "2",
+            "-4"
+          ],
+          "left_twist": [
+            2,
+            1,
+            -2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-1",
+            "-2",
+            "4"
+          ],
+          "right_twist": [
+            1,
+            -1,
+            2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "20/3",
+            "23/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "1",
+            "2",
+            "-2"
+          ],
+          "left_twist": [
+            2,
+            1,
+            -1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-1",
+            "-2",
+            "2"
+          ],
+          "right_twist": [
+            1,
+            -1,
+            1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "8/3",
+            "17/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "1",
+            "2",
+            "0"
+          ],
+          "left_twist": [
+            2,
+            1,
+            0
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-1",
+            "-2",
+            "0"
+          ],
+          "right_twist": [
+            1,
+            -1,
+            0
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-4/3",
+            "11/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "1",
+            "2",
+            "2"
+          ],
+          "left_twist": [
+            2,
+            1,
+            1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-1",
+            "-2",
+            "-2"
+          ],
+          "right_twist": [
+            1,
+            -1,
+            -1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-16/3",
+            "5/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 1,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "1",
+            "2",
+            "4"
+          ],
+          "left_twist": [
+            2,
+            1,
+            2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-1",
+            "-2",
+            "-4"
+          ],
+          "right_twist": [
+            1,
+            -1,
+            -2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-28/3",
+            "-1/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-4",
+            "1",
+            "-4"
+          ],
+          "left_twist": [
+            -2,
+            2,
+            -2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "4",
+            "-1",
+            "4"
+          ],
+          "right_twist": [
+            2,
+            1,
+            2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "29/3",
+            "-52/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-4",
+            "1",
+            "-2"
+          ],
+          "left_twist": [
+            -2,
+            2,
+            -1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "4",
+            "-1",
+            "2"
+          ],
+          "right_twist": [
+            2,
+            1,
+            1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "23/3",
+            "-28/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-4",
+            "1",
+            "0"
+          ],
+          "left_twist": [
+            -2,
+            2,
+            0
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "4",
+            "-1",
+            "0"
+          ],
+          "right_twist": [
+            2,
+            1,
+            0
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "17/3",
+            "-4/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-4",
+            "1",
+            "2"
+          ],
+          "left_twist": [
+            -2,
+            2,
+            1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "4",
+            "-1",
+            "-2"
+          ],
+          "right_twist": [
+            2,
+            1,
+            -1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "11/3",
+            "20/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-4",
+            "1",
+            "4"
+          ],
+          "left_twist": [
+            -2,
+            2,
+            2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "4",
+            "-1",
+            "-4"
+          ],
+          "right_twist": [
+            2,
+            1,
+            -2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "5/3",
+            "44/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-2",
+            "-1",
+            "-4"
+          ],
+          "left_twist": [
+            -1,
+            1,
+            -2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "2",
+            "1",
+            "4"
+          ],
+          "right_twist": [
+            1,
+            2,
+            2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-1/3",
+            "-28/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-2",
+            "-1",
+            "-2"
+          ],
+          "left_twist": [
+            -1,
+            1,
+            -1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "2",
+            "1",
+            "2"
+          ],
+          "right_twist": [
+            1,
+            2,
+            1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "5/3",
+            "-16/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-2",
+            "-1",
+            "0"
+          ],
+          "left_twist": [
+            -1,
+            1,
+            0
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "2",
+            "1",
+            "0"
+          ],
+          "right_twist": [
+            1,
+            2,
+            0
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "11/3",
+            "-4/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-2",
+            "-1",
+            "2"
+          ],
+          "left_twist": [
+            -1,
+            1,
+            1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "2",
+            "1",
+            "-2"
+          ],
+          "right_twist": [
+            1,
+            2,
+            -1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "17/3",
+            "8/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "-2",
+            "-1",
+            "4"
+          ],
+          "left_twist": [
+            -1,
+            1,
+            2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "2",
+            "1",
+            "-4"
+          ],
+          "right_twist": [
+            1,
+            2,
+            -2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "23/3",
+            "20/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "2",
+            "1",
+            "-4"
+          ],
+          "left_twist": [
+            1,
+            2,
+            -2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-2",
+            "-1",
+            "4"
+          ],
+          "right_twist": [
+            -1,
+            1,
+            2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "23/3",
+            "20/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "2",
+            "1",
+            "-2"
+          ],
+          "left_twist": [
+            1,
+            2,
+            -1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-2",
+            "-1",
+            "2"
+          ],
+          "right_twist": [
+            -1,
+            1,
+            1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "17/3",
+            "8/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "2",
+            "1",
+            "0"
+          ],
+          "left_twist": [
+            1,
+            2,
+            0
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-2",
+            "-1",
+            "0"
+          ],
+          "right_twist": [
+            -1,
+            1,
+            0
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "11/3",
+            "-4/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "2",
+            "1",
+            "2"
+          ],
+          "left_twist": [
+            1,
+            2,
+            1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-2",
+            "-1",
+            "-2"
+          ],
+          "right_twist": [
+            -1,
+            1,
+            -1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "5/3",
+            "-16/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "2",
+            "1",
+            "4"
+          ],
+          "left_twist": [
+            1,
+            2,
+            2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-2",
+            "-1",
+            "-4"
+          ],
+          "right_twist": [
+            -1,
+            1,
+            -2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "-1/3",
+            "-28/3",
+            "-2"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "4",
+            "-1",
+            "-4"
+          ],
+          "left_twist": [
+            2,
+            1,
+            -2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-4",
+            "1",
+            "4"
+          ],
+          "right_twist": [
+            -2,
+            2,
+            2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "5/3",
+            "44/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "4",
+            "-1",
+            "-2"
+          ],
+          "left_twist": [
+            2,
+            1,
+            -1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-4",
+            "1",
+            "2"
+          ],
+          "right_twist": [
+            -2,
+            2,
+            1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "11/3",
+            "20/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "4",
+            "-1",
+            "0"
+          ],
+          "left_twist": [
+            2,
+            1,
+            0
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-4",
+            "1",
+            "0"
+          ],
+          "right_twist": [
+            -2,
+            2,
+            0
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "17/3",
+            "-4/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "4",
+            "-1",
+            "2"
+          ],
+          "left_twist": [
+            2,
+            1,
+            1
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-4",
+            "1",
+            "-2"
+          ],
+          "right_twist": [
+            -2,
+            2,
+            -1
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "23/3",
+            "-28/3",
+            "4"
+          ]
+        },
+        {
+          "determinant_cancels": true,
+          "exact": true,
+          "factor": 2,
+          "integrated_third_chern": "0",
+          "left_first_chern": [
+            "4",
+            "-1",
+            "4"
+          ],
+          "left_twist": [
+            2,
+            1,
+            2
+          ],
+          "line_twists_descend": true,
+          "quotient_index": "0",
+          "right_first_chern": [
+            "-4",
+            "1",
+            "-4"
+          ],
+          "right_twist": [
+            -2,
+            2,
+            -2
+          ],
+          "status": "lawful same-factor Chern topology; excluded by quotient index zero before outer Ext construction",
+          "target_index": false,
+          "total_first_chern": [
+            "0",
+            "0",
+            "0"
+          ],
+          "total_second_chern_curve_coordinates": [
+            "29/3",
+            "-52/3",
+            "4"
+          ]
+        }
+      ],
+      "base_first_chern_hyperplane": -3,
+      "base_rank": 2,
+      "base_second_chern_hyperplane_squared": 9,
+      "bounded_lawful_twist_pair_count": 40,
+      "cross_factor_parity_obstruction": true,
+      "cross_factor_status": "-3(tau1+tau2)+2(D1+D2) cannot vanish in the integral free divisor lattice",
+      "exact": true,
+      "hyperplane_mapping": {
+        "factor_1": "H -> tau1",
+        "factor_2": "H -> tau2",
+        "provenance": "The P2 blowdown line is the invariant dP9 three-section t: H^2=1, H.f=3, and pi_i^*(t)=tau_i in the published Schoen basis.",
+        "source_locators": [
+          "hep-th/0410055 eq:dP9invGhomologydef; eq:H2Xtquotient",
+          "hep-th/0602073 eq:V1def; eq:V2def; sec:ext"
+        ]
+      },
+      "projective_source_shifts": [
+        5,
+        5,
+        5
+      ],
+      "projective_target_shifts": [
+        3,
+        4,
+        4,
+        4,
+        3
+      ],
+      "promotion_ready": false,
+      "rank_four_outer_ext_available": false,
+      "same_factor_index_identities": [
+        true,
+        true
+      ],
+      "same_factor_status": "D1+D2=3 tau_i forces cancellation of the exact degree-three Chern characters for every integral twist",
+      "status": "scoped topological no-candidate certificate for pairs of the current descended curvilinear Chern type; other Tier B architectures are not excluded",
+      "target_index_candidate_count": 0,
+      "twist_radius": 2
+    },
     "tier_b_dp9_deck_actions": [
       {
         "actions_commute": true,

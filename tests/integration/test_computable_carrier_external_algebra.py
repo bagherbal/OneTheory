@@ -49,8 +49,11 @@ def test_external_manifest_matches_frozen_sage_result() -> None:
     assert external["verified_scopes"]["curvilinear_rank_two_descent_inputs"] == (
         "passed"
     )
+    assert external["verified_scopes"]["curvilinear_rank_four_topology"] == (
+        "excluded"
+    )
     assert external["output"][-1] == (
-        "curvilinear_descent_status: conditional_on_published_free_quotient"
+        "curvilinear_rank_four_topology: excluded_index_zero"
     )
     assert external["conditional_inputs"] == [
         {

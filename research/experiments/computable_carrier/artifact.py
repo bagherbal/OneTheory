@@ -72,6 +72,7 @@ from .tier_b_curvilinear_projective_cocycles import (
     tier_b_curvilinear_projective_cocycle_audits,
 )
 from .tier_b_curvilinear_serre import tier_b_curvilinear_serre_audits
+from .tier_b_curvilinear_topology import curvilinear_topology_screen
 from .tier_b_dp9_actions import tier_b_dp9_deck_action_audits
 from .tier_b_dp9_ideals import tier_b_dp9_monomial_ideal_resolutions
 from .tier_b_global_serre import tier_b_global_serre_audits
@@ -280,6 +281,9 @@ def build_artifact(root: Path) -> dict[str, object]:
         frame_audits=tier_b_curvilinear_frame_actions,
         deck_atlas=deck_atlas,
     )
+    tier_b_curvilinear_topology = curvilinear_topology_screen(
+        tier_b_known_schemes.twist_radius,
+    )
     tier_b_curvilinear_serre = tier_b_curvilinear_serre_audits(
         Eisenstein(1),
     )
@@ -299,6 +303,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     )
     pushdown_constraints = tier_a_pushdown_constraints()
     reference_artifact = root / "data/generated/visible_carrier/visible_carrier_artifact.json"
+    source_manifest = root / "data/published/visible_carrier/source_manifest.json"
     external_script = root / "research/experiments/computable_carrier/external/verify.sage"
     return {
         "schema": {
@@ -506,6 +511,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             "tier_b_curvilinear_descent_audits": [
                 item.as_record() for item in tier_b_curvilinear_descents
             ],
+            "tier_b_curvilinear_topology_screen": (
+                tier_b_curvilinear_topology.as_record()
+            ),
             "tier_b_curvilinear_serre_audits": [
                 item.as_record() for item in tier_b_curvilinear_serre
             ],
@@ -576,12 +584,17 @@ def build_artifact(root: Path) -> dict[str, object]:
                 "stability": "unresolved",
                 "spectrum": "unresolved",
                 "independent_external_algebra": "unresolved",
+                "current_curvilinear_rank_four_topology": "failed",
             },
         },
         "provenance": {
             "reference_artifact": {
                 "path": str(reference_artifact.relative_to(root)),
                 "sha256": _sha256(reference_artifact),
+            },
+            "published_source_manifest": {
+                "path": str(source_manifest.relative_to(root)),
+                "sha256": _sha256(source_manifest),
             },
             "observations_used": False,
             "measured_parameters_used": False,
@@ -615,10 +628,12 @@ def build_artifact(root: Path) -> dict[str, object]:
                     "curvilinear_descent_status: "
                     "conditional_on_published_free_quotient"
                 ),
+                "curvilinear_rank_four_topology: excluded_index_zero",
             ],
             "verified_scopes": {
                 "baseline_hilbert_burch_and_split_transition": "passed",
                 "curvilinear_rank_two_descent_inputs": "passed",
+                "curvilinear_rank_four_topology": "excluded",
             },
             "conditional_inputs": [
                 {

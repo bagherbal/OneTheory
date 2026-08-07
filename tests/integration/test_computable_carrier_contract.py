@@ -527,6 +527,13 @@ def test_tier_b_global_serre_gate_records_successes_and_failures() -> None:
         any(chart == "U_0_mu" for chart, _ in item.fitting_failures)
         for item in audits[8:]
     )
+    record = audits[0].as_record()
+    assert len(record["line_frame_base_transitions"]) == 9
+    assert len(record["line_frame_transitions"]) == 30
+    assert all(
+        "base_pair" in transition and "matrix" not in transition
+        for transition in record["line_frame_transitions"]
+    )
 
 
 def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:

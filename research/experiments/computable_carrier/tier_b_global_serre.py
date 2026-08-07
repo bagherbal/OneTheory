@@ -49,6 +49,18 @@ from .serre_pushout import (
 from .tier_b_serre_extensions import TierBSerreExtensionRay, tier_b_serre_eigenrays
 
 
+def _chart_base_pivot(chart: str) -> int:
+    """Return the base-pivot index encoded in a declared dP9 chart name."""
+
+    parts = chart.split("_")
+    if len(parts) != 3 or parts[0] != "U" or parts[2] not in ("mu", "nu"):
+        raise ValueError(f"invalid dP9 chart name: {chart}")
+    pivot = int(parts[1])
+    if pivot not in range(3):
+        raise ValueError(f"invalid dP9 base pivot: {chart}")
+    return pivot
+
+
 def _relation_is_graded(
     relation: PolynomialMatrix,
     source_shifts: tuple[int, ...],
@@ -122,7 +134,14 @@ class TierBGlobalSerreAudit:
     def as_record(self) -> dict[str, object]:
         """Serialize successes and exact chart failures without descent claims."""
 
-        return {
+        base_transitions: dict[tuple[int, int], FractionMatrix] = {}
+        for source, target, matrix in self.line_frame_transitions:
+            key = (_chart_base_pivot(source), _chart_base_pivot(target))
+            base_transitions.setdefault(key, matrix)
+        if self.line_frame_transitions and len(base_transitions) != 9:
+            raise ValueError("six-chart transitions must cover all base-pivot pairs")
+
+        record: dict[str, object] = {
             "scheme": self.ray.cokernel.scheme.name,
             "character_pair": [str(value) for value in self.ray.character_pair],
             "ray": self.ray.as_record(),
@@ -151,13 +170,27 @@ class TierBGlobalSerreAudit:
                 }
                 for chart, columns, denominator in self.canonical_frames
             ],
+            "line_frame_base_transitions": [
+                {
+                    "source_base_pivot": source,
+                    "target_base_pivot": target,
+                    "matrix": _matrix_record(base_transitions[(source, target)]),
+                }
+                for source in range(3)
+                for target in range(3)
+            ]
+            if base_transitions
+            else [],
             "line_frame_transitions": [
                 {
                     "source": source,
                     "target": target,
-                    "matrix": _matrix_record(matrix),
+                    "base_pair": [
+                        _chart_base_pivot(source),
+                        _chart_base_pivot(target),
+                    ],
                 }
-                for source, target, matrix in self.line_frame_transitions
+                for source, target, _ in self.line_frame_transitions
             ],
             "line_frame_transition_count": len(self.line_frame_transitions),
             "line_frame_all_invertible": self.line_frame_all_invertible,
@@ -166,6 +199,9 @@ class TierBGlobalSerreAudit:
             "globally_locally_free": self.globally_locally_free,
             "status": self.status,
         }
+        if not base_transitions:
+            del record["line_frame_base_transitions"]
+        return record
 
 
 def tier_b_global_serre_audit(

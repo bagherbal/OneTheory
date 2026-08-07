@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "965d8a1905a8d77a4fa17f0202ee98a475caf26adcb1042ff515a1e8f34597c7",
+  "artifact_digest": "e97e372d82d371b8c7a239ae0a719a67c3cb80efd7d7d39184362f16df35a214",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -130277,6 +130277,308 @@
         "scoped_no_correction_eigenline_count": 3,
         "status": "exact representative-correction frontier for all support-free curvilinear eigenlines; dP9 sheaf linearization and quotient descent remain unresolved",
         "strict_group_law_eigenline_count": 0,
+        "support_free_eigenline_count": 3
+      }
+    ],
+    "tier_b_curvilinear_descent_audits": [
+      {
+        "exact": true,
+        "independent_external_descent_certificate": false,
+        "internally_descended_eigenline_count": 3,
+        "lines": [
+          {
+            "chern_character": {
+              "c1_hyperplane": -3,
+              "c2_hyperplane_squared": "9"
+            },
+            "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+            "determinant_linearizable": true,
+            "dp9_deck_atlas_verified": true,
+            "eigenline_index": 5,
+            "equivariant_sheaf_verified": true,
+            "fitting_cover_verified": true,
+            "independent_external_descent_certificate": false,
+            "internal_descent_certificate": true,
+            "locally_free_sheaf_verified": true,
+            "projective_cocycle_verified": true,
+            "promotion_ready": false,
+            "quotient_order": 9,
+            "rank": 2,
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "schoen_action_free": true,
+            "selected_as_physics": false,
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "internally certified descended rank-two sheaf candidate; external verification, twists, outer extension, stability, spectrum, and physical selection remain open",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ]
+          },
+          {
+            "chern_character": {
+              "c1_hyperplane": -3,
+              "c2_hyperplane_squared": "9"
+            },
+            "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+            "determinant_linearizable": true,
+            "dp9_deck_atlas_verified": true,
+            "eigenline_index": 6,
+            "equivariant_sheaf_verified": true,
+            "fitting_cover_verified": true,
+            "independent_external_descent_certificate": false,
+            "internal_descent_certificate": true,
+            "locally_free_sheaf_verified": true,
+            "projective_cocycle_verified": true,
+            "promotion_ready": false,
+            "quotient_order": 9,
+            "rank": 2,
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "schoen_action_free": true,
+            "selected_as_physics": false,
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "internally certified descended rank-two sheaf candidate; external verification, twists, outer extension, stability, spectrum, and physical selection remain open",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ]
+          },
+          {
+            "chern_character": {
+              "c1_hyperplane": -3,
+              "c2_hyperplane_squared": "9"
+            },
+            "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+            "determinant_linearizable": true,
+            "dp9_deck_atlas_verified": true,
+            "eigenline_index": 7,
+            "equivariant_sheaf_verified": true,
+            "fitting_cover_verified": true,
+            "independent_external_descent_certificate": false,
+            "internal_descent_certificate": true,
+            "locally_free_sheaf_verified": true,
+            "projective_cocycle_verified": true,
+            "promotion_ready": false,
+            "quotient_order": 9,
+            "rank": 2,
+            "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+            "schoen_action_free": true,
+            "selected_as_physics": false,
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "internally certified descended rank-two sheaf candidate; external verification, twists, outer extension, stability, spectrum, and physical selection remain open",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ]
+          }
+        ],
+        "promotion_ready": false,
+        "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+        "scoped_no_correction_eigenline_count": 0,
+        "status": "complete internal descent frontier for the declared corrected lines; independent verification and physical selection remain mandatory",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "exact": true,
+        "independent_external_descent_certificate": false,
+        "internally_descended_eigenline_count": 3,
+        "lines": [
+          {
+            "chern_character": {
+              "c1_hyperplane": -3,
+              "c2_hyperplane_squared": "9"
+            },
+            "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+            "determinant_linearizable": true,
+            "dp9_deck_atlas_verified": true,
+            "eigenline_index": 5,
+            "equivariant_sheaf_verified": true,
+            "fitting_cover_verified": true,
+            "independent_external_descent_certificate": false,
+            "internal_descent_certificate": true,
+            "locally_free_sheaf_verified": true,
+            "projective_cocycle_verified": true,
+            "promotion_ready": false,
+            "quotient_order": 9,
+            "rank": 2,
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "schoen_action_free": true,
+            "selected_as_physics": false,
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "internally certified descended rank-two sheaf candidate; external verification, twists, outer extension, stability, spectrum, and physical selection remain open",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ]
+          },
+          {
+            "chern_character": {
+              "c1_hyperplane": -3,
+              "c2_hyperplane_squared": "9"
+            },
+            "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+            "determinant_linearizable": true,
+            "dp9_deck_atlas_verified": true,
+            "eigenline_index": 6,
+            "equivariant_sheaf_verified": true,
+            "fitting_cover_verified": true,
+            "independent_external_descent_certificate": false,
+            "internal_descent_certificate": true,
+            "locally_free_sheaf_verified": true,
+            "projective_cocycle_verified": true,
+            "promotion_ready": false,
+            "quotient_order": 9,
+            "rank": 2,
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "schoen_action_free": true,
+            "selected_as_physics": false,
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "internally certified descended rank-two sheaf candidate; external verification, twists, outer extension, stability, spectrum, and physical selection remain open",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ]
+          },
+          {
+            "chern_character": {
+              "c1_hyperplane": -3,
+              "c2_hyperplane_squared": "9"
+            },
+            "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+            "determinant_linearizable": true,
+            "dp9_deck_atlas_verified": true,
+            "eigenline_index": 7,
+            "equivariant_sheaf_verified": true,
+            "fitting_cover_verified": true,
+            "independent_external_descent_certificate": false,
+            "internal_descent_certificate": true,
+            "locally_free_sheaf_verified": true,
+            "projective_cocycle_verified": true,
+            "promotion_ready": false,
+            "quotient_order": 9,
+            "rank": 2,
+            "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+            "schoen_action_free": true,
+            "selected_as_physics": false,
+            "source_shifts": [
+              5,
+              5,
+              5
+            ],
+            "status": "internally certified descended rank-two sheaf candidate; external verification, twists, outer extension, stability, spectrum, and physical selection remain open",
+            "target_shifts": [
+              3,
+              4,
+              4,
+              4,
+              3
+            ]
+          }
+        ],
+        "promotion_ready": false,
+        "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+        "scoped_no_correction_eigenline_count": 0,
+        "status": "complete internal descent frontier for the declared corrected lines; independent verification and physical selection remain mandatory",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "exact": true,
+        "independent_external_descent_certificate": false,
+        "internally_descended_eigenline_count": 0,
+        "lines": [],
+        "promotion_ready": false,
+        "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "complete internal descent frontier for the declared corrected lines; independent verification and physical selection remain mandatory",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "exact": true,
+        "independent_external_descent_certificate": false,
+        "internally_descended_eigenline_count": 0,
+        "lines": [],
+        "promotion_ready": false,
+        "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "complete internal descent frontier for the declared corrected lines; independent verification and physical selection remain mandatory",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "exact": true,
+        "independent_external_descent_certificate": false,
+        "internally_descended_eigenline_count": 0,
+        "lines": [],
+        "promotion_ready": false,
+        "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "complete internal descent frontier for the declared corrected lines; independent verification and physical selection remain mandatory",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "exact": true,
+        "independent_external_descent_certificate": false,
+        "internally_descended_eigenline_count": 0,
+        "lines": [],
+        "promotion_ready": false,
+        "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "complete internal descent frontier for the declared corrected lines; independent verification and physical selection remain mandatory",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "exact": true,
+        "independent_external_descent_certificate": false,
+        "internally_descended_eigenline_count": 0,
+        "lines": [],
+        "promotion_ready": false,
+        "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "complete internal descent frontier for the declared corrected lines; independent verification and physical selection remain mandatory",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "exact": true,
+        "independent_external_descent_certificate": false,
+        "internally_descended_eigenline_count": 0,
+        "lines": [],
+        "promotion_ready": false,
+        "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "complete internal descent frontier for the declared corrected lines; independent verification and physical selection remain mandatory",
         "support_free_eigenline_count": 3
       }
     ],

@@ -462,6 +462,15 @@ coordinates. All 12 affine chart maps preserve their hypersurface equations
 up to recorded units, have order three, and commute exactly. Candidate frame
 descent on the full Fitting common refinement remains a separate open gate.
 
+Combining the full Fitting cover, corrected projective cocycles, exact dP9
+deck atlas, and the published free order-nine Schoen quotient now gives an
+internal equivariant-descent certificate for all six corrected rank-two
+sheaves. Their graded resolutions give rank two, `c1 = -3 H`, and
+`c2 = 9 H^2`; the determinant degree is compatible with the projective
+descent modulus. This is not physical promotion: independent external
+verification, constituent twists, a rank-four outer extension, stability,
+spectrum, and every later physical gate remain unresolved.
+
 The eight curvilinear witnesses now feed all 64 ordered outer-presentation
 pairs. Every pair has an exact polynomial Hom complex, projective-plane
 hypercohomology, and a signed zero-fiber dP9 totalization with explicit

@@ -62,6 +62,7 @@ from .serre_rays import tier_a_serre_eigenclass_variants
 from .specification import computable_carrier_specification
 from .tier_b_curvilinear_actions import tier_b_curvilinear_resolution_actions
 from .tier_b_curvilinear_corrections import tier_b_curvilinear_correction_audits
+from .tier_b_curvilinear_descent import tier_b_curvilinear_descent_audits
 from .tier_b_curvilinear_eigenclasses import tier_b_curvilinear_eigenclass_audits
 from .tier_b_curvilinear_frame_actions import tier_b_curvilinear_frame_action_audits
 from .tier_b_curvilinear_global import tier_b_global_curvilinear_specializations
@@ -269,6 +270,15 @@ def build_artifact(root: Path) -> dict[str, object]:
         eigenclass_audits=tier_b_curvilinear_eigenclasses,
         correction_audits=tier_b_curvilinear_corrections,
         projective_audits=tier_b_curvilinear_projective_cocycles,
+    )
+    tier_b_curvilinear_descents = tier_b_curvilinear_descent_audits(
+        Eisenstein(1),
+        action_audits=tier_b_curvilinear_actions,
+        eigenclass_audits=tier_b_curvilinear_eigenclasses,
+        correction_audits=tier_b_curvilinear_corrections,
+        projective_audits=tier_b_curvilinear_projective_cocycles,
+        frame_audits=tier_b_curvilinear_frame_actions,
+        deck_atlas=deck_atlas,
     )
     tier_b_curvilinear_serre = tier_b_curvilinear_serre_audits(
         Eisenstein(1),
@@ -492,6 +502,9 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "tier_b_curvilinear_frame_action_audits": [
                 item.as_record() for item in tier_b_curvilinear_frame_actions
+            ],
+            "tier_b_curvilinear_descent_audits": [
+                item.as_record() for item in tier_b_curvilinear_descents
             ],
             "tier_b_curvilinear_serre_audits": [
                 item.as_record() for item in tier_b_curvilinear_serre

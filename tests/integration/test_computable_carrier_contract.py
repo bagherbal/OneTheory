@@ -681,6 +681,26 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert deck_atlas["t_order_three"] is True
     assert deck_atlas["actions_commute"] is True
     assert deck_atlas["exact"] is True
+    curvilinear_descents = artifact["tier_a_chain_inputs"][
+        "tier_b_curvilinear_descent_audits"
+    ]
+    assert len(curvilinear_descents) == 8
+    assert [
+        item["internally_descended_eigenline_count"]
+        for item in curvilinear_descents
+    ] == [3, 3, 0, 0, 0, 0, 0, 0]
+    assert all(
+        line["rank"] == 2
+        and line["chern_character"] == {
+            "c1_hyperplane": -3,
+            "c2_hyperplane_squared": "9",
+        }
+        and line["internal_descent_certificate"] is True
+        and line["promotion_ready"] is False
+        for item in curvilinear_descents[:2]
+        for line in item["lines"]
+    )
+    assert all(item["exact"] for item in curvilinear_descents)
     curvilinear_serre = artifact["tier_a_chain_inputs"][
         "tier_b_curvilinear_serre_audits"
     ]

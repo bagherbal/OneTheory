@@ -2,7 +2,8 @@
 
 Owns:
     Exact polynomial Hom complexes and projective-plane hypercohomology for
-    the eight diagonal pairs of the declared curvilinear Serre presentations.
+    all 64 ordered pairs of the declared curvilinear Serre presentations, with
+    dP9 totalizations for all ordered pairs.
 
 Depends on:
     The exact curvilinear Serre witnesses, the reusable polynomial Hom engine,
@@ -14,10 +15,9 @@ Must not:
     non-equivariant witness to a descended bundle.
 
 Phase 0:
-    The diagonal presentation-pair frontier is exact; exhaustive off-diagonal
-    pair enumeration remains a later bounded computation. dP9 sheafification
-    comparison, honest equivariant outer classes, stability, and physical
-    carrier promotion remain unresolved.
+    The ordered presentation-pair frontier and its dP9 totalizations are
+    exact. Global sheafification comparison, honest equivariant outer classes,
+    stability, and physical carrier promotion remain unresolved.
 """
 
 from __future__ import annotations
@@ -202,7 +202,7 @@ class TierBCurvilinearOuterPairAudit:
 
 @dataclass(frozen=True, slots=True)
 class TierBCurvilinearOuterFrontier:
-    """The exact diagonal-pair frontier for the declared eight witnesses."""
+    """The exact ordered projective-pair frontier for eight witnesses."""
 
     pair_audits: tuple[TierBCurvilinearOuterPairAudit, ...]
     candidate_count: int
@@ -210,13 +210,13 @@ class TierBCurvilinearOuterFrontier:
 
     @property
     def complete_for_declared_category(self) -> bool:
-        """Return whether every declared diagonal pair was constructed exactly."""
+        """Return whether every declared ordered pair was constructed exactly."""
 
-        return len(self.pair_audits) == self.candidate_count
+        return len(self.pair_audits) == self.candidate_count**2
 
     @property
     def exact(self) -> bool:
-        """Return whether every declared diagonal pair passes exact gates."""
+        """Return whether every declared ordered pair passes exact gates."""
 
         return self.complete_for_declared_category and all(
             audit.exact for audit in self.pair_audits
@@ -239,6 +239,18 @@ class TierBCurvilinearOuterFrontier:
         return sum(audit.projective is not None for audit in self.pair_audits)
 
     @property
+    def diagonal_pair_count(self) -> int:
+        """Return the number of self-pairs in the ordered frontier."""
+
+        return sum(audit.left == audit.right for audit in self.pair_audits)
+
+    @property
+    def dp9_pair_count(self) -> int:
+        """Return the number of pairs with materialized dP9 totalizations."""
+
+        return sum(audit.dp9 is not None for audit in self.pair_audits)
+
+    @property
     def no_equivariant_candidate_selected(self) -> bool:
         """Return the explicit scope wall inherited from all eight witnesses."""
 
@@ -254,23 +266,26 @@ class TierBCurvilinearOuterFrontier:
         return {
             "category": self.category,
             "candidate_count": self.candidate_count,
-            "diagonal_pair_count": len(self.pair_audits),
+            "ordered_pair_count": len(self.pair_audits),
+            "diagonal_pair_count": self.diagonal_pair_count,
             "complete_for_declared_category": self.complete_for_declared_category,
             "exact": self.exact,
             "raw_projective_ext1_total": self.raw_projective_ext1_total,
             "projective_pair_count": self.projective_pair_count,
+            "dP9_pair_count": self.dp9_pair_count,
             "no_equivariant_candidate_selected": self.no_equivariant_candidate_selected,
             "pair_audits": [audit.as_record() for audit in self.pair_audits],
             "status": (
-                "complete diagonal curvilinear presentation-pair audit only; no "
-                "global Ext, invariant projector, or physical carrier is selected"
+                "complete ordered curvilinear presentation-pair and dP9 audit; "
+                "no global Ext, invariant projector, or physical carrier is "
+                "selected"
             ),
         }
 
 
 @cache
 def _cached_frontier(parameter: Eisenstein) -> TierBCurvilinearOuterFrontier:
-    """Construct all diagonal pairs for one exact declared specialization."""
+    """Construct all ordered pairs for one exact declared specialization."""
 
     candidates = tuple(
         CurvilinearPresentationCandidate.from_audit(audit)
@@ -278,50 +293,51 @@ def _cached_frontier(parameter: Eisenstein) -> TierBCurvilinearOuterFrontier:
     )
     audits = []
     for left in candidates:
-        parent = polynomial_hom_complex(left, left)
-        projective = projective_hom_hypercohomology(parent)
-        dp9 = dp9_derived_hom(parent)
-        parent_squared_zero = parent.squared_zero
-        parent_homogeneous = parent.homogeneous
-        h0_dimensions = tuple(
-            (degree, projective.h0.complex.cohomology_dimension(degree))
-            for degree in projective.h0.complex.degrees
-        )
-        h2_dimensions = tuple(
-            (degree, projective.h2.complex.cohomology_dimension(degree))
-            for degree in projective.h2.complex.degrees
-        )
-        ext_one_dimension = (
-            dict(h0_dimensions).get(1, 0)
-            + dict(h2_dimensions).get(-1, 0)
-        )
-        audit = TierBCurvilinearOuterPairAudit(
-            left,
-            left,
-            parent,
-            projective,
-            dp9,
-            parent_squared_zero,
-            parent_homogeneous,
-            h0_dimensions,
-            h2_dimensions,
-            ext_one_dimension,
-            dp9.total_h1_dimension,
-        )
-        if not audit.exact:
-            raise ValueError("curvilinear outer presentation failed an exact gate")
-        audits.append(audit)
+        for right in candidates:
+            parent = polynomial_hom_complex(left, right)
+            projective = projective_hom_hypercohomology(parent)
+            dp9 = dp9_derived_hom(parent)
+            parent_squared_zero = parent.squared_zero
+            parent_homogeneous = parent.homogeneous
+            h0_dimensions = tuple(
+                (degree, projective.h0.complex.cohomology_dimension(degree))
+                for degree in projective.h0.complex.degrees
+            )
+            h2_dimensions = tuple(
+                (degree, projective.h2.complex.cohomology_dimension(degree))
+                for degree in projective.h2.complex.degrees
+            )
+            ext_one_dimension = (
+                dict(h0_dimensions).get(1, 0)
+                + dict(h2_dimensions).get(-1, 0)
+            )
+            audit = TierBCurvilinearOuterPairAudit(
+                left,
+                right,
+                parent,
+                projective,
+                dp9,
+                parent_squared_zero,
+                parent_homogeneous,
+                h0_dimensions,
+                h2_dimensions,
+                ext_one_dimension,
+                dp9.total_h1_dimension,
+            )
+            if not audit.exact:
+                raise ValueError("curvilinear outer presentation failed an exact gate")
+            audits.append(audit)
     return TierBCurvilinearOuterFrontier(
         tuple(audits),
         len(candidates),
-        "all eight diagonal presentation pairs with projective hypercohomology",
+        "all 64 ordered presentation pairs with projective and dP9 hypercohomology",
     )
 
 
 def tier_b_curvilinear_outer_frontier(
     parameter: object = Eisenstein(1),
 ) -> TierBCurvilinearOuterFrontier:
-    """Audit every diagonal curvilinear presentation pair exactly once."""
+    """Audit every ordered curvilinear presentation pair exactly once."""
 
     return _cached_frontier(Eisenstein.coerce(parameter))
 

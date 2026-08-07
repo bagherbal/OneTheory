@@ -418,11 +418,10 @@ exact Hilbert--Burch resolution, and P/T preserve each ideal. The artifact
 records the `alpha=1` specialization only as a nonphysical regression path;
 Serre extension classes and quotient linearization remain unresolved.
 
-The eight curvilinear witnesses now feed a diagonal outer-presentation audit.
-Each diagonal pair has an exact polynomial Hom complex and projective-plane
-hypercohomology with explicit cochain data and representatives, followed by
-the signed zero-fiber dP9 totalization. Each total differential squares to
-zero and has degree-one dimension 24. This is a tractable first-principles
-slice; off-diagonal pair materialization is explicitly deferred, and no
-result is called global dP9 Ext or an invariant outer class because the
+The eight curvilinear witnesses now feed all 64 ordered outer-presentation
+pairs. Every pair has an exact polynomial Hom complex, projective-plane
+hypercohomology, and a signed zero-fiber dP9 totalization with explicit
+cochain data and representatives. Diagonal pairs have degree-one dimension
+24; off-diagonal pairs have degree-one dimension 23. Global Ext
+identification and invariant outer classes remain unresolved because the
 witness linearization gate still fails.

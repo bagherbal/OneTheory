@@ -322,15 +322,20 @@ def test_tier_b_curvilinear_extension_actions_stop_before_descent() -> None:
 
 
 def test_tier_b_curvilinear_outer_presentations_are_complete_and_unpromoted() -> None:
-    """Every diagonal witness pair has exact raw Hom data only."""
+    """Every ordered witness pair has exact raw Hom data only."""
 
     frontier = tier_b_curvilinear_outer_frontier()
 
     assert frontier.candidate_count == 8
-    assert len(frontier.pair_audits) == 8
-    assert frontier.projective_pair_count == 8
-    assert frontier.raw_projective_ext1_total == 192
-    assert [audit.dp9_h1_dimension for audit in frontier.pair_audits] == [24] * 8
+    assert len(frontier.pair_audits) == 64
+    assert frontier.projective_pair_count == 64
+    assert frontier.diagonal_pair_count == 8
+    assert frontier.dp9_pair_count == 64
+    assert frontier.raw_projective_ext1_total == 1480
+    assert [audit.dp9_h1_dimension for audit in frontier.pair_audits] == [
+        24 if audit.left == audit.right else 23
+        for audit in frontier.pair_audits
+    ]
     assert frontier.complete_for_declared_category
     assert frontier.exact
     assert all(
@@ -346,7 +351,10 @@ def test_tier_b_curvilinear_outer_presentations_are_complete_and_unpromoted() ->
     )
     assert [
         audit.raw_projective_ext_one_dimension for audit in frontier.pair_audits
-    ] == [24] * 8
+    ] == [
+        24 if audit.left == audit.right else 23
+        for audit in frontier.pair_audits
+    ]
     assert frontier.no_equivariant_candidate_selected
 
 
@@ -586,13 +594,20 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
         "tier_b_curvilinear_outer_frontier"
     ]
     assert curvilinear_outer["candidate_count"] == 8
+    assert curvilinear_outer["ordered_pair_count"] == 64
     assert curvilinear_outer["diagonal_pair_count"] == 8
-    assert curvilinear_outer["projective_pair_count"] == 8
-    assert curvilinear_outer["raw_projective_ext1_total"] == 192
-    assert all(
-        item["dP9_total_h1_dimension"] == 24
+    assert curvilinear_outer["projective_pair_count"] == 64
+    assert curvilinear_outer["dP9_pair_count"] == 64
+    assert curvilinear_outer["raw_projective_ext1_total"] == 1480
+    assert [
+        item["dP9_total_h1_dimension"]
         for item in curvilinear_outer["pair_audits"]
-    )
+    ] == [
+        24
+        if item["left"]["scheme"] == item["right"]["scheme"]
+        else 23
+        for item in curvilinear_outer["pair_audits"]
+    ]
     assert curvilinear_outer["complete_for_declared_category"] is True
     assert curvilinear_outer["exact"] is True
     assert curvilinear_outer["no_equivariant_candidate_selected"] is True

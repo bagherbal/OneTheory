@@ -30,6 +30,7 @@ from .cech_sections import bounded_cech_sections
 from .constituents import tier_a_constituents
 from .downstream import downstream_frontier
 from .dp9_actions import dp9_deck_action_audit
+from .dp9_deck_atlas import dp9_deck_atlas_audit
 from .dp9_homology import tier_a_dp9_derived_homs
 from .dp9_hypersurface import tier_a_dp9_hypersurface_comparisons
 from .dual_cokernels import tier_a_dual_cokernels
@@ -140,6 +141,7 @@ def build_artifact(root: Path) -> dict[str, object]:
     dual_cokernels = tier_a_dual_cokernels()
     local_serre_models = tier_a_local_serre_models()
     pencil_model = tier_a_pencil_model()
+    deck_atlas = dp9_deck_atlas_audit()
     atlas_ideal_resolutions = tier_a_atlas_ideal_resolutions(pencil_model)
     atlas_serre_locals = tier_a_atlas_serre_locals(pencil_model)
     serre_pushout_atlases = tier_a_serre_pushout_atlases(pencil_model)
@@ -358,6 +360,7 @@ def build_artifact(root: Path) -> dict[str, object]:
                 model.as_record() for model in local_serre_models
             ],
             "dP9_pencil": pencil_model.as_record(),
+            "dp9_deck_atlas_audit": deck_atlas.as_record(),
             "atlas_ideal_resolutions": [
                 item.as_record() for item in atlas_ideal_resolutions
             ],

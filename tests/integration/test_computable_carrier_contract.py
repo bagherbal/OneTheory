@@ -671,6 +671,16 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
         for line in item["lines"]
     )
     assert all(item["exact"] for item in curvilinear_frame_actions)
+    deck_atlas = artifact["tier_a_chain_inputs"]["dp9_deck_atlas_audit"]
+    assert deck_atlas["action_count"] == 12
+    assert deck_atlas["cubic_characters"] == {
+        "P": ["-1-omega", "1"],
+        "T": ["1", "1"],
+    }
+    assert deck_atlas["p_order_three"] is True
+    assert deck_atlas["t_order_three"] is True
+    assert deck_atlas["actions_commute"] is True
+    assert deck_atlas["exact"] is True
     curvilinear_serre = artifact["tier_a_chain_inputs"][
         "tier_b_curvilinear_serre_audits"
     ]

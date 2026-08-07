@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "00d9ddbd77da765a5f1ea44be95f08f49706a26933d2a6ea7e447255834012ce",
+  "artifact_digest": "965d8a1905a8d77a4fa17f0202ee98a475caf26adcb1042ff515a1e8f34597c7",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -18299,6 +18299,422 @@
         "total_squared_zero": true
       }
     ],
+    "dp9_deck_atlas_audit": {
+      "action_count": 12,
+      "actions": [
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "-1-omega",
+          "generator": "P",
+          "source_chart": "U_0_mu",
+          "target_chart": "U_2_mu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "omega",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "1",
+          "generator": "P",
+          "source_chart": "U_0_nu",
+          "target_chart": "U_2_nu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "-1-omega",
+          "generator": "P",
+          "source_chart": "U_1_mu",
+          "target_chart": "U_0_mu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "omega",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "1",
+          "generator": "P",
+          "source_chart": "U_1_nu",
+          "target_chart": "U_0_nu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "-1-omega",
+          "generator": "P",
+          "source_chart": "U_2_mu",
+          "target_chart": "U_1_mu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "omega",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "1",
+          "generator": "P",
+          "source_chart": "U_2_nu",
+          "target_chart": "U_1_nu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "1",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "1",
+          "generator": "T",
+          "source_chart": "U_0_mu",
+          "target_chart": "U_0_mu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "1",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "1",
+          "generator": "T",
+          "source_chart": "U_0_nu",
+          "target_chart": "U_0_nu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "1",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "1",
+          "generator": "T",
+          "source_chart": "U_1_mu",
+          "target_chart": "U_1_mu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "1",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "1",
+          "generator": "T",
+          "source_chart": "U_1_nu",
+          "target_chart": "U_1_nu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "1",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "1",
+          "generator": "T",
+          "source_chart": "U_2_mu",
+          "target_chart": "U_2_mu"
+        },
+        {
+          "coordinate_images": [
+            {
+              "coefficient": "omega",
+              "exponents": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-omega",
+              "exponents": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "1",
+              "exponents": [
+                0,
+                0,
+                1
+              ]
+            }
+          ],
+          "equation_compatible": true,
+          "equation_unit": "1",
+          "generator": "T",
+          "source_chart": "U_2_nu",
+          "target_chart": "U_2_nu"
+        }
+      ],
+      "actions_commute": true,
+      "cubic_characters": {
+        "P": [
+          "-1-omega",
+          "1"
+        ],
+        "T": [
+          "1",
+          "1"
+        ]
+      },
+      "exact": true,
+      "p_order_three": true,
+      "status": "exact geometric deck action on the six-chart dP9 atlas; candidate frame descent remains a separate gate",
+      "t_order_three": true
+    },
     "dp9_derived_homs": [
       {
         "all_line_bundles_squared_zero": true,

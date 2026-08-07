@@ -454,6 +454,14 @@ all six dP9 fiber charts after pullback. The next gate is to serialize the
 induced actions on the full common refinement and certify the deck action on
 the blow-up fiber charts; no quotient carrier is selected yet.
 
+The geometric part of that deck gate is now explicit on the six-chart blow-up
+atlas. The published homogeneous lifts derive the two cubic characters and,
+without an independent fiber ansatz, force `P` to act by `r -> omega^2 r` in
+the `mu` chart and `s -> omega s` in the `nu` chart; `T` fixes both fiber
+coordinates. All 12 affine chart maps preserve their hypersurface equations
+up to recorded units, have order three, and commute exactly. Candidate frame
+descent on the full Fitting common refinement remains a separate open gate.
+
 The eight curvilinear witnesses now feed all 64 ordered outer-presentation
 pairs. Every pair has an exact polynomial Hom complex, projective-plane
 hypercohomology, and a signed zero-fiber dP9 totalization with explicit

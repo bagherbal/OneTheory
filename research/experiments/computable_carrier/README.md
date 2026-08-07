@@ -435,9 +435,14 @@ All 24 support-free eigenlines now receive exact representative-correction
 solves. The six coordinate-orbit lines admit unique P and T corrected pushout
 actions for every one of their 72 action/character occurrences. The remaining
 18 lines have no correction in the declared finite resolution-lift family.
-No corrected coordinate line has a strictly commuting P/T presentation pair,
-so dP9 line-frame comparison is the next required gate. These are scoped
-chain-level results, not a sheaf-linearization no-go or descent certificate.
+No corrected coordinate line has a strictly commuting P/T homogeneous-lift
+pair. That strict test is not the projective cocycle: the published coordinate
+lifts obey `P T = omega T P`, and the induced central action depends on each
+free summand's degree. After inserting that exact graded central comparison,
+all 72 occurrences on each of the six coordinate lines satisfy the source,
+middle, target, and relation cocycles. Induced dP9 frame actions are the next
+required gate. These are scoped presentation results, not a sheaf-linearization
+or quotient-descent certificate.
 
 The eight curvilinear witnesses now feed all 64 ordered outer-presentation
 pairs. Every pair has an exact polynomial Hom complex, projective-plane

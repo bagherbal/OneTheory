@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "cf6b7cc90e97f347272bdcb4ade91f5c69f4accc4c915c7c4515bd3b3a51d3da",
+  "artifact_digest": "7a99db4f0701eafc4c7ab68bda36ec6e5191bf9683fc2eb0a40953cc47475821",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -181501,6 +181501,184 @@
       "raw_projective_ext1_total": 1480,
       "status": "complete ordered curvilinear presentation-pair and dP9 audit; no global Ext, invariant projector, or physical carrier is selected"
     },
+    "tier_b_curvilinear_projective_cocycle_audits": [
+      {
+        "central_coordinate_scalar": "omega",
+        "coordinate_lift_commutator": true,
+        "corrected_eigenline_count": 3,
+        "exact": true,
+        "lines": [
+          {
+            "central_relation_equation": true,
+            "complete_cocycle_occurrence_count": 72,
+            "degree_preserving_occurrence_count": 72,
+            "eigenline_index": 5,
+            "exact": true,
+            "middle_cocycle_occurrence_count": 72,
+            "occurrence_count": 72,
+            "selected_as_physics": false,
+            "source_cocycle_occurrence_count": 72,
+            "status": "exact projective graded-presentation cocycle; induced dP9 frame actions and quotient descent remain unresolved",
+            "target_cocycle_occurrence_count": 72
+          },
+          {
+            "central_relation_equation": true,
+            "complete_cocycle_occurrence_count": 72,
+            "degree_preserving_occurrence_count": 72,
+            "eigenline_index": 6,
+            "exact": true,
+            "middle_cocycle_occurrence_count": 72,
+            "occurrence_count": 72,
+            "selected_as_physics": false,
+            "source_cocycle_occurrence_count": 72,
+            "status": "exact projective graded-presentation cocycle; induced dP9 frame actions and quotient descent remain unresolved",
+            "target_cocycle_occurrence_count": 72
+          },
+          {
+            "central_relation_equation": true,
+            "complete_cocycle_occurrence_count": 72,
+            "degree_preserving_occurrence_count": 72,
+            "eigenline_index": 7,
+            "exact": true,
+            "middle_cocycle_occurrence_count": 72,
+            "occurrence_count": 72,
+            "selected_as_physics": false,
+            "source_cocycle_occurrence_count": 72,
+            "status": "exact projective graded-presentation cocycle; induced dP9 frame actions and quotient descent remain unresolved",
+            "target_cocycle_occurrence_count": 72
+          }
+        ],
+        "projective_cocycle_eigenline_count": 3,
+        "scheme": "coordinate-fixed-orbit:curvilinear-u:1",
+        "scoped_no_correction_eigenline_count": 0,
+        "status": "exact central-corrected projective presentation frontier; dP9 frame actions, global Ext, and quotient descent remain open",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "central_coordinate_scalar": "omega",
+        "coordinate_lift_commutator": true,
+        "corrected_eigenline_count": 3,
+        "exact": true,
+        "lines": [
+          {
+            "central_relation_equation": true,
+            "complete_cocycle_occurrence_count": 72,
+            "degree_preserving_occurrence_count": 72,
+            "eigenline_index": 5,
+            "exact": true,
+            "middle_cocycle_occurrence_count": 72,
+            "occurrence_count": 72,
+            "selected_as_physics": false,
+            "source_cocycle_occurrence_count": 72,
+            "status": "exact projective graded-presentation cocycle; induced dP9 frame actions and quotient descent remain unresolved",
+            "target_cocycle_occurrence_count": 72
+          },
+          {
+            "central_relation_equation": true,
+            "complete_cocycle_occurrence_count": 72,
+            "degree_preserving_occurrence_count": 72,
+            "eigenline_index": 6,
+            "exact": true,
+            "middle_cocycle_occurrence_count": 72,
+            "occurrence_count": 72,
+            "selected_as_physics": false,
+            "source_cocycle_occurrence_count": 72,
+            "status": "exact projective graded-presentation cocycle; induced dP9 frame actions and quotient descent remain unresolved",
+            "target_cocycle_occurrence_count": 72
+          },
+          {
+            "central_relation_equation": true,
+            "complete_cocycle_occurrence_count": 72,
+            "degree_preserving_occurrence_count": 72,
+            "eigenline_index": 7,
+            "exact": true,
+            "middle_cocycle_occurrence_count": 72,
+            "occurrence_count": 72,
+            "selected_as_physics": false,
+            "source_cocycle_occurrence_count": 72,
+            "status": "exact projective graded-presentation cocycle; induced dP9 frame actions and quotient descent remain unresolved",
+            "target_cocycle_occurrence_count": 72
+          }
+        ],
+        "projective_cocycle_eigenline_count": 3,
+        "scheme": "coordinate-fixed-orbit:curvilinear-v:1",
+        "scoped_no_correction_eigenline_count": 0,
+        "status": "exact central-corrected projective presentation frontier; dP9 frame actions, global Ext, and quotient descent remain open",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "central_coordinate_scalar": "omega",
+        "coordinate_lift_commutator": true,
+        "corrected_eigenline_count": 0,
+        "exact": true,
+        "lines": [],
+        "projective_cocycle_eigenline_count": 0,
+        "scheme": "nonmonomial-fixed-orbit-1:curvilinear-u:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "exact central-corrected projective presentation frontier; dP9 frame actions, global Ext, and quotient descent remain open",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "central_coordinate_scalar": "omega",
+        "coordinate_lift_commutator": true,
+        "corrected_eigenline_count": 0,
+        "exact": true,
+        "lines": [],
+        "projective_cocycle_eigenline_count": 0,
+        "scheme": "nonmonomial-fixed-orbit-1:curvilinear-v:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "exact central-corrected projective presentation frontier; dP9 frame actions, global Ext, and quotient descent remain open",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "central_coordinate_scalar": "omega",
+        "coordinate_lift_commutator": true,
+        "corrected_eigenline_count": 0,
+        "exact": true,
+        "lines": [],
+        "projective_cocycle_eigenline_count": 0,
+        "scheme": "nonmonomial-fixed-orbit-2:curvilinear-u:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "exact central-corrected projective presentation frontier; dP9 frame actions, global Ext, and quotient descent remain open",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "central_coordinate_scalar": "omega",
+        "coordinate_lift_commutator": true,
+        "corrected_eigenline_count": 0,
+        "exact": true,
+        "lines": [],
+        "projective_cocycle_eigenline_count": 0,
+        "scheme": "nonmonomial-fixed-orbit-2:curvilinear-v:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "exact central-corrected projective presentation frontier; dP9 frame actions, global Ext, and quotient descent remain open",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "central_coordinate_scalar": "omega",
+        "coordinate_lift_commutator": true,
+        "corrected_eigenline_count": 0,
+        "exact": true,
+        "lines": [],
+        "projective_cocycle_eigenline_count": 0,
+        "scheme": "nonmonomial-fixed-orbit-3:curvilinear-u:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "exact central-corrected projective presentation frontier; dP9 frame actions, global Ext, and quotient descent remain open",
+        "support_free_eigenline_count": 3
+      },
+      {
+        "central_coordinate_scalar": "omega",
+        "coordinate_lift_commutator": true,
+        "corrected_eigenline_count": 0,
+        "exact": true,
+        "lines": [],
+        "projective_cocycle_eigenline_count": 0,
+        "scheme": "nonmonomial-fixed-orbit-3:curvilinear-v:1",
+        "scoped_no_correction_eigenline_count": 3,
+        "status": "exact central-corrected projective presentation frontier; dP9 frame actions, global Ext, and quotient descent remain open",
+        "support_free_eigenline_count": 3
+      }
+    ],
     "tier_b_curvilinear_resolution_actions": [
       {
         "commuting_pairs": [],

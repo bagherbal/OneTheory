@@ -65,6 +65,9 @@ from .tier_b_curvilinear_eigenclasses import tier_b_curvilinear_eigenclass_audit
 from .tier_b_curvilinear_global import tier_b_global_curvilinear_specializations
 from .tier_b_curvilinear_linearization import tier_b_curvilinear_linearization_audits
 from .tier_b_curvilinear_outer import tier_b_curvilinear_outer_frontier
+from .tier_b_curvilinear_projective_cocycles import (
+    tier_b_curvilinear_projective_cocycle_audits,
+)
 from .tier_b_curvilinear_serre import tier_b_curvilinear_serre_audits
 from .tier_b_dp9_actions import tier_b_dp9_deck_action_audits
 from .tier_b_dp9_ideals import tier_b_dp9_monomial_ideal_resolutions
@@ -248,6 +251,14 @@ def build_artifact(root: Path) -> dict[str, object]:
         Eisenstein(1),
         action_audits=tier_b_curvilinear_actions,
         eigenclass_audits=tier_b_curvilinear_eigenclasses,
+    )
+    tier_b_curvilinear_projective_cocycles = (
+        tier_b_curvilinear_projective_cocycle_audits(
+            Eisenstein(1),
+            action_audits=tier_b_curvilinear_actions,
+            eigenclass_audits=tier_b_curvilinear_eigenclasses,
+            correction_audits=tier_b_curvilinear_corrections,
+        )
     )
     tier_b_curvilinear_serre = tier_b_curvilinear_serre_audits(
         Eisenstein(1),
@@ -463,6 +474,10 @@ def build_artifact(root: Path) -> dict[str, object]:
             ],
             "tier_b_curvilinear_correction_audits": [
                 item.as_record() for item in tier_b_curvilinear_corrections
+            ],
+            "tier_b_curvilinear_projective_cocycle_audits": [
+                item.as_record()
+                for item in tier_b_curvilinear_projective_cocycles
             ],
             "tier_b_curvilinear_serre_audits": [
                 item.as_record() for item in tier_b_curvilinear_serre

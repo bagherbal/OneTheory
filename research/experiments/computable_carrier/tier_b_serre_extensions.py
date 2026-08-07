@@ -42,6 +42,7 @@ from .tier_b_monomial import (
 
 Monomial = tuple[int, ...]
 BasisLabel = tuple[int, Monomial]
+SparseVector = dict[int, Eisenstein]
 CHARACTERS = (Eisenstein(1), OMEGA, OMEGA2)
 
 
@@ -162,17 +163,17 @@ def _inverse_images(
     return tuple(item for item in inverse if item is not None)
 
 
-def _target_action(
+def _sparse_target_images(
     basis: tuple[BasisLabel, ...],
     action: ResolutionAction,
-) -> Matrix:
-    """Build the inverse-substitution transpose action on the dual target."""
+) -> tuple[SparseVector, ...]:
+    """Return sparse inverse-substitution images of the dual target basis."""
 
     inverse_images = _inverse_images(action.coordinate_images)
     dual = action.source_action.transpose()
     index = {label: position for position, label in enumerate(basis)}
-    rows = [[Eisenstein(0) for _ in basis] for _ in basis]
-    for source_index, (source_label, monomial) in enumerate(basis):
+    images = []
+    for source_label, monomial in basis:
         scalar = Eisenstein(1)
         image_monomial = [0] * len(monomial)
         for variable, power in enumerate(monomial):
@@ -187,14 +188,105 @@ def _target_action(
                 )
             ]
         target_monomial = tuple(image_monomial)
+        image: SparseVector = {}
         for target_label in range(dual.row_count):
             target_index = index.get((target_label, target_monomial))
             if target_index is None:
                 raise ValueError("dual deck action escaped its graded target basis")
-            rows[target_index][source_index] += (
-                dual[target_label][source_label] * scalar
-            )
+            value = dual[target_label][source_label] * scalar
+            if not value.is_zero():
+                image[target_index] = value
+        images.append(image)
+    return tuple(images)
+
+
+def _target_action(
+    basis: tuple[BasisLabel, ...],
+    action: ResolutionAction,
+) -> Matrix:
+    """Build the inverse-substitution transpose action on the dual target."""
+
+    images = _sparse_target_images(basis, action)
+    rows = [[Eisenstein(0) for _ in basis] for _ in basis]
+    for source_index, image in enumerate(images):
+        for target_index, value in image.items():
+            rows[target_index][source_index] = value
     return Matrix(rows, scalar_type=Eisenstein)
+
+
+def _sparse_reduce(
+    vector: SparseVector,
+    image_basis: dict[int, SparseVector],
+) -> SparseVector:
+    """Reduce one target vector by a normalized sparse image basis."""
+
+    result = dict(vector)
+    for pivot in sorted(image_basis):
+        coefficient = result.get(pivot, Eisenstein(0))
+        if coefficient.is_zero():
+            continue
+        for index, value in image_basis[pivot].items():
+            updated = result.get(index, Eisenstein(0)) - coefficient * value
+            if updated.is_zero():
+                result.pop(index, None)
+            else:
+                result[index] = updated
+    return result
+
+
+def _sparse_presentation_basis(presentation: Matrix) -> dict[int, SparseVector]:
+    """Construct a normalized sparse basis for the presentation image."""
+
+    image_basis: dict[int, SparseVector] = {}
+    for column in range(presentation.column_count):
+        vector = {
+            row: presentation[row][column]
+            for row in range(presentation.row_count)
+            if not presentation[row][column].is_zero()
+        }
+        reduced = _sparse_reduce(vector, image_basis)
+        if not reduced:
+            continue
+        pivot = min(reduced)
+        leading = reduced[pivot]
+        image_basis[pivot] = {
+            index: value / leading for index, value in reduced.items()
+        }
+    return image_basis
+
+
+def _apply_sparse_action(
+    vector: SparseVector,
+    basis_images: tuple[SparseVector, ...],
+) -> SparseVector:
+    """Apply a sparse target action to one sparse coordinate vector."""
+
+    result: SparseVector = {}
+    for source, coefficient in vector.items():
+        for target, value in basis_images[source].items():
+            updated = result.get(target, Eisenstein(0)) + coefficient * value
+            if updated.is_zero():
+                result.pop(target, None)
+            else:
+                result[target] = updated
+    return result
+
+
+def _target_vector_image(
+    values: tuple[Eisenstein, ...],
+    target_basis: tuple[BasisLabel, ...],
+    action: ResolutionAction,
+) -> tuple[Eisenstein, ...]:
+    """Apply one exact target action without materializing a dense matrix."""
+
+    vector = {
+        index: value for index, value in enumerate(values) if not value.is_zero()
+    }
+    image = _apply_sparse_action(
+        vector,
+        _sparse_target_images(target_basis, action),
+    )
+    return tuple(image.get(index, Eisenstein(0)) for index in range(len(values)))
 
 
 def _quotient_action(
@@ -204,67 +296,33 @@ def _quotient_action(
 ) -> tuple[Matrix, bool, tuple[int, ...]]:
     """Descend one exact target action to a deterministic cokernel complement."""
 
-    target_action = _target_action(target_basis, action)
+    target_images = _sparse_target_images(target_basis, action)
     if presentation is None:
         representatives = tuple(range(len(target_basis)))
-        return target_action, True, representatives
-    image_columns = presentation.rref()[1]
-    pivot_rows = presentation.transpose().rref()[1]
+        return _target_action(target_basis, action), True, representatives
+    image_basis = _sparse_presentation_basis(presentation)
+    pivot_rows = tuple(sorted(image_basis))
     representatives = tuple(
         index
         for index in range(presentation.row_count)
         if index not in pivot_rows
     )
-    columns = [
-        tuple(presentation[row][column] for row in range(presentation.row_count))
-        for column in image_columns
-    ]
-    columns.extend(
-        tuple(
-            Eisenstein(1) if row == representative else Eisenstein(0)
-            for row in range(presentation.row_count)
-        )
-        for representative in representatives
-    )
-    decomposition = Matrix(zip(*columns, strict=True), scalar_type=Eisenstein)
-    inverse_decomposition = decomposition.inverse()
     quotient_columns: list[tuple[Eisenstein, ...]] = []
-    preserves_relations = True
-    for image_column in image_columns:
-        image = Matrix(
-            (
-                (
-                    sum(
-                        (
-                            target_action[row][source]
-                            * presentation[source][image_column]
-                            for source in range(presentation.row_count)
-                        ),
-                        Eisenstein(0),
-                    ),
-                )
-                for row in range(presentation.row_count)
-            ),
-            scalar_type=Eisenstein,
+    preserves_relations = all(
+        not _sparse_reduce(
+            _apply_sparse_action(vector, target_images),
+            image_basis,
         )
-        coordinates = inverse_decomposition @ image
-        preserves_relations = preserves_relations and all(
-            coordinates[index + len(image_columns)][0].is_zero()
-            for index in range(len(representatives))
-        )
+        for vector in image_basis.values()
+    )
     for representative in representatives:
-        image = Matrix(
-            (
-                (target_action[row][representative],)
-                for row in range(presentation.row_count)
-            ),
-            scalar_type=Eisenstein,
+        reduced = _sparse_reduce(
+            target_images[representative],
+            image_basis,
         )
-        coordinates = inverse_decomposition @ image
         quotient_columns.append(
             tuple(
-                coordinates[index + len(image_columns)][0]
-                for index in range(len(representatives))
+                reduced.get(index, Eisenstein(0)) for index in representatives
             )
         )
     quotient = Matrix(zip(*quotient_columns, strict=True), scalar_type=Eisenstein)
@@ -585,21 +643,17 @@ def tier_b_serre_eigenrays(
                         strict=True,
                     ):
                         full_vector[index] = value
-                    full_target_actions = tuple(
-                        _target_action(cokernel.target_basis, action)
-                        for action in actions_by_scheme[cokernel.scheme.name].actions.actions
-                    )
                     full_target_eigenvector = all(
-                        action @ Matrix(
-                            tuple((value,) for value in full_vector),
-                            scalar_type=Eisenstein,
+                        _target_vector_image(
+                            tuple(full_vector),
+                            cokernel.target_basis,
+                            action,
                         )
-                        == Matrix(
-                            tuple((value * character,) for value in full_vector),
-                            scalar_type=Eisenstein,
-                        )
+                        == tuple(value * character for value in full_vector)
                         for action, character in zip(
-                            full_target_actions,
+                            actions_by_scheme[
+                                cokernel.scheme.name
+                            ].actions.actions,
                             (p_character, t_character),
                             strict=True,
                         )

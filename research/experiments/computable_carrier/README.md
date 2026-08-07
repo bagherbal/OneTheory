@@ -444,6 +444,16 @@ middle, target, and relation cocycles. Induced dP9 frame actions are the next
 required gate. These are scoped presentation results, not a sheaf-linearization
 or quotient-descent certificate.
 
+The six corrected coordinate lines now also have explicit degree-zero P/T
+matrices in three normalized support-centered quotient frames. Their overlap,
+order-three, and 72/72 commutator identities descend uniquely from the exact
+graded relation maps and projective cocycles. Independently, all ten maximal
+relation minors give valid quotient frames, and degree-one Bezout identities
+prove that their principal opens cover each of the three base charts, hence
+all six dP9 fiber charts after pullback. The next gate is to serialize the
+induced actions on the full common refinement and certify the deck action on
+the blow-up fiber charts; no quotient carrier is selected yet.
+
 The eight curvilinear witnesses now feed all 64 ordered outer-presentation
 pairs. Every pair has an exact polynomial Hom complex, projective-plane
 hypercohomology, and a signed zero-fiber dP9 totalization with explicit

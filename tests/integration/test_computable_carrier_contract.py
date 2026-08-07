@@ -650,6 +650,27 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
         for line in item["lines"]
     )
     assert all(item["exact"] for item in curvilinear_projective_cocycles)
+    curvilinear_frame_actions = artifact["tier_a_chain_inputs"][
+        "tier_b_curvilinear_frame_action_audits"
+    ]
+    assert len(curvilinear_frame_actions) == 8
+    assert [
+        item["frame_linearized_eigenline_count"]
+        for item in curvilinear_frame_actions
+    ] == [3, 3, 0, 0, 0, 0, 0, 0]
+    assert [
+        item["fitting_cover_eigenline_count"]
+        for item in curvilinear_frame_actions
+    ] == [3, 3, 0, 0, 0, 0, 0, 0]
+    assert all(
+        line["fitting_frame_count"] == 10
+        and line["fitting_cover_verified"] is True
+        and line["covered_dp9_chart_count"] == 6
+        and line["commuting_occurrence_count"] == 72
+        for item in curvilinear_frame_actions[:2]
+        for line in item["lines"]
+    )
+    assert all(item["exact"] for item in curvilinear_frame_actions)
     curvilinear_serre = artifact["tier_a_chain_inputs"][
         "tier_b_curvilinear_serre_audits"
     ]

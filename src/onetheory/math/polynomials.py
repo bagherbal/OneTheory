@@ -24,6 +24,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass
+from functools import lru_cache
 from itertools import combinations
 from typing import Any, cast
 
@@ -340,24 +341,7 @@ class Polynomial:
     def __mul__(self, other: object) -> Polynomial:
         if not isinstance(other, Polynomial):
             return self.scale(other)
-        _require_compatible(self, other)
-        result: dict[Monomial, Scalar] = {}
-        for left_exponents, left_coefficient in self._terms:
-            for right_exponents, right_coefficient in other._terms:
-                exponents = tuple(
-                    left + right
-                    for left, right in zip(left_exponents, right_exponents, strict=True)
-                )
-                product = _multiply(left_coefficient, right_coefficient)
-                result[exponents] = _add(
-                    result.get(exponents, _zero(self._scalar_type)),
-                    product,
-                )
-        return Polynomial(
-            result,
-            variable_count=self.variable_count,
-            scalar_type=self._scalar_type,
-        )
+        return _cached_polynomial_product(self, other)
 
     def __rmul__(self, other: object) -> Polynomial:
         return self * other
@@ -498,6 +482,34 @@ class Polynomial:
             _, remainder = left.divmod_univariate(right)
             left, right = right, remainder
         return Polynomial.zero(1, scalar_type=self.scalar_type) if left.is_zero() else left.monic()
+
+
+@lru_cache(maxsize=50_000)
+def _cached_polynomial_product(left: Polynomial, right: Polynomial) -> Polynomial:
+    """Multiply immutable exact polynomials with a bounded algebra cache."""
+
+    _require_compatible(left, right)
+    result: dict[Monomial, Scalar] = {}
+    for left_exponents, left_coefficient in left._terms:
+        for right_exponents, right_coefficient in right._terms:
+            exponents = tuple(
+                left_power + right_power
+                for left_power, right_power in zip(
+                    left_exponents,
+                    right_exponents,
+                    strict=True,
+                )
+            )
+            product = _multiply(left_coefficient, right_coefficient)
+            result[exponents] = _add(
+                result.get(exponents, _zero(left._scalar_type)),
+                product,
+            )
+    return Polynomial(
+        result,
+        variable_count=left.variable_count,
+        scalar_type=left._scalar_type,
+    )
 
 
 @dataclass(frozen=True, slots=True, init=False)

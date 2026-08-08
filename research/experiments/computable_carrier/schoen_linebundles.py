@@ -40,6 +40,7 @@ Factor = str
 _FACTORS = ("x", "u", "p")
 
 
+@cache
 def _p2_basis(degree: int, cohomology_degree: int) -> tuple[Monomial, ...]:
     """Return the monomial basis of one exact P2 cohomology group."""
 
@@ -58,6 +59,7 @@ def _p2_basis(degree: int, cohomology_degree: int) -> tuple[Monomial, ...]:
     return ()
 
 
+@cache
 def _p1_basis(degree: int, cohomology_degree: int) -> tuple[Monomial, ...]:
     """Return the monomial basis of one exact P1 cohomology group."""
 
@@ -82,6 +84,7 @@ def _dual_monomial(monomial: Monomial) -> Monomial:
     return tuple(-value - 1 for value in monomial)
 
 
+@cache
 def _factor_basis(
     factor: Factor,
     degree: int,
@@ -96,6 +99,7 @@ def _factor_basis(
     raise ValueError(f"unknown Schoen ambient factor: {factor}")
 
 
+@cache
 def _factor_matrix(
     factor: Factor,
     source_degree: int,
@@ -162,6 +166,7 @@ class AmbientSchoenSpace:
     labels: tuple[tuple[int, int, int, Monomial, Monomial, Monomial], ...]
 
 
+@cache
 def _ambient_space(
     degrees: tuple[int, int, int],
     cohomology_degree: int,
@@ -334,6 +339,7 @@ def _equation_two(
     )
 
 
+@cache
 def _factor_matrix_for_terms(
     factor: Factor,
     source_degree: int,

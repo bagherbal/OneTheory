@@ -194,6 +194,7 @@ class SparseMap:
         return rank
 
 
+@cache
 def _sparse_factor_map(
     source: AmbientSchoenSpace,
     target: AmbientSchoenSpace,
@@ -247,6 +248,7 @@ def _sparse_factor_map(
     return SparseMap(source.vector_space, target.vector_space, _freeze_rows(rows))
 
 
+@cache
 def _sparse_equation_map(
     source: AmbientSchoenSpace,
     target: AmbientSchoenSpace,

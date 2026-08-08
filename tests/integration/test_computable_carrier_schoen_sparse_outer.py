@@ -81,6 +81,8 @@ def test_representative_schoen_cover_outer_ext_is_exact_and_zero() -> None:
         topology.right_twist,
     )
 
+    assert outer.left.polynomial_factor == "x"
+    assert outer.right.polynomial_factor == "x"
     assert outer.squared_zero
     assert outer.cover_ext_one_dimension == 0
     action = sparse_outer_deck_audit(outer)

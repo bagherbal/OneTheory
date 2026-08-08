@@ -56,7 +56,7 @@ def _factor_resolution_data(presentation):
     pairs = _resolution_pairs()
     pair = pairs[presentation.candidate.scheme.name]
     characters = presentation.ray.character_pair
-    if presentation.factor == 0:
+    if presentation.factor == 1:
         return pair, characters
     def inverse_action(name: str):
         """Invert one exact resolution action for the second factor."""

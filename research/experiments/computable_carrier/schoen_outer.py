@@ -49,10 +49,11 @@ def _line_degree(
 ) -> LineDegree:
     """Convert one graded presentation shift into a Schoen line degree."""
 
-    if factor not in (0, 1):
-        raise ValueError("Schoen constituent factors are indexed by zero and one")
+    if factor not in (1, 2):
+        raise ValueError("Schoen constituent factors are indexed by one and two")
+    position = factor - 1
     return tuple(
-        twist[index] - scalar_shift * int(index == factor)
+        twist[index] - scalar_shift * int(index == position)
         for index in range(3)
     )
 
@@ -72,7 +73,7 @@ class SchoenPresentation:
     def polynomial_factor(self) -> str:
         """Return the ambient projective factor carrying the presentation."""
 
-        return "x" if self.factor == 0 else "u"
+        return "x" if self.factor == 1 else "u"
 
 
 def schoen_presentation(
@@ -205,11 +206,11 @@ def _factor_for_entry(
     if degree == -1:
         first_rows = left_target_rank * right_target_rank
         factor = left_factor if row < first_rows else right_factor
-        return "x" if factor == 0 else "u"
+        return "x" if factor == 1 else "u"
     if degree == 0:
         first_columns = left_target_rank * right_target_rank
-        return "x" if column >= first_columns and left_factor == 0 else (
-            "u" if column >= first_columns else ("x" if right_factor == 0 else "u")
+        return "x" if column >= first_columns and left_factor == 1 else (
+            "u" if column >= first_columns else ("x" if right_factor == 1 else "u")
         )
     raise ValueError("presentation Hom has differentials only in degrees -1 and 0")
 

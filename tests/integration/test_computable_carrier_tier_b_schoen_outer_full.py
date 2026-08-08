@@ -19,6 +19,7 @@ Phase 0:
 from collections import Counter
 
 from research.experiments.computable_carrier.tier_b_schoen_outer_full import (
+    declared_schoen_outer_candidate_data,
     declared_schoen_outer_pairs,
 )
 
@@ -32,3 +33,12 @@ def test_declared_outer_pair_category_has_1440_pairs() -> None:
     counts = Counter(pair[0] for pair in pairs)
     assert len(counts) == 40
     assert set(counts.values()) == {36}
+
+
+def test_candidate_tasks_are_memory_bounded_by_topology() -> None:
+    """Each worker receives one candidate with six rays on each side."""
+
+    tasks = declared_schoen_outer_candidate_data()
+
+    assert len(tasks) == 40
+    assert all(len(task[2]) == 6 and len(task[3]) == 6 for task in tasks)

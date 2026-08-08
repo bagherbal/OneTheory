@@ -23,7 +23,21 @@ from __future__ import annotations
 from dataclasses import dataclass
 from multiprocessing import get_context
 
-from .schoen_sparse_outer import sparse_outer_hom
+from .schoen_linebundles import (
+    _ambient_space,
+    _factor_basis,
+    _factor_matrix,
+    _factor_matrix_for_terms,
+    _p1_basis,
+    _p2_basis,
+    ambient_schoen_line_bundle,
+)
+from .schoen_sparse_outer import (
+    _sparse_equation_map,
+    _sparse_factor_map,
+    sparse_line_bundle,
+    sparse_outer_hom,
+)
 from .tier_b_monomial_topology import (
     MonomialTopologyCandidate,
     tier_b_monomial_topology_screen,
@@ -32,6 +46,13 @@ from .tier_b_serre_extensions import (
     TierBSerreExtensionRay,
     tier_b_serre_eigenrays,
 )
+
+OuterCandidateData = tuple[
+    int,
+    MonomialTopologyCandidate,
+    tuple[TierBSerreExtensionRay, ...],
+    tuple[TierBSerreExtensionRay, ...],
+]
 
 
 @dataclass(frozen=True, slots=True)
@@ -220,22 +241,72 @@ def _audit_pair(
         sparse_outer_hom.cache_clear()
 
 
+def _clear_worker_caches() -> None:
+    """Release exact map caches after one topology candidate."""
+
+    for function in (
+        sparse_outer_hom,
+        _sparse_factor_map,
+        _sparse_equation_map,
+        sparse_line_bundle,
+        ambient_schoen_line_bundle,
+        _ambient_space,
+        _factor_matrix_for_terms,
+        _factor_matrix,
+        _factor_basis,
+        _p2_basis,
+        _p1_basis,
+    ):
+        function.cache_clear()
+
+
 def _audit_candidate(
-    candidate_data: tuple[
-        int,
-        MonomialTopologyCandidate,
-        tuple[TierBSerreExtensionRay, ...],
-        tuple[TierBSerreExtensionRay, ...],
-    ],
+    candidate_data: OuterCandidateData,
 ) -> tuple[SchoenCoverOuterAudit, ...]:
     """Evaluate one topology candidate while reusing worker-local caches."""
 
     candidate_index, candidate, left_rays, right_rays = candidate_data
+    try:
+        return tuple(
+            _audit_pair((candidate_index, candidate, left_ray, right_ray))
+            for left_ray in left_rays
+            for right_ray in right_rays
+        )
+    finally:
+        _clear_worker_caches()
+
+
+def declared_schoen_outer_candidate_data() -> tuple[OuterCandidateData, ...]:
+    """Return one deterministic worker task for every topology candidate."""
+
+    screen = tier_b_monomial_topology_screen()
+    rays = {
+        shift: _length_six_rays(shift)
+        for shift in (-6, 0)
+    }
     return tuple(
-        _audit_pair((candidate_index, candidate, left_ray, right_ray))
-        for left_ray in left_rays
-        for right_ray in right_rays
+        (
+            candidate_index,
+            candidate,
+            rays[candidate.left_target_line_shift],
+            rays[candidate.right_target_line_shift],
+        )
+        for candidate_index, candidate in enumerate(
+            screen.surviving_topology_candidates,
+            1,
+        )
     )
+
+
+def schoen_cover_outer_candidate(
+    candidate_index: int,
+) -> tuple[SchoenCoverOuterAudit, ...]:
+    """Evaluate one topology candidate for resumable exhaustive screens."""
+
+    candidate_data = declared_schoen_outer_candidate_data()
+    if candidate_index < 1 or candidate_index > len(candidate_data):
+        raise ValueError("candidate index is outside the declared Tier B screen")
+    return _audit_candidate(candidate_data[candidate_index - 1])
 
 
 def schoen_cover_outer_full_screen(
@@ -251,26 +322,14 @@ def schoen_cover_outer_full_screen(
     if isinstance(workers, bool) or not isinstance(workers, int) or workers < 1:
         raise ValueError("workers must be a positive integer")
     screen = tier_b_monomial_topology_screen()
-    rays = {
-        shift: _length_six_rays(shift)
-        for shift in (-6, 0)
-    }
-    candidate_data = tuple(
-        (
-            candidate_index,
-            candidate,
-            rays[candidate.left_target_line_shift],
-            rays[candidate.right_target_line_shift],
-        )
-        for candidate_index, candidate in enumerate(
-            screen.surviving_topology_candidates,
-            1,
-        )
-    )
+    candidate_data = declared_schoen_outer_candidate_data()
     if workers == 1:
         grouped = tuple(map(_audit_candidate, candidate_data))
     else:
-        with get_context("fork").Pool(processes=workers) as pool:
+        with get_context("fork").Pool(
+            processes=workers,
+            maxtasksperchild=1,
+        ) as pool:
             grouped = tuple(pool.map(_audit_candidate, candidate_data))
     audits = tuple(audit for group in grouped for audit in group)
     result = SchoenCoverOuterFullScreen(
@@ -286,6 +345,8 @@ def schoen_cover_outer_full_screen(
 __all__ = [
     "SchoenCoverOuterAudit",
     "SchoenCoverOuterFullScreen",
+    "declared_schoen_outer_candidate_data",
     "declared_schoen_outer_pairs",
+    "schoen_cover_outer_candidate",
     "schoen_cover_outer_full_screen",
 ]

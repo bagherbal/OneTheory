@@ -125,7 +125,7 @@ class SparseMap:
     def scale(self, scalar: object) -> SparseMap:
         """Scale every nonzero sparse entry exactly."""
 
-        factor = Eisenstein(scalar)
+        factor = Eisenstein.coerce(scalar)
         return SparseMap(
             self.domain,
             self.codomain,

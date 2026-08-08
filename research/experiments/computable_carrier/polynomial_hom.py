@@ -22,6 +22,7 @@ Phase 0:
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import cache
 from itertools import product
 from typing import Protocol
 
@@ -456,6 +457,7 @@ def _horizontal_concat(
     )
 
 
+@cache
 def polynomial_hom_complex(
     left: PresentationCandidate,
     right: PresentationCandidate,

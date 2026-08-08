@@ -23,6 +23,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from multiprocessing import get_context
 
+from .polynomial_hom import polynomial_hom_complex
 from .schoen_linebundles import (
     _ambient_space,
     _factor_basis,
@@ -32,6 +33,7 @@ from .schoen_linebundles import (
     _p2_basis,
     ambient_schoen_line_bundle,
 )
+from .schoen_outer import schoen_presentation
 from .schoen_sparse_outer import (
     _sparse_equation_map,
     _sparse_factor_map,
@@ -42,6 +44,7 @@ from .tier_b_monomial_topology import (
     MonomialTopologyCandidate,
     tier_b_monomial_topology_screen,
 )
+from .tier_b_outer import _candidate
 from .tier_b_serre_extensions import (
     TierBSerreExtensionRay,
     tier_b_serre_eigenrays,
@@ -246,6 +249,9 @@ def _clear_worker_caches() -> None:
 
     for function in (
         sparse_outer_hom,
+        polynomial_hom_complex,
+        schoen_presentation,
+        _candidate,
         _sparse_factor_map,
         _sparse_equation_map,
         sparse_line_bundle,

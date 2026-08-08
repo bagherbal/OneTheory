@@ -72,6 +72,7 @@ def _point_scheme(ray: TierBSerreExtensionRay) -> PointScheme:
     return PointScheme(scheme.name, tuple(scheme.ideal.generators), scheme.resolution)
 
 
+@cache
 def _candidate(
     ray: TierBSerreExtensionRay,
     model: TierAPencilModel,

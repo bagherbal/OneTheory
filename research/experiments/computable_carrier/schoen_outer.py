@@ -76,6 +76,7 @@ class SchoenPresentation:
         return "x" if self.factor == 1 else "u"
 
 
+@cache
 def schoen_presentation(
     ray: TierBSerreExtensionRay,
     factor: int,

@@ -734,6 +734,32 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert monomial_topology["outer_ext_computation_available"] is True
     assert monomial_topology["outer_extension_constructed"] is False
     assert monomial_topology["exact"] is True
+    monomial_constituents = artifact["tier_a_chain_inputs"][
+        "tier_b_monomial_constituent_descent_frontier"
+    ]
+    assert monomial_constituents["constituent_count"] == 12
+    assert monomial_constituents["descended_constituent_count"] == 12
+    assert monomial_constituents["surviving_topology_candidate_count"] == 40
+    assert monomial_constituents["surviving_presentation_pair_count"] == 1440
+    assert monomial_constituents["descended_presentation_pair_count"] == 1440
+    assert monomial_constituents["all_surviving_line_twists_descend"] is True
+    assert monomial_constituents["outer_ext_computation_available"] is True
+    assert monomial_constituents["outer_extension_constructed"] is False
+    assert monomial_constituents["exact"] is True
+    assert {
+        line["target_line_shift"]: line["chern_character"]
+        for line in monomial_constituents["lines"]
+    } == {
+        -6: {"c1_hyperplane": 6, "c2_hyperplane_squared": "6"},
+        0: {"c1_hyperplane": 0, "c2_hyperplane_squared": "6"},
+    }
+    assert all(
+        line["locally_free_sheaf_verified"] is True
+        and line["projective_cocycle"]["exact"] is True
+        and line["internal_descent_certificate"] is True
+        and line["promotion_ready"] is False
+        for line in monomial_constituents["lines"]
+    )
     curvilinear_serre = artifact["tier_a_chain_inputs"][
         "tier_b_curvilinear_serre_audits"
     ]

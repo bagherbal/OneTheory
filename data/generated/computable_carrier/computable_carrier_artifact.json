@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "562618bdb612cae6ea1add14673ca91b698789d185fad93b8fafe90d8ea558e2",
+  "artifact_digest": "98851a093d4878774f1468b9b87c6d63bc3b105aa7b05cc1cad80d92dc177a3f",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -36,19 +36,21 @@
       "curvilinear_rank_four_topology: excluded_index_zero",
       "curvilinear_tier_b_topology: excluded_no_index_three",
       "monomial_tier_b_topology_counts: pass",
-      "monomial_length_six_shift_frontier: pass"
+      "monomial_length_six_shift_frontier: pass",
+      "monomial_length_six_constituents: pass"
     ],
     "promotion_blocked": false,
     "required_independent_path": "pinned SageMath reproduction",
     "runtime": "sagemath/sagemath:10.6",
     "script": "research/experiments/computable_carrier/external/verify.sage",
-    "script_sha256": "725eb494e2ce0ef05ea415dcb6acd09f394ff209be274c128cfc147640a6034e",
+    "script_sha256": "c34e5ce733c7fd049e114359694def3ebc7048fd28ed70c1e8148469a3af889a",
     "status": "passed",
     "verified_scopes": {
       "baseline_hilbert_burch_and_split_transition": "passed",
       "curvilinear_rank_four_topology": "excluded",
       "curvilinear_rank_two_descent_inputs": "passed",
       "curvilinear_tier_b_hilbert_burch_topology": "excluded",
+      "monomial_length_six_constituent_descent_inputs": "passed",
       "monomial_topology_counts_and_length_six_frontier": "passed"
     }
   },
@@ -10579,7 +10581,7 @@
       "spectrum": "unresolved",
       "stability": "unresolved",
       "tier_b_curvilinear_hilbert_burch_topology": "failed",
-      "tier_b_monomial_constituent_descent": "unresolved",
+      "tier_b_monomial_constituent_descent": "passed",
       "tier_b_monomial_external_topology_and_length_six": "passed",
       "tier_b_monomial_outer_extension": "unresolved",
       "tier_b_monomial_topology_frontier": "passed"
@@ -505114,6 +505116,2627 @@
         "status": "local punctured-chart cocycle only; global dP9 Cech gluing, linearization, and quotient descent remain unresolved"
       }
     ],
+    "tier_b_monomial_constituent_descent_frontier": {
+      "all_surviving_line_twists_descend": true,
+      "category": "surviving length-six invariant coordinate-supported monomial Serre eigenrays",
+      "constituent_count": 12,
+      "descended_constituent_count": 12,
+      "descended_presentation_pair_count": 1440,
+      "exact": true,
+      "lines": [
+        {
+          "character_pair": [
+            "1",
+            "-1-omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 6,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 4
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-omega",
+                        "exponents": [
+                          8,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "omega",
+                        "exponents": [
+                          0,
+                          8
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 3
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1-omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 9
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "omega",
+                        "exponents": [
+                          8,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-1",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": -6,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            -6
+          ]
+        },
+        {
+          "character_pair": [
+            "omega",
+            "-1-omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 6,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1+omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 4
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1+omega",
+                        "exponents": [
+                          8,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1-omega",
+                        "exponents": [
+                          0,
+                          8
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 3
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 9
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1-omega",
+                        "exponents": [
+                          8,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-1",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": -6,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            -6
+          ]
+        },
+        {
+          "character_pair": [
+            "-1-omega",
+            "-1-omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 6,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 4
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          8,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1",
+                        "exponents": [
+                          0,
+                          8
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 3
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 9
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1",
+                        "exponents": [
+                          8,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-1",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": -6,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            -6
+          ]
+        },
+        {
+          "character_pair": [
+            "1",
+            "omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 6,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 2
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-omega",
+                        "exponents": [
+                          0,
+                          8
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1+omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 8
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "omega",
+                        "exponents": [
+                          8,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-omega",
+                        "exponents": [
+                          0,
+                          8
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 1
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-2",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": -6,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            -6
+          ]
+        },
+        {
+          "character_pair": [
+            "omega",
+            "omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 6,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 2
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          8
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 8
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1",
+                        "exponents": [
+                          8,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          8
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 1
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-2",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": -6,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            -6
+          ]
+        },
+        {
+          "character_pair": [
+            "-1-omega",
+            "omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 6,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1-omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 2
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1+omega",
+                        "exponents": [
+                          0,
+                          8
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 8
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1-omega",
+                        "exponents": [
+                          8,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 8,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1+omega",
+                        "exponents": [
+                          0,
+                          8
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 1
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-2",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": -6,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            -6
+          ]
+        },
+        {
+          "character_pair": [
+            "1",
+            "-1-omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 0,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 4
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-omega",
+                        "exponents": [
+                          2,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "omega",
+                        "exponents": [
+                          0,
+                          2
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 3
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1-omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 9
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "omega",
+                        "exponents": [
+                          2,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-1",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": 0,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "character_pair": [
+            "omega",
+            "-1-omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 0,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1+omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 4
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1+omega",
+                        "exponents": [
+                          2,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1-omega",
+                        "exponents": [
+                          0,
+                          2
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 3
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 9
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1-omega",
+                        "exponents": [
+                          2,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-1",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": 0,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "character_pair": [
+            "-1-omega",
+            "-1-omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 0,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 4
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          2,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1",
+                        "exponents": [
+                          0,
+                          2
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 3
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 9
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1",
+                        "exponents": [
+                          2,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-1",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": 0,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "character_pair": [
+            "1",
+            "omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 0,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 2
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-omega",
+                        "exponents": [
+                          0,
+                          2
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1+omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 8
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "omega",
+                        "exponents": [
+                          2,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-omega",
+                        "exponents": [
+                          0,
+                          2
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 1
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-2",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": 0,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "character_pair": [
+            "omega",
+            "omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 0,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 2
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          2
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 8
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1",
+                        "exponents": [
+                          2,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          2
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 1
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-2",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": 0,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "character_pair": [
+            "-1-omega",
+            "omega"
+          ],
+          "chern_character": {
+            "c1_hyperplane": 0,
+            "c2_hyperplane_squared": "6"
+          },
+          "descent_theorem": "equivariant locally free sheaves descend along a free finite group quotient",
+          "determinant_linearizable": true,
+          "dp9_deck_atlas_verified": true,
+          "equivariant_dp9_pullback_verified": true,
+          "exact": true,
+          "fitting_certificates": [
+            {
+              "base_pivot": 0,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1-omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 2
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1+omega",
+                        "exponents": [
+                          0,
+                          2
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 6
+                }
+              ],
+              "dp9_charts": [
+                "U_0_mu",
+                "U_0_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 1,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-omega",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 8
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1-omega",
+                        "exponents": [
+                          2,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 0
+                }
+              ],
+              "dp9_charts": [
+                "U_1_mu",
+                "U_1_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            },
+            {
+              "base_pivot": 2,
+              "coefficient_degree_bound": 2,
+              "coefficients": [
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "-1",
+                        "exponents": [
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 7
+                },
+                {
+                  "coefficient": {
+                    "terms": [
+                      {
+                        "coefficient": "1+omega",
+                        "exponents": [
+                          0,
+                          2
+                        ]
+                      }
+                    ]
+                  },
+                  "minor_index": 1
+                }
+              ],
+              "dp9_charts": [
+                "U_2_mu",
+                "U_2_nu"
+              ],
+              "exact": true,
+              "identity": {
+                "terms": [
+                  {
+                    "coefficient": "1",
+                    "exponents": [
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              },
+              "minor_count": 10,
+              "nonzero_minor_count": 10
+            }
+          ],
+          "independent_external_constituent_certificate": false,
+          "internal_descent_certificate": true,
+          "locally_free_sheaf_verified": true,
+          "projective_cocycle": {
+            "central_grading_preserved": true,
+            "central_relation_equation": true,
+            "coordinate_lift_commutator": true,
+            "exact": true,
+            "middle_cocycle": true,
+            "middle_order_three": [
+              true,
+              true
+            ],
+            "relation_equations": [
+              true,
+              true
+            ],
+            "relation_order_three": [
+              true,
+              true
+            ],
+            "source_cocycle": true,
+            "target_cocycle": true
+          },
+          "promotion_ready": false,
+          "quotient_order": 9,
+          "rank": 2,
+          "scheme": "B-monomial-coordinate-orbit-2",
+          "schoen_action_free": true,
+          "selected_as_physics": false,
+          "source_shifts": [
+            4,
+            4,
+            4
+          ],
+          "status": "internally certified rank-two constituent; independent result is tracked by the external artifact, while outer extension and physical selection remain unresolved",
+          "target_line_shift": 0,
+          "target_shifts": [
+            3,
+            3,
+            3,
+            3,
+            0
+          ]
+        }
+      ],
+      "outer_ext_computation_available": true,
+      "outer_extension_constructed": false,
+      "promotion_ready": false,
+      "selected_as_physics": false,
+      "status": "exact descended rank-two constituent frontier; rank-four outer extension and all physical gates remain unresolved",
+      "surviving_presentation_pair_count": 1440,
+      "surviving_topology_candidate_count": 40
+    },
     "tier_b_monomial_resolution_actions": [
       {
         "actions": {

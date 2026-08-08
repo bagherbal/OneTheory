@@ -16,9 +16,12 @@ Betti dimension functions, all 1,200 index-three topologies, and the 340 cases
 whose constituent determinant classes descend. It separately constructs the
 two explicit length-six Hilbert--Burch resolutions, derives their graded
 quotient actions at every topology-relevant shift, and verifies that shifts
-minus six and zero each have three support-locally-free common character rays.
-The external scope does not yet include independent action calculations for
-the rejected length-three or length-nine resolutions.
+minus six and zero each have three common character rays. For all twelve
+surviving rays it also checks the full three-chart maximal-minor cover, exact
+graded projective cocycles, and the rank-two constituent inputs required for
+descent. The external scope does not include action calculations for the
+rejected length-three or length-nine resolutions, nor the unresolved rank-four
+outer extension.
 
 The pinned runtime is the Docker image `sagemath/sagemath:10.6`; the resolved
 image digest and command output belong in the generated carrier artifact after

@@ -2,7 +2,6 @@
 
 from itertools import combinations, product
 
-
 K.<omega> = CyclotomicField(3)
 R.<a,b,c> = PolynomialRing(K)
 
@@ -872,10 +871,12 @@ def length_six_locally_free_characters(
     hilbert_burch,
     source_p,
     source_t,
+    target_p,
+    target_t,
     target_shift,
     action_data=None,
 ):
-    """Return common full eigencharacters passing support Fitting ranks."""
+    """Return common characters passing exact projective sheaf gates."""
 
     if action_data is None:
         action_data = length_six_quotient_actions(
@@ -887,6 +888,19 @@ def length_six_locally_free_characters(
     target_basis, representatives, full_p, full_t, quotient_p, quotient_t = action_data
     quotient_identity = identity_matrix(K, quotient_p.nrows())
     characters = []
+    projective_characters = []
+    source_central = diagonal_matrix(
+        R,
+        tuple(omega^4 for _ in range(hilbert_burch.ncols())),
+    )
+    target_central = diagonal_matrix(
+        R,
+        tuple(omega^3 for _ in range(hilbert_burch.nrows())),
+    )
+    middle_central = diagonal_matrix(
+        R,
+        (*tuple(omega^3 for _ in range(hilbert_burch.nrows())), omega^target_shift),
+    )
     for p_character, t_character in product((1, omega, omega^2), repeat=2):
         equations = (quotient_p-p_character*quotient_identity).stack(
             quotient_t-t_character*quotient_identity
@@ -924,7 +938,37 @@ def length_six_locally_free_characters(
                 for point in ((1, 0, 0), (0, 1, 0), (0, 0, 1))
             ):
                 characters.append((p_character, t_character))
-    return tuple(characters)
+                minors = column_maximal_minors(relation)
+                if all(
+                    R.ideal(
+                        tuple(minor.subs({pivot: 1}) for minor in minors)
+                    ).is_one()
+                    for pivot in (a, b, c)
+                ):
+                    p_middle = middle_action(target_p, p_character)
+                    t_middle = middle_action(target_t, t_character)
+                    assert source_p.transpose()*relation == (
+                        transform_matrix(relation, P_IMAGES)*p_middle
+                    )
+                    assert source_t.transpose()*relation == (
+                        transform_matrix(relation, T_IMAGES)*t_middle
+                    )
+                    assert p_middle^3 == identity_matrix(R, 5)
+                    assert t_middle^3 == identity_matrix(R, 5)
+                    assert p_middle*middle_central == middle_central*p_middle
+                    assert t_middle*middle_central == middle_central*t_middle
+                    assert p_middle*t_middle == middle_central*t_middle*p_middle
+                    assert source_p*source_t == (
+                        source_central.inverse()*source_t*source_p
+                    )
+                    assert target_p*target_t == (
+                        target_central.inverse()*target_t*target_p
+                    )
+                    assert transform_matrix(relation, CENTRAL_IMAGES) == (
+                        source_central*relation*middle_central.inverse()
+                    )
+                    projective_characters.append((p_character, t_character))
+    return tuple(characters), tuple(projective_characters)
 
 
 def assert_length_six_shift_frontier():
@@ -974,15 +1018,19 @@ def assert_length_six_shift_frontier():
                 commuting_shifts.append(target_shift)
         assert tuple(commuting_shifts) == (-6, 0)
         for target_shift in commuting_shifts:
-            assert frozenset(
+            support_characters, projective_characters = (
                 length_six_locally_free_characters(
                     hilbert_burch,
                     source_p,
                     source_t,
+                    target_p,
+                    target_t,
                     target_shift,
                     action_data_by_shift[target_shift],
                 )
-            ) == expected
+            )
+            assert frozenset(support_characters) == expected
+            assert frozenset(projective_characters) == expected
 
 
 assert_length_six_shift_frontier()
@@ -1035,3 +1083,4 @@ print("curvilinear_rank_four_topology: excluded_index_zero")
 print("curvilinear_tier_b_topology: excluded_no_index_three")
 print("monomial_tier_b_topology_counts: pass")
 print("monomial_length_six_shift_frontier: pass")
+print("monomial_length_six_constituents: pass")

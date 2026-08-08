@@ -517,9 +517,22 @@ Pinned SageMath independently reproduces the three monomial Betti dimension
 functions, the 1,200/340 topology counts, and both surviving length-six shift
 calculations. For each of the two length-six resolutions at shifts minus six
 and zero, it derives commuting order-three quotient actions and three
-support-locally-free common character rays. External action verification for
-the rejected length-three and length-nine cases remains open, as do all sheaf
-and outer-extension gates.
+common character rays.
+
+All twelve surviving rays now have exact maximal-minor unit identities on the
+three projective base charts, with coefficient degree eight at shift minus six
+and degree two at shift zero. Their graded central relations and projective
+P/T cocycles are exact, their Chern data are respectively `(c1,c2)=(6,6)` and
+`(0,6)`, and each pulls back equivariantly to dP9 and descends conditional on
+the published free order-nine Schoen quotient. Every surviving line twist also
+descends, so all 1,440 topology/ray pairs reach the outer-Ext gate. Pinned
+SageMath independently verifies the full Fitting covers and projective
+cocycles. No outer class, rank-four bundle, stability chamber, spectrum, or
+physical selection has been constructed.
+
+External action verification for the rejected length-three and length-nine
+cases remains open; those cases already fail preceding internal topology or
+presentation gates and are not part of the surviving constituent frontier.
 
 The eight earlier non-equivariant presentation witnesses still feed all 64
 ordered outer-presentation pairs. Every pair has an exact polynomial Hom

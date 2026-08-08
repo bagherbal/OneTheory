@@ -58,8 +58,11 @@ def test_external_manifest_matches_frozen_sage_result() -> None:
     assert external["verified_scopes"][
         "monomial_topology_counts_and_length_six_frontier"
     ] == "passed"
+    assert external["verified_scopes"][
+        "monomial_length_six_constituent_descent_inputs"
+    ] == "passed"
     assert external["output"][-1] == (
-        "monomial_length_six_shift_frontier: pass"
+        "monomial_length_six_constituents: pass"
     )
     assert external["conditional_inputs"] == [
         {

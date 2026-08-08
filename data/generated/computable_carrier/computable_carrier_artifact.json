@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "98851a093d4878774f1468b9b87c6d63bc3b105aa7b05cc1cad80d92dc177a3f",
+  "artifact_digest": "ea455982913ea385b344f187f39cc7116fa7cf4d634307b701018dbccba2da78",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -36,14 +36,14 @@
       "curvilinear_rank_four_topology: excluded_index_zero",
       "curvilinear_tier_b_topology: excluded_no_index_three",
       "monomial_tier_b_topology_counts: pass",
-      "monomial_length_six_shift_frontier: pass",
-      "monomial_length_six_constituents: pass"
+      "monomial_length_six_constituents: pass",
+      "monomial_length_six_shift_frontier: pass"
     ],
     "promotion_blocked": false,
     "required_independent_path": "pinned SageMath reproduction",
     "runtime": "sagemath/sagemath:10.6",
     "script": "research/experiments/computable_carrier/external/verify.sage",
-    "script_sha256": "c34e5ce733c7fd049e114359694def3ebc7048fd28ed70c1e8148469a3af889a",
+    "script_sha256": "5f9bdc67504c7546e5c8faa5ac42787ff9e476809fc8c0ee70cda0fe069f56e3",
     "status": "passed",
     "verified_scopes": {
       "baseline_hilbert_burch_and_split_transition": "passed",

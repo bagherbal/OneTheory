@@ -817,6 +817,7 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
         "curvilinear_rank_two_descent_inputs": "passed",
         "curvilinear_rank_four_topology": "excluded",
         "curvilinear_tier_b_hilbert_burch_topology": "excluded",
+        "monomial_length_six_constituent_descent_inputs": "passed",
         "monomial_topology_counts_and_length_six_frontier": "passed",
     }
     assert external["conditional_inputs"] == [

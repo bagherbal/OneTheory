@@ -61,9 +61,8 @@ def test_external_manifest_matches_frozen_sage_result() -> None:
     assert external["verified_scopes"][
         "monomial_length_six_constituent_descent_inputs"
     ] == "passed"
-    assert external["output"][-1] == (
-        "monomial_length_six_constituents: pass"
-    )
+    assert "monomial_length_six_constituents: pass" in external["output"]
+    assert external["output"][-1] == "monomial_length_six_shift_frontier: pass"
     assert external["conditional_inputs"] == [
         {
             "input": "published free order-nine Schoen quotient",

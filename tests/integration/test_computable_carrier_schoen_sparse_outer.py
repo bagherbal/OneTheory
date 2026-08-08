@@ -22,6 +22,9 @@ from research.experiments.computable_carrier.schoen_sparse_outer import (
     sparse_line_bundle,
     sparse_outer_hom,
 )
+from research.experiments.computable_carrier.schoen_sparse_outer_actions import (
+    sparse_outer_deck_audit,
+)
 from research.experiments.computable_carrier.tier_b_monomial_topology import (
     tier_b_monomial_topology_screen,
 )
@@ -80,3 +83,5 @@ def test_representative_schoen_cover_outer_ext_is_exact_and_zero() -> None:
 
     assert outer.squared_zero
     assert outer.cover_ext_one_dimension == 0
+    action = sparse_outer_deck_audit(outer)
+    assert action.exact

@@ -208,15 +208,14 @@ def _action(name: str) -> SchoenSparseDeckAction:
     """Derive one deck action from the frozen cubic characters."""
 
     x_images = published_coordinate_images(name)
-    u_images = _inverse_images(x_images) if name == "P" else x_images
+    u_images = _inverse_images(x_images)
     f_x, g_x = _cubic_characters(name)
     p_images = (
         (g_x, (1, 0)),
         (f_x, (0, 1)),
     )
     f_u, g_u = _cubic_characters(name)
-    if name == "P":
-        f_u, g_u = _cubic_characters(name)
+    if name in ("P", "T"):
         f_u = Eisenstein(1) / f_u
         g_u = Eisenstein(1) / g_u
     first_unit = f_x * g_x

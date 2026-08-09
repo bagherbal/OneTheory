@@ -202,7 +202,7 @@ def _audit_candidate_checkpointed(
 
 
 def generate(
-    workers: int = 2,
+    workers: int = 1,
     partial_path: Path = DEFAULT_PARTIAL,
     artifact_path: Path = DEFAULT_ARTIFACT,
 ) -> SchoenCoverOuterFullScreen | None:

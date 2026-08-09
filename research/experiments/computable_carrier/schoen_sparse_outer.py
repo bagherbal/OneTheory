@@ -171,7 +171,7 @@ class SparseMap:
         for row_index, row in enumerate(self.rows):
             for column, value in row:
                 columns[column][row_index] = value
-        for vector in columns:
+        for vector in sorted(columns, key=len):
             while vector:
                 pivot = min(vector)
                 coefficient = vector[pivot]

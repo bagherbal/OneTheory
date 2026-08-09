@@ -34,7 +34,7 @@ from research.experiments.computable_carrier.tier_b_serre_extensions import (
 
 
 def test_sparse_rank_uses_exact_eisenstein_column_elimination() -> None:
-    """Sparse rank agrees with the exact rank of a small dependent matrix."""
+    """Sparse rank stays exact under deterministic sparsest-first ordering."""
 
     domain = VectorSpace("domain", ("d0", "d1", "d2"), Eisenstein)
     codomain = VectorSpace("codomain", ("c0", "c1"), Eisenstein)

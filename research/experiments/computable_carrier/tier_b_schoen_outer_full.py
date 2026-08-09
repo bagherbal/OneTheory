@@ -35,8 +35,10 @@ from .schoen_linebundles import (
 )
 from .schoen_outer import schoen_presentation
 from .schoen_sparse_outer import (
+    _sparse_direct_sum_maps,
     _sparse_equation_map,
     _sparse_factor_map,
+    _sparse_line_sum_space,
     sparse_line_bundle,
     sparse_outer_hom,
 )
@@ -254,6 +256,8 @@ def _clear_worker_caches() -> None:
         _candidate,
         _sparse_factor_map,
         _sparse_equation_map,
+        _sparse_line_sum_space,
+        _sparse_direct_sum_maps,
         sparse_line_bundle,
         ambient_schoen_line_bundle,
         _ambient_space,

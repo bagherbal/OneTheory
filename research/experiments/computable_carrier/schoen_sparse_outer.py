@@ -212,12 +212,20 @@ def _sparse_factor_map(
         (label[0], label[1], label[2]) for label in source.labels
     }:
         h = (x_h, u_h, p_h)
-        local_data[h] = _factor_matrix_for_terms(
+        source_basis = _factor_basis(
             factor,
             source.degrees[position],
-            target.degrees[position],
             h[position],
-            polynomial,
+        )
+        local_data[h] = (
+            *_factor_matrix_for_terms(
+                factor,
+                source.degrees[position],
+                target.degrees[position],
+                h[position],
+                polynomial,
+            ),
+            {monomial: index for index, monomial in enumerate(source_basis)},
         )
     rows: list[dict[int, Eisenstein]] = [
         {} for _ in target.labels
@@ -225,10 +233,9 @@ def _sparse_factor_map(
     for source_index, label in enumerate(source.labels):
         x_h, u_h, p_h, x_monomial, u_monomial, p_monomial = label
         h = (x_h, u_h, p_h)
-        target_basis, factor_rows = local_data[h]
-        source_basis = _factor_basis(factor, source.degrees[position], h[position])
+        target_basis, factor_rows, source_indices = local_data[h]
         local_source = (x_monomial, u_monomial, p_monomial)[position]
-        source_index_local = source_basis.index(local_source)
+        source_index_local = source_indices[local_source]
         for target_index_local, target_monomial in enumerate(target_basis):
             coefficient = factor_rows[target_index_local][source_index_local]
             if coefficient.is_zero():
@@ -265,6 +272,8 @@ def _sparse_equation_map(
             (label[0], label[1], label[2]) for label in source.labels
         }:
             h = (x_h, u_h, p_h)
+            source_basis = _factor_basis(factor, source.degrees[position], h[position])
+            fiber_basis = _p1_basis(source.degrees[2], p_h)
             local_data[h] = (
                 _factor_matrix_for_terms(
                     factor,
@@ -280,15 +289,21 @@ def _sparse_equation_map(
                     p_h,
                     fiber_form,
                 ),
+                {monomial: index for index, monomial in enumerate(source_basis)},
+                {monomial: index for index, monomial in enumerate(fiber_basis)},
             )
         for source_index, label in enumerate(source.labels):
             x_h, u_h, p_h, x_monomial, u_monomial, p_monomial = label
             h = (x_h, u_h, p_h)
-            (factor_basis, factor_rows), (fiber_basis, fiber_rows) = local_data[h]
-            source_basis = _factor_basis(factor, source.degrees[position], h[position])
+            (
+                (factor_basis, factor_rows),
+                (fiber_basis, fiber_rows),
+                source_indices,
+                fiber_indices,
+            ) = local_data[h]
             source_local = (x_monomial, u_monomial)[position]
-            factor_source = source_basis.index(source_local)
-            fiber_source = _p1_basis(source.degrees[2], p_h).index(p_monomial)
+            factor_source = source_indices[source_local]
+            fiber_source = fiber_indices[p_monomial]
             for factor_target, factor_monomial in enumerate(factor_basis):
                 factor_value = factor_rows[factor_target][factor_source]
                 if factor_value.is_zero():
@@ -605,6 +620,7 @@ class SparseOuterHom:
         }
 
 
+@cache
 def _sparse_line_sum_space(
     bundles: tuple[SparseLineBundle, ...],
     degree: int,
@@ -614,6 +630,7 @@ def _sparse_line_sum_space(
     return _sparse_direct_sum_space(tuple(bundle.space(degree) for bundle in bundles))
 
 
+@cache
 def _sparse_direct_sum_maps(maps: tuple[SparseMap, ...]) -> SparseMap:
     """Build a block-diagonal sparse map."""
 

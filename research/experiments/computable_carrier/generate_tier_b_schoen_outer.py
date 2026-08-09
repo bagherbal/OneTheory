@@ -25,9 +25,11 @@ from multiprocessing import get_context
 from pathlib import Path
 
 from .tier_b_schoen_outer_full import (
+    OuterCandidateData,
     SchoenCoverOuterAudit,
     SchoenCoverOuterFullScreen,
-    _audit_candidate,
+    _audit_pair,
+    _clear_worker_caches,
     declared_schoen_outer_candidate_data,
 )
 
@@ -107,6 +109,98 @@ def _write_partial(
     )
 
 
+def _candidate_checkpoint_path(
+    partial_path: Path,
+    candidate_index: int,
+) -> Path:
+    """Return one adjacent per-candidate ray-pair checkpoint path."""
+
+    return partial_path.with_name(
+        f"{partial_path.stem}.candidate-{candidate_index:03d}.json"
+    )
+
+
+def _read_candidate_records(
+    path: Path,
+    candidate_index: int,
+) -> dict[int, dict[str, object]]:
+    """Read one interruption-safe ray-pair checkpoint."""
+
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("schema") != SCHEMA:
+        raise ValueError("candidate checkpoint schema is incompatible")
+    if payload.get("candidate_index") != candidate_index:
+        raise ValueError("candidate checkpoint index is incompatible")
+    raw_records = payload.get("completed_pairs", {})
+    if not isinstance(raw_records, dict):
+        raise ValueError("candidate pair records must be an object")
+    return {int(index): record for index, record in raw_records.items()}
+
+
+def _write_candidate_records(
+    path: Path,
+    candidate_index: int,
+    records: dict[int, dict[str, object]],
+) -> None:
+    """Persist completed ray pairs for one topology worker."""
+
+    _write_atomic(
+        path,
+        {
+            "schema": SCHEMA,
+            "candidate_index": candidate_index,
+            "declared_pair_count": 36,
+            "completed_pair_count": len(records),
+            "completed_pairs": {
+                str(index): records[index]
+                for index in sorted(records)
+            },
+        },
+    )
+
+
+def _audit_candidate_checkpointed(
+    task: tuple[OuterCandidateData, Path],
+) -> tuple[SchoenCoverOuterAudit, ...]:
+    """Evaluate one candidate while persisting every exact ray pair."""
+
+    candidate_data, checkpoint_path = task
+    candidate_index, candidate, left_rays, right_rays = candidate_data
+    pairs = tuple(
+        (left_ray, right_ray)
+        for left_ray in left_rays
+        for right_ray in right_rays
+    )
+    records = _read_candidate_records(checkpoint_path, candidate_index)
+    try:
+        for pair_index, (left_ray, right_ray) in enumerate(pairs, 1):
+            if pair_index in records:
+                continue
+            audit = _audit_pair(
+                (candidate_index, candidate, left_ray, right_ray)
+            )
+            records[pair_index] = audit.as_record()
+            _write_candidate_records(
+                checkpoint_path,
+                candidate_index,
+                records,
+            )
+            print(
+                f"candidate {candidate_index}/40 pair {pair_index}/36",
+                flush=True,
+            )
+        if len(records) != 36:
+            raise ValueError("candidate checkpoint is incomplete")
+        return tuple(
+            _audit_from_record(records[index])
+            for index in range(1, 37)
+        )
+    finally:
+        _clear_worker_caches()
+
+
 def generate(
     workers: int = 4,
     partial_path: Path = DEFAULT_PARTIAL,
@@ -119,7 +213,12 @@ def generate(
     candidate_data = declared_schoen_outer_candidate_data()
     records = _read_records(partial_path)
     pending = tuple(
-        task for task in candidate_data if task[0] not in records
+        (
+            task,
+            _candidate_checkpoint_path(partial_path, task[0]),
+        )
+        for task in candidate_data
+        if task[0] not in records
     )
     partial_path.parent.mkdir(parents=True, exist_ok=True)
     if pending:
@@ -127,7 +226,10 @@ def generate(
             processes=workers,
             maxtasksperchild=1,
         ) as pool:
-            for group in pool.imap_unordered(_audit_candidate, pending):
+            for group in pool.imap_unordered(
+                _audit_candidate_checkpointed,
+                pending,
+            ):
                 if not group:
                     raise ValueError("candidate produced no outer audits")
                 candidate_index = group[0].candidate_index
@@ -140,6 +242,10 @@ def generate(
                     audit.as_record() for audit in group
                 ]
                 _write_partial(partial_path, records)
+                _candidate_checkpoint_path(
+                    partial_path,
+                    candidate_index,
+                ).unlink(missing_ok=True)
                 print(
                     f"completed candidate {candidate_index}/40 "
                     f"({len(records)}/40)",

@@ -166,19 +166,23 @@ def test_invariant_screen_reuses_certified_cover_dimensions_serially() -> None:
     assert first_pending[-1] == 36
 
 
-def test_first_invariant_candidate_is_compact_and_content_addressed() -> None:
-    """Candidate 3 persists all cocycles without recursive basis-label bloat."""
+def test_smallest_invariant_frontier_is_compact_and_content_addressed() -> None:
+    """Both 36-dimensional cover families persist compact exact cocycles."""
 
     checkpoint = json.loads(INVARIANT_CHECKPOINT_PATH.read_text(encoding="utf-8"))
     records = [
         checkpoint["completed_pairs"][str(index)]
-        for index in range(73, 109)
+        for indices in (range(73, 109), range(793, 829))
+        for index in indices
     ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 36
-    assert all(record["candidate_index"] == 3 for record in records)
+    assert checkpoint["completed_pair_count"] == 72
+    assert Counter(record["candidate_index"] for record in records) == {
+        3: 36,
+        23: 36,
+    }
     assert all(
         record["invariant_subcomplex"]["cover_ext_one_dimension"] == 36
         for record in records

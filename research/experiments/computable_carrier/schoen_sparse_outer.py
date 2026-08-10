@@ -22,6 +22,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 from dataclasses import dataclass
 from functools import cache
+from hashlib import sha256
 
 from onetheory.math.homological import VectorSpace
 from onetheory.math.numbers import Eisenstein
@@ -57,6 +58,49 @@ def _freeze_rows(rows: Iterable[dict[int, Eisenstein]]) -> tuple[SparseRow, ...]
             if not value.is_zero()
         )
         for row in rows
+    )
+
+
+@cache
+def _sparse_space_digest(space: VectorSpace) -> str:
+    """Return a deterministic digest of one exact named sparse basis."""
+
+    digest = sha256()
+    digest.update(space.name.encode("utf-8"))
+    digest.update(b"\0")
+    for label in space.basis:
+        digest.update(label.encode("utf-8"))
+        digest.update(b"\0")
+    digest.update(space.scalar_type.__name__.encode("ascii"))
+    return digest.hexdigest()
+
+
+def _compact_sparse_direct_sum(spaces: tuple[VectorSpace, ...]) -> VectorSpace:
+    """Build a flat content-addressed direct sum without recursive labels."""
+
+    if not spaces:
+        raise ValueError("a sparse direct sum requires at least one space")
+    if len(spaces) == 1:
+        return spaces[0]
+    scalar_type = spaces[0].scalar_type
+    if any(space.scalar_type is not scalar_type for space in spaces[1:]):
+        raise TypeError("sparse direct-sum components need one coefficient field")
+    component_digests = tuple(_sparse_space_digest(space) for space in spaces)
+    digest = sha256()
+    for component_digest in component_digests:
+        digest.update(component_digest.encode("ascii"))
+        digest.update(b"\0")
+    basis = tuple(
+        f"{component_index}:{component_digest}:{basis_index}"
+        for component_index, (space, component_digest) in enumerate(
+            zip(spaces, component_digests, strict=True)
+        )
+        for basis_index in range(space.dimension)
+    )
+    return VectorSpace(
+        f"SparseDirectSum:{digest.hexdigest()}",
+        basis,
+        scalar_type,
     )
 
 
@@ -101,6 +145,10 @@ class SparseMap:
             for column, block in enumerate(row):
                 if block.domain != column_domains[column]:
                     raise ValueError("sparse block domains are incompatible")
+        for row_index, row in enumerate(blocks):
+            for block in row:
+                if block.codomain != row_codomains[row_index]:
+                    raise ValueError("sparse block codomains are incompatible")
         column_offsets = []
         offset = 0
         for domain in column_domains:
@@ -114,12 +162,8 @@ class SparseMap:
                     for local_column, value in block.rows[local_row]:
                         row[column_offset + local_column] = value
                 rows.append(row)
-        domain = column_domains[0]
-        for component in column_domains[1:]:
-            domain = domain.direct_sum(component)
-        codomain = row_codomains[0]
-        for component in row_codomains[1:]:
-            codomain = codomain.direct_sum(component)
+        domain = _compact_sparse_direct_sum(column_domains)
+        codomain = _compact_sparse_direct_sum(row_codomains)
         return cls(domain, codomain, _freeze_rows(rows))
 
     def scale(self, scalar: object) -> SparseMap:
@@ -398,10 +442,7 @@ def _sparse_equation_map(
 def _sparse_direct_sum_space(spaces: tuple[VectorSpace, ...]) -> VectorSpace:
     """Build one ordered direct-sum basis."""
 
-    result = spaces[0]
-    for space in spaces[1:]:
-        result = result.direct_sum(space)
-    return result
+    return _compact_sparse_direct_sum(spaces)
 
 
 @dataclass(frozen=True, slots=True)

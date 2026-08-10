@@ -69,6 +69,12 @@ def test_sparse_line_bundle_reproduces_small_koszul_shapes() -> None:
     assert fiber.squared_zero
     assert [trivial.space(degree).dimension for degree in range(4)] == [1, 0, 0, 1]
     assert [fiber.space(degree).dimension for degree in range(4)] == [0, 0, 2, 2]
+    assert all(
+        len(label) < 80
+        for line in (trivial, fiber)
+        for degree in range(4)
+        for label in line.space(degree).basis
+    )
 
 
 def test_representative_schoen_cover_outer_ext_is_exact_and_zero() -> None:

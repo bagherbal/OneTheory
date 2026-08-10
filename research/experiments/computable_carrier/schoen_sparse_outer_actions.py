@@ -2,8 +2,8 @@
 
 Owns:
     Exact pullback-and-conjugation maps on sparse Hom cells, totalized chain-map
-    checks, order-three checks, and projective-generator commutator checks for
-    declared monomial Serre ray pairs.
+    checks, order-three checks, projective-generator commutator checks, and
+    simultaneous invariant subcomplexes for declared monomial Serre ray pairs.
 
 Depends on:
     Sparse Schoen line actions, exact presentation Hom matrices, and the
@@ -14,14 +14,15 @@ Must not:
     linearization, or promote a finite action audit to physical selection.
 
 Phase 0:
-    Hom-level cover equivariance is executable for declared pairs; quotient
-    invariant Ext and rank-four construction remain unresolved.
+    Hom-level cover equivariance, invariant Ext dimensions, and explicit
+    invariant cocycles are executable; rank-four construction remains open.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 
+from onetheory.math.homological import VectorSpace
 from onetheory.math.numbers import Eisenstein
 
 from .projective_hom_action import _presentation_term_actions
@@ -35,6 +36,7 @@ from .schoen_sparse_actions import (
 from .schoen_sparse_outer import (
     SparseMap,
     SparseOuterHom,
+    _freeze_rows,
     _sparse_line_sum_space,
     sparse_line_bundle,
 )
@@ -185,6 +187,328 @@ class SparseOuterDeckAudit:
         }
 
 
+@dataclass(frozen=True, slots=True)
+class SparseInvariantBasis:
+    """One root-normalized simultaneous P/T invariant cochain basis."""
+
+    degree: int
+    ambient: VectorSpace
+    invariant: VectorSpace
+    inclusion: SparseMap
+    orbit_roots: tuple[int, ...]
+
+
+@dataclass(frozen=True, slots=True)
+class SparseOuterInvariantAudit:
+    """Exact invariant subcomplex and its degree-one cohomology dimension."""
+
+    outer: SparseOuterHom
+    deck: SparseOuterDeckAudit
+    bases: tuple[tuple[int, SparseInvariantBasis], ...]
+    differentials: tuple[tuple[int, SparseMap], ...]
+    restrictions_exact: bool
+    squared_zero: bool
+
+    @property
+    def invariant_ext_one_dimension(self) -> int:
+        """Return exact H-one of the simultaneous invariant subcomplex."""
+
+        bases = dict(self.bases)
+        differentials = dict(self.differentials)
+        degree_one = bases[1].invariant
+        outgoing = differentials.get(
+            1,
+            SparseMap.zero(
+                degree_one,
+                bases.get(2, bases[1]).invariant,
+            ),
+        )
+        incoming = differentials.get(
+            0,
+            SparseMap.zero(
+                bases.get(0, bases[1]).invariant,
+                degree_one,
+            ),
+        )
+        return degree_one.dimension - outgoing.rank() - incoming.rank()
+
+    @property
+    def exact(self) -> bool:
+        """Return whether action, restriction, and complex gates all close."""
+
+        return self.deck.exact and self.restrictions_exact and self.squared_zero
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize the invariant dimension without claiming a cocycle basis."""
+
+        return {
+            "cover_ext_one_dimension": self.outer.cover_ext_one_dimension,
+            "invariant_cochain_dimensions": [
+                [degree, basis.invariant.dimension]
+                for degree, basis in self.bases
+            ],
+            "invariant_ext_one_dimension": self.invariant_ext_one_dimension,
+            "deck_action_exact": self.deck.exact,
+            "restrictions_exact": self.restrictions_exact,
+            "squared_zero": self.squared_zero,
+            "exact": self.exact,
+            "explicit_invariant_cocycles_computed": False,
+            "outer_extension_constructed": False,
+            "status": (
+                "exact invariant Ext dimension; cocycle representatives and "
+                "rank-four construction remain unresolved"
+            ),
+        }
+
+
+@dataclass(frozen=True, slots=True)
+class SparseInvariantCocycleBasis:
+    """Explicit invariant cohomology representatives in cover cochains."""
+
+    invariant_audit: SparseOuterInvariantAudit
+    degree: int
+    cycles: SparseMap
+    boundaries: SparseMap
+    representatives: SparseMap
+    cover_representatives: SparseMap
+    cycles_exact: bool
+    quotient_exact: bool
+    cover_cycles_exact: bool
+
+    @property
+    def exact(self) -> bool:
+        """Return whether cycle, quotient, and ambient-cover gates close."""
+
+        return (
+            self.invariant_audit.exact
+            and self.cycles_exact
+            and self.quotient_exact
+            and self.cover_cycles_exact
+        )
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize root-normalized cocycles in the ambient cover basis."""
+
+        representatives = []
+        for column in range(self.cover_representatives.domain.dimension):
+            terms = []
+            for row_index, row in enumerate(self.cover_representatives.rows):
+                for source_column, coefficient in row:
+                    if source_column == column:
+                        terms.append(
+                            {
+                                "basis_index": row_index,
+                                "basis_label": self.cover_representatives.codomain.basis[
+                                    row_index
+                                ],
+                                "coefficient": str(coefficient),
+                            }
+                        )
+            representatives.append(
+                {
+                    "name": self.cover_representatives.domain.basis[column],
+                    "terms": terms,
+                }
+            )
+        return {
+            "degree": self.degree,
+            "dimension": self.representatives.domain.dimension,
+            "ambient_basis_name": self.cover_representatives.codomain.name,
+            "ambient_basis_dimension": self.cover_representatives.codomain.dimension,
+            "representatives": representatives,
+            "cycles_exact": self.cycles_exact,
+            "quotient_exact": self.quotient_exact,
+            "cover_cycles_exact": self.cover_cycles_exact,
+            "exact": self.exact,
+            "outer_extension_constructed": False,
+            "status": (
+                "explicit invariant cover cocycles; automorphism orbits and "
+                "rank-four construction remain unresolved"
+            ),
+        }
+
+
+def _monomial_images(action: SparseMap) -> tuple[tuple[int, Eisenstein], ...]:
+    """Extract target indices and scalars from one exact monomial action."""
+
+    if action.domain != action.codomain:
+        raise ValueError("a monomial action must be an endomorphism")
+    images: list[tuple[int, Eisenstein] | None] = [
+        None for _ in range(action.domain.dimension)
+    ]
+    for row_index, row in enumerate(action.rows):
+        if len(row) != 1:
+            raise ValueError("a monomial action must have one entry per row")
+        column, coefficient = row[0]
+        if coefficient.is_zero() or images[column] is not None:
+            raise ValueError("a monomial action must permute basis lines")
+        images[column] = (row_index, coefficient)
+    if any(image is None for image in images):
+        raise ValueError("a monomial action must have one entry per column")
+    return tuple(image for image in images if image is not None)
+
+
+def _simultaneous_invariant_basis(
+    degree: int,
+    p_action: SparseMap,
+    t_action: SparseMap,
+) -> SparseInvariantBasis:
+    """Construct exact root-normalized common fixed vectors orbit by orbit."""
+
+    if p_action.domain != t_action.domain or p_action.codomain != t_action.codomain:
+        raise ValueError("simultaneous actions require one common cochain space")
+    ambient = p_action.domain
+    p_images = _monomial_images(p_action)
+    t_images = _monomial_images(t_action)
+    visited = [False for _ in range(ambient.dimension)]
+    invariant_orbits: list[tuple[int, dict[int, Eisenstein]]] = []
+    for root in range(ambient.dimension):
+        if visited[root]:
+            continue
+        coefficients = {root: Eisenstein(1)}
+        stack = [root]
+        consistent = True
+        while stack:
+            source = stack.pop()
+            source_coefficient = coefficients[source]
+            for images in (p_images, t_images):
+                target, action_coefficient = images[source]
+                expected = action_coefficient * source_coefficient
+                existing = coefficients.get(target)
+                if existing is None:
+                    coefficients[target] = expected
+                    stack.append(target)
+                elif existing != expected:
+                    consistent = False
+        for index in coefficients:
+            if visited[index]:
+                raise ValueError("monomial action orbits overlap inconsistently")
+            visited[index] = True
+        if consistent:
+            invariant_orbits.append((root, coefficients))
+    invariant = VectorSpace(
+        f"{ambient.name}:P,T-invariant",
+        tuple(f"orbit:{root}" for root, _ in invariant_orbits),
+        Eisenstein,
+    )
+    rows: list[dict[int, Eisenstein]] = [
+        {} for _ in range(ambient.dimension)
+    ]
+    for column, (_, coefficients) in enumerate(invariant_orbits):
+        for row, coefficient in coefficients.items():
+            rows[row][column] = coefficient
+    inclusion = SparseMap(invariant, ambient, _freeze_rows(rows))
+    return SparseInvariantBasis(
+        degree,
+        ambient,
+        invariant,
+        inclusion,
+        tuple(root for root, _ in invariant_orbits),
+    )
+
+
+def _restrict_to_invariants(
+    differential: SparseMap,
+    source: SparseInvariantBasis,
+    target: SparseInvariantBasis,
+) -> SparseMap:
+    """Restrict one equivariant differential to root-normalized fixed bases."""
+
+    image = differential.compose(source.inclusion)
+    restricted = SparseMap(
+        source.invariant,
+        target.invariant,
+        tuple(image.rows[root] for root in target.orbit_roots),
+    )
+    if target.inclusion.compose(restricted) != image:
+        raise ValueError("equivariant differential escaped the invariant subspace")
+    return restricted
+
+
+def _columns(map_: SparseMap) -> list[dict[int, Eisenstein]]:
+    """Return mutable sparse columns for one immutable sparse map."""
+
+    columns: list[dict[int, Eisenstein]] = [
+        {} for _ in range(map_.domain.dimension)
+    ]
+    for row_index, row in enumerate(map_.rows):
+        for column, coefficient in row:
+            columns[column][row_index] = coefficient
+    return columns
+
+
+def _insert_independent_column(
+    column: dict[int, Eisenstein],
+    pivots: dict[int, dict[int, Eisenstein]],
+) -> bool:
+    """Insert one column into an exact sparse span when independent."""
+
+    vector = dict(column)
+    while vector:
+        pivot = min(vector)
+        coefficient = vector[pivot]
+        existing = pivots.get(pivot)
+        if existing is None:
+            inverse = Eisenstein(1) / coefficient
+            pivots[pivot] = {
+                row: value * inverse for row, value in vector.items()
+            }
+            return True
+        for row, value in existing.items():
+            updated = vector.get(row, Eisenstein(0)) - coefficient * value
+            if updated.is_zero():
+                vector.pop(row, None)
+            else:
+                vector[row] = updated
+    return False
+
+
+def _cohomology_complement_columns(
+    boundaries: SparseMap,
+    cycles: SparseMap,
+) -> tuple[int, ...]:
+    """Select cycle columns extending the exact boundary image basis."""
+
+    if boundaries.codomain != cycles.codomain:
+        raise ValueError("cycles and boundaries require one common cochain space")
+    pivots: dict[int, dict[int, Eisenstein]] = {}
+    boundary_columns = _columns(boundaries)
+    for column in sorted(boundary_columns, key=len):
+        _insert_independent_column(column, pivots)
+    selected = []
+    for index, column in enumerate(_columns(cycles)):
+        if _insert_independent_column(column, pivots):
+            selected.append(index)
+    return tuple(selected)
+
+
+def _select_columns(
+    map_: SparseMap,
+    selected: tuple[int, ...],
+    name: str,
+) -> SparseMap:
+    """Return one exact sparse map containing selected source columns."""
+
+    selected_indices = {column: index for index, column in enumerate(selected)}
+    domain = VectorSpace(
+        name,
+        tuple(f"class:{index}" for index in range(len(selected))),
+        Eisenstein,
+    )
+    return SparseMap(
+        domain,
+        map_.codomain,
+        _freeze_rows(
+            {
+                selected_indices[column]: coefficient
+                for column, coefficient in row
+                if column in selected_indices
+            }
+            for row in map_.rows
+        ),
+    )
+
+
 def _chain_map_gate(
     outer: SparseOuterHom,
     components: dict[int, SparseMap],
@@ -290,4 +614,123 @@ def sparse_outer_deck_audit(outer: SparseOuterHom) -> SparseOuterDeckAudit:
     return result
 
 
-__all__ = ["SparseOuterDeckAudit", "sparse_outer_deck_audit"]
+def sparse_outer_invariant_audit(
+    outer: SparseOuterHom,
+) -> SparseOuterInvariantAudit:
+    """Build the exact common-fixed subcomplex and its invariant Ext-one."""
+
+    deck = sparse_outer_deck_audit(outer)
+    if not deck.exact:
+        raise ValueError("invariant cohomology requires exact commuting deck actions")
+    p_components = dict(deck.p_components)
+    t_components = dict(deck.t_components)
+    bases = {
+        degree: _simultaneous_invariant_basis(
+            degree,
+            p_components[degree],
+            t_components[degree],
+        )
+        for degree in sorted(p_components)
+    }
+    for degree, basis in bases.items():
+        if (
+            p_components[degree].compose(basis.inclusion) != basis.inclusion
+            or t_components[degree].compose(basis.inclusion) != basis.inclusion
+        ):
+            raise ValueError("constructed invariant basis is not pointwise fixed")
+    differentials = {
+        degree: _restrict_to_invariants(
+            differential,
+            bases[degree],
+            bases[degree + 1],
+        )
+        for degree, differential in outer.total_differentials
+        if degree + 1 in bases
+    }
+    squared_zero = all(
+        differentials[degree + 1].compose(differential).is_zero()
+        for degree, differential in differentials.items()
+        if degree + 1 in differentials
+    )
+    return SparseOuterInvariantAudit(
+        outer,
+        deck,
+        tuple(sorted(bases.items())),
+        tuple(sorted(differentials.items())),
+        True,
+        squared_zero,
+    )
+
+
+def sparse_outer_invariant_cocycles(
+    invariant_audit: SparseOuterInvariantAudit,
+    degree: int = 1,
+) -> SparseInvariantCocycleBasis:
+    """Construct explicit invariant cocycles modulo exact boundaries."""
+
+    if not invariant_audit.exact:
+        raise ValueError("explicit cocycles require an exact invariant subcomplex")
+    bases = dict(invariant_audit.bases)
+    if degree not in bases:
+        raise ValueError("requested cohomology degree is absent")
+    differentials = dict(invariant_audit.differentials)
+    cochains = bases[degree].invariant
+    outgoing = differentials.get(
+        degree,
+        SparseMap.zero(
+            cochains,
+            VectorSpace(f"zero:{degree + 1}", (), Eisenstein),
+        ),
+    )
+    boundaries = differentials.get(
+        degree - 1,
+        SparseMap.zero(
+            VectorSpace(f"zero:{degree - 1}", (), Eisenstein),
+            cochains,
+        ),
+    )
+    cycles = outgoing.kernel_inclusion()
+    selected = _cohomology_complement_columns(boundaries, cycles)
+    representatives = _select_columns(
+        cycles,
+        selected,
+        f"H^{degree}:P,T-invariant",
+    )
+    cover_representatives = bases[degree].inclusion.compose(representatives)
+    expected_dimension = (
+        cochains.dimension - outgoing.rank() - boundaries.rank()
+    )
+    combined = SparseMap.block(((boundaries, representatives),))
+    cycles_exact = outgoing.compose(cycles).is_zero()
+    quotient_exact = (
+        representatives.domain.dimension == expected_dimension
+        and combined.rank()
+        == boundaries.rank() + representatives.domain.dimension
+    )
+    outer_differentials = dict(invariant_audit.outer.total_differentials)
+    cover_cycles_exact = (
+        degree not in outer_differentials
+        or outer_differentials[degree].compose(cover_representatives).is_zero()
+    )
+    return SparseInvariantCocycleBasis(
+        invariant_audit,
+        degree,
+        cycles,
+        boundaries,
+        representatives,
+        cover_representatives,
+        cycles_exact,
+        quotient_exact,
+        cover_cycles_exact,
+    )
+
+
+__all__ = [
+    "SparseInvariantBasis",
+    "SparseInvariantCocycleBasis",
+    "SparseOuterDeckAudit",
+    "SparseOuterInvariantAudit",
+    "sparse_outer_deck_audit",
+    "sparse_outer_invariant_audit",
+    "sparse_outer_invariant_cocycles",
+]

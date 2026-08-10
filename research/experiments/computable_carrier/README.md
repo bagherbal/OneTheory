@@ -541,6 +541,15 @@ an outer extension. In particular, the nonzero cover spaces prevent a
 cover-level no-go while making no claim that a descended rank-four class
 exists.
 
+The first nonzero quotient prototype is now exact for candidate 3 and its
+first ordered eigenray pair. Its 36-dimensional cover Ext-one space restricts
+to a four-dimensional simultaneous P/T invariant subspace. Four explicit
+root-normalized ambient cocycles, each with twelve nonzero terms, pass the
+invariant quotient and cover-cycle checks and are pinned by a canonical
+digest. This is one reproducible witness that the quotient gate can be
+nonzero; the remaining 1,439 pairs, automorphism orbits, mapping cone,
+rank-four local freeness, stability, and spectrum are not inferred from it.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

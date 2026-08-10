@@ -193,6 +193,71 @@ class SparseMap:
                         vector[row] = updated
         return rank
 
+    def kernel_inclusion(self) -> SparseMap:
+        """Return an exact sparse basis inclusion for this map's kernel."""
+
+        pivot_vectors: dict[
+            int,
+            tuple[dict[int, Eisenstein], dict[int, Eisenstein]],
+        ] = {}
+        columns: list[dict[int, Eisenstein]] = [
+            {} for _ in range(self.domain.dimension)
+        ]
+        for row_index, row in enumerate(self.rows):
+            for column, value in row:
+                columns[column][row_index] = value
+        relations: list[dict[int, Eisenstein]] = []
+        for column in sorted(range(len(columns)), key=lambda index: len(columns[index])):
+            vector = columns[column]
+            relation = {column: Eisenstein(1)}
+            while vector:
+                pivot = min(vector)
+                coefficient = vector[pivot]
+                existing = pivot_vectors.get(pivot)
+                if existing is None:
+                    inverse = Eisenstein(1) / coefficient
+                    pivot_vectors[pivot] = (
+                        {
+                            row: value * inverse
+                            for row, value in vector.items()
+                        },
+                        {
+                            index: value * inverse
+                            for index, value in relation.items()
+                        },
+                    )
+                    break
+                pivot_vector, pivot_relation = existing
+                for row, value in pivot_vector.items():
+                    updated = vector.get(row, Eisenstein(0)) - coefficient * value
+                    if updated.is_zero():
+                        vector.pop(row, None)
+                    else:
+                        vector[row] = updated
+                for index, value in pivot_relation.items():
+                    updated = relation.get(index, Eisenstein(0)) - coefficient * value
+                    if updated.is_zero():
+                        relation.pop(index, None)
+                    else:
+                        relation[index] = updated
+            if not vector:
+                relations.append(relation)
+        kernel = VectorSpace(
+            f"kernel:{self.domain.name}->{self.codomain.name}",
+            tuple(f"relation:{index}" for index in range(len(relations))),
+            Eisenstein,
+        )
+        rows: list[dict[int, Eisenstein]] = [
+            {} for _ in range(self.domain.dimension)
+        ]
+        for kernel_column, relation in enumerate(relations):
+            for domain_row, coefficient in relation.items():
+                rows[domain_row][kernel_column] = coefficient
+        inclusion = SparseMap(kernel, self.domain, _freeze_rows(rows))
+        if not self.compose(inclusion).is_zero():
+            raise ValueError("sparse kernel elimination produced a noncycle")
+        return inclusion
+
 
 @cache
 def _sparse_factor_map(

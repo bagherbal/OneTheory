@@ -1,8 +1,8 @@
-"""Test sparse exact cover maps and one outer Hom certificate.
+"""Test sparse exact cover maps, deck invariants, and explicit cocycles.
 
 Owns:
     Regression checks for sparse exact rank, sparse Koszul square-zero, and a
-    representative full Schoen cover outer totalization.
+    representative full Schoen cover totalization with invariant cocycles.
 
 Depends on:
     The research-only sparse cover calculation and declared monomial rays.
@@ -12,8 +12,11 @@ Must not:
     rank-four physical extension.
 
 Phase 0:
-    The sparse calculation is a cover-level gate; quotient action remains open.
+    Invariant cover cocycles are exact; no rank-four extension is constructed.
 """
+
+import json
+from hashlib import sha256
 
 from onetheory.math.homological import VectorSpace
 from onetheory.math.numbers import Eisenstein
@@ -24,9 +27,15 @@ from research.experiments.computable_carrier.schoen_sparse_outer import (
 )
 from research.experiments.computable_carrier.schoen_sparse_outer_actions import (
     sparse_outer_deck_audit,
+    sparse_outer_invariant_audit,
+    sparse_outer_invariant_cocycles,
 )
 from research.experiments.computable_carrier.tier_b_monomial_topology import (
     tier_b_monomial_topology_screen,
+)
+from research.experiments.computable_carrier.tier_b_schoen_outer_full import (
+    _clear_worker_caches,
+    declared_schoen_outer_candidate_data,
 )
 from research.experiments.computable_carrier.tier_b_serre_extensions import (
     tier_b_serre_eigenrays,
@@ -45,6 +54,9 @@ def test_sparse_rank_uses_exact_eisenstein_column_elimination() -> None:
     )
 
     assert matrix.rank() == 2
+    kernel = matrix.kernel_inclusion()
+    assert kernel.domain.dimension == 1
+    assert matrix.compose(kernel).is_zero()
 
 
 def test_sparse_line_bundle_reproduces_small_koszul_shapes() -> None:
@@ -62,6 +74,7 @@ def test_sparse_line_bundle_reproduces_small_koszul_shapes() -> None:
 def test_representative_schoen_cover_outer_ext_is_exact_and_zero() -> None:
     """One surviving topology has a certified vanishing cover Ext-one."""
 
+    _clear_worker_caches()
     topology = tier_b_monomial_topology_screen().surviving_topology_candidates[0]
     left_rays = tier_b_serre_eigenrays(target_line_shift=-6)
     right_rays = tier_b_serre_eigenrays(target_line_shift=0)
@@ -87,3 +100,44 @@ def test_representative_schoen_cover_outer_ext_is_exact_and_zero() -> None:
     assert outer.cover_ext_one_dimension == 0
     action = sparse_outer_deck_audit(outer)
     assert action.exact
+    _clear_worker_caches()
+
+
+def test_nonzero_cover_ext_has_explicit_invariant_cocycles() -> None:
+    """The smallest nonzero cover case has four exact invariant classes."""
+
+    _clear_worker_caches()
+    candidate_index, candidate, left_rays, right_rays = (
+        declared_schoen_outer_candidate_data()[2]
+    )
+    outer = sparse_outer_hom(
+        left_rays[0],
+        right_rays[0],
+        candidate.left_factor,
+        candidate.left_twist,
+        candidate.right_factor,
+        candidate.right_twist,
+    )
+    invariant = sparse_outer_invariant_audit(outer)
+    cocycles = sparse_outer_invariant_cocycles(invariant)
+    record = cocycles.as_record()
+
+    assert candidate_index == 3
+    assert outer.cover_ext_one_dimension == 36
+    assert [
+        basis.invariant.dimension for _, basis in invariant.bases
+    ] == [0, 0, 60, 146, 90, 8]
+    assert invariant.invariant_ext_one_dimension == 4
+    assert cocycles.representatives.domain.dimension == 4
+    assert [len(item["terms"]) for item in record["representatives"]] == [
+        12,
+        12,
+        12,
+        12,
+    ]
+    assert cocycles.exact
+    canonical = json.dumps(record, sort_keys=True, separators=(",", ":"))
+    assert sha256(canonical.encode("utf-8")).hexdigest() == (
+        "5a4170e86bfebacd34f8ec7a2a0d5ea3a23eb7d9858615cd151627682442544c"
+    )
+    _clear_worker_caches()

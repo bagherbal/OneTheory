@@ -166,34 +166,49 @@ def test_invariant_screen_reuses_certified_cover_dimensions_serially() -> None:
     assert first_pending[-1] == 36
 
 
-def test_first_invariant_pair_checkpoint_is_compact_and_content_addressed() -> None:
-    """The first nonzero pair persists reconstructible cocycles without label bloat."""
+def test_first_invariant_candidate_is_compact_and_content_addressed() -> None:
+    """Candidate 3 persists all cocycles without recursive basis-label bloat."""
 
     checkpoint = json.loads(INVARIANT_CHECKPOINT_PATH.read_text(encoding="utf-8"))
-    record = checkpoint["completed_pairs"]["73"]
-    digest = record.pop("certificate_digest")
-    canonical = json.dumps(record, sort_keys=True, separators=(",", ":"))
-    cocycles = record["cocycle_basis"]
+    records = [
+        checkpoint["completed_pairs"][str(index)]
+        for index in range(73, 109)
+    ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 1
-    assert sha256(canonical.encode("utf-8")).hexdigest() == digest
-    assert record["global_pair_index"] == 73
-    assert record["candidate_index"] == 3
-    assert record["invariant_subcomplex"]["cover_ext_one_dimension"] == 36
-    assert record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 4
-    assert cocycles["dimension"] == 4
-    assert cocycles["ambient_basis"]["dimension"] == 540
-    assert [len(item["terms"]) for item in cocycles["representatives"]] == [
-        12,
-        12,
-        12,
-        12,
-    ]
+    assert checkpoint["completed_pair_count"] == 36
+    assert all(record["candidate_index"] == 3 for record in records)
+    assert all(
+        record["invariant_subcomplex"]["cover_ext_one_dimension"] == 36
+        for record in records
+    )
+    assert all(
+        record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 4
+        for record in records
+    )
+    assert all(record["cocycle_basis"]["dimension"] == 4 for record in records)
+    assert all(
+        record["cocycle_basis"]["ambient_basis"]["dimension"] == 540
+        for record in records
+    )
+    assert all(
+        [
+            len(item["terms"])
+            for item in record["cocycle_basis"]["representatives"]
+        ]
+        == [12, 12, 12, 12]
+        for record in records
+    )
     assert all(
         "basis_coordinate" in term and "basis_label" not in term
-        for representative in cocycles["representatives"]
+        for record in records
+        for representative in record["cocycle_basis"]["representatives"]
         for term in representative["terms"]
     )
-    assert record["exact"] is True
+    for record in records:
+        payload = dict(record)
+        digest = payload.pop("certificate_digest")
+        canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"))
+        assert sha256(canonical.encode("utf-8")).hexdigest() == digest
+        assert payload["exact"] is True

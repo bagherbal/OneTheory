@@ -175,11 +175,16 @@ def test_smallest_invariant_frontier_is_compact_and_content_addressed() -> None:
         for indices in (range(73, 109), range(793, 829))
         for index in indices
     ]
-    dimension_54 = checkpoint["completed_pairs"]["472"]
+    completed_records = list(checkpoint["completed_pairs"].values())
+    dimension_54 = [
+        record
+        for record in completed_records
+        if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 54
+    ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 73
+    assert checkpoint["completed_pair_count"] == 108
     assert Counter(record["candidate_index"] for record in records) == {
         3: 36,
         23: 36,
@@ -211,19 +216,35 @@ def test_smallest_invariant_frontier_is_compact_and_content_addressed() -> None:
         for representative in record["cocycle_basis"]["representatives"]
         for term in representative["terms"]
     )
-    for record in (*records, dimension_54):
+    for record in completed_records:
         payload = dict(record)
         digest = payload.pop("certificate_digest")
         canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"))
         assert sha256(canonical.encode("utf-8")).hexdigest() == digest
         assert payload["exact"] is True
-    assert dimension_54["global_pair_index"] == 472
-    assert dimension_54["candidate_pair_index"] == 4
-    assert dimension_54["candidate_index"] == 14
-    assert dimension_54["invariant_subcomplex"]["cover_ext_one_dimension"] == 54
-    assert dimension_54["invariant_subcomplex"]["invariant_ext_one_dimension"] == 6
-    assert dimension_54["cocycle_basis"]["ambient_basis"]["dimension"] == 2142
-    assert [
-        len(item["terms"])
-        for item in dimension_54["cocycle_basis"]["representatives"]
-    ] == [3, 3, 3, 3, 6, 6]
+    assert len(dimension_54) == 36
+    assert Counter(record["candidate_index"] for record in dimension_54) == {
+        14: 18,
+        34: 18,
+    }
+    assert {
+        record["candidate_pair_index"]
+        for record in dimension_54
+        if record["candidate_index"] == 14
+    } == {4, 5, 6, 10, 11, 12, 16, 17, 18, 19, 20, 21, 25, 26, 27, 31, 32, 33}
+    assert all(
+        record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 6
+        for record in dimension_54
+    )
+    assert all(
+        record["cocycle_basis"]["ambient_basis"]["dimension"] == 2142
+        for record in dimension_54
+    )
+    assert all(
+        [
+            len(item["terms"])
+            for item in record["cocycle_basis"]["representatives"]
+        ]
+        == [3, 3, 3, 3, 6, 6]
+        for record in dimension_54
+    )

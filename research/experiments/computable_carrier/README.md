@@ -563,13 +563,16 @@ two candidates, but no chain isomorphism or action equivalence is inferred
 from that repetition. This is 72 of 1,440 required pair certificates, not a
 complete quotient screen or permission to construct a rank-four candidate.
 
-The first dimension-54 cover case, candidate 14 pair 4, has invariant
-Ext-one dimension six with representative support sizes `(3,3,3,3,6,6)`.
-Its 2,142-dimensional total-degree-one basis exposed recursive in-memory label
-bloat: content-addressing sparse direct-sum components reduced measured peak
-RSS from 3,300,312 KB to 97,756 KB while preserving the complete pair record
-and certificate digest exactly. This engineering reduction changes no basis
-order, differential, rank, class, or scientific gate.
+The dimension-54 cover frontier is also complete. Candidates 14 and 34 each
+contribute the same 18 declared pair positions. All 36 spaces restrict to
+invariant Ext-one dimension six with representative support sizes
+`(3,3,3,3,6,6)`. The first case's 2,142-dimensional total-degree-one basis
+exposed recursive in-memory label bloat: content-addressing sparse direct-sum
+components reduced measured peak RSS from 3,300,312 KB to 97,756 KB while
+preserving the complete pair record and certificate digest exactly. The
+subsequent 35-pair batch peaked at 144,412 KB with no swap. This engineering
+reduction changes no basis order, differential, rank, class, or scientific
+gate. The invariant ledger now contains 108 of 1,440 required pairs.
 
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or

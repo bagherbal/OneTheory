@@ -530,6 +530,17 @@ SageMath independently verifies the full Fitting covers and projective
 cocycles. No outer class, rank-four bundle, stability chamber, spectrum, or
 physical selection has been constructed.
 
+The exhaustive Schoen-cover outer screen now evaluates all 1,440 surviving
+topology/eigenray pairs with exact sparse totalizations. Every differential
+squares to zero. Cover Ext-one vanishes for 360 pairs and is nonzero for 1,080
+pairs, with exact dimensions ranging from 36 to 1,134. The content-addressed
+artifact records every ray identity and the complete dimension distribution.
+This closes the declared cover-level computation but does not compute the
+quotient-invariant Ext subspaces, construct invariant cocycles, or establish
+an outer extension. In particular, the nonzero cover spaces prevent a
+cover-level no-go while making no claim that a descended rank-four class
+exists.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

@@ -206,31 +206,10 @@ class SparseOuterInvariantAudit:
     deck: SparseOuterDeckAudit
     bases: tuple[tuple[int, SparseInvariantBasis], ...]
     differentials: tuple[tuple[int, SparseMap], ...]
+    cover_ext_one_dimension: int
+    invariant_ext_one_dimension: int
     restrictions_exact: bool
     squared_zero: bool
-
-    @property
-    def invariant_ext_one_dimension(self) -> int:
-        """Return exact H-one of the simultaneous invariant subcomplex."""
-
-        bases = dict(self.bases)
-        differentials = dict(self.differentials)
-        degree_one = bases[1].invariant
-        outgoing = differentials.get(
-            1,
-            SparseMap.zero(
-                degree_one,
-                bases.get(2, bases[1]).invariant,
-            ),
-        )
-        incoming = differentials.get(
-            0,
-            SparseMap.zero(
-                bases.get(0, bases[1]).invariant,
-                degree_one,
-            ),
-        )
-        return degree_one.dimension - outgoing.rank() - incoming.rank()
 
     @property
     def exact(self) -> bool:
@@ -242,7 +221,7 @@ class SparseOuterInvariantAudit:
         """Serialize the invariant dimension without claiming a cocycle basis."""
 
         return {
-            "cover_ext_one_dimension": self.outer.cover_ext_one_dimension,
+            "cover_ext_one_dimension": self.cover_ext_one_dimension,
             "invariant_cochain_dimensions": [
                 [degree, basis.invariant.dimension]
                 for degree, basis in self.bases
@@ -287,8 +266,12 @@ class SparseInvariantCocycleBasis:
         )
 
     def as_record(self) -> dict[str, object]:
-        """Serialize root-normalized cocycles in the ambient cover basis."""
+        """Serialize root-normalized cocycles in compact structural coordinates."""
 
+        basis_coordinates = _total_basis_coordinates(
+            self.invariant_audit.outer,
+            self.degree,
+        )
         representatives = []
         for column in range(self.cover_representatives.domain.dimension):
             terms = []
@@ -298,9 +281,9 @@ class SparseInvariantCocycleBasis:
                         terms.append(
                             {
                                 "basis_index": row_index,
-                                "basis_label": self.cover_representatives.codomain.basis[
-                                    row_index
-                                ],
+                                "basis_coordinate": _basis_coordinate_record(
+                                    basis_coordinates[row_index]
+                                ),
                                 "coefficient": str(coefficient),
                             }
                         )
@@ -313,8 +296,23 @@ class SparseInvariantCocycleBasis:
         return {
             "degree": self.degree,
             "dimension": self.representatives.domain.dimension,
-            "ambient_basis_name": self.cover_representatives.codomain.name,
-            "ambient_basis_dimension": self.cover_representatives.codomain.dimension,
+            "ambient_basis": {
+                "dimension": self.cover_representatives.codomain.dimension,
+                "coordinate_schema": [
+                    "parent_degree",
+                    "sheaf_degree",
+                    "hom_term_index",
+                    "line_degree",
+                    "koszul_summand",
+                    "ambient_degree",
+                    "x_h",
+                    "u_h",
+                    "p_h",
+                    "x_monomial",
+                    "u_monomial",
+                    "p_monomial",
+                ],
+            },
             "representatives": representatives,
             "cycles_exact": self.cycles_exact,
             "quotient_exact": self.quotient_exact,
@@ -326,6 +324,94 @@ class SparseInvariantCocycleBasis:
                 "rank-four construction remain unresolved"
             ),
         }
+
+
+def _total_basis_coordinates(
+    outer: SparseOuterHom,
+    total_degree: int,
+) -> tuple[
+    tuple[
+        int,
+        int,
+        int,
+        tuple[int, int, int],
+        str,
+        tuple[int, int, int],
+        tuple[int, int, int, tuple[int, ...], tuple[int, ...], tuple[int, ...]],
+    ],
+    ...,
+]:
+    """Return compact structural coordinates for one total cochain basis."""
+
+    bundles = _bundle_terms(outer)
+    coordinates = []
+    cells = sorted(
+        cell for cell in _total_cells(outer) if sum(cell) == total_degree
+    )
+    for parent_degree, sheaf_degree in cells:
+        for hom_term_index, bundle in enumerate(bundles[parent_degree]):
+            ambient_blocks = (
+                ("k0", bundle.ambient_k0.space(sheaf_degree)),
+                ("k1_x", bundle.ambient_k1_x.space(sheaf_degree + 1)),
+                ("k1_u", bundle.ambient_k1_u.space(sheaf_degree + 1)),
+                ("k2", bundle.ambient_k2.space(sheaf_degree + 2)),
+            )
+            for summand, ambient in ambient_blocks:
+                coordinates.extend(
+                    (
+                        parent_degree,
+                        sheaf_degree,
+                        hom_term_index,
+                        bundle.degrees,
+                        summand,
+                        ambient.degrees,
+                        label,
+                    )
+                    for label in ambient.labels
+                )
+    expected = outer.total[total_degree].dimension
+    if len(coordinates) != expected:
+        raise ValueError("structural coordinates do not span the total basis")
+    return tuple(coordinates)
+
+
+def _basis_coordinate_record(
+    coordinate: tuple[
+        int,
+        int,
+        int,
+        tuple[int, int, int],
+        str,
+        tuple[int, int, int],
+        tuple[int, int, int, tuple[int, ...], tuple[int, ...], tuple[int, ...]],
+    ],
+) -> list[object]:
+    """Convert one immutable structural basis coordinate to compact JSON."""
+
+    (
+        parent_degree,
+        sheaf_degree,
+        hom_term_index,
+        line_degree,
+        koszul_summand,
+        ambient_degree,
+        ambient_label,
+    ) = coordinate
+    x_h, u_h, p_h, x_monomial, u_monomial, p_monomial = ambient_label
+    return [
+        parent_degree,
+        sheaf_degree,
+        hom_term_index,
+        list(line_degree),
+        koszul_summand,
+        list(ambient_degree),
+        x_h,
+        u_h,
+        p_h,
+        list(x_monomial),
+        list(u_monomial),
+        list(p_monomial),
+    ]
 
 
 def _monomial_images(action: SparseMap) -> tuple[tuple[int, Eisenstein], ...]:
@@ -616,8 +702,19 @@ def sparse_outer_deck_audit(outer: SparseOuterHom) -> SparseOuterDeckAudit:
 
 def sparse_outer_invariant_audit(
     outer: SparseOuterHom,
+    certified_cover_ext_one_dimension: int | None = None,
 ) -> SparseOuterInvariantAudit:
     """Build the exact common-fixed subcomplex and its invariant Ext-one."""
+
+    if (
+        certified_cover_ext_one_dimension is not None
+        and (
+            isinstance(certified_cover_ext_one_dimension, bool)
+            or not isinstance(certified_cover_ext_one_dimension, int)
+            or certified_cover_ext_one_dimension < 0
+        )
+    ):
+        raise ValueError("a certified cover Ext dimension must be nonnegative")
 
     deck = sparse_outer_deck_audit(outer)
     if not deck.exact:
@@ -652,11 +749,38 @@ def sparse_outer_invariant_audit(
         for degree, differential in differentials.items()
         if degree + 1 in differentials
     )
+    degree_one = bases[1].invariant
+    outgoing = differentials.get(
+        1,
+        SparseMap.zero(
+            degree_one,
+            bases.get(2, bases[1]).invariant,
+        ),
+    )
+    incoming = differentials.get(
+        0,
+        SparseMap.zero(
+            bases.get(0, bases[1]).invariant,
+            degree_one,
+        ),
+    )
+    invariant_ext_one_dimension = (
+        degree_one.dimension - outgoing.rank() - incoming.rank()
+    )
+    if invariant_ext_one_dimension < 0:
+        raise ValueError("invariant cochain ranks violate cohomology dimensions")
+    cover_ext_one_dimension = (
+        outer.cover_ext_one_dimension
+        if certified_cover_ext_one_dimension is None
+        else certified_cover_ext_one_dimension
+    )
     return SparseOuterInvariantAudit(
         outer,
         deck,
         tuple(sorted(bases.items())),
         tuple(sorted(differentials.items())),
+        cover_ext_one_dimension,
+        invariant_ext_one_dimension,
         True,
         squared_zero,
     )
@@ -697,9 +821,7 @@ def sparse_outer_invariant_cocycles(
         f"H^{degree}:P,T-invariant",
     )
     cover_representatives = bases[degree].inclusion.compose(representatives)
-    expected_dimension = (
-        cochains.dimension - outgoing.rank() - boundaries.rank()
-    )
+    expected_dimension = invariant_audit.invariant_ext_one_dimension
     combined = SparseMap.block(((boundaries, representatives),))
     cycles_exact = outgoing.compose(cycles).is_zero()
     quotient_exact = (

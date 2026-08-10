@@ -550,6 +550,15 @@ digest. This is one reproducible witness that the quotient gate can be
 nonzero; the remaining 1,439 pairs, automorphism orbits, mapping cone,
 rank-four local freeness, stability, and spectrum are not inferred from it.
 
+That witness now seeds a resumable invariant screen tied to the verified cover
+artifact digest. Heavy pairs run serially in disposable processes and each
+completed pair is atomically checkpointed. The first record is global pair 73;
+its four cocycles use compact structural coordinates for the Hom term, Koszul
+summand, ambient degree, and Künneth monomial rather than recursively expanded
+basis labels. This controls artifact growth without discarding basis or sign
+data. The checkpoint is one of 1,440 required pair certificates, not a complete
+quotient screen or permission to construct a rank-four candidate.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

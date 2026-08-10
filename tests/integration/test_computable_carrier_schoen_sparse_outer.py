@@ -138,6 +138,6 @@ def test_nonzero_cover_ext_has_explicit_invariant_cocycles() -> None:
     assert cocycles.exact
     canonical = json.dumps(record, sort_keys=True, separators=(",", ":"))
     assert sha256(canonical.encode("utf-8")).hexdigest() == (
-        "5a4170e86bfebacd34f8ec7a2a0d5ea3a23eb7d9858615cd151627682442544c"
+        "11cb539694bb29da8415203c4381d7b78bbc576ed7a99aaf173f1b71bef94a46"
     )
     _clear_worker_caches()

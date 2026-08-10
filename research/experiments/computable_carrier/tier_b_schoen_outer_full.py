@@ -21,6 +21,7 @@ Phase 0:
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import cache
 from multiprocessing import get_context
 
 from .polynomial_hom import polynomial_hom_complex
@@ -147,6 +148,7 @@ class SchoenCoverOuterFullScreen:
         }
 
 
+@cache
 def _length_six_rays(
     target_line_shift: int,
 ) -> tuple[TierBSerreExtensionRay, ...]:
@@ -177,6 +179,7 @@ def _length_six_rays(
     )
 
 
+@cache
 def declared_schoen_outer_pairs() -> tuple[
     tuple[int, MonomialTopologyCandidate, TierBSerreExtensionRay, TierBSerreExtensionRay],
     ...,
@@ -286,6 +289,7 @@ def _audit_candidate(
         _clear_worker_caches()
 
 
+@cache
 def declared_schoen_outer_candidate_data() -> tuple[OuterCandidateData, ...]:
     """Return one deterministic worker task for every topology candidate."""
 

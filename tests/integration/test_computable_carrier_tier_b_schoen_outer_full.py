@@ -2,7 +2,8 @@
 
 Owns:
     Deterministic pair enumeration, finalized sparse cover-Hom artifact
-    integrity, checkpoint agreement, and exact dimension regressions.
+    integrity, checkpoint agreement, exact dimension regressions, and the
+    memory-bounded invariant-screen task ledger.
 
 Depends on:
     The research-only Tier B topology and Serre-eigenray enumerators.
@@ -12,8 +13,8 @@ Must not:
     or promote the declared category into a physical carrier.
 
 Phase 0:
-    The exhaustive sparse cover evaluation is exact; quotient invariant
-    cocycles and every rank-four bundle gate remain unresolved.
+    The exhaustive sparse cover evaluation is exact; one quotient cocycle
+    prototype exists while the full invariant and rank-four gates remain open.
 """
 
 import json
@@ -21,9 +22,16 @@ from collections import Counter
 from hashlib import sha256
 from pathlib import Path
 
+from research.experiments.computable_carrier.generate_tier_b_schoen_outer_invariants import (
+    _pending_order,
+    _validated_cover_dimensions,
+)
 from research.experiments.computable_carrier.tier_b_schoen_outer_full import (
     declared_schoen_outer_candidate_data,
     declared_schoen_outer_pairs,
+)
+from research.experiments.computable_carrier.tier_b_schoen_outer_invariants import (
+    declared_schoen_invariant_pair_tasks,
 )
 
 ARTIFACT_PATH = Path(
@@ -31,6 +39,9 @@ ARTIFACT_PATH = Path(
 )
 CHECKPOINT_PATH = Path(
     "data/generated/computable_carrier/tier_b_schoen_outer_full.partial.json"
+)
+INVARIANT_CHECKPOINT_PATH = Path(
+    "data/generated/computable_carrier/tier_b_schoen_outer_invariants.partial.json"
 )
 EXPECTED_EXT_DISTRIBUTION = {
     0: 360,
@@ -138,3 +149,51 @@ def test_full_cover_artifact_records_exact_ext_distribution() -> None:
     assert Counter(
         audit["cover_ext_one_dimension"] for audit in audits
     ) == EXPECTED_EXT_DISTRIBUTION
+
+
+def test_invariant_screen_reuses_certified_cover_dimensions_serially() -> None:
+    """Every quotient task binds one verified cover result by exact identity."""
+
+    digest, dimensions = _validated_cover_dimensions(ARTIFACT_PATH)
+    tasks = declared_schoen_invariant_pair_tasks(dimensions)
+    first_pending = min(tasks, key=_pending_order)
+
+    assert len(digest) == 64
+    assert len(tasks) == 1440
+    assert [task[0] for task in tasks] == list(range(1, 1441))
+    assert all(task[1] == (task[0] - 1) % 36 + 1 for task in tasks)
+    assert first_pending[0:3] == (73, 1, 3)
+    assert first_pending[-1] == 36
+
+
+def test_first_invariant_pair_checkpoint_is_compact_and_content_addressed() -> None:
+    """The first nonzero pair persists reconstructible cocycles without label bloat."""
+
+    checkpoint = json.loads(INVARIANT_CHECKPOINT_PATH.read_text(encoding="utf-8"))
+    record = checkpoint["completed_pairs"]["73"]
+    digest = record.pop("certificate_digest")
+    canonical = json.dumps(record, sort_keys=True, separators=(",", ":"))
+    cocycles = record["cocycle_basis"]
+
+    assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
+    assert checkpoint["declared_pair_count"] == 1440
+    assert checkpoint["completed_pair_count"] == 1
+    assert sha256(canonical.encode("utf-8")).hexdigest() == digest
+    assert record["global_pair_index"] == 73
+    assert record["candidate_index"] == 3
+    assert record["invariant_subcomplex"]["cover_ext_one_dimension"] == 36
+    assert record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 4
+    assert cocycles["dimension"] == 4
+    assert cocycles["ambient_basis"]["dimension"] == 540
+    assert [len(item["terms"]) for item in cocycles["representatives"]] == [
+        12,
+        12,
+        12,
+        12,
+    ]
+    assert all(
+        "basis_coordinate" in term and "basis_label" not in term
+        for representative in cocycles["representatives"]
+        for term in representative["terms"]
+    )
+    assert record["exact"] is True

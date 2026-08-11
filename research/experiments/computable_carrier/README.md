@@ -582,6 +582,14 @@ with support pattern `(3,3,3,3,6,6,9,9)`. The 71-pair batch peaked at
 152,680 KB with no swap. Together with the lower-dimensional frontiers, the
 invariant ledger now contains 180 of 1,440 required pair certificates.
 
+The dimension-90 frontier is complete across candidates 8, 18, 28, and 38.
+Candidates 18 and 38 contribute all 36 ray pairs, while candidates 8 and 28
+contribute their 18 complementary positions. Every one of the 108 cover spaces
+restricts to invariant Ext-one dimension ten with ten three-term cocycles.
+Degree-one ambient dimensions split as 72 records of size 1,314 and 36 records
+of size 1,854. The 107-pair batch peaked at 135,772 KB with no swap. The
+invariant ledger now contains 288 of 1,440 required pair certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

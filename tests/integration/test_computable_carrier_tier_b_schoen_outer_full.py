@@ -186,10 +186,15 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
         for record in completed_records
         if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 72
     ]
+    dimension_90 = [
+        record
+        for record in completed_records
+        if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 90
+    ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 180
+    assert checkpoint["completed_pair_count"] == 288
     assert Counter(record["candidate_index"] for record in records) == {
         3: 36,
         23: 36,
@@ -266,6 +271,29 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
         (3, 3, 3, 3, 3, 3, 3, 3): 36,
         (3, 3, 3, 3, 6, 6, 9, 9): 36,
     }
+    assert len(dimension_90) == 108
+    assert Counter(record["candidate_index"] for record in dimension_90) == {
+        8: 18,
+        18: 36,
+        28: 18,
+        38: 36,
+    }
+    assert all(
+        record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 10
+        for record in dimension_90
+    )
+    assert Counter(
+        record["cocycle_basis"]["ambient_basis"]["dimension"]
+        for record in dimension_90
+    ) == {1314: 72, 1854: 36}
+    assert all(
+        tuple(
+            len(item["terms"])
+            for item in record["cocycle_basis"]["representatives"]
+        )
+        == (3, 3, 3, 3, 3, 3, 3, 3, 3, 3)
+        for record in dimension_90
+    )
     assert all(
         record["cocycle_basis"]["ambient_basis"]["dimension"] == 2142
         for record in dimension_54

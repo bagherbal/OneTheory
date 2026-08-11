@@ -729,6 +729,17 @@ each ending in six 42-term representatives. The 35-pair batch peaked at
 2,105,048 KB with no swap. The invariant ledger now contains 1,008 of 1,440
 required pair certificates.
 
+The dimension-1134 frontier is complete across all 36 ray positions of
+candidates 20 and 40. All 72 cover spaces restrict to invariant Ext-one
+dimension 126 with invariant cochain dimensions
+`(40,922,1266,300,0,0)` and an 11,394-dimensional degree-one ambient space.
+Their cocycle bases share a 58-class support prefix and split into two
+18-record and four nine-record exact tail patterns. The candidate-bounded
+35-pair batches peaked at 2,557,784 KB and 3,029,084 KB with no swap. The
+invariant ledger now contains 1,080 of 1,440 required pair certificates, so
+every positive-dimensional cover Ext-one space has explicit invariant
+cocycles. The remaining 360 pairs have zero cover Ext-one dimension.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

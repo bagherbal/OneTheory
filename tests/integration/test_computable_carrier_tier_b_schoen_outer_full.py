@@ -13,8 +13,9 @@ Must not:
     or promote the declared category into a physical carrier.
 
 Phase 0:
-    The exhaustive sparse cover evaluation is exact; one quotient cocycle
-    prototype exists while the full invariant and rank-four gates remain open.
+    The exhaustive sparse cover evaluation and every positive-dimensional
+    invariant cocycle frontier are exact; zero records and rank-four gates
+    remain open.
 """
 
 import json
@@ -271,10 +272,15 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
         for record in completed_records
         if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 1044
     ]
+    dimension_1134 = [
+        record
+        for record in completed_records
+        if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 1134
+    ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 1008
+    assert checkpoint["completed_pair_count"] == 1080
     assert Counter(record["candidate_index"] for record in records) == {
         3: 36,
         23: 36,
@@ -1270,6 +1276,264 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
         + (18,) * 30
         + (12,) * 6
         + (42,) * 6: 9,
+    }
+    assert len(dimension_1134) == 72
+    assert Counter(record["candidate_index"] for record in dimension_1134) == {
+        20: 36,
+        40: 36,
+    }
+    assert all(
+        record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 126
+        for record in dimension_1134
+    )
+    assert all(
+        record["invariant_subcomplex"]["invariant_cochain_dimensions"]
+        == [[-1, 40], [0, 922], [1, 1266], [2, 300], [3, 0], [4, 0]]
+        for record in dimension_1134
+    )
+    assert all(
+        record["cocycle_basis"]["ambient_basis"]["dimension"] == 11394
+        for record in dimension_1134
+    )
+    support_prefix_1134 = (3,) * 50 + (9,) * 8
+    candidate_20_middle_1134 = (
+        (21, 24, 27, 33) * 2
+        + (48, 57, 60) * 2
+        + (42, 51, 54) * 2
+        + (45, 45, 51, 54) * 2
+        + (33, 36, 51, 54) * 2
+    )
+    assert Counter(
+        tuple(
+            len(item["terms"])
+            for item in record["cocycle_basis"]["representatives"]
+        )
+        for record in dimension_1134
+    ) == {
+        support_prefix_1134
+        + (9,) * 8
+        + (15,) * 16
+        + candidate_20_middle_1134
+        + (57, 60, 81, 87) * 2: 18,
+        support_prefix_1134
+        + (15,) * 8
+        + (9,) * 8
+        + (15,) * 8
+        + candidate_20_middle_1134
+        + (54, 57, 75, 81) * 2: 18,
+        support_prefix_1134
+        + (9,) * 4
+        + (15,) * 8
+        + (21,) * 4
+        + (15,) * 4
+        + (18,)
+        + (15,) * 3
+        + (
+            24,
+            27,
+            30,
+            33,
+            24,
+            27,
+            30,
+            33,
+            48,
+            57,
+            60,
+            45,
+            57,
+            51,
+            39,
+            48,
+            51,
+            42,
+            42,
+            51,
+            54,
+            54,
+            54,
+            57,
+            60,
+            54,
+            54,
+            57,
+            60,
+            42,
+            51,
+            54,
+            33,
+            36,
+            51,
+            54,
+            63,
+            69,
+            78,
+            84,
+            45,
+            51,
+            54,
+            57,
+        ): 9,
+        support_prefix_1134
+        + (15,) * 4
+        + (18,)
+        + (15,) * 3
+        + (9,) * 4
+        + (15,) * 4
+        + (21,) * 4
+        + (15,) * 4
+        + (
+            24,
+            27,
+            30,
+            33,
+            24,
+            27,
+            30,
+            33,
+            42,
+            51,
+            54,
+            33,
+            36,
+            51,
+            54,
+            48,
+            57,
+            60,
+            45,
+            57,
+            51,
+            39,
+            48,
+            51,
+            42,
+            42,
+            51,
+            54,
+            45,
+            51,
+            54,
+            57,
+            54,
+            54,
+            57,
+            60,
+            54,
+            54,
+            57,
+            60,
+            63,
+            69,
+            78,
+            84,
+        ): 9,
+        support_prefix_1134
+        + (15,) * 4
+        + (18,)
+        + (15,) * 7
+        + (21,) * 4
+        + (9,) * 4
+        + (15,) * 4
+        + (
+            24,
+            27,
+            30,
+            33,
+            24,
+            27,
+            30,
+            33,
+            42,
+            51,
+            54,
+            33,
+            36,
+            51,
+            54,
+            39,
+            48,
+            51,
+            42,
+            42,
+            51,
+            54,
+            48,
+            57,
+            60,
+            54,
+            60,
+            78,
+            84,
+            63,
+            75,
+            63,
+            60,
+            63,
+            69,
+            72,
+            63,
+            63,
+            69,
+            72,
+            45,
+            51,
+            54,
+            57,
+        ): 9,
+        support_prefix_1134
+        + (15,) * 4
+        + (21,) * 4
+        + (15,) * 4
+        + (9,) * 4
+        + (18,)
+        + (15,) * 7
+        + (
+            24,
+            27,
+            30,
+            33,
+            24,
+            27,
+            30,
+            33,
+            39,
+            48,
+            51,
+            42,
+            42,
+            51,
+            54,
+            48,
+            57,
+            60,
+            45,
+            57,
+            51,
+            42,
+            51,
+            54,
+            33,
+            36,
+            51,
+            54,
+            54,
+            54,
+            57,
+            60,
+            54,
+            54,
+            57,
+            60,
+            45,
+            51,
+            54,
+            57,
+            60,
+            66,
+            75,
+            81,
+        ): 9,
     }
     assert all(
         record["cocycle_basis"]["ambient_basis"]["dimension"] == 2142

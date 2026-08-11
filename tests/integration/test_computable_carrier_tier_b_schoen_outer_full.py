@@ -246,10 +246,15 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
         for record in completed_records
         if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 468
     ]
+    dimension_594 = [
+        record
+        for record in completed_records
+        if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 594
+    ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 792
+    assert checkpoint["completed_pair_count"] == 864
     assert Counter(record["candidate_index"] for record in records) == {
         3: 36,
         23: 36,
@@ -777,6 +782,243 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
             18,
             18,
             18,
+        ): 9,
+    }
+    assert len(dimension_594) == 72
+    assert Counter(record["candidate_index"] for record in dimension_594) == {
+        19: 36,
+        39: 36,
+    }
+    assert all(
+        record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 66
+        for record in dimension_594
+    )
+    assert all(
+        record["invariant_subcomplex"]["invariant_cochain_dimensions"]
+        == [[-1, 24], [0, 506], [1, 706], [2, 180], [3, 0], [4, 0]]
+        for record in dimension_594
+    )
+    assert all(
+        record["cocycle_basis"]["ambient_basis"]["dimension"] == 6354
+        for record in dimension_594
+    )
+    support_prefix_594 = (3,) * 30 + (9,) * 4
+    assert Counter(
+        tuple(
+            len(item["terms"])
+            for item in record["cocycle_basis"]["representatives"]
+        )
+        for record in dimension_594
+    ) == {
+        support_prefix_594
+        + (
+            9,
+            9,
+            9,
+            9,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            21,
+            27,
+            21,
+            27,
+            48,
+            48,
+            42,
+            42,
+            45,
+            45,
+            45,
+            45,
+            33,
+            36,
+            33,
+            36,
+            57,
+            60,
+            57,
+            60,
+        ): 18,
+        support_prefix_594
+        + (
+            15,
+            15,
+            15,
+            15,
+            9,
+            9,
+            9,
+            9,
+            15,
+            15,
+            15,
+            15,
+            21,
+            27,
+            21,
+            27,
+            48,
+            48,
+            42,
+            42,
+            45,
+            45,
+            45,
+            45,
+            33,
+            36,
+            33,
+            36,
+            54,
+            57,
+            54,
+            57,
+        ): 18,
+        support_prefix_594
+        + (
+            9,
+            9,
+            15,
+            15,
+            15,
+            15,
+            21,
+            21,
+            15,
+            15,
+            18,
+            15,
+            24,
+            27,
+            24,
+            27,
+            48,
+            45,
+            39,
+            42,
+            42,
+            54,
+            54,
+            54,
+            54,
+            42,
+            33,
+            36,
+            63,
+            69,
+            45,
+            51,
+        ): 9,
+        support_prefix_594
+        + (
+            15,
+            15,
+            18,
+            15,
+            9,
+            9,
+            15,
+            15,
+            21,
+            21,
+            15,
+            15,
+            24,
+            27,
+            24,
+            27,
+            42,
+            33,
+            36,
+            48,
+            45,
+            39,
+            42,
+            42,
+            45,
+            51,
+            54,
+            54,
+            54,
+            54,
+            63,
+            69,
+        ): 9,
+        support_prefix_594
+        + (
+            15,
+            15,
+            18,
+            15,
+            15,
+            15,
+            21,
+            21,
+            9,
+            9,
+            15,
+            15,
+            24,
+            27,
+            24,
+            27,
+            42,
+            33,
+            36,
+            39,
+            42,
+            42,
+            48,
+            54,
+            60,
+            63,
+            60,
+            63,
+            63,
+            63,
+            45,
+            51,
+        ): 9,
+        support_prefix_594
+        + (
+            15,
+            15,
+            21,
+            21,
+            15,
+            15,
+            9,
+            9,
+            18,
+            15,
+            15,
+            15,
+            24,
+            27,
+            24,
+            27,
+            39,
+            42,
+            42,
+            48,
+            45,
+            42,
+            33,
+            36,
+            54,
+            54,
+            54,
+            54,
+            45,
+            51,
+            60,
+            66,
         ): 9,
     }
     assert all(

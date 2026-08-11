@@ -685,6 +685,15 @@ ambient space as the dimension-450 class. Their cocycle bases share a
 tail patterns. The 35-pair batch peaked at 861,444 KB with no swap. The
 invariant ledger now contains 792 of 1,440 required pair certificates.
 
+The dimension-594 frontier is complete across all 36 ray positions of
+candidates 19 and 39. All 72 cover spaces restrict to invariant Ext-one
+dimension 66 with invariant cochain dimensions
+`(24,506,706,180,0,0)` and a 6,354-dimensional degree-one ambient space.
+Their cocycle bases share a 34-class support prefix and split into two
+18-record and four nine-record exact tail patterns. The 71-pair batch peaked
+at 1,259,888 KB with no swap. The invariant ledger now contains 864 of 1,440
+required pair certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

@@ -191,10 +191,15 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
         for record in completed_records
         if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 90
     ]
+    dimension_162 = [
+        record
+        for record in completed_records
+        if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 162
+    ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 288
+    assert checkpoint["completed_pair_count"] == 360
     assert Counter(record["candidate_index"] for record in records) == {
         3: 36,
         23: 36,
@@ -294,6 +299,43 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
         == (3, 3, 3, 3, 3, 3, 3, 3, 3, 3)
         for record in dimension_90
     )
+    assert len(dimension_162) == 72
+    assert Counter(record["candidate_index"] for record in dimension_162) == {
+        9: 18,
+        15: 18,
+        29: 18,
+        35: 18,
+    }
+    assert all(
+        record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 18
+        for record in dimension_162
+    )
+    assert Counter(
+        tuple(
+            tuple(item)
+            for item in record["invariant_subcomplex"][
+                "invariant_cochain_dimensions"
+            ]
+        )
+        for record in dimension_162
+    ) == {
+        ((-1, 24), (0, 806), (1, 650), (2, 0), (3, 0), (4, 0)): 36,
+        ((-1, 0), (0, 0), (1, 682), (2, 1222), (3, 448), (4, 0)): 36,
+    }
+    assert Counter(
+        record["cocycle_basis"]["ambient_basis"]["dimension"]
+        for record in dimension_162
+    ) == {5850: 36, 6138: 36}
+    assert Counter(
+        tuple(
+            len(item["terms"])
+            for item in record["cocycle_basis"]["representatives"]
+        )
+        for record in dimension_162
+    ) == {
+        (3,) * 18: 36,
+        (3,) * 12 + (6,) * 6: 36,
+    }
     assert all(
         record["cocycle_basis"]["ambient_basis"]["dimension"] == 2142
         for record in dimension_54

@@ -590,6 +590,16 @@ Degree-one ambient dimensions split as 72 records of size 1,314 and 36 records
 of size 1,854. The 107-pair batch peaked at 135,772 KB with no swap. The
 invariant ledger now contains 288 of 1,440 required pair certificates.
 
+The dimension-162 frontier is complete across candidates 9, 15, 29, and 35,
+with the same 18 declared ray positions from each candidate. Every one of the
+72 cover spaces restricts to invariant Ext-one dimension 18. Half have
+invariant cochain dimensions `(24,806,650,0,0,0)`, a 5,850-dimensional
+degree-one ambient space, and eighteen three-term cocycles. The other half
+have dimensions `(0,0,682,1222,448,0)`, ambient dimension 6,138, and support
+pattern of twelve three-term followed by six six-term cocycles. The 71-pair
+batch peaked at 219,172 KB with no swap. The invariant ledger now contains
+360 of 1,440 required pair certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

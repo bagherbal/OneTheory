@@ -651,6 +651,14 @@ Ext-one dimension 40 with invariant cochain dimensions
 forty three-term cocycles. The 35-pair batch peaked at 423,544 KB with no swap.
 The invariant ledger now contains 648 of 1,440 required pair certificates.
 
+The dimension-378 frontier is complete across candidates 16 and 36, with 18
+declared ray positions from each. All 36 cover spaces restrict to invariant
+Ext-one dimension 42 with invariant cochain dimensions
+`(0,56,790,974,180,0)` and a 7,110-dimensional degree-one ambient space. Each
+cocycle basis has 32 three-term, six twelve-term, and four 57-term
+representatives. The 35-pair batch peaked at 491,168 KB with no swap. The
+invariant ledger now contains 684 of 1,440 required pair certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

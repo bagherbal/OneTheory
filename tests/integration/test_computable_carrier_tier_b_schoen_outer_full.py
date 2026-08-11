@@ -251,10 +251,15 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
         for record in completed_records
         if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 594
     ]
+    dimension_918 = [
+        record
+        for record in completed_records
+        if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 918
+    ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 864
+    assert checkpoint["completed_pair_count"] == 900
     assert Counter(record["candidate_index"] for record in records) == {
         3: 36,
         23: 36,
@@ -1020,6 +1025,47 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
             60,
             66,
         ): 9,
+    }
+    assert len(dimension_918) == 36
+    assert Counter(record["candidate_index"] for record in dimension_918) == {
+        5: 18,
+        25: 18,
+    }
+    assert all(
+        record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 102
+        for record in dimension_918
+    )
+    assert all(
+        record["invariant_subcomplex"]["invariant_cochain_dimensions"]
+        == [[-1, 0], [0, 180], [1, 974], [2, 790], [3, 56], [4, 0]]
+        for record in dimension_918
+    )
+    assert all(
+        record["cocycle_basis"]["ambient_basis"]["dimension"] == 8766
+        for record in dimension_918
+    )
+    support_prefix_918 = (3,) * 12 + (6,) * 6 + (12,) * 44 + (18,) * 4
+    assert Counter(
+        tuple(
+            len(item["terms"])
+            for item in record["cocycle_basis"]["representatives"]
+        )
+        for record in dimension_918
+    ) == {
+        support_prefix_918 + (18,) * 20 + (12,) * 16: 18,
+        support_prefix_918
+        + (12,) * 8
+        + (18,) * 12
+        + (12,) * 4
+        + (18,) * 4
+        + (12,) * 4
+        + (18,) * 4: 9,
+        support_prefix_918
+        + (12,) * 8
+        + (18,) * 12
+        + (12,) * 4
+        + (18,) * 8
+        + (12,) * 4: 9,
     }
     assert all(
         record["cocycle_basis"]["ambient_basis"]["dimension"] == 2142

@@ -694,6 +694,15 @@ Their cocycle bases share a 34-class support prefix and split into two
 at 1,259,888 KB with no swap. The invariant ledger now contains 864 of 1,440
 required pair certificates.
 
+The dimension-918 frontier is complete across candidates 5 and 25, with 18
+declared ray positions from each. All 36 cover spaces restrict to invariant
+Ext-one dimension 102 with invariant cochain dimensions
+`(0,180,974,790,56,0)` and an 8,766-dimensional degree-one ambient space.
+Their cocycle bases share a 66-class support prefix and split into one
+18-record and two nine-record exact tail patterns. The 35-pair batch peaked
+at 1,455,356 KB with no swap. The invariant ledger now contains 900 of 1,440
+required pair certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

@@ -626,6 +626,15 @@ thirty three-term cocycles. The 35-pair batch peaked at 291,128 KB with no
 swap. The invariant ledger now contains 540 of 1,440 required pair
 certificates.
 
+The dimension-324 frontier is complete across candidates 7 and 27, with 18
+declared ray positions from each. All 36 cover spaces restrict to invariant
+Ext-one dimension 36 with invariant cochain dimensions
+`(0,220,486,238,0,0)` and a 4,374-dimensional degree-one ambient space. Their
+cocycle bases share a 28-class support prefix and split into one 18-record and
+two nine-record exact tail patterns. The 35-pair batch peaked at 327,848 KB
+with no swap. The invariant ledger now contains 576 of 1,440 required pair
+certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

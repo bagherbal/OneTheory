@@ -574,6 +574,14 @@ subsequent 35-pair batch peaked at 144,412 KB with no swap. This engineering
 reduction changes no basis order, differential, rank, class, or scientific
 gate. The invariant ledger now contains 108 of 1,440 required pairs.
 
+The dimension-72 frontier is complete across candidates 8, 14, 28, and 34,
+with 18 exact ray positions from each candidate. All 72 cover spaces restrict
+to invariant Ext-one dimension eight. Half use a 1,854-dimensional degree-one
+cochain space and eight three-term representatives; half use dimension 2,142
+with support pattern `(3,3,3,3,6,6,9,9)`. The 71-pair batch peaked at
+152,680 KB with no swap. Together with the lower-dimensional frontiers, the
+invariant ledger now contains 180 of 1,440 required pair certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

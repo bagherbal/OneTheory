@@ -166,8 +166,8 @@ def test_invariant_screen_reuses_certified_cover_dimensions_serially() -> None:
     assert first_pending[-1] == 36
 
 
-def test_smallest_invariant_frontier_is_compact_and_content_addressed() -> None:
-    """Both 36-dimensional cover families persist compact exact cocycles."""
+def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> None:
+    """Completed low-dimensional cover frontiers persist compact exact cocycles."""
 
     checkpoint = json.loads(INVARIANT_CHECKPOINT_PATH.read_text(encoding="utf-8"))
     records = [
@@ -181,10 +181,15 @@ def test_smallest_invariant_frontier_is_compact_and_content_addressed() -> None:
         for record in completed_records
         if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 54
     ]
+    dimension_72 = [
+        record
+        for record in completed_records
+        if record["invariant_subcomplex"]["cover_ext_one_dimension"] == 72
+    ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 108
+    assert checkpoint["completed_pair_count"] == 180
     assert Counter(record["candidate_index"] for record in records) == {
         3: 36,
         23: 36,
@@ -236,6 +241,31 @@ def test_smallest_invariant_frontier_is_compact_and_content_addressed() -> None:
         record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 6
         for record in dimension_54
     )
+    assert len(dimension_72) == 72
+    assert Counter(record["candidate_index"] for record in dimension_72) == {
+        8: 18,
+        14: 18,
+        28: 18,
+        34: 18,
+    }
+    assert all(
+        record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 8
+        for record in dimension_72
+    )
+    assert Counter(
+        record["cocycle_basis"]["ambient_basis"]["dimension"]
+        for record in dimension_72
+    ) == {1854: 36, 2142: 36}
+    assert Counter(
+        tuple(
+            len(item["terms"])
+            for item in record["cocycle_basis"]["representatives"]
+        )
+        for record in dimension_72
+    ) == {
+        (3, 3, 3, 3, 3, 3, 3, 3): 36,
+        (3, 3, 3, 3, 6, 6, 9, 9): 36,
+    }
     assert all(
         record["cocycle_basis"]["ambient_basis"]["dimension"] == 2142
         for record in dimension_54

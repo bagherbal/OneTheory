@@ -677,6 +677,14 @@ two nine-record exact tail patterns. The 35-pair batch peaked at 753,736 KB
 with no swap. The invariant ledger now contains 756 of 1,440 required pair
 certificates.
 
+The dimension-468 frontier is complete across the complementary 18 ray
+positions of candidates 4 and 24. All 36 cover spaces restrict to invariant
+Ext-one dimension 52 with the same cochain dimensions and 3,726-dimensional
+ambient space as the dimension-450 class. Their cocycle bases share a
+32-class support prefix and split into one 18-record and two nine-record exact
+tail patterns. The 35-pair batch peaked at 861,444 KB with no swap. The
+invariant ledger now contains 792 of 1,440 required pair certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

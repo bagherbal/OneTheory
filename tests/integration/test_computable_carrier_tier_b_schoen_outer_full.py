@@ -26,6 +26,7 @@ from pathlib import Path
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_invariants import (
     _pending_order,
     _validated_cover_dimensions,
+    _write_atomic,
 )
 from research.experiments.computable_carrier.tier_b_schoen_outer_full import (
     declared_schoen_outer_candidate_data,
@@ -68,6 +69,20 @@ EXPECTED_EXT_DISTRIBUTION = {
     1044: 36,
     1134: 72,
 }
+
+
+def test_invariant_checkpoint_streaming_preserves_exact_json(tmp_path: Path) -> None:
+    """Streaming writes retain the canonical pretty-printed checkpoint bytes."""
+
+    path = tmp_path / "checkpoint.json"
+    payload = {"zeta": ["ω", 3], "alpha": {"exact": True}}
+
+    _write_atomic(path, payload)
+
+    assert path.read_text(encoding="utf-8") == (
+        json.dumps(payload, indent=2, sort_keys=True) + "\n"
+    )
+    assert not path.with_name(f".{path.name}.tmp").exists()
 
 
 def test_declared_outer_pair_category_has_1440_pairs() -> None:

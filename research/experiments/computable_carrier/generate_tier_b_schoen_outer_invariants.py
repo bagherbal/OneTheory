@@ -55,10 +55,9 @@ def _write_atomic(path: Path, payload: object) -> None:
     """Write one checkpoint through a same-directory temporary file."""
 
     temporary = path.with_name(f".{path.name}.tmp")
-    temporary.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
+    with temporary.open("w", encoding="utf-8", newline="\n") as stream:
+        json.dump(payload, stream, indent=2, sort_keys=True)
+        stream.write("\n")
     temporary.replace(path)
 
 

@@ -842,6 +842,14 @@ Constituent algebra records are deduplicated only when their structural keys
 and complete content-addressed certificates agree. The runner remains
 serialized, resumable, and forbidden from selecting an orbit point.
 
+The first exhaustive action checkpoint closes all 360 zero-dimensional
+invariant Ext spaces. Their automorphism actions are uniquely trivial, and
+their only orbit is the split extension, so these pairs cannot produce a
+non-split rank-four candidate. No constituent self-Hom calculation is attached
+to those empty spaces. The remaining 1,080 positive-dimensional pairs require
+explicit cover-cocycle action certificates before any extension orbit can be
+used.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

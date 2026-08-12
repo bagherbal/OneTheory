@@ -223,6 +223,35 @@ def _pending_order(
     return dimension != 0, dimension, task[0]
 
 
+def _store_result(
+    result: tuple[dict[str, object], tuple[dict[str, object], ...]],
+    partial_path: Path,
+    invariant_digest: str,
+    pairs: dict[int, dict[str, object]],
+    constituents: dict[str, dict[str, object]],
+) -> None:
+    """Verify and checkpoint one completed worker or zero-space result."""
+
+    record, constituent_records = result
+    index = record.get("global_pair_index")
+    if isinstance(index, bool) or not isinstance(index, int):
+        raise ValueError("worker returned an invalid pair index")
+    _verify_action_record(record)
+    for constituent in constituent_records:
+        _merge_constituent(constituents, constituent)
+    pairs[index] = record
+    _write_partial(
+        partial_path,
+        invariant_digest,
+        pairs,
+        constituents,
+    )
+    print(
+        f"completed automorphism pair {index}/1440 ({len(pairs)}/1440)",
+        flush=True,
+    )
+
+
 def generate(
     max_pairs: int | None = None,
     workers: int = 1,
@@ -255,30 +284,35 @@ def generate(
     )
     selected = pending if max_pairs is None else pending[:max_pairs]
     partial_path.parent.mkdir(parents=True, exist_ok=True)
+    positive_spaces: list[tuple[InvariantPairTask, dict[str, object]]] = []
     if selected:
+        zero_spaces = [
+            payload for payload in selected if _pending_order(payload)[1] == 0
+        ]
+        positive_spaces = [
+            payload for payload in selected if _pending_order(payload)[1] > 0
+        ]
+        for payload in zero_spaces:
+            _store_result(
+                _audit_pair_record(payload),
+                partial_path,
+                invariant_digest,
+                pairs,
+                constituents,
+            )
+    if positive_spaces:
         with get_context("fork").Pool(processes=1, maxtasksperchild=1) as pool:
-            for record, constituent_records in pool.imap(
+            for result in pool.imap(
                 _audit_pair_record,
-                selected,
+                positive_spaces,
                 chunksize=1,
             ):
-                index = record.get("global_pair_index")
-                if isinstance(index, bool) or not isinstance(index, int):
-                    raise ValueError("worker returned an invalid pair index")
-                _verify_action_record(record)
-                for constituent in constituent_records:
-                    _merge_constituent(constituents, constituent)
-                pairs[index] = record
-                _write_partial(
+                _store_result(
+                    result,
                     partial_path,
                     invariant_digest,
                     pairs,
                     constituents,
-                )
-                print(
-                    f"completed automorphism pair {index}/1440 "
-                    f"({len(pairs)}/1440)",
-                    flush=True,
                 )
     if len(pairs) != len(tasks):
         return None

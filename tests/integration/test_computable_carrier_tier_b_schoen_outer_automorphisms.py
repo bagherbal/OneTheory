@@ -17,6 +17,7 @@ Phase 0:
 """
 
 import json
+from collections import Counter
 from pathlib import Path
 
 import pytest
@@ -46,6 +47,11 @@ from research.experiments.computable_carrier.tier_b_schoen_outer_full import (
 )
 from research.experiments.computable_carrier.tier_b_schoen_outer_invariants import (
     declared_schoen_invariant_pair_tasks,
+)
+
+ACTION_CHECKPOINT = Path(
+    "data/generated/computable_carrier/"
+    "tier_b_schoen_outer_automorphisms.partial.json"
 )
 
 
@@ -141,3 +147,29 @@ def test_generator_checkpoints_one_exact_zero_pair(tmp_path: Path) -> None:
         "certificate_digest"
     ]
     assert not artifact.exists()
+
+
+def test_checked_action_frontier_closes_every_zero_ext_pair() -> None:
+    """The committed checkpoint is exactly the 360-pair zero-space frontier."""
+
+    digest, invariant_records = _validated_invariant_records(
+        DEFAULT_INVARIANT_ARTIFACT
+    )
+    pairs, constituents = _read_partial(ACTION_CHECKPOINT, digest)
+    zero_indices = {
+        record["global_pair_index"]
+        for record in invariant_records
+        if record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 0
+    }
+
+    assert set(pairs) == zero_indices
+    assert len(pairs) == 360
+    assert constituents == {}
+    assert all(record["exact"] is True for record in pairs.values())
+    assert all(
+        record["automorphism_action"]["unique_action"] is True
+        for record in pairs.values()
+    )
+    assert Counter(record["candidate_index"] for record in pairs.values()) == {
+        index: 36 for index in (1, 2, 11, 12, 13, 21, 22, 31, 32, 33)
+    }

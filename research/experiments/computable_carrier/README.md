@@ -895,6 +895,13 @@ presentation identity, including target shift and extension-map polynomials.
 All 468 prior records migrated only after proving every legacy key mapped to
 one unique full identity; their mathematical certificates remain unchanged.
 
+The complete eight-dimensional frontier contains 72 exact pair quotients:
+18 each from candidates 8, 14, 28, and 34. Thirty-six actions are scalar
+already on explicit cover cocycles; the other 36 become scalar only after
+exact reduction modulo coboundaries. Every nonzero orbit space is
+`P^7(Q(omega))`. The cumulative ledger now contains 180 positive quotients,
+360 zero-space exclusions, and 72 full-identity constituent certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

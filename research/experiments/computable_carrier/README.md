@@ -909,6 +909,13 @@ require exact coboundary reduction. Every nonzero orbit space is
 `P^9(Q(omega))`. The cumulative ledger now contains 288 positive quotients
 and 360 exact zero-space exclusions, with no extension point selected.
 
+The eighteen-dimensional frontier closes 72 further pair quotients, split
+equally between direct cover proofs and exact coboundary reduction. The 18
+selected character pairs in each of candidates 9, 15, 29, and 35 yield
+`P^17(Q(omega))`. This reaches the exact ledger midpoint: 360 positive
+quotients and 360 zero-space exclusions. All 120 distinct constituent
+presentations now have full-identity, content-addressed algebra certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

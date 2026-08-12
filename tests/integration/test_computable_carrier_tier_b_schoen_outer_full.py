@@ -307,10 +307,13 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
     zero_candidate_13 = [
         checkpoint["completed_pairs"][str(index)] for index in range(433, 469)
     ]
+    zero_candidate_21 = [
+        checkpoint["completed_pairs"][str(index)] for index in range(721, 757)
+    ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 1260
+    assert checkpoint["completed_pair_count"] == 1296
     assert all(record["candidate_index"] == 1 for record in zero_candidate_1)
     assert [record["candidate_pair_index"] for record in zero_candidate_1] == list(
         range(1, 37),
@@ -446,6 +449,34 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
     assert all(
         record["cocycle_basis"]["representatives"] == []
         for record in zero_candidate_13
+    )
+    assert all(record["candidate_index"] == 21 for record in zero_candidate_21)
+    assert [record["candidate_pair_index"] for record in zero_candidate_21] == list(
+        range(1, 37),
+    )
+    assert all(
+        record["invariant_subcomplex"]["cover_ext_one_dimension"] == 0
+        for record in zero_candidate_21
+    )
+    assert all(
+        record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 0
+        for record in zero_candidate_21
+    )
+    assert all(
+        record["invariant_subcomplex"]["invariant_cochain_dimensions"]
+        == [[-1, 0], [0, 0], [1, 300], [2, 1266], [3, 922], [4, 40]]
+        for record in zero_candidate_21
+    )
+    assert all(
+        record["cocycle_basis"]["ambient_basis"]["dimension"] == 2700
+        for record in zero_candidate_21
+    )
+    assert all(
+        record["cocycle_basis"]["dimension"] == 0 for record in zero_candidate_21
+    )
+    assert all(
+        record["cocycle_basis"]["representatives"] == []
+        for record in zero_candidate_21
     )
     assert Counter(record["candidate_index"] for record in records) == {
         3: 36,

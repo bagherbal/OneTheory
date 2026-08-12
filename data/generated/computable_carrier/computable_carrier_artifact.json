@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "ea455982913ea385b344f187f39cc7116fa7cf4d634307b701018dbccba2da78",
+  "artifact_digest": "4d95bbbe678a54236b6fe12e2859f2a46a233373c95c2c294613b3c6d439ed9a",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -36,8 +36,8 @@
       "curvilinear_rank_four_topology: excluded_index_zero",
       "curvilinear_tier_b_topology: excluded_no_index_three",
       "monomial_tier_b_topology_counts: pass",
-      "monomial_length_six_constituents: pass",
-      "monomial_length_six_shift_frontier: pass"
+      "monomial_length_six_shift_frontier: pass",
+      "monomial_length_six_constituents: pass"
     ],
     "promotion_blocked": false,
     "required_independent_path": "pinned SageMath reproduction",

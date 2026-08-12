@@ -740,6 +740,15 @@ invariant ledger now contains 1,080 of 1,440 required pair certificates, so
 every positive-dimensional cover Ext-one space has explicit invariant
 cocycles. The remaining 360 pairs have zero cover Ext-one dimension.
 
+The first zero-Ext frontier is complete across all 36 ray positions of
+candidate 1. Its exact invariant cochain dimensions are
+`(0,0,300,1266,922,40)` with a 2,700-dimensional degree-one ambient space;
+all Ext-one dimensions and representative lists are zero, while the deck
+actions, restrictions, and square-zero gates remain exact. Streaming the
+513 MB checkpoint kept the 34-pair batch to 1,225,328 KB peak memory with no
+swap. The invariant ledger now contains 1,116 of 1,440 required pair
+certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

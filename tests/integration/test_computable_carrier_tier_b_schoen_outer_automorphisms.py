@@ -374,3 +374,37 @@ def test_checked_action_frontier_closes_dimension_eight() -> None:
         for record in records
     )
     assert all(record["exact"] is True for record in records)
+
+
+def test_checked_action_frontier_closes_dimension_ten() -> None:
+    """All 108 ten-dimensional spaces have exact projective-nine quotients."""
+
+    digest, invariant_records = _validated_invariant_records(
+        DEFAULT_INVARIANT_ARTIFACT
+    )
+    pairs, _ = _read_partial(ACTION_CHECKPOINT, digest)
+    records = [
+        pairs[record["global_pair_index"]]
+        for record in invariant_records
+        if record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 10
+    ]
+
+    assert len(records) == 108
+    assert Counter(record["candidate_index"] for record in records) == {
+        8: 18,
+        18: 36,
+        28: 18,
+        38: 36,
+    }
+    assert Counter(
+        record["automorphism_action"]["action_proof"] for record in records
+    ) == {
+        "exact equality on cover cocycles": 72,
+        "exact quotient reduction modulo coboundaries": 36,
+    }
+    assert all(
+        record["automorphism_action"]["nonzero_orbit_space"]
+        == "P^9(Q(omega))"
+        for record in records
+    )
+    assert all(record["exact"] is True for record in records)

@@ -902,6 +902,13 @@ exact reduction modulo coboundaries. Every nonzero orbit space is
 `P^7(Q(omega))`. The cumulative ledger now contains 180 positive quotients,
 360 zero-space exclusions, and 72 full-identity constituent certificates.
 
+The ten-dimensional frontier closes another 108 exact pair quotients: 18
+each from candidates 8 and 28, and full 36-pair blocks from candidates 18 and
+38. Seventy-two actions are scalar directly on cover cocycles, while 36
+require exact coboundary reduction. Every nonzero orbit space is
+`P^9(Q(omega))`. The cumulative ledger now contains 288 positive quotients
+and 360 exact zero-space exclusions, with no extension point selected.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

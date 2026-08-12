@@ -13,11 +13,11 @@ Must not:
     or promote the declared category into a physical carrier.
 
 Phase 0:
-    The exhaustive sparse cover evaluation and every positive-dimensional
-    invariant cocycle frontier are exact; zero records and rank-four gates
-    remain open.
+    The exhaustive sparse cover and invariant cocycle evaluations are exact;
+    automorphism-orbit and rank-four construction gates remain open.
 """
 
+import gc
 import json
 from collections import Counter
 from hashlib import sha256
@@ -44,6 +44,9 @@ CHECKPOINT_PATH = Path(
 )
 INVARIANT_CHECKPOINT_PATH = Path(
     "data/generated/computable_carrier/tier_b_schoen_outer_invariants.partial.json"
+)
+INVARIANT_ARTIFACT_PATH = Path(
+    "data/generated/computable_carrier/tier_b_schoen_outer_invariants.json"
 )
 EXPECTED_EXT_DISTRIBUTION = {
     0: 360,
@@ -83,6 +86,45 @@ def test_invariant_checkpoint_streaming_preserves_exact_json(tmp_path: Path) -> 
         json.dumps(payload, indent=2, sort_keys=True) + "\n"
     )
     assert not path.with_name(f".{path.name}.tmp").exists()
+
+
+def test_full_invariant_artifact_is_content_addressed_and_checkpointed() -> None:
+    """The final invariant payload agrees with every checkpoint certificate."""
+
+    checkpoint = json.loads(INVARIANT_CHECKPOINT_PATH.read_text(encoding="utf-8"))
+    checkpoint_digests = [
+        checkpoint["completed_pairs"][str(index)]["certificate_digest"]
+        for index in range(1, 1441)
+    ]
+    assert checkpoint["completed_pair_count"] == 1440
+    del checkpoint
+    gc.collect()
+
+    artifact = json.loads(INVARIANT_ARTIFACT_PATH.read_text(encoding="utf-8"))
+    digest = artifact.pop("artifact_digest")
+
+    assert artifact.pop("content_addressed") is True
+    assert artifact.pop("digest_algorithm") == "sha256"
+    canonical = json.dumps(artifact, sort_keys=True, separators=(",", ":"))
+    assert sha256(canonical.encode("utf-8")).hexdigest() == digest
+
+    audits = artifact["audits"]
+    assert [record["certificate_digest"] for record in audits] == checkpoint_digests
+    assert artifact["schema"] == "tier-b-schoen-invariant-outer-v2"
+    assert artifact["screened_count"] == artifact["declared_pair_count"] == 1440
+    assert artifact["complete_for_declared_category"] is True
+    assert artifact["exact"] is True
+    assert artifact["automorphism_actions_computed"] is False
+    assert artifact["canonical_orbits_computed"] is False
+    assert artifact["outer_extensions_constructed"] is False
+    assert artifact["promotion_ready"] is False
+    assert Counter(record["candidate_index"] for record in audits) == {
+        index: 36 for index in range(1, 41)
+    }
+    assert Counter(
+        record["invariant_subcomplex"]["cover_ext_one_dimension"]
+        for record in audits
+    ) == EXPECTED_EXT_DISTRIBUTION
 
 
 def test_declared_outer_pair_category_has_1440_pairs() -> None:
@@ -319,10 +361,13 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
     zero_candidate_32 = [
         checkpoint["completed_pairs"][str(index)] for index in range(1117, 1153)
     ]
+    zero_candidate_33 = [
+        checkpoint["completed_pairs"][str(index)] for index in range(1153, 1189)
+    ]
 
     assert checkpoint["schema"] == "tier-b-schoen-invariant-outer-v2"
     assert checkpoint["declared_pair_count"] == 1440
-    assert checkpoint["completed_pair_count"] == 1404
+    assert checkpoint["completed_pair_count"] == 1440
     assert all(record["candidate_index"] == 1 for record in zero_candidate_1)
     assert [record["candidate_pair_index"] for record in zero_candidate_1] == list(
         range(1, 37),
@@ -570,6 +615,34 @@ def test_computed_invariant_frontiers_are_compact_and_content_addressed() -> Non
     assert all(
         record["cocycle_basis"]["representatives"] == []
         for record in zero_candidate_32
+    )
+    assert all(record["candidate_index"] == 33 for record in zero_candidate_33)
+    assert [record["candidate_pair_index"] for record in zero_candidate_33] == list(
+        range(1, 37),
+    )
+    assert all(
+        record["invariant_subcomplex"]["cover_ext_one_dimension"] == 0
+        for record in zero_candidate_33
+    )
+    assert all(
+        record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 0
+        for record in zero_candidate_33
+    )
+    assert all(
+        record["invariant_subcomplex"]["invariant_cochain_dimensions"]
+        == [[-1, 0], [0, 0], [1, 0], [2, 206], [3, 250], [4, 8]]
+        for record in zero_candidate_33
+    )
+    assert all(
+        record["cocycle_basis"]["ambient_basis"]["dimension"] == 0
+        for record in zero_candidate_33
+    )
+    assert all(
+        record["cocycle_basis"]["dimension"] == 0 for record in zero_candidate_33
+    )
+    assert all(
+        record["cocycle_basis"]["representatives"] == []
+        for record in zero_candidate_33
     )
     assert Counter(record["candidate_index"] for record in records) == {
         3: 36,

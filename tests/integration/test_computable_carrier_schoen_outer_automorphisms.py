@@ -31,7 +31,9 @@ from research.experiments.computable_carrier.schoen_sparse_outer_automorphisms i
     SparseOuterAutomorphismActionAudit,
     SparseOuterCoverScalarActionAudit,
     SparseOuterOrbitClassification,
+    canonical_square_zero_orbit_representative,
     classify_sparse_outer_automorphism_orbits,
+    classify_sparse_square_zero_orbits,
     sparse_constituent_endomorphism_algebra,
     sparse_outer_automorphism_action,
     sparse_outer_cover_scalar_action,
@@ -144,3 +146,61 @@ def test_prototype_automorphism_algebras_and_projective_orbits_are_exact() -> No
     assert record["nonzero_orbit_space"] == "P^3(Q(omega))"
     assert len(record["canonical_normal_form_charts"]) == 4
     assert record["outer_extension_constructed"] is False
+
+
+def test_square_zero_normal_form_is_constant_on_exact_unit_orbits() -> None:
+    """Scalar-unipotent transforms reduce to one deterministic representative."""
+
+    _, candidate, left_ray, right_ray = declared_schoen_outer_pairs()[216]
+    try:
+        outer = sparse_outer_hom(
+            left_ray,
+            right_ray,
+            candidate.left_factor,
+            candidate.left_twist,
+            candidate.right_factor,
+            candidate.right_twist,
+        )
+        invariant = sparse_outer_invariant_audit(outer, 342)
+        cocycles = sparse_outer_invariant_cocycles(invariant)
+        left = sparse_constituent_endomorphism_algebra(
+            left_ray,
+            candidate.left_factor,
+            candidate.left_twist,
+        )
+        right = sparse_constituent_endomorphism_algebra(
+            right_ray,
+            candidate.right_factor,
+            candidate.right_twist,
+        )
+        action = sparse_outer_automorphism_action(cocycles, left, right)
+        classification = classify_sparse_square_zero_orbits(action)
+        coordinates = tuple(Eisenstein(index + 1) for index in range(38))
+        radical_image = tuple(
+            sum(
+                (
+                    coefficient * coordinates[column]
+                    for column, coefficient in row
+                ),
+                Eisenstein(0),
+            )
+            for row in classification.radical_actions[0].rows
+        )
+        transformed = tuple(
+            Eisenstein(2) * (value + Eisenstein(3) * image)
+            for value, image in zip(coordinates, radical_image, strict=True)
+        )
+
+        assert classification.unit_characters_exact
+        assert classification.radical_square_zero
+        assert [map_.rank() for map_ in classification.radical_actions] == [2, 2, 2]
+        assert classification.exact
+        assert canonical_square_zero_orbit_representative(
+            classification,
+            coordinates,
+        ) == canonical_square_zero_orbit_representative(
+            classification,
+            transformed,
+        )
+    finally:
+        _clear_worker_caches()

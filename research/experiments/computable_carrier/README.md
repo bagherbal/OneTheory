@@ -941,6 +941,16 @@ explicit cover cocycles, and all nonzero orbit spaces are
 `P^35(Q(omega))`. The cumulative ledger contains 936 exact pair records and
 requires no constituent presentation beyond the 168 already certified.
 
+Global pair 217 is the first exact nonprojective automorphism quotient. Its
+three nonidentity constituent endomorphisms induce rank-two Ext actions;
+their nine pairwise products vanish, while scalar units act through the
+identity character. The resulting scalar-plus-square-zero-unipotent action
+has a deterministic normal form: compute the span of all radical images of a
+vector, eliminate it in fixed serialized basis order, then normalize the
+first nonzero surviving coordinate. Exact regression proves this normal form
+is unchanged by a nontrivial scalar-unipotent transform. The ledger records
+the complete action matrices and algorithm but selects no orbit.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

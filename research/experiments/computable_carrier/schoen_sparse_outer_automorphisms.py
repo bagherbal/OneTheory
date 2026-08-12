@@ -864,6 +864,76 @@ class SparseOuterOrbitClassification:
         }
 
 
+@dataclass(frozen=True, slots=True)
+class SparseSquareZeroOrbitClassification:
+    """Canonical normal forms for scalar plus square-zero radical actions."""
+
+    action: SparseOuterAutomorphismActionAudit
+    left_character: tuple[Eisenstein, ...]
+    right_character: tuple[Eisenstein, ...]
+    radical_actions: tuple[SparseMap, ...]
+    unit_characters_exact: bool
+    radical_square_zero: bool
+
+    @property
+    def exact(self) -> bool:
+        """Return whether the complete unit action has certified normal forms."""
+
+        return (
+            self.action.exact
+            and bool(self.radical_actions)
+            and self.unit_characters_exact
+            and self.radical_square_zero
+        )
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize the fixed-basis radical action and canonical algorithm."""
+
+        dimension = self.action.outer.representatives.domain.dimension
+        return {
+            "extension_dimension": dimension,
+            "action_basis": list(self.action.outer.representatives.domain.basis),
+            "left_scalar_character": [str(value) for value in self.left_character],
+            "right_scalar_character": [str(value) for value in self.right_character],
+            "radical_generator_count": len(self.radical_actions),
+            "radical_action_ranks": [
+                action.rank() for action in self.radical_actions
+            ],
+            "radical_action_matrices": [
+                _map_record(action) for action in self.radical_actions
+            ],
+            "unit_characters_exact": self.unit_characters_exact,
+            "radical_square_zero": self.radical_square_zero,
+            "zero_orbit": {
+                "representative": ["0"] * dimension,
+                "split_extension": True,
+            },
+            "nonzero_orbit_space": (
+                "fixed-basis scalar-plus-square-zero-unipotent quotient"
+            ),
+            "canonical_normal_form": {
+                "input": "one exact nonzero vector in the serialized action basis",
+                "radical_span": "span of every radical generator image of the vector",
+                "elimination": (
+                    "lowest-row pivot elimination in serialized generator order"
+                ),
+                "scalar_normalization": (
+                    "normalize the first nonzero reduced coordinate to one"
+                ),
+                "implemented_by": (
+                    "canonical_square_zero_orbit_representative"
+                ),
+            },
+            "canonical_orbits_computed": self.exact,
+            "outer_extension_constructed": False,
+            "exact": self.exact,
+            "status": (
+                "exact canonical normal-form algorithm for a scalar plus "
+                "square-zero radical action; no orbit point is selected"
+            ),
+        }
+
+
 def _scalar_character(actions: tuple[SparseMap, ...]) -> tuple[Eisenstein, ...] | None:
     """Return scalar coefficients when every action generator is scalar."""
 
@@ -879,6 +949,135 @@ def _scalar_character(actions: tuple[SparseMap, ...]) -> tuple[Eisenstein, ...] 
             return None
         coefficients.append(coefficient)
     return tuple(coefficients)
+
+
+def _trace_character(actions: tuple[SparseMap, ...]) -> tuple[Eisenstein, ...]:
+    """Return normalized traces of one positive-dimensional representation."""
+
+    if not actions or actions[0].domain.dimension == 0:
+        raise ValueError("trace characters require a positive-dimensional action")
+    dimension = Eisenstein(actions[0].domain.dimension)
+    return tuple(
+        sum(
+            (
+                dict(action.rows[index]).get(index, Eisenstein(0))
+                for index in range(action.domain.dimension)
+            ),
+            Eisenstein(0),
+        )
+        / dimension
+        for action in actions
+    )
+
+
+def _radical_actions(
+    actions: tuple[SparseMap, ...],
+    character: tuple[Eisenstein, ...],
+) -> tuple[SparseMap, ...]:
+    """Subtract the scalar character and retain nonzero radical generators."""
+
+    identity = _identity(actions[0].domain)
+    return tuple(
+        residual
+        for action, scalar in zip(actions, character, strict=True)
+        if not (
+            residual := _linear_combination(
+                (action, identity),
+                (Eisenstein(1), -scalar),
+            )
+        ).is_zero()
+    )
+
+
+def classify_sparse_square_zero_orbits(
+    action: SparseOuterAutomorphismActionAudit,
+) -> SparseSquareZeroOrbitClassification:
+    """Classify one scalar-plus-square-zero constituent unit action."""
+
+    left_character = _trace_character(action.left_actions)
+    right_character = _trace_character(action.right_actions)
+    left_radical = _radical_actions(action.left_actions, left_character)
+    right_radical = _radical_actions(action.right_actions, right_character)
+    radicals = left_radical + right_radical
+    radical_square_zero = bool(radicals) and all(
+        left.compose(right).is_zero() for left in radicals for right in radicals
+    )
+    unit_characters_exact = (
+        action.left_algebra.unit_polynomial
+        == _character_polynomial(left_character)
+        ** action.left_algebra.cocycles.representatives.domain.dimension
+        and action.right_algebra.unit_polynomial
+        == _character_polynomial(right_character)
+        ** action.right_algebra.cocycles.representatives.domain.dimension
+    )
+    return SparseSquareZeroOrbitClassification(
+        action,
+        left_character,
+        right_character,
+        radicals,
+        unit_characters_exact,
+        radical_square_zero,
+    )
+
+
+def _apply_sparse_map(
+    action: SparseMap,
+    vector: tuple[Eisenstein, ...],
+) -> tuple[Eisenstein, ...]:
+    """Apply one exact sparse endomorphism to coordinate data."""
+
+    if action.domain != action.codomain or len(vector) != action.domain.dimension:
+        raise ValueError("sparse action and vector coordinates are incompatible")
+    return tuple(
+        sum(
+            (coefficient * vector[column] for column, coefficient in row),
+            Eisenstein(0),
+        )
+        for row in action.rows
+    )
+
+
+def canonical_square_zero_orbit_representative(
+    classification: SparseSquareZeroOrbitClassification,
+    coordinates: tuple[Eisenstein, ...],
+) -> tuple[Eisenstein, ...]:
+    """Return one deterministic representative of a certified nonzero orbit."""
+
+    if not classification.exact:
+        raise ValueError("canonical reduction requires an exact square-zero action")
+    dimension = classification.action.outer.representatives.domain.dimension
+    if len(coordinates) != dimension:
+        raise ValueError("extension coordinates use another action basis")
+    if all(value.is_zero() for value in coordinates):
+        return coordinates
+    vector = list(coordinates)
+    pivots: dict[int, tuple[Eisenstein, ...]] = {}
+    for radical in classification.radical_actions:
+        image = list(_apply_sparse_map(radical, coordinates))
+        while any(not value.is_zero() for value in image):
+            pivot = next(index for index, value in enumerate(image) if not value.is_zero())
+            existing = pivots.get(pivot)
+            if existing is None:
+                inverse = image[pivot].inverse()
+                normalized = tuple(value * inverse for value in image)
+                pivots[pivot] = normalized
+                break
+            coefficient = image[pivot]
+            image = [
+                value - coefficient * basis_value
+                for value, basis_value in zip(image, existing, strict=True)
+            ]
+    for pivot in sorted(pivots):
+        coefficient = vector[pivot]
+        if coefficient.is_zero():
+            continue
+        vector = [
+            value - coefficient * basis_value
+            for value, basis_value in zip(vector, pivots[pivot], strict=True)
+        ]
+    pivot = next(index for index, value in enumerate(vector) if not value.is_zero())
+    inverse = vector[pivot].inverse()
+    return tuple(value * inverse for value in vector)
 
 
 def _cover_scalar_character(
@@ -1137,7 +1336,10 @@ __all__ = [
     "SparseOuterAutomorphismActionAudit",
     "SparseOuterCoverScalarActionAudit",
     "SparseOuterOrbitClassification",
+    "SparseSquareZeroOrbitClassification",
+    "canonical_square_zero_orbit_representative",
     "classify_sparse_outer_automorphism_orbits",
+    "classify_sparse_square_zero_orbits",
     "sparse_constituent_endomorphism_algebra",
     "sparse_outer_automorphism_action",
     "sparse_outer_cover_scalar_action",

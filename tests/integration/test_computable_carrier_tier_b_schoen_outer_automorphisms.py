@@ -567,3 +567,28 @@ def test_checked_action_frontier_closes_dimension_thirty_six() -> None:
         for record in records
     )
     assert all(record["exact"] is True for record in records)
+
+
+def test_checked_action_frontier_records_square_zero_unipotent_orbit() -> None:
+    """Pair 217 stores a complete nonprojective canonical orbit algorithm."""
+
+    digest, _ = _validated_invariant_records(DEFAULT_INVARIANT_ARTIFACT)
+    pairs, _ = _read_partial(ACTION_CHECKPOINT, digest)
+    record = pairs[217]
+    action = record["automorphism_action"]
+
+    assert record["invariant_ext_one_dimension"] == 38
+    assert action["action_proof"] == "exact quotient reduction modulo coboundaries"
+    assert action["nonzero_orbit_space"] == (
+        "fixed-basis scalar-plus-square-zero-unipotent quotient"
+    )
+    assert action["radical_generator_count"] == 3
+    assert action["radical_action_ranks"] == [2, 2, 2]
+    assert action["unit_characters_exact"] is True
+    assert action["radical_square_zero"] is True
+    assert action["canonical_normal_form"]["implemented_by"] == (
+        "canonical_square_zero_orbit_representative"
+    )
+    assert action["canonical_orbits_computed"] is True
+    assert action["outer_extension_constructed"] is False
+    assert record["exact"] is True

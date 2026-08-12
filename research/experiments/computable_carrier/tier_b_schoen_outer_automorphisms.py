@@ -37,6 +37,7 @@ from .schoen_sparse_outer_automorphisms import (
     SparseEndomorphismAlgebraAudit,
     _polynomial_record,
     classify_sparse_outer_automorphism_orbits,
+    classify_sparse_square_zero_orbits,
     sparse_constituent_endomorphism_algebra,
     sparse_outer_automorphism_action,
     sparse_outer_cover_scalar_action,
@@ -241,9 +242,15 @@ def _quotient_scalar_action_record(
         raise ValueError("recomputed invariant cocycles disagree with frozen artifact")
     action = sparse_outer_automorphism_action(cocycles, left, right)
     classification = classify_sparse_outer_automorphism_orbits(action)
-    if not classification.exact:
-        raise ValueError("quotient automorphism action is not exactly scalar")
-    record = _compact_projective_record(classification.as_record())
+    if classification.exact:
+        record = _compact_projective_record(classification.as_record())
+    else:
+        square_zero = classify_sparse_square_zero_orbits(action)
+        if not square_zero.exact:
+            raise ValueError(
+                "quotient action is neither scalar nor square-zero unipotent"
+            )
+        record = square_zero.as_record()
     record.update(
         {
             "action_proof": "exact quotient reduction modulo coboundaries",

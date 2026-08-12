@@ -240,6 +240,51 @@ class SparseOuterInvariantAudit:
         }
 
 
+def _invariant_cohomology_dimension(
+    bases: dict[int, SparseInvariantBasis],
+    differentials: dict[int, SparseMap],
+    degree: int,
+) -> int:
+    """Return one exact cohomology dimension from invariant complex data."""
+
+    if isinstance(degree, bool) or not isinstance(degree, int):
+        raise TypeError("invariant cohomology degrees must be integers")
+    if degree not in bases:
+        raise ValueError("requested cohomology degree is absent")
+    cochains = bases[degree].invariant
+    outgoing = differentials.get(
+        degree,
+        SparseMap.zero(
+            cochains,
+            VectorSpace(f"zero:{degree + 1}", (), Eisenstein),
+        ),
+    )
+    incoming = differentials.get(
+        degree - 1,
+        SparseMap.zero(
+            VectorSpace(f"zero:{degree - 1}", (), Eisenstein),
+            cochains,
+        ),
+    )
+    dimension = cochains.dimension - outgoing.rank() - incoming.rank()
+    if dimension < 0:
+        raise ValueError("invariant cochain ranks violate cohomology dimensions")
+    return dimension
+
+
+def sparse_invariant_cohomology_dimension(
+    invariant_audit: SparseOuterInvariantAudit,
+    degree: int,
+) -> int:
+    """Return one exact cohomology dimension of the invariant subcomplex."""
+
+    return _invariant_cohomology_dimension(
+        dict(invariant_audit.bases),
+        dict(invariant_audit.differentials),
+        degree,
+    )
+
+
 @dataclass(frozen=True, slots=True)
 class SparseInvariantCocycleBasis:
     """Explicit invariant cohomology representatives in cover cochains."""
@@ -749,26 +794,11 @@ def sparse_outer_invariant_audit(
         for degree, differential in differentials.items()
         if degree + 1 in differentials
     )
-    degree_one = bases[1].invariant
-    outgoing = differentials.get(
+    invariant_ext_one_dimension = _invariant_cohomology_dimension(
+        bases,
+        differentials,
         1,
-        SparseMap.zero(
-            degree_one,
-            bases.get(2, bases[1]).invariant,
-        ),
     )
-    incoming = differentials.get(
-        0,
-        SparseMap.zero(
-            bases.get(0, bases[1]).invariant,
-            degree_one,
-        ),
-    )
-    invariant_ext_one_dimension = (
-        degree_one.dimension - outgoing.rank() - incoming.rank()
-    )
-    if invariant_ext_one_dimension < 0:
-        raise ValueError("invariant cochain ranks violate cohomology dimensions")
     cover_ext_one_dimension = (
         outer.cover_ext_one_dimension
         if certified_cover_ext_one_dimension is None
@@ -821,7 +851,10 @@ def sparse_outer_invariant_cocycles(
         f"H^{degree}:P,T-invariant",
     )
     cover_representatives = bases[degree].inclusion.compose(representatives)
-    expected_dimension = invariant_audit.invariant_ext_one_dimension
+    expected_dimension = sparse_invariant_cohomology_dimension(
+        invariant_audit,
+        degree,
+    )
     combined = SparseMap.block(((boundaries, representatives),))
     cycles_exact = outgoing.compose(cycles).is_zero()
     quotient_exact = (
@@ -852,6 +885,7 @@ __all__ = [
     "SparseInvariantCocycleBasis",
     "SparseOuterDeckAudit",
     "SparseOuterInvariantAudit",
+    "sparse_invariant_cohomology_dimension",
     "sparse_outer_deck_audit",
     "sparse_outer_invariant_audit",
     "sparse_outer_invariant_cocycles",

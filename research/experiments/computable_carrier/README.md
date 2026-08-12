@@ -817,6 +817,18 @@ have explicit invariant cocycles, and all 360 zero cover Ext-one spaces have
 explicit exact invariant complexes. Automorphism orbits, rank-four mapping
 cones, and physical gates remain unresolved.
 
+The first automorphism-action prototype is exact for candidate 3's first ray
+pair. The left constituent has a four-dimensional invariant endomorphism
+algebra `Q(omega) + N`, where `N` is a three-dimensional square-zero ideal;
+its unit determinant is the fourth endomorphism coordinate to the fourth
+power. The right endomorphism algebra is one-dimensional. All three left
+nilpotent generators act trivially on the four-dimensional invariant outer
+Ext-one space, while both identity directions act as the identity. The two
+unit groups therefore identify precisely nonzero scalar multiples, giving
+canonical first-nonzero-coordinate normal forms for
+`P^3(Q(omega))`. This computes one pair's automorphism orbits only; it does
+not select an extension point or construct a rank-four bundle.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

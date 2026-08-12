@@ -15,8 +15,8 @@ Must not:
     local freeness, descent, stability, or a physical carrier.
 
 Phase 0:
-    Pair-level invariant cocycles are executable; the exhaustive screen,
-    automorphism orbits, and rank-four construction remain open.
+    The exhaustive invariant cocycle screen is exact; automorphism orbits and
+    rank-four construction remain separate explicit gates.
 """
 
 from __future__ import annotations

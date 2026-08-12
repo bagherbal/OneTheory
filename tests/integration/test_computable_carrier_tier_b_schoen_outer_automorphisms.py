@@ -225,3 +225,33 @@ def test_checked_action_frontier_closes_candidate_three() -> None:
     }
     assert candidate_keys <= set(constituents)
     assert len(candidate_keys) == 12
+
+
+def test_checked_action_frontier_closes_factor_exchanged_candidate() -> None:
+    """Candidate 23 independently reproduces 36 projective three-spaces."""
+
+    digest, _ = _validated_invariant_records(DEFAULT_INVARIANT_ARTIFACT)
+    pairs, constituents = _read_partial(ACTION_CHECKPOINT, digest)
+    records = [pairs[index] for index in range(793, 829)]
+
+    assert all(record["candidate_index"] == 23 for record in records)
+    assert all(record["invariant_ext_one_dimension"] == 4 for record in records)
+    assert all(
+        record["automorphism_action"]["nonzero_orbit_space"]
+        == "P^3(Q(omega))"
+        for record in records
+    )
+    candidate_keys = {
+        record[key]
+        for record in records
+        for key in ("left_constituent_key", "right_constituent_key")
+    }
+    assert candidate_keys <= set(constituents)
+    assert len(candidate_keys) == 12
+    assert candidate_keys.isdisjoint(
+        {
+            pairs[index][key]
+            for index in range(73, 109)
+            for key in ("left_constituent_key", "right_constituent_key")
+        }
+    )

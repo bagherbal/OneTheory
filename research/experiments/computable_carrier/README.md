@@ -757,6 +757,14 @@ exactness gate passes. The candidate batch peaked at 1,225,452 KB with no
 swap or major page faults. The invariant ledger now contains 1,152 of 1,440
 required pair certificates.
 
+The third zero-Ext frontier is complete across all 36 ray positions of
+candidate 11. Its exact invariant cochain dimensions are
+`(0,0,0,1094,1362,40)`: degree one has no ambient cochains, so its Ext-one
+and representative spaces vanish directly while the higher cochain complex
+and all exactness gates are still constructed. The batch peaked at
+1,225,904 KB with no swap or major page faults. The invariant ledger now
+contains 1,188 of 1,440 required pair certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

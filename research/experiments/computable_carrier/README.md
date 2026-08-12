@@ -928,6 +928,13 @@ directly on cover cocycles and 36 require exact quotient reduction; all 108
 nonzero orbit spaces are `P^23(Q(omega))`. The cumulative ledger now contains
 504 positive quotients and 360 exact zero-space exclusions.
 
+The thirty-dimensional frontier closes 18 selected character pairs in each
+of candidates 10 and 30. None of the 36 actions is scalar on the raw cover
+cocycles; every one becomes scalar only after exact coboundary reduction, and
+all nonzero orbit spaces are `P^29(Q(omega))`. The cumulative ledger reaches
+900 exact pair records: 540 positive quotients and 360 zero-space exclusions,
+supported by 168 full-identity constituent certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

@@ -786,6 +786,13 @@ ambient space, and vanishing Ext-one representatives. The batch peaked at
 1,226,688 KB with no swap and completed despite 14 major page faults. The
 invariant ledger now contains 1,296 of 1,440 required pair certificates.
 
+The seventh zero-Ext frontier is complete across all 36 ray positions of
+candidate 22. It independently reproduces candidate 2's exact invariant
+cochain dimensions `(0,0,180,706,506,24)`, 1,620-dimensional degree-one
+ambient space, and vanishing Ext-one representatives. The batch peaked at
+1,226,532 KB with no swap and only two major page faults. The invariant
+ledger now contains 1,332 of 1,440 required pair certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

@@ -749,6 +749,14 @@ actions, restrictions, and square-zero gates remain exact. Streaming the
 swap. The invariant ledger now contains 1,116 of 1,440 required pair
 certificates.
 
+The second zero-Ext frontier is complete across all 36 ray positions of
+candidate 2. Its exact invariant cochain dimensions are
+`(0,0,180,706,506,24)` with a 1,620-dimensional degree-one ambient space;
+again all Ext-one dimensions and representative lists vanish while every
+exactness gate passes. The candidate batch peaked at 1,225,452 KB with no
+swap or major page faults. The invariant ledger now contains 1,152 of 1,440
+required pair certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

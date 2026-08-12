@@ -14,7 +14,8 @@ Must not:
 
 Phase 0:
     Research-only automorphism algebra and action certificates are executable;
-    canonical orbit classification and rank-four construction remain open.
+    scalar projective orbits can be classified, while exhaustive screening and
+    rank-four construction remain open.
 """
 
 from __future__ import annotations
@@ -745,6 +746,69 @@ class SparseOuterAutomorphismActionAudit:
 
 
 @dataclass(frozen=True, slots=True)
+class SparseOuterCoverScalarActionAudit:
+    """Exact scalar actions proved on explicit invariant cover cocycles."""
+
+    outer_representatives: SparseMap
+    left_algebra: SparseEndomorphismAlgebraAudit
+    right_algebra: SparseEndomorphismAlgebraAudit
+    left_character: tuple[Eisenstein, ...]
+    right_character: tuple[Eisenstein, ...]
+    left_cover_equalities: bool
+    right_cover_equalities: bool
+    unit_characters_exact: bool
+
+    @property
+    def exact(self) -> bool:
+        """Return whether the cover proof induces exact projective Ext orbits."""
+
+        return (
+            self.outer_representatives.domain.dimension > 0
+            and self.left_algebra.exact
+            and self.right_algebra.exact
+            and self.left_cover_equalities
+            and self.right_cover_equalities
+            and self.unit_characters_exact
+        )
+
+    def as_record(self) -> dict[str, object]:
+        """Serialize the scalar representation and canonical orbit charts."""
+
+        dimension = self.outer_representatives.domain.dimension
+        return {
+            "extension_dimension": dimension,
+            "action_basis": [str(value) for value in self.outer_representatives.domain.basis],
+            "left_scalar_character": [str(value) for value in self.left_character],
+            "right_scalar_character": [str(value) for value in self.right_character],
+            "left_cover_equalities": self.left_cover_equalities,
+            "right_cover_equalities": self.right_cover_equalities,
+            "unit_characters_exact": self.unit_characters_exact,
+            "zero_orbit": {
+                "representative": ["0"] * dimension,
+                "split_extension": True,
+            },
+            "nonzero_orbit_space": f"P^{dimension - 1}(Q(omega))",
+            "canonical_normal_form_charts": [
+                {
+                    "pivot_index": pivot,
+                    "zero_coordinates": list(range(pivot)),
+                    "normalized_coordinate": pivot,
+                    "normalized_value": "1",
+                    "free_coordinates": list(range(pivot + 1, dimension)),
+                }
+                for pivot in range(dimension)
+            ],
+            "canonical_orbits_computed": self.exact,
+            "outer_extension_constructed": False,
+            "exact": self.exact,
+            "status": (
+                "scalar automorphism action proved on explicit cover cocycles; "
+                "no extension point is selected"
+            ),
+        }
+
+
+@dataclass(frozen=True, slots=True)
 class SparseOuterOrbitClassification:
     """Canonical projective normal forms for a scalar automorphism action."""
 
@@ -817,6 +881,54 @@ def _scalar_character(actions: tuple[SparseMap, ...]) -> tuple[Eisenstein, ...] 
     return tuple(coefficients)
 
 
+def _cover_scalar_character(
+    endomorphism: SparseInvariantCocycleBasis,
+    outer: SparseOuterHom,
+    representatives: SparseMap,
+    side: str,
+) -> tuple[Eisenstein, ...] | None:
+    """Prove scalar action directly on a declared cover-cocycle basis."""
+
+    if representatives.codomain != outer.total[1]:
+        raise ValueError("outer representatives use another total cochain space")
+    if representatives.domain.dimension == 0:
+        raise ValueError("scalar cover actions require positive-dimensional Ext")
+    characters = []
+    for endomorphism_column in _columns(endomorphism.cover_representatives):
+        product = _map_from_columns(
+            representatives.domain,
+            representatives.codomain,
+            tuple(
+                _compose_columns(
+                    endomorphism.invariant_audit.outer,
+                    outer,
+                    side,
+                    endomorphism_column,
+                    outer_column,
+                    1,
+                )
+                for outer_column in _columns(representatives)
+            ),
+        )
+        coefficient: Eisenstein | None = None
+        for row_index, row in enumerate(representatives.rows):
+            for column_index, value in row:
+                product_value = dict(product.rows[row_index]).get(
+                    column_index,
+                    Eisenstein(0),
+                )
+                coefficient = product_value / value
+                break
+            if coefficient is not None:
+                break
+        if coefficient is None:
+            raise ValueError("outer cover representative basis contains only zero")
+        if product != representatives.scale(coefficient):
+            return None
+        characters.append(coefficient)
+    return tuple(characters)
+
+
 def _character_polynomial(character: tuple[Eisenstein, ...]) -> Polynomial:
     """Return one linear coordinate character as an exact polynomial."""
 
@@ -860,6 +972,55 @@ def classify_sparse_outer_automorphism_orbits(
         left_character,
         right_character,
         scalar_actions,
+        unit_characters_exact,
+    )
+
+
+def sparse_outer_cover_scalar_action(
+    outer: SparseOuterHom,
+    representatives: SparseMap,
+    left_algebra: SparseEndomorphismAlgebraAudit,
+    right_algebra: SparseEndomorphismAlgebraAudit,
+) -> SparseOuterCoverScalarActionAudit:
+    """Certify scalar automorphism actions before passing to cohomology."""
+
+    outgoing = dict(outer.total_differentials).get(1)
+    if outgoing is not None and not outgoing.compose(representatives).is_zero():
+        raise ValueError("declared outer representatives are not cover cocycles")
+    left_character = _cover_scalar_character(
+        left_algebra.cocycles,
+        outer,
+        representatives,
+        "left",
+    )
+    right_character = _cover_scalar_character(
+        right_algebra.cocycles,
+        outer,
+        representatives,
+        "right",
+    )
+    left_exact = left_character is not None
+    right_exact = right_character is not None
+    if left_character is None:
+        left_character = ()
+    if right_character is None:
+        right_character = ()
+    unit_characters_exact = left_exact and right_exact and (
+        left_algebra.unit_polynomial
+        == _character_polynomial(left_character)
+        ** left_algebra.cocycles.representatives.domain.dimension
+        and right_algebra.unit_polynomial
+        == _character_polynomial(right_character)
+        ** right_algebra.cocycles.representatives.domain.dimension
+    )
+    return SparseOuterCoverScalarActionAudit(
+        representatives,
+        left_algebra,
+        right_algebra,
+        left_character,
+        right_character,
+        left_exact,
+        right_exact,
         unit_characters_exact,
     )
 
@@ -974,8 +1135,10 @@ def sparse_outer_automorphism_action(
 __all__ = [
     "SparseEndomorphismAlgebraAudit",
     "SparseOuterAutomorphismActionAudit",
+    "SparseOuterCoverScalarActionAudit",
     "SparseOuterOrbitClassification",
     "classify_sparse_outer_automorphism_orbits",
     "sparse_constituent_endomorphism_algebra",
     "sparse_outer_automorphism_action",
+    "sparse_outer_cover_scalar_action",
 ]

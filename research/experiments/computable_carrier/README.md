@@ -829,6 +829,19 @@ canonical first-nonzero-coordinate normal forms for
 `P^3(Q(omega))`. This computes one pair's automorphism orbits only; it does
 not select an extension point or construct a rank-four bundle.
 
+The exhaustive action runner binds every result to the content-addressed
+invariant-pair certificate. It first reconstructs each stored cover cocycle in
+the freshly generated structural basis. For positive Ext spaces, every
+endomorphism generator must act as the same exact scalar on every explicit
+cover representative; the unit-locus determinant must then equal the
+corresponding scalar character to the algebra dimension. This stronger
+cover-level identity implies the quotient action and permits canonical
+first-nonzero-coordinate projective charts without repeating invariant
+elimination. Zero Ext spaces have the unique trivial action and split orbit.
+Constituent algebra records are deduplicated only when their structural keys
+and complete content-addressed certificates agree. The runner remains
+serialized, resumable, and forbidden from selecting an orbit point.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

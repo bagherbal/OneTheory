@@ -29,10 +29,12 @@ from research.experiments.computable_carrier.schoen_sparse_outer_actions import 
 )
 from research.experiments.computable_carrier.schoen_sparse_outer_automorphisms import (
     SparseOuterAutomorphismActionAudit,
+    SparseOuterCoverScalarActionAudit,
     SparseOuterOrbitClassification,
     classify_sparse_outer_automorphism_orbits,
     sparse_constituent_endomorphism_algebra,
     sparse_outer_automorphism_action,
+    sparse_outer_cover_scalar_action,
 )
 from research.experiments.computable_carrier.tier_b_schoen_outer_full import (
     _clear_worker_caches,
@@ -44,6 +46,7 @@ from research.experiments.computable_carrier.tier_b_schoen_outer_full import (
 def _prototype() -> tuple[
     SparseOuterAutomorphismActionAudit,
     SparseOuterOrbitClassification,
+    SparseOuterCoverScalarActionAudit,
 ]:
     """Return candidate 3's first exact positive-dimensional pair action."""
 
@@ -70,7 +73,13 @@ def _prototype() -> tuple[
             candidate.right_twist,
         )
         action = sparse_outer_automorphism_action(cocycles, left, right)
-        return action, classify_sparse_outer_automorphism_orbits(action)
+        cover_action = sparse_outer_cover_scalar_action(
+            outer,
+            cocycles.cover_representatives,
+            left,
+            right,
+        )
+        return action, classify_sparse_outer_automorphism_orbits(action), cover_action
     finally:
         _clear_worker_caches()
 
@@ -78,7 +87,7 @@ def _prototype() -> tuple[
 def test_prototype_automorphism_algebras_and_projective_orbits_are_exact() -> None:
     """Nilpotent automorphisms act trivially and leave exact projective orbits."""
 
-    action, orbits = _prototype()
+    action, orbits, cover_action = _prototype()
     left = action.left_algebra
     right = action.right_algebra
 
@@ -125,6 +134,12 @@ def test_prototype_automorphism_algebras_and_projective_orbits_are_exact() -> No
     assert orbits.scalar_actions
     assert orbits.unit_characters_exact
     assert orbits.exact
+    assert cover_action.left_character == orbits.left_character
+    assert cover_action.right_character == orbits.right_character
+    assert cover_action.left_cover_equalities
+    assert cover_action.right_cover_equalities
+    assert cover_action.unit_characters_exact
+    assert cover_action.exact
     record = orbits.as_record()
     assert record["nonzero_orbit_space"] == "P^3(Q(omega))"
     assert len(record["canonical_normal_form_charts"]) == 4

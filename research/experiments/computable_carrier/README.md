@@ -857,6 +857,13 @@ reduced `P^3(Q(omega))` orbit classification. This is the first positive record
 inside the exhaustive checkpoint, not a selected extension and not evidence
 for any uncomputed pair.
 
+The candidate-3 action block is now exhaustive over its six-by-six Serre-ray
+pairing: all 36 invariant Ext spaces are four-dimensional, every explicit
+cover basis has the same certified scalar unit action, and each nonzero orbit
+space is `P^3(Q(omega))`. Twelve distinct constituent algebra certificates
+support the block. This classifies extension coordinates up to constituent
+automorphisms but still leaves every projective point unselected.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

@@ -850,6 +850,13 @@ to those empty spaces. The remaining 1,080 positive-dimensional pairs require
 explicit cover-cocycle action certificates before any extension orbit can be
 used.
 
+The resumable positive path is closed for global pair 73. Its stored invariant
+cocycles reconstruct exactly, both constituent algebra certificates are
+content addressed, and the direct cover action reproduces the independently
+reduced `P^3(Q(omega))` orbit classification. This is the first positive record
+inside the exhaustive checkpoint, not a selected extension and not evidence
+for any uncomputed pair.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

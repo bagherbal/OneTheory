@@ -800,6 +800,13 @@ representatives. The batch peaked at 1,227,188 KB with no swap and one major
 page fault. The invariant ledger now contains 1,368 of 1,440 required pair
 certificates.
 
+The ninth zero-Ext frontier is complete across all 36 ray positions of
+candidate 32. It independently reproduces candidate 12's zero-ambient exact
+cochain dimensions `(0,0,0,650,806,24)` and vanishing Ext-one
+representatives. The batch peaked at 1,227,372 KB with no swap or major page
+faults. The invariant ledger now contains 1,404 of 1,440 required pair
+certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

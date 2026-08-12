@@ -41,6 +41,8 @@ from research.experiments.computable_carrier.tier_b_schoen_outer_automorphisms i
     _eisenstein_text,
     _stored_cover_representatives,
     audit_schoen_outer_automorphism_pair,
+    constituent_presentation_identity,
+    constituent_presentation_key,
 )
 from research.experiments.computable_carrier.tier_b_schoen_outer_full import (
     _clear_worker_caches,
@@ -290,3 +292,50 @@ def test_checked_action_frontier_closes_dimension_six() -> None:
         for record in records
         for key in ("left_constituent_key", "right_constituent_key")
     )
+
+
+def test_constituent_keys_bind_serre_shift_and_extension_map() -> None:
+    """Presentation addresses distinguish rays omitted by the legacy key."""
+
+    _, tasks, _ = _tasks_and_records()
+    _, _, _, candidate, left_ray, right_ray, _ = tasks[255]
+    left_identity = constituent_presentation_identity(
+        left_ray,
+        candidate.left_factor,
+        candidate.left_twist,
+    )
+    right_identity = constituent_presentation_identity(
+        right_ray,
+        candidate.right_factor,
+        candidate.right_twist,
+    )
+
+    assert left_identity["target_line_shift"] == -6
+    assert right_identity["target_line_shift"] == 0
+    assert left_identity["extension_map"]
+    assert right_identity["extension_map"]
+    assert constituent_presentation_key(left_identity) != constituent_presentation_key(
+        right_identity
+    )
+
+
+def test_checked_action_frontier_records_exact_quotient_fallback() -> None:
+    """Pair 256 reduces nonscalar cover products to a scalar Ext action."""
+
+    digest, _ = _validated_invariant_records(DEFAULT_INVARIANT_ARTIFACT)
+    pairs, constituents = _read_partial(ACTION_CHECKPOINT, digest)
+    record = pairs[256]
+    action = record["automorphism_action"]
+
+    assert record["invariant_ext_one_dimension"] == 8
+    assert action["action_proof"] == "exact quotient reduction modulo coboundaries"
+    assert action["left_cover_equalities"] is False
+    assert action["right_cover_equalities"] is False
+    assert action["quotient_action_exact"] is True
+    assert action["module_laws_exact"] is True
+    assert action["actions_commute"] is True
+    assert action["nonzero_orbit_space"] == "P^7(Q(omega))"
+    assert action["canonical_normal_form"]["chart_count"] == 8
+    assert record["left_constituent_key"] in constituents
+    assert record["right_constituent_key"] in constituents
+    assert record["exact"] is True

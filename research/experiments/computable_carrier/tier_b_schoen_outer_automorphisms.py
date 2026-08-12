@@ -18,6 +18,8 @@ Phase 0:
 
 from __future__ import annotations
 
+import hashlib
+import json
 from dataclasses import dataclass
 from fractions import Fraction
 
@@ -28,11 +30,15 @@ from .schoen_sparse_outer import SparseMap, _freeze_rows, sparse_outer_hom
 from .schoen_sparse_outer_actions import (
     _basis_coordinate_record,
     _total_basis_coordinates,
+    sparse_outer_invariant_audit,
+    sparse_outer_invariant_cocycles,
 )
 from .schoen_sparse_outer_automorphisms import (
     SparseEndomorphismAlgebraAudit,
     _polynomial_record,
+    classify_sparse_outer_automorphism_orbits,
     sparse_constituent_endomorphism_algebra,
+    sparse_outer_automorphism_action,
     sparse_outer_cover_scalar_action,
 )
 from .tier_b_schoen_outer_full import _clear_worker_caches
@@ -132,18 +138,47 @@ def _stored_cover_representatives(
     return result
 
 
-def _constituent_key(algebra: SparseEndomorphismAlgebraAudit) -> str:
-    """Return a collision-free structural key for one constituent presentation."""
+def constituent_presentation_identity(
+    ray,
+    factor: int,
+    twist: tuple[int, int, int],
+) -> dict[str, object]:
+    """Return the complete exact identity of one constituent presentation."""
+
+    return {
+        "scheme": ray.cokernel.scheme.name,
+        "target_line_shift": ray.cokernel.target_line_shift,
+        "character_pair": [str(value) for value in ray.character_pair],
+        "extension_map": [
+            _polynomial_record(polynomial) for polynomial in ray.extension_map
+        ],
+        "factor": factor,
+        "twist": list(twist),
+    }
+
+
+def constituent_presentation_key(identity: dict[str, object]) -> str:
+    """Return the SHA-256 content address of one presentation identity."""
+
+    canonical = json.dumps(
+        identity,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+    return f"schoen-constituent-sha256:{digest}"
+
+
+def _constituent_identity(
+    algebra: SparseEndomorphismAlgebraAudit,
+) -> dict[str, object]:
+    """Return the complete identity carried by one computed algebra."""
 
     presentation = algebra.invariant.outer.left
-    ray = presentation.ray
-    return "|".join(
-        (
-            ray.cokernel.scheme.name,
-            *(str(value) for value in ray.character_pair),
-            str(presentation.factor),
-            *(str(value) for value in presentation.twist),
-        )
+    return constituent_presentation_identity(
+        presentation.ray,
+        presentation.factor,
+        presentation.twist,
     )
 
 
@@ -152,14 +187,10 @@ def _constituent_record(
 ) -> dict[str, object]:
     """Serialize the exact algebra facts needed by every pair action."""
 
+    identity = _constituent_identity(algebra)
     return {
-        "key": _constituent_key(algebra),
-        "scheme": algebra.invariant.outer.left.candidate.scheme.name,
-        "factor": algebra.invariant.outer.left.factor,
-        "twist": list(algebra.invariant.outer.left.twist),
-        "character_pair": [
-            str(value) for value in algebra.invariant.outer.left.ray.character_pair
-        ],
+        "key": constituent_presentation_key(identity),
+        "presentation_identity": identity,
         "invariant_h0_dimension": algebra.cocycles.representatives.domain.dimension,
         "identity_coordinates": [str(value) for value in algebra.identity_coordinates],
         "unit_locus_determinant": _polynomial_record(algebra.unit_polynomial),
@@ -168,6 +199,62 @@ def _constituent_record(
         "identity_exact": algebra.identity_exact,
         "exact": algebra.exact,
     }
+
+
+def _compact_projective_record(record: dict[str, object]) -> dict[str, object]:
+    """Replace expanded projective charts by one exact normalization rule."""
+
+    compact = dict(record)
+    charts = compact.pop("canonical_normal_form_charts", None)
+    dimension = compact.get("extension_dimension")
+    if isinstance(dimension, bool) or not isinstance(dimension, int) or dimension < 1:
+        raise ValueError("projective orbit records require positive dimension")
+    if not isinstance(charts, list) or len(charts) != dimension:
+        raise ValueError("expanded projective charts do not span the Ext basis")
+    compact["canonical_normal_form"] = {
+        "rule": "normalize the first nonzero coordinate to one",
+        "pivot_index_range": [0, dimension - 1],
+        "coordinates_before_pivot": "zero",
+        "coordinates_after_pivot": "free",
+        "chart_count": dimension,
+    }
+    return compact
+
+
+def _quotient_scalar_action_record(
+    outer,
+    representatives: SparseMap,
+    left: SparseEndomorphismAlgebraAudit,
+    right: SparseEndomorphismAlgebraAudit,
+    cover_dimension: int,
+) -> dict[str, object]:
+    """Reduce a nonscalar cover action and certify its quotient representation."""
+
+    invariant = sparse_outer_invariant_audit(outer, cover_dimension)
+    cocycles = sparse_outer_invariant_cocycles(invariant)
+    if (
+        cocycles.cover_representatives.codomain != representatives.codomain
+        or cocycles.cover_representatives.domain.basis
+        != representatives.domain.basis
+        or cocycles.cover_representatives.rows != representatives.rows
+    ):
+        raise ValueError("recomputed invariant cocycles disagree with frozen artifact")
+    action = sparse_outer_automorphism_action(cocycles, left, right)
+    classification = classify_sparse_outer_automorphism_orbits(action)
+    if not classification.exact:
+        raise ValueError("quotient automorphism action is not exactly scalar")
+    record = _compact_projective_record(classification.as_record())
+    record.update(
+        {
+            "action_proof": "exact quotient reduction modulo coboundaries",
+            "left_cover_equalities": False,
+            "right_cover_equalities": False,
+            "quotient_action_exact": action.exact,
+            "module_laws_exact": action.module_laws_exact,
+            "actions_commute": action.actions_commute,
+        }
+    )
+    return record
 
 
 @dataclass(frozen=True, slots=True)
@@ -215,7 +302,15 @@ def audit_schoen_outer_automorphism_pair(
 ) -> SchoenOuterAutomorphismPairAudit:
     """Audit one stored pair and release every exact sparse cache afterward."""
 
-    global_index, pair_index, candidate_index, candidate, left_ray, right_ray, _ = task
+    (
+        global_index,
+        pair_index,
+        candidate_index,
+        candidate,
+        left_ray,
+        right_ray,
+        cover_dimension,
+    ) = task
     digest = pair_record.get("certificate_digest")
     subcomplex = pair_record.get("invariant_subcomplex")
     if not isinstance(digest, str) or not isinstance(subcomplex, dict):
@@ -271,8 +366,18 @@ def audit_schoen_outer_automorphism_pair(
             left,
             right,
         )
-        if not action.exact:
-            raise ValueError("pair automorphism action is not exactly scalar")
+        if action.exact:
+            action_record = _compact_projective_record(action.as_record())
+            action_record["action_proof"] = "exact equality on cover cocycles"
+            action_record["quotient_action_exact"] = True
+        else:
+            action_record = _quotient_scalar_action_record(
+                outer,
+                representatives,
+                left,
+                right,
+                cover_dimension,
+            )
         return SchoenOuterAutomorphismPairAudit(
             global_index,
             pair_index,
@@ -281,7 +386,7 @@ def audit_schoen_outer_automorphism_pair(
             dimension,
             _constituent_record(left),
             _constituent_record(right),
-            action.as_record(),
+            action_record,
         )
     finally:
         _clear_worker_caches()
@@ -290,4 +395,6 @@ def audit_schoen_outer_automorphism_pair(
 __all__ = [
     "SchoenOuterAutomorphismPairAudit",
     "audit_schoen_outer_automorphism_pair",
+    "constituent_presentation_identity",
+    "constituent_presentation_key",
 ]

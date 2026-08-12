@@ -879,6 +879,22 @@ therefore 36 copies of `P^5(Q(omega))`. The cumulative action ledger contains
 108 positive pair quotients, 360 zero-space exclusions, and 48 exact
 constituent algebra certificates; no orbit point has been selected.
 
+The first eight-dimensional pair exposed a necessary distinction between
+cochain and cohomology actions. For global pair 256, nilpotent endomorphisms
+produce nonzero cover coboundaries, so direct scalar equality fails. Exact
+recomputation of the invariant complex reproduces the frozen cocycle rows and
+reduces all three nilpotent generators to zero on Ext, while the identity acts
+on all eight classes. The certified quotient is therefore
+`P^7(Q(omega))`. This fallback is fail-closed and records whether an action was
+proved on cover cocycles or only after quotient reduction.
+
+That pair also exposed an ambiguous legacy constituent key: scheme,
+characters, factor, and twist did not include the Serre target shift. The
+checkpoint now uses a versioned SHA-256 address over the complete exact
+presentation identity, including target shift and extension-map polynomials.
+All 468 prior records migrated only after proving every legacy key mapped to
+one unique full identity; their mathematical certificates remain unchanged.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

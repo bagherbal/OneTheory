@@ -33,13 +33,16 @@ from .generate_tier_b_schoen_outer_invariants import (
 )
 from .tier_b_schoen_outer_automorphisms import (
     audit_schoen_outer_automorphism_pair,
+    constituent_presentation_identity,
+    constituent_presentation_key,
 )
+from .tier_b_schoen_outer_full import declared_schoen_outer_pairs
 from .tier_b_schoen_outer_invariants import (
     InvariantPairTask,
     declared_schoen_invariant_pair_tasks,
 )
 
-SCHEMA = "tier-b-schoen-outer-automorphisms-v1"
+SCHEMA = "tier-b-schoen-outer-automorphisms-v2"
 DEFAULT_COVER_ARTIFACT = Path(
     "data/generated/computable_carrier/tier_b_schoen_outer_full.json"
 )
@@ -123,6 +126,8 @@ def _read_partial(
     if not path.exists():
         return {}, {}
     payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("schema") == "tier-b-schoen-outer-automorphisms-v1":
+        payload = _migrate_v1(payload)
     if payload.get("schema") != SCHEMA:
         raise ValueError("automorphism checkpoint schema is incompatible")
     if payload.get("invariant_artifact_digest") != invariant_digest:
@@ -142,6 +147,132 @@ def _read_partial(
             raise ValueError("constituent checkpoint key is inconsistent")
         _verify_constituent_record(record)
     return pairs, constituents
+
+
+def _compact_legacy_action(action: dict[str, object]) -> dict[str, object]:
+    """Compact expanded projective charts without changing their exact rule."""
+
+    compact = dict(action)
+    charts = compact.pop("canonical_normal_form_charts", None)
+    dimension = compact.get("extension_dimension")
+    if charts is None:
+        return compact
+    if (
+        isinstance(dimension, bool)
+        or not isinstance(dimension, int)
+        or not isinstance(charts, list)
+        or len(charts) != dimension
+    ):
+        raise ValueError("legacy projective charts are inconsistent")
+    compact["canonical_normal_form"] = {
+        "rule": "normalize the first nonzero coordinate to one",
+        "pivot_index_range": [0, dimension - 1],
+        "coordinates_before_pivot": "zero",
+        "coordinates_after_pivot": "free",
+        "chart_count": dimension,
+    }
+    compact["action_proof"] = "exact equality on cover cocycles"
+    compact["quotient_action_exact"] = True
+    return compact
+
+
+def _migrate_v1(payload: dict[str, object]) -> dict[str, object]:
+    """Losslessly rebind unambiguous legacy keys to full presentation digests."""
+
+    raw_pairs = payload.get("completed_pairs")
+    raw_constituents = payload.get("constituents")
+    if not isinstance(raw_pairs, dict) or not isinstance(raw_constituents, dict):
+        raise ValueError("legacy automorphism ledgers must be objects")
+    declared = declared_schoen_outer_pairs()
+    identities: dict[str, dict[str, object]] = {}
+    pair_bindings: dict[int, tuple[str, str] | None] = {}
+    for text_index, raw_record in raw_pairs.items():
+        if not isinstance(raw_record, dict):
+            raise ValueError("legacy pair records must be objects")
+        index = int(text_index)
+        _, candidate, left_ray, right_ray = declared[index - 1]
+        keys = []
+        for field, ray, factor, twist in (
+            ("left_constituent_key", left_ray, candidate.left_factor, candidate.left_twist),
+            (
+                "right_constituent_key",
+                right_ray,
+                candidate.right_factor,
+                candidate.right_twist,
+            ),
+        ):
+            old_key = raw_record.get(field)
+            if old_key is None:
+                keys = []
+                break
+            if not isinstance(old_key, str):
+                raise ValueError("legacy constituent keys must be text")
+            identity = constituent_presentation_identity(ray, factor, twist)
+            existing = identities.get(old_key)
+            if existing is not None and existing != identity:
+                raise ValueError("legacy constituent key is ambiguous")
+            identities[old_key] = identity
+            keys.append(old_key)
+        pair_bindings[index] = tuple(keys) if keys else None
+    if set(identities) != set(raw_constituents):
+        raise ValueError("legacy constituent ledger contains unbound records")
+    migrated_constituents: dict[str, dict[str, object]] = {}
+    replacement: dict[str, str] = {}
+    for old_key, identity in identities.items():
+        raw = raw_constituents[old_key]
+        if not isinstance(raw, dict):
+            raise ValueError("legacy constituent records must be objects")
+        _verify_constituent_record(raw)
+        record = {
+            key: value
+            for key, value in raw.items()
+            if key
+            not in {
+                "certificate_digest",
+                "scheme",
+                "factor",
+                "twist",
+                "character_pair",
+                "key",
+            }
+        }
+        new_key = constituent_presentation_key(identity)
+        record["key"] = new_key
+        record["presentation_identity"] = identity
+        record["certificate_digest"] = _canonical_digest(record)
+        existing = migrated_constituents.get(new_key)
+        if existing is not None and existing != record:
+            raise ValueError("migrated constituent address collision")
+        migrated_constituents[new_key] = record
+        replacement[old_key] = new_key
+    migrated_pairs: dict[str, dict[str, object]] = {}
+    for text_index, raw in raw_pairs.items():
+        if not isinstance(raw, dict):
+            raise ValueError("legacy pair records must be objects")
+        index = int(text_index)
+        _verify_action_record(raw)
+        record = dict(raw)
+        del record["certificate_digest"]
+        binding = pair_bindings[index]
+        if binding is not None:
+            left_key, right_key = binding
+            record["left_constituent_key"] = replacement[left_key]
+            record["right_constituent_key"] = replacement[right_key]
+            action = record.get("automorphism_action")
+            if not isinstance(action, dict):
+                raise ValueError("legacy positive pair lacks its action record")
+            record["automorphism_action"] = _compact_legacy_action(action)
+        record["certificate_digest"] = _canonical_digest(record)
+        migrated_pairs[text_index] = record
+    return {
+        "schema": SCHEMA,
+        "invariant_artifact_digest": payload.get("invariant_artifact_digest"),
+        "declared_pair_count": payload.get("declared_pair_count"),
+        "completed_pair_count": len(migrated_pairs),
+        "completed_pairs": migrated_pairs,
+        "constituent_count": len(migrated_constituents),
+        "constituents": migrated_constituents,
+    }
 
 
 def _write_partial(

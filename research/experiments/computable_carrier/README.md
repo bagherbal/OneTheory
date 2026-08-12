@@ -871,6 +871,14 @@ copies of `P^3(Q(omega))`. The supporting 12 constituent algebra certificates
 have distinct factor/twist keys. Together the positive action frontier now
 contains 72 exact pair quotients and no chosen extension.
 
+The next exact frontier closes every six-dimensional invariant Ext space.
+The 18 character-selected pairs in candidate 14 and their 18 independently
+computed factor-exchanged partners in candidate 34 all carry scalar unit
+actions on their stored cover representatives. Their nonzero orbit spaces are
+therefore 36 copies of `P^5(Q(omega))`. The cumulative action ledger contains
+108 positive pair quotients, 360 zero-space exclusions, and 48 exact
+constituent algebra certificates; no orbit point has been selected.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

@@ -916,6 +916,12 @@ selected character pairs in each of candidates 9, 15, 29, and 35 yield
 quotients and 360 zero-space exclusions. All 120 distinct constituent
 presentations now have full-identity, content-addressed algebra certificates.
 
+The twenty-two-dimensional frontier closes all 36 selected character pairs
+from candidates 17 and 37. Every constituent action is scalar already on the
+explicit cover cocycles, so no quotient fallback is needed, and each nonzero
+orbit space is `P^21(Q(omega))`. The cumulative action ledger now contains
+756 exact pair records and 144 distinct constituent certificates.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

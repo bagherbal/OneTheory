@@ -935,6 +935,12 @@ all nonzero orbit spaces are `P^29(Q(omega))`. The cumulative ledger reaches
 900 exact pair records: 540 positive quotients and 360 zero-space exclusions,
 supported by 168 full-identity constituent certificates.
 
+The thirty-six-dimensional frontier closes all 18 selected character pairs
+in each of candidates 7 and 27. Every action is scalar directly on the
+explicit cover cocycles, and all nonzero orbit spaces are
+`P^35(Q(omega))`. The cumulative ledger contains 936 exact pair records and
+requires no constituent presentation beyond the 168 already certified.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

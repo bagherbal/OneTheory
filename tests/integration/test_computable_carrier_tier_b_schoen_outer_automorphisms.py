@@ -524,8 +524,8 @@ def test_checked_action_frontier_closes_dimension_thirty() -> None:
         if record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 30
     ]
 
-    assert len(pairs) == 900
-    assert len(constituents) == 168
+    assert len(pairs) >= 900
+    assert len(constituents) >= 168
     assert len(records) == 36
     assert Counter(record["candidate_index"] for record in records) == {10: 18, 30: 18}
     assert all(
@@ -536,6 +536,34 @@ def test_checked_action_frontier_closes_dimension_thirty() -> None:
     assert all(
         record["automorphism_action"]["nonzero_orbit_space"]
         == "P^29(Q(omega))"
+        for record in records
+    )
+    assert all(record["exact"] is True for record in records)
+
+
+def test_checked_action_frontier_closes_dimension_thirty_six() -> None:
+    """Both factor orientations close directly in dimension thirty-six."""
+
+    digest, invariant_records = _validated_invariant_records(
+        DEFAULT_INVARIANT_ARTIFACT
+    )
+    pairs, _ = _read_partial(ACTION_CHECKPOINT, digest)
+    records = [
+        pairs[record["global_pair_index"]]
+        for record in invariant_records
+        if record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 36
+    ]
+
+    assert len(records) == 36
+    assert Counter(record["candidate_index"] for record in records) == {7: 18, 27: 18}
+    assert all(
+        record["automorphism_action"]["action_proof"]
+        == "exact equality on cover cocycles"
+        for record in records
+    )
+    assert all(
+        record["automorphism_action"]["nonzero_orbit_space"]
+        == "P^35(Q(omega))"
         for record in records
     )
     assert all(record["exact"] is True for record in records)

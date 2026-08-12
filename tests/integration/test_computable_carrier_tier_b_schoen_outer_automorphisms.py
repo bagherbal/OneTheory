@@ -473,3 +473,39 @@ def test_checked_action_frontier_closes_dimension_twenty_two() -> None:
         for record in records
     )
     assert all(record["exact"] is True for record in records)
+
+
+def test_checked_action_frontier_closes_dimension_twenty_four() -> None:
+    """Six character-split blocks close all projective-twenty-three quotients."""
+
+    digest, invariant_records = _validated_invariant_records(
+        DEFAULT_INVARIANT_ARTIFACT
+    )
+    pairs, _ = _read_partial(ACTION_CHECKPOINT, digest)
+    records = [
+        pairs[record["global_pair_index"]]
+        for record in invariant_records
+        if record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 24
+    ]
+
+    assert len(records) == 108
+    assert Counter(record["candidate_index"] for record in records) == {
+        9: 18,
+        15: 18,
+        17: 18,
+        29: 18,
+        35: 18,
+        37: 18,
+    }
+    assert Counter(
+        record["automorphism_action"]["action_proof"] for record in records
+    ) == {
+        "exact equality on cover cocycles": 72,
+        "exact quotient reduction modulo coboundaries": 36,
+    }
+    assert all(
+        record["automorphism_action"]["nonzero_orbit_space"]
+        == "P^23(Q(omega))"
+        for record in records
+    )
+    assert all(record["exact"] is True for record in records)

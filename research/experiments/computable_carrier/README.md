@@ -922,6 +922,12 @@ explicit cover cocycles, so no quotient fallback is needed, and each nonzero
 orbit space is `P^21(Q(omega))`. The cumulative action ledger now contains
 756 exact pair records and 144 distinct constituent certificates.
 
+The twenty-four-dimensional frontier spans six character-split 18-pair
+blocks from candidates 9, 15, 17, 29, 35, and 37. Seventy-two actions close
+directly on cover cocycles and 36 require exact quotient reduction; all 108
+nonzero orbit spaces are `P^23(Q(omega))`. The cumulative ledger now contains
+504 positive quotients and 360 exact zero-space exclusions.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

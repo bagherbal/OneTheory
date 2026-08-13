@@ -1,0 +1,1410 @@
+"""Generate and validate the machine-readable Scientific Genesis state.
+
+Owns:
+    Evidence-backed claim nodes, dependency edges, reusable-engine inventory,
+    scoped results, structural questions, and a research-value scheduler.
+
+Depends on:
+    Standard-library inspection of repository sources and generated artifacts.
+
+Must not:
+    Infer scientific truth from file presence, choose an extension coordinate,
+    complete a missing physical edge, or import observations as source inputs.
+
+Phase 0:
+    Deterministic state reconstruction is available; all scientific statuses
+    remain bounded by the evidence serialized here.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+from typing import Final
+
+ROOT: Final = Path(__file__).resolve().parents[3]
+OUTPUT: Final = ROOT / "data/generated/scientific_genesis/scientific_genesis_state.json"
+SCHEMA: Final = "scientific-genesis-state-v1"
+STATUSES: Final = {
+    "ASSUMED",
+    "SELECTED",
+    "DERIVED",
+    "COMPUTED",
+    "PROVED",
+    "MEASURED",
+    "FITTED",
+    "CONJECTURED",
+    "BLOCKED",
+    "REFUTED",
+}
+
+
+def _sha256(path: Path) -> str:
+    """Return one file's SHA-256 digest without interpreting its contents."""
+
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def _canonical_digest(payload: object) -> str:
+    """Digest canonical compact JSON."""
+
+    text = json.dumps(payload, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def _node(
+    identifier: str,
+    label: str,
+    layer: str,
+    status: str,
+    statement: str,
+    evidence: tuple[str, ...],
+    assumptions: tuple[str, ...] = (),
+    missing: tuple[str, ...] = (),
+) -> dict[str, object]:
+    """Create one explicit epistemic claim node."""
+
+    return {
+        "id": identifier,
+        "label": label,
+        "layer": layer,
+        "status": status,
+        "statement": statement,
+        "evidence": list(evidence),
+        "assumptions": list(assumptions),
+        "missing_prerequisites": list(missing),
+    }
+
+
+def _edge(
+    source: str,
+    target: str,
+    reason: str,
+    implementation: tuple[str, ...],
+    assumptions: tuple[str, ...],
+    exact: bool,
+    failure_modes: tuple[str, ...],
+) -> dict[str, object]:
+    """Create one evidence-bearing dependency implication."""
+
+    return {
+        "source": source,
+        "target": target,
+        "mathematical_reason": reason,
+        "implementation_or_artifact": list(implementation),
+        "assumptions_required": list(assumptions),
+        "implication": "exact" if exact else "conditional_or_conjectural",
+        "known_failure_modes": list(failure_modes),
+    }
+
+
+def _nodes() -> list[dict[str, object]]:
+    """Return the audited claim set with exactly one status per node."""
+
+    return [
+        _node(
+            "quantum_phase_structure",
+            "quantum phase and Hilbert-space structure",
+            "Genesis",
+            "ASSUMED",
+            "Quantum state, operator, and unitary-evolution laws are executable, "
+            "but their deeper origin is not derived.",
+            ("src/onetheory/physics/quantum.py", "tests/integration/test_established_laws.py"),
+            ("standard quantum postulates",),
+        ),
+        _node(
+            "lorentzian_causal_structure",
+            "Lorentzian causal structure",
+            "Genesis",
+            "ASSUMED",
+            "Spacetime and causal records implement established geometry; no "
+            "pre-geometric derivation of Lorentzian signature exists.",
+            ("src/onetheory/physics/spacetime.py",),
+            ("Lorentzian manifold structure",),
+        ),
+        _node(
+            "einstein_gravity",
+            "Einstein gravity",
+            "Genesis",
+            "ASSUMED",
+            "Einstein-Hilbert and matter-coupling laws are executable established "
+            "inputs rather than consequences of a deeper OneTheory principle.",
+            ("src/onetheory/physics/gravity.py", "tests/integration/test_established_laws.py"),
+            ("general relativity",),
+        ),
+        _node(
+            "dimensional_constant_contract",
+            "c, hbar, and G foundational contract",
+            "Genesis",
+            "ASSUMED",
+            "Dimensional constants are explicit symbolic primitives; only "
+            "dimensionless consequences may later count as predictions.",
+            ("src/onetheory/core/units.py", "src/onetheory/physics/compactification.py"),
+            ("unit conventions and measured dimensional normalizations",),
+        ),
+        _node(
+            "genesis_to_uv_bridge",
+            "Genesis to quantum-gravitational UV implication",
+            "Genesis",
+            "BLOCKED",
+            "No lawful derivation currently maps a deeper Genesis structure to "
+            "the quantum, causal, gravitational, and heterotic structures used below.",
+            ("README.md",),
+            missing=(
+                "primitive Genesis structure",
+                "derivation of quantum phase",
+                "derivation of causal geometry",
+                "derivation of gravitational coupling",
+                "derivation of the selected UV theory",
+            ),
+        ),
+        _node(
+            "heterotic_uv",
+            "ten-dimensional E8 x E8 heterotic structure",
+            "Heterotic realization",
+            "SELECTED",
+            "Heterotic theory is the explicit conditional UV realization; its "
+            "selection is not a Genesis derivation.",
+            ("src/onetheory/physics/strings.py", "src/onetheory/physics/compactification.py"),
+            ("heterotic UV realization",),
+        ),
+        _node(
+            "schoen_geometry",
+            "Schoen fiber product and free Z3 x Z3 quotient",
+            "Heterotic realization",
+            "COMPUTED",
+            "Published Schoen geometry, quotient normalization, Cox equations, "
+            "and deck actions are represented exactly.",
+            (
+                "src/onetheory/models/heterotic_schoen/geometry.py",
+                "data/published/visible_carrier/source_manifest.json",
+                "tests/integration/test_computable_carrier_dp9_hypersurface.py",
+            ),
+            ("published one-Higgs Schoen geometry",),
+        ),
+        _node(
+            "standard_model_laws",
+            "parameterized Standard Model laws",
+            "Low-energy laws",
+            "ASSUMED",
+            "Gauge representations, charges, interactions, and anomaly checks "
+            "implement established low-energy law input without measured parameters.",
+            ("src/onetheory/models/standard_model.py", "tests/unit/test_standard_model.py"),
+            ("established Standard Model",),
+        ),
+        _node(
+            "published_visible_carrier",
+            "published one-Higgs visible SU(4) carrier",
+            "Reference realization",
+            "SELECTED",
+            "The published carrier's sheaf definitions, topology, abstract Ext "
+            "dimension, spectrum metadata, and stability result are selected reference inputs.",
+            (
+                "src/onetheory/models/heterotic_schoen/visible.py",
+                "data/published/visible_carrier/source_manifest.json",
+                "data/generated/visible_carrier/visible_carrier_artifact.json",
+            ),
+            ("published source claims and conventions",),
+        ),
+        _node(
+            "published_chain_reconstruction",
+            "published carrier chain reconstruction",
+            "Reference realization",
+            "BLOCKED",
+            "The sources do not serialize the four invariant extension cocycles "
+            "or synchronized Cech-Koszul transition data needed downstream.",
+            ("data/generated/visible_carrier/visible_carrier_artifact.json",),
+            missing=(
+                "four invariant Ext cocycles",
+                "common Cech-Koszul basis and signs",
+                "local transition data",
+            ),
+        ),
+        _node(
+            "computable_constituent_category",
+            "computable Schoen Serre constituent category",
+            "Computable carrier",
+            "COMPUTED",
+            "Forty determinant-compatible topology candidates and their declared "
+            "ray pairs have exact constituent presentations and deck actions.",
+            (
+                "data/generated/computable_carrier/computable_carrier_artifact.json",
+                "research/experiments/computable_carrier/tier_b_schoen_outer_full.py",
+            ),
+        ),
+        _node(
+            "cover_ext_screen",
+            "complete cover Ext screen",
+            "Computable carrier",
+            "COMPUTED",
+            "All 1,440 declared pairs have exact cover Hom totalizations and Ext-one dimensions.",
+            ("data/generated/computable_carrier/tier_b_schoen_outer_full.json",),
+        ),
+        _node(
+            "invariant_ext_cocycles",
+            "complete invariant Ext cocycle screen",
+            "Computable carrier",
+            "COMPUTED",
+            "All 1,440 pairs have exact invariant subcomplexes; 1,080 positive "
+            "spaces have explicit cocycle representatives and 360 vanish exactly.",
+            ("data/generated/computable_carrier/tier_b_schoen_outer_invariants.json",),
+        ),
+        _node(
+            "automorphism_orbits",
+            "partial exact automorphism quotient classification",
+            "Computable carrier",
+            "COMPUTED",
+            "Exactly 1,296 of 1,440 pair actions are certified; the sweep is "
+            "suspended because larger remaining spaces cannot simplify pair 73.",
+            (
+                "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",
+                "research/experiments/computable_carrier/README.md",
+            ),
+        ),
+        _node(
+            "automorphism_compression_theorem",
+            "structural automorphism trichotomy",
+            "Computable carrier",
+            "CONJECTURED",
+            "Observed actions divide into direct scalar, quotient-reduced scalar, "
+            "and square-zero-unipotent exceptional families; a family-level proof is absent.",
+            (
+                "research/experiments/computable_carrier/schoen_sparse_outer_automorphisms.py",
+                "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",
+            ),
+            missing=(
+                "family-level representation-theoretic proof",
+                "deliberate exceptional-locus attack",
+            ),
+        ),
+        _node(
+            "smallest_certified_ext_family",
+            "pair 73 universal P3 extension parameter space",
+            "Computable carrier",
+            "COMPUTED",
+            "Pair 73 has four exact invariant cocycles and scalar constituent "
+            "automorphisms, so its nonzero orbit parameter space is P3 over Q(omega).",
+            (
+                "data/generated/computable_carrier/tier_b_schoen_outer_invariants.json",
+                "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",
+            ),
+        ),
+        _node(
+            "universal_rank_four_family",
+            "universal rank-four mapping-cone family",
+            "Computable carrier",
+            "BLOCKED",
+            "No exact parameterized mapping cone has yet been built from pair 73's four cocycles.",
+            (
+                "research/experiments/computable_carrier/horseshoe.py",
+                "research/experiments/computable_carrier/rank_four.py",
+            ),
+            missing=(
+                "symbolic parameter lift of pair 73 cocycles",
+                "universal differential",
+                "D squared equals zero certificate",
+            ),
+        ),
+        _node(
+            "algebraic_lawful_locus",
+            "rank-four algebraic lawful locus",
+            "Computable carrier",
+            "BLOCKED",
+            "Non-splitness, local freeness, descent, determinant, Chern data, "
+            "and genuine SU(4) loci are not computed for the universal family.",
+            ("research/experiments/computable_carrier/downstream.py",),
+            missing=(
+                "universal rank-four family",
+                "parameterized Fitting ideals",
+                "equivariance and quotient descent",
+                "Chern and structure-group loci",
+            ),
+        ),
+        _node(
+            "stability_chamber",
+            "exact common stability chamber",
+            "Computable carrier",
+            "BLOCKED",
+            "No chamber theorem exists for the computable universal family.",
+            ("research/experiments/computable_carrier/downstream.py",),
+            missing=(
+                "algebraic lawful family",
+                "destabilizing-subsheaf inequalities",
+                "nonempty Kahler chamber",
+            ),
+        ),
+        _node(
+            "physical_spectrum",
+            "Wilson-projected carrier spectrum",
+            "Computable carrier",
+            "BLOCKED",
+            "The computable family has no parameter-dependent cohomology and "
+            "Wilson-projected spectrum certificate.",
+            (
+                "src/onetheory/physics/compactification.py",
+                "research/experiments/computable_carrier/downstream.py",
+            ),
+            missing=(
+                "stable descended carrier",
+                "cohomology jumping loci",
+                "Wilson projection certificate",
+            ),
+        ),
+        _node(
+            "computable_carrier_state",
+            "first frozen computable carrier",
+            "Computable carrier",
+            "BLOCKED",
+            "No candidate has passed every rank, determinant, topology, "
+            "local-freeness, descent, stability, and spectrum gate.",
+            ("data/generated/computable_carrier/computable_carrier_artifact.json",),
+            missing=("algebraic lawful locus", "stability chamber", "required structural spectrum"),
+        ),
+        _node(
+            "curvilinear_topology_route",
+            "current curvilinear Chern-type route",
+            "Scoped exclusions",
+            "REFUTED",
+            "The declared curvilinear rank-four topology has quotient index zero "
+            "and cannot meet the required carrier target.",
+            ("research/experiments/computable_carrier/tier_b_curvilinear_topology.py",),
+        ),
+        _node(
+            "projective_tier_a_route",
+            "declared projective Tier A outer route",
+            "Scoped exclusions",
+            "REFUTED",
+            "All six declared projective ray pairs have zero invariant Ext-one "
+            "classes in that finite presentation category.",
+            ("research/experiments/computable_carrier/projective_outer_frontier.py",),
+        ),
+        _node(
+            "common_dga_package",
+            "carrier-specific common DGA package",
+            "Flavor",
+            "BLOCKED",
+            "Generic DGA, module, contraction, and HPL engines exist, but no "
+            "synchronized carrier complex and physical representatives are available.",
+            (
+                "src/onetheory/math/homological.py",
+                "research/experiments/visible_common_dga/audit.py",
+            ),
+            missing=(
+                "synchronized V1/V2 Cech-Koszul complex",
+                "matter and Higgs hypercocycles",
+                "restricted actions and contraction",
+                "cyclic pairing and trace conventions",
+            ),
+        ),
+        _node(
+            "tree_holomorphic_flavor",
+            "published tree-level holomorphic flavor structure",
+            "Flavor",
+            "PROVED",
+            "The exact published one-Higgs tree texture and its rank-two/null "
+            "structure are represented, conditional on the selected reference carrier.",
+            ("src/onetheory/models/heterotic_schoen/flavor.py", "tests/unit/test_visible.py"),
+            ("published reference carrier and conventions",),
+        ),
+        _node(
+            "first_exact_yukawa",
+            "first carrier-derived 3x3 holomorphic Yukawa matrix",
+            "Flavor",
+            "BLOCKED",
+            "No complete matrix has been evaluated from generated carrier chain data.",
+            ("research/experiments/visible_common_dga/audit.py",),
+            missing=(
+                "frozen computable carrier",
+                "common DGA package",
+                "matter and Higgs cocycles",
+                "trace evaluation",
+            ),
+        ),
+        _node(
+            "visible_metrics",
+            "Ricci-flat, HYM, and matter metric package",
+            "Normalization",
+            "BLOCKED",
+            "Generic section machinery exists, but carrier cocycles, section "
+            "bases, global-generation proof, and converged metrics are absent.",
+            ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
+            missing=(
+                "carrier extension cocycles",
+                "positive-twist section package",
+                "global generation",
+                "converged Ricci-flat and HYM metrics",
+            ),
+        ),
+        _node(
+            "physical_yukawas",
+            "canonically normalized physical Yukawas",
+            "Normalization",
+            "BLOCKED",
+            "Canonical-normalization laws exist, but holomorphic matrices, "
+            "positive metrics, and a common stabilized context do not.",
+            ("src/onetheory/physics/observables.py", "src/onetheory/physics/matter.py"),
+            missing=(
+                "all holomorphic Yukawa sectors",
+                "positive matter and Higgs metrics",
+                "stabilized common vacuum",
+            ),
+        ),
+        _node(
+            "physical_pfaffians",
+            "physical worldsheet Pfaffians",
+            "Vacuum",
+            "BLOCKED",
+            "Seed conic embeddings, restrictions, determinant-line maps, and "
+            "normalization are absent.",
+            ("research/experiments/conic_pfaffians/audit.py",),
+            missing=(
+                "seed embeddings",
+                "restricted resolutions",
+                "relative-duality maps",
+                "Quillen normalization",
+            ),
+        ),
+        _node(
+            "hidden_bundle",
+            "descended stable hidden bundle",
+            "Vacuum",
+            "BLOCKED",
+            "The exact hidden target is known, but polynomial maps, descent, "
+            "local freeness, stability, restrictions, and spectrum are absent.",
+            (
+                "research/experiments/hidden_bundle/audit.py",
+                "src/onetheory/models/heterotic_schoen/consistency.py",
+            ),
+            missing=(
+                "exact hidden maps",
+                "equivariant descent",
+                "global local freeness",
+                "common stability chamber",
+                "hidden spectrum",
+            ),
+        ),
+        _node(
+            "controlled_vacuum",
+            "controlled stabilized common vacuum",
+            "Vacuum",
+            "BLOCKED",
+            "The symbolic vacuum engine exists, but the complete physical K, W, "
+            "f, D package and compatible hidden sector do not.",
+            ("src/onetheory/physics/vacuum.py", "src/onetheory/models/heterotic_schoen/vacuum.py"),
+            missing=(
+                "visible carrier",
+                "physical Pfaffians",
+                "hidden bundle",
+                "threshold functions",
+                "complete effective action",
+            ),
+        ),
+        _node(
+            "measured_observables",
+            "measured low-energy observables",
+            "Comparison",
+            "MEASURED",
+            "Measurements are terminal comparison data and are not admitted as "
+            "geometry, carrier, rank-lifting, or vacuum selectors.",
+            ("data/observations/README.md", "src/onetheory/physics/observables.py"),
+        ),
+        _node(
+            "low_energy_predictions",
+            "held-out low-energy predictions",
+            "Comparison",
+            "BLOCKED",
+            "No parameter-free low-energy masses, mixings, or CP invariants have "
+            "been derived from a common stabilized carrier state.",
+            ("src/onetheory/reality.py", "research/experiments/low_energy_closure/README.md"),
+            missing=(
+                "physical Yukawas",
+                "controlled vacuum",
+                "threshold matching",
+                "RGE evolution",
+                "frozen prediction protocol",
+            ),
+        ),
+    ]
+
+
+def _edges() -> list[dict[str, object]]:
+    """Return the governing scientific dependency DAG edges."""
+
+    exact_law = ("established law used conditionally",)
+    return [
+        _edge(
+            "quantum_phase_structure",
+            "genesis_to_uv_bridge",
+            "A Genesis theory must recover quantum phase.",
+            ("src/onetheory/physics/quantum.py",),
+            (),
+            False,
+            ("no derivation from a primitive structure",),
+        ),
+        _edge(
+            "lorentzian_causal_structure",
+            "genesis_to_uv_bridge",
+            "A Genesis theory must recover causal spacetime.",
+            ("src/onetheory/physics/spacetime.py",),
+            (),
+            False,
+            ("signature remains assumed",),
+        ),
+        _edge(
+            "einstein_gravity",
+            "genesis_to_uv_bridge",
+            "A Genesis theory must recover universal geometric coupling.",
+            ("src/onetheory/physics/gravity.py",),
+            (),
+            False,
+            ("gravity remains an input law",),
+        ),
+        _edge(
+            "dimensional_constant_contract",
+            "genesis_to_uv_bridge",
+            "The bridge must explain invariant dimensionless content rather than SI decimals.",
+            ("src/onetheory/core/units.py",),
+            (),
+            False,
+            ("dimensional constants remain primitive",),
+        ),
+        _edge(
+            "genesis_to_uv_bridge",
+            "heterotic_uv",
+            "A complete Genesis theory would have to derive or uniquely select the UV realization.",
+            (),
+            (),
+            False,
+            ("no bridge exists", "other UV realizations may be possible"),
+        ),
+        _edge(
+            "heterotic_uv",
+            "schoen_geometry",
+            "Compactification selects an internal Calabi-Yau realization.",
+            ("src/onetheory/physics/compactification.py",),
+            ("heterotic UV realization",),
+            True,
+            ("selected compactification may not be unique",),
+        ),
+        _edge(
+            "schoen_geometry",
+            "published_visible_carrier",
+            "The published sheaf extension is defined on the Schoen quotient.",
+            ("src/onetheory/models/heterotic_schoen/visible.py",),
+            ("published source transcription",),
+            True,
+            ("chain representatives are not published",),
+        ),
+        _edge(
+            "published_visible_carrier",
+            "published_chain_reconstruction",
+            "Downstream products require explicit representatives, not dimensions alone.",
+            ("research/experiments/visible_bundle_reconstruction/reconstruct.py",),
+            (),
+            True,
+            ("source data are insufficient",),
+        ),
+        _edge(
+            "schoen_geometry",
+            "computable_constituent_category",
+            "Exact Cox/Koszul geometry supports generated Serre constituents.",
+            ("research/experiments/computable_carrier/schoen_outer.py",),
+            ("declared finite topology category",),
+            True,
+            ("category is scoped, not exhaustive over all sheaves",),
+        ),
+        _edge(
+            "computable_constituent_category",
+            "cover_ext_screen",
+            "Derived Hom totalization computes cover Ext in the declared category.",
+            ("research/experiments/computable_carrier/schoen_sparse_outer.py",),
+            (),
+            True,
+            ("outside-category presentations are not covered",),
+        ),
+        _edge(
+            "cover_ext_screen",
+            "invariant_ext_cocycles",
+            "Exact commuting deck actions define the invariant subcomplex and cocycles.",
+            ("research/experiments/computable_carrier/schoen_sparse_outer_actions.py",),
+            (),
+            True,
+            ("action or restriction failure would invalidate quotient classes",),
+        ),
+        _edge(
+            "invariant_ext_cocycles",
+            "automorphism_orbits",
+            "Constituent unit actions quotient nonzero extension classes.",
+            ("research/experiments/computable_carrier/schoen_sparse_outer_automorphisms.py",),
+            (),
+            True,
+            ("non-scalar residual actions require a different orbit normal form",),
+        ),
+        _edge(
+            "automorphism_orbits",
+            "automorphism_compression_theorem",
+            "Repeated exact action forms motivate a family-level classification.",
+            ("data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",),
+            (),
+            False,
+            ("remaining strata or singular families may be exceptional",),
+        ),
+        _edge(
+            "invariant_ext_cocycles",
+            "smallest_certified_ext_family",
+            "Pair 73 supplies four exact invariant cocycles.",
+            ("data/generated/computable_carrier/tier_b_schoen_outer_invariants.json",),
+            (),
+            True,
+            ("basis conventions must be preserved",),
+        ),
+        _edge(
+            "automorphism_orbits",
+            "smallest_certified_ext_family",
+            "Pair 73's unit action identifies only nonzero scalar multiples.",
+            ("data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",),
+            (),
+            True,
+            ("zero is the split extension",),
+        ),
+        _edge(
+            "smallest_certified_ext_family",
+            "universal_rank_four_family",
+            "A universal linear combination of Ext cocycles should define "
+            "a parameterized mapping cone.",
+            ("research/experiments/computable_carrier/horseshoe.py",),
+            (),
+            False,
+            ("cochain lifts may not fit the existing cone representation", "basis/sign mismatch"),
+        ),
+        _edge(
+            "universal_rank_four_family",
+            "algebraic_lawful_locus",
+            "Fitting, determinant, Chern, equivariance, and reduction loci "
+            "are properties of the universal family.",
+            (
+                "src/onetheory/math/polynomials.py",
+                "research/experiments/computable_carrier/downstream.py",
+            ),
+            (),
+            True,
+            ("lawful locus may be empty",),
+        ),
+        _edge(
+            "algebraic_lawful_locus",
+            "stability_chamber",
+            "Only lawful bundles admit the intended slope-stability problem.",
+            ("src/onetheory/math/geometry.py",),
+            (),
+            True,
+            ("stable chamber may be empty", "unseen destabilizing subsheaves"),
+        ),
+        _edge(
+            "stability_chamber",
+            "physical_spectrum",
+            "A stable descended bundle supplies the physical sheaf cohomology problem.",
+            ("src/onetheory/physics/compactification.py",),
+            exact_law,
+            True,
+            ("cohomology may jump", "spectrum constraints may fail"),
+        ),
+        _edge(
+            "physical_spectrum",
+            "computable_carrier_state",
+            "Passing the declared three-family, one-Higgs, no-exotic "
+            "constraints freezes a carrier.",
+            ("research/experiments/computable_carrier/downstream.py",),
+            ("selection constraints are not predictions",),
+            True,
+            ("no lawful parameter locus may satisfy all constraints",),
+        ),
+        _edge(
+            "computable_carrier_state",
+            "common_dga_package",
+            "A fixed carrier determines the synchronized complexes and products.",
+            ("src/onetheory/math/homological.py",),
+            (),
+            True,
+            ("required contractions or pairings may be unavailable",),
+        ),
+        _edge(
+            "common_dga_package",
+            "first_exact_yukawa",
+            "Matter/Higgs cocycle products and trace yield a holomorphic matrix.",
+            ("src/onetheory/models/heterotic_schoen/flavor.py",),
+            (),
+            True,
+            ("matrix may vanish or have rank below three",),
+        ),
+        _edge(
+            "tree_holomorphic_flavor",
+            "first_exact_yukawa",
+            "The published texture constrains the expected tree-level "
+            "structure but is not chain input.",
+            ("src/onetheory/models/heterotic_schoen/flavor.py",),
+            ("reference-carrier comparison only",),
+            False,
+            ("computable carrier may realize a different texture",),
+        ),
+        _edge(
+            "computable_carrier_state",
+            "visible_metrics",
+            "Metric construction needs the explicit carrier and extension cocycles.",
+            ("research/experiments/visible_metrics/audit.py",),
+            (),
+            True,
+            ("global generation or numerical convergence may fail",),
+        ),
+        _edge(
+            "first_exact_yukawa",
+            "physical_yukawas",
+            "Canonical normalization acts on holomorphic matrices.",
+            ("src/onetheory/physics/observables.py",),
+            (),
+            True,
+            ("free moduli prevent prediction",),
+        ),
+        _edge(
+            "visible_metrics",
+            "physical_yukawas",
+            "Positive matter and Higgs metrics are required for canonical normalization.",
+            ("src/onetheory/physics/observables.py",),
+            (),
+            True,
+            ("metric approximation may not converge",),
+        ),
+        _edge(
+            "computable_carrier_state",
+            "physical_pfaffians",
+            "The visible restriction determines physical instanton maps.",
+            ("research/experiments/conic_pfaffians/audit.py",),
+            (),
+            True,
+            ("Pfaffians may cancel or vanish",),
+        ),
+        _edge(
+            "computable_carrier_state",
+            "hidden_bundle",
+            "Visible Chern data fixes the hidden anomaly target.",
+            ("src/onetheory/models/heterotic_schoen/consistency.py",),
+            (),
+            True,
+            ("compatible hidden bundle may not exist",),
+        ),
+        _edge(
+            "physical_pfaffians",
+            "controlled_vacuum",
+            "Worldsheet terms contribute to the carrier-specific superpotential.",
+            ("src/onetheory/models/heterotic_schoen/vacuum.py",),
+            (),
+            True,
+            ("normalization or cancellation may obstruct stabilization",),
+        ),
+        _edge(
+            "hidden_bundle",
+            "controlled_vacuum",
+            "Hidden dynamics and anomaly cancellation constrain the common vacuum.",
+            ("src/onetheory/models/heterotic_schoen/vacuum.py",),
+            (),
+            True,
+            ("no shared stable chamber", "no supersymmetric critical point"),
+        ),
+        _edge(
+            "controlled_vacuum",
+            "physical_yukawas",
+            "A numerical physical Yukawa requires fixed moduli and one compatible context.",
+            ("src/onetheory/reality.py",),
+            (),
+            True,
+            ("vacuum may leave flat directions",),
+        ),
+        _edge(
+            "physical_yukawas",
+            "low_energy_predictions",
+            "Threshold matching and RGE evolution map high-scale matrices to observables.",
+            ("src/onetheory/physics/observables.py",),
+            (),
+            True,
+            ("missing thresholds", "uncontrolled uncertainty"),
+        ),
+        _edge(
+            "controlled_vacuum",
+            "low_energy_predictions",
+            "All high-scale parameters must belong to the same stabilized state.",
+            ("src/onetheory/reality.py",),
+            (),
+            True,
+            ("incompatible contexts",),
+        ),
+        _edge(
+            "measured_observables",
+            "low_energy_predictions",
+            "Held-out data test predictions only after the protocol is frozen.",
+            ("src/onetheory/physics/observables.py",),
+            ("no data leakage",),
+            True,
+            ("selection or fitting would invalidate prediction status",),
+        ),
+    ]
+
+
+def _engines() -> list[dict[str, object]]:
+    """Inventory reusable machinery and its actual maturity."""
+
+    entries = (
+        ("Schoen geometry", "established", ("src/onetheory/models/heterotic_schoen/geometry.py",)),
+        (
+            "Cox and affine-chart algebra",
+            "established",
+            ("src/onetheory/math/sections.py", "src/onetheory/math/sheaves.py"),
+        ),
+        (
+            "Hilbert-Burch resolutions",
+            "established and carrier prototypes",
+            (
+                "src/onetheory/models/heterotic_schoen/visible.py",
+                "research/experiments/computable_carrier/serre_pushout.py",
+            ),
+        ),
+        (
+            "Serre constructions",
+            "research prototype",
+            (
+                "research/experiments/computable_carrier/global_serre.py",
+                "research/experiments/computable_carrier/serre_pushout.py",
+            ),
+        ),
+        ("Cech complexes", "established generic engine", ("src/onetheory/math/cech.py",)),
+        (
+            "Koszul totalizations",
+            "research exact engine",
+            ("research/experiments/computable_carrier/schoen_outer.py",),
+        ),
+        (
+            "hypercohomology",
+            "research exact engine",
+            ("research/experiments/computable_carrier/projective_hyperhom.py",),
+        ),
+        (
+            "derived Hom and Ext",
+            "research exact engine",
+            ("research/experiments/computable_carrier/schoen_sparse_outer.py",),
+        ),
+        (
+            "exact group actions",
+            "established generic plus research specialization",
+            (
+                "src/onetheory/math/homological.py",
+                "research/experiments/computable_carrier/schoen_sparse_actions.py",
+            ),
+        ),
+        (
+            "invariant projectors and quotient representatives",
+            "established generic plus research specialization",
+            (
+                "src/onetheory/math/homological.py",
+                "research/experiments/computable_carrier/schoen_sparse_outer_actions.py",
+            ),
+        ),
+        (
+            "mapping cones and horseshoes",
+            "established generic plus research prototype",
+            (
+                "src/onetheory/math/homological.py",
+                "src/onetheory/math/polynomials.py",
+                "research/experiments/computable_carrier/horseshoe.py",
+            ),
+        ),
+        (
+            "Fitting and determinantal ideals",
+            "established exact engine",
+            ("src/onetheory/math/polynomials.py",),
+        ),
+        (
+            "Chern arithmetic",
+            "established generic plus research specialization",
+            (
+                "src/onetheory/math/geometry.py",
+                "research/experiments/computable_carrier/tier_b_monomial_topology.py",
+            ),
+        ),
+        (
+            "stability",
+            "published reference implementation; computable-family chamber absent",
+            (
+                "src/onetheory/models/heterotic_schoen/visible.py",
+                "src/onetheory/physics/compactification.py",
+            ),
+        ),
+        (
+            "Wilson projection",
+            "established generic and reference metadata",
+            (
+                "src/onetheory/physics/compactification.py",
+                "src/onetheory/models/heterotic_schoen/visible.py",
+            ),
+        ),
+        (
+            "matter and Higgs cohomology",
+            "reference dimensions only; computable representatives absent",
+            (
+                "src/onetheory/models/heterotic_schoen/visible.py",
+                "data/generated/visible_carrier/visible_carrier_artifact.json",
+            ),
+        ),
+        (
+            "common DGA",
+            "established generic engine; physical package blocked",
+            (
+                "src/onetheory/math/homological.py",
+                "research/experiments/visible_common_dga/audit.py",
+            ),
+        ),
+        (
+            "deformation theory",
+            "established reference formal frontier",
+            (
+                "src/onetheory/models/heterotic_schoen/visible.py",
+                "src/onetheory/models/heterotic_schoen/flavor.py",
+            ),
+        ),
+        (
+            "higher products and HPL",
+            "established generic engine; carrier inputs blocked",
+            (
+                "src/onetheory/math/homological.py",
+                "src/onetheory/models/heterotic_schoen/flavor.py",
+            ),
+        ),
+        (
+            "metrics",
+            "generic numerical laws and carrier boundary only",
+            (
+                "src/onetheory/models/heterotic_schoen/metrics.py",
+                "research/experiments/visible_metrics/audit.py",
+            ),
+        ),
+        (
+            "instantons",
+            "carrier boundary and input audit only",
+            (
+                "src/onetheory/models/heterotic_schoen/instantons.py",
+                "research/experiments/conic_pfaffians/audit.py",
+            ),
+        ),
+        (
+            "hidden sector",
+            "topological target and input audit only",
+            (
+                "src/onetheory/models/heterotic_schoen/hidden.py",
+                "research/experiments/hidden_bundle/audit.py",
+            ),
+        ),
+        (
+            "constants and Genesis identities",
+            "units and established laws only; no origin theory",
+            ("src/onetheory/core/units.py", "src/onetheory/reality.py"),
+        ),
+    )
+    return [
+        {"capability": name, "maturity": maturity, "locations": list(paths)}
+        for name, maturity, paths in entries
+    ]
+
+
+def _scheduler() -> list[dict[str, object]]:
+    """Return value-ranked tasks under the Scientific Genesis criterion."""
+
+    tasks = [
+        (
+            "universal_pair_73_mapping_cone",
+            5,
+            4,
+            5,
+            5,
+            3,
+            2,
+            "Closes the first carrier-construction edge using existing exact cocycles.",
+        ),
+        (
+            "pair_73_algebraic_locus",
+            5,
+            3,
+            5,
+            5,
+            4,
+            2,
+            "Can validate or eliminate the entire simplest family symbolically.",
+        ),
+        (
+            "automorphism_trichotomy_theorem",
+            3,
+            4,
+            4,
+            5,
+            3,
+            2,
+            "Compresses repeated action data without blocking carrier construction.",
+        ),
+        (
+            "computable_family_stability_chamber",
+            4,
+            3,
+            5,
+            4,
+            4,
+            3,
+            "Decides whether an algebraically lawful family can become physical.",
+        ),
+        (
+            "computable_family_spectrum_loci",
+            5,
+            3,
+            5,
+            5,
+            5,
+            3,
+            "Directly tests three-family and one-Higgs selection constraints.",
+        ),
+        (
+            "minimal_common_dga_yukawa_slice",
+            5,
+            4,
+            5,
+            5,
+            5,
+            3,
+            "Produces the first matrix once a carrier survives.",
+        ),
+        (
+            "finish_automorphism_sweep",
+            1,
+            2,
+            2,
+            3,
+            5,
+            5,
+            "Adds classification coverage but cannot simplify pair 73.",
+        ),
+        (
+            "genesis_foundational_contract",
+            2,
+            5,
+            5,
+            5,
+            4,
+            4,
+            "Clarifies assumptions and falsifiable targets without inventing a bridge.",
+        ),
+    ]
+    records = []
+    for name, distance, foundation, discrimination, reuse, cost, rabbit, rationale in tasks:
+        score = round((distance * discrimination * reuse + foundation) / (cost * rabbit), 3)
+        records.append(
+            {
+                "task": name,
+                "scores": {
+                    "distance_to_observable": distance,
+                    "foundational_importance": foundation,
+                    "probability_of_discriminating_theory": discrimination,
+                    "structural_reuse": reuse,
+                    "computational_cost": cost,
+                    "risk_of_local_rabbit_hole": rabbit,
+                },
+                "priority_score": score,
+                "rationale": rationale,
+            }
+        )
+    return sorted(records, key=lambda item: (-float(item["priority_score"]), str(item["task"])))
+
+
+def build_state() -> dict[str, object]:
+    """Inspect authoritative artifacts and assemble the deterministic state."""
+
+    action_path = (
+        ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
+    )
+    action = json.loads(action_path.read_text(encoding="utf-8"))
+    pair_73 = action["completed_pairs"]["73"]
+    if pair_73["invariant_ext_one_dimension"] != 4 or pair_73["exact"] is not True:
+        raise ValueError("pair 73 is no longer the exact four-dimensional family")
+    if pair_73["automorphism_action"]["nonzero_orbit_space"] != "P^3(Q(omega))":
+        raise ValueError("pair 73 no longer has the certified projective quotient")
+
+    artifact_paths = (
+        "data/generated/computable_carrier/computable_carrier_artifact.json",
+        "data/generated/computable_carrier/tier_b_schoen_outer_full.json",
+        "data/generated/computable_carrier/tier_b_schoen_outer_invariants.json",
+        "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",
+        "data/generated/visible_carrier/visible_carrier_artifact.json",
+        "data/published/visible_carrier/source_manifest.json",
+        "Experimental_Draft_OneTheory.py",
+        "Experimental_Draft_OneTheory.docx",
+    )
+    payload: dict[str, object] = {
+        "schema": SCHEMA,
+        "objective": {
+            "name": "Scientific Genesis: Vertical Closure and Fundamental Derivation",
+            "governing_criterion": "minimize distance to the next genuine derived physical result",
+            "near_term_milestone": (
+                "one stable descended genuine SU(4) bundle and one complete "
+                "3x3 Yukawa matrix from generated chain data"
+            ),
+            "directive_sha256": "c03f5b3713625bc4430559137414e4f7778539fb3a79d29483196d4e33725768",
+        },
+        "audit_scope": {
+            "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
+            "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
+            "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
+            "collected_tests_at_audit": 383,
+            "original_sources_unchanged": True,
+        },
+        "artifacts": [
+            {"path": path, "sha256": _sha256(ROOT / path), "bytes": (ROOT / path).stat().st_size}
+            for path in artifact_paths
+        ],
+        "automorphism_checkpoint": {
+            "completed_pairs": action["completed_pair_count"],
+            "declared_pairs": action["declared_pair_count"],
+            "completion_fraction": "9/10",
+            "constituent_certificates": action["constituent_count"],
+            "suspended": True,
+            "remaining_dimensions": {"110": 36, "116": 36, "126": 72},
+            "suspension_reason": (
+                "remaining larger Ext spaces cannot improve the simplest "
+                "already-certified pair-73 family"
+            ),
+        },
+        "recommended_vertical_path": {
+            "candidate_pair": 73,
+            "selection_status": "recommended, not selected as a physical point",
+            "criteria": {
+                "invariant_ext_dimension": 4,
+                "coefficient_field": "Q(omega)",
+                "automorphism_complexity": "scalar projectivization",
+                "orbit_parameter_space": "P^3(Q(omega))",
+                "arbitrary_point_selected": False,
+            },
+            "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
+            "automorphism_certificate_digest": pair_73["certificate_digest"],
+            "next_required_object": (
+                "universal symbolic mapping cone over all four exact cocycle parameters"
+            ),
+        },
+        "claims": _nodes(),
+        "dependencies": _edges(),
+        "reusable_engines": _engines(),
+        "established_results": [
+            "exact reusable arithmetic, polynomial, homological, Cech, Cox, "
+            "sheaf, and geometry engines",
+            "published Schoen geometry and selected one-Higgs reference carrier metadata",
+            "complete 1,440-pair cover Ext and invariant-cocycle screens in "
+            "the declared computable category",
+            "1,296 exact automorphism quotients including one "
+            "square-zero-unipotent exceptional family",
+        ],
+        "scoped_no_go_results": [
+            "declared projective Tier A ray pairs have zero invariant Ext-one classes",
+            "current curvilinear rank-four Chern type has the wrong quotient index",
+            "declared monomial and transported finite linearization categories "
+            "have no complete commuting lift pairs where recorded",
+        ],
+        "open_assumptions": [
+            "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
+            "heterotic E8 x E8 as the conditional UV realization",
+            "Schoen compactification and published one-Higgs model as selected realization data",
+            "three families and one Higgs pair as selection constraints rather than predictions",
+        ],
+        "experimental_prototypes": [
+            "rank-four transition and horseshoe constructors",
+            "common-DGA and HPL machinery",
+            "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
+        ],
+        "blocked_physical_calculations": [
+            "computable universal rank-four lawful locus",
+            "stability chamber and Wilson-projected spectrum",
+            "carrier-derived complete holomorphic Yukawa matrix",
+            "physical normalization, hidden sector, vacuum, and low-energy predictions",
+        ],
+        "duplicated_calculations": [
+            {
+                "areas": ["published visible carrier metadata", "computable carrier search"],
+                "disposition": (
+                    "keep separate: one is a selected reference and the other "
+                    "must be generated independently"
+                ),
+            },
+            {
+                "areas": [
+                    "generic production homological engines",
+                    "research-specific Schoen totalizations",
+                ],
+                "disposition": (
+                    "reuse production primitives; retain geometry-specific "
+                    "orchestration in research until promotion"
+                ),
+            },
+            {
+                "areas": ["partial automorphism enumeration", "candidate structural trichotomy"],
+                "disposition": (
+                    "suspend remaining enumeration and seek a family-level "
+                    "theorem unless an exception becomes decision-relevant"
+                ),
+            },
+        ],
+        "structural_compression_questions": [
+            {
+                "question": (
+                    "When do constituent endomorphism radicals act trivially "
+                    "on Ext before or only after quotient reduction?"
+                ),
+                "evidence": (
+                    "1,296 exact actions repeatedly show direct scalar, "
+                    "quotient-reduced scalar, and one square-zero-unipotent type"
+                ),
+                "attack": (
+                    "derive the action from presentation characters and "
+                    "deliberately test singular and factor-exchanged sectors"
+                ),
+            },
+            {
+                "question": (
+                    "Can local freeness and structure-group reduction for pair "
+                    "73 be expressed as one parameter ideal?"
+                ),
+                "evidence": (
+                    "the family is only four-dimensional and exact Fitting machinery already exists"
+                ),
+                "attack": (
+                    "construct the universal cone and compute saturated "
+                    "determinantal loci symbolically"
+                ),
+            },
+        ],
+        "research_value_scheduler": _scheduler(),
+        "fitted_inputs": [],
+        "observation_leakage": {
+            "observations_used_as_geometry_or_carrier_inputs": False,
+            "observations_used_as_vacuum_or_rank_lifting_inputs": False,
+            "allowed_role": "terminal comparison and falsification only",
+        },
+    }
+    payload["artifact_digest"] = _canonical_digest(payload)
+    return payload
+
+
+def validate_state(payload: dict[str, object]) -> None:
+    """Fail closed on malformed epistemic claims or dependency governance."""
+
+    digest = payload.get("artifact_digest")
+    unsigned = dict(payload)
+    unsigned.pop("artifact_digest", None)
+    if not isinstance(digest, str) or digest != _canonical_digest(unsigned):
+        raise ValueError("ScientificGenesisState digest does not verify")
+    claims = payload.get("claims")
+    edges = payload.get("dependencies")
+    if not isinstance(claims, list) or not isinstance(edges, list):
+        raise ValueError("claims and dependencies must be arrays")
+    identifiers: set[str] = set()
+    for claim in claims:
+        if not isinstance(claim, dict):
+            raise ValueError("claim records must be objects")
+        identifier = claim.get("id")
+        status = claim.get("status")
+        if not isinstance(identifier, str) or identifier in identifiers:
+            raise ValueError("claim identifiers must be unique strings")
+        if status not in STATUSES:
+            raise ValueError(f"claim {identifier} has an invalid status")
+        if status == "BLOCKED" and not claim.get("missing_prerequisites"):
+            raise ValueError(f"blocked claim {identifier} lacks prerequisites")
+        if not claim.get("evidence"):
+            raise ValueError(f"claim {identifier} lacks evidence")
+        identifiers.add(identifier)
+
+    adjacency: dict[str, set[str]] = {identifier: set() for identifier in identifiers}
+    indegree = {identifier: 0 for identifier in identifiers}
+    for edge in edges:
+        if not isinstance(edge, dict):
+            raise ValueError("dependency records must be objects")
+        source = edge.get("source")
+        target = edge.get("target")
+        if source not in identifiers or target not in identifiers or source == target:
+            raise ValueError("dependency endpoints must be distinct known claims")
+        for key in (
+            "mathematical_reason",
+            "implementation_or_artifact",
+            "assumptions_required",
+            "implication",
+            "known_failure_modes",
+        ):
+            if key not in edge:
+                raise ValueError(f"dependency {source}->{target} lacks {key}")
+        if target not in adjacency[str(source)]:
+            adjacency[str(source)].add(str(target))
+            indegree[str(target)] += 1
+
+    queue = sorted(node for node, degree in indegree.items() if degree == 0)
+    visited = 0
+    while queue:
+        node = queue.pop(0)
+        visited += 1
+        for target in sorted(adjacency[node]):
+            indegree[target] -= 1
+            if indegree[target] == 0:
+                queue.append(target)
+    if visited != len(identifiers):
+        raise ValueError("scientific dependency graph contains a cycle")
+
+    for engine in payload.get("reusable_engines", []):
+        if not isinstance(engine, dict):
+            raise ValueError("engine records must be objects")
+        for relative in engine.get("locations", []):
+            if not isinstance(relative, str) or not (ROOT / relative).exists():
+                raise ValueError(f"reusable engine evidence is missing: {relative}")
+    for item in payload.get("research_value_scheduler", []):
+        if not isinstance(item, dict) or not isinstance(item.get("scores"), dict):
+            raise ValueError("scheduler entries require score objects")
+        if any(
+            not isinstance(value, int) or not 1 <= value <= 5 for value in item["scores"].values()
+        ):
+            raise ValueError("scheduler scores must be integers from one through five")
+    if payload.get("fitted_inputs") != []:
+        raise ValueError("the current state must not silently admit fitted inputs")
+
+
+def write_state(path: Path = OUTPUT) -> dict[str, object]:
+    """Build, validate, and atomically write the ScientificGenesisState."""
+
+    payload = build_state()
+    validate_state(payload)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_name(f".{path.name}.tmp")
+    temporary.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    temporary.replace(path)
+    return payload
+
+
+def main() -> int:
+    """Regenerate the state and print its governing checkpoint."""
+
+    payload = write_state()
+    checkpoint = payload["automorphism_checkpoint"]
+    path = OUTPUT.relative_to(ROOT)
+    print(f"state: {path}")
+    print(f"artifact_digest: {payload['artifact_digest']}")
+    print(f"claim_count: {len(payload['claims'])}")
+    print(f"dependency_count: {len(payload['dependencies'])}")
+    print(
+        f"automorphism_checkpoint: {checkpoint['completed_pairs']}/{checkpoint['declared_pairs']}"
+    )
+    print(f"next_required_object: {payload['recommended_vertical_path']['next_required_object']}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

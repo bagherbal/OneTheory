@@ -1,0 +1,1420 @@
+{
+  "artifact_digest": "1bf900aa80584c6dd3edfeafeb726d3c1f25d876635441d8cc7fa8fc886c7a1c",
+  "artifacts": [
+    {
+      "bytes": 20014147,
+      "path": "data/generated/computable_carrier/computable_carrier_artifact.json",
+      "sha256": "3e420166c448221405b0edd5a329491c53c10c5efd6eb055e333889c2c465bc4"
+    },
+    {
+      "bytes": 555841,
+      "path": "data/generated/computable_carrier/tier_b_schoen_outer_full.json",
+      "sha256": "11384ba3fb5c8167e1ee274db0b6f73380f0c7b150d52ccbfd374019864149e3"
+    },
+    {
+      "bytes": 538546535,
+      "path": "data/generated/computable_carrier/tier_b_schoen_outer_invariants.json",
+      "sha256": "459b6303af91ffa1ce9ea72b067a168fe406b3b7159baf22b0d7be41d683a8c9"
+    },
+    {
+      "bytes": 3725213,
+      "path": "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",
+      "sha256": "e5c36323aa4a342dba7f160843ee0c8808a6f3c7851d0defa8c3d314989f40c0"
+    },
+    {
+      "bytes": 29564,
+      "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
+      "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
+    },
+    {
+      "bytes": 2828,
+      "path": "data/published/visible_carrier/source_manifest.json",
+      "sha256": "1d524ce9960d8d86dd54884fb22ba9ecd43fa248febde9173379e108f4509860"
+    },
+    {
+      "bytes": 511409,
+      "path": "Experimental_Draft_OneTheory.py",
+      "sha256": "c50151b8afdcf52ab1c14e8385234cb5231ee542e61cf16f4dcf20e9da63c32e"
+    },
+    {
+      "bytes": 1544873,
+      "path": "Experimental_Draft_OneTheory.docx",
+      "sha256": "b9a538a8d8f53517081162123eef48590def7564b40962d89c4a727bda4ad698"
+    }
+  ],
+  "audit_scope": {
+    "collected_tests_at_audit": 383,
+    "original_sources_unchanged": true,
+    "production_python_files": 50,
+    "research_python_files": 97,
+    "test_python_files": 87
+  },
+  "automorphism_checkpoint": {
+    "completed_pairs": 1296,
+    "completion_fraction": "9/10",
+    "constituent_certificates": 216,
+    "declared_pairs": 1440,
+    "remaining_dimensions": {
+      "110": 36,
+      "116": 36,
+      "126": 72
+    },
+    "suspended": true,
+    "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
+  },
+  "blocked_physical_calculations": [
+    "computable universal rank-four lawful locus",
+    "stability chamber and Wilson-projected spectrum",
+    "carrier-derived complete holomorphic Yukawa matrix",
+    "physical normalization, hidden sector, vacuum, and low-energy predictions"
+  ],
+  "claims": [
+    {
+      "assumptions": [
+        "standard quantum postulates"
+      ],
+      "evidence": [
+        "src/onetheory/physics/quantum.py",
+        "tests/integration/test_established_laws.py"
+      ],
+      "id": "quantum_phase_structure",
+      "label": "quantum phase and Hilbert-space structure",
+      "layer": "Genesis",
+      "missing_prerequisites": [],
+      "statement": "Quantum state, operator, and unitary-evolution laws are executable, but their deeper origin is not derived.",
+      "status": "ASSUMED"
+    },
+    {
+      "assumptions": [
+        "Lorentzian manifold structure"
+      ],
+      "evidence": [
+        "src/onetheory/physics/spacetime.py"
+      ],
+      "id": "lorentzian_causal_structure",
+      "label": "Lorentzian causal structure",
+      "layer": "Genesis",
+      "missing_prerequisites": [],
+      "statement": "Spacetime and causal records implement established geometry; no pre-geometric derivation of Lorentzian signature exists.",
+      "status": "ASSUMED"
+    },
+    {
+      "assumptions": [
+        "general relativity"
+      ],
+      "evidence": [
+        "src/onetheory/physics/gravity.py",
+        "tests/integration/test_established_laws.py"
+      ],
+      "id": "einstein_gravity",
+      "label": "Einstein gravity",
+      "layer": "Genesis",
+      "missing_prerequisites": [],
+      "statement": "Einstein-Hilbert and matter-coupling laws are executable established inputs rather than consequences of a deeper OneTheory principle.",
+      "status": "ASSUMED"
+    },
+    {
+      "assumptions": [
+        "unit conventions and measured dimensional normalizations"
+      ],
+      "evidence": [
+        "src/onetheory/core/units.py",
+        "src/onetheory/physics/compactification.py"
+      ],
+      "id": "dimensional_constant_contract",
+      "label": "c, hbar, and G foundational contract",
+      "layer": "Genesis",
+      "missing_prerequisites": [],
+      "statement": "Dimensional constants are explicit symbolic primitives; only dimensionless consequences may later count as predictions.",
+      "status": "ASSUMED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "README.md"
+      ],
+      "id": "genesis_to_uv_bridge",
+      "label": "Genesis to quantum-gravitational UV implication",
+      "layer": "Genesis",
+      "missing_prerequisites": [
+        "primitive Genesis structure",
+        "derivation of quantum phase",
+        "derivation of causal geometry",
+        "derivation of gravitational coupling",
+        "derivation of the selected UV theory"
+      ],
+      "statement": "No lawful derivation currently maps a deeper Genesis structure to the quantum, causal, gravitational, and heterotic structures used below.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
+        "heterotic UV realization"
+      ],
+      "evidence": [
+        "src/onetheory/physics/strings.py",
+        "src/onetheory/physics/compactification.py"
+      ],
+      "id": "heterotic_uv",
+      "label": "ten-dimensional E8 x E8 heterotic structure",
+      "layer": "Heterotic realization",
+      "missing_prerequisites": [],
+      "statement": "Heterotic theory is the explicit conditional UV realization; its selection is not a Genesis derivation.",
+      "status": "SELECTED"
+    },
+    {
+      "assumptions": [
+        "published one-Higgs Schoen geometry"
+      ],
+      "evidence": [
+        "src/onetheory/models/heterotic_schoen/geometry.py",
+        "data/published/visible_carrier/source_manifest.json",
+        "tests/integration/test_computable_carrier_dp9_hypersurface.py"
+      ],
+      "id": "schoen_geometry",
+      "label": "Schoen fiber product and free Z3 x Z3 quotient",
+      "layer": "Heterotic realization",
+      "missing_prerequisites": [],
+      "statement": "Published Schoen geometry, quotient normalization, Cox equations, and deck actions are represented exactly.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "established Standard Model"
+      ],
+      "evidence": [
+        "src/onetheory/models/standard_model.py",
+        "tests/unit/test_standard_model.py"
+      ],
+      "id": "standard_model_laws",
+      "label": "parameterized Standard Model laws",
+      "layer": "Low-energy laws",
+      "missing_prerequisites": [],
+      "statement": "Gauge representations, charges, interactions, and anomaly checks implement established low-energy law input without measured parameters.",
+      "status": "ASSUMED"
+    },
+    {
+      "assumptions": [
+        "published source claims and conventions"
+      ],
+      "evidence": [
+        "src/onetheory/models/heterotic_schoen/visible.py",
+        "data/published/visible_carrier/source_manifest.json",
+        "data/generated/visible_carrier/visible_carrier_artifact.json"
+      ],
+      "id": "published_visible_carrier",
+      "label": "published one-Higgs visible SU(4) carrier",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "The published carrier's sheaf definitions, topology, abstract Ext dimension, spectrum metadata, and stability result are selected reference inputs.",
+      "status": "SELECTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/visible_carrier/visible_carrier_artifact.json"
+      ],
+      "id": "published_chain_reconstruction",
+      "label": "published carrier chain reconstruction",
+      "layer": "Reference realization",
+      "missing_prerequisites": [
+        "four invariant Ext cocycles",
+        "common Cech-Koszul basis and signs",
+        "local transition data"
+      ],
+      "statement": "The sources do not serialize the four invariant extension cocycles or synchronized Cech-Koszul transition data needed downstream.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/computable_carrier/computable_carrier_artifact.json",
+        "research/experiments/computable_carrier/tier_b_schoen_outer_full.py"
+      ],
+      "id": "computable_constituent_category",
+      "label": "computable Schoen Serre constituent category",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "Forty determinant-compatible topology candidates and their declared ray pairs have exact constituent presentations and deck actions.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/computable_carrier/tier_b_schoen_outer_full.json"
+      ],
+      "id": "cover_ext_screen",
+      "label": "complete cover Ext screen",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "All 1,440 declared pairs have exact cover Hom totalizations and Ext-one dimensions.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/computable_carrier/tier_b_schoen_outer_invariants.json"
+      ],
+      "id": "invariant_ext_cocycles",
+      "label": "complete invariant Ext cocycle screen",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "All 1,440 pairs have exact invariant subcomplexes; 1,080 positive spaces have explicit cocycle representatives and 360 vanish exactly.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",
+        "research/experiments/computable_carrier/README.md"
+      ],
+      "id": "automorphism_orbits",
+      "label": "partial exact automorphism quotient classification",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "Exactly 1,296 of 1,440 pair actions are certified; the sweep is suspended because larger remaining spaces cannot simplify pair 73.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "research/experiments/computable_carrier/schoen_sparse_outer_automorphisms.py",
+        "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
+      ],
+      "id": "automorphism_compression_theorem",
+      "label": "structural automorphism trichotomy",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "family-level representation-theoretic proof",
+        "deliberate exceptional-locus attack"
+      ],
+      "statement": "Observed actions divide into direct scalar, quotient-reduced scalar, and square-zero-unipotent exceptional families; a family-level proof is absent.",
+      "status": "CONJECTURED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/computable_carrier/tier_b_schoen_outer_invariants.json",
+        "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
+      ],
+      "id": "smallest_certified_ext_family",
+      "label": "pair 73 universal P3 extension parameter space",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "Pair 73 has four exact invariant cocycles and scalar constituent automorphisms, so its nonzero orbit parameter space is P3 over Q(omega).",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "research/experiments/computable_carrier/horseshoe.py",
+        "research/experiments/computable_carrier/rank_four.py"
+      ],
+      "id": "universal_rank_four_family",
+      "label": "universal rank-four mapping-cone family",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "symbolic parameter lift of pair 73 cocycles",
+        "universal differential",
+        "D squared equals zero certificate"
+      ],
+      "statement": "No exact parameterized mapping cone has yet been built from pair 73's four cocycles.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "research/experiments/computable_carrier/downstream.py"
+      ],
+      "id": "algebraic_lawful_locus",
+      "label": "rank-four algebraic lawful locus",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "universal rank-four family",
+        "parameterized Fitting ideals",
+        "equivariance and quotient descent",
+        "Chern and structure-group loci"
+      ],
+      "statement": "Non-splitness, local freeness, descent, determinant, Chern data, and genuine SU(4) loci are not computed for the universal family.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "research/experiments/computable_carrier/downstream.py"
+      ],
+      "id": "stability_chamber",
+      "label": "exact common stability chamber",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "algebraic lawful family",
+        "destabilizing-subsheaf inequalities",
+        "nonempty Kahler chamber"
+      ],
+      "statement": "No chamber theorem exists for the computable universal family.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "src/onetheory/physics/compactification.py",
+        "research/experiments/computable_carrier/downstream.py"
+      ],
+      "id": "physical_spectrum",
+      "label": "Wilson-projected carrier spectrum",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "stable descended carrier",
+        "cohomology jumping loci",
+        "Wilson projection certificate"
+      ],
+      "statement": "The computable family has no parameter-dependent cohomology and Wilson-projected spectrum certificate.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/computable_carrier/computable_carrier_artifact.json"
+      ],
+      "id": "computable_carrier_state",
+      "label": "first frozen computable carrier",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "algebraic lawful locus",
+        "stability chamber",
+        "required structural spectrum"
+      ],
+      "statement": "No candidate has passed every rank, determinant, topology, local-freeness, descent, stability, and spectrum gate.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
+      ],
+      "id": "curvilinear_topology_route",
+      "label": "current curvilinear Chern-type route",
+      "layer": "Scoped exclusions",
+      "missing_prerequisites": [],
+      "statement": "The declared curvilinear rank-four topology has quotient index zero and cannot meet the required carrier target.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "research/experiments/computable_carrier/projective_outer_frontier.py"
+      ],
+      "id": "projective_tier_a_route",
+      "label": "declared projective Tier A outer route",
+      "layer": "Scoped exclusions",
+      "missing_prerequisites": [],
+      "statement": "All six declared projective ray pairs have zero invariant Ext-one classes in that finite presentation category.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "src/onetheory/math/homological.py",
+        "research/experiments/visible_common_dga/audit.py"
+      ],
+      "id": "common_dga_package",
+      "label": "carrier-specific common DGA package",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "synchronized V1/V2 Cech-Koszul complex",
+        "matter and Higgs hypercocycles",
+        "restricted actions and contraction",
+        "cyclic pairing and trace conventions"
+      ],
+      "statement": "Generic DGA, module, contraction, and HPL engines exist, but no synchronized carrier complex and physical representatives are available.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
+        "published reference carrier and conventions"
+      ],
+      "evidence": [
+        "src/onetheory/models/heterotic_schoen/flavor.py",
+        "tests/unit/test_visible.py"
+      ],
+      "id": "tree_holomorphic_flavor",
+      "label": "published tree-level holomorphic flavor structure",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "The exact published one-Higgs tree texture and its rank-two/null structure are represented, conditional on the selected reference carrier.",
+      "status": "PROVED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "research/experiments/visible_common_dga/audit.py"
+      ],
+      "id": "first_exact_yukawa",
+      "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "frozen computable carrier",
+        "common DGA package",
+        "matter and Higgs cocycles",
+        "trace evaluation"
+      ],
+      "statement": "No complete matrix has been evaluated from generated carrier chain data.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "src/onetheory/math/sections.py",
+        "research/experiments/visible_metrics/audit.py"
+      ],
+      "id": "visible_metrics",
+      "label": "Ricci-flat, HYM, and matter metric package",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "carrier extension cocycles",
+        "positive-twist section package",
+        "global generation",
+        "converged Ricci-flat and HYM metrics"
+      ],
+      "statement": "Generic section machinery exists, but carrier cocycles, section bases, global-generation proof, and converged metrics are absent.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "src/onetheory/physics/observables.py",
+        "src/onetheory/physics/matter.py"
+      ],
+      "id": "physical_yukawas",
+      "label": "canonically normalized physical Yukawas",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "all holomorphic Yukawa sectors",
+        "positive matter and Higgs metrics",
+        "stabilized common vacuum"
+      ],
+      "statement": "Canonical-normalization laws exist, but holomorphic matrices, positive metrics, and a common stabilized context do not.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "research/experiments/conic_pfaffians/audit.py"
+      ],
+      "id": "physical_pfaffians",
+      "label": "physical worldsheet Pfaffians",
+      "layer": "Vacuum",
+      "missing_prerequisites": [
+        "seed embeddings",
+        "restricted resolutions",
+        "relative-duality maps",
+        "Quillen normalization"
+      ],
+      "statement": "Seed conic embeddings, restrictions, determinant-line maps, and normalization are absent.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "research/experiments/hidden_bundle/audit.py",
+        "src/onetheory/models/heterotic_schoen/consistency.py"
+      ],
+      "id": "hidden_bundle",
+      "label": "descended stable hidden bundle",
+      "layer": "Vacuum",
+      "missing_prerequisites": [
+        "exact hidden maps",
+        "equivariant descent",
+        "global local freeness",
+        "common stability chamber",
+        "hidden spectrum"
+      ],
+      "statement": "The exact hidden target is known, but polynomial maps, descent, local freeness, stability, restrictions, and spectrum are absent.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "src/onetheory/physics/vacuum.py",
+        "src/onetheory/models/heterotic_schoen/vacuum.py"
+      ],
+      "id": "controlled_vacuum",
+      "label": "controlled stabilized common vacuum",
+      "layer": "Vacuum",
+      "missing_prerequisites": [
+        "visible carrier",
+        "physical Pfaffians",
+        "hidden bundle",
+        "threshold functions",
+        "complete effective action"
+      ],
+      "statement": "The symbolic vacuum engine exists, but the complete physical K, W, f, D package and compatible hidden sector do not.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/observations/README.md",
+        "src/onetheory/physics/observables.py"
+      ],
+      "id": "measured_observables",
+      "label": "measured low-energy observables",
+      "layer": "Comparison",
+      "missing_prerequisites": [],
+      "statement": "Measurements are terminal comparison data and are not admitted as geometry, carrier, rank-lifting, or vacuum selectors.",
+      "status": "MEASURED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "src/onetheory/reality.py",
+        "research/experiments/low_energy_closure/README.md"
+      ],
+      "id": "low_energy_predictions",
+      "label": "held-out low-energy predictions",
+      "layer": "Comparison",
+      "missing_prerequisites": [
+        "physical Yukawas",
+        "controlled vacuum",
+        "threshold matching",
+        "RGE evolution",
+        "frozen prediction protocol"
+      ],
+      "statement": "No parameter-free low-energy masses, mixings, or CP invariants have been derived from a common stabilized carrier state.",
+      "status": "BLOCKED"
+    }
+  ],
+  "dependencies": [
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/physics/quantum.py"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "no derivation from a primitive structure"
+      ],
+      "mathematical_reason": "A Genesis theory must recover quantum phase.",
+      "source": "quantum_phase_structure",
+      "target": "genesis_to_uv_bridge"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/physics/spacetime.py"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "signature remains assumed"
+      ],
+      "mathematical_reason": "A Genesis theory must recover causal spacetime.",
+      "source": "lorentzian_causal_structure",
+      "target": "genesis_to_uv_bridge"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/physics/gravity.py"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "gravity remains an input law"
+      ],
+      "mathematical_reason": "A Genesis theory must recover universal geometric coupling.",
+      "source": "einstein_gravity",
+      "target": "genesis_to_uv_bridge"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/core/units.py"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "dimensional constants remain primitive"
+      ],
+      "mathematical_reason": "The bridge must explain invariant dimensionless content rather than SI decimals.",
+      "source": "dimensional_constant_contract",
+      "target": "genesis_to_uv_bridge"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "no bridge exists",
+        "other UV realizations may be possible"
+      ],
+      "mathematical_reason": "A complete Genesis theory would have to derive or uniquely select the UV realization.",
+      "source": "genesis_to_uv_bridge",
+      "target": "heterotic_uv"
+    },
+    {
+      "assumptions_required": [
+        "heterotic UV realization"
+      ],
+      "implementation_or_artifact": [
+        "src/onetheory/physics/compactification.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "selected compactification may not be unique"
+      ],
+      "mathematical_reason": "Compactification selects an internal Calabi-Yau realization.",
+      "source": "heterotic_uv",
+      "target": "schoen_geometry"
+    },
+    {
+      "assumptions_required": [
+        "published source transcription"
+      ],
+      "implementation_or_artifact": [
+        "src/onetheory/models/heterotic_schoen/visible.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "chain representatives are not published"
+      ],
+      "mathematical_reason": "The published sheaf extension is defined on the Schoen quotient.",
+      "source": "schoen_geometry",
+      "target": "published_visible_carrier"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/visible_bundle_reconstruction/reconstruct.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "source data are insufficient"
+      ],
+      "mathematical_reason": "Downstream products require explicit representatives, not dimensions alone.",
+      "source": "published_visible_carrier",
+      "target": "published_chain_reconstruction"
+    },
+    {
+      "assumptions_required": [
+        "declared finite topology category"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/schoen_outer.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "category is scoped, not exhaustive over all sheaves"
+      ],
+      "mathematical_reason": "Exact Cox/Koszul geometry supports generated Serre constituents.",
+      "source": "schoen_geometry",
+      "target": "computable_constituent_category"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/schoen_sparse_outer.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "outside-category presentations are not covered"
+      ],
+      "mathematical_reason": "Derived Hom totalization computes cover Ext in the declared category.",
+      "source": "computable_constituent_category",
+      "target": "cover_ext_screen"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/schoen_sparse_outer_actions.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "action or restriction failure would invalidate quotient classes"
+      ],
+      "mathematical_reason": "Exact commuting deck actions define the invariant subcomplex and cocycles.",
+      "source": "cover_ext_screen",
+      "target": "invariant_ext_cocycles"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/schoen_sparse_outer_automorphisms.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "non-scalar residual actions require a different orbit normal form"
+      ],
+      "mathematical_reason": "Constituent unit actions quotient nonzero extension classes.",
+      "source": "invariant_ext_cocycles",
+      "target": "automorphism_orbits"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "remaining strata or singular families may be exceptional"
+      ],
+      "mathematical_reason": "Repeated exact action forms motivate a family-level classification.",
+      "source": "automorphism_orbits",
+      "target": "automorphism_compression_theorem"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/computable_carrier/tier_b_schoen_outer_invariants.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "basis conventions must be preserved"
+      ],
+      "mathematical_reason": "Pair 73 supplies four exact invariant cocycles.",
+      "source": "invariant_ext_cocycles",
+      "target": "smallest_certified_ext_family"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "zero is the split extension"
+      ],
+      "mathematical_reason": "Pair 73's unit action identifies only nonzero scalar multiples.",
+      "source": "automorphism_orbits",
+      "target": "smallest_certified_ext_family"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/horseshoe.py"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "cochain lifts may not fit the existing cone representation",
+        "basis/sign mismatch"
+      ],
+      "mathematical_reason": "A universal linear combination of Ext cocycles should define a parameterized mapping cone.",
+      "source": "smallest_certified_ext_family",
+      "target": "universal_rank_four_family"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/math/polynomials.py",
+        "research/experiments/computable_carrier/downstream.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "lawful locus may be empty"
+      ],
+      "mathematical_reason": "Fitting, determinant, Chern, equivariance, and reduction loci are properties of the universal family.",
+      "source": "universal_rank_four_family",
+      "target": "algebraic_lawful_locus"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/math/geometry.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "stable chamber may be empty",
+        "unseen destabilizing subsheaves"
+      ],
+      "mathematical_reason": "Only lawful bundles admit the intended slope-stability problem.",
+      "source": "algebraic_lawful_locus",
+      "target": "stability_chamber"
+    },
+    {
+      "assumptions_required": [
+        "established law used conditionally"
+      ],
+      "implementation_or_artifact": [
+        "src/onetheory/physics/compactification.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "cohomology may jump",
+        "spectrum constraints may fail"
+      ],
+      "mathematical_reason": "A stable descended bundle supplies the physical sheaf cohomology problem.",
+      "source": "stability_chamber",
+      "target": "physical_spectrum"
+    },
+    {
+      "assumptions_required": [
+        "selection constraints are not predictions"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/downstream.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "no lawful parameter locus may satisfy all constraints"
+      ],
+      "mathematical_reason": "Passing the declared three-family, one-Higgs, no-exotic constraints freezes a carrier.",
+      "source": "physical_spectrum",
+      "target": "computable_carrier_state"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/math/homological.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "required contractions or pairings may be unavailable"
+      ],
+      "mathematical_reason": "A fixed carrier determines the synchronized complexes and products.",
+      "source": "computable_carrier_state",
+      "target": "common_dga_package"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/models/heterotic_schoen/flavor.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "matrix may vanish or have rank below three"
+      ],
+      "mathematical_reason": "Matter/Higgs cocycle products and trace yield a holomorphic matrix.",
+      "source": "common_dga_package",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [
+        "reference-carrier comparison only"
+      ],
+      "implementation_or_artifact": [
+        "src/onetheory/models/heterotic_schoen/flavor.py"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "computable carrier may realize a different texture"
+      ],
+      "mathematical_reason": "The published texture constrains the expected tree-level structure but is not chain input.",
+      "source": "tree_holomorphic_flavor",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/visible_metrics/audit.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "global generation or numerical convergence may fail"
+      ],
+      "mathematical_reason": "Metric construction needs the explicit carrier and extension cocycles.",
+      "source": "computable_carrier_state",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/physics/observables.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "free moduli prevent prediction"
+      ],
+      "mathematical_reason": "Canonical normalization acts on holomorphic matrices.",
+      "source": "first_exact_yukawa",
+      "target": "physical_yukawas"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/physics/observables.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "metric approximation may not converge"
+      ],
+      "mathematical_reason": "Positive matter and Higgs metrics are required for canonical normalization.",
+      "source": "visible_metrics",
+      "target": "physical_yukawas"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/conic_pfaffians/audit.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "Pfaffians may cancel or vanish"
+      ],
+      "mathematical_reason": "The visible restriction determines physical instanton maps.",
+      "source": "computable_carrier_state",
+      "target": "physical_pfaffians"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/models/heterotic_schoen/consistency.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "compatible hidden bundle may not exist"
+      ],
+      "mathematical_reason": "Visible Chern data fixes the hidden anomaly target.",
+      "source": "computable_carrier_state",
+      "target": "hidden_bundle"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/models/heterotic_schoen/vacuum.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "normalization or cancellation may obstruct stabilization"
+      ],
+      "mathematical_reason": "Worldsheet terms contribute to the carrier-specific superpotential.",
+      "source": "physical_pfaffians",
+      "target": "controlled_vacuum"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/models/heterotic_schoen/vacuum.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "no shared stable chamber",
+        "no supersymmetric critical point"
+      ],
+      "mathematical_reason": "Hidden dynamics and anomaly cancellation constrain the common vacuum.",
+      "source": "hidden_bundle",
+      "target": "controlled_vacuum"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/reality.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "vacuum may leave flat directions"
+      ],
+      "mathematical_reason": "A numerical physical Yukawa requires fixed moduli and one compatible context.",
+      "source": "controlled_vacuum",
+      "target": "physical_yukawas"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/physics/observables.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "missing thresholds",
+        "uncontrolled uncertainty"
+      ],
+      "mathematical_reason": "Threshold matching and RGE evolution map high-scale matrices to observables.",
+      "source": "physical_yukawas",
+      "target": "low_energy_predictions"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "src/onetheory/reality.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "incompatible contexts"
+      ],
+      "mathematical_reason": "All high-scale parameters must belong to the same stabilized state.",
+      "source": "controlled_vacuum",
+      "target": "low_energy_predictions"
+    },
+    {
+      "assumptions_required": [
+        "no data leakage"
+      ],
+      "implementation_or_artifact": [
+        "src/onetheory/physics/observables.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "selection or fitting would invalidate prediction status"
+      ],
+      "mathematical_reason": "Held-out data test predictions only after the protocol is frozen.",
+      "source": "measured_observables",
+      "target": "low_energy_predictions"
+    }
+  ],
+  "duplicated_calculations": [
+    {
+      "areas": [
+        "published visible carrier metadata",
+        "computable carrier search"
+      ],
+      "disposition": "keep separate: one is a selected reference and the other must be generated independently"
+    },
+    {
+      "areas": [
+        "generic production homological engines",
+        "research-specific Schoen totalizations"
+      ],
+      "disposition": "reuse production primitives; retain geometry-specific orchestration in research until promotion"
+    },
+    {
+      "areas": [
+        "partial automorphism enumeration",
+        "candidate structural trichotomy"
+      ],
+      "disposition": "suspend remaining enumeration and seek a family-level theorem unless an exception becomes decision-relevant"
+    }
+  ],
+  "established_results": [
+    "exact reusable arithmetic, polynomial, homological, Cech, Cox, sheaf, and geometry engines",
+    "published Schoen geometry and selected one-Higgs reference carrier metadata",
+    "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
+    "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family"
+  ],
+  "experimental_prototypes": [
+    "rank-four transition and horseshoe constructors",
+    "common-DGA and HPL machinery",
+    "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits"
+  ],
+  "fitted_inputs": [],
+  "objective": {
+    "directive_sha256": "c03f5b3713625bc4430559137414e4f7778539fb3a79d29483196d4e33725768",
+    "governing_criterion": "minimize distance to the next genuine derived physical result",
+    "name": "Scientific Genesis: Vertical Closure and Fundamental Derivation",
+    "near_term_milestone": "one stable descended genuine SU(4) bundle and one complete 3x3 Yukawa matrix from generated chain data"
+  },
+  "observation_leakage": {
+    "allowed_role": "terminal comparison and falsification only",
+    "observations_used_as_geometry_or_carrier_inputs": false,
+    "observations_used_as_vacuum_or_rank_lifting_inputs": false
+  },
+  "open_assumptions": [
+    "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
+    "heterotic E8 x E8 as the conditional UV realization",
+    "Schoen compactification and published one-Higgs model as selected realization data",
+    "three families and one Higgs pair as selection constraints rather than predictions"
+  ],
+  "recommended_vertical_path": {
+    "automorphism_certificate_digest": "a27d5be53029344c1bec7a6e532ecb9fa4b532054b27e17f6ac3080c2e326178",
+    "candidate_pair": 73,
+    "criteria": {
+      "arbitrary_point_selected": false,
+      "automorphism_complexity": "scalar projectivization",
+      "coefficient_field": "Q(omega)",
+      "invariant_ext_dimension": 4,
+      "orbit_parameter_space": "P^3(Q(omega))"
+    },
+    "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
+    "next_required_object": "universal symbolic mapping cone over all four exact cocycle parameters",
+    "selection_status": "recommended, not selected as a physical point"
+  },
+  "research_value_scheduler": [
+    {
+      "priority_score": 21.5,
+      "rationale": "Closes the first carrier-construction edge using existing exact cocycles.",
+      "scores": {
+        "computational_cost": 3,
+        "distance_to_observable": 5,
+        "foundational_importance": 4,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 2,
+        "structural_reuse": 5
+      },
+      "task": "universal_pair_73_mapping_cone"
+    },
+    {
+      "priority_score": 16.0,
+      "rationale": "Can validate or eliminate the entire simplest family symbolically.",
+      "scores": {
+        "computational_cost": 4,
+        "distance_to_observable": 5,
+        "foundational_importance": 3,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 2,
+        "structural_reuse": 5
+      },
+      "task": "pair_73_algebraic_locus"
+    },
+    {
+      "priority_score": 10.667,
+      "rationale": "Compresses repeated action data without blocking carrier construction.",
+      "scores": {
+        "computational_cost": 3,
+        "distance_to_observable": 3,
+        "foundational_importance": 4,
+        "probability_of_discriminating_theory": 4,
+        "risk_of_local_rabbit_hole": 2,
+        "structural_reuse": 5
+      },
+      "task": "automorphism_trichotomy_theorem"
+    },
+    {
+      "priority_score": 8.6,
+      "rationale": "Produces the first matrix once a carrier survives.",
+      "scores": {
+        "computational_cost": 5,
+        "distance_to_observable": 5,
+        "foundational_importance": 4,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 3,
+        "structural_reuse": 5
+      },
+      "task": "minimal_common_dga_yukawa_slice"
+    },
+    {
+      "priority_score": 8.533,
+      "rationale": "Directly tests three-family and one-Higgs selection constraints.",
+      "scores": {
+        "computational_cost": 5,
+        "distance_to_observable": 5,
+        "foundational_importance": 3,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 3,
+        "structural_reuse": 5
+      },
+      "task": "computable_family_spectrum_loci"
+    },
+    {
+      "priority_score": 6.917,
+      "rationale": "Decides whether an algebraically lawful family can become physical.",
+      "scores": {
+        "computational_cost": 4,
+        "distance_to_observable": 4,
+        "foundational_importance": 3,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 3,
+        "structural_reuse": 4
+      },
+      "task": "computable_family_stability_chamber"
+    },
+    {
+      "priority_score": 3.438,
+      "rationale": "Clarifies assumptions and falsifiable targets without inventing a bridge.",
+      "scores": {
+        "computational_cost": 4,
+        "distance_to_observable": 2,
+        "foundational_importance": 5,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 4,
+        "structural_reuse": 5
+      },
+      "task": "genesis_foundational_contract"
+    },
+    {
+      "priority_score": 0.32,
+      "rationale": "Adds classification coverage but cannot simplify pair 73.",
+      "scores": {
+        "computational_cost": 5,
+        "distance_to_observable": 1,
+        "foundational_importance": 2,
+        "probability_of_discriminating_theory": 2,
+        "risk_of_local_rabbit_hole": 5,
+        "structural_reuse": 3
+      },
+      "task": "finish_automorphism_sweep"
+    }
+  ],
+  "reusable_engines": [
+    {
+      "capability": "Schoen geometry",
+      "locations": [
+        "src/onetheory/models/heterotic_schoen/geometry.py"
+      ],
+      "maturity": "established"
+    },
+    {
+      "capability": "Cox and affine-chart algebra",
+      "locations": [
+        "src/onetheory/math/sections.py",
+        "src/onetheory/math/sheaves.py"
+      ],
+      "maturity": "established"
+    },
+    {
+      "capability": "Hilbert-Burch resolutions",
+      "locations": [
+        "src/onetheory/models/heterotic_schoen/visible.py",
+        "research/experiments/computable_carrier/serre_pushout.py"
+      ],
+      "maturity": "established and carrier prototypes"
+    },
+    {
+      "capability": "Serre constructions",
+      "locations": [
+        "research/experiments/computable_carrier/global_serre.py",
+        "research/experiments/computable_carrier/serre_pushout.py"
+      ],
+      "maturity": "research prototype"
+    },
+    {
+      "capability": "Cech complexes",
+      "locations": [
+        "src/onetheory/math/cech.py"
+      ],
+      "maturity": "established generic engine"
+    },
+    {
+      "capability": "Koszul totalizations",
+      "locations": [
+        "research/experiments/computable_carrier/schoen_outer.py"
+      ],
+      "maturity": "research exact engine"
+    },
+    {
+      "capability": "hypercohomology",
+      "locations": [
+        "research/experiments/computable_carrier/projective_hyperhom.py"
+      ],
+      "maturity": "research exact engine"
+    },
+    {
+      "capability": "derived Hom and Ext",
+      "locations": [
+        "research/experiments/computable_carrier/schoen_sparse_outer.py"
+      ],
+      "maturity": "research exact engine"
+    },
+    {
+      "capability": "exact group actions",
+      "locations": [
+        "src/onetheory/math/homological.py",
+        "research/experiments/computable_carrier/schoen_sparse_actions.py"
+      ],
+      "maturity": "established generic plus research specialization"
+    },
+    {
+      "capability": "invariant projectors and quotient representatives",
+      "locations": [
+        "src/onetheory/math/homological.py",
+        "research/experiments/computable_carrier/schoen_sparse_outer_actions.py"
+      ],
+      "maturity": "established generic plus research specialization"
+    },
+    {
+      "capability": "mapping cones and horseshoes",
+      "locations": [
+        "src/onetheory/math/homological.py",
+        "src/onetheory/math/polynomials.py",
+        "research/experiments/computable_carrier/horseshoe.py"
+      ],
+      "maturity": "established generic plus research prototype"
+    },
+    {
+      "capability": "Fitting and determinantal ideals",
+      "locations": [
+        "src/onetheory/math/polynomials.py"
+      ],
+      "maturity": "established exact engine"
+    },
+    {
+      "capability": "Chern arithmetic",
+      "locations": [
+        "src/onetheory/math/geometry.py",
+        "research/experiments/computable_carrier/tier_b_monomial_topology.py"
+      ],
+      "maturity": "established generic plus research specialization"
+    },
+    {
+      "capability": "stability",
+      "locations": [
+        "src/onetheory/models/heterotic_schoen/visible.py",
+        "src/onetheory/physics/compactification.py"
+      ],
+      "maturity": "published reference implementation; computable-family chamber absent"
+    },
+    {
+      "capability": "Wilson projection",
+      "locations": [
+        "src/onetheory/physics/compactification.py",
+        "src/onetheory/models/heterotic_schoen/visible.py"
+      ],
+      "maturity": "established generic and reference metadata"
+    },
+    {
+      "capability": "matter and Higgs cohomology",
+      "locations": [
+        "src/onetheory/models/heterotic_schoen/visible.py",
+        "data/generated/visible_carrier/visible_carrier_artifact.json"
+      ],
+      "maturity": "reference dimensions only; computable representatives absent"
+    },
+    {
+      "capability": "common DGA",
+      "locations": [
+        "src/onetheory/math/homological.py",
+        "research/experiments/visible_common_dga/audit.py"
+      ],
+      "maturity": "established generic engine; physical package blocked"
+    },
+    {
+      "capability": "deformation theory",
+      "locations": [
+        "src/onetheory/models/heterotic_schoen/visible.py",
+        "src/onetheory/models/heterotic_schoen/flavor.py"
+      ],
+      "maturity": "established reference formal frontier"
+    },
+    {
+      "capability": "higher products and HPL",
+      "locations": [
+        "src/onetheory/math/homological.py",
+        "src/onetheory/models/heterotic_schoen/flavor.py"
+      ],
+      "maturity": "established generic engine; carrier inputs blocked"
+    },
+    {
+      "capability": "metrics",
+      "locations": [
+        "src/onetheory/models/heterotic_schoen/metrics.py",
+        "research/experiments/visible_metrics/audit.py"
+      ],
+      "maturity": "generic numerical laws and carrier boundary only"
+    },
+    {
+      "capability": "instantons",
+      "locations": [
+        "src/onetheory/models/heterotic_schoen/instantons.py",
+        "research/experiments/conic_pfaffians/audit.py"
+      ],
+      "maturity": "carrier boundary and input audit only"
+    },
+    {
+      "capability": "hidden sector",
+      "locations": [
+        "src/onetheory/models/heterotic_schoen/hidden.py",
+        "research/experiments/hidden_bundle/audit.py"
+      ],
+      "maturity": "topological target and input audit only"
+    },
+    {
+      "capability": "constants and Genesis identities",
+      "locations": [
+        "src/onetheory/core/units.py",
+        "src/onetheory/reality.py"
+      ],
+      "maturity": "units and established laws only; no origin theory"
+    }
+  ],
+  "schema": "scientific-genesis-state-v1",
+  "scoped_no_go_results": [
+    "declared projective Tier A ray pairs have zero invariant Ext-one classes",
+    "current curvilinear rank-four Chern type has the wrong quotient index",
+    "declared monomial and transported finite linearization categories have no complete commuting lift pairs where recorded"
+  ],
+  "structural_compression_questions": [
+    {
+      "attack": "derive the action from presentation characters and deliberately test singular and factor-exchanged sectors",
+      "evidence": "1,296 exact actions repeatedly show direct scalar, quotient-reduced scalar, and one square-zero-unipotent type",
+      "question": "When do constituent endomorphism radicals act trivially on Ext before or only after quotient reduction?"
+    },
+    {
+      "attack": "construct the universal cone and compute saturated determinantal loci symbolically",
+      "evidence": "the family is only four-dimensional and exact Fitting machinery already exists",
+      "question": "Can local freeness and structure-group reduction for pair 73 be expressed as one parameter ideal?"
+    }
+  ]
+}

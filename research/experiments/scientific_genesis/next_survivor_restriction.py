@@ -87,34 +87,68 @@ def _identity_inclusion(
     return SparseMap(target, source, rows)
 
 
-def _coordinate_projection(
-    source: VectorSpace,
-    selected: tuple[int, ...],
-    target: VectorSpace,
-) -> SparseMap:
-    """Project a source cochain space onto selected coordinates exactly."""
-
-    return SparseMap(
-        source,
-        target,
-        tuple(((source_index, Eisenstein(1)),) for source_index in selected),
-    )
-
-
-def _right_line_selectors(outer: SparseOuterHom) -> tuple[tuple[int, int], ...]:
-    """Return Hom-term selectors induced by the right target-line inclusion."""
+def _right_target_selectors(
+    outer: SparseOuterHom,
+    column: int,
+) -> tuple[tuple[int, int], ...]:
+    """Return Hom-term selectors induced by one right target summand."""
 
     right_target_rank = len(outer.right.candidate.target_shifts)
-    selected_column = right_target_rank - 1
+    if isinstance(column, bool) or not isinstance(column, int):
+        raise TypeError("right target columns must be integers")
+    if not 0 <= column < right_target_rank:
+        raise IndexError("right target column is out of range")
     minus_one = tuple(
-        (-1, target * right_target_rank + selected_column)
+        (-1, target * right_target_rank + column)
         for target in range(len(outer.left.candidate.source_shifts))
     )
     zero = tuple(
-        (0, target * right_target_rank + selected_column)
+        (0, target * right_target_rank + column)
         for target in range(len(outer.left.candidate.target_shifts))
     )
     return minus_one + zero
+
+
+def _normalize_target_vector(
+    outer: SparseOuterHom,
+    vector: tuple[Eisenstein, ...],
+) -> tuple[tuple[Eisenstein, ...], int]:
+    """Normalize one homogeneous right-target vector at its first pivot."""
+
+    target_degrees = outer.right.target_line_degrees
+    if len(vector) != len(target_degrees):
+        raise ValueError("a right-target vector has the wrong dimension")
+    support = tuple(index for index, value in enumerate(vector) if not value.is_zero())
+    if not support:
+        raise ValueError("a right-target vector must be nonzero")
+    if len({target_degrees[index] for index in support}) != 1:
+        raise ValueError("a right-target line cannot mix distinct divisor degrees")
+    pivot = support[0]
+    inverse = Eisenstein(1) / vector[pivot]
+    return tuple(value * inverse for value in vector), pivot
+
+
+def _normalized_hom_index(
+    outer: SparseOuterHom,
+    parent_degree: int,
+    hom_term_index: int,
+    pivot: int,
+) -> tuple[int, int] | None:
+    """Return the left target and normalized Hom index for one right column."""
+
+    right_target_rank = len(outer.right.candidate.target_shifts)
+    if parent_degree == -1:
+        left_count = len(outer.left.candidate.source_shifts)
+    elif parent_degree == 0:
+        left_count = len(outer.left.candidate.target_shifts)
+        if hom_term_index >= left_count * right_target_rank:
+            return None
+    else:
+        return None
+    left_index, right_column = divmod(hom_term_index, right_target_rank)
+    if left_index >= left_count:
+        return None
+    return right_column, left_index * right_target_rank + pivot
 
 
 @dataclass(frozen=True, slots=True)
@@ -150,12 +184,31 @@ def right_line_restriction_complex(
 ) -> RightLineRestrictionComplex:
     """Construct and validate the exact right-line restriction complex."""
 
-    selectors = _right_line_selectors(outer)
+    right_target_rank = len(outer.right.candidate.target_shifts)
+    vector = tuple(
+        Eisenstein(int(index == right_target_rank - 1))
+        for index in range(right_target_rank)
+    )
+    return right_target_line_restriction_complex(outer, vector)
+
+
+def right_target_line_restriction_complex(
+    outer: SparseOuterHom,
+    target_vector: tuple[Eisenstein, ...],
+) -> RightLineRestrictionComplex:
+    """Construct restriction along one homogeneous right-target line map."""
+
+    vector, pivot = _normalize_target_vector(outer, target_vector)
+    selectors = _right_target_selectors(outer, pivot)
     source_spaces = outer.total
+    coordinates_by_degree = {
+        degree: _total_basis_coordinates(outer, degree)
+        for degree in source_spaces
+    }
     selected_by_degree = {
         degree: tuple(
             index
-            for index, coordinate in enumerate(_total_basis_coordinates(outer, degree))
+            for index, coordinate in enumerate(coordinates_by_degree[degree])
             if (coordinate[0], coordinate[2]) in selectors
         )
         for degree in source_spaces
@@ -168,14 +221,33 @@ def right_line_restriction_complex(
         )
         for degree, source in source_spaces.items()
     }
-    projections = {
-        degree: _coordinate_projection(
-            source,
-            selected_by_degree[degree],
-            spaces[degree],
-        )
-        for degree, source in source_spaces.items()
-    }
+    projections = {}
+    for degree, source in source_spaces.items():
+        coordinates = coordinates_by_degree[degree]
+        normalized_indices: dict[tuple[object, ...], list[tuple[int, Eisenstein]]] = {}
+        for source_index, coordinate in enumerate(coordinates):
+            normalized = _normalized_hom_index(
+                outer,
+                coordinate[0],
+                coordinate[2],
+                pivot,
+            )
+            if normalized is None:
+                continue
+            right_column, hom_index = normalized
+            coefficient = vector[right_column]
+            if coefficient.is_zero():
+                continue
+            key = (*coordinate[:2], hom_index, *coordinate[3:])
+            normalized_indices.setdefault(key, []).append(
+                (source_index, coefficient)
+            )
+        rows = []
+        for selected_index in selected_by_degree[degree]:
+            coordinate = coordinates[selected_index]
+            key = tuple(coordinate)
+            rows.append(tuple(sorted(normalized_indices.get(key, ()))))
+        projections[degree] = SparseMap(source, spaces[degree], tuple(rows))
     inclusions = {
         degree: _identity_inclusion(
             source,
@@ -535,5 +607,6 @@ __all__ = [
     "NextSurvivorRestriction",
     "right_line_cohomology_restriction",
     "right_line_restriction_complex",
+    "right_target_line_restriction_complex",
     "next_survivor_restriction",
 ]

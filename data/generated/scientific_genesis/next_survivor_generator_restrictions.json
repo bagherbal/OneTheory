@@ -1,0 +1,6108 @@
+{
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "781b2969348e74e45e62795b42192a3c8559b5084b5083e1501ce1eb57e7b787",
+  "candidate_blocks": [
+    {
+      "candidate_index": 4,
+      "global_pair_range": [
+        109,
+        144
+      ],
+      "pair_count": 36
+    },
+    {
+      "candidate_index": 24,
+      "global_pair_range": [
+        829,
+        864
+      ],
+      "pair_count": 36
+    }
+  ],
+  "checked_pair_count": 72,
+  "checked_restriction_count": 288,
+  "every_lifting_kernel_is_proper": true,
+  "every_lifting_kernel_is_unstable": true,
+  "factor_exchanged_generator_line_c1": [
+    "1",
+    "-4",
+    "-1"
+  ],
+  "finite_union_complement_nonempty": true,
+  "full_slope_stability_proved": false,
+  "generator_line_c1": [
+    "-4",
+    "1",
+    "-1"
+  ],
+  "generator_line_count_per_pair": 4,
+  "generic_class_avoids_all_maximal_generator_lifts": true,
+  "induced_rank_counts": {
+    "36": 36,
+    "38": 36,
+    "40": 216
+  },
+  "kernel_vector_dimension_counts": {
+    "10": 108,
+    "12": 108,
+    "14": 72
+  },
+  "lower_proper_subline_restrictions_classified": false,
+  "next_required_object": "exact restriction maps for lower proper sublines of the right Serre and generator lines, beginning with O(3*tau1-phi)",
+  "restrictions": [
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 109,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 109,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 109,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 109,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 110,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 110,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 110,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 110,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 111,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 111,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 111,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 111,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 112,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 112,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 112,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 112,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 113,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 113,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 113,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 113,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 114,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 114,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 114,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 114,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 115,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 115,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 115,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 115,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 116,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 116,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 116,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 116,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 117,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 117,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 117,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 117,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 118,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 118,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 118,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 118,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 119,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 119,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 119,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 119,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 120,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 120,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 120,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 120,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 121,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 121,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 121,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 121,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 122,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 122,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 122,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 122,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 123,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 123,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 123,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 123,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 124,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 124,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 124,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 124,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 125,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 125,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 125,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 125,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 126,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 126,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 126,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 126,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 127,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 127,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 127,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 127,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 128,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 128,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 128,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 128,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 129,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 129,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 129,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 129,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 130,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 130,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 130,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 130,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 131,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 131,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 131,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 131,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 132,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 132,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 132,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 132,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 133,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 133,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 133,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 133,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 134,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 134,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 134,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 134,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 135,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 135,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 135,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 135,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 136,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 136,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 136,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 136,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 137,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 137,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 137,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 137,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 138,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 138,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 138,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 138,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 139,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 139,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 139,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 139,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 140,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 140,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 140,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 140,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 141,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 141,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 141,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 141,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 142,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 142,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 142,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 142,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 143,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 143,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 143,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 143,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 144,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 144,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 144,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 4,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 144,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 829,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 829,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 829,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 829,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 830,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 830,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 830,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 830,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 831,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 831,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 831,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 831,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 832,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 832,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 832,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 832,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 833,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 833,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 833,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 833,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 834,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 834,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 834,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 834,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 835,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 835,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 835,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 835,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 836,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 836,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 836,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 836,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 837,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 837,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 837,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 837,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 838,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 838,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 838,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 838,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 839,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 839,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 839,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 839,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 840,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 840,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 840,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 840,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 841,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 841,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 841,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 841,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 842,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 842,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 842,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 842,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 843,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 843,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 843,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 843,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 844,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 844,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 844,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 844,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 845,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 845,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 845,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 845,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 846,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 846,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 846,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 846,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 847,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 847,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 847,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 847,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 848,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 848,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 848,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 848,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 849,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 849,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 849,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 849,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 850,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 850,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 850,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 850,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 851,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 851,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 851,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 851,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 852,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 852,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 852,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 852,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 853,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 853,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 853,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 853,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 854,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 854,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 854,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 854,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 855,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 855,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 855,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 855,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 856,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 856,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 856,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 856,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 857,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 857,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 857,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 857,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 858,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 858,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 858,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 858,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 859,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 859,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 859,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 859,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 860,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 860,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 860,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 860,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 861,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 861,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "omega",
+        "0",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 861,
+      "induced_rank": 36,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "-1-omega"
+      ],
+      "exact": true,
+      "global_pair_index": 861,
+      "induced_rank": 40,
+      "kernel_dimension": 10,
+      "projective_kernel": "P^9(Q(omega))",
+      "source_dimension": 50,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "-1-omega",
+        "0",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 862,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 862,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 862,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 862,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 863,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 863,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 863,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 863,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "-1-omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 864,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "-1-omega",
+        "omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "1"
+      ],
+      "exact": true,
+      "global_pair_index": 864,
+      "induced_rank": 38,
+      "kernel_dimension": 14,
+      "projective_kernel": "P^13(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "1",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 864,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "omega",
+        "-1-omega",
+        "0"
+      ]
+    },
+    {
+      "candidate_index": 24,
+      "characters": [
+        "omega",
+        "omega"
+      ],
+      "exact": true,
+      "global_pair_index": 864,
+      "induced_rank": 40,
+      "kernel_dimension": 12,
+      "projective_kernel": "P^11(Q(omega))",
+      "source_dimension": 52,
+      "target_cohomology_dimension": 450,
+      "target_vector": [
+        "1",
+        "0",
+        "1",
+        "1",
+        "0"
+      ]
+    }
+  ],
+  "schema": "next-survivor-generator-restrictions-v1",
+  "slope_identity": "mu(L_left)+mu(generator_line)=0",
+  "status": "all 288 maximal quotient-generator restrictions are exact; their unstable kernels are proper and generic stability remains open",
+  "target_ext_one_dimension_counts": {
+    "450": 288
+  }
+}

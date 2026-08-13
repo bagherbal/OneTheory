@@ -169,6 +169,18 @@ witness `(1,5,7)`. This certifies a nonempty necessary chamber only. A generic
 stability theorem or an additional exact destabilizing stratum is still
 required before constructing the universal 50/52-parameter mapping cone.
 
+The four equivariant ideal-generator lines in each right constituent have now
+also been tested. They all have class `(-4,1,-1)` in candidate 4, opposite to
+the unavoidable left line `(4,-1,1)`; candidate 24 is factor-exchanged. The
+288 induced restriction maps land in 450-dimensional target Ext groups and
+have ranks 36, 38, or 40. Their lifting kernels therefore have vector
+dimensions only 10, 12, or 14 and are proper unstable linear strata. A finite
+union of proper linear subspaces cannot fill the projective Ext space over
+`Q(omega)`, so a generic class avoids both the Serre-line lift and all four
+generator-line lifts without selecting coordinates. This is still not a full
+stability theorem: lower proper sublines can have different restriction maps,
+and rank-two plus dual rank-three conditions remain open.
+
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
 Higgs pair remain selection constraints. The first component passing every
@@ -202,10 +214,12 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: classify saturated subsheaves on the
-candidate-4/24 nonlifting complements, then construct a universal mapping cone
-only if a stable locus survives. Continue by increasing invariant Ext dimension
-until one stable family survives or the declared category is exhausted.
+The governing queue is therefore: construct exact restriction maps for lower
+proper constituent sublines, beginning with the unique
+`O(3*tau1-phi)` section, then classify rank-two and dual rank-three conditions.
+Construct a universal mapping cone only if a stable locus survives. Continue by
+increasing invariant Ext dimension until one stable family survives or the
+declared category is exhausted.
 Spectrum loci and the minimum common-DGA Yukawa slice remain downstream of the
 first stable family. Completing the final 144 large automorphism cases stays
 suspended until it can change a dependency edge or independently verify a

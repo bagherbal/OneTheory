@@ -495,6 +495,24 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "next_survivor_generator_strata",
+            "dimension-50/52 generator-line lifting strata",
+            "Computable carrier",
+            "COMPUTED",
+            "All 288 equivariant quotient-generator line restrictions have "
+            "exact positive rank and proper kernels. Their finite unstable "
+            "union leaves a nonempty generic complement.",
+            (
+                "data/generated/scientific_genesis/"
+                "next_survivor_generator_restrictions.json",
+                "research/experiments/scientific_genesis/"
+                "next_survivor_generator_restrictions.py",
+            ),
+            missing=(
+                "restriction maps for lower proper constituent sublines",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -1019,6 +1037,23 @@ def _edges() -> list[dict[str, object]]:
             ),
         ),
         _edge(
+            "next_survivor_forced_chamber",
+            "next_survivor_generator_strata",
+            "The forced chamber makes each maximal right generator line have "
+            "slope opposite to the unavoidable left line; exact restriction "
+            "maps isolate every locus where such a generator lifts.",
+            (
+                "research/experiments/scientific_genesis/"
+                "next_survivor_generator_restrictions.py",
+            ),
+            (),
+            True,
+            (
+                "lower proper sublines may lift on larger loci",
+                "rank-two and dual rank-three conditions remain open",
+            ),
+        ),
+        _edge(
             "stability_chamber",
             "physical_spectrum",
             "A stable descended replacement bundle is required before the physical "
@@ -1475,6 +1510,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/lifted_line_slope_identity_no_go.json",
         "data/generated/scientific_genesis/next_survivor_restriction.json",
         "data/generated/scientific_genesis/next_survivor_forced_chamber.json",
+        "data/generated/scientific_genesis/next_survivor_generator_restrictions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1495,7 +1531,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 441,
+            "collected_tests_at_audit": 445,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1517,7 +1553,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "dimension-50/52 nonlifting locus has a necessary chamber"
+                "dimension-50/52 generic locus avoids five unstable line types"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1570,6 +1606,14 @@ def build_state() -> dict[str, object]:
                     "(5,1,7)",
                     "(1,5,7)",
                 ],
+                "next_survivor_generator_restriction_count": 288,
+                "next_survivor_generator_rank_counts": {
+                    "36": 36,
+                    "38": 36,
+                    "40": 216,
+                },
+                "next_survivor_generator_kernels_proper": True,
+                "next_survivor_generator_complement_nonempty": True,
                 "next_invariant_ext_dimension": 50,
                 "next_candidate_blocks": [4, 24],
                 "minimum_forced_chamber_nonempty": True,
@@ -1583,8 +1627,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "generic stability theorem or exact destabilizing stratum for "
-                "the candidate-4/24 nonlifting complements"
+                "exact restriction maps for lower proper constituent sublines, "
+                "beginning with O(3*tau1-phi)"
             ),
         },
         "claims": _nodes(),
@@ -1620,6 +1664,8 @@ def build_state() -> dict[str, object]:
             "codimension 20",
             "the candidate-4/24 nonlifting complements admit an exact nonempty "
             "necessary forced-subobject chamber with rational witnesses",
+            "all 288 maximal quotient-generator restrictions have proper "
+            "unstable kernels, leaving nonempty generic complements",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1706,11 +1752,12 @@ def build_state() -> dict[str, object]:
                 "evidence": (
                     "the exact rank-20 restriction removes the right-line lift "
                     "off P^29 inside P^49 and P^31 inside P^51; the remaining "
-                    "forced slopes are negative at (5,1,7) after orientation"
+                    "forced slopes are negative at (5,1,7) after orientation; "
+                    "four generator-line kernels per pair are also proper"
                 ),
                 "attack": (
-                    "classify additional saturated subsheaves on the nonlifting "
-                    "open strata before constructing a universal cone"
+                    "construct chain maps for the lower proper sublines, then "
+                    "classify rank-two and dual rank-three conditions"
                 ),
             },
         ],

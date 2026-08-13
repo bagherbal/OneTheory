@@ -181,3 +181,47 @@ def test_projective_product_cech_preserves_tensor_cohomology_class() -> None:
     assert total.complex.cohomology_dimension(3) == 1
     with pytest.raises(ValueError, match="nonzero product Čech cohomology"):
         total.primitive(representative)
+
+
+def test_projective_product_cech_tensor_contraction_is_exact() -> None:
+    """Every P2-by-P1 support satisfies ``dh+hd=1-ip`` on every basis cell."""
+
+    p2_supports = tuple(
+        tuple(index for index in range(3) if mask & (1 << index))
+        for mask in range(8)
+    )
+    p1_supports = tuple(
+        tuple(index for index in range(2) if mask & (1 << index))
+        for mask in range(4)
+    )
+    for p2_support in p2_supports:
+        for p1_support in p1_supports:
+            factors = (
+                projective_monomial_cech_complex(
+                    ("x0", "x1", "x2"),
+                    tuple(-1 if index in p2_support else 0 for index in range(3)),
+                    scalar_type=Eisenstein,
+                ),
+                projective_monomial_cech_complex(
+                    ("p0", "p1"),
+                    tuple(-1 if index in p1_support else 0 for index in range(2)),
+                    scalar_type=Eisenstein,
+                ),
+            )
+            total = product_projective_monomial_cech_complex(factors)
+            for degree in total.complex.degrees:
+                space = total.complex.spaces.space(degree)
+                for basis_index in range(space.dimension):
+                    basis = total.cochain(
+                        degree,
+                        {total.cells_at(degree)[basis_index]: 1},
+                    )
+                    homotopy = total.contracting_homotopy(basis)
+                    left = total.complex.differential(degree - 1)(homotopy)
+                    if degree == max(total.complex.degrees):
+                        right = total.cochain(degree, {})
+                    else:
+                        right = total.contracting_homotopy(
+                            total.complex.differential(degree)(basis)
+                        )
+                    assert left + right == basis - total.projected_representative(basis)

@@ -346,6 +346,146 @@ class ProductProjectiveMonomialCechComplex:
             raise ValueError("exact product Čech primitive failed reconstruction")
         return primitive
 
+    def projected_representative(self, cochain: CoordinateVector) -> CoordinateVector:
+        """Project a cochain onto the canonical product-cohomology summand."""
+
+        degree = self._degree_of(cochain)
+        values = dict(zip(self.cells_at(degree), cochain.coordinates, strict=True))
+        projected: dict[tuple[tuple[int, ...], ...], Rational | Eisenstein] = {
+            cell: value
+            for cell, value in values.items()
+            if not value.is_zero()
+        }
+        for factor_index, factor in enumerate(self.factors):
+            next_values: dict[
+                tuple[tuple[int, ...], ...], Rational | Eisenstein
+            ] = {}
+            for cell, value in projected.items():
+                for simplex, coefficient in _factor_projection_image(
+                    factor,
+                    cell[factor_index],
+                ):
+                    target = list(cell)
+                    target[factor_index] = simplex
+                    target_cell = tuple(target)
+                    next_values[target_cell] = _add_cech_scalars(
+                        next_values.get(target_cell),
+                        value * coefficient,
+                        cochain.space.scalar_type,
+                    )
+            projected = next_values
+        return self.cochain(degree, projected)
+
+    def contracting_homotopy(self, cochain: CoordinateVector) -> CoordinateVector:
+        """Apply the canonical tensor-trick homotopy to any product cochain."""
+
+        degree = self._degree_of(cochain)
+        if degree == min(self.complex.degrees):
+            return CoordinateVector(
+                self.complex.spaces.space(degree - 1),
+                (),
+            )
+        source = dict(zip(self.cells_at(degree), cochain.coordinates, strict=True))
+        result: dict[tuple[tuple[int, ...], ...], Rational | Eisenstein] = {}
+        for cell, value in source.items():
+            if value.is_zero():
+                continue
+            prefix_images: tuple[tuple[tuple[tuple[int, ...], ...], int], ...] = (
+                ((), 1),
+            )
+            for factor_index, factor in enumerate(self.factors):
+                for prefix, prefix_coefficient in prefix_images:
+                    for simplex, local_coefficient in _factor_homotopy_image(
+                        factor,
+                        cell[factor_index],
+                    ):
+                        target_cell = (*prefix, simplex, *cell[factor_index + 1 :])
+                        tensor_sign = -1 if sum(len(item) - 1 for item in prefix) % 2 else 1
+                        coefficient = prefix_coefficient * local_coefficient * tensor_sign
+                        result[target_cell] = _add_cech_scalars(
+                            result.get(target_cell),
+                            value * coefficient,
+                            cochain.space.scalar_type,
+                        )
+                next_prefixes: list[tuple[tuple[tuple[int, ...], ...], int]] = []
+                for prefix, prefix_coefficient in prefix_images:
+                    for simplex, local_coefficient in _factor_projection_image(
+                        factor,
+                        cell[factor_index],
+                    ):
+                        next_prefixes.append(
+                            ((*prefix, simplex), prefix_coefficient * local_coefficient)
+                        )
+                prefix_images = tuple(next_prefixes)
+                if not prefix_images:
+                    break
+        return self.cochain(degree - 1, result)
+
+    def _degree_of(self, cochain: CoordinateVector) -> int:
+        """Return the unique degree occupied by a typed product cochain."""
+
+        degree = next(
+            (
+                candidate
+                for candidate in self.complex.degrees
+                if self.complex.spaces.space(candidate) == cochain.space
+            ),
+            None,
+        )
+        if degree is None:
+            raise ValueError("cochain does not use this product complex's basis")
+        return degree
+
+
+def _factor_projection_image(
+    factor: ProjectiveMonomialCechComplex,
+    simplex: tuple[int, ...],
+) -> tuple[tuple[tuple[int, ...], int], ...]:
+    """Return the factorwise ``i p`` image of one simplex basis cochain."""
+
+    support = factor.negative_support
+    vertex_count = len(factor.variable_names)
+    if not support:
+        if simplex != (0,):
+            return ()
+        return tuple(((vertex,), 1) for vertex in range(vertex_count))
+    if len(support) == vertex_count:
+        return ((simplex, 1),)
+    return ()
+
+
+def _factor_homotopy_image(
+    factor: ProjectiveMonomialCechComplex,
+    simplex: tuple[int, ...],
+) -> tuple[tuple[tuple[int, ...], int], ...]:
+    """Return the standard cone homotopy image of one simplex cochain."""
+
+    support = factor.negative_support
+    if len(support) == len(factor.variable_names):
+        return ()
+    cone_vertex = next(
+        index
+        for index in range(len(factor.variable_names))
+        if index not in support
+    )
+    if cone_vertex not in simplex or len(simplex) == 1:
+        return ()
+    position = simplex.index(cone_vertex)
+    reduced = simplex[:position] + simplex[position + 1 :]
+    return ((reduced, -1 if position % 2 else 1),)
+
+
+def _add_cech_scalars(
+    current: Rational | Eisenstein | None,
+    value: Rational | Eisenstein,
+    scalar_type: ScalarType,
+) -> Rational | Eisenstein:
+    """Add exact scalar values while preserving the declared coefficient field."""
+
+    if scalar_type is Rational:
+        return coerce_rational(0 if current is None else current) + coerce_rational(value)
+    return Eisenstein.coerce(0 if current is None else current) + Eisenstein.coerce(value)
+
 
 def restricted_cech_complex(
     chart_names: Iterable[str],

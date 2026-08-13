@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "46ba4eed74135a13bd9bc7f4b6cd7a7f7ac556f7895d6111ab48fba37fe27931",
+  "artifact_digest": "33e7ec04156fa5cb199a5e58930040376e06ac5198fa3a5756c9bff3e5938ce5",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -102,6 +102,11 @@
       "sha256": "ff2996df6c94d0f389d2e575b59df73a61ca9ac2a753b372633869208043bfbe"
     },
     {
+      "bytes": 3938,
+      "path": "data/generated/scientific_genesis/next_survivor_lower_line_no_go.json",
+      "sha256": "cc82c06960a0dc50be3e14e10960eadfbbe0a6a66328602cd038214860ac3114"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -123,11 +128,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 445,
+    "collected_tests_at_audit": 449,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 113,
-    "test_python_files": 102
+    "research_python_files": 115,
+    "test_python_files": 103
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -584,6 +589,19 @@
       ],
       "statement": "All 288 equivariant quotient-generator line restrictions have exact positive rank and proper kernels. Their finite unstable union leaves a nonempty generic complement.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/next_survivor_lower_line_no_go.json",
+        "research/experiments/scientific_genesis/next_survivor_lower_line_no_go.py"
+      ],
+      "id": "next_survivor_lower_line_block",
+      "label": "dimension-50/52 lower-line stability block",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "Every candidate-4/24 extension lifts a descended lower line. Its slope plus the unavoidable left-line slope is the strictly positive fiber-class slope, so their common chamber is empty.",
+      "status": "REFUTED"
     },
     {
       "assumptions": [],
@@ -1218,6 +1236,20 @@
       "target": "next_survivor_generator_strata"
     },
     {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/lower_line_sections.py",
+        "research/experiments/scientific_genesis/next_survivor_lower_line_no_go.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the theorem is scoped to candidates 4 and 24"
+      ],
+      "mathematical_reason": "The unique section of O(3*tau1-phi), or its factor exchange, induces the zero map on every outer Hom complex. The resulting universal lift has an incompatible exact slope identity.",
+      "source": "next_survivor_generator_strata",
+      "target": "next_survivor_lower_line_block"
+    },
+    {
       "assumptions_required": [
         "established law used conditionally"
       ],
@@ -1476,7 +1508,8 @@
     "the dimension-42/48 block has an exact positive slope identity between two unavoidable subbundles, making its chamber empty",
     "all candidate-4/24 right-line restriction maps have exact rank 20; their unstable lifting loci are projective linear subspaces of codimension 20",
     "the candidate-4/24 nonlifting complements admit an exact nonempty necessary forced-subobject chamber with rational witnesses",
-    "all 288 maximal quotient-generator restrictions have proper unstable kernels, leaving nonempty generic complements"
+    "all 288 maximal quotient-generator restrictions have proper unstable kernels, leaving nonempty generic complements",
+    "the unique lower-line section has identically zero outer-Hom pullback in every candidate-4/24 family"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -1563,10 +1596,13 @@
       ],
       "mixed_sign_minimum_retired_family_count": 72,
       "next_candidate_blocks": [
-        4,
-        24
+        5,
+        25
       ],
-      "next_invariant_ext_dimension": 50,
+      "next_invariant_ext_dimensions": [
+        102,
+        108
+      ],
       "next_survivor_complements_stability_proved": false,
       "next_survivor_forced_chamber_nonempty": true,
       "next_survivor_forced_chamber_witnesses": [
@@ -1582,6 +1618,13 @@
       },
       "next_survivor_generator_restriction_count": 288,
       "next_survivor_lifting_kernels_unstable": true,
+      "next_survivor_lower_line_lifts_universally": true,
+      "next_survivor_lower_line_positive_slope_identity": true,
+      "next_survivor_lower_line_retired_candidate_blocks": [
+        4,
+        24
+      ],
+      "next_survivor_lower_line_retired_family_count": 72,
       "next_survivor_projective_lifting_loci": {
         "P^49(Q(omega))": "P^29(Q(omega))",
         "P^51(Q(omega))": "P^31(Q(omega))"
@@ -1589,12 +1632,10 @@
       "next_survivor_restriction_rank": 20,
       "next_survivor_target_ext_dimension": 216,
       "remaining_nonzero_candidate_blocks": [
-        4,
         5,
-        24,
         25
       ],
-      "remaining_nonzero_family_count": 144,
+      "remaining_nonzero_family_count": 72,
       "retired_candidate_blocks": [
         3,
         23
@@ -1618,8 +1659,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "exact restriction maps for lower proper constituent sublines, beginning with O(3*tau1-phi)",
-    "selection_status": "dimension-50/52 generic locus avoids five unstable line types"
+    "next_required_object": "exact stability classification of the 72 families in candidate blocks 5 and 25",
+    "selection_status": "dimension-50/52 block retired by a universal lower-line lift"
   },
   "research_value_scheduler": [
     {
@@ -1919,7 +1960,8 @@
     "all 72 eight/ten-dimensional invariant-Ext families in candidates 8 and 28 contain a descended line with strictly positive Kahler-cone slope",
     "18 topology blocks containing 648 families have a coefficient-positive forced subbundle and therefore no slope-stable extension",
     "all 72 families in candidates 15 and 35 lift a right Serre line with strictly positive slope despite their nonempty necessary chamber",
-    "all 72 families in candidates 16 and 36 have incompatible negative-slope requirements for the right-line preimage and universally lifted line"
+    "all 72 families in candidates 16 and 36 have incompatible negative-slope requirements for the right-line preimage and universally lifted line",
+    "all 72 families in candidates 4 and 24 lift a descended lower line whose slope and the forced left-line slope sum to a strictly positive fiber-class slope"
   ],
   "structural_compression_questions": [
     {

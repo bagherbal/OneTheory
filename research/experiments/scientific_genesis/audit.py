@@ -513,6 +513,21 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "next_survivor_lower_line_block",
+            "dimension-50/52 lower-line stability block",
+            "Computable carrier",
+            "REFUTED",
+            "Every candidate-4/24 extension lifts a descended lower line. Its "
+            "slope plus the unavoidable left-line slope is the strictly "
+            "positive fiber-class slope, so their common chamber is empty.",
+            (
+                "data/generated/scientific_genesis/"
+                "next_survivor_lower_line_no_go.json",
+                "research/experiments/scientific_genesis/"
+                "next_survivor_lower_line_no_go.py",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -1054,6 +1069,22 @@ def _edges() -> list[dict[str, object]]:
             ),
         ),
         _edge(
+            "next_survivor_generator_strata",
+            "next_survivor_lower_line_block",
+            "The unique section of O(3*tau1-phi), or its factor exchange, "
+            "induces the zero map on every outer Hom complex. The resulting "
+            "universal lift has an incompatible exact slope identity.",
+            (
+                "research/experiments/scientific_genesis/"
+                "lower_line_sections.py",
+                "research/experiments/scientific_genesis/"
+                "next_survivor_lower_line_no_go.py",
+            ),
+            (),
+            True,
+            ("the theorem is scoped to candidates 4 and 24",),
+        ),
+        _edge(
             "stability_chamber",
             "physical_spectrum",
             "A stable descended replacement bundle is required before the physical "
@@ -1511,6 +1542,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/next_survivor_restriction.json",
         "data/generated/scientific_genesis/next_survivor_forced_chamber.json",
         "data/generated/scientific_genesis/next_survivor_generator_restrictions.json",
+        "data/generated/scientific_genesis/next_survivor_lower_line_no_go.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1531,7 +1563,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 445,
+            "collected_tests_at_audit": 449,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1553,7 +1585,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "dimension-50/52 generic locus avoids five unstable line types"
+                "dimension-50/52 block retired by a universal lower-line lift"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1587,8 +1619,8 @@ def build_state() -> dict[str, object]:
                     40,
                 ],
                 "forced_subobject_retired_family_count": 648,
-                "remaining_nonzero_candidate_blocks": [4, 5, 24, 25],
-                "remaining_nonzero_family_count": 144,
+                "remaining_nonzero_candidate_blocks": [5, 25],
+                "remaining_nonzero_family_count": 72,
                 "mixed_sign_minimum_retired_candidate_blocks": [15, 35],
                 "mixed_sign_minimum_retired_family_count": 72,
                 "slope_identity_retired_candidate_blocks": [16, 36],
@@ -1614,8 +1646,12 @@ def build_state() -> dict[str, object]:
                 },
                 "next_survivor_generator_kernels_proper": True,
                 "next_survivor_generator_complement_nonempty": True,
-                "next_invariant_ext_dimension": 50,
-                "next_candidate_blocks": [4, 24],
+                "next_survivor_lower_line_retired_candidate_blocks": [4, 24],
+                "next_survivor_lower_line_retired_family_count": 72,
+                "next_survivor_lower_line_lifts_universally": True,
+                "next_survivor_lower_line_positive_slope_identity": True,
+                "next_invariant_ext_dimensions": [102, 108],
+                "next_candidate_blocks": [5, 25],
                 "minimum_forced_chamber_nonempty": True,
                 "minimum_forced_chamber_certificate": ["(2,1,t)", "t>7/2"],
                 "minimum_projective_orbit_spaces": {
@@ -1627,8 +1663,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact restriction maps for lower proper constituent sublines, "
-                "beginning with O(3*tau1-phi)"
+                "exact stability classification of the 72 families in "
+                "candidate blocks 5 and 25"
             ),
         },
         "claims": _nodes(),
@@ -1666,6 +1702,8 @@ def build_state() -> dict[str, object]:
             "necessary forced-subobject chamber with rational witnesses",
             "all 288 maximal quotient-generator restrictions have proper "
             "unstable kernels, leaving nonempty generic complements",
+            "the unique lower-line section has identically zero outer-Hom "
+            "pullback in every candidate-4/24 family",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1686,6 +1724,9 @@ def build_state() -> dict[str, object]:
             "with strictly positive slope despite their nonempty necessary chamber",
             "all 72 families in candidates 16 and 36 have incompatible negative-slope "
             "requirements for the right-line preimage and universally lifted line",
+            "all 72 families in candidates 4 and 24 lift a descended lower line "
+            "whose slope and the forced left-line slope sum to a strictly "
+            "positive fiber-class slope",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",

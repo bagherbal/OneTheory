@@ -181,6 +181,17 @@ generator-line lifts without selecting coordinates. This is still not a full
 stability theorem: lower proper sublines can have different restriction maps,
 and rank-two plus dual rank-three conditions remain open.
 
+The first lower proper subline closes the dimension-50/52 route. The unique
+section of `O(3*tau1-phi)` embeds `O(-4,1,0)` into the right Serre line in
+candidate 4; candidate 24 is the exact factor exchange. Its signed Koszul
+representative defines a chain map, while the induced map between the two
+outer Hom complexes is identically zero for all 72 families. The lower line
+therefore lifts for every extension parameter. Its first Chern class plus the
+forced left-line class is `(0,0,1)`, whose slope is strictly positive in the
+whole Kähler cone. Both proper subbundles cannot have negative slope, so all
+candidate-4/24 families are unstable. Only candidates 5 and 25 remain, with
+36 dimension-102 and 36 dimension-108 invariant Ext spaces.
+
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
 Higgs pair remain selection constraints. The first component passing every

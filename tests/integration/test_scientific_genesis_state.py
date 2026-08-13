@@ -59,9 +59,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["next_survivor_forced_chamber_nonempty"] is True
     assert path["criteria"]["next_survivor_generator_restriction_count"] == 288
     assert path["criteria"]["next_survivor_generator_kernels_proper"] is True
-    assert path["criteria"]["remaining_nonzero_family_count"] == 144
-    assert path["criteria"]["next_invariant_ext_dimension"] == 50
-    assert path["criteria"]["next_candidate_blocks"] == [4, 24]
+    assert path["criteria"]["next_survivor_lower_line_retired_family_count"] == 72
+    assert path["criteria"]["next_survivor_lower_line_lifts_universally"] is True
+    assert path["criteria"]["remaining_nonzero_family_count"] == 72
+    assert path["criteria"]["next_invariant_ext_dimensions"] == [102, 108]
+    assert path["criteria"]["next_candidate_blocks"] == [5, 25]
     assert path["criteria"]["minimum_forced_chamber_nonempty"] is True
     assert path["criteria"]["arbitrary_point_selected"] is False
     assert checkpoint["completed_pairs"] == 1296
@@ -70,7 +72,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "dimension-50/52 generic locus avoids five unstable line types"
+        "dimension-50/52 block retired by a universal lower-line lift"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
@@ -83,5 +85,6 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["next_survivor_lifting_kernel"]["status"] == "COMPUTED"
     assert claims["next_survivor_forced_chamber"]["status"] == "COMPUTED"
     assert claims["next_survivor_generator_strata"]["status"] == "COMPUTED"
+    assert claims["next_survivor_lower_line_block"]["status"] == "REFUTED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     assert state["fitted_inputs"] == []

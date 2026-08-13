@@ -20,3 +20,9 @@ Promotion of any referenced research result still requires an explicit
 mathematical statement, assumptions, exact or controlled computation,
 content-addressed evidence, independent critical verification, scientific
 review, and tests in its true production domain.
+
+`pair_73_universal_ext.json` records the exact four-parameter invariant Ext
+class recommended by the state audit. Its affine origin is the split locus and
+its certified nonzero automorphism quotient is `P^3(Q(omega))`. It does not
+contain a rank-four mapping cone or select an extension point; the first
+missing chain-level lift remains explicit in the artifact.

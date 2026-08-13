@@ -295,17 +295,31 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "universal_ext_family",
+            "pair 73 universal invariant Ext family",
+            "Computable carrier",
+            "COMPUTED",
+            "The four exact pair-73 cocycles assemble linearly over "
+            "Q(omega)[a0,a1,a2,a3]; only the affine origin splits and the "
+            "nonzero automorphism quotient is P3.",
+            (
+                "data/generated/scientific_genesis/pair_73_universal_ext.json",
+                "research/experiments/scientific_genesis/pair_73_universal.py",
+            ),
+        ),
+        _node(
             "universal_rank_four_family",
             "universal rank-four mapping-cone family",
             "Computable carrier",
             "BLOCKED",
-            "No exact parameterized mapping cone has yet been built from pair 73's four cocycles.",
+            "The universal Ext class is exact, but no compatible chain-level "
+            "transition or resolution lift has yet produced its mapping cone.",
             (
                 "research/experiments/computable_carrier/horseshoe.py",
                 "research/experiments/computable_carrier/rank_four.py",
             ),
             missing=(
-                "symbolic parameter lift of pair 73 cocycles",
+                "chain-level lift into constituent transitions or resolutions",
                 "universal differential",
                 "D squared equals zero certificate",
             ),
@@ -674,13 +688,29 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "smallest_certified_ext_family",
+            "universal_ext_family",
+            "Exact linearity assembles the four cocycles over the affine "
+            "parameter ring, with the origin as the split class.",
+            ("research/experiments/scientific_genesis/pair_73_universal.py",),
+            (),
+            True,
+            ("artifact basis or certificate mismatch",),
+        ),
+        _edge(
+            "universal_ext_family",
             "universal_rank_four_family",
-            "A universal linear combination of Ext cocycles should define "
-            "a parameterized mapping cone.",
-            ("research/experiments/computable_carrier/horseshoe.py",),
+            "A derived Ext class defines a rank-four family only after a "
+            "compatible chain-level lift and cone construction.",
+            (
+                "research/experiments/computable_carrier/horseshoe.py",
+                "research/experiments/scientific_genesis/pair_73_universal.py",
+            ),
             (),
             False,
-            ("cochain lifts may not fit the existing cone representation", "basis/sign mismatch"),
+            (
+                "constituent transition lift may be unavailable",
+                "basis or sign incompatibility",
+            ),
         ),
         _edge(
             "universal_rank_four_family",
@@ -1141,6 +1171,7 @@ def build_state() -> dict[str, object]:
         "data/generated/computable_carrier/tier_b_schoen_outer_full.json",
         "data/generated/computable_carrier/tier_b_schoen_outer_invariants.json",
         "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",
+        "data/generated/scientific_genesis/pair_73_universal_ext.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1161,7 +1192,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 383,
+            "collected_tests_at_audit": 388,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1193,7 +1224,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "universal symbolic mapping cone over all four exact cocycle parameters"
+                "chain-level lift of the universal Cech-Koszul Ext cocycle "
+                "and its exact rank-four mapping cone"
             ),
         },
         "claims": _nodes(),
@@ -1207,6 +1239,8 @@ def build_state() -> dict[str, object]:
             "the declared computable category",
             "1,296 exact automorphism quotients including one "
             "square-zero-unipotent exceptional family",
+            "exact four-parameter pair-73 Ext family with split origin and "
+            "projective nonzero quotient",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "1bf900aa80584c6dd3edfeafeb726d3c1f25d876635441d8cc7fa8fc886c7a1c",
+  "artifact_digest": "27463ed9147fc08940a88bbfbd53d4ad33df2b2a4de96f838ec60e8213c8cff1",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -20,6 +20,11 @@
       "bytes": 3725213,
       "path": "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",
       "sha256": "e5c36323aa4a342dba7f160843ee0c8808a6f3c7851d0defa8c3d314989f40c0"
+    },
+    {
+      "bytes": 8876,
+      "path": "data/generated/scientific_genesis/pair_73_universal_ext.json",
+      "sha256": "0bdf1a1ea5d62796b7c570bf4695bcadeb8edae4d5ec41f78bc379b5886e95c9"
     },
     {
       "bytes": 29564,
@@ -43,11 +48,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 383,
+    "collected_tests_at_audit": 388,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 97,
-    "test_python_files": 87
+    "research_python_files": 98,
+    "test_python_files": 88
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -306,6 +311,19 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/pair_73_universal_ext.json",
+        "research/experiments/scientific_genesis/pair_73_universal.py"
+      ],
+      "id": "universal_ext_family",
+      "label": "pair 73 universal invariant Ext family",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "The four exact pair-73 cocycles assemble linearly over Q(omega)[a0,a1,a2,a3]; only the affine origin splits and the nonzero automorphism quotient is P3.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "research/experiments/computable_carrier/horseshoe.py",
         "research/experiments/computable_carrier/rank_four.py"
       ],
@@ -313,11 +331,11 @@
       "label": "universal rank-four mapping-cone family",
       "layer": "Computable carrier",
       "missing_prerequisites": [
-        "symbolic parameter lift of pair 73 cocycles",
+        "chain-level lift into constituent transitions or resolutions",
         "universal differential",
         "D squared equals zero certificate"
       ],
-      "statement": "No exact parameterized mapping cone has yet been built from pair 73's four cocycles.",
+      "statement": "The universal Ext class is exact, but no compatible chain-level transition or resolution lift has yet produced its mapping cone.",
       "status": "BLOCKED"
     },
     {
@@ -787,15 +805,29 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "research/experiments/computable_carrier/horseshoe.py"
+        "research/experiments/scientific_genesis/pair_73_universal.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "artifact basis or certificate mismatch"
+      ],
+      "mathematical_reason": "Exact linearity assembles the four cocycles over the affine parameter ring, with the origin as the split class.",
+      "source": "smallest_certified_ext_family",
+      "target": "universal_ext_family"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/horseshoe.py",
+        "research/experiments/scientific_genesis/pair_73_universal.py"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "cochain lifts may not fit the existing cone representation",
-        "basis/sign mismatch"
+        "constituent transition lift may be unavailable",
+        "basis or sign incompatibility"
       ],
-      "mathematical_reason": "A universal linear combination of Ext cocycles should define a parameterized mapping cone.",
-      "source": "smallest_certified_ext_family",
+      "mathematical_reason": "A derived Ext class defines a rank-four family only after a compatible chain-level lift and cone construction.",
+      "source": "universal_ext_family",
       "target": "universal_rank_four_family"
     },
     {
@@ -1073,7 +1105,8 @@
     "exact reusable arithmetic, polynomial, homological, Cech, Cox, sheaf, and geometry engines",
     "published Schoen geometry and selected one-Higgs reference carrier metadata",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
-    "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family"
+    "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family",
+    "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -1109,7 +1142,7 @@
       "orbit_parameter_space": "P^3(Q(omega))"
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "universal symbolic mapping cone over all four exact cocycle parameters",
+    "next_required_object": "chain-level lift of the universal Cech-Koszul Ext cocycle and its exact rank-four mapping cone",
     "selection_status": "recommended, not selected as a physical point"
   },
   "research_value_scheduler": [

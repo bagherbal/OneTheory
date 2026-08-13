@@ -1,0 +1,476 @@
+{
+  "affine_parameter_space": "A^4(Q(omega))",
+  "ambient_cocycle_dimension": 540,
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "cee999d031d6b2cc7ea6b0b9172a6dc2676a3b1ebe3178cdac8a270a73265418",
+  "automorphism_certificate_digest": "a27d5be53029344c1bec7a6e532ecb9fa4b532054b27e17f6ac3080c2e326178",
+  "automorphism_quotient": "P^3(Q(omega))",
+  "basis_names": [
+    "class:0",
+    "class:1",
+    "class:2",
+    "class:3"
+  ],
+  "basis_specializations_exact": true,
+  "coefficient_field": "Q(omega)",
+  "first_missing_input": "chain-level lift of the universal Cech-Koszul Ext cocycle into compatible constituent transition or resolution maps",
+  "global_pair_index": 73,
+  "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
+  "mapping_cone_constructed": false,
+  "non_split_locus": "A^4(Q(omega)) minus the origin",
+  "nonzero_ambient_coordinate_count": 48,
+  "parameters": [
+    "a0",
+    "a1",
+    "a2",
+    "a3"
+  ],
+  "quotient_action_exact": true,
+  "schema": "pair-73-universal-ext-v1",
+  "source_cocycles_exact": true,
+  "split_locus": {
+    "description": "the affine origin only",
+    "ideal_generators": [
+      "a0",
+      "a1",
+      "a2",
+      "a3"
+    ]
+  },
+  "status": "exact universal invariant Ext family; chain-level mapping cone, local freeness, descent, Chern gates, and stability remain unresolved",
+  "universal_class_exact": true,
+  "universal_class_terms": [
+    {
+      "ambient_index": 12,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 16,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 19,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 23,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 26,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 27,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 50,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 51,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 54,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 58,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 79,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 83,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 162,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 166,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 169,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 173,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 176,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 177,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 194,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 195,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 198,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 202,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 217,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 221,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 294,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 298,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 301,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 305,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 308,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 309,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 326,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 327,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 330,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 334,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 349,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 353,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 450,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 454,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 457,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 461,
+      "coefficients": [
+        {
+          "coefficient": "1",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 464,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 465,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a0"
+        }
+      ]
+    },
+    {
+      "ambient_index": 476,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 477,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 480,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a3"
+        }
+      ]
+    },
+    {
+      "ambient_index": 484,
+      "coefficients": [
+        {
+          "coefficient": "omega",
+          "parameter": "a2"
+        }
+      ]
+    },
+    {
+      "ambient_index": 493,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a1"
+        }
+      ]
+    },
+    {
+      "ambient_index": 497,
+      "coefficients": [
+        {
+          "coefficient": "-1-omega",
+          "parameter": "a0"
+        }
+      ]
+    }
+  ]
+}

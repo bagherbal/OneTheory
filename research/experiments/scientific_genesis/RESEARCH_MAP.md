@@ -37,15 +37,18 @@ explicit invariant cocycles over `Q(omega)` and scalar constituent
 automorphisms, giving the universal nonzero parameter space
 `P^3(Q(omega))`. No projective point is selected.
 
-The next scientific object is the universal symbolic extension
+The exact universal symbolic Ext class is now certified:
 
 ```text
 E(a) = a0 E0 + a1 E1 + a2 E2 + a3 E3
 ```
 
-and its exact rank-four mapping cone. Existing mapping-cone, horseshoe,
-Fitting-ideal, Chern, group-action, and chart-localization engines must be
-reused. The family then needs a symbolic non-split locus, local-freeness locus,
+Its affine split locus is exactly the origin, and scalar constituent
+automorphisms give the nonzero quotient `P^3(Q(omega))`. This is still a
+cohomology family, not a bundle. The next scientific object is its compatible
+chain-level lift and exact rank-four mapping cone. Existing mapping-cone,
+horseshoe, Fitting-ideal, Chern, group-action, and chart-localization engines
+must be reused. The lifted family then needs a local-freeness locus,
 equivariance and quotient descent, determinant and Chern checks, and a genuine
 `SU(4)` locus. Failure should produce a parameter ideal or necessary theorem,
 not a restart of broad enumeration.

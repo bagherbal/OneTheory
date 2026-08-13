@@ -361,6 +361,18 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "minimum_dimensional_stability_block",
+            "minimum-dimensional computable stability block",
+            "Computable carrier",
+            "REFUTED",
+            "All 72 four-dimensional invariant-Ext families in candidates 3 "
+            "and 23 share the lifted right-Serre-line opposite-slope obstruction.",
+            (
+                "data/generated/scientific_genesis/minimal_block_stability_no_go.json",
+                "research/experiments/scientific_genesis/minimal_block_stability_no_go.py",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -759,6 +771,18 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             ("the stable chamber is empty for pair 73",),
+        ),
+        _edge(
+            "stability_chamber",
+            "minimum_dimensional_stability_block",
+            "The pair-73 restriction theorem depends only on the shared topology "
+            "and Hom-support profile, which are checked for every block member.",
+            (
+                "research/experiments/scientific_genesis/minimal_block_stability_no_go.py",
+            ),
+            (),
+            True,
+            ("the theorem is scoped to candidates 3 and 23",),
         ),
         _edge(
             "stability_chamber",
@@ -1208,6 +1232,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/pair_73_algebraic_locus.json",
         "data/generated/scientific_genesis/pair_73_stability_wall.json",
         "data/generated/scientific_genesis/pair_73_stability_no_go.json",
+        "data/generated/scientific_genesis/minimal_block_stability_no_go.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1228,7 +1253,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 406,
+            "collected_tests_at_audit": 409,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1248,20 +1273,22 @@ def build_state() -> dict[str, object]:
             ),
         },
         "recommended_vertical_path": {
-            "candidate_pair": 73,
-            "selection_status": "retired by exact family-wide stability no-go",
+            "candidate_pair": None,
+            "selection_status": "minimum-dimensional block retired by exact stability no-go",
             "criteria": {
-                "invariant_ext_dimension": 4,
+                "retired_invariant_ext_dimension": 4,
                 "coefficient_field": "Q(omega)",
-                "automorphism_complexity": "scalar projectivization",
-                "orbit_parameter_space": "P^3(Q(omega))",
+                "retired_candidate_blocks": [3, 23],
+                "retired_pair_ranges": [[73, 108], [793, 828]],
+                "retired_family_count": 72,
+                "next_invariant_ext_dimension": 6,
                 "arbitrary_point_selected": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "block-level stability classification for the remaining "
-                "minimum-dimensional computable families"
+                "stability classification of the 36 six-dimensional invariant-Ext "
+                "families in candidate blocks 14 and 34"
             ),
         },
         "claims": _nodes(),
@@ -1292,6 +1319,8 @@ def build_state() -> dict[str, object]:
             "have no complete commuting lift pairs where recorded",
             "pair 73 has empty slope-stable locus because the right Serre line "
             "lifts universally with slope opposite to the left rank-two subbundle",
+            "all 72 four-dimensional invariant-Ext families in candidates 3 and "
+            "23 have the same exact lifted-line stability obstruction",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",

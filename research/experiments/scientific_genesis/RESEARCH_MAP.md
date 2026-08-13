@@ -75,6 +75,15 @@ nonnegative slope at every polarization, so strict stability always fails.
 The pair-73 stable locus is empty and this candidate is retired. This is a
 scoped no-go, not a no-go for other Schoen bundles.
 
+The same theorem has now been checked exhaustively across both
+minimum-dimensional topology blocks. Candidates 3 and 23 contain 36 families
+each, computed independently in the two factor orientations. All 72 have
+four-dimensional invariant Ext, the same source Hom support, the same vanishing
+right-line restriction, and the opposite-slope obstruction. The entire
+minimum-dimensional block is therefore retired. The next exact frontier is the
+36 six-dimensional families in candidates 14 and 34; their different topology
+does not inherit this no-go without a new calculation.
+
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
 Higgs pair remain selection constraints. The first component passing every
@@ -108,10 +117,10 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: lift the pair-73 restriction theorem to the
-remaining 35 members of its minimum-dimensional topology block, retire that
-block if the support argument is universal, and then advance to the next
-minimum-dimensional family not killed by stability. Spectrum loci and the
-minimum common-DGA Yukawa slice remain downstream of the first stable family.
-Completing the final 144 large automorphism cases stays suspended until it can
-change a dependency edge or independently verify a theorem.
+The governing queue is therefore: classify the 36 six-dimensional families in
+candidates 14 and 34, then advance by increasing invariant Ext dimension until
+one stable family survives or the declared category is exhausted. Spectrum
+loci and the minimum common-DGA Yukawa slice remain downstream of the first
+stable family. Completing the final 144 large automorphism cases stays
+suspended until it can change a dependency edge or independently verify a
+theorem.

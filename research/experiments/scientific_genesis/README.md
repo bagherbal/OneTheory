@@ -29,4 +29,6 @@ is the published positive orthant and intersects the necessary region. All
 pair-73 outer classes nevertheless restrict trivially to the right Serre line,
 which lifts with slope opposite to the left rank-two subbundle. Hence the
 pair-73 stable locus is empty. This retires only pair 73; no stable replacement
-carrier or genuine `SU(4)` locus is claimed.
+carrier or genuine `SU(4)` locus is claimed. The same support and topology
+theorem has since retired all 72 four-dimensional invariant-Ext families in
+the two factor orientations; larger blocks remain separate open calculations.

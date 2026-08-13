@@ -45,16 +45,20 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     checkpoint = state["automorphism_checkpoint"]
     claims = {claim["id"]: claim for claim in state["claims"]}
 
-    assert path["candidate_pair"] == 73
-    assert path["criteria"]["invariant_ext_dimension"] == 4
-    assert path["criteria"]["orbit_parameter_space"] == "P^3(Q(omega))"
+    assert path["candidate_pair"] is None
+    assert path["criteria"]["retired_invariant_ext_dimension"] == 4
+    assert path["criteria"]["retired_family_count"] == 72
+    assert path["criteria"]["next_invariant_ext_dimension"] == 6
     assert path["criteria"]["arbitrary_point_selected"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
-    assert path["selection_status"] == "retired by exact family-wide stability no-go"
+    assert path["selection_status"] == (
+        "minimum-dimensional block retired by exact stability no-go"
+    )
     assert claims["stability_chamber"]["status"] == "REFUTED"
+    assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     assert state["fitted_inputs"] == []

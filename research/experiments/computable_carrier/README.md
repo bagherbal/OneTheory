@@ -986,6 +986,12 @@ cocycles, so every nonzero quotient is `P^49(Q(omega))`. The cumulative
 ledger contains 1,116 exact pair records and still records no distinguished
 extension coordinate.
 
+The complementary character pairs in candidates 4 and 24 close the complete
+fifty-two-dimensional frontier. Their constituent actions are scalar on all
+36 explicit cover bases, yielding `P^51(Q(omega))` quotients. The cumulative
+ledger contains 1,152 exact records, four fifths of the declared action
+screen, and no chosen orbit representative.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

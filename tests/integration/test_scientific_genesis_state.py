@@ -48,7 +48,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["candidate_pair"] is None
     assert path["criteria"]["retired_invariant_ext_dimension"] == 4
     assert path["criteria"]["retired_family_count"] == 72
-    assert path["criteria"]["next_invariant_ext_dimension"] == 6
+    assert path["criteria"]["additional_retired_family_count"] == 72
+    assert path["criteria"]["next_invariant_ext_dimension"] == 8
     assert path["criteria"]["arbitrary_point_selected"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
@@ -60,5 +61,6 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
+    assert claims["next_topology_stability_block"]["status"] == "REFUTED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     assert state["fitted_inputs"] == []

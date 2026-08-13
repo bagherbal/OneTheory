@@ -32,3 +32,5 @@ pair-73 stable locus is empty. This retires only pair 73; no stable replacement
 carrier or genuine `SU(4)` locus is claimed. The same support and topology
 theorem has since retired all 72 four-dimensional invariant-Ext families in
 the two factor orientations; larger blocks remain separate open calculations.
+The next 72 families in candidates 14 and 34 are also retired: their universally
+lifted right Serre line has strictly positive slope throughout the Kähler cone.

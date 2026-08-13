@@ -373,6 +373,18 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "next_topology_stability_block",
+            "six/eight-dimensional computable stability block",
+            "Computable carrier",
+            "REFUTED",
+            "All 72 families in candidates 14 and 34 lift a right Serre line "
+            "whose exact slope is strictly positive throughout the Kahler cone.",
+            (
+                "data/generated/scientific_genesis/next_block_stability_no_go.json",
+                "research/experiments/scientific_genesis/next_block_stability_no_go.py",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -783,6 +795,18 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             ("the theorem is scoped to candidates 3 and 23",),
+        ),
+        _edge(
+            "minimum_dimensional_stability_block",
+            "next_topology_stability_block",
+            "The same typed restriction test is recomputed in Hom degree minus "
+            "one, then exact coefficient positivity excludes the lifted line.",
+            (
+                "research/experiments/scientific_genesis/next_block_stability_no_go.py",
+            ),
+            (),
+            True,
+            ("the theorem is scoped to candidates 14 and 34",),
         ),
         _edge(
             "stability_chamber",
@@ -1233,6 +1257,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/pair_73_stability_wall.json",
         "data/generated/scientific_genesis/pair_73_stability_no_go.json",
         "data/generated/scientific_genesis/minimal_block_stability_no_go.json",
+        "data/generated/scientific_genesis/next_block_stability_no_go.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1253,7 +1278,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 409,
+            "collected_tests_at_audit": 413,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1281,14 +1306,16 @@ def build_state() -> dict[str, object]:
                 "retired_candidate_blocks": [3, 23],
                 "retired_pair_ranges": [[73, 108], [793, 828]],
                 "retired_family_count": 72,
-                "next_invariant_ext_dimension": 6,
+                "additional_retired_candidate_blocks": [14, 34],
+                "additional_retired_family_count": 72,
+                "next_invariant_ext_dimension": 8,
                 "arbitrary_point_selected": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "stability classification of the 36 six-dimensional invariant-Ext "
-                "families in candidate blocks 14 and 34"
+                "stability classification of the 36 remaining eight-dimensional "
+                "invariant-Ext families in candidate blocks 8 and 28"
             ),
         },
         "claims": _nodes(),
@@ -1321,6 +1348,8 @@ def build_state() -> dict[str, object]:
             "lifts universally with slope opposite to the left rank-two subbundle",
             "all 72 four-dimensional invariant-Ext families in candidates 3 and "
             "23 have the same exact lifted-line stability obstruction",
+            "all 72 six/eight-dimensional invariant-Ext families in candidates "
+            "14 and 34 lift a line with strictly positive Kahler-cone slope",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",

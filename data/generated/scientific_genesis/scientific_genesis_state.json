@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "a8abeefe4a309d5c2686dcc491275e6c8ac3c1328f711150b15de43e69506420",
+  "artifact_digest": "c84f132d4e64c79db4bccb6b4f81560e74d02a2312f7abd15e4efc0677fb2e90",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -57,6 +57,11 @@
       "sha256": "e745541476e0506d6c7c782f802263f94487e7c8c1b77847d3c632a4747c9cc5"
     },
     {
+      "bytes": 3272,
+      "path": "data/generated/scientific_genesis/next_block_stability_no_go.json",
+      "sha256": "d21495a8179ff779d6fcfde08b40ec462279f36f291c42b27efa059e53fb2c9f"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -78,11 +83,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 409,
+    "collected_tests_at_audit": 413,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 104,
-    "test_python_files": 93
+    "research_python_files": 105,
+    "test_python_files": 94
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -413,6 +418,19 @@
       "layer": "Computable carrier",
       "missing_prerequisites": [],
       "statement": "All 72 four-dimensional invariant-Ext families in candidates 3 and 23 share the lifted right-Serre-line opposite-slope obstruction.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/next_block_stability_no_go.json",
+        "research/experiments/scientific_genesis/next_block_stability_no_go.py"
+      ],
+      "id": "next_topology_stability_block",
+      "label": "six/eight-dimensional computable stability block",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "All 72 families in candidates 14 and 34 lift a right Serre line whose exact slope is strictly positive throughout the Kahler cone.",
       "status": "REFUTED"
     },
     {
@@ -929,6 +947,19 @@
       "target": "minimum_dimensional_stability_block"
     },
     {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/next_block_stability_no_go.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the theorem is scoped to candidates 14 and 34"
+      ],
+      "mathematical_reason": "The same typed restriction test is recomputed in Hom degree minus one, then exact coefficient positivity excludes the lifted line.",
+      "source": "minimum_dimensional_stability_block",
+      "target": "next_topology_stability_block"
+    },
+    {
       "assumptions_required": [
         "established law used conditionally"
       ],
@@ -1209,9 +1240,14 @@
     "automorphism_certificate_digest": "a27d5be53029344c1bec7a6e532ecb9fa4b532054b27e17f6ac3080c2e326178",
     "candidate_pair": null,
     "criteria": {
+      "additional_retired_candidate_blocks": [
+        14,
+        34
+      ],
+      "additional_retired_family_count": 72,
       "arbitrary_point_selected": false,
       "coefficient_field": "Q(omega)",
-      "next_invariant_ext_dimension": 6,
+      "next_invariant_ext_dimension": 8,
       "retired_candidate_blocks": [
         3,
         23
@@ -1230,7 +1266,7 @@
       ]
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "stability classification of the 36 six-dimensional invariant-Ext families in candidate blocks 14 and 34",
+    "next_required_object": "stability classification of the 36 remaining eight-dimensional invariant-Ext families in candidate blocks 8 and 28",
     "selection_status": "minimum-dimensional block retired by exact stability no-go"
   },
   "research_value_scheduler": [
@@ -1526,7 +1562,8 @@
     "current curvilinear rank-four Chern type has the wrong quotient index",
     "declared monomial and transported finite linearization categories have no complete commuting lift pairs where recorded",
     "pair 73 has empty slope-stable locus because the right Serre line lifts universally with slope opposite to the left rank-two subbundle",
-    "all 72 four-dimensional invariant-Ext families in candidates 3 and 23 have the same exact lifted-line stability obstruction"
+    "all 72 four-dimensional invariant-Ext families in candidates 3 and 23 have the same exact lifted-line stability obstruction",
+    "all 72 six/eight-dimensional invariant-Ext families in candidates 14 and 34 lift a line with strictly positive Kahler-cone slope"
   ],
   "structural_compression_questions": [
     {

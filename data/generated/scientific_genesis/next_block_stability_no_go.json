@@ -1,0 +1,170 @@
+{
+  "all_restriction_support_intersections_empty": true,
+  "arbitrary_extension_point_selected": false,
+  "arbitrary_pair_selected": false,
+  "artifact_digest": "40f0cfafbce7be51040001f2da53189c4de4864c8c4ecc6084b4694eee0e8fa2",
+  "candidate_blocks": [
+    {
+      "candidate_index": 14,
+      "global_pair_range": [
+        469,
+        504
+      ],
+      "pair_count": 36,
+      "topology": {
+        "left_factor": 1,
+        "left_target_line_shift": 0,
+        "left_twist": [
+          -2,
+          -1,
+          1
+        ],
+        "right_factor": 1,
+        "right_target_line_shift": -6,
+        "right_twist": [
+          -1,
+          1,
+          -1
+        ]
+      }
+    },
+    {
+      "candidate_index": 34,
+      "global_pair_range": [
+        1189,
+        1224
+      ],
+      "pair_count": 36,
+      "topology": {
+        "left_factor": 2,
+        "left_target_line_shift": 0,
+        "left_twist": [
+          -1,
+          -2,
+          1
+        ],
+        "right_factor": 2,
+        "right_target_line_shift": -6,
+        "right_twist": [
+          1,
+          -1,
+          -1
+        ]
+      }
+    }
+  ],
+  "checked_pair_count": 72,
+  "every_pair_unstable": true,
+  "factor_exchanged_right_line_c1": [
+    "1",
+    "5",
+    "-1"
+  ],
+  "factor_exchanged_slope_rule": "exchange j1 and j2",
+  "first_orientation_right_line_c1": [
+    "5",
+    "1",
+    "-1"
+  ],
+  "first_orientation_right_line_slope": [
+    {
+      "coefficient": "1/3",
+      "exponents": [
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "coefficient": "2",
+      "exponents": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "coefficient": "2",
+      "exponents": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "coefficient": "5/3",
+      "exponents": [
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "coefficient": "10",
+      "exponents": [
+        0,
+        1,
+        1
+      ]
+    }
+  ],
+  "global_computable_carrier_no_go": false,
+  "invariant_ext_dimension_counts": {
+    "6": 36,
+    "8": 36
+  },
+  "next_topology_block_refuted": true,
+  "positivity_proof": "every displayed coefficient is positive and the published Kahler cone has j1,j2,j3 > 0",
+  "restriction_chain_argument": "precomposition with L_right -> F0_right selects Hom^-1 indices 4,9,14,19, absent from every source basis; the structural differential commutes with precomposition and the Cech contraction preserves Hom components",
+  "right_line_restriction_indices": [
+    4,
+    9,
+    14,
+    19
+  ],
+  "right_serre_line_lifts_for_every_parameter": true,
+  "sampled_polarization_used": false,
+  "schema": "next-topology-block-stability-no-go-v1",
+  "source_hom_support_profiles": [
+    [
+      0,
+      1,
+      3,
+      5,
+      6,
+      8,
+      10,
+      11,
+      13
+    ],
+    [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10,
+      12,
+      13
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13
+    ]
+  ],
+  "source_parent_hom_degree": -1,
+  "source_parent_hom_type": "Hom(F0_right,F1_left)",
+  "status": "exact scoped no-go for all 72 six- and eight-dimensional invariant-Ext families in candidates 14 and 34",
+  "strictly_positive_on_kahler_cone": true
+}

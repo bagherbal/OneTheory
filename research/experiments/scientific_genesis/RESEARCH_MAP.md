@@ -84,6 +84,17 @@ minimum-dimensional block is therefore retired. The next exact frontier is the
 36 six-dimensional families in candidates 14 and 34; their different topology
 does not inherit this no-go without a new calculation.
 
+That new calculation is complete. Candidates 14 and 34 together contain 36
+six-dimensional and 36 eight-dimensional invariant-Ext families. Their classes
+live in a different typed Hom degree, so the pair-73 support argument was
+re-derived rather than copied. Every class still restricts trivially to the
+right Serre line. In the first factor orientation that line has
+`c1=(5,1,-1)`, and its exact slope polynomial has only positive coefficients;
+the factor-exchanged orientation swaps the first two Kähler coordinates. Thus
+the lifted line has strictly positive slope everywhere in the published
+Kähler cone. All 72 families are retired. The next open minimum is the 36
+eight-dimensional families in candidates 8 and 28.
+
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
 Higgs pair remain selection constraints. The first component passing every
@@ -117,9 +128,9 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: classify the 36 six-dimensional families in
-candidates 14 and 34, then advance by increasing invariant Ext dimension until
-one stable family survives or the declared category is exhausted. Spectrum
+The governing queue is therefore: classify the 36 eight-dimensional families
+in candidates 8 and 28, then advance by increasing invariant Ext dimension
+until one stable family survives or the declared category is exhausted. Spectrum
 loci and the minimum common-DGA Yukawa slice remain downstream of the first
 stable family. Completing the final 144 large automorphism cases stays
 suspended until it can change a dependency edge or independently verify a

@@ -980,6 +980,12 @@ cumulative action ledger now contains 1,080 pair records, three quarters of
 the declared screen, without promoting any orbit representative to a
 rank-four construction.
 
+The fifty-dimensional frontier closes 18 selected character pairs in each of
+candidates 4 and 24. All 36 actions are scalar on their stored cover
+cocycles, so every nonzero quotient is `P^49(Q(omega))`. The cumulative
+ledger contains 1,116 exact pair records and still records no distinguished
+extension coordinate.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

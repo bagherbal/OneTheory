@@ -732,3 +732,36 @@ def test_checked_action_frontier_closes_dimension_forty_eight() -> None:
         for record in records
     )
     assert all(record["exact"] is True for record in records)
+
+
+def test_checked_action_frontier_closes_dimension_fifty() -> None:
+    """Both factor orientations close directly as projective spaces."""
+
+    digest, invariant_records = _validated_invariant_records(
+        DEFAULT_INVARIANT_ARTIFACT
+    )
+    pairs, constituents = _read_partial(ACTION_CHECKPOINT, digest)
+    records = [
+        pairs[record["global_pair_index"]]
+        for record in invariant_records
+        if record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 50
+    ]
+
+    assert len(pairs) >= 1116
+    assert len(constituents) >= 192
+    assert len(records) == 36
+    assert Counter(record["candidate_index"] for record in records) == {
+        4: 18,
+        24: 18,
+    }
+    assert all(
+        record["automorphism_action"]["action_proof"]
+        == "exact equality on cover cocycles"
+        for record in records
+    )
+    assert all(
+        record["automorphism_action"]["nonzero_orbit_space"]
+        == "P^49(Q(omega))"
+        for record in records
+    )
+    assert all(record["exact"] is True for record in records)

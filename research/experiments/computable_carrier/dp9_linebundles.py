@@ -271,8 +271,12 @@ def _equation_map(
     source_base_degree: int,
     source_fiber_degree: int,
     total_degree: int,
+    surface_factor: int = 1,
 ) -> LinearMap:
-    """Build multiplication by ``mu F + nu G`` on one ambient degree."""
+    """Build multiplication by the selected dP9 equation on one ambient degree."""
+
+    if surface_factor not in (1, 2):
+        raise ValueError("dP9 surface factors are indexed by one and two")
 
     target_base_degree = source_base_degree + 3
     target_fiber_degree = source_fiber_degree + 1
@@ -301,19 +305,29 @@ def _equation_map(
             base_cohomology_degree,
             g,
         )
-        mu = _p1_multiplication(
+        first_fiber_terms = (
+            (((1, 0), Eisenstein(1)),)
+            if surface_factor == 1
+            else (((0, 1), Eisenstein(2)),)
+        )
+        second_fiber_terms = (
+            (((0, 1), Eisenstein(1)),)
+            if surface_factor == 1
+            else (((1, 0), Eisenstein(1)),)
+        )
+        first_fiber_map = _p1_multiplication(
             source_fiber_degree,
             target_fiber_degree,
             fiber_cohomology_degree,
-            (((1, 0), Eisenstein(1)),),
+            first_fiber_terms,
         )
-        nu = _p1_multiplication(
+        second_fiber_map = _p1_multiplication(
             source_fiber_degree,
             target_fiber_degree,
             fiber_cohomology_degree,
-            (((0, 1), Eisenstein(1)),),
+            second_fiber_terms,
         )
-        maps.append((base_f, mu, base_g, nu))
+        maps.append((base_f, first_fiber_map, base_g, second_fiber_map))
     rows = [
         [Eisenstein(0) for _ in range(source_space.dimension)]
         for _ in range(target_space.dimension)
@@ -507,6 +521,7 @@ class DPSurfaceLineBundle:
 
     base_degree: int
     fiber_degree: int
+    surface_factor: int
     ambient_source: AmbientLineBundle
     ambient_target: AmbientLineBundle
     complex: CochainComplex
@@ -537,6 +552,7 @@ class DPSurfaceLineBundle:
         return {
             "base_degree": self.base_degree,
             "fiber_degree": self.fiber_degree,
+            "surface_factor": self.surface_factor,
             "cohomology_dimensions": [list(item) for item in self.cohomology_dimensions],
             "squared_zero": self.squared_zero,
             "ambient_source_fiber_degree": self.ambient_source.fiber_degree,
@@ -549,6 +565,8 @@ class DPSurfaceLineBundle:
 
         if self.fiber_degree != target.fiber_degree:
             raise ValueError("line-bundle multiplication requires equal fiber degrees")
+        if self.surface_factor != target.surface_factor:
+            raise ValueError("line-bundle multiplication requires one dP9 factor")
         if polynomial.is_zero():
             return ChainMap(
                 self.complex,
@@ -607,8 +625,15 @@ class DPSurfaceLineBundle:
 
 
 @cache
-def dp9_line_bundle(base_degree: int, fiber_degree: int) -> DPSurfaceLineBundle:
+def dp9_line_bundle(
+    base_degree: int,
+    fiber_degree: int,
+    surface_factor: int = 1,
+) -> DPSurfaceLineBundle:
     """Construct the exact restriction cone for ``O_D(base_degree,fiber_degree)``."""
+
+    if surface_factor not in (1, 2):
+        raise ValueError("dP9 surface factors are indexed by one and two")
 
     source = ambient_line_bundle(base_degree - 3, fiber_degree - 1)
     target = ambient_line_bundle(base_degree, fiber_degree)
@@ -631,6 +656,7 @@ def dp9_line_bundle(base_degree: int, fiber_degree: int) -> DPSurfaceLineBundle:
             source.base_degree,
             source.fiber_degree,
             degree + 1,
+            surface_factor,
         )
         top_left = LinearMap.zero(target.space(degree), target_next)
         top_right = equation
@@ -642,6 +668,7 @@ def dp9_line_bundle(base_degree: int, fiber_degree: int) -> DPSurfaceLineBundle:
     return DPSurfaceLineBundle(
         base_degree,
         fiber_degree,
+        surface_factor,
         source,
         target,
         CochainComplex(graded, differentials),

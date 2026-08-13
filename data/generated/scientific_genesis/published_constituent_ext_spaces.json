@@ -1,0 +1,100 @@
+{
+  "artifact_digest": "15cfb19e236f6f241263445bc2129d063a611ada445e80d71b87facc5b7f6343",
+  "computed_dimensions": [
+    2,
+    5
+  ],
+  "constituent_descent_claimed": false,
+  "constituents": [
+    {
+      "ext_one_dimension": 2,
+      "generator_degrees": [
+        2,
+        2,
+        2
+      ],
+      "representative_count": 2,
+      "scheme": "I3",
+      "squared_zero": true,
+      "status": "exact fiber-sensitive Serre extension space; deck action and equivariant extension ray remain unresolved",
+      "surface_factor": 1,
+      "syzygy_degrees": [
+        3,
+        3
+      ],
+      "total_dimensions": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          22
+        ],
+        [
+          2,
+          20
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "ext_one_dimension": 5,
+      "generator_degrees": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "representative_count": 5,
+      "scheme": "I6",
+      "squared_zero": true,
+      "status": "exact fiber-sensitive Serre extension space; deck action and equivariant extension ray remain unresolved",
+      "surface_factor": 2,
+      "syzygy_degrees": [
+        4,
+        4,
+        4
+      ],
+      "total_dimensions": [
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          58
+        ],
+        [
+          2,
+          45
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    }
+  ],
+  "dimension_match_exact": true,
+  "equivariant_extension_rays_selected": false,
+  "next_required_object": "exact deck action on the dP9 total complexes and induced action on their Ext-one representatives",
+  "published_action_matrices_used_in_computation": false,
+  "schema": "published-constituent-ext-spaces-v1",
+  "source_bound_dimensions": [
+    2,
+    5
+  ],
+  "status": "computed fiber-sensitive constituent extension spaces; equivariant chain representatives remain unresolved"
+}

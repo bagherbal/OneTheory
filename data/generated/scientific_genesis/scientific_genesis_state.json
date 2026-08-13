@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "1149fb2e69a606dbc18e2389e5e1a69aad06c81d6487bde0da5665c98009e26a",
+  "artifact_digest": "add387d413201243a0427ad3278ed2d197c6a3a1f9f8b91b38cdfbd1bb42b3ae",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -117,6 +117,11 @@
       "sha256": "2e66f8021f1fffbe6e965178c45a1e263c9e1a8bb2c74f1bf95bf47ecddf9cf7"
     },
     {
+      "bytes": 2050,
+      "path": "data/generated/scientific_genesis/published_constituent_ext_spaces.json",
+      "sha256": "c7119293ba1632d2334623c4c664d5515bbceefe45e2e0e7067f6bc940462e78"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -138,11 +143,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 457,
+    "collected_tests_at_audit": 462,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 117,
-    "test_python_files": 105
+    "research_python_files": 119,
+    "test_python_files": 106
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -318,19 +323,34 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/published_constituent_ext_spaces.json",
+        "research/experiments/computable_carrier/dp9_serre_ext.py",
+        "tests/integration/test_scientific_genesis_published_constituent_ext_spaces.py"
+      ],
+      "id": "published_constituent_ext_spaces",
+      "label": "published constituent Serre extension spaces",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "Fiber-sensitive dP9 Hilbert--Burch/Koszul total complexes derive the W1 and W2 constituent Ext-one dimensions 2 and 5 exactly, without importing the published action matrices.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "data/generated/visible_carrier/visible_carrier_artifact.json",
-        "data/generated/scientific_genesis/published_pushout_mismatch.json"
+        "data/generated/scientific_genesis/published_constituent_ext_spaces.json"
       ],
       "id": "published_chain_reconstruction",
       "label": "published carrier chain reconstruction",
       "layer": "Reference realization",
       "missing_prerequisites": [
-        "fiber-sensitive dP9 Serre presentations for W1 and W2",
+        "deck actions on the dP9 constituent total complexes",
+        "equivariant W1 and W2 Ext-one representatives",
         "four invariant outer Ext cocycles",
         "common Cech-Koszul basis and signs",
         "local transition data"
       ],
-      "statement": "The sources do not serialize fiber-sensitive W1/W2 chain maps or the four invariant outer cocycles. The available projective pushouts fail the published cover Ext dimensions exactly.",
+      "statement": "The constituent Ext spaces now have exact total complexes and dimensions, but their deck-linearized representatives and the four invariant outer cocycles are not yet reconstructed.",
       "status": "BLOCKED"
     },
     {
@@ -982,14 +1002,27 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "research/experiments/computable_carrier/schoen_sparse_outer.py"
+        "research/experiments/computable_carrier/dp9_serre_ext.py"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "different exact dP9 presentations may reconstruct W1/W2"
+        "deck-linearized representatives are not yet derived"
       ],
-      "mathematical_reason": "Refuting the base-pushout substitution isolates the missing dP9 fiber-direction Serre maps as a prerequisite to outer Hom.",
+      "mathematical_reason": "Replacing the invalid projective pushouts with fiber-sensitive dP9 Serre complexes recovers both constituent Ext dimensions.",
       "source": "published_projective_pushout_adapter",
+      "target": "published_constituent_ext_spaces"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/dp9_serre_ext.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "dimension agreement alone does not establish descent"
+      ],
+      "mathematical_reason": "Explicit constituent cocycles need exact deck actions before the published equivariant rays can enter the outer Hom complex.",
+      "source": "published_constituent_ext_spaces",
       "target": "published_chain_reconstruction"
     },
     {
@@ -1574,6 +1607,7 @@
   "established_results": [
     "exact reusable arithmetic, polynomial, homological, Cech, Cox, sheaf, and geometry engines",
     "published Schoen geometry and selected one-Higgs reference carrier metadata",
+    "exact fiber-sensitive dP9 Serre complexes deriving the published constituent Ext-one dimensions 2 and 5",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
     "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family",
     "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient",
@@ -1737,8 +1771,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "exact fiber-sensitive dP9 Serre presentation of W1 and W2 before recomputing the published outer Hom",
-    "selection_status": "published chain reconstruction after projective-adapter no-go"
+    "next_required_object": "exact deck action on the dP9 total complexes and induced action on their Ext-one representatives",
+    "selection_status": "published constituent deck-action reconstruction"
   },
   "research_value_scheduler": [
     {

@@ -966,6 +966,13 @@ the stored cover cocycles, but exact reduction modulo coboundaries makes all
 36 quotients `P^39(Q(omega))`. The cumulative ledger contains 1,008 exact
 pair records, with no selected projective point or rank-four extension.
 
+The forty-two-dimensional frontier closes 18 selected character pairs in
+each of candidates 16 and 36. All 36 constituent actions are scalar directly
+on the explicit cover cocycles, so their nonzero orbit spaces are
+`P^41(Q(omega))`. The cumulative ledger contains 1,044 exact pair records and
+192 content-addressed constituent algebra certificates; it still selects no
+extension point.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

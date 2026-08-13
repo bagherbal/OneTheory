@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "7f44e031487e64351530cbf725cfd23329bb914b7301b44a3209f22734f60182",
+  "artifact_digest": "36e14c21e0e35ae9c18d5f53977038837c20c725d311962e72736cd6c43e5a03",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -72,6 +72,11 @@
       "sha256": "dbb4e2aa55a1e64dd19b946123ba0d8e6e8475fc1fe9965a52f57c85458578f9"
     },
     {
+      "bytes": 6327,
+      "path": "data/generated/scientific_genesis/mixed_sign_minimum_chamber.json",
+      "sha256": "e15ef5ca0c4d85f0c1e1d7d4917b31cf2d3818c24797d1f0cad2e2ed9bc25cca"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -93,11 +98,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 421,
+    "collected_tests_at_audit": 425,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 107,
-    "test_python_files": 96
+    "research_python_files": 108,
+    "test_python_files": 97
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -468,6 +473,21 @@
       "missing_prerequisites": [],
       "statement": "A structural screen of all 40 declared topology blocks finds 18 blocks, containing 648 families, with an unavoidable subbundle of strictly positive slope throughout the Kahler cone.",
       "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_sign_minimum_chamber.json",
+        "research/experiments/scientific_genesis/mixed_sign_minimum_chamber.py"
+      ],
+      "id": "mixed_sign_minimum_forced_chamber",
+      "label": "mixed-sign minimum necessary stability chamber",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "classification of every additional saturated subsheaf"
+      ],
+      "statement": "Candidates 15 and 35 have an exact nonempty common chamber for their three extension-independent subobjects; the rational families (2,1,t) and (1,2,t), with t greater than 7/2, certify nonemptiness.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
@@ -1022,6 +1042,19 @@
       "target": "forced_subobject_stability_class"
     },
     {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/mixed_sign_minimum_chamber.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a nonempty necessary chamber need not contain a stable bundle"
+      ],
+      "mathematical_reason": "The first unresolved mixed-sign topology is solved by reducing its two independent homogeneous quadratic walls to exact rational bounds.",
+      "source": "forced_subobject_stability_class",
+      "target": "mixed_sign_minimum_forced_chamber"
+    },
+    {
       "assumptions_required": [
         "established law used conditionally"
       ],
@@ -1275,7 +1308,8 @@
     "full nonzero pair-73 parameter space is locally free and descended with trivial determinant and fixed Chern classes",
     "three forced pair-73 subobjects give exact necessary stability walls with a nonempty Kahler-cone intersection and exclude the full family at the published polarization anchor",
     "the current minimum blocks 8 and 28 have a universal descended left-line slope obstruction independent of extension parameters",
-    "all 40 declared topology blocks are partitioned by exact forced subobject slope signs without completing automorphism quotients"
+    "all 40 declared topology blocks are partitioned by exact forced subobject slope signs without completing automorphism quotients",
+    "candidates 15 and 35 have an exact nonempty common necessary forced-subobject chamber with rational one-parameter certificates"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -1347,6 +1381,15 @@
         40
       ],
       "forced_subobject_retired_family_count": 648,
+      "minimum_forced_chamber_certificate": [
+        "(2,1,t)",
+        "t>7/2"
+      ],
+      "minimum_forced_chamber_nonempty": true,
+      "minimum_projective_orbit_spaces": {
+        "P^17(Q(omega))": 36,
+        "P^23(Q(omega))": 36
+      },
       "next_candidate_blocks": [
         15,
         35
@@ -1381,8 +1424,8 @@
       ]
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "exact common-chamber classification for the 72 families in candidate blocks 15 and 35",
-    "selection_status": "all families below invariant Ext dimension eighteen retired by exact stability no-go"
+    "next_required_object": "minimum-complexity universal family among the 36 eighteen-dimensional projective extension spaces",
+    "selection_status": "minimum mixed-sign blocks admit a necessary chamber; universal family selection remains open"
   },
   "research_value_scheduler": [
     {
@@ -1689,9 +1732,9 @@
       "question": "When do constituent endomorphism radicals act trivially on Ext before or only after quotient reduction?"
     },
     {
-      "attack": "solve the three exact homogeneous quadratic inequalities symbolically and certify emptiness or a rational chamber point",
-      "evidence": "coefficient signs retire 648 families but are only a sufficient positivity test for the remaining 288",
-      "question": "Do the mixed-sign forced slopes in the eight remaining nonzero topology blocks admit a common strict-negative chamber?"
+      "attack": "derive a basis-independent chain-complexity invariant and quotient by factor exchange before constructing a universal cone",
+      "evidence": "all minimum families share topology and direct scalar automorphism action, while their explicit cocycle supports vary",
+      "question": "Do the 36 minimum P17 extension families form one structural class under characters and factor exchange, or is one chain presentation canonically simplest?"
     }
   ]
 }

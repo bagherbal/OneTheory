@@ -414,6 +414,20 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_sign_minimum_forced_chamber",
+            "mixed-sign minimum necessary stability chamber",
+            "Computable carrier",
+            "COMPUTED",
+            "Candidates 15 and 35 have an exact nonempty common chamber for "
+            "their three extension-independent subobjects; the rational families "
+            "(2,1,t) and (1,2,t), with t greater than 7/2, certify nonemptiness.",
+            (
+                "data/generated/scientific_genesis/mixed_sign_minimum_chamber.json",
+                "research/experiments/scientific_genesis/mixed_sign_minimum_chamber.py",
+            ),
+            missing=("classification of every additional saturated subsheaf",),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -863,6 +877,18 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             ("mixed-sign slope polynomials remain unresolved by this criterion",),
+        ),
+        _edge(
+            "forced_subobject_stability_class",
+            "mixed_sign_minimum_forced_chamber",
+            "The first unresolved mixed-sign topology is solved by reducing its "
+            "two independent homogeneous quadratic walls to exact rational bounds.",
+            (
+                "research/experiments/scientific_genesis/mixed_sign_minimum_chamber.py",
+            ),
+            (),
+            True,
+            ("a nonempty necessary chamber need not contain a stable bundle",),
         ),
         _edge(
             "stability_chamber",
@@ -1316,6 +1342,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/next_block_stability_no_go.json",
         "data/generated/scientific_genesis/current_minimum_stability_no_go.json",
         "data/generated/scientific_genesis/forced_subobject_stability_screen.json",
+        "data/generated/scientific_genesis/mixed_sign_minimum_chamber.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1336,7 +1363,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 421,
+            "collected_tests_at_audit": 425,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1358,8 +1385,8 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "all families below invariant Ext dimension eighteen retired "
-                "by exact stability no-go"
+                "minimum mixed-sign blocks admit a necessary chamber; universal "
+                "family selection remains open"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1397,13 +1424,19 @@ def build_state() -> dict[str, object]:
                 "remaining_nonzero_family_count": 288,
                 "next_invariant_ext_dimension": 18,
                 "next_candidate_blocks": [15, 35],
+                "minimum_forced_chamber_nonempty": True,
+                "minimum_forced_chamber_certificate": ["(2,1,t)", "t>7/2"],
+                "minimum_projective_orbit_spaces": {
+                    "P^17(Q(omega))": 36,
+                    "P^23(Q(omega))": 36,
+                },
                 "arbitrary_point_selected": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact common-chamber classification for the 72 families in "
-                "candidate blocks 15 and 35"
+                "minimum-complexity universal family among the 36 "
+                "eighteen-dimensional projective extension spaces"
             ),
         },
         "claims": _nodes(),
@@ -1430,6 +1463,8 @@ def build_state() -> dict[str, object]:
             "left-line slope obstruction independent of extension parameters",
             "all 40 declared topology blocks are partitioned by exact forced "
             "subobject slope signs without completing automorphism quotients",
+            "candidates 15 and 35 have an exact nonempty common necessary "
+            "forced-subobject chamber with rational one-parameter certificates",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1506,16 +1541,17 @@ def build_state() -> dict[str, object]:
             },
             {
                 "question": (
-                    "Do the mixed-sign forced slopes in the eight remaining "
-                    "nonzero topology blocks admit a common strict-negative chamber?"
+                    "Do the 36 minimum P17 extension families form one structural "
+                    "class under characters and factor exchange, or is one chain "
+                    "presentation canonically simplest?"
                 ),
                 "evidence": (
-                    "coefficient signs retire 648 families but are only a "
-                    "sufficient positivity test for the remaining 288"
+                    "all minimum families share topology and direct scalar "
+                    "automorphism action, while their explicit cocycle supports vary"
                 ),
                 "attack": (
-                    "solve the three exact homogeneous quadratic inequalities "
-                    "symbolically and certify emptiness or a rational chamber point"
+                    "derive a basis-independent chain-complexity invariant and "
+                    "quotient by factor exchange before constructing a universal cone"
                 ),
             },
         ],

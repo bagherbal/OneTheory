@@ -119,6 +119,16 @@ mixed-sign blocks leaves eight nonzero topology blocks and 288 families. The
 next minimum is now the 36 eighteen-dimensional families inside candidates 15
 and 35; their 36 dimension-24 companions share the same topology.
 
+The forced-subobject chamber for candidates 15 and 35 is nonempty. In the
+first orientation the left Serre line and rank-two constituent have the same
+slope, leaving two independent homogeneous quadratic inequalities. They are
+equivalent to `j1>j2>0` and an exact lower bound on `j3`; factor exchange gives
+the second orientation. The rational families `(2,1,t)` and `(1,2,t)` satisfy
+all forced inequalities for every `t>7/2`. At `t=4` the three slopes are
+`(-30,-30,-1/3)`. This is a necessary chamber theorem, not full stability:
+additional saturated subsheaves have not been classified. The smallest live
+parameter spaces are now the 36 `P^17(Q(omega))` families in these blocks.
+
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
 Higgs pair remain selection constraints. The first component passing every
@@ -152,8 +162,10 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: solve the exact common forced-slope chamber
-for candidates 15 and 35, then advance by increasing invariant Ext dimension
+The governing queue is therefore: derive a basis-independent complexity and
+equivalence classification of the 36 minimum `P^17` families, construct the
+simplest universal mapping cone without selecting a projective point, and then
+classify all remaining saturated destabilizing subsheaves
 until one stable family survives or the declared category is exhausted. Spectrum
 loci and the minimum common-DGA Yukawa slice remain downstream of the first
 stable family. Completing the final 144 large automorphism cases stays

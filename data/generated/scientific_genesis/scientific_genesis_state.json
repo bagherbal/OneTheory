@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "42b5b4c568e2251a4b2daa06a9a620c4c24e07ff709760e78f4f706a1fe08fc2",
+  "artifact_digest": "f4714a536fb3bba0a8ccd0ec61f728af2ac8367b9a7661e2853f603de4092b5c",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -87,6 +87,11 @@
       "sha256": "0b95477d2a00fda53e9f252dc6699ad4c5af5fc70dfd8ed24496f412968be0cb"
     },
     {
+      "bytes": 17670,
+      "path": "data/generated/scientific_genesis/next_survivor_restriction.json",
+      "sha256": "8a4317b1fa983dfdcaa115238ba5e549a1df25d49fa7b0ce02bb40684238ce5e"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -108,11 +113,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 433,
+    "collected_tests_at_audit": 437,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 110,
-    "test_python_files": 99
+    "research_python_files": 111,
+    "test_python_files": 100
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -524,6 +529,21 @@
       "missing_prerequisites": [],
       "statement": "All 72 families in candidates 16 and 36 lift the right Serre line; a strictly positive linear combination of its slope and the rank-three preimage slope makes their common chamber empty.",
       "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/next_survivor_restriction.json",
+        "research/experiments/scientific_genesis/next_survivor_restriction.py"
+      ],
+      "id": "next_survivor_lifting_kernel",
+      "label": "dimension-50/52 right-line lifting kernel",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "stability classification on the nonlifting open complements"
+      ],
+      "statement": "All 72 families in candidates 4 and 24 have exact rank-20 restriction maps. Their projective lifting kernels are unstable, while stability on the nonlifting open complements remains unresolved.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
@@ -1117,6 +1137,20 @@
       "target": "lifted_line_slope_identity_block"
     },
     {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/next_survivor_restriction.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the nonlifting projective complement may still be unstable",
+        "the theorem is scoped to candidates 4 and 24"
+      ],
+      "mathematical_reason": "The next topology has a nonzero right-line restriction; exact chain-level quotient reduction identifies its lifting kernel and the slope identity excludes precisely that closed stratum.",
+      "source": "lifted_line_slope_identity_block",
+      "target": "next_survivor_lifting_kernel"
+    },
+    {
       "assumptions_required": [
         "established law used conditionally"
       ],
@@ -1372,7 +1406,8 @@
     "the current minimum blocks 8 and 28 have a universal descended left-line slope obstruction independent of extension parameters",
     "all 40 declared topology blocks are partitioned by exact forced subobject slope signs without completing automorphism quotients",
     "candidates 15 and 35 have an exact nonempty common necessary forced-subobject chamber with rational one-parameter certificates",
-    "the dimension-42/48 block has an exact positive slope identity between two unavoidable subbundles, making its chamber empty"
+    "the dimension-42/48 block has an exact positive slope identity between two unavoidable subbundles, making its chamber empty",
+    "all candidate-4/24 right-line restriction maps have exact rank 20; their unstable lifting loci are projective linear subspaces of codimension 20"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -1463,6 +1498,14 @@
         24
       ],
       "next_invariant_ext_dimension": 50,
+      "next_survivor_complements_stability_proved": false,
+      "next_survivor_lifting_kernels_unstable": true,
+      "next_survivor_projective_lifting_loci": {
+        "P^49(Q(omega))": "P^29(Q(omega))",
+        "P^51(Q(omega))": "P^31(Q(omega))"
+      },
+      "next_survivor_restriction_rank": 20,
+      "next_survivor_target_ext_dimension": 216,
       "remaining_nonzero_candidate_blocks": [
         4,
         5,
@@ -1493,8 +1536,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "exact stability classification of the 72 families in candidate blocks 4 and 24",
-    "selection_status": "dimension-42/48 block retired by an exact slope-identity no-go"
+    "next_required_object": "exact stability classification on the nonlifting projective open complements in candidate blocks 4 and 24",
+    "selection_status": "dimension-50/52 block split by an exact rank-20 restriction"
   },
   "research_value_scheduler": [
     {
@@ -1803,9 +1846,9 @@
       "question": "When do constituent endomorphism radicals act trivially on Ext before or only after quotient reduction?"
     },
     {
-      "attack": "compute the full restriction map rank and its projective kernel before constructing any 50-parameter universal cone",
-      "evidence": "their exact source classes meet one right-line restriction coordinate, unlike every previously retired lifted-line block",
-      "question": "Can the nonzero right-line restriction in candidates 4 and 24 remove every positive-line lift on a generic Ext locus?"
+      "attack": "classify additional saturated subsheaves on the nonlifting open strata before constructing a universal cone",
+      "evidence": "the exact rank-20 restriction removes the right-line lift off P^29 inside P^49 and P^31 inside P^51",
+      "question": "Does either candidate-4/24 nonlifting open complement contain a slope-stable extension?"
     }
   ]
 }

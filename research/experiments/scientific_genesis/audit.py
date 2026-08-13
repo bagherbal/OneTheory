@@ -458,6 +458,24 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "next_survivor_lifting_kernel",
+            "dimension-50/52 right-line lifting kernel",
+            "Computable carrier",
+            "COMPUTED",
+            "All 72 families in candidates 4 and 24 have exact rank-20 "
+            "restriction maps. Their projective lifting kernels are unstable, "
+            "while stability on the nonlifting open complements remains unresolved.",
+            (
+                "data/generated/scientific_genesis/"
+                "next_survivor_restriction.json",
+                "research/experiments/scientific_genesis/"
+                "next_survivor_restriction.py",
+            ),
+            missing=(
+                "stability classification on the nonlifting open complements",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -949,6 +967,23 @@ def _edges() -> list[dict[str, object]]:
             ("the theorem is scoped to candidates 16 and 36",),
         ),
         _edge(
+            "lifted_line_slope_identity_block",
+            "next_survivor_lifting_kernel",
+            "The next topology has a nonzero right-line restriction; exact "
+            "chain-level quotient reduction identifies its lifting kernel and "
+            "the slope identity excludes precisely that closed stratum.",
+            (
+                "research/experiments/scientific_genesis/"
+                "next_survivor_restriction.py",
+            ),
+            (),
+            True,
+            (
+                "the nonlifting projective complement may still be unstable",
+                "the theorem is scoped to candidates 4 and 24",
+            ),
+        ),
+        _edge(
             "stability_chamber",
             "physical_spectrum",
             "A stable descended replacement bundle is required before the physical "
@@ -1403,6 +1438,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_sign_minimum_chamber.json",
         "data/generated/scientific_genesis/mixed_sign_minimum_stability_no_go.json",
         "data/generated/scientific_genesis/lifted_line_slope_identity_no_go.json",
+        "data/generated/scientific_genesis/next_survivor_restriction.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1423,7 +1459,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 433,
+            "collected_tests_at_audit": 437,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1445,7 +1481,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "dimension-42/48 block retired by an exact slope-identity no-go"
+                "dimension-50/52 block split by an exact rank-20 restriction"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1485,6 +1521,14 @@ def build_state() -> dict[str, object]:
                 "mixed_sign_minimum_retired_family_count": 72,
                 "slope_identity_retired_candidate_blocks": [16, 36],
                 "slope_identity_retired_family_count": 72,
+                "next_survivor_restriction_rank": 20,
+                "next_survivor_target_ext_dimension": 216,
+                "next_survivor_projective_lifting_loci": {
+                    "P^49(Q(omega))": "P^29(Q(omega))",
+                    "P^51(Q(omega))": "P^31(Q(omega))",
+                },
+                "next_survivor_lifting_kernels_unstable": True,
+                "next_survivor_complements_stability_proved": False,
                 "next_invariant_ext_dimension": 50,
                 "next_candidate_blocks": [4, 24],
                 "minimum_forced_chamber_nonempty": True,
@@ -1498,8 +1542,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact stability classification of the 72 families in "
-                "candidate blocks 4 and 24"
+                "exact stability classification on the nonlifting projective "
+                "open complements in candidate blocks 4 and 24"
             ),
         },
         "claims": _nodes(),
@@ -1530,6 +1574,9 @@ def build_state() -> dict[str, object]:
             "forced-subobject chamber with rational one-parameter certificates",
             "the dimension-42/48 block has an exact positive slope identity "
             "between two unavoidable subbundles, making its chamber empty",
+            "all candidate-4/24 right-line restriction maps have exact rank 20; "
+            "their unstable lifting loci are projective linear subspaces of "
+            "codimension 20",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1610,16 +1657,16 @@ def build_state() -> dict[str, object]:
             },
             {
                 "question": (
-                    "Can the nonzero right-line restriction in candidates 4 and "
-                    "24 remove every positive-line lift on a generic Ext locus?"
+                    "Does either candidate-4/24 nonlifting open complement "
+                    "contain a slope-stable extension?"
                 ),
                 "evidence": (
-                    "their exact source classes meet one right-line restriction "
-                    "coordinate, unlike every previously retired lifted-line block"
+                    "the exact rank-20 restriction removes the right-line lift "
+                    "off P^29 inside P^49 and P^31 inside P^51"
                 ),
                 "attack": (
-                    "compute the full restriction map rank and its projective kernel "
-                    "before constructing any 50-parameter universal cone"
+                    "classify additional saturated subsheaves on the nonlifting "
+                    "open strata before constructing a universal cone"
                 ),
             },
         ],

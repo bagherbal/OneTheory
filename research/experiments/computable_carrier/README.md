@@ -960,6 +960,12 @@ entire frontier without turning it into a projective space or selecting an
 extension point. The cumulative ledger contains 972 exact pair records: 612
 positive quotients and 360 zero-space exclusions.
 
+The forty-dimensional frontier closes the 18 complementary character pairs
+in each of candidates 10 and 30. Their constituent actions are not scalar on
+the stored cover cocycles, but exact reduction modulo coboundaries makes all
+36 quotients `P^39(Q(omega))`. The cumulative ledger contains 1,008 exact
+pair records, with no selected projective point or rank-four extension.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

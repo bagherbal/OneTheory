@@ -973,6 +973,13 @@ on the explicit cover cocycles, so their nonzero orbit spaces are
 192 content-addressed constituent algebra certificates; it still selects no
 extension point.
 
+The complementary character pairs in candidates 16 and 36 form the complete
+forty-eight-dimensional frontier. Their 36 actions are likewise scalar on
+the explicit cover cocycles, producing exact `P^47(Q(omega))` quotients. The
+cumulative action ledger now contains 1,080 pair records, three quarters of
+the declared screen, without promoting any orbit representative to a
+rank-four construction.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

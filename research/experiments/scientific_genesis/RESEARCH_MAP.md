@@ -92,8 +92,18 @@ right Serre line. In the first factor orientation that line has
 `c1=(5,1,-1)`, and its exact slope polynomial has only positive coefficients;
 the factor-exchanged orientation swaps the first two Kähler coordinates. Thus
 the lifted line has strictly positive slope everywhere in the published
-Kähler cone. All 72 families are retired. The next open minimum is the 36
-eight-dimensional families in candidates 8 and 28.
+Kähler cone. All 72 families are retired.
+
+Candidates 8 and 28 are now retired by an even shorter obstruction. Their
+left Serre line is a descended subbundle of the left rank-two constituent and
+therefore of every outer extension. Its first Chern class is `(5,1,0)` in the
+first factor orientation and `(1,5,0)` after factor exchange. Both exact slope
+polynomials have only positive coefficients, so the forced line destabilizes
+at every point of the published positive Kähler cone. This excludes all 72
+families in the two blocks: 36 with eight-dimensional invariant Ext and their
+36 ten-dimensional companions. No extension coordinate or sampled
+polarization is used. The next open minimum is the 72 ten-dimensional families
+in candidates 18 and 38.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
@@ -128,8 +138,8 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: classify the 36 eight-dimensional families
-in candidates 8 and 28, then advance by increasing invariant Ext dimension
+The governing queue is therefore: classify the 72 ten-dimensional families
+in candidates 18 and 38, then advance by increasing invariant Ext dimension
 until one stable family survives or the declared category is exhausted. Spectrum
 loci and the minimum common-DGA Yukawa slice remain downstream of the first
 stable family. Completing the final 144 large automorphism cases stays

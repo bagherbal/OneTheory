@@ -385,6 +385,20 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "current_minimum_stability_block",
+            "eight/ten-dimensional computable stability block",
+            "Computable carrier",
+            "REFUTED",
+            "All 72 families in candidates 8 and 28 contain a descended left "
+            "Serre line whose exact slope is strictly positive throughout the "
+            "published Kahler cone.",
+            (
+                "data/generated/scientific_genesis/current_minimum_stability_no_go.json",
+                "research/experiments/scientific_genesis/"
+                "current_minimum_stability_no_go.py",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -807,6 +821,19 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             ("the theorem is scoped to candidates 14 and 34",),
+        ),
+        _edge(
+            "next_topology_stability_block",
+            "current_minimum_stability_block",
+            "The next minimum topology is tested through its forced left Serre "
+            "line; exact coefficient positivity excludes the full parameter space.",
+            (
+                "research/experiments/scientific_genesis/"
+                "current_minimum_stability_no_go.py",
+            ),
+            (),
+            True,
+            ("the theorem is scoped to candidates 8 and 28",),
         ),
         _edge(
             "stability_chamber",
@@ -1258,6 +1285,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/pair_73_stability_no_go.json",
         "data/generated/scientific_genesis/minimal_block_stability_no_go.json",
         "data/generated/scientific_genesis/next_block_stability_no_go.json",
+        "data/generated/scientific_genesis/current_minimum_stability_no_go.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1278,7 +1306,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 413,
+            "collected_tests_at_audit": 417,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1299,7 +1327,10 @@ def build_state() -> dict[str, object]:
         },
         "recommended_vertical_path": {
             "candidate_pair": None,
-            "selection_status": "minimum-dimensional block retired by exact stability no-go",
+            "selection_status": (
+                "all families through invariant Ext dimension eight retired "
+                "by exact stability no-go"
+            ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
                 "coefficient_field": "Q(omega)",
@@ -1308,14 +1339,18 @@ def build_state() -> dict[str, object]:
                 "retired_family_count": 72,
                 "additional_retired_candidate_blocks": [14, 34],
                 "additional_retired_family_count": 72,
-                "next_invariant_ext_dimension": 8,
+                "current_minimum_retired_candidate_blocks": [8, 28],
+                "current_minimum_retired_pair_ranges": [[253, 288], [973, 1008]],
+                "current_minimum_retired_family_count": 72,
+                "next_invariant_ext_dimension": 10,
+                "next_candidate_blocks": [18, 38],
                 "arbitrary_point_selected": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "stability classification of the 36 remaining eight-dimensional "
-                "invariant-Ext families in candidate blocks 8 and 28"
+                "stability classification of the 72 ten-dimensional "
+                "invariant-Ext families in candidate blocks 18 and 38"
             ),
         },
         "claims": _nodes(),
@@ -1338,6 +1373,8 @@ def build_state() -> dict[str, object]:
             "three forced pair-73 subobjects give exact necessary stability walls "
             "with a nonempty Kahler-cone intersection and exclude the full family "
             "at the published polarization anchor",
+            "the current minimum blocks 8 and 28 have a universal descended "
+            "left-line slope obstruction independent of extension parameters",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1350,6 +1387,8 @@ def build_state() -> dict[str, object]:
             "23 have the same exact lifted-line stability obstruction",
             "all 72 six/eight-dimensional invariant-Ext families in candidates "
             "14 and 34 lift a line with strictly positive Kahler-cone slope",
+            "all 72 eight/ten-dimensional invariant-Ext families in candidates "
+            "8 and 28 contain a descended line with strictly positive Kahler-cone slope",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -1410,15 +1449,16 @@ def build_state() -> dict[str, object]:
             },
             {
                 "question": (
-                    "Can local freeness and structure-group reduction for pair "
-                    "73 be expressed as one parameter ideal?"
+                    "Can forced Serre-line slope signs classify surviving topology "
+                    "blocks before any family-level mapping cone is constructed?"
                 ),
                 "evidence": (
-                    "the family is only four-dimensional and exact Fitting machinery already exists"
+                    "candidates 8, 14, 28, and 34 are retired by line-slope "
+                    "theorems covering 144 families"
                 ),
                 "attack": (
-                    "construct the universal cone and compute saturated "
-                    "determinantal loci symbolically"
+                    "derive every forced constituent line from topology data and "
+                    "partition the remaining blocks by symbolic Kahler-cone sign"
                 ),
             },
         ],

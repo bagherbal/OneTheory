@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "c84f132d4e64c79db4bccb6b4f81560e74d02a2312f7abd15e4efc0677fb2e90",
+  "artifact_digest": "00835f8230cc3f6f782534042d7bcc0def0d8e0d8644e43bfad31f5e4211db4b",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -62,6 +62,11 @@
       "sha256": "d21495a8179ff779d6fcfde08b40ec462279f36f291c42b27efa059e53fb2c9f"
     },
     {
+      "bytes": 3461,
+      "path": "data/generated/scientific_genesis/current_minimum_stability_no_go.json",
+      "sha256": "e7c409131a42d8494ad37714bc8f42639b3f5041fde02a56d89465fbd9fec6f9"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -83,11 +88,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 413,
+    "collected_tests_at_audit": 417,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 105,
-    "test_python_files": 94
+    "research_python_files": 106,
+    "test_python_files": 95
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -431,6 +436,19 @@
       "layer": "Computable carrier",
       "missing_prerequisites": [],
       "statement": "All 72 families in candidates 14 and 34 lift a right Serre line whose exact slope is strictly positive throughout the Kahler cone.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/current_minimum_stability_no_go.json",
+        "research/experiments/scientific_genesis/current_minimum_stability_no_go.py"
+      ],
+      "id": "current_minimum_stability_block",
+      "label": "eight/ten-dimensional computable stability block",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "All 72 families in candidates 8 and 28 contain a descended left Serre line whose exact slope is strictly positive throughout the published Kahler cone.",
       "status": "REFUTED"
     },
     {
@@ -960,6 +978,19 @@
       "target": "next_topology_stability_block"
     },
     {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/current_minimum_stability_no_go.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the theorem is scoped to candidates 8 and 28"
+      ],
+      "mathematical_reason": "The next minimum topology is tested through its forced left Serre line; exact coefficient positivity excludes the full parameter space.",
+      "source": "next_topology_stability_block",
+      "target": "current_minimum_stability_block"
+    },
+    {
       "assumptions_required": [
         "established law used conditionally"
       ],
@@ -1211,7 +1242,8 @@
     "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient",
     "exact chain-level lifts of all four pair-73 classes and their universal derived mapping cone",
     "full nonzero pair-73 parameter space is locally free and descended with trivial determinant and fixed Chern classes",
-    "three forced pair-73 subobjects give exact necessary stability walls with a nonempty Kahler-cone intersection and exclude the full family at the published polarization anchor"
+    "three forced pair-73 subobjects give exact necessary stability walls with a nonempty Kahler-cone intersection and exclude the full family at the published polarization anchor",
+    "the current minimum blocks 8 and 28 have a universal descended left-line slope obstruction independent of extension parameters"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -1247,7 +1279,26 @@
       "additional_retired_family_count": 72,
       "arbitrary_point_selected": false,
       "coefficient_field": "Q(omega)",
-      "next_invariant_ext_dimension": 8,
+      "current_minimum_retired_candidate_blocks": [
+        8,
+        28
+      ],
+      "current_minimum_retired_family_count": 72,
+      "current_minimum_retired_pair_ranges": [
+        [
+          253,
+          288
+        ],
+        [
+          973,
+          1008
+        ]
+      ],
+      "next_candidate_blocks": [
+        18,
+        38
+      ],
+      "next_invariant_ext_dimension": 10,
       "retired_candidate_blocks": [
         3,
         23
@@ -1266,8 +1317,8 @@
       ]
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "stability classification of the 36 remaining eight-dimensional invariant-Ext families in candidate blocks 8 and 28",
-    "selection_status": "minimum-dimensional block retired by exact stability no-go"
+    "next_required_object": "stability classification of the 72 ten-dimensional invariant-Ext families in candidate blocks 18 and 38",
+    "selection_status": "all families through invariant Ext dimension eight retired by exact stability no-go"
   },
   "research_value_scheduler": [
     {
@@ -1563,7 +1614,8 @@
     "declared monomial and transported finite linearization categories have no complete commuting lift pairs where recorded",
     "pair 73 has empty slope-stable locus because the right Serre line lifts universally with slope opposite to the left rank-two subbundle",
     "all 72 four-dimensional invariant-Ext families in candidates 3 and 23 have the same exact lifted-line stability obstruction",
-    "all 72 six/eight-dimensional invariant-Ext families in candidates 14 and 34 lift a line with strictly positive Kahler-cone slope"
+    "all 72 six/eight-dimensional invariant-Ext families in candidates 14 and 34 lift a line with strictly positive Kahler-cone slope",
+    "all 72 eight/ten-dimensional invariant-Ext families in candidates 8 and 28 contain a descended line with strictly positive Kahler-cone slope"
   ],
   "structural_compression_questions": [
     {
@@ -1572,9 +1624,9 @@
       "question": "When do constituent endomorphism radicals act trivially on Ext before or only after quotient reduction?"
     },
     {
-      "attack": "construct the universal cone and compute saturated determinantal loci symbolically",
-      "evidence": "the family is only four-dimensional and exact Fitting machinery already exists",
-      "question": "Can local freeness and structure-group reduction for pair 73 be expressed as one parameter ideal?"
+      "attack": "derive every forced constituent line from topology data and partition the remaining blocks by symbolic Kahler-cone sign",
+      "evidence": "candidates 8, 14, 28, and 34 are retired by line-slope theorems covering 144 families",
+      "question": "Can forced Serre-line slope signs classify surviving topology blocks before any family-level mapping cone is constructed?"
     }
   ]
 }

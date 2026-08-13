@@ -52,9 +52,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["current_minimum_retired_family_count"] == 72
     assert path["criteria"]["forced_subobject_retired_family_count"] == 648
     assert path["criteria"]["mixed_sign_minimum_retired_family_count"] == 72
-    assert path["criteria"]["remaining_nonzero_family_count"] == 216
-    assert path["criteria"]["next_invariant_ext_dimension"] == 42
-    assert path["criteria"]["next_candidate_blocks"] == [16, 36]
+    assert path["criteria"]["slope_identity_retired_family_count"] == 72
+    assert path["criteria"]["remaining_nonzero_family_count"] == 144
+    assert path["criteria"]["next_invariant_ext_dimension"] == 50
+    assert path["criteria"]["next_candidate_blocks"] == [4, 24]
     assert path["criteria"]["minimum_forced_chamber_nonempty"] is True
     assert path["criteria"]["arbitrary_point_selected"] is False
     assert checkpoint["completed_pairs"] == 1296
@@ -63,7 +64,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "mixed-sign minimum retired by an exact lifted-line stability no-go"
+        "dimension-42/48 block retired by an exact slope-identity no-go"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
@@ -72,5 +73,6 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["forced_subobject_stability_class"]["status"] == "REFUTED"
     assert claims["mixed_sign_minimum_forced_chamber"]["status"] == "COMPUTED"
     assert claims["mixed_sign_minimum_stability_block"]["status"] == "REFUTED"
+    assert claims["lifted_line_slope_identity_block"]["status"] == "REFUTED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     assert state["fitted_inputs"] == []

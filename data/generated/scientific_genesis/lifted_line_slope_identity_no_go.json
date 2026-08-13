@@ -1,0 +1,227 @@
+{
+  "all_restriction_support_intersections_empty": true,
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "eb716c6e60c5bfa2c67cf132fc9a6f4aeba616f73816523441664fff48cc1a90",
+  "candidate_blocks": [
+    {
+      "candidate_index": 16,
+      "global_pair_range": [
+        541,
+        576
+      ],
+      "pair_count": 36
+    },
+    {
+      "candidate_index": 36,
+      "global_pair_range": [
+        1261,
+        1296
+      ],
+      "pair_count": 36
+    }
+  ],
+  "checked_pair_count": 72,
+  "common_necessary_chamber": "empty",
+  "every_pair_unstable": true,
+  "factor_exchanged_orientation": {
+    "candidate_index": 36,
+    "coordinate_rule": "exchange j1 and j2"
+  },
+  "first_orientation": {
+    "candidate_index": 16,
+    "lifted_right_line": {
+      "c1": [
+        "4",
+        "-1",
+        "2"
+      ],
+      "rank": 1,
+      "slope": [
+        {
+          "coefficient": "-1/3",
+          "exponents": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "coefficient": "6",
+          "exponents": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "-2",
+          "exponents": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "coefficient": "4/3",
+          "exponents": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "coefficient": "8",
+          "exponents": [
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "positive_identity": {
+      "formula": "9*mu(preimage(L_right))+3*mu(L_right)=6*j2*(2*j1+j2+6*j3)",
+      "polynomial": [
+        {
+          "coefficient": "12",
+          "exponents": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "6",
+          "exponents": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "coefficient": "36",
+          "exponents": [
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "preimage_right_line": {
+      "c1": [
+        "2",
+        "1",
+        "-2"
+      ],
+      "rank": 3,
+      "slope": [
+        {
+          "coefficient": "1/9",
+          "exponents": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "coefficient": "-2/3",
+          "exponents": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "2/3",
+          "exponents": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "coefficient": "2/9",
+          "exponents": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "coefficient": "4/3",
+          "exponents": [
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  },
+  "global_computable_carrier_no_go": false,
+  "invariant_ext_dimension_counts": {
+    "42": 36,
+    "48": 36
+  },
+  "lifted_line_identity_block_refuted": true,
+  "next_candidate_blocks": [
+    4,
+    24
+  ],
+  "next_invariant_ext_dimension": 50,
+  "next_required_object": "exact stability classification of the 72 families in candidate blocks 4 and 24",
+  "nonzero_orbit_space_counts": {
+    "P^41(Q(omega))": 36,
+    "P^47(Q(omega))": 36
+  },
+  "right_line_restriction_selectors": {
+    "Hom^-1(F0_right,F1_left)": [
+      [
+        -1,
+        4
+      ],
+      [
+        -1,
+        9
+      ],
+      [
+        -1,
+        14
+      ]
+    ],
+    "Hom^0(F0_right,F0_left)": [
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        19
+      ],
+      [
+        0,
+        24
+      ]
+    ],
+    "Hom^1(F1_right,F0_left)": []
+  },
+  "right_serre_line_lifts_for_every_parameter": true,
+  "sampled_polarization_used": false,
+  "schema": "lifted-line-slope-identity-no-go-v1",
+  "source_support_profile_sizes": [
+    19,
+    29,
+    29
+  ],
+  "stability_logic": "if both proper subbundles had negative slope, their displayed positive linear combination would be negative, contradicting strict positivity on j1,j2,j3 > 0",
+  "status": "exact scoped no-go for all 72 forty-two- and forty-eight-dimensional families in candidates 16 and 36"
+}

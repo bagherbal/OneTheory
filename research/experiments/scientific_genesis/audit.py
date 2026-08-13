@@ -443,6 +443,21 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "lifted_line_slope_identity_block",
+            "dimension-42/48 lifted-line slope-identity block",
+            "Computable carrier",
+            "REFUTED",
+            "All 72 families in candidates 16 and 36 lift the right Serre line; "
+            "a strictly positive linear combination of its slope and the "
+            "rank-three preimage slope makes their common chamber empty.",
+            (
+                "data/generated/scientific_genesis/"
+                "lifted_line_slope_identity_no_go.json",
+                "research/experiments/scientific_genesis/"
+                "lifted_line_slope_identity_no_go.py",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -920,6 +935,20 @@ def _edges() -> list[dict[str, object]]:
             ("the theorem is scoped to candidates 15 and 35",),
         ),
         _edge(
+            "mixed_sign_minimum_stability_block",
+            "lifted_line_slope_identity_block",
+            "The next topology retains universal right-line lifting, while an "
+            "exact positive combination of two unavoidable slopes replaces "
+            "polarization sampling with a chamber-emptiness proof.",
+            (
+                "research/experiments/scientific_genesis/"
+                "lifted_line_slope_identity_no_go.py",
+            ),
+            (),
+            True,
+            ("the theorem is scoped to candidates 16 and 36",),
+        ),
+        _edge(
             "stability_chamber",
             "physical_spectrum",
             "A stable descended replacement bundle is required before the physical "
@@ -1373,6 +1402,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/forced_subobject_stability_screen.json",
         "data/generated/scientific_genesis/mixed_sign_minimum_chamber.json",
         "data/generated/scientific_genesis/mixed_sign_minimum_stability_no_go.json",
+        "data/generated/scientific_genesis/lifted_line_slope_identity_no_go.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1393,7 +1423,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 429,
+            "collected_tests_at_audit": 433,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1415,7 +1445,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "mixed-sign minimum retired by an exact lifted-line stability no-go"
+                "dimension-42/48 block retired by an exact slope-identity no-go"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1449,12 +1479,14 @@ def build_state() -> dict[str, object]:
                     40,
                 ],
                 "forced_subobject_retired_family_count": 648,
-                "remaining_nonzero_candidate_blocks": [4, 5, 16, 24, 25, 36],
-                "remaining_nonzero_family_count": 216,
+                "remaining_nonzero_candidate_blocks": [4, 5, 24, 25],
+                "remaining_nonzero_family_count": 144,
                 "mixed_sign_minimum_retired_candidate_blocks": [15, 35],
                 "mixed_sign_minimum_retired_family_count": 72,
-                "next_invariant_ext_dimension": 42,
-                "next_candidate_blocks": [16, 36],
+                "slope_identity_retired_candidate_blocks": [16, 36],
+                "slope_identity_retired_family_count": 72,
+                "next_invariant_ext_dimension": 50,
+                "next_candidate_blocks": [4, 24],
                 "minimum_forced_chamber_nonempty": True,
                 "minimum_forced_chamber_certificate": ["(2,1,t)", "t>7/2"],
                 "minimum_projective_orbit_spaces": {
@@ -1467,7 +1499,7 @@ def build_state() -> dict[str, object]:
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
                 "exact stability classification of the 72 families in "
-                "candidate blocks 16 and 36"
+                "candidate blocks 4 and 24"
             ),
         },
         "claims": _nodes(),
@@ -1496,6 +1528,8 @@ def build_state() -> dict[str, object]:
             "subobject slope signs without completing automorphism quotients",
             "candidates 15 and 35 have an exact nonempty common necessary "
             "forced-subobject chamber with rational one-parameter certificates",
+            "the dimension-42/48 block has an exact positive slope identity "
+            "between two unavoidable subbundles, making its chamber empty",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1514,6 +1548,8 @@ def build_state() -> dict[str, object]:
             "forced subbundle and therefore no slope-stable extension",
             "all 72 families in candidates 15 and 35 lift a right Serre line "
             "with strictly positive slope despite their nonempty necessary chamber",
+            "all 72 families in candidates 16 and 36 have incompatible negative-slope "
+            "requirements for the right-line preimage and universally lifted line",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -1574,16 +1610,16 @@ def build_state() -> dict[str, object]:
             },
             {
                 "question": (
-                    "Does the universally lifted right line in candidates 16 and "
-                    "36 conflict with their forced-subobject chamber?"
+                    "Can the nonzero right-line restriction in candidates 4 and "
+                    "24 remove every positive-line lift on a generic Ext locus?"
                 ),
                 "evidence": (
-                    "all 72 classes miss the right-line restriction columns, but "
-                    "the lifted-line slope has mixed signs in the Kahler cone"
+                    "their exact source classes meet one right-line restriction "
+                    "coordinate, unlike every previously retired lifted-line block"
                 ),
                 "attack": (
-                    "solve the exact homogeneous inequalities including the lifted "
-                    "line before constructing any 42-parameter universal cone"
+                    "compute the full restriction map rank and its projective kernel "
+                    "before constructing any 50-parameter universal cone"
                 ),
             },
         ],

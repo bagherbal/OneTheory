@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "39fb8b40c94fcd9825a5c5c2ba7073688831337bc9c5a4a81ca07b254e1056bf",
+  "artifact_digest": "42b5b4c568e2251a4b2daa06a9a620c4c24e07ff709760e78f4f706a1fe08fc2",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -82,6 +82,11 @@
       "sha256": "c02be779efabed1dfb9f336c211d2191ebaef0a5fc0e5c2bfb9d52234e62701c"
     },
     {
+      "bytes": 4316,
+      "path": "data/generated/scientific_genesis/lifted_line_slope_identity_no_go.json",
+      "sha256": "0b95477d2a00fda53e9f252dc6699ad4c5af5fc70dfd8ed24496f412968be0cb"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -103,11 +108,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 429,
+    "collected_tests_at_audit": 433,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 109,
-    "test_python_files": 98
+    "research_python_files": 110,
+    "test_python_files": 99
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -505,6 +510,19 @@
       "layer": "Computable carrier",
       "missing_prerequisites": [],
       "statement": "Every invariant class in candidates 15 and 35 restricts trivially to the right Serre line, which therefore lifts with strictly positive slope throughout the Kahler cone.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/lifted_line_slope_identity_no_go.json",
+        "research/experiments/scientific_genesis/lifted_line_slope_identity_no_go.py"
+      ],
+      "id": "lifted_line_slope_identity_block",
+      "label": "dimension-42/48 lifted-line slope-identity block",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "All 72 families in candidates 16 and 36 lift the right Serre line; a strictly positive linear combination of its slope and the rank-three preimage slope makes their common chamber empty.",
       "status": "REFUTED"
     },
     {
@@ -1086,6 +1104,19 @@
       "target": "mixed_sign_minimum_stability_block"
     },
     {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/lifted_line_slope_identity_no_go.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the theorem is scoped to candidates 16 and 36"
+      ],
+      "mathematical_reason": "The next topology retains universal right-line lifting, while an exact positive combination of two unavoidable slopes replaces polarization sampling with a chamber-emptiness proof.",
+      "source": "mixed_sign_minimum_stability_block",
+      "target": "lifted_line_slope_identity_block"
+    },
+    {
       "assumptions_required": [
         "established law used conditionally"
       ],
@@ -1340,7 +1371,8 @@
     "three forced pair-73 subobjects give exact necessary stability walls with a nonempty Kahler-cone intersection and exclude the full family at the published polarization anchor",
     "the current minimum blocks 8 and 28 have a universal descended left-line slope obstruction independent of extension parameters",
     "all 40 declared topology blocks are partitioned by exact forced subobject slope signs without completing automorphism quotients",
-    "candidates 15 and 35 have an exact nonempty common necessary forced-subobject chamber with rational one-parameter certificates"
+    "candidates 15 and 35 have an exact nonempty common necessary forced-subobject chamber with rational one-parameter certificates",
+    "the dimension-42/48 block has an exact positive slope identity between two unavoidable subbundles, making its chamber empty"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -1427,19 +1459,17 @@
       ],
       "mixed_sign_minimum_retired_family_count": 72,
       "next_candidate_blocks": [
-        16,
-        36
+        4,
+        24
       ],
-      "next_invariant_ext_dimension": 42,
+      "next_invariant_ext_dimension": 50,
       "remaining_nonzero_candidate_blocks": [
         4,
         5,
-        16,
         24,
-        25,
-        36
+        25
       ],
-      "remaining_nonzero_family_count": 216,
+      "remaining_nonzero_family_count": 144,
       "retired_candidate_blocks": [
         3,
         23
@@ -1455,11 +1485,16 @@
           793,
           828
         ]
-      ]
+      ],
+      "slope_identity_retired_candidate_blocks": [
+        16,
+        36
+      ],
+      "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "exact stability classification of the 72 families in candidate blocks 16 and 36",
-    "selection_status": "mixed-sign minimum retired by an exact lifted-line stability no-go"
+    "next_required_object": "exact stability classification of the 72 families in candidate blocks 4 and 24",
+    "selection_status": "dimension-42/48 block retired by an exact slope-identity no-go"
   },
   "research_value_scheduler": [
     {
@@ -1758,7 +1793,8 @@
     "all 72 six/eight-dimensional invariant-Ext families in candidates 14 and 34 lift a line with strictly positive Kahler-cone slope",
     "all 72 eight/ten-dimensional invariant-Ext families in candidates 8 and 28 contain a descended line with strictly positive Kahler-cone slope",
     "18 topology blocks containing 648 families have a coefficient-positive forced subbundle and therefore no slope-stable extension",
-    "all 72 families in candidates 15 and 35 lift a right Serre line with strictly positive slope despite their nonempty necessary chamber"
+    "all 72 families in candidates 15 and 35 lift a right Serre line with strictly positive slope despite their nonempty necessary chamber",
+    "all 72 families in candidates 16 and 36 have incompatible negative-slope requirements for the right-line preimage and universally lifted line"
   ],
   "structural_compression_questions": [
     {
@@ -1767,9 +1803,9 @@
       "question": "When do constituent endomorphism radicals act trivially on Ext before or only after quotient reduction?"
     },
     {
-      "attack": "solve the exact homogeneous inequalities including the lifted line before constructing any 42-parameter universal cone",
-      "evidence": "all 72 classes miss the right-line restriction columns, but the lifted-line slope has mixed signs in the Kahler cone",
-      "question": "Does the universally lifted right line in candidates 16 and 36 conflict with their forced-subobject chamber?"
+      "attack": "compute the full restriction map rank and its projective kernel before constructing any 50-parameter universal cone",
+      "evidence": "their exact source classes meet one right-line restriction coordinate, unlike every previously retired lifted-line block",
+      "question": "Can the nonzero right-line restriction in candidates 4 and 24 remove every positive-line lift on a generic Ext locus?"
     }
   ]
 }

@@ -140,6 +140,16 @@ Kähler cone despite the nonempty necessary chamber. The next minimum is the 36
 dimension-42 families in candidates 16 and 36, accompanied by 36 dimension-48
 families with the same topology.
 
+Candidates 16 and 36 also lift the right Serre line universally, but neither
+individual slope has a fixed sign. Their joint chamber is nevertheless empty
+by an exact identity. In the first orientation,
+`9*mu(preimage(L_right))+3*mu(L_right)=6*j2*(2*j1+j2+6*j3)`, which is strictly
+positive throughout the Kähler cone; factor exchange gives the second.
+Requiring both proper subbundles to have negative slope would make the left
+side negative, a contradiction. All 72 dimension-42/48 families are retired.
+Only four nonzero topology blocks and 144 families remain in the declared
+category. The next minimum is dimension 50 in candidates 4 and 24.
+
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
 Higgs pair remain selection constraints. The first component passing every
@@ -173,10 +183,10 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: solve the exact common chamber including
-the universally lifted right line in candidates 16 and 36, retire the blocks
-if it is empty, and construct a universal mapping cone only if the stronger
-necessary chamber remains nonempty. Continue by increasing invariant Ext
+The governing queue is therefore: compute the exact right-line restriction
+rank and projective kernel for candidates 4 and 24, then construct a universal
+mapping cone only on a locus that survives this additional subbundle test.
+Continue by increasing invariant Ext
 dimension until one stable family survives or the declared category is exhausted. Spectrum
 loci and the minimum common-DGA Yukawa slice remain downstream of the first
 stable family. Completing the final 144 large automorphism cases stays

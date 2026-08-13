@@ -21,3 +21,9 @@ deterministic implementation, content-addressed artifact, independent critical
 certificate, and scientific review are explicit. Run `python -m
 research.experiments.scientific_genesis.audit` to regenerate and validate the
 machine-readable state.
+
+The current pair-73 frontier includes exact universal extension, chain-lift,
+algebraic-locus, and necessary stability-wall artifacts. The forced subobjects
+exclude the family at the published polarization, but the complete Kähler cone
+and all remaining saturated subsheaves have not been closed. No stable carrier
+or genuine `SU(4)` locus is claimed.

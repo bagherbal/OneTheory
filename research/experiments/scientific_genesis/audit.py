@@ -334,16 +334,32 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "necessary_stability_walls",
+            "pair-73 unavoidable stability walls",
+            "Computable carrier",
+            "COMPUTED",
+            "The rank-two extension subbundle, its Serre line, and the "
+            "rank-three preimage give exact necessary slope inequalities; "
+            "the full family is unstable at the published carrier anchor.",
+            (
+                "data/generated/scientific_genesis/pair_73_stability_wall.json",
+                "research/experiments/scientific_genesis/pair_73_stability_wall.py",
+            ),
+        ),
+        _node(
             "stability_chamber",
             "exact common stability chamber",
             "Computable carrier",
             "BLOCKED",
-            "No chamber theorem exists for the computable universal family.",
-            ("research/experiments/computable_carrier/downstream.py",),
+            "Necessary walls are exact and algebraically compatible in the "
+            "positive coordinate sector, but no sufficient chamber theorem exists.",
+            (
+                "data/generated/scientific_genesis/pair_73_stability_wall.json",
+                "research/experiments/computable_carrier/downstream.py",
+            ),
             missing=(
-                "algebraic lawful family",
-                "destabilizing-subsheaf inequalities",
-                "nonempty Kahler chamber",
+                "intersection of the necessary region with the exact Kahler cone",
+                "classification of every remaining saturated destabilizing subsheaf",
                 "exclusion of proper structure-group reduction",
             ),
         ),
@@ -719,9 +735,23 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "algebraic_lawful_locus",
+            "necessary_stability_walls",
+            "Exact extension and Serre sequences expose subobjects whose slopes "
+            "must be negative at every stable polarization.",
+            (
+                "src/onetheory/math/geometry.py",
+                "research/experiments/scientific_genesis/pair_73_stability_wall.py",
+            ),
+            (),
+            True,
+            ("the necessary region may miss the Kahler cone",),
+        ),
+        _edge(
+            "necessary_stability_walls",
             "stability_chamber",
-            "Only lawful bundles admit the intended slope-stability problem.",
-            ("src/onetheory/math/geometry.py",),
+            "A sufficient chamber must satisfy every forced wall and exclude all "
+            "additional saturated destabilizing subsheaves.",
+            ("research/experiments/scientific_genesis/pair_73_stability_wall.py",),
             (),
             True,
             ("stable chamber may be empty", "unseen destabilizing subsheaves"),
@@ -1167,6 +1197,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/pair_73_source.json",
         "data/generated/scientific_genesis/pair_73_cech_lift.json",
         "data/generated/scientific_genesis/pair_73_algebraic_locus.json",
+        "data/generated/scientific_genesis/pair_73_stability_wall.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1187,7 +1218,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 399,
+            "collected_tests_at_audit": 403,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1219,7 +1250,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact stability chamber and genuine SU(4) locus for the pair-73 family"
+                "exact Kahler-cone intersection, complete destabilizing-subsheaf "
+                "analysis, and genuine SU(4) locus for the pair-73 family"
             ),
         },
         "claims": _nodes(),
@@ -1239,6 +1271,8 @@ def build_state() -> dict[str, object]:
             "universal derived mapping cone",
             "full nonzero pair-73 parameter space is locally free and descended "
             "with trivial determinant and fixed Chern classes",
+            "three forced pair-73 subobjects give exact necessary stability walls "
+            "and exclude the full family at the published polarization anchor",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1258,8 +1292,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "computable universal rank-four lawful locus",
-            "stability chamber and Wilson-projected spectrum",
+            "sufficient pair-73 stability chamber and Wilson-projected spectrum",
             "carrier-derived complete holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],

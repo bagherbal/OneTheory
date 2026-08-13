@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "4acf19bdfa29b9d11fb75a7de89fb9c8315638c637634b09f587655cd601ad49",
+  "artifact_digest": "2e193fddddfa98fa972958e2c79f1798aeb375f46978a8470a0140df1474dd11",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -42,6 +42,11 @@
       "sha256": "1964c85f742f4b8db202d461eaf30f550edfe7bf5c4c592613139f7fe72915ef"
     },
     {
+      "bytes": 4062,
+      "path": "data/generated/scientific_genesis/pair_73_stability_wall.json",
+      "sha256": "57eb15893bea034a0e07886ab22338f1e4a999d7f7e03ce018d0e2c3c2c09661"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -63,11 +68,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 399,
+    "collected_tests_at_audit": 403,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 101,
-    "test_python_files": 90
+    "research_python_files": 102,
+    "test_python_files": 91
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -83,8 +88,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "computable universal rank-four lawful locus",
-    "stability chamber and Wilson-projected spectrum",
+    "sufficient pair-73 stability chamber and Wilson-projected spectrum",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -365,18 +369,31 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/pair_73_stability_wall.json",
+        "research/experiments/scientific_genesis/pair_73_stability_wall.py"
+      ],
+      "id": "necessary_stability_walls",
+      "label": "pair-73 unavoidable stability walls",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "The rank-two extension subbundle, its Serre line, and the rank-three preimage give exact necessary slope inequalities; the full family is unstable at the published carrier anchor.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/pair_73_stability_wall.json",
         "research/experiments/computable_carrier/downstream.py"
       ],
       "id": "stability_chamber",
       "label": "exact common stability chamber",
       "layer": "Computable carrier",
       "missing_prerequisites": [
-        "algebraic lawful family",
-        "destabilizing-subsheaf inequalities",
-        "nonempty Kahler chamber",
+        "intersection of the necessary region with the exact Kahler cone",
+        "classification of every remaining saturated destabilizing subsheaf",
         "exclusion of proper structure-group reduction"
       ],
-      "statement": "No chamber theorem exists for the computable universal family.",
+      "statement": "Necessary walls are exact and algebraically compatible in the positive coordinate sector, but no sufficient chamber theorem exists.",
       "status": "BLOCKED"
     },
     {
@@ -854,15 +871,29 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "src/onetheory/math/geometry.py"
+        "src/onetheory/math/geometry.py",
+        "research/experiments/scientific_genesis/pair_73_stability_wall.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the necessary region may miss the Kahler cone"
+      ],
+      "mathematical_reason": "Exact extension and Serre sequences expose subobjects whose slopes must be negative at every stable polarization.",
+      "source": "algebraic_lawful_locus",
+      "target": "necessary_stability_walls"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/pair_73_stability_wall.py"
       ],
       "implication": "exact",
       "known_failure_modes": [
         "stable chamber may be empty",
         "unseen destabilizing subsheaves"
       ],
-      "mathematical_reason": "Only lawful bundles admit the intended slope-stability problem.",
-      "source": "algebraic_lawful_locus",
+      "mathematical_reason": "A sufficient chamber must satisfy every forced wall and exclude all additional saturated destabilizing subsheaves.",
+      "source": "necessary_stability_walls",
       "target": "stability_chamber"
     },
     {
@@ -1115,7 +1146,8 @@
     "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family",
     "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient",
     "exact chain-level lifts of all four pair-73 classes and their universal derived mapping cone",
-    "full nonzero pair-73 parameter space is locally free and descended with trivial determinant and fixed Chern classes"
+    "full nonzero pair-73 parameter space is locally free and descended with trivial determinant and fixed Chern classes",
+    "three forced pair-73 subobjects give exact necessary stability walls and exclude the full family at the published polarization anchor"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -1151,7 +1183,7 @@
       "orbit_parameter_space": "P^3(Q(omega))"
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "exact stability chamber and genuine SU(4) locus for the pair-73 family",
+    "next_required_object": "exact Kahler-cone intersection, complete destabilizing-subsheaf analysis, and genuine SU(4) locus for the pair-73 family",
     "selection_status": "recommended, not selected as a physical point"
   },
   "research_value_scheduler": [

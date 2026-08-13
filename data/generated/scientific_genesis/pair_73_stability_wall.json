@@ -1,0 +1,187 @@
+{
+  "arbitrary_extension_point_selected": false,
+  "arbitrary_polarization_selected": false,
+  "artifact_digest": "d9e4627b69942b81bde8152059d8645175c50c55eb89a2320cdf06f8937c87f0",
+  "exact_sequences": [
+    "0 -> V_left -> V(a) -> V_right -> 0",
+    "0 -> L_left -> V_left -> I_left tensor M_left -> 0",
+    "0 -> V_left -> preimage(L_right) -> L_right -> 0"
+  ],
+  "first_missing_prerequisite": "exact Kahler-cone intersection and exclusion of every other saturated destabilizing subsheaf",
+  "forced_subobjects": [
+    {
+      "c1": [
+        "2",
+        "-2",
+        "0"
+      ],
+      "factorization": "(j2-j1)(j1+j2+6*j3)/3",
+      "name": "V_left",
+      "rank": 2,
+      "slope": [
+        {
+          "coefficient": "-1/3",
+          "exponents": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "coefficient": "-2",
+          "exponents": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "coefficient": "1/3",
+          "exponents": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "coefficient": "2",
+          "exponents": [
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "c1": [
+        "4",
+        "-1",
+        "0"
+      ],
+      "factorization": "(-j1^2+6*j1*j2+4*j2^2-6*j1*j3+24*j2*j3)/3",
+      "name": "L_left",
+      "rank": 1,
+      "slope": [
+        {
+          "coefficient": "-1/3",
+          "exponents": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "coefficient": "2",
+          "exponents": [
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "-2",
+          "exponents": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "coefficient": "4/3",
+          "exponents": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "coefficient": "8",
+          "exponents": [
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "c1": [
+        "1",
+        "-1",
+        "0"
+      ],
+      "factorization": "(j2-j1)(j1+j2+6*j3)/9",
+      "name": "preimage(L_right)",
+      "rank": 3,
+      "slope": [
+        {
+          "coefficient": "-1/9",
+          "exponents": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "coefficient": "-2/3",
+          "exponents": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "coefficient": "1/9",
+          "exponents": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "coefficient": "2/3",
+          "exponents": [
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "genuine_su4_locus_computed": false,
+  "global_pair_index": 73,
+  "necessary_inequalities": [
+    "(j2-j1)(j1+j2+6*j3) < 0",
+    "-j1^2+6*j1*j2+4*j2^2-6*j1*j3+24*j2*j3 < 0"
+  ],
+  "necessary_wall_computed": true,
+  "parameter_dependence": "none; the forced sequences occur over the full family",
+  "polarization_coordinates": [
+    "j1",
+    "j2",
+    "j3"
+  ],
+  "positive_coordinate_consequence": {
+    "algebraically_nonempty": true,
+    "assumption": "j1 > 0, j2 > 0, j3 > 0",
+    "full_kahler_cone_membership_proved": false,
+    "nonemptiness_certificate": "in the exact family (j1,j2,j3)=(t,1,1), every integer t>=6 makes both forced-subobject slopes negative",
+    "rank_two_condition": "j1 > j2",
+    "serre_line_condition": "j1^2-6*j1*j2-4*j2^2+6*j1*j3-24*j2*j3 > 0"
+  },
+  "published_anchor": {
+    "L_left_slope": "384",
+    "V_left_slope": "33",
+    "coordinates": [
+      "6",
+      "9",
+      "3"
+    ],
+    "pair_73_stable_there": false
+  },
+  "schema": "pair-73-necessary-stability-walls-v1",
+  "status": "exact unavoidable slope walls; pair 73 is excluded at the published anchor, while a sufficient stable chamber remains unresolved",
+  "sufficient_stability_chamber_computed": false
+}

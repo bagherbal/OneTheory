@@ -57,9 +57,15 @@ is trivial and the Chern classes are parameter-independent, with quotient
 index `-3`. Thus the algebraic lawful locus is all of `P^3(Q(omega))`.
 
 This does not yet prove a genuine `SU(4)` structure group. The next scientific
-object is an exact stability chamber together with exclusion of proper
-structure-group reductions. Failure should produce a parameter ideal or a
-necessary theorem, not a restart of broad enumeration.
+boundary is now sharper. The universal extension contains three forced
+subobjects whose exact slopes give two independent necessary inequalities.
+They exclude every pair-73 parameter at the published polarization
+`(6,9,3)`. In the positive coordinate sector the inequalities are
+algebraically compatible, but that is not a Kähler-cone theorem. The next
+object is the exact intersection with the actual Kähler cone, classification
+of every other saturated destabilizing subsheaf, and exclusion of proper
+structure-group reductions. Failure should produce a necessary theorem, not a
+restart of broad enumeration.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
@@ -94,8 +100,9 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: universal pair-73 mapping cone, symbolic
-lawful locus, structural automorphism theorem in parallel, stability chamber,
-spectrum loci, and the minimum common-DGA Yukawa slice. Completing the final
-144 large automorphism cases is resumable but suspended until it can change a
-dependency edge or independently verify a theorem.
+The governing queue is therefore: complete pair-73 stability from the exact
+necessary walls, then spectrum loci and the minimum common-DGA Yukawa slice,
+with the structural automorphism theorem pursued only when it can compress a
+needed calculation. Completing the final 144 large automorphism cases is
+resumable but suspended until it can change a dependency edge or independently
+verify a theorem.

@@ -129,6 +129,17 @@ all forced inequalities for every `t>7/2`. At `t=4` the three slopes are
 additional saturated subsheaves have not been classified. The smallest live
 parameter spaces are now the 36 `P^17(Q(omega))` families in these blocks.
 
+The first additional saturated subbundle closes that apparent route. Every
+candidate-15/35 invariant cocycle lies in
+`Hom^-1(F0_right,F1_left)` and avoids the three columns `(4,9,14)` selected by
+the right Serre line. The pullback extension therefore splits for every
+parameter, lifting that line into the rank-four bundle. Its first Chern class
+is `(5,1,-2)` or `(1,5,-2)` after factor exchange, and its exact slope has only
+positive coefficients. Thus all 72 families are unstable everywhere in the
+Kähler cone despite the nonempty necessary chamber. The next minimum is the 36
+dimension-42 families in candidates 16 and 36, accompanied by 36 dimension-48
+families with the same topology.
+
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
 Higgs pair remain selection constraints. The first component passing every
@@ -162,11 +173,11 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: derive a basis-independent complexity and
-equivalence classification of the 36 minimum `P^17` families, construct the
-simplest universal mapping cone without selecting a projective point, and then
-classify all remaining saturated destabilizing subsheaves
-until one stable family survives or the declared category is exhausted. Spectrum
+The governing queue is therefore: solve the exact common chamber including
+the universally lifted right line in candidates 16 and 36, retire the blocks
+if it is empty, and construct a universal mapping cone only if the stronger
+necessary chamber remains nonempty. Continue by increasing invariant Ext
+dimension until one stable family survives or the declared category is exhausted. Spectrum
 loci and the minimum common-DGA Yukawa slice remain downstream of the first
 stable family. Completing the final 144 large automorphism cases stays
 suspended until it can change a dependency edge or independently verify a

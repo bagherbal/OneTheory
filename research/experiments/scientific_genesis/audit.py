@@ -428,6 +428,21 @@ def _nodes() -> list[dict[str, object]]:
             missing=("classification of every additional saturated subsheaf",),
         ),
         _node(
+            "mixed_sign_minimum_stability_block",
+            "mixed-sign minimum full stability block",
+            "Computable carrier",
+            "REFUTED",
+            "Every invariant class in candidates 15 and 35 restricts trivially "
+            "to the right Serre line, which therefore lifts with strictly "
+            "positive slope throughout the Kahler cone.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_sign_minimum_stability_no_go.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_sign_minimum_stability_no_go.py",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -891,6 +906,20 @@ def _edges() -> list[dict[str, object]]:
             ("a nonempty necessary chamber need not contain a stable bundle",),
         ),
         _edge(
+            "mixed_sign_minimum_forced_chamber",
+            "mixed_sign_minimum_stability_block",
+            "The first additional saturated subbundle is obtained by pulling "
+            "back the outer extension to the right Serre line; its exact "
+            "restriction class vanishes throughout both topology blocks.",
+            (
+                "research/experiments/scientific_genesis/"
+                "mixed_sign_minimum_stability_no_go.py",
+            ),
+            (),
+            True,
+            ("the theorem is scoped to candidates 15 and 35",),
+        ),
+        _edge(
             "stability_chamber",
             "physical_spectrum",
             "A stable descended replacement bundle is required before the physical "
@@ -1343,6 +1372,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/current_minimum_stability_no_go.json",
         "data/generated/scientific_genesis/forced_subobject_stability_screen.json",
         "data/generated/scientific_genesis/mixed_sign_minimum_chamber.json",
+        "data/generated/scientific_genesis/mixed_sign_minimum_stability_no_go.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1363,7 +1393,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 425,
+            "collected_tests_at_audit": 429,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1385,8 +1415,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "minimum mixed-sign blocks admit a necessary chamber; universal "
-                "family selection remains open"
+                "mixed-sign minimum retired by an exact lifted-line stability no-go"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1420,10 +1449,12 @@ def build_state() -> dict[str, object]:
                     40,
                 ],
                 "forced_subobject_retired_family_count": 648,
-                "remaining_nonzero_candidate_blocks": [4, 5, 15, 16, 24, 25, 35, 36],
-                "remaining_nonzero_family_count": 288,
-                "next_invariant_ext_dimension": 18,
-                "next_candidate_blocks": [15, 35],
+                "remaining_nonzero_candidate_blocks": [4, 5, 16, 24, 25, 36],
+                "remaining_nonzero_family_count": 216,
+                "mixed_sign_minimum_retired_candidate_blocks": [15, 35],
+                "mixed_sign_minimum_retired_family_count": 72,
+                "next_invariant_ext_dimension": 42,
+                "next_candidate_blocks": [16, 36],
                 "minimum_forced_chamber_nonempty": True,
                 "minimum_forced_chamber_certificate": ["(2,1,t)", "t>7/2"],
                 "minimum_projective_orbit_spaces": {
@@ -1435,8 +1466,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "minimum-complexity universal family among the 36 "
-                "eighteen-dimensional projective extension spaces"
+                "exact stability classification of the 72 families in "
+                "candidate blocks 16 and 36"
             ),
         },
         "claims": _nodes(),
@@ -1481,6 +1512,8 @@ def build_state() -> dict[str, object]:
             "8 and 28 contain a descended line with strictly positive Kahler-cone slope",
             "18 topology blocks containing 648 families have a coefficient-positive "
             "forced subbundle and therefore no slope-stable extension",
+            "all 72 families in candidates 15 and 35 lift a right Serre line "
+            "with strictly positive slope despite their nonempty necessary chamber",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -1541,17 +1574,16 @@ def build_state() -> dict[str, object]:
             },
             {
                 "question": (
-                    "Do the 36 minimum P17 extension families form one structural "
-                    "class under characters and factor exchange, or is one chain "
-                    "presentation canonically simplest?"
+                    "Does the universally lifted right line in candidates 16 and "
+                    "36 conflict with their forced-subobject chamber?"
                 ),
                 "evidence": (
-                    "all minimum families share topology and direct scalar "
-                    "automorphism action, while their explicit cocycle supports vary"
+                    "all 72 classes miss the right-line restriction columns, but "
+                    "the lifted-line slope has mixed signs in the Kahler cone"
                 ),
                 "attack": (
-                    "derive a basis-independent chain-complexity invariant and "
-                    "quotient by factor exchange before constructing a universal cone"
+                    "solve the exact homogeneous inequalities including the lifted "
+                    "line before constructing any 42-parameter universal cone"
                 ),
             },
         ],

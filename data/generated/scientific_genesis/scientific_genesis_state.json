@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "36e14c21e0e35ae9c18d5f53977038837c20c725d311962e72736cd6c43e5a03",
+  "artifact_digest": "39fb8b40c94fcd9825a5c5c2ba7073688831337bc9c5a4a81ca07b254e1056bf",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -77,6 +77,11 @@
       "sha256": "e15ef5ca0c4d85f0c1e1d7d4917b31cf2d3818c24797d1f0cad2e2ed9bc25cca"
     },
     {
+      "bytes": 2793,
+      "path": "data/generated/scientific_genesis/mixed_sign_minimum_stability_no_go.json",
+      "sha256": "c02be779efabed1dfb9f336c211d2191ebaef0a5fc0e5c2bfb9d52234e62701c"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -98,11 +103,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 425,
+    "collected_tests_at_audit": 429,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 108,
-    "test_python_files": 97
+    "research_python_files": 109,
+    "test_python_files": 98
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -488,6 +493,19 @@
       ],
       "statement": "Candidates 15 and 35 have an exact nonempty common chamber for their three extension-independent subobjects; the rational families (2,1,t) and (1,2,t), with t greater than 7/2, certify nonemptiness.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_sign_minimum_stability_no_go.json",
+        "research/experiments/scientific_genesis/mixed_sign_minimum_stability_no_go.py"
+      ],
+      "id": "mixed_sign_minimum_stability_block",
+      "label": "mixed-sign minimum full stability block",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "Every invariant class in candidates 15 and 35 restricts trivially to the right Serre line, which therefore lifts with strictly positive slope throughout the Kahler cone.",
+      "status": "REFUTED"
     },
     {
       "assumptions": [],
@@ -1055,6 +1073,19 @@
       "target": "mixed_sign_minimum_forced_chamber"
     },
     {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/mixed_sign_minimum_stability_no_go.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the theorem is scoped to candidates 15 and 35"
+      ],
+      "mathematical_reason": "The first additional saturated subbundle is obtained by pulling back the outer extension to the right Serre line; its exact restriction class vanishes throughout both topology blocks.",
+      "source": "mixed_sign_minimum_forced_chamber",
+      "target": "mixed_sign_minimum_stability_block"
+    },
+    {
       "assumptions_required": [
         "established law used conditionally"
       ],
@@ -1390,22 +1421,25 @@
         "P^17(Q(omega))": 36,
         "P^23(Q(omega))": 36
       },
-      "next_candidate_blocks": [
+      "mixed_sign_minimum_retired_candidate_blocks": [
         15,
         35
       ],
-      "next_invariant_ext_dimension": 18,
+      "mixed_sign_minimum_retired_family_count": 72,
+      "next_candidate_blocks": [
+        16,
+        36
+      ],
+      "next_invariant_ext_dimension": 42,
       "remaining_nonzero_candidate_blocks": [
         4,
         5,
-        15,
         16,
         24,
         25,
-        35,
         36
       ],
-      "remaining_nonzero_family_count": 288,
+      "remaining_nonzero_family_count": 216,
       "retired_candidate_blocks": [
         3,
         23
@@ -1424,8 +1458,8 @@
       ]
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "minimum-complexity universal family among the 36 eighteen-dimensional projective extension spaces",
-    "selection_status": "minimum mixed-sign blocks admit a necessary chamber; universal family selection remains open"
+    "next_required_object": "exact stability classification of the 72 families in candidate blocks 16 and 36",
+    "selection_status": "mixed-sign minimum retired by an exact lifted-line stability no-go"
   },
   "research_value_scheduler": [
     {
@@ -1723,7 +1757,8 @@
     "all 72 four-dimensional invariant-Ext families in candidates 3 and 23 have the same exact lifted-line stability obstruction",
     "all 72 six/eight-dimensional invariant-Ext families in candidates 14 and 34 lift a line with strictly positive Kahler-cone slope",
     "all 72 eight/ten-dimensional invariant-Ext families in candidates 8 and 28 contain a descended line with strictly positive Kahler-cone slope",
-    "18 topology blocks containing 648 families have a coefficient-positive forced subbundle and therefore no slope-stable extension"
+    "18 topology blocks containing 648 families have a coefficient-positive forced subbundle and therefore no slope-stable extension",
+    "all 72 families in candidates 15 and 35 lift a right Serre line with strictly positive slope despite their nonempty necessary chamber"
   ],
   "structural_compression_questions": [
     {
@@ -1732,9 +1767,9 @@
       "question": "When do constituent endomorphism radicals act trivially on Ext before or only after quotient reduction?"
     },
     {
-      "attack": "derive a basis-independent chain-complexity invariant and quotient by factor exchange before constructing a universal cone",
-      "evidence": "all minimum families share topology and direct scalar automorphism action, while their explicit cocycle supports vary",
-      "question": "Do the 36 minimum P17 extension families form one structural class under characters and factor exchange, or is one chain presentation canonically simplest?"
+      "attack": "solve the exact homogeneous inequalities including the lifted line before constructing any 42-parameter universal cone",
+      "evidence": "all 72 classes miss the right-line restriction columns, but the lifted-line slope has mixed signs in the Kahler cone",
+      "question": "Does the universally lifted right line in candidates 16 and 36 conflict with their forced-subobject chamber?"
     }
   ]
 }

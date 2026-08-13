@@ -62,7 +62,7 @@ def _line_degree(
 class SchoenPresentation:
     """One pushed-out presentation with an explicit factor and divisor twist."""
 
-    ray: TierBSerreExtensionRay
+    ray: TierBSerreExtensionRay | None
     candidate: SerrePushoutCandidate
     factor: int
     twist: Twist
@@ -77,18 +77,17 @@ class SchoenPresentation:
 
 
 @cache
-def schoen_presentation(
-    ray: TierBSerreExtensionRay,
+def schoen_presentation_from_candidate(
+    candidate: SerrePushoutCandidate,
     factor: int,
     twist: Twist,
 ) -> SchoenPresentation:
-    """Build one exact multigraded presentation on the Schoen cover."""
+    """Build a multigraded Schoen presentation from an exact base pushout."""
 
     if len(twist) != 3 or any(
         isinstance(value, bool) or not isinstance(value, int) for value in twist
     ):
         raise TypeError("Schoen presentation twists must be integral triples")
-    candidate = _candidate(ray, tier_a_pencil_model())
     source_lines = tuple(
         _line_degree(factor, shift, twist)
         for shift in candidate.source_shifts
@@ -98,12 +97,32 @@ def schoen_presentation(
         for shift in candidate.target_shifts
     )
     return SchoenPresentation(
-        ray,
+        None,
         candidate,
         factor,
         twist,
         source_lines,
         target_lines,
+    )
+
+
+@cache
+def schoen_presentation(
+    ray: TierBSerreExtensionRay,
+    factor: int,
+    twist: Twist,
+) -> SchoenPresentation:
+    """Build one exact multigraded presentation from a declared Tier B ray."""
+
+    candidate = _candidate(ray, tier_a_pencil_model())
+    presentation = schoen_presentation_from_candidate(candidate, factor, twist)
+    return SchoenPresentation(
+        ray,
+        presentation.candidate,
+        presentation.factor,
+        presentation.twist,
+        presentation.source_line_degrees,
+        presentation.target_line_degrees,
     )
 
 
@@ -425,4 +444,5 @@ __all__ = [
     "SchoenPresentation",
     "schoen_outer_hom",
     "schoen_presentation",
+    "schoen_presentation_from_candidate",
 ]

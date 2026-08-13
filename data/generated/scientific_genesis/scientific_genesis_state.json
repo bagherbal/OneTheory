@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "1e6e15f1be88f905b21cb44a2bf9ac7205b9671db33789a48d24c0596d1433e8",
+  "artifact_digest": "1149fb2e69a606dbc18e2389e5e1a69aad06c81d6487bde0da5665c98009e26a",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -112,6 +112,11 @@
       "sha256": "ec909871c892604fa20f41e83a93d8ef5b43fdb2cbd7c1329fcb288620b8010a"
     },
     {
+      "bytes": 1911,
+      "path": "data/generated/scientific_genesis/published_pushout_mismatch.json",
+      "sha256": "2e66f8021f1fffbe6e965178c45a1e263c9e1a8bb2c74f1bf95bf47ecddf9cf7"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -133,11 +138,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 453,
+    "collected_tests_at_audit": 457,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 116,
-    "test_python_files": 104
+    "research_python_files": 117,
+    "test_python_files": 105
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -300,17 +305,32 @@
     {
       "assumptions": [],
       "evidence": [
-        "data/generated/visible_carrier/visible_carrier_artifact.json"
+        "data/generated/scientific_genesis/published_pushout_mismatch.json",
+        "research/experiments/scientific_genesis/published_pushout_mismatch.py"
+      ],
+      "id": "published_projective_pushout_adapter",
+      "label": "projective-pushout published-carrier adapter",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "Applying the exact I3/I6 base pushouts with the published twists gives cover Ext-one dimensions 0 and 63, not the source-bound 36 and 72. The adapter is not a W1/W2 chain model.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/visible_carrier/visible_carrier_artifact.json",
+        "data/generated/scientific_genesis/published_pushout_mismatch.json"
       ],
       "id": "published_chain_reconstruction",
       "label": "published carrier chain reconstruction",
       "layer": "Reference realization",
       "missing_prerequisites": [
-        "four invariant Ext cocycles",
+        "fiber-sensitive dP9 Serre presentations for W1 and W2",
+        "four invariant outer Ext cocycles",
         "common Cech-Koszul basis and signs",
         "local transition data"
       ],
-      "statement": "The sources do not serialize the four invariant extension cocycles or synchronized Cech-Koszul transition data needed downstream.",
+      "statement": "The sources do not serialize fiber-sensitive W1/W2 chain maps or the four invariant outer cocycles. The available projective pushouts fail the published cover Ext dimensions exactly.",
       "status": "BLOCKED"
     },
     {
@@ -949,6 +969,32 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/published_pushout_mismatch.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the tested adapter omits fiber-sensitive constituent maps"
+      ],
+      "mathematical_reason": "Any claimed chain reconstruction must reproduce the published cover Ext dimensions before quotient invariants are meaningful.",
+      "source": "published_visible_carrier",
+      "target": "published_projective_pushout_adapter"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/schoen_sparse_outer.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "different exact dP9 presentations may reconstruct W1/W2"
+      ],
+      "mathematical_reason": "Refuting the base-pushout substitution isolates the missing dP9 fiber-direction Serre maps as a prerequisite to outer Hom.",
+      "source": "published_projective_pushout_adapter",
+      "target": "published_chain_reconstruction"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "research/experiments/visible_bundle_reconstruction/reconstruct.py"
       ],
       "implication": "exact",
@@ -1542,7 +1588,8 @@
     "the candidate-4/24 nonlifting complements admit an exact nonempty necessary forced-subobject chamber with rational witnesses",
     "all 288 maximal quotient-generator restrictions have proper unstable kernels, leaving nonempty generic complements",
     "the unique lower-line section has identically zero outer-Hom pullback in every candidate-4/24 family",
-    "the same exact lower-line screen exhausts all 72 candidate-5/25 families in the declared monomial category"
+    "the same exact lower-line screen exhausts all 72 candidate-5/25 families in the declared monomial category",
+    "the sparse Schoen engine accepts exact base pushouts directly and checks both published-carrier Hom orientations"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -1690,8 +1737,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "mathematically justified enlargement of the carrier search category with a finite exact enumeration domain",
-    "selection_status": "declared monomial carrier category exhausted by exact no-goes"
+    "next_required_object": "exact fiber-sensitive dP9 Serre presentation of W1 and W2 before recomputing the published outer Hom",
+    "selection_status": "published chain reconstruction after projective-adapter no-go"
   },
   "research_value_scheduler": [
     {
@@ -1993,7 +2040,8 @@
     "all 72 families in candidates 15 and 35 lift a right Serre line with strictly positive slope despite their nonempty necessary chamber",
     "all 72 families in candidates 16 and 36 have incompatible negative-slope requirements for the right-line preimage and universally lifted line",
     "all 72 families in candidates 4 and 24 lift a descended lower line whose slope and the forced left-line slope sum to a strictly positive fiber-class slope",
-    "the final 72 families in candidates 5 and 25 have the same exact positive fiber-slope contradiction, exhausting only the declared finite monomial category"
+    "the final 72 families in candidates 5 and 25 have the same exact positive fiber-slope contradiction, exhausting only the declared finite monomial category",
+    "the available projective I3/I6 pushouts give cover Ext-one dimensions 0/63 rather than the published 36/72, so they cannot stand in for fiber-sensitive W1/W2 presentations"
   ],
   "structural_compression_questions": [
     {

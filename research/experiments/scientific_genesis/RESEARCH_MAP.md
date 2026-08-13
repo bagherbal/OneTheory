@@ -201,6 +201,16 @@ Thus no stable family remains in the declared finite monomial category. This
 is not a no-go for general Schoen bundles. A wider search must first define a
 mathematically justified finite category before any new enumeration begins.
 
+The shortest vertical path now returns to the selected published carrier, but
+one tempting shortcut is excluded. Feeding the exact projective I3/I6
+pushouts into the sparse Schoen engine with the published V1/V2 twists gives
+forward and reverse cover Ext-one dimensions `0` and `63`. The source-bound
+carrier ledger requires `36` and `72`, with invariant dimensions `4` and `8`.
+Both tested total complexes square to zero, so this is an exact model mismatch,
+not an arithmetic failure. The projective pushouts are not W1/W2 chain models;
+fiber-sensitive dP9 Serre presentations must be derived before the four outer
+cocycles can be reconstructed. The published carrier itself is not refuted.
+
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
 Higgs pair remain selection constraints. The first component passing every

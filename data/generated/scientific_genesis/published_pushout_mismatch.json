@@ -1,0 +1,95 @@
+{
+  "artifact_digest": "a976b57a41aa16c1bf91e4a0cf637c876193edeae220fca671d990ab4b7f9212",
+  "base_pushouts_identified_with_published_constituents": false,
+  "dimension_mismatch_exact": true,
+  "missing_mathematical_data": [
+    "fiber-sensitive dP9 Serre presentations for W1 and W2",
+    "their exact deck-linearized chain maps",
+    "a synchronized Schoen Cech-Koszul convention"
+  ],
+  "next_required_object": "exact fiber-sensitive dP9 Serre presentation of W1 and W2 before recomputing the published outer Hom",
+  "published_carrier_refuted": false,
+  "published_source_ledger": {
+    "forward_cover_ext_one_dimension": 36,
+    "forward_invariant_ext_one_dimension": 4,
+    "reverse_cover_ext_one_dimension": 72,
+    "reverse_invariant_ext_one_dimension": 8
+  },
+  "schema": "published-pushout-mismatch-v1",
+  "status": "exact adapter no-go: current base-projective pushouts are not chain models of the published W1/W2 constituents",
+  "tested_adapter": {
+    "both_complexes_squared_zero": true,
+    "forward_cover_ext_one_dimension": 0,
+    "forward_total_dimensions": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1260
+      ],
+      [
+        1,
+        4500
+      ],
+      [
+        2,
+        4563
+      ],
+      [
+        3,
+        1260
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "left_base_pushout": "I3",
+    "left_factor_and_twist": [
+      1,
+      [
+        -1,
+        1,
+        0
+      ]
+    ],
+    "reverse_cover_ext_one_dimension": 63,
+    "reverse_total_dimensions": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1260
+      ],
+      [
+        1,
+        4563
+      ],
+      [
+        2,
+        4500
+      ],
+      [
+        3,
+        1260
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "right_base_pushout": "I6",
+    "right_factor_and_twist": [
+      2,
+      [
+        1,
+        -1,
+        0
+      ]
+    ]
+  }
+}

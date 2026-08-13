@@ -212,15 +212,36 @@ def _nodes() -> list[dict[str, object]]:
             ("published source claims and conventions",),
         ),
         _node(
+            "published_projective_pushout_adapter",
+            "projective-pushout published-carrier adapter",
+            "Reference realization",
+            "REFUTED",
+            "Applying the exact I3/I6 base pushouts with the published twists "
+            "gives cover Ext-one dimensions 0 and 63, not the source-bound 36 "
+            "and 72. The adapter is not a W1/W2 chain model.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_pushout_mismatch.json",
+                "research/experiments/scientific_genesis/"
+                "published_pushout_mismatch.py",
+            ),
+        ),
+        _node(
             "published_chain_reconstruction",
             "published carrier chain reconstruction",
             "Reference realization",
             "BLOCKED",
-            "The sources do not serialize the four invariant extension cocycles "
-            "or synchronized Cech-Koszul transition data needed downstream.",
-            ("data/generated/visible_carrier/visible_carrier_artifact.json",),
+            "The sources do not serialize fiber-sensitive W1/W2 chain maps or "
+            "the four invariant outer cocycles. The available projective "
+            "pushouts fail the published cover Ext dimensions exactly.",
+            (
+                "data/generated/visible_carrier/visible_carrier_artifact.json",
+                "data/generated/scientific_genesis/"
+                "published_pushout_mismatch.json",
+            ),
             missing=(
-                "four invariant Ext cocycles",
+                "fiber-sensitive dP9 Serre presentations for W1 and W2",
+                "four invariant outer Ext cocycles",
                 "common Cech-Koszul basis and signs",
                 "local transition data",
             ),
@@ -807,6 +828,32 @@ def _edges() -> list[dict[str, object]]:
             ("published source transcription",),
             True,
             ("chain representatives are not published",),
+        ),
+        _edge(
+            "published_visible_carrier",
+            "published_projective_pushout_adapter",
+            "Any claimed chain reconstruction must reproduce the published "
+            "cover Ext dimensions before quotient invariants are meaningful.",
+            (
+                "research/experiments/scientific_genesis/"
+                "published_pushout_mismatch.py",
+            ),
+            (),
+            True,
+            ("the tested adapter omits fiber-sensitive constituent maps",),
+        ),
+        _edge(
+            "published_projective_pushout_adapter",
+            "published_chain_reconstruction",
+            "Refuting the base-pushout substitution isolates the missing dP9 "
+            "fiber-direction Serre maps as a prerequisite to outer Hom.",
+            (
+                "research/experiments/computable_carrier/"
+                "schoen_sparse_outer.py",
+            ),
+            (),
+            True,
+            ("different exact dP9 presentations may reconstruct W1/W2",),
         ),
         _edge(
             "published_visible_carrier",
@@ -1576,6 +1623,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/next_survivor_generator_restrictions.json",
         "data/generated/scientific_genesis/next_survivor_lower_line_no_go.json",
         "data/generated/scientific_genesis/remaining_lower_line_no_go.json",
+        "data/generated/scientific_genesis/published_pushout_mismatch.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1596,7 +1644,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 453,
+            "collected_tests_at_audit": 457,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1618,7 +1666,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "declared monomial carrier category exhausted by exact no-goes"
+                "published chain reconstruction after projective-adapter no-go"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1700,8 +1748,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "mathematically justified enlargement of the carrier search "
-                "category with a finite exact enumeration domain"
+                "exact fiber-sensitive dP9 Serre presentation of W1 and W2 "
+                "before recomputing the published outer Hom"
             ),
         },
         "claims": _nodes(),
@@ -1743,6 +1791,8 @@ def build_state() -> dict[str, object]:
             "pullback in every candidate-4/24 family",
             "the same exact lower-line screen exhausts all 72 candidate-5/25 "
             "families in the declared monomial category",
+            "the sparse Schoen engine accepts exact base pushouts directly and "
+            "checks both published-carrier Hom orientations",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1769,6 +1819,9 @@ def build_state() -> dict[str, object]:
             "the final 72 families in candidates 5 and 25 have the same exact "
             "positive fiber-slope contradiction, exhausting only the declared "
             "finite monomial category",
+            "the available projective I3/I6 pushouts give cover Ext-one "
+            "dimensions 0/63 rather than the published 36/72, so they cannot "
+            "stand in for fiber-sensitive W1/W2 presentations",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",

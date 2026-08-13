@@ -42,7 +42,9 @@ from .schoen_outer import (
     _factor_matrix,
     _hom_term_lines,
     schoen_presentation,
+    schoen_presentation_from_candidate,
 )
+from .serre_pushout import SerrePushoutCandidate
 from .tier_b_serre_extensions import TierBSerreExtensionRay
 
 SparseRow = tuple[tuple[int, Eisenstein], ...]
@@ -790,18 +792,12 @@ def _sparse_horizontal_map(
 
 
 @cache
-def sparse_outer_hom(
-    left_ray: TierBSerreExtensionRay,
-    right_ray: TierBSerreExtensionRay,
-    left_factor: int,
-    left_twist: tuple[int, int, int],
-    right_factor: int,
-    right_twist: tuple[int, int, int],
+def _sparse_outer_hom_presentations(
+    left: SchoenPresentation,
+    right: SchoenPresentation,
 ) -> SparseOuterHom:
-    """Build one sparse exact cover-level outer Hom totalization."""
+    """Build one sparse exact cover Hom from typed Schoen presentations."""
 
-    left = schoen_presentation(left_ray, left_factor, left_twist)
-    right = schoen_presentation(right_ray, right_factor, right_twist)
     from .polynomial_hom import polynomial_hom_complex
 
     parent = polynomial_hom_complex(left.candidate, right.candidate)
@@ -818,7 +814,7 @@ def sparse_outer_hom(
         for sheaf_degree in range(4)
     }
     factors = {
-        degree: _factor_matrix(parent, degree, left_factor, right_factor)
+        degree: _factor_matrix(parent, degree, left.factor, right.factor)
         for degree, _ in parent.differentials
     }
     horizontal = {
@@ -883,10 +879,51 @@ def sparse_outer_hom(
     )
 
 
+@cache
+def sparse_outer_hom_candidates(
+    left_candidate: SerrePushoutCandidate,
+    right_candidate: SerrePushoutCandidate,
+    left_factor: int,
+    left_twist: tuple[int, int, int],
+    right_factor: int,
+    right_twist: tuple[int, int, int],
+) -> SparseOuterHom:
+    """Build a sparse cover Hom directly from exact base pushouts."""
+
+    left = schoen_presentation_from_candidate(
+        left_candidate,
+        left_factor,
+        left_twist,
+    )
+    right = schoen_presentation_from_candidate(
+        right_candidate,
+        right_factor,
+        right_twist,
+    )
+    return _sparse_outer_hom_presentations(left, right)
+
+
+@cache
+def sparse_outer_hom(
+    left_ray: TierBSerreExtensionRay,
+    right_ray: TierBSerreExtensionRay,
+    left_factor: int,
+    left_twist: tuple[int, int, int],
+    right_factor: int,
+    right_twist: tuple[int, int, int],
+) -> SparseOuterHom:
+    """Build one sparse exact cover-level outer Hom totalization."""
+
+    left = schoen_presentation(left_ray, left_factor, left_twist)
+    right = schoen_presentation(right_ray, right_factor, right_twist)
+    return _sparse_outer_hom_presentations(left, right)
+
+
 __all__ = [
     "SparseMap",
     "SparseLineBundle",
     "SparseOuterHom",
     "sparse_line_bundle",
     "sparse_outer_hom",
+    "sparse_outer_hom_candidates",
 ]

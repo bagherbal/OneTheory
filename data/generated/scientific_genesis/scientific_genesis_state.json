@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "add387d413201243a0427ad3278ed2d197c6a3a1f9f8b91b38cdfbd1bb42b3ae",
+  "artifact_digest": "b01bee2c9a754832187c7bda3ff7d7cad2e85aa77a107e29f4dd0e8d0122fe48",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -122,6 +122,11 @@
       "sha256": "c7119293ba1632d2334623c4c664d5515bbceefe45e2e0e7067f6bc940462e78"
     },
     {
+      "bytes": 5735,
+      "path": "data/generated/scientific_genesis/published_constituent_deck_actions.json",
+      "sha256": "18291443f0488c155a36dfe83e2e066841567f47b8a9838ea1ed8d55aebb6b4b"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -143,11 +148,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 462,
+    "collected_tests_at_audit": 467,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 119,
-    "test_python_files": 106
+    "research_python_files": 121,
+    "test_python_files": 107
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -335,22 +340,37 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "published constituent equivariant representations"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/published_constituent_deck_actions.json",
+        "research/experiments/computable_carrier/dp9_serre_actions.py",
+        "tests/integration/test_scientific_genesis_published_constituent_deck_actions.py"
+      ],
+      "id": "published_constituent_deck_actions",
+      "label": "published constituent deck-linearized cocycles",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "Natural dP9 chain actions are derived exactly. The unique common character matching the published W1/W2 representations is source-selected explicitly, yielding one invariant Ext class each.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "data/generated/visible_carrier/visible_carrier_artifact.json",
-        "data/generated/scientific_genesis/published_constituent_ext_spaces.json"
+        "data/generated/scientific_genesis/published_constituent_deck_actions.json"
       ],
       "id": "published_chain_reconstruction",
       "label": "published carrier chain reconstruction",
       "layer": "Reference realization",
       "missing_prerequisites": [
-        "deck actions on the dP9 constituent total complexes",
-        "equivariant W1 and W2 Ext-one representatives",
+        "mapping-cone presentations of W1 and W2",
         "four invariant outer Ext cocycles",
         "common Cech-Koszul basis and signs",
         "local transition data"
       ],
-      "statement": "The constituent Ext spaces now have exact total complexes and dimensions, but their deck-linearized representatives and the four invariant outer cocycles are not yet reconstructed.",
+      "statement": "The constituent Ext spaces now have exact deck-linearized representatives, but W1/W2 mapping cones and the four invariant outer cocycles are not yet reconstructed.",
       "status": "BLOCKED"
     },
     {
@@ -1013,16 +1033,31 @@
       "target": "published_constituent_ext_spaces"
     },
     {
-      "assumptions_required": [],
+      "assumptions_required": [
+        "published constituent equivariant representations"
+      ],
       "implementation_or_artifact": [
-        "research/experiments/computable_carrier/dp9_serre_ext.py"
+        "research/experiments/computable_carrier/dp9_serre_actions.py"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "dimension agreement alone does not establish descent"
+        "the common character is source-selected, not fundamentally derived"
       ],
-      "mathematical_reason": "Explicit constituent cocycles need exact deck actions before the published equivariant rays can enter the outer Hom complex.",
+      "mathematical_reason": "The explicit total complexes support geometric deck pullbacks; published equivariant data fixes their remaining character choice.",
       "source": "published_constituent_ext_spaces",
+      "target": "published_constituent_deck_actions"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/dp9_serre_actions.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "an invariant cohomology class is not itself a sheaf presentation"
+      ],
+      "mathematical_reason": "Invariant constituent cocycles must become explicit mapping cones before a synchronized outer Hom complex can be formed.",
+      "source": "published_constituent_deck_actions",
       "target": "published_chain_reconstruction"
     },
     {
@@ -1608,6 +1643,7 @@
     "exact reusable arithmetic, polynomial, homological, Cech, Cox, sheaf, and geometry engines",
     "published Schoen geometry and selected one-Higgs reference carrier metadata",
     "exact fiber-sensitive dP9 Serre complexes deriving the published constituent Ext-one dimensions 2 and 5",
+    "exact natural dP9 deck chain actions plus source-aligned invariant constituent Ext representatives",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
     "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family",
     "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient",
@@ -1771,8 +1807,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "exact deck action on the dP9 total complexes and induced action on their Ext-one representatives",
-    "selection_status": "published constituent deck-action reconstruction"
+    "next_required_object": "mapping-cone presentations of W1 and W2 from the certified invariant constituent cocycles",
+    "selection_status": "published constituent mapping-cone reconstruction"
   },
   "research_value_scheduler": [
     {

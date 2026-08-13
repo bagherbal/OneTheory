@@ -1,0 +1,155 @@
+{
+  "artifact_digest": "352a07263dc28eba1d2a492bd4142a49695b7fad45ba1f429acda9b7f6fe51ce",
+  "common_linearization_character": {
+    "P": "omega",
+    "T": "1"
+  },
+  "constituents": [
+    {
+      "aligned_character_multiplicities": [
+        {
+          "P": "1",
+          "T": "1",
+          "multiplicity": 1
+        },
+        {
+          "P": "omega",
+          "T": "1",
+          "multiplicity": 1
+        }
+      ],
+      "chain_relations": true,
+      "conjugate_to_published": true,
+      "intertwiner_determinant": "1",
+      "invariant_dimension": 1,
+      "invariant_representatives": [
+        [
+          {
+            "basis": "left:O(2,-2):H^1\u2295O(-1,-3):H^2\u2295O(2,-2):H^1\u2295O(-1,-3):H^2\u2295O(2,-2):H^1\u2295O(-1,-3):H^2:left:O(2,-2):H^1\u2295O(-1,-3):H^2\u2295O(2,-2):H^1\u2295O(-1,-3):H^2:left:O(2,-2):H^1\u2295O(-1,-3):H^2:left:O(2,-2):H^1:(0, 1, (1, 1, 0), (-1, -1))",
+            "coefficient": "1"
+          },
+          {
+            "basis": "left:O(2,-2):H^1\u2295O(-1,-3):H^2\u2295O(2,-2):H^1\u2295O(-1,-3):H^2\u2295O(2,-2):H^1\u2295O(-1,-3):H^2:left:O(2,-2):H^1\u2295O(-1,-3):H^2\u2295O(2,-2):H^1\u2295O(-1,-3):H^2:right:O(2,-2):H^1\u2295O(-1,-3):H^2:left:O(2,-2):H^1:(0, 1, (1, 0, 1), (-1, -1))",
+            "coefficient": "1"
+          },
+          {
+            "basis": "left:O(2,-2):H^1\u2295O(-1,-3):H^2\u2295O(2,-2):H^1\u2295O(-1,-3):H^2\u2295O(2,-2):H^1\u2295O(-1,-3):H^2:right:O(2,-2):H^1\u2295O(-1,-3):H^2:left:O(2,-2):H^1:(0, 1, (0, 1, 1), (-1, -1))",
+            "coefficient": "1"
+          }
+        ]
+      ],
+      "linearization_character": {
+        "P": "omega",
+        "T": "1",
+        "status": "uniquely selected by published equivariant data"
+      },
+      "natural_character_multiplicities": [
+        {
+          "P": "1",
+          "T": "1",
+          "multiplicity": 1
+        },
+        {
+          "P": "-1-omega",
+          "T": "1",
+          "multiplicity": 1
+        }
+      ],
+      "published_constituent": "W1",
+      "scheme": "I3",
+      "status": "exact constituent deck-linearized cocycle with a source-bound equivariant character; mapping cone remains pending"
+    },
+    {
+      "aligned_character_multiplicities": [
+        {
+          "P": "1",
+          "T": "1",
+          "multiplicity": 1
+        },
+        {
+          "P": "1",
+          "T": "omega",
+          "multiplicity": 1
+        },
+        {
+          "P": "omega",
+          "T": "1",
+          "multiplicity": 1
+        },
+        {
+          "P": "omega",
+          "T": "omega",
+          "multiplicity": 1
+        },
+        {
+          "P": "-1-omega",
+          "T": "omega",
+          "multiplicity": 1
+        }
+      ],
+      "chain_relations": true,
+      "conjugate_to_published": true,
+      "intertwiner_determinant": "1/2",
+      "invariant_dimension": 1,
+      "invariant_representatives": [
+        [
+          {
+            "basis": "left:O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2:left:O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2:left:O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2:left:O(3,-2):H^1\u2295O(0,-3):H^2:left:O(3,-2):H^1:(0, 1, (0, 2, 1), (-1, -1))",
+            "coefficient": "1"
+          },
+          {
+            "basis": "left:O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2:left:O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2:left:O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2:right:O(3,-2):H^1\u2295O(0,-3):H^2:left:O(3,-2):H^1:(0, 1, (1, 0, 2), (-1, -1))",
+            "coefficient": "1"
+          },
+          {
+            "basis": "left:O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2:left:O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2:right:O(3,-2):H^1\u2295O(0,-3):H^2:left:O(3,-2):H^1:(0, 1, (1, 1, 1), (-1, -1))",
+            "coefficient": "1"
+          },
+          {
+            "basis": "left:O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2\u2295O(3,-2):H^1\u2295O(0,-3):H^2:right:O(3,-2):H^1\u2295O(0,-3):H^2:left:O(3,-2):H^1:(0, 1, (2, 1, 0), (-1, -1))",
+            "coefficient": "1"
+          }
+        ]
+      ],
+      "linearization_character": {
+        "P": "omega",
+        "T": "1",
+        "status": "uniquely selected by published equivariant data"
+      },
+      "natural_character_multiplicities": [
+        {
+          "P": "1",
+          "T": "1",
+          "multiplicity": 1
+        },
+        {
+          "P": "1",
+          "T": "omega",
+          "multiplicity": 1
+        },
+        {
+          "P": "omega",
+          "T": "omega",
+          "multiplicity": 1
+        },
+        {
+          "P": "-1-omega",
+          "T": "1",
+          "multiplicity": 1
+        },
+        {
+          "P": "-1-omega",
+          "T": "omega",
+          "multiplicity": 1
+        }
+      ],
+      "published_constituent": "W2",
+      "scheme": "I6",
+      "status": "exact constituent deck-linearized cocycle with a source-bound equivariant character; mapping cone remains pending"
+    }
+  ],
+  "linearization_status": "source-bound selection from published equivariant representations; not a fundamental derivation",
+  "next_required_object": "mapping-cone presentations of W1 and W2 from the certified invariant constituent cocycles",
+  "outer_extension_reconstructed": false,
+  "schema": "published-constituent-deck-actions-v1"
+}

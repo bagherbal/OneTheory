@@ -243,21 +243,38 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "published_constituent_deck_actions",
+            "published constituent deck-linearized cocycles",
+            "Reference realization",
+            "COMPUTED",
+            "Natural dP9 chain actions are derived exactly. The unique common "
+            "character matching the published W1/W2 representations is "
+            "source-selected explicitly, yielding one invariant Ext class each.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_deck_actions.json",
+                "research/experiments/computable_carrier/"
+                "dp9_serre_actions.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_constituent_deck_actions.py",
+            ),
+            ("published constituent equivariant representations",),
+        ),
+        _node(
             "published_chain_reconstruction",
             "published carrier chain reconstruction",
             "Reference realization",
             "BLOCKED",
-            "The constituent Ext spaces now have exact total complexes and "
-            "dimensions, but their deck-linearized representatives and the "
-            "four invariant outer cocycles are not yet reconstructed.",
+            "The constituent Ext spaces now have exact deck-linearized "
+            "representatives, but W1/W2 mapping cones and the four invariant "
+            "outer cocycles are not yet reconstructed.",
             (
                 "data/generated/visible_carrier/visible_carrier_artifact.json",
                 "data/generated/scientific_genesis/"
-                "published_constituent_ext_spaces.json",
+                "published_constituent_deck_actions.json",
             ),
             missing=(
-                "deck actions on the dP9 constituent total complexes",
-                "equivariant W1 and W2 Ext-one representatives",
+                "mapping-cone presentations of W1 and W2",
                 "four invariant outer Ext cocycles",
                 "common Cech-Koszul basis and signs",
                 "local transition data",
@@ -873,16 +890,29 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "published_constituent_ext_spaces",
-            "published_chain_reconstruction",
-            "Explicit constituent cocycles need exact deck actions before the "
-            "published equivariant rays can enter the outer Hom complex.",
+            "published_constituent_deck_actions",
+            "The explicit total complexes support geometric deck pullbacks; "
+            "published equivariant data fixes their remaining character choice.",
             (
                 "research/experiments/computable_carrier/"
-                "dp9_serre_ext.py",
+                "dp9_serre_actions.py",
+            ),
+            ("published constituent equivariant representations",),
+            True,
+            ("the common character is source-selected, not fundamentally derived",),
+        ),
+        _edge(
+            "published_constituent_deck_actions",
+            "published_chain_reconstruction",
+            "Invariant constituent cocycles must become explicit mapping cones "
+            "before a synchronized outer Hom complex can be formed.",
+            (
+                "research/experiments/computable_carrier/"
+                "dp9_serre_actions.py",
             ),
             (),
             True,
-            ("dimension agreement alone does not establish descent",),
+            ("an invariant cohomology class is not itself a sheaf presentation",),
         ),
         _edge(
             "published_visible_carrier",
@@ -1654,6 +1684,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/remaining_lower_line_no_go.json",
         "data/generated/scientific_genesis/published_pushout_mismatch.json",
         "data/generated/scientific_genesis/published_constituent_ext_spaces.json",
+        "data/generated/scientific_genesis/published_constituent_deck_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1674,7 +1705,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 462,
+            "collected_tests_at_audit": 467,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1696,7 +1727,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "published constituent deck-action reconstruction"
+                "published constituent mapping-cone reconstruction"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1778,8 +1809,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact deck action on the dP9 total complexes and induced "
-                "action on their Ext-one representatives"
+                "mapping-cone presentations of W1 and W2 from the certified "
+                "invariant constituent cocycles"
             ),
         },
         "claims": _nodes(),
@@ -1791,6 +1822,8 @@ def build_state() -> dict[str, object]:
             "published Schoen geometry and selected one-Higgs reference carrier metadata",
             "exact fiber-sensitive dP9 Serre complexes deriving the published "
             "constituent Ext-one dimensions 2 and 5",
+            "exact natural dP9 deck chain actions plus source-aligned invariant "
+            "constituent Ext representatives",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "

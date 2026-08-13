@@ -1004,6 +1004,21 @@ candidates 5 and 25. All 36 actions are scalar directly on the stored cover
 cocycles, producing exact `P^101(Q(omega))` quotients. The cumulative ledger
 contains 1,260 pair records and no distinguished extension coordinate.
 
+The 108-dimensional frontier closes the complementary 18 character pairs in
+each of candidates 5 and 25. All 36 actions are scalar directly on the stored
+cover cocycles, yielding exact `P^107(Q(omega))` quotients. The cumulative
+ledger contains 1,296 of 1,440 action records and 216 constituent algebra
+certificates.
+
+The exhaustive sweep is checkpointed and suspended at this 90-percent
+frontier. Its remaining dimensions are 110, 116, and 126, comprising 144
+pairs. They cannot change the already certified smallest nonzero family,
+whose four-dimensional Ext space has projective quotient
+`P^3(Q(omega))`. Completing those larger spaces is therefore not presently
+on the shortest path to a universal rank-four family. The records remain
+resumable if a later structural theorem, exceptional-case test, or independent
+verification gate requires them.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

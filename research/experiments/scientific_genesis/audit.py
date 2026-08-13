@@ -399,6 +399,21 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "forced_subobject_stability_class",
+            "coefficient-positive forced-subobject topology class",
+            "Computable carrier",
+            "REFUTED",
+            "A structural screen of all 40 declared topology blocks finds 18 "
+            "blocks, containing 648 families, with an unavoidable subbundle "
+            "of strictly positive slope throughout the Kahler cone.",
+            (
+                "data/generated/scientific_genesis/"
+                "forced_subobject_stability_screen.json",
+                "research/experiments/scientific_genesis/"
+                "forced_subobject_stability_screen.py",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -834,6 +849,20 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             ("the theorem is scoped to candidates 8 and 28",),
+        ),
+        _edge(
+            "current_minimum_stability_block",
+            "forced_subobject_stability_class",
+            "The repeated positive-line obstruction compresses to three "
+            "extension-independent subobjects whose slopes are classified "
+            "across every declared topology block.",
+            (
+                "research/experiments/scientific_genesis/"
+                "forced_subobject_stability_screen.py",
+            ),
+            (),
+            True,
+            ("mixed-sign slope polynomials remain unresolved by this criterion",),
         ),
         _edge(
             "stability_chamber",
@@ -1286,6 +1315,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/minimal_block_stability_no_go.json",
         "data/generated/scientific_genesis/next_block_stability_no_go.json",
         "data/generated/scientific_genesis/current_minimum_stability_no_go.json",
+        "data/generated/scientific_genesis/forced_subobject_stability_screen.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1306,7 +1336,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 417,
+            "collected_tests_at_audit": 421,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1328,7 +1358,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "all families through invariant Ext dimension eight retired "
+                "all families below invariant Ext dimension eighteen retired "
                 "by exact stability no-go"
             ),
             "criteria": {
@@ -1342,15 +1372,38 @@ def build_state() -> dict[str, object]:
                 "current_minimum_retired_candidate_blocks": [8, 28],
                 "current_minimum_retired_pair_ranges": [[253, 288], [973, 1008]],
                 "current_minimum_retired_family_count": 72,
-                "next_invariant_ext_dimension": 10,
-                "next_candidate_blocks": [18, 38],
+                "forced_subobject_retired_candidate_blocks": [
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    17,
+                    18,
+                    19,
+                    20,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    37,
+                    38,
+                    39,
+                    40,
+                ],
+                "forced_subobject_retired_family_count": 648,
+                "remaining_nonzero_candidate_blocks": [4, 5, 15, 16, 24, 25, 35, 36],
+                "remaining_nonzero_family_count": 288,
+                "next_invariant_ext_dimension": 18,
+                "next_candidate_blocks": [15, 35],
                 "arbitrary_point_selected": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "stability classification of the 72 ten-dimensional "
-                "invariant-Ext families in candidate blocks 18 and 38"
+                "exact common-chamber classification for the 72 families in "
+                "candidate blocks 15 and 35"
             ),
         },
         "claims": _nodes(),
@@ -1375,6 +1428,8 @@ def build_state() -> dict[str, object]:
             "at the published polarization anchor",
             "the current minimum blocks 8 and 28 have a universal descended "
             "left-line slope obstruction independent of extension parameters",
+            "all 40 declared topology blocks are partitioned by exact forced "
+            "subobject slope signs without completing automorphism quotients",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1389,6 +1444,8 @@ def build_state() -> dict[str, object]:
             "14 and 34 lift a line with strictly positive Kahler-cone slope",
             "all 72 eight/ten-dimensional invariant-Ext families in candidates "
             "8 and 28 contain a descended line with strictly positive Kahler-cone slope",
+            "18 topology blocks containing 648 families have a coefficient-positive "
+            "forced subbundle and therefore no slope-stable extension",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -1449,16 +1506,16 @@ def build_state() -> dict[str, object]:
             },
             {
                 "question": (
-                    "Can forced Serre-line slope signs classify surviving topology "
-                    "blocks before any family-level mapping cone is constructed?"
+                    "Do the mixed-sign forced slopes in the eight remaining "
+                    "nonzero topology blocks admit a common strict-negative chamber?"
                 ),
                 "evidence": (
-                    "candidates 8, 14, 28, and 34 are retired by line-slope "
-                    "theorems covering 144 families"
+                    "coefficient signs retire 648 families but are only a "
+                    "sufficient positivity test for the remaining 288"
                 ),
                 "attack": (
-                    "derive every forced constituent line from topology data and "
-                    "partition the remaining blocks by symbolic Kahler-cone sign"
+                    "solve the three exact homogeneous quadratic inequalities "
+                    "symbolically and certify emptiness or a rational chamber point"
                 ),
             },
         ],

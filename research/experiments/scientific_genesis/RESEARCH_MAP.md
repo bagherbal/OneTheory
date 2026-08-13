@@ -102,8 +102,22 @@ polynomials have only positive coefficients, so the forced line destabilizes
 at every point of the published positive Kähler cone. This excludes all 72
 families in the two blocks: 36 with eight-dimensional invariant Ext and their
 36 ten-dimensional companions. No extension coordinate or sampled
-polarization is used. The next open minimum is the 72 ten-dimensional families
-in candidates 18 and 38.
+polarization is used. This exposed candidates 18 and 38 as the next local
+minimum before the obstruction was compressed across the full topology set.
+
+The repeated obstruction has now been compressed into a topology theorem.
+Every outer extension contains the left Serre line, the left rank-two
+constituent, and the rank-three inverse image of the right Serre line. Since
+the total determinant is trivial, any one of these with nonnegative slope
+destroys strict stability. Exact symbolic slopes partition all 40 declared
+topology blocks: ten have zero invariant Ext, while 18 blocks containing 648
+families have a nonzero coefficient-nonnegative forced slope and are therefore
+unstable everywhere in the positive Kähler cone. This includes candidates 18
+and 38 as well as high-dimensional blocks whose automorphism quotients were
+never needed. Combining this theorem with the four independently retired
+mixed-sign blocks leaves eight nonzero topology blocks and 288 families. The
+next minimum is now the 36 eighteen-dimensional families inside candidates 15
+and 35; their 36 dimension-24 companions share the same topology.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
@@ -138,8 +152,8 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: classify the 72 ten-dimensional families
-in candidates 18 and 38, then advance by increasing invariant Ext dimension
+The governing queue is therefore: solve the exact common forced-slope chamber
+for candidates 15 and 35, then advance by increasing invariant Ext dimension
 until one stable family survives or the declared category is exhausted. Spectrum
 loci and the minimum common-DGA Yukawa slice remain downstream of the first
 stable family. Completing the final 144 large automorphism cases stays

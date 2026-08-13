@@ -50,8 +50,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["retired_family_count"] == 72
     assert path["criteria"]["additional_retired_family_count"] == 72
     assert path["criteria"]["current_minimum_retired_family_count"] == 72
-    assert path["criteria"]["next_invariant_ext_dimension"] == 10
-    assert path["criteria"]["next_candidate_blocks"] == [18, 38]
+    assert path["criteria"]["forced_subobject_retired_family_count"] == 648
+    assert path["criteria"]["remaining_nonzero_family_count"] == 288
+    assert path["criteria"]["next_invariant_ext_dimension"] == 18
+    assert path["criteria"]["next_candidate_blocks"] == [15, 35]
     assert path["criteria"]["arbitrary_point_selected"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
@@ -59,12 +61,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "all families through invariant Ext dimension eight retired "
+        "all families below invariant Ext dimension eighteen retired "
         "by exact stability no-go"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"
     assert claims["current_minimum_stability_block"]["status"] == "REFUTED"
+    assert claims["forced_subobject_stability_class"]["status"] == "REFUTED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     assert state["fitted_inputs"] == []

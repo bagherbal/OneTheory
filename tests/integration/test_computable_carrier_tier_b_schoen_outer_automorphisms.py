@@ -798,3 +798,36 @@ def test_checked_action_frontier_closes_dimension_fifty_two() -> None:
         for record in records
     )
     assert all(record["exact"] is True for record in records)
+
+
+def test_checked_action_frontier_closes_dimension_sixty_six() -> None:
+    """Two full candidate blocks close directly as projective spaces."""
+
+    digest, invariant_records = _validated_invariant_records(
+        DEFAULT_INVARIANT_ARTIFACT
+    )
+    pairs, constituents = _read_partial(ACTION_CHECKPOINT, digest)
+    records = [
+        pairs[record["global_pair_index"]]
+        for record in invariant_records
+        if record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 66
+    ]
+
+    assert len(pairs) >= 1224
+    assert len(constituents) >= 216
+    assert len(records) == 72
+    assert Counter(record["candidate_index"] for record in records) == {
+        19: 36,
+        39: 36,
+    }
+    assert all(
+        record["automorphism_action"]["action_proof"]
+        == "exact equality on cover cocycles"
+        for record in records
+    )
+    assert all(
+        record["automorphism_action"]["nonzero_orbit_space"]
+        == "P^65(Q(omega))"
+        for record in records
+    )
+    assert all(record["exact"] is True for record in records)

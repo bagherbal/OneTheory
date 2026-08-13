@@ -992,6 +992,13 @@ fifty-two-dimensional frontier. Their constituent actions are scalar on all
 ledger contains 1,152 exact records, four fifths of the declared action
 screen, and no chosen orbit representative.
 
+The sixty-six-dimensional frontier contains every ray pair in candidates 19
+and 39, for 72 actions total. Each constituent action is scalar directly on
+the explicit cover cocycles, and every nonzero quotient is
+`P^65(Q(omega))`. The cumulative ledger contains 1,224 exact pair records and
+216 full-identity constituent certificates; none promotes a projective point
+to an extension.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

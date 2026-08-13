@@ -476,6 +476,25 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "next_survivor_forced_chamber",
+            "dimension-50/52 necessary stability chamber",
+            "Computable carrier",
+            "COMPUTED",
+            "Candidates 4 and 24 have a nonempty exact chamber for every "
+            "extension-independent proper subbundle. Rational factor-exchanged "
+            "witnesses certify necessity without proving full stability.",
+            (
+                "data/generated/scientific_genesis/"
+                "next_survivor_forced_chamber.json",
+                "research/experiments/scientific_genesis/"
+                "next_survivor_forced_chamber.py",
+            ),
+            missing=(
+                "classification of additional saturated subsheaves on the "
+                "nonlifting open complements",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -984,6 +1003,22 @@ def _edges() -> list[dict[str, object]]:
             ),
         ),
         _edge(
+            "next_survivor_lifting_kernel",
+            "next_survivor_forced_chamber",
+            "After removing the unstable right-line lifting kernel, exact "
+            "Schoen intersections reduce the remaining extension-independent "
+            "stability conditions to two homogeneous quadratic inequalities.",
+            (
+                "research/experiments/scientific_genesis/"
+                "next_survivor_forced_chamber.py",
+            ),
+            (),
+            True,
+            (
+                "a nonempty necessary chamber need not contain a stable bundle",
+            ),
+        ),
+        _edge(
             "stability_chamber",
             "physical_spectrum",
             "A stable descended replacement bundle is required before the physical "
@@ -1439,6 +1474,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_sign_minimum_stability_no_go.json",
         "data/generated/scientific_genesis/lifted_line_slope_identity_no_go.json",
         "data/generated/scientific_genesis/next_survivor_restriction.json",
+        "data/generated/scientific_genesis/next_survivor_forced_chamber.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1459,7 +1495,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 437,
+            "collected_tests_at_audit": 441,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1481,7 +1517,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "dimension-50/52 block split by an exact rank-20 restriction"
+                "dimension-50/52 nonlifting locus has a necessary chamber"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1529,6 +1565,11 @@ def build_state() -> dict[str, object]:
                 },
                 "next_survivor_lifting_kernels_unstable": True,
                 "next_survivor_complements_stability_proved": False,
+                "next_survivor_forced_chamber_nonempty": True,
+                "next_survivor_forced_chamber_witnesses": [
+                    "(5,1,7)",
+                    "(1,5,7)",
+                ],
                 "next_invariant_ext_dimension": 50,
                 "next_candidate_blocks": [4, 24],
                 "minimum_forced_chamber_nonempty": True,
@@ -1542,8 +1583,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact stability classification on the nonlifting projective "
-                "open complements in candidate blocks 4 and 24"
+                "generic stability theorem or exact destabilizing stratum for "
+                "the candidate-4/24 nonlifting complements"
             ),
         },
         "claims": _nodes(),
@@ -1577,6 +1618,8 @@ def build_state() -> dict[str, object]:
             "all candidate-4/24 right-line restriction maps have exact rank 20; "
             "their unstable lifting loci are projective linear subspaces of "
             "codimension 20",
+            "the candidate-4/24 nonlifting complements admit an exact nonempty "
+            "necessary forced-subobject chamber with rational witnesses",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1662,7 +1705,8 @@ def build_state() -> dict[str, object]:
                 ),
                 "evidence": (
                     "the exact rank-20 restriction removes the right-line lift "
-                    "off P^29 inside P^49 and P^31 inside P^51"
+                    "off P^29 inside P^49 and P^31 inside P^51; the remaining "
+                    "forced slopes are negative at (5,1,7) after orientation"
                 ),
                 "attack": (
                     "classify additional saturated subsheaves on the nonlifting "

@@ -150,6 +150,25 @@ side negative, a contradiction. All 72 dimension-42/48 families are retired.
 Only four nonzero topology blocks and 144 families remain in the declared
 category. The next minimum is dimension 50 in candidates 4 and 24.
 
+That next block no longer has a universal right-line lift. Exact chain maps
+from every invariant outer Ext space to `Ext^1(L_right,V_left)` have rank 20.
+Consequently the `P^49` families contain `P^29` lifting loci and the `P^51`
+families contain `P^31` lifting loci. The rank-three right-line preimage is
+always present, and on either lifting locus its slope obeys
+`3*mu(preimage(L_right))+mu(L_right)=0`. Strict negativity of both proper
+subbundles is impossible, so those closed linear strata are unstable. Their
+nonlifting projective complements are nonempty and remain live; no generic
+extension point has been selected.
+
+The extension-independent inequalities do not exclude those complements. In
+candidate 4 the rank-two left constituent slope is three times the rank-three
+preimage slope, leaving the left Serre line and preimage inequalities. The
+rational polarization `(5,1,7)` gives exact slopes `(-1,-54,-18)` for the left
+line, left constituent, and preimage. Candidate 24 has the factor-exchanged
+witness `(1,5,7)`. This certifies a nonempty necessary chamber only. A generic
+stability theorem or an additional exact destabilizing stratum is still
+required before constructing the universal 50/52-parameter mapping cone.
+
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
 Higgs pair remain selection constraints. The first component passing every
@@ -183,12 +202,11 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: compute the exact right-line restriction
-rank and projective kernel for candidates 4 and 24, then construct a universal
-mapping cone only on a locus that survives this additional subbundle test.
-Continue by increasing invariant Ext
-dimension until one stable family survives or the declared category is exhausted. Spectrum
-loci and the minimum common-DGA Yukawa slice remain downstream of the first
-stable family. Completing the final 144 large automorphism cases stays
+The governing queue is therefore: classify saturated subsheaves on the
+candidate-4/24 nonlifting complements, then construct a universal mapping cone
+only if a stable locus survives. Continue by increasing invariant Ext dimension
+until one stable family survives or the declared category is exhausted.
+Spectrum loci and the minimum common-DGA Yukawa slice remain downstream of the
+first stable family. Completing the final 144 large automorphism cases stays
 suspended until it can change a dependency edge or independently verify a
 theorem.

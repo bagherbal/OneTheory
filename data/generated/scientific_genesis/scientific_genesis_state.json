@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "f4714a536fb3bba0a8ccd0ec61f728af2ac8367b9a7661e2853f603de4092b5c",
+  "artifact_digest": "3d11aa37e4a8e6b8dc330a5c3929e475219d6d6835b9974286f998dd3083509f",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -92,6 +92,11 @@
       "sha256": "8a4317b1fa983dfdcaa115238ba5e549a1df25d49fa7b0ce02bb40684238ce5e"
     },
     {
+      "bytes": 6000,
+      "path": "data/generated/scientific_genesis/next_survivor_forced_chamber.json",
+      "sha256": "7cdb14e3cb8dcf213e0b17f2cd2294395bf2f0ac52878eafa3b04691b196ba34"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -113,11 +118,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 437,
+    "collected_tests_at_audit": 441,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 111,
-    "test_python_files": 100
+    "research_python_files": 112,
+    "test_python_files": 101
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -543,6 +548,21 @@
         "stability classification on the nonlifting open complements"
       ],
       "statement": "All 72 families in candidates 4 and 24 have exact rank-20 restriction maps. Their projective lifting kernels are unstable, while stability on the nonlifting open complements remains unresolved.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/next_survivor_forced_chamber.json",
+        "research/experiments/scientific_genesis/next_survivor_forced_chamber.py"
+      ],
+      "id": "next_survivor_forced_chamber",
+      "label": "dimension-50/52 necessary stability chamber",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "classification of additional saturated subsheaves on the nonlifting open complements"
+      ],
+      "statement": "Candidates 4 and 24 have a nonempty exact chamber for every extension-independent proper subbundle. Rational factor-exchanged witnesses certify necessity without proving full stability.",
       "status": "COMPUTED"
     },
     {
@@ -1151,6 +1171,19 @@
       "target": "next_survivor_lifting_kernel"
     },
     {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/next_survivor_forced_chamber.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a nonempty necessary chamber need not contain a stable bundle"
+      ],
+      "mathematical_reason": "After removing the unstable right-line lifting kernel, exact Schoen intersections reduce the remaining extension-independent stability conditions to two homogeneous quadratic inequalities.",
+      "source": "next_survivor_lifting_kernel",
+      "target": "next_survivor_forced_chamber"
+    },
+    {
       "assumptions_required": [
         "established law used conditionally"
       ],
@@ -1407,7 +1440,8 @@
     "all 40 declared topology blocks are partitioned by exact forced subobject slope signs without completing automorphism quotients",
     "candidates 15 and 35 have an exact nonempty common necessary forced-subobject chamber with rational one-parameter certificates",
     "the dimension-42/48 block has an exact positive slope identity between two unavoidable subbundles, making its chamber empty",
-    "all candidate-4/24 right-line restriction maps have exact rank 20; their unstable lifting loci are projective linear subspaces of codimension 20"
+    "all candidate-4/24 right-line restriction maps have exact rank 20; their unstable lifting loci are projective linear subspaces of codimension 20",
+    "the candidate-4/24 nonlifting complements admit an exact nonempty necessary forced-subobject chamber with rational witnesses"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -1499,6 +1533,11 @@
       ],
       "next_invariant_ext_dimension": 50,
       "next_survivor_complements_stability_proved": false,
+      "next_survivor_forced_chamber_nonempty": true,
+      "next_survivor_forced_chamber_witnesses": [
+        "(5,1,7)",
+        "(1,5,7)"
+      ],
       "next_survivor_lifting_kernels_unstable": true,
       "next_survivor_projective_lifting_loci": {
         "P^49(Q(omega))": "P^29(Q(omega))",
@@ -1536,8 +1575,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "exact stability classification on the nonlifting projective open complements in candidate blocks 4 and 24",
-    "selection_status": "dimension-50/52 block split by an exact rank-20 restriction"
+    "next_required_object": "generic stability theorem or exact destabilizing stratum for the candidate-4/24 nonlifting complements",
+    "selection_status": "dimension-50/52 nonlifting locus has a necessary chamber"
   },
   "research_value_scheduler": [
     {
@@ -1847,7 +1886,7 @@
     },
     {
       "attack": "classify additional saturated subsheaves on the nonlifting open strata before constructing a universal cone",
-      "evidence": "the exact rank-20 restriction removes the right-line lift off P^29 inside P^49 and P^31 inside P^51",
+      "evidence": "the exact rank-20 restriction removes the right-line lift off P^29 inside P^49 and P^31 inside P^51; the remaining forced slopes are negative at (5,1,7) after orientation",
       "question": "Does either candidate-4/24 nonlifting open complement contain a slope-stable extension?"
     }
   ]

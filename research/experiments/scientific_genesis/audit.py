@@ -340,7 +340,8 @@ def _nodes() -> list[dict[str, object]]:
             "COMPUTED",
             "The rank-two extension subbundle, its Serre line, and the "
             "rank-three preimage give exact necessary slope inequalities; "
-            "the full family is unstable at the published carrier anchor.",
+            "their region intersects the published Kahler cone, while the full "
+            "family is unstable at the published carrier anchor.",
             (
                 "data/generated/scientific_genesis/pair_73_stability_wall.json",
                 "research/experiments/scientific_genesis/pair_73_stability_wall.py",
@@ -351,14 +352,13 @@ def _nodes() -> list[dict[str, object]]:
             "exact common stability chamber",
             "Computable carrier",
             "BLOCKED",
-            "Necessary walls are exact and algebraically compatible in the "
-            "positive coordinate sector, but no sufficient chamber theorem exists.",
+            "Necessary walls have a nonempty exact Kahler-cone intersection, "
+            "but no sufficient chamber theorem exists.",
             (
                 "data/generated/scientific_genesis/pair_73_stability_wall.json",
                 "research/experiments/computable_carrier/downstream.py",
             ),
             missing=(
-                "intersection of the necessary region with the exact Kahler cone",
                 "classification of every remaining saturated destabilizing subsheaf",
                 "exclusion of proper structure-group reduction",
             ),
@@ -744,7 +744,7 @@ def _edges() -> list[dict[str, object]]:
             ),
             (),
             True,
-            ("the necessary region may miss the Kahler cone",),
+            ("the necessary region may still contain no stable bundle",),
         ),
         _edge(
             "necessary_stability_walls",
@@ -1250,8 +1250,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact Kahler-cone intersection, complete destabilizing-subsheaf "
-                "analysis, and genuine SU(4) locus for the pair-73 family"
+                "complete destabilizing-subsheaf analysis and genuine SU(4) "
+                "locus for the pair-73 family"
             ),
         },
         "claims": _nodes(),
@@ -1272,7 +1272,8 @@ def build_state() -> dict[str, object]:
             "full nonzero pair-73 parameter space is locally free and descended "
             "with trivial determinant and fixed Chern classes",
             "three forced pair-73 subobjects give exact necessary stability walls "
-            "and exclude the full family at the published polarization anchor",
+            "with a nonempty Kahler-cone intersection and exclude the full family "
+            "at the published polarization anchor",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",

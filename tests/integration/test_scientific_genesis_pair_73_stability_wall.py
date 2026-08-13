@@ -9,8 +9,8 @@ Depends on:
     sparse polynomial arithmetic, and the necessary-wall research artifact.
 
 Must not:
-    Treat positive coordinates as the full Kahler cone, select a polarization
-    or extension point, or promote necessary inequalities to genuine SU(4).
+    Select a polarization or extension point, or promote necessary inequalities
+    and published cone membership to genuine SU(4).
 
 Phase 0:
     Necessary-wall tests only; the complete stability chamber remains open.
@@ -69,15 +69,21 @@ def test_published_anchor_excludes_the_entire_pair_73_family() -> None:
     )
 
 
-def test_positive_coordinate_necessary_region_is_algebraically_nonempty() -> None:
-    """A derived ray proves the inequalities compatible without selecting data."""
+def test_necessary_region_has_an_exact_kahler_cone_intersection() -> None:
+    """A derived ray family proves cone compatibility without selecting data."""
 
     wall = pair_73_stability_wall()
+    consequence = wall.as_record()["positive_coordinate_consequence"]
     for parameter in (6, 7, 19):
         values = (Rational(parameter), Rational(1), Rational(1))
         assert wall.left_slope.substitute(values).coefficient(()) < 0
         assert wall.left_line_slope.substitute(values).coefficient(()) < 0
         assert wall.right_preimage_slope.substitute(values).coefficient(()) < 0
+    assert consequence["kahler_cone"] == "j1 > 0, j2 > 0, j3 > 0"
+    assert consequence["kahler_cone_source"] == "hep-th/0602073v1"
+    assert consequence["kahler_cone_locator"] == "eq. (33)"
+    assert consequence["kahler_intersection_nonempty"] is True
+    assert consequence["full_kahler_cone_membership_proved"] is True
 
 
 def test_stability_wall_artifact_keeps_sufficiency_fail_closed() -> None:
@@ -89,7 +95,7 @@ def test_stability_wall_artifact_keeps_sufficiency_fail_closed() -> None:
     assert stored == pair_73_stability_wall().as_record()
     assert digest == _canonical_digest(stored)
     assert stored["necessary_wall_computed"] is True
-    assert stored["positive_coordinate_consequence"]["full_kahler_cone_membership_proved"] is False
+    assert stored["positive_coordinate_consequence"]["full_kahler_cone_membership_proved"] is True
     assert stored["sufficient_stability_chamber_computed"] is False
     assert stored["genuine_su4_locus_computed"] is False
     assert stored["arbitrary_extension_point_selected"] is False

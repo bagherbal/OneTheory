@@ -9,13 +9,12 @@ Depends on:
     presentations, and the published quotient intersection tensor.
 
 Must not:
-    Identify the positive coordinate sector with the full Kahler cone, infer
-    sufficiency from necessary inequalities, select a polarization or extension
-    point, or claim slope stability and genuine SU(4) structure.
+    Infer sufficiency from necessary inequalities, select a polarization or
+    extension point, or claim slope stability and genuine SU(4) structure.
 
 Phase 0:
-    Necessary stability walls are exact; a sufficient chamber remains blocked
-    by Kahler-cone membership and unclassified saturated subsheaves.
+    Necessary stability walls and their Kahler-cone intersection are exact; a
+    sufficient chamber remains blocked by unclassified saturated subsheaves.
 """
 
 from __future__ import annotations
@@ -39,7 +38,10 @@ from .pair_73_source import OUTPUT as SOURCE_ARTIFACT
 
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / "data/generated/scientific_genesis/pair_73_stability_wall.json"
+SOURCE_MANIFEST = ROOT / "data/published/visible_carrier/source_manifest.json"
 PUBLISHED_ANCHOR = (Rational(6), Rational(9), Rational(3))
+KAEHLER_CONE_SOURCE = "hep-th/0602073v1"
+KAEHLER_CONE_LOCATOR = "eq. (33)"
 
 
 def _variables() -> tuple[Polynomial, Polynomial, Polynomial]:
@@ -179,17 +181,19 @@ class Pair73StabilityWall:
                 "-j1^2+6*j1*j2+4*j2^2-6*j1*j3+24*j2*j3 < 0",
             ],
             "positive_coordinate_consequence": {
-                "assumption": "j1 > 0, j2 > 0, j3 > 0",
+                "kahler_cone": "j1 > 0, j2 > 0, j3 > 0",
+                "kahler_cone_source": KAEHLER_CONE_SOURCE,
+                "kahler_cone_locator": KAEHLER_CONE_LOCATOR,
                 "rank_two_condition": "j1 > j2",
                 "serre_line_condition": (
                     "j1^2-6*j1*j2-4*j2^2+6*j1*j3-24*j2*j3 > 0"
                 ),
-                "algebraically_nonempty": True,
+                "kahler_intersection_nonempty": True,
                 "nonemptiness_certificate": (
                     "in the exact family (j1,j2,j3)=(t,1,1), every integer t>=6 "
                     "makes both forced-subobject slopes negative"
                 ),
-                "full_kahler_cone_membership_proved": False,
+                "full_kahler_cone_membership_proved": True,
             },
             "published_anchor": {
                 "coordinates": [str(value) for value in PUBLISHED_ANCHOR],
@@ -204,8 +208,8 @@ class Pair73StabilityWall:
             "sufficient_stability_chamber_computed": False,
             "genuine_su4_locus_computed": False,
             "first_missing_prerequisite": (
-                "exact Kahler-cone intersection and exclusion of every other "
-                "saturated destabilizing subsheaf"
+                "classification and exclusion of every other saturated "
+                "destabilizing subsheaf"
             ),
             "status": (
                 "exact unavoidable slope walls; pair 73 is excluded at the "
@@ -232,6 +236,16 @@ def pair_73_stability_wall() -> Pair73StabilityWall:
     if not isinstance(pair, dict) or not isinstance(pair.get("topology"), dict):
         raise ValueError("pair-73 source topology is unavailable")
     topology = pair["topology"]
+    manifest = json.loads(SOURCE_MANIFEST.read_text(encoding="utf-8"))
+    sources = manifest.get("sources")
+    if not isinstance(sources, list) or not any(
+        isinstance(item, dict)
+        and item.get("arxiv_id") == "hep-th/0602073"
+        and item.get("version") == "v1"
+        and "bundle stability" in str(item.get("role"))
+        for item in sources
+    ):
+        raise ValueError("the published Kahler-cone source is missing from the manifest")
     left_factor = topology.get("left_factor")
     left_shift = topology.get("left_target_line_shift")
     left_twist = topology.get("left_twist")

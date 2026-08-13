@@ -49,7 +49,8 @@
         "eq:I3pushdown; eq:I6pushdown",
         "eq:W1pushdown; eq:W2pushdown",
         "eq:W12tpushdown; eq:W22tpushdown",
-        "sec:CB; Cayley-Bacharach rank-two conclusion"
+        "sec:CB; Cayley-Bacharach rank-two conclusion",
+        "eq:Kahlercone; invariant Kahler cone is x1,x2,y > 0"
       ],
       "role": "Serre ideal schemes, bundle stability, pushdowns, and extension dimension"
     }

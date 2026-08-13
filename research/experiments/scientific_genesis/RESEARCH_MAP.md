@@ -60,10 +60,11 @@ This does not yet prove a genuine `SU(4)` structure group. The next scientific
 boundary is now sharper. The universal extension contains three forced
 subobjects whose exact slopes give two independent necessary inequalities.
 They exclude every pair-73 parameter at the published polarization
-`(6,9,3)`. In the positive coordinate sector the inequalities are
-algebraically compatible, but that is not a Kähler-cone theorem. The next
-object is the exact intersection with the actual Kähler cone, classification
-of every other saturated destabilizing subsheaf, and exclusion of proper
+`(6,9,3)`. The published Kähler cone in this invariant sector is exactly the
+positive orthant, and the one-parameter family `(t,1,1)` for integers `t >= 6`
+lies in both that cone and the necessary region. This proves a nonempty
+Kähler-cone intersection, not stability. The next object is classification of
+every other saturated destabilizing subsheaf and exclusion of proper
 structure-group reductions. Failure should produce a necessary theorem, not a
 restart of broad enumeration.
 

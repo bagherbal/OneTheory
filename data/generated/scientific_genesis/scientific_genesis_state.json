@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "27463ed9147fc08940a88bbfbd53d4ad33df2b2a4de96f838ec60e8213c8cff1",
+  "artifact_digest": "55e450560d7fffe5d7cdcd30b92399c1455f4e41506202c3d778bee1dd540c91",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -48,7 +48,7 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 388,
+    "collected_tests_at_audit": 393,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 98,

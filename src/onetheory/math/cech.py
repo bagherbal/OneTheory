@@ -3,15 +3,16 @@
 Owns:
     Ordered simplex bases, alternating restriction incidence maps for constant
     finite coefficient spaces, typed restricted-section Čech complexes, exact
-    cochain complexes, and cohomology bases.
+    cochain complexes, cohomology bases, and standard-projective-cover
+    Laurent-monomial complexes with deterministic exact primitives.
 
 Depends on:
     `onetheory.math.homological` for typed exact cochain complexes and
     `onetheory.math.numbers` through its vector-space implementation.
 
 Must not:
-    Pretend constant coefficients are sheaf sections, choose a geometric Cox
-    cover, infer bundle cohomology, or attach physical meanings to dimensions.
+    Pretend constant coefficients are sheaf sections, choose a carrier-specific
+    cover, infer physical bundle cohomology, or attach meanings to dimensions.
 
 Phase 0:
     The generic Čech incidence and typed restriction engines are implemented;
@@ -22,10 +23,27 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
-from itertools import combinations
+from itertools import combinations, product
 
-from onetheory.math.homological import CochainComplex, GradedVectorSpace, LinearMap, VectorSpace
-from onetheory.math.numbers import Rational
+from onetheory.math.homological import (
+    CochainComplex,
+    CoordinateVector,
+    GradedVectorSpace,
+    LinearMap,
+    VectorSpace,
+)
+from onetheory.math.linear import Matrix
+from onetheory.math.numbers import Eisenstein, Rational, coerce_rational
+
+type ScalarType = type[Rational] | type[Eisenstein]
+
+
+def _coerce_scalar(value: object, scalar_type: ScalarType) -> Rational | Eisenstein:
+    """Coerce one exact coefficient into the declared Čech scalar field."""
+
+    if scalar_type is Rational:
+        return coerce_rational(value)
+    return Eisenstein.coerce(value)
 
 
 @dataclass(frozen=True, slots=True)
@@ -53,9 +71,8 @@ class ConstantCechComplex:
     def __post_init__(self) -> None:
         if len(set(self.chart_names)) != len(self.chart_names) or not self.chart_names:
             raise ValueError("Čech complexes require uniquely named charts")
-        if (
-            not self.coefficient_basis
-            or len(set(self.coefficient_basis)) != len(self.coefficient_basis)
+        if not self.coefficient_basis or len(set(self.coefficient_basis)) != len(
+            self.coefficient_basis
         ):
             raise ValueError("Čech complexes require a named coefficient basis")
 
@@ -67,8 +84,9 @@ class ConstantCechComplex:
     def cohomology_dimensions(self) -> tuple[tuple[int, int], ...]:
         """Return exact cohomology dimensions in every represented degree."""
 
-        return tuple((degree, self.complex.cohomology_dimension(degree))
-                     for degree in self.complex.degrees)
+        return tuple(
+            (degree, self.complex.cohomology_dimension(degree)) for degree in self.complex.degrees
+        )
 
 
 @dataclass(frozen=True, slots=True)
@@ -77,9 +95,7 @@ class RestrictedCechComplex:
 
     chart_names: tuple[str, ...]
     section_spaces: tuple[tuple[tuple[int, ...], VectorSpace], ...]
-    restrictions: tuple[
-        tuple[tuple[int, ...], tuple[int, ...], LinearMap], ...
-    ]
+    restrictions: tuple[tuple[tuple[int, ...], tuple[int, ...], LinearMap], ...]
     complex: CochainComplex
 
     def __post_init__(self) -> None:
@@ -115,9 +131,210 @@ class RestrictedCechComplex:
         """Return exact Čech cohomology dimensions of the supplied sections."""
 
         return tuple(
-            (degree, self.complex.cohomology_dimension(degree))
-            for degree in self.complex.degrees
+            (degree, self.complex.cohomology_dimension(degree)) for degree in self.complex.degrees
         )
+
+
+@dataclass(frozen=True, slots=True)
+class ProjectiveMonomialCechComplex:
+    """One Laurent monomial's exact Čech complex on a standard projective cover."""
+
+    variable_names: tuple[str, ...]
+    twist_degree: int
+    exponents: tuple[int, ...]
+    negative_support: tuple[int, ...]
+    complex: CochainComplex
+    simplices: tuple[tuple[int, tuple[CechSimplex, ...]], ...]
+
+    def __post_init__(self) -> None:
+        if len(self.variable_names) < 2 or len(set(self.variable_names)) != len(
+            self.variable_names
+        ):
+            raise ValueError("projective covers require at least two unique variables")
+        if len(self.exponents) != len(self.variable_names):
+            raise ValueError("Laurent exponent count does not match the projective cover")
+        if sum(self.exponents) != self.twist_degree:
+            raise ValueError("Laurent exponents do not have the declared twist degree")
+        expected_support = tuple(
+            index for index, exponent in enumerate(self.exponents) if exponent < 0
+        )
+        if self.negative_support != expected_support:
+            raise ValueError("negative support does not match the Laurent monomial")
+
+    def simplices_at(self, degree: int) -> tuple[CechSimplex, ...]:
+        """Return intersections on which this monomial is a regular section."""
+
+        return dict(self.simplices).get(degree, ())
+
+    def cochain(
+        self,
+        degree: int,
+        coefficients: Mapping[tuple[int, ...], object],
+    ) -> CoordinateVector:
+        """Build one exactly based monomial cochain from simplex coefficients."""
+
+        space = self.complex.spaces.space(degree)
+        simplices = self.simplices_at(degree)
+        simplex_set = {simplex.vertices for simplex in simplices}
+        if any(simplex not in simplex_set for simplex in coefficients):
+            raise ValueError("cochain coefficient references an unavailable intersection")
+        values = tuple(
+            _coerce_scalar(coefficients.get(simplex.vertices, 0), space.scalar_type)
+            for simplex in simplices
+        )
+        return CoordinateVector(space, values)
+
+    def primitive(self, cocycle: CoordinateVector) -> CoordinateVector:
+        """Return the deterministic exact Čech primitive of a coboundary."""
+
+        degree = next(
+            (
+                candidate
+                for candidate in self.complex.degrees
+                if self.complex.spaces.space(candidate) == cocycle.space
+            ),
+            None,
+        )
+        if degree is None:
+            raise ValueError("cocycle does not use this monomial complex's basis")
+        if degree == min(self.complex.degrees):
+            raise ValueError("the lowest Čech degree has no incoming differential")
+        if not self.complex.differential(degree)(cocycle).is_zero():
+            raise ValueError("a Čech primitive requires an exact cocycle")
+        incoming = self.complex.differential(degree - 1)
+        augmented = Matrix(
+            tuple(
+                tuple(row) + (cocycle.coordinates[index],)
+                for index, row in enumerate(incoming.rows)
+            ),
+            scalar_type=cocycle.space.scalar_type,
+        )
+        reduced, pivots = augmented.rref()
+        unknown_count = incoming.domain.dimension
+        if any(
+            all(reduced[row][column].is_zero() for column in range(unknown_count))
+            and not reduced[row][unknown_count].is_zero()
+            for row in range(reduced.row_count)
+        ):
+            raise ValueError("cocycle represents nonzero Čech cohomology")
+        zero = _coerce_scalar(0, cocycle.space.scalar_type)
+        solution = [zero for _ in range(unknown_count)]
+        for row, pivot in enumerate(pivots):
+            if pivot < unknown_count:
+                solution[pivot] = reduced[row][unknown_count]
+        primitive = CoordinateVector(incoming.domain, tuple(solution))
+        if incoming(primitive) != cocycle:
+            raise ValueError("exact Čech primitive failed reconstruction")
+        return primitive
+
+    @property
+    def expected_cohomology_degree(self) -> int | None:
+        """Return the unique possible cohomology degree from negative support."""
+
+        if not self.negative_support:
+            return 0
+        if len(self.negative_support) == len(self.variable_names):
+            return len(self.variable_names) - 1
+        return None
+
+
+@dataclass(frozen=True, slots=True)
+class ProductProjectiveMonomialCechComplex:
+    """The signed tensor product of projective Laurent-monomial Čech complexes."""
+
+    factors: tuple[ProjectiveMonomialCechComplex, ...]
+    complex: CochainComplex
+    basis_cells: tuple[tuple[int, tuple[tuple[tuple[int, ...], ...], ...]], ...]
+
+    def __post_init__(self) -> None:
+        if not self.factors:
+            raise ValueError("projective product Čech complexes require factors")
+        if len({factor.complex.spaces.scalar_type for factor in self.factors}) != 1:
+            raise TypeError("projective product factors require one exact scalar field")
+
+    def cells_at(self, degree: int) -> tuple[tuple[tuple[int, ...], ...], ...]:
+        """Return the ordered tensor-product simplex cells in one total degree."""
+
+        return dict(self.basis_cells).get(degree, ())
+
+    def cochain(
+        self,
+        degree: int,
+        coefficients: Mapping[tuple[tuple[int, ...], ...], object],
+    ) -> CoordinateVector:
+        """Build one exactly based product cochain from cell coefficients."""
+
+        space = self.complex.spaces.space(degree)
+        cells = self.cells_at(degree)
+        cell_set = set(cells)
+        if any(cell not in cell_set for cell in coefficients):
+            raise ValueError("cochain coefficient references an unavailable product cell")
+        return CoordinateVector(
+            space,
+            tuple(_coerce_scalar(coefficients.get(cell, 0), space.scalar_type) for cell in cells),
+        )
+
+    def canonical_representative(self) -> CoordinateVector:
+        """Return the tensor product of canonical nonzero factor classes."""
+
+        factor_degrees = tuple(factor.expected_cohomology_degree for factor in self.factors)
+        if any(degree is None for degree in factor_degrees):
+            raise ValueError("an acyclic factor has no canonical cohomology representative")
+        degrees = tuple(degree for degree in factor_degrees if degree is not None)
+        total_degree = sum(degrees)
+        local_cells = []
+        for factor, degree in zip(self.factors, degrees, strict=True):
+            simplices = factor.simplices_at(degree)
+            if not simplices:
+                raise ValueError("a canonical factor degree has no Čech simplex")
+            local_cells.append(tuple(simplex.vertices for simplex in simplices))
+        return self.cochain(
+            total_degree,
+            {tuple(cell): 1 for cell in product(*local_cells)},
+        )
+
+    def primitive(self, cocycle: CoordinateVector) -> CoordinateVector:
+        """Return a deterministic exact primitive in the signed product complex."""
+
+        degree = next(
+            (
+                candidate
+                for candidate in self.complex.degrees
+                if self.complex.spaces.space(candidate) == cocycle.space
+            ),
+            None,
+        )
+        if degree is None:
+            raise ValueError("cocycle does not use this product complex's basis")
+        if degree == min(self.complex.degrees):
+            raise ValueError("the lowest Čech degree has no incoming differential")
+        if not self.complex.differential(degree)(cocycle).is_zero():
+            raise ValueError("a Čech primitive requires an exact cocycle")
+        incoming = self.complex.differential(degree - 1)
+        augmented = Matrix(
+            tuple(
+                tuple(row) + (cocycle.coordinates[index],)
+                for index, row in enumerate(incoming.rows)
+            ),
+            scalar_type=cocycle.space.scalar_type,
+        )
+        reduced, pivots = augmented.rref()
+        unknown_count = incoming.domain.dimension
+        if any(
+            all(reduced[row][column].is_zero() for column in range(unknown_count))
+            and not reduced[row][unknown_count].is_zero()
+            for row in range(reduced.row_count)
+        ):
+            raise ValueError("cocycle represents nonzero product Čech cohomology")
+        zero = _coerce_scalar(0, cocycle.space.scalar_type)
+        solution = [zero for _ in range(unknown_count)]
+        for row, pivot in enumerate(pivots):
+            if pivot < unknown_count:
+                solution[pivot] = reduced[row][unknown_count]
+        primitive = CoordinateVector(incoming.domain, tuple(solution))
+        if incoming(primitive) != cocycle:
+            raise ValueError("exact product Čech primitive failed reconstruction")
+        return primitive
 
 
 def restricted_cech_complex(
@@ -149,10 +366,7 @@ def restricted_cech_complex(
         if not isinstance(space, VectorSpace):
             raise TypeError("Čech section values must be VectorSpace instances")
     restriction_pairs = (
-        tuple(
-            (source, target, map_)
-            for (source, target), map_ in restrictions.items()
-        )
+        tuple((source, target, map_) for (source, target), map_ in restrictions.items())
         if isinstance(restrictions, Mapping)
         else tuple(restrictions)
     )
@@ -180,14 +394,10 @@ def restricted_cech_complex(
     differentials: dict[int, LinearMap] = {}
     for degree in degrees:
         source_records = tuple(
-            (simplex, space)
-            for simplex, space in ordered_spaces
-            if len(simplex) - 1 == degree
+            (simplex, space) for simplex, space in ordered_spaces if len(simplex) - 1 == degree
         )
         target_records = tuple(
-            (simplex, space)
-            for simplex, space in ordered_spaces
-            if len(simplex) - 1 == degree + 1
+            (simplex, space) for simplex, space in ordered_spaces if len(simplex) - 1 == degree + 1
         )
         if not target_records:
             continue
@@ -207,9 +417,7 @@ def restricted_cech_complex(
         ]
         for target_simplex, target_space in target_records:
             for omitted in range(len(target_simplex)):
-                source_simplex = (
-                    target_simplex[:omitted] + target_simplex[omitted + 1:]
-                )
+                source_simplex = target_simplex[:omitted] + target_simplex[omitted + 1 :]
                 if source_simplex not in space_by_simplex:
                     raise ValueError("Čech differential references an absent face space")
                 map_ = restriction_by_face.get((source_simplex, target_simplex))
@@ -220,11 +428,9 @@ def restricted_cech_complex(
                 sign = 1 if omitted % 2 == 0 else -1
                 for local_row, row in enumerate(map_.rows):
                     for local_column, value in enumerate(row):
-                        rows[
-                            target_offsets[target_simplex] + local_row
-                        ][source_offsets[source_simplex] + local_column] += (
-                            value if sign == 1 else -value
-                        )
+                        rows[target_offsets[target_simplex] + local_row][
+                            source_offsets[source_simplex] + local_column
+                        ] += value if sign == 1 else -value
         differentials[degree] = LinearMap(
             global_spaces[degree],
             global_spaces[degree + 1],
@@ -232,6 +438,163 @@ def restricted_cech_complex(
         )
     complex_ = CochainComplex(GradedVectorSpace("restricted Cech", global_spaces), differentials)
     return RestrictedCechComplex(charts, ordered_spaces, restriction_pairs, complex_)
+
+
+def projective_monomial_cech_complex(
+    variable_names: Iterable[str],
+    exponents: Iterable[int],
+    *,
+    scalar_type: ScalarType = Rational,
+) -> ProjectiveMonomialCechComplex:
+    """Build one exact Laurent-monomial subcomplex of a standard projective cover.
+
+    A Laurent monomial is regular on the intersection indexed by ``simplex``
+    exactly when every negative exponent belongs to that simplex. Restriction
+    maps preserve the monomial, so its Čech differential is the signed simplex
+    incidence map on this upward-closed set of intersections.
+    """
+
+    variables = tuple(variable_names)
+    powers = tuple(exponents)
+    if len(variables) < 2 or len(set(variables)) != len(variables):
+        raise ValueError("projective covers require at least two unique variables")
+    if len(powers) != len(variables):
+        raise ValueError("Laurent exponent count does not match the projective cover")
+    if any(isinstance(exponent, bool) or not isinstance(exponent, int) for exponent in powers):
+        raise TypeError("Laurent exponents must be integers")
+    if scalar_type not in (Rational, Eisenstein):
+        raise TypeError("projective Čech coefficients require Rational or Eisenstein")
+    negative_support = tuple(index for index, exponent in enumerate(powers) if exponent < 0)
+    simplex_data = tuple(
+        (
+            degree,
+            tuple(
+                CechSimplex(simplex)
+                for simplex in combinations(range(len(variables)), degree + 1)
+                if set(negative_support).issubset(simplex)
+            ),
+        )
+        for degree in range(len(variables))
+    )
+    spaces = {
+        degree: VectorSpace(
+            f"Cech O({sum(powers)})[{powers}]^{degree}",
+            tuple(str(simplex.vertices) for simplex in simplices),
+            scalar_type,
+        )
+        for degree, simplices in simplex_data
+    }
+    differentials: dict[int, LinearMap] = {}
+    for degree, simplices in simplex_data[:-1]:
+        targets = dict(simplex_data)[degree + 1]
+        source_index = {simplex.vertices: index for index, simplex in enumerate(simplices)}
+        rows = [
+            [scalar_type(0) for _ in range(spaces[degree].dimension)]
+            for _ in range(spaces[degree + 1].dimension)
+        ]
+        for target_index, target in enumerate(targets):
+            for omitted in range(len(target.vertices)):
+                source = target.vertices[:omitted] + target.vertices[omitted + 1 :]
+                column = source_index.get(source)
+                if column is not None:
+                    rows[target_index][column] = scalar_type(1 if omitted % 2 == 0 else -1)
+        differentials[degree] = LinearMap(
+            spaces[degree],
+            spaces[degree + 1],
+            rows,
+        )
+    complex_ = CochainComplex(
+        GradedVectorSpace(f"projective monomial {powers}", spaces),
+        differentials,
+    )
+    return ProjectiveMonomialCechComplex(
+        variables,
+        sum(powers),
+        powers,
+        negative_support,
+        complex_,
+        simplex_data,
+    )
+
+
+def product_projective_monomial_cech_complex(
+    factors: Iterable[ProjectiveMonomialCechComplex],
+) -> ProductProjectiveMonomialCechComplex:
+    """Build the exact signed total Čech complex for a projective product."""
+
+    selected = tuple(factors)
+    if not selected:
+        raise ValueError("projective product Čech complexes require factors")
+    scalar_types = {factor.complex.spaces.scalar_type for factor in selected}
+    if len(scalar_types) != 1:
+        raise TypeError("projective product factors require one exact scalar field")
+    scalar_type = next(iter(scalar_types))
+    degree_cells: dict[int, list[tuple[tuple[int, ...], ...]]] = {}
+    factor_degree_cells = tuple(
+        tuple(
+            (degree, tuple(simplex.vertices for simplex in factor.simplices_at(degree)))
+            for degree in factor.complex.degrees
+        )
+        for factor in selected
+    )
+    for degree_records in product(*factor_degree_cells):
+        degree_tuple = tuple(degree for degree, _ in degree_records)
+        simplex_sets = tuple(cells for _, cells in degree_records)
+        total_degree = sum(degree_tuple)
+        degree_cells.setdefault(total_degree, []).extend(product(*simplex_sets))
+    ordered_cells = {degree: tuple(cells) for degree, cells in sorted(degree_cells.items())}
+    spaces = {
+        degree: VectorSpace(
+            f"product projective Cech^{degree}",
+            tuple(str(cell) for cell in cells),
+            scalar_type,
+        )
+        for degree, cells in ordered_cells.items()
+    }
+    differentials: dict[int, LinearMap] = {}
+    for degree, source_cells in ordered_cells.items():
+        target_cells = ordered_cells.get(degree + 1)
+        if target_cells is None:
+            continue
+        target_index = {cell: index for index, cell in enumerate(target_cells)}
+        rows = [[scalar_type(0) for _ in source_cells] for _ in target_cells]
+        for column, source_cell in enumerate(source_cells):
+            preceding_degree = 0
+            for factor_index, (factor, simplex) in enumerate(
+                zip(selected, source_cell, strict=True)
+            ):
+                factor_degree = len(simplex) - 1
+                local_source = factor.simplices_at(factor_degree)
+                local_target = factor.simplices_at(factor_degree + 1)
+                local_source_index = {
+                    item.vertices: index for index, item in enumerate(local_source)
+                }
+                local_column = local_source_index[simplex]
+                local_map = factor.complex.differential(factor_degree)
+                tensor_sign = -1 if preceding_degree % 2 else 1
+                for local_row, coefficient_row in enumerate(local_map.rows):
+                    coefficient = coefficient_row[local_column]
+                    if coefficient.is_zero():
+                        continue
+                    changed = list(source_cell)
+                    changed[factor_index] = local_target[local_row].vertices
+                    row = target_index[tuple(changed)]
+                    rows[row][column] += coefficient * tensor_sign
+                preceding_degree += factor_degree
+        differentials[degree] = LinearMap(
+            spaces[degree],
+            spaces[degree + 1],
+            rows,
+        )
+    complex_ = CochainComplex(
+        GradedVectorSpace("product projective monomial Čech", spaces),
+        differentials,
+    )
+    return ProductProjectiveMonomialCechComplex(
+        selected,
+        complex_,
+        tuple(sorted(ordered_cells.items())),
+    )
 
 
 def constant_cech_complex(
@@ -247,21 +610,14 @@ def constant_cech_complex(
     simplex_data = tuple(
         (
             degree,
-            tuple(
-                CechSimplex(simplex)
-                for simplex in combinations(range(len(charts)), degree + 1)
-            ),
+            tuple(CechSimplex(simplex) for simplex in combinations(range(len(charts)), degree + 1)),
         )
         for degree in range(len(charts))
     )
     spaces = {
         degree: VectorSpace(
             f"Cech^{degree}",
-            tuple(
-                f"{simplex.vertices}:{basis}"
-                for simplex in simplices
-                for basis in coefficients
-            ),
+            tuple(f"{simplex.vertices}:{basis}" for simplex in simplices for basis in coefficients),
             Rational,
         )
         for degree, simplices in simplex_data
@@ -275,7 +631,7 @@ def constant_cech_complex(
         rows = [[Rational(0) for _ in spaces[degree].basis] for _ in spaces[degree + 1].basis]
         for target_simplex_index, simplex in enumerate(target_simplices):
             for omitted in range(len(simplex.vertices)):
-                source_vertices = simplex.vertices[:omitted] + simplex.vertices[omitted + 1:]
+                source_vertices = simplex.vertices[:omitted] + simplex.vertices[omitted + 1 :]
                 if source_vertices not in source_index:
                     continue
                 source_simplex_index = source_index[source_vertices]
@@ -296,7 +652,11 @@ def constant_cech_complex(
 __all__ = [
     "CechSimplex",
     "ConstantCechComplex",
+    "ProjectiveMonomialCechComplex",
+    "ProductProjectiveMonomialCechComplex",
     "RestrictedCechComplex",
     "constant_cech_complex",
+    "projective_monomial_cech_complex",
+    "product_projective_monomial_cech_complex",
     "restricted_cech_complex",
 ]

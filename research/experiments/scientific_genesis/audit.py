@@ -528,6 +528,21 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "declared_carrier_category",
+            "declared monomial carrier category",
+            "Computable carrier",
+            "REFUTED",
+            "The final 72 families in candidates 5 and 25 universally lift a "
+            "descended lower line whose slope has an incompatible positive "
+            "sum with the forced left-line slope.",
+            (
+                "data/generated/scientific_genesis/"
+                "remaining_lower_line_no_go.json",
+                "research/experiments/scientific_genesis/"
+                "remaining_lower_line_no_go.py",
+            ),
+        ),
+        _node(
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Computable carrier",
@@ -1085,6 +1100,23 @@ def _edges() -> list[dict[str, object]]:
             ("the theorem is scoped to candidates 4 and 24",),
         ),
         _edge(
+            "next_survivor_lower_line_block",
+            "declared_carrier_category",
+            "The same exact lower-line chain map applies to the only remaining "
+            "blocks 5 and 25. Exhaustive evaluation gives zero pullback in all "
+            "72 frozen projective families and the same positive fiber slope.",
+            (
+                "research/experiments/scientific_genesis/"
+                "remaining_lower_line_no_go.py",
+            ),
+            (),
+            True,
+            (
+                "the no-go is limited to the declared finite monomial category",
+                "general Schoen bundles are not excluded",
+            ),
+        ),
+        _edge(
             "stability_chamber",
             "physical_spectrum",
             "A stable descended replacement bundle is required before the physical "
@@ -1543,6 +1575,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/next_survivor_forced_chamber.json",
         "data/generated/scientific_genesis/next_survivor_generator_restrictions.json",
         "data/generated/scientific_genesis/next_survivor_lower_line_no_go.json",
+        "data/generated/scientific_genesis/remaining_lower_line_no_go.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1563,7 +1596,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 449,
+            "collected_tests_at_audit": 453,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1585,7 +1618,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "dimension-50/52 block retired by a universal lower-line lift"
+                "declared monomial carrier category exhausted by exact no-goes"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1619,8 +1652,8 @@ def build_state() -> dict[str, object]:
                     40,
                 ],
                 "forced_subobject_retired_family_count": 648,
-                "remaining_nonzero_candidate_blocks": [5, 25],
-                "remaining_nonzero_family_count": 72,
+                "remaining_nonzero_candidate_blocks": [],
+                "remaining_nonzero_family_count": 0,
                 "mixed_sign_minimum_retired_candidate_blocks": [15, 35],
                 "mixed_sign_minimum_retired_family_count": 72,
                 "slope_identity_retired_candidate_blocks": [16, 36],
@@ -1650,8 +1683,12 @@ def build_state() -> dict[str, object]:
                 "next_survivor_lower_line_retired_family_count": 72,
                 "next_survivor_lower_line_lifts_universally": True,
                 "next_survivor_lower_line_positive_slope_identity": True,
-                "next_invariant_ext_dimensions": [102, 108],
-                "next_candidate_blocks": [5, 25],
+                "final_lower_line_retired_candidate_blocks": [5, 25],
+                "final_lower_line_retired_family_count": 72,
+                "final_lower_line_lifts_universally": True,
+                "declared_computable_carrier_category_exhausted": True,
+                "global_schoen_bundle_no_go": False,
+                "next_candidate_blocks": [],
                 "minimum_forced_chamber_nonempty": True,
                 "minimum_forced_chamber_certificate": ["(2,1,t)", "t>7/2"],
                 "minimum_projective_orbit_spaces": {
@@ -1663,8 +1700,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact stability classification of the 72 families in "
-                "candidate blocks 5 and 25"
+                "mathematically justified enlargement of the carrier search "
+                "category with a finite exact enumeration domain"
             ),
         },
         "claims": _nodes(),
@@ -1704,6 +1741,8 @@ def build_state() -> dict[str, object]:
             "unstable kernels, leaving nonempty generic complements",
             "the unique lower-line section has identically zero outer-Hom "
             "pullback in every candidate-4/24 family",
+            "the same exact lower-line screen exhausts all 72 candidate-5/25 "
+            "families in the declared monomial category",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -1727,6 +1766,9 @@ def build_state() -> dict[str, object]:
             "all 72 families in candidates 4 and 24 lift a descended lower line "
             "whose slope and the forced left-line slope sum to a strictly "
             "positive fiber-class slope",
+            "the final 72 families in candidates 5 and 25 have the same exact "
+            "positive fiber-slope contradiction, exhausting only the declared "
+            "finite monomial category",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",

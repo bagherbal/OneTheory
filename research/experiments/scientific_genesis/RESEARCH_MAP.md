@@ -192,6 +192,15 @@ whole Kähler cone. Both proper subbundles cannot have negative slope, so all
 candidate-4/24 families are unstable. Only candidates 5 and 25 remain, with
 36 dimension-102 and 36 dimension-108 invariant Ext spaces.
 
+The same chain-level obstruction also closes those final blocks. Candidate 5
+has right Serre line `(-1,1,-2)`, lower line `(-4,1,-1)`, and forced left line
+`(4,-1,2)`; candidate 25 is factor-exchanged. Exhaustive evaluation of all 72
+frozen projective families again gives an identically zero Hom pullback. The
+two line classes sum to `(0,0,1)`, so their slopes cannot both be negative.
+Thus no stable family remains in the declared finite monomial category. This
+is not a no-go for general Schoen bundles. A wider search must first define a
+mathematically justified finite category before any new enumeration begins.
+
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
 Higgs pair remain selection constraints. The first component passing every

@@ -233,55 +233,35 @@ def _polynomial_record(polynomial: Polynomial) -> list[dict[str, object]]:
     ]
 
 
-@cache
-def next_survivor_lower_line_no_go() -> NextSurvivorLowerLineNoGo:
-    """Certify universal lower-line lifting and incompatible slopes exactly."""
+@dataclass(frozen=True, slots=True)
+class LowerLineBlockScreen:
+    """Exact lower-line pullback data for factor-exchanged candidate blocks."""
 
-    restriction = _verified_artifact(
-        RESTRICTION_ARTIFACT,
-        "next-survivor-right-line-restriction-v1",
-    )
-    generators = _verified_artifact(
-        GENERATOR_ARTIFACT,
-        "next-survivor-generator-restrictions-v1",
-    )
-    if not (
-        restriction.get("checked_pair_count") == 72
-        and restriction.get("induced_restriction_rank") == 20
-        and restriction.get("nonzero_orbit_space_counts")
-        == dict(EXPECTED_ORBITS)
-        and generators.get("checked_restriction_count") == 288
-        and generators.get("induced_rank_counts") == EXPECTED_GENERATOR_RANKS
-        and generators.get("finite_union_complement_nonempty") is True
-    ):
-        raise ValueError("the prior next-survivor strata are incomplete")
+    checked_pair_count: int
+    dimension_counts: tuple[tuple[int, int], ...]
+    orbit_space_counts: tuple[tuple[str, int], ...]
+    topology_data: tuple[
+        tuple[int, tuple[Rational, ...], tuple[Rational, ...]],
+        ...,
+    ]
 
-    section_dimensions = []
-    for factor, section_degree in SECTION_DEGREES.items():
-        section_bundle = sparse_line_bundle(*section_degree)
-        section_components = lower_line_section_components(
-            sparse_line_bundle(0, 0, 0),
-            factor,
-        )
-        section_h0_dimension = (
-            section_bundle.space(0).dimension
-            - section_bundle.differential(0).rank()
-        )
-        if not (
-            section_bundle.squared_zero
-            and section_h0_dimension == 1
-            and dict(section_components)[0].rank() == 1
-        ):
-            raise ValueError("one lower-line section lacks its unique nonzero class")
-        section_dimensions.append(section_h0_dimension)
+
+def _screen_lower_line_blocks(
+    blocks: tuple[tuple[int, int, int], ...],
+) -> LowerLineBlockScreen:
+    """Recompute universal lower-line lifting over exact candidate ranges."""
 
     _, records = _validated_invariant_records(DEFAULT_INVARIANT_ARTIFACT)
     pairs = declared_schoen_outer_pairs()
     c1_hyperplanes = _constituent_c1_hyperplanes()
     dimensions: Counter[int] = Counter()
     orbit_spaces: Counter[str] = Counter()
-    topology_data: dict[int, tuple[tuple[Rational, ...], tuple[Rational, ...], bool]] = {}
-    for candidate_index, start, end in BLOCKS:
+    topology_data: dict[
+        int,
+        tuple[tuple[Rational, ...], tuple[Rational, ...]],
+    ] = {}
+    checked_pair_count = 0
+    for candidate_index, start, end in blocks:
         try:
             for global_index in range(start, end + 1):
                 record = records[global_index - 1]
@@ -324,7 +304,9 @@ def next_survivor_lower_line_no_go() -> NextSurvivorLowerLineNoGo:
                     and lower_hom.line_degree == lower_line
                     and all(map_.is_zero() for _, map_ in section_maps)
                 ):
-                    raise ValueError("one lower-line Hom pullback is not identically zero")
+                    raise ValueError(
+                        "one lower-line Hom pullback is not identically zero"
+                    )
 
                 subobjects = {
                     item.name: item
@@ -336,24 +318,80 @@ def next_survivor_lower_line_no_go() -> NextSurvivorLowerLineNoGo:
                     typed_lower[0] + typed_lower[1]
                 ) % 3 != 0:
                     raise ValueError("one lower-line slope witness does not descend")
-                current = (left_line, typed_lower, True)
-                if candidate_index in topology_data and topology_data[
-                    candidate_index
-                ] != current:
+                current = (left_line, typed_lower)
+                if (
+                    candidate_index in topology_data
+                    and topology_data[candidate_index] != current
+                ):
                     raise ValueError("lower-line topology varies within one block")
                 topology_data[candidate_index] = current
+                checked_pair_count += 1
         finally:
             _clear_worker_caches()
+    return LowerLineBlockScreen(
+        checked_pair_count,
+        tuple(sorted(dimensions.items())),
+        tuple(sorted(orbit_spaces.items())),
+        tuple(
+            (candidate, left_line, lower_line)
+            for candidate, (left_line, lower_line) in sorted(topology_data.items())
+        ),
+    )
 
-    first_left, first_lower, first_zero = topology_data[4]
-    second_left, second_lower, second_zero = topology_data[24]
+
+@cache
+def next_survivor_lower_line_no_go() -> NextSurvivorLowerLineNoGo:
+    """Certify universal lower-line lifting and incompatible slopes exactly."""
+
+    restriction = _verified_artifact(
+        RESTRICTION_ARTIFACT,
+        "next-survivor-right-line-restriction-v1",
+    )
+    generators = _verified_artifact(
+        GENERATOR_ARTIFACT,
+        "next-survivor-generator-restrictions-v1",
+    )
+    if not (
+        restriction.get("checked_pair_count") == 72
+        and restriction.get("induced_restriction_rank") == 20
+        and restriction.get("nonzero_orbit_space_counts")
+        == dict(EXPECTED_ORBITS)
+        and generators.get("checked_restriction_count") == 288
+        and generators.get("induced_rank_counts") == EXPECTED_GENERATOR_RANKS
+        and generators.get("finite_union_complement_nonempty") is True
+    ):
+        raise ValueError("the prior next-survivor strata are incomplete")
+
+    section_dimensions = []
+    for factor, section_degree in SECTION_DEGREES.items():
+        section_bundle = sparse_line_bundle(*section_degree)
+        section_components = lower_line_section_components(
+            sparse_line_bundle(0, 0, 0),
+            factor,
+        )
+        section_h0_dimension = (
+            section_bundle.space(0).dimension
+            - section_bundle.differential(0).rank()
+        )
+        if not (
+            section_bundle.squared_zero
+            and section_h0_dimension == 1
+            and dict(section_components)[0].rank() == 1
+        ):
+            raise ValueError("one lower-line section lacks its unique nonzero class")
+        section_dimensions.append(section_h0_dimension)
+
+    screen = _screen_lower_line_blocks(BLOCKS)
+    topology_data = {
+        candidate: (left_line, lower_line)
+        for candidate, left_line, lower_line in screen.topology_data
+    }
+    first_left, first_lower = topology_data[4]
+    second_left, second_lower = topology_data[24]
     factor_exchange_exact = (
         section_dimensions == [1, 1]
-        and
-        second_left == (first_left[1], first_left[0], first_left[2])
+        and second_left == (first_left[1], first_left[0], first_left[2])
         and second_lower == (first_lower[1], first_lower[0], first_lower[2])
-        and first_zero
-        and second_zero
     )
     left_slope = _slope_polynomial(
         schoen_geometry().quotient_divisor(first_left),
@@ -364,9 +402,9 @@ def next_survivor_lower_line_no_go() -> NextSurvivorLowerLineNoGo:
         1,
     )
     return NextSurvivorLowerLineNoGo(
-        72,
-        tuple(sorted(dimensions.items())),
-        tuple(sorted(orbit_spaces.items())),
+        screen.checked_pair_count,
+        screen.dimension_counts,
+        screen.orbit_space_counts,
         SECTION_DEGREES[1],
         section_dimensions[0],
         first_left,
@@ -374,7 +412,7 @@ def next_survivor_lower_line_no_go() -> NextSurvivorLowerLineNoGo:
         left_slope,
         lower_slope,
         left_slope + lower_slope,
-        first_zero and second_zero,
+        True,
         factor_exchange_exact,
     )
 

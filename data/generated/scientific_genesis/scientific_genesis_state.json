@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "33e7ec04156fa5cb199a5e58930040376e06ac5198fa3a5756c9bff3e5938ce5",
+  "artifact_digest": "1e6e15f1be88f905b21cb44a2bf9ac7205b9671db33789a48d24c0596d1433e8",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -107,6 +107,11 @@
       "sha256": "cc82c06960a0dc50be3e14e10960eadfbbe0a6a66328602cd038214860ac3114"
     },
     {
+      "bytes": 3523,
+      "path": "data/generated/scientific_genesis/remaining_lower_line_no_go.json",
+      "sha256": "ec909871c892604fa20f41e83a93d8ef5b43fdb2cbd7c1329fcb288620b8010a"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -128,11 +133,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 449,
+    "collected_tests_at_audit": 453,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 115,
-    "test_python_files": 103
+    "research_python_files": 116,
+    "test_python_files": 104
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -601,6 +606,19 @@
       "layer": "Computable carrier",
       "missing_prerequisites": [],
       "statement": "Every candidate-4/24 extension lifts a descended lower line. Its slope plus the unavoidable left-line slope is the strictly positive fiber-class slope, so their common chamber is empty.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/remaining_lower_line_no_go.json",
+        "research/experiments/scientific_genesis/remaining_lower_line_no_go.py"
+      ],
+      "id": "declared_carrier_category",
+      "label": "declared monomial carrier category",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "The final 72 families in candidates 5 and 25 universally lift a descended lower line whose slope has an incompatible positive sum with the forced left-line slope.",
       "status": "REFUTED"
     },
     {
@@ -1250,6 +1268,20 @@
       "target": "next_survivor_lower_line_block"
     },
     {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/remaining_lower_line_no_go.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the no-go is limited to the declared finite monomial category",
+        "general Schoen bundles are not excluded"
+      ],
+      "mathematical_reason": "The same exact lower-line chain map applies to the only remaining blocks 5 and 25. Exhaustive evaluation gives zero pullback in all 72 frozen projective families and the same positive fiber slope.",
+      "source": "next_survivor_lower_line_block",
+      "target": "declared_carrier_category"
+    },
+    {
       "assumptions_required": [
         "established law used conditionally"
       ],
@@ -1509,7 +1541,8 @@
     "all candidate-4/24 right-line restriction maps have exact rank 20; their unstable lifting loci are projective linear subspaces of codimension 20",
     "the candidate-4/24 nonlifting complements admit an exact nonempty necessary forced-subobject chamber with rational witnesses",
     "all 288 maximal quotient-generator restrictions have proper unstable kernels, leaving nonempty generic complements",
-    "the unique lower-line section has identically zero outer-Hom pullback in every candidate-4/24 family"
+    "the unique lower-line section has identically zero outer-Hom pullback in every candidate-4/24 family",
+    "the same exact lower-line screen exhausts all 72 candidate-5/25 families in the declared monomial category"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -1560,6 +1593,13 @@
           1008
         ]
       ],
+      "declared_computable_carrier_category_exhausted": true,
+      "final_lower_line_lifts_universally": true,
+      "final_lower_line_retired_candidate_blocks": [
+        5,
+        25
+      ],
+      "final_lower_line_retired_family_count": 72,
       "forced_subobject_retired_candidate_blocks": [
         6,
         7,
@@ -1581,6 +1621,7 @@
         40
       ],
       "forced_subobject_retired_family_count": 648,
+      "global_schoen_bundle_no_go": false,
       "minimum_forced_chamber_certificate": [
         "(2,1,t)",
         "t>7/2"
@@ -1595,14 +1636,7 @@
         35
       ],
       "mixed_sign_minimum_retired_family_count": 72,
-      "next_candidate_blocks": [
-        5,
-        25
-      ],
-      "next_invariant_ext_dimensions": [
-        102,
-        108
-      ],
+      "next_candidate_blocks": [],
       "next_survivor_complements_stability_proved": false,
       "next_survivor_forced_chamber_nonempty": true,
       "next_survivor_forced_chamber_witnesses": [
@@ -1631,11 +1665,8 @@
       },
       "next_survivor_restriction_rank": 20,
       "next_survivor_target_ext_dimension": 216,
-      "remaining_nonzero_candidate_blocks": [
-        5,
-        25
-      ],
-      "remaining_nonzero_family_count": 72,
+      "remaining_nonzero_candidate_blocks": [],
+      "remaining_nonzero_family_count": 0,
       "retired_candidate_blocks": [
         3,
         23
@@ -1659,8 +1690,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "exact stability classification of the 72 families in candidate blocks 5 and 25",
-    "selection_status": "dimension-50/52 block retired by a universal lower-line lift"
+    "next_required_object": "mathematically justified enlargement of the carrier search category with a finite exact enumeration domain",
+    "selection_status": "declared monomial carrier category exhausted by exact no-goes"
   },
   "research_value_scheduler": [
     {
@@ -1961,7 +1992,8 @@
     "18 topology blocks containing 648 families have a coefficient-positive forced subbundle and therefore no slope-stable extension",
     "all 72 families in candidates 15 and 35 lift a right Serre line with strictly positive slope despite their nonempty necessary chamber",
     "all 72 families in candidates 16 and 36 have incompatible negative-slope requirements for the right-line preimage and universally lifted line",
-    "all 72 families in candidates 4 and 24 lift a descended lower line whose slope and the forced left-line slope sum to a strictly positive fiber-class slope"
+    "all 72 families in candidates 4 and 24 lift a descended lower line whose slope and the forced left-line slope sum to a strictly positive fiber-class slope",
+    "the final 72 families in candidates 5 and 25 have the same exact positive fiber-slope contradiction, exhausting only the declared finite monomial category"
   ],
   "structural_compression_questions": [
     {

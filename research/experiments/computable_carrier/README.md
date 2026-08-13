@@ -951,6 +951,15 @@ first nonzero surviving coordinate. Exact regression proves this normal form
 is unchanged by a nontrivial scalar-unipotent transform. The ledger records
 the complete action matrices and algorithm but selects no orbit.
 
+The complete thirty-eight-dimensional frontier consists of 18 selected
+character pairs in each of candidates 7 and 27. All 36 actions require exact
+reduction modulo coboundaries, and every quotient has the same three rank-two
+radical generators with all pairwise products zero. The fixed-basis
+scalar-plus-square-zero-unipotent normal-form algorithm therefore closes the
+entire frontier without turning it into a projective space or selecting an
+extension point. The cumulative ledger contains 972 exact pair records: 612
+positive quotients and 360 zero-space exclusions.
+
 External action verification for the rejected length-three and length-nine
 cases remains open; those cases already fail preceding internal topology or
 presentation gates and are not part of the surviving constituent frontier.

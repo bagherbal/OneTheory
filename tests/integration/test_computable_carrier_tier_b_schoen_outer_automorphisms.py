@@ -592,3 +592,44 @@ def test_checked_action_frontier_records_square_zero_unipotent_orbit() -> None:
     assert action["canonical_orbits_computed"] is True
     assert action["outer_extension_constructed"] is False
     assert record["exact"] is True
+
+
+def test_checked_action_frontier_closes_dimension_thirty_eight() -> None:
+    """Both orientations close by the same square-zero orbit algorithm."""
+
+    digest, invariant_records = _validated_invariant_records(
+        DEFAULT_INVARIANT_ARTIFACT
+    )
+    pairs, constituents = _read_partial(ACTION_CHECKPOINT, digest)
+    records = [
+        pairs[record["global_pair_index"]]
+        for record in invariant_records
+        if record["invariant_subcomplex"]["invariant_ext_one_dimension"] == 38
+    ]
+
+    assert len(pairs) >= 972
+    assert len(constituents) >= 168
+    assert len(records) == 36
+    assert Counter(record["candidate_index"] for record in records) == {
+        7: 18,
+        27: 18,
+    }
+    assert all(
+        record["automorphism_action"]["action_proof"]
+        == "exact quotient reduction modulo coboundaries"
+        for record in records
+    )
+    assert all(
+        record["automorphism_action"]["nonzero_orbit_space"]
+        == "fixed-basis scalar-plus-square-zero-unipotent quotient"
+        for record in records
+    )
+    assert all(
+        record["automorphism_action"]["radical_action_ranks"] == [2, 2, 2]
+        for record in records
+    )
+    assert all(
+        record["automorphism_action"]["radical_square_zero"] is True
+        for record in records
+    )
+    assert all(record["exact"] is True for record in records)

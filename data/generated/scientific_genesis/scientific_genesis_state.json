@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b01bee2c9a754832187c7bda3ff7d7cad2e85aa77a107e29f4dd0e8d0122fe48",
+  "artifact_digest": "b600200e9ab6055e687ecd849a6bbda9f0af3d3247b0b408684fc8c74564fbba",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -127,6 +127,11 @@
       "sha256": "18291443f0488c155a36dfe83e2e066841567f47b8a9838ea1ed8d55aebb6b4b"
     },
     {
+      "bytes": 6100,
+      "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
+      "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -148,11 +153,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 467,
+    "collected_tests_at_audit": 472,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 121,
-    "test_python_files": 107
+    "research_python_files": 123,
+    "test_python_files": 108
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -356,21 +361,37 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "published Cayley-Bacharach local-freeness theorem"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
+        "research/experiments/computable_carrier/dp9_serre_cech.py",
+        "tests/integration/test_scientific_genesis_published_constituent_mapping_cones.py"
+      ],
+      "id": "published_constituent_mapping_cones",
+      "label": "published constituent derived mapping cones",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "Each invariant W1/W2 class lifts to the exact maximal-minor tuple divided by mu nu. Cech closure and Hilbert--Burch closure certify the corresponding derived block differential squares to zero.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "data/generated/visible_carrier/visible_carrier_artifact.json",
-        "data/generated/scientific_genesis/published_constituent_deck_actions.json"
+        "data/generated/scientific_genesis/published_constituent_mapping_cones.json"
       ],
       "id": "published_chain_reconstruction",
       "label": "published carrier chain reconstruction",
       "layer": "Reference realization",
       "missing_prerequisites": [
-        "mapping-cone presentations of W1 and W2",
+        "synchronized Schoen Cech-Koszul complexes for W1 and W2",
         "four invariant outer Ext cocycles",
         "common Cech-Koszul basis and signs",
         "local transition data"
       ],
-      "statement": "The constituent Ext spaces now have exact deck-linearized representatives, but W1/W2 mapping cones and the four invariant outer cocycles are not yet reconstructed.",
+      "statement": "W1/W2 now have exact invariant derived Cech mapping-cone inputs, but their synchronized Schoen Cech-Koszul outer Hom and the four invariant outer cocycles are not yet reconstructed.",
       "status": "BLOCKED"
     },
     {
@@ -1048,16 +1069,31 @@
       "target": "published_constituent_deck_actions"
     },
     {
-      "assumptions_required": [],
+      "assumptions_required": [
+        "published Cayley-Bacharach local-freeness theorem"
+      ],
       "implementation_or_artifact": [
-        "research/experiments/computable_carrier/dp9_serre_actions.py"
+        "research/experiments/computable_carrier/dp9_serre_cech.py"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "an invariant cohomology class is not itself a sheaf presentation"
+        "local transition matrices are not yet materialized"
       ],
-      "mathematical_reason": "Invariant constituent cocycles must become explicit mapping cones before a synchronized outer Hom complex can be formed.",
+      "mathematical_reason": "The chain-fixed invariant classes lift to explicit Cech overlap maps whose maximal-minor syzygies close the derived cones.",
       "source": "published_constituent_deck_actions",
+      "target": "published_constituent_mapping_cones"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/computable_carrier/dp9_serre_cech.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "factor-local Cech data do not yet fix the common cover ordering"
+      ],
+      "mathematical_reason": "The two factor-local derived cones must be embedded into one signed Schoen Cech-Koszul convention before outer RHom.",
+      "source": "published_constituent_mapping_cones",
       "target": "published_chain_reconstruction"
     },
     {
@@ -1644,6 +1680,7 @@
     "published Schoen geometry and selected one-Higgs reference carrier metadata",
     "exact fiber-sensitive dP9 Serre complexes deriving the published constituent Ext-one dimensions 2 and 5",
     "exact natural dP9 deck chain actions plus source-aligned invariant constituent Ext representatives",
+    "exact invariant Cech maximal-minor cocycles and square-zero derived mapping-cone certificates for W1 and W2",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
     "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family",
     "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient",
@@ -1807,8 +1844,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "mapping-cone presentations of W1 and W2 from the certified invariant constituent cocycles",
-    "selection_status": "published constituent mapping-cone reconstruction"
+    "next_required_object": "synchronized Schoen Cech-Koszul total complexes for the two derived constituent cones and their outer RHom",
+    "selection_status": "published synchronized outer-Hom reconstruction"
   },
   "research_value_scheduler": [
     {

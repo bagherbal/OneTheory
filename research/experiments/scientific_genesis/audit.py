@@ -261,20 +261,38 @@ def _nodes() -> list[dict[str, object]]:
             ("published constituent equivariant representations",),
         ),
         _node(
+            "published_constituent_mapping_cones",
+            "published constituent derived mapping cones",
+            "Reference realization",
+            "COMPUTED",
+            "Each invariant W1/W2 class lifts to the exact maximal-minor tuple "
+            "divided by mu nu. Cech closure and Hilbert--Burch closure certify "
+            "the corresponding derived block differential squares to zero.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_mapping_cones.json",
+                "research/experiments/computable_carrier/"
+                "dp9_serre_cech.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_constituent_mapping_cones.py",
+            ),
+            ("published Cayley-Bacharach local-freeness theorem",),
+        ),
+        _node(
             "published_chain_reconstruction",
             "published carrier chain reconstruction",
             "Reference realization",
             "BLOCKED",
-            "The constituent Ext spaces now have exact deck-linearized "
-            "representatives, but W1/W2 mapping cones and the four invariant "
-            "outer cocycles are not yet reconstructed.",
+            "W1/W2 now have exact invariant derived Cech mapping-cone inputs, "
+            "but their synchronized Schoen Cech-Koszul outer Hom and the four "
+            "invariant outer cocycles are not yet reconstructed.",
             (
                 "data/generated/visible_carrier/visible_carrier_artifact.json",
                 "data/generated/scientific_genesis/"
-                "published_constituent_deck_actions.json",
+                "published_constituent_mapping_cones.json",
             ),
             missing=(
-                "mapping-cone presentations of W1 and W2",
+                "synchronized Schoen Cech-Koszul complexes for W1 and W2",
                 "four invariant outer Ext cocycles",
                 "common Cech-Koszul basis and signs",
                 "local transition data",
@@ -903,16 +921,29 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "published_constituent_deck_actions",
-            "published_chain_reconstruction",
-            "Invariant constituent cocycles must become explicit mapping cones "
-            "before a synchronized outer Hom complex can be formed.",
+            "published_constituent_mapping_cones",
+            "The chain-fixed invariant classes lift to explicit Cech overlap "
+            "maps whose maximal-minor syzygies close the derived cones.",
             (
                 "research/experiments/computable_carrier/"
-                "dp9_serre_actions.py",
+                "dp9_serre_cech.py",
+            ),
+            ("published Cayley-Bacharach local-freeness theorem",),
+            True,
+            ("local transition matrices are not yet materialized",),
+        ),
+        _edge(
+            "published_constituent_mapping_cones",
+            "published_chain_reconstruction",
+            "The two factor-local derived cones must be embedded into one "
+            "signed Schoen Cech-Koszul convention before outer RHom.",
+            (
+                "research/experiments/computable_carrier/"
+                "dp9_serre_cech.py",
             ),
             (),
             True,
-            ("an invariant cohomology class is not itself a sheaf presentation",),
+            ("factor-local Cech data do not yet fix the common cover ordering",),
         ),
         _edge(
             "published_visible_carrier",
@@ -1685,6 +1716,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_pushout_mismatch.json",
         "data/generated/scientific_genesis/published_constituent_ext_spaces.json",
         "data/generated/scientific_genesis/published_constituent_deck_actions.json",
+        "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1705,7 +1737,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 467,
+            "collected_tests_at_audit": 472,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1727,7 +1759,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "published constituent mapping-cone reconstruction"
+                "published synchronized outer-Hom reconstruction"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1809,8 +1841,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "mapping-cone presentations of W1 and W2 from the certified "
-                "invariant constituent cocycles"
+                "synchronized Schoen Cech-Koszul total complexes for the two "
+                "derived constituent cones and their outer RHom"
             ),
         },
         "claims": _nodes(),
@@ -1824,6 +1856,8 @@ def build_state() -> dict[str, object]:
             "constituent Ext-one dimensions 2 and 5",
             "exact natural dP9 deck chain actions plus source-aligned invariant "
             "constituent Ext representatives",
+            "exact invariant Cech maximal-minor cocycles and square-zero derived "
+            "mapping-cone certificates for W1 and W2",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "

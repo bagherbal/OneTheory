@@ -279,20 +279,39 @@ def _nodes() -> list[dict[str, object]]:
             ("published Cayley-Bacharach local-freeness theorem",),
         ),
         _node(
+            "published_outer_reduced_model",
+            "published outer cohomology-reduced model",
+            "Reference realization",
+            "COMPUTED",
+            "The fiber-sensitive twisted constituents give exact square-zero "
+            "reduced outer complexes with forward H1/H2 126/162 and reverse "
+            "162/126. Both preserve the published Euler characteristic while "
+            "exhibiting one common 90-dimensional excess.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_outer_reduced_mismatch.json",
+                "research/experiments/computable_carrier/"
+                "schoen_serre_outer.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_outer_reduced_mismatch.py",
+            ),
+        ),
+        _node(
             "published_chain_reconstruction",
             "published carrier chain reconstruction",
             "Reference realization",
             "BLOCKED",
-            "W1/W2 now have exact invariant derived Cech mapping-cone inputs, "
-            "but their synchronized Schoen Cech-Koszul outer Hom and the four "
-            "invariant outer cocycles are not yet reconstructed.",
+            "The reduced synchronized model isolates a common 90-dimensional "
+            "excess. The full standard-cover Cech contraction, its transferred "
+            "differential, and four invariant outer cocycles remain absent.",
             (
                 "data/generated/visible_carrier/visible_carrier_artifact.json",
                 "data/generated/scientific_genesis/"
-                "published_constituent_mapping_cones.json",
+                "published_outer_reduced_mismatch.json",
             ),
             missing=(
-                "synchronized Schoen Cech-Koszul complexes for W1 and W2",
+                "full standard-cover Cech contraction for the twisted outer complex",
+                "transferred outer differential removing the 90-dimensional excess",
                 "four invariant outer Ext cocycles",
                 "common Cech-Koszul basis and signs",
                 "local transition data",
@@ -934,16 +953,29 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "published_constituent_mapping_cones",
-            "published_chain_reconstruction",
-            "The two factor-local derived cones must be embedded into one "
-            "signed Schoen Cech-Koszul convention before outer RHom.",
+            "published_outer_reduced_model",
+            "Embedding both derived cones in the common Schoen grading gives "
+            "an exact reduced twisted Hom model and exposes the missing transfer.",
             (
                 "research/experiments/computable_carrier/"
-                "dp9_serre_cech.py",
+                "schoen_serre_outer.py",
             ),
             (),
             True,
-            ("factor-local Cech data do not yet fix the common cover ordering",),
+            ("ambient cohomology reduction is not full Cech hypercohomology",),
+        ),
+        _edge(
+            "published_outer_reduced_model",
+            "published_chain_reconstruction",
+            "The equal 90-dimensional H1/H2 excess identifies the exact net "
+            "rank that full Cech homotopy transfer must supply without fitting.",
+            (
+                "research/experiments/computable_carrier/"
+                "schoen_serre_outer.py",
+            ),
+            (),
+            True,
+            ("the missing transferred map has not yet been constructed",),
         ),
         _edge(
             "published_visible_carrier",
@@ -1717,6 +1749,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_constituent_ext_spaces.json",
         "data/generated/scientific_genesis/published_constituent_deck_actions.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
+        "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1737,7 +1770,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 472,
+            "collected_tests_at_audit": 478,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1759,7 +1792,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "published synchronized outer-Hom reconstruction"
+                "published full-Cech outer transfer reconstruction"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1841,8 +1874,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "synchronized Schoen Cech-Koszul total complexes for the two "
-                "derived constituent cones and their outer RHom"
+                "full standard-cover Cech contraction for the constituent "
+                "twisted outer complex and its transferred differential"
             ),
         },
         "claims": _nodes(),
@@ -1858,6 +1891,8 @@ def build_state() -> dict[str, object]:
             "constituent Ext representatives",
             "exact invariant Cech maximal-minor cocycles and square-zero derived "
             "mapping-cone certificates for W1 and W2",
+            "exact cohomology-reduced outer model preserving the source Euler "
+            "characteristic and isolating a common 90-dimensional excess",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "

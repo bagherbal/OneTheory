@@ -184,6 +184,19 @@ class SparseMap:
             ),
         )
 
+    def __add__(self, other: SparseMap) -> SparseMap:
+        """Add two sparse maps with identical named frames."""
+
+        if self.domain != other.domain or self.codomain != other.codomain:
+            raise ValueError("sparse map addition requires identical frames")
+        rows: list[dict[int, Eisenstein]] = []
+        for left, right in zip(self.rows, other.rows, strict=True):
+            combined = dict(left)
+            for column, value in right:
+                combined[column] = combined.get(column, Eisenstein(0)) + value
+            rows.append(combined)
+        return SparseMap(self.domain, self.codomain, _freeze_rows(rows))
+
     def compose(self, previous: SparseMap) -> SparseMap:
         """Compose this sparse map after a compatible sparse map."""
 

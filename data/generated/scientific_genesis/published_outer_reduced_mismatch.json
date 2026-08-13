@@ -1,0 +1,85 @@
+{
+  "artifact_digest": "2aaa1c615a93b3e73baf41e081e30e227c131d0343998439e25684aefce47884",
+  "common_cohomology_excess": 90,
+  "euler_characteristics_match": true,
+  "forward": {
+    "computed_h1_h2": [
+      126,
+      162
+    ],
+    "published_h1_h2": [
+      36,
+      72
+    ],
+    "squared_zero": true,
+    "total_dimensions": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1512
+      ],
+      [
+        1,
+        4536
+      ],
+      [
+        2,
+        4824
+      ],
+      [
+        3,
+        1764
+      ],
+      [
+        4,
+        0
+      ]
+    ]
+  },
+  "mathematical_interpretation": "ambient Cech cohomology reduction omits transferred differentials/homotopies needed by the full hypercohomology",
+  "next_required_object": "full standard-cover Cech contraction for the constituent twisted outer complex and its transferred differential",
+  "published_carrier_refuted": false,
+  "rank_90_map_inserted": false,
+  "reverse": {
+    "computed_h1_h2": [
+      162,
+      126
+    ],
+    "published_h1_h2": [
+      72,
+      36
+    ],
+    "squared_zero": true,
+    "total_dimensions": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1764
+      ],
+      [
+        1,
+        4824
+      ],
+      [
+        2,
+        4536
+      ],
+      [
+        3,
+        1512
+      ],
+      [
+        4,
+        0
+      ]
+    ]
+  },
+  "schema": "published-outer-reduced-mismatch-v1",
+  "status": "exact reduced-model mismatch with a common 90-dimensional excess; no correction is guessed"
+}

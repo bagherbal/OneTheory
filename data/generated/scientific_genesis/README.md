@@ -31,3 +31,9 @@ all four classes and the resulting universal derived mapping-cone input. The
 resumable partial file is execution state only. None of these artifacts selects
 an extension point or claims local freeness, quotient descent, stability, or a
 physical carrier.
+
+`pair_73_algebraic_locus.json` composes the exact constituent, extension, and
+topological certificates. It establishes local freeness, invariant descent,
+trivial determinant, and fixed Chern data over the full nonzero parameter
+space. It does not claim stability, exclude every proper structure-group
+reduction, or identify a genuine `SU(4)` carrier.

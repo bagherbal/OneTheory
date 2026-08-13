@@ -49,12 +49,17 @@ now have exact chain-level lifts through Čech degrees three to zero. Their
 universal linear combination is a degree-one resolution morphism, so its
 derived mapping cone is exact and parameter-linear without selecting a point.
 
-This derived cone is not yet a locally free descended bundle. The next
-scientific object is its exact algebraic lawful locus. Existing Fitting-ideal,
-Chern, group-action, and chart-localization engines must be reused to determine
-local freeness, equivariance and quotient descent, determinant and Chern
-checks, and a genuine `SU(4)` locus. Failure should produce a parameter ideal
-or necessary theorem, not a restart of broad enumeration.
+The algebraic family gates now close over the full nonzero extension space.
+Both constituents are exactly locally free and descended. Extensions of
+locally free sheaves are locally free, and invariant Ext classes of the
+linearized constituents descend along the free finite quotient. The determinant
+is trivial and the Chern classes are parameter-independent, with quotient
+index `-3`. Thus the algebraic lawful locus is all of `P^3(Q(omega))`.
+
+This does not yet prove a genuine `SU(4)` structure group. The next scientific
+object is an exact stability chamber together with exclusion of proper
+structure-group reductions. Failure should produce a parameter ideal or a
+necessary theorem, not a restart of broad enumeration.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one

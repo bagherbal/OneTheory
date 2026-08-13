@@ -1,0 +1,50 @@
+{
+  "algebraic_lawful_locus": "A^4(Q(omega)) minus the origin",
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "40f936f44aaff03f12f6652d6a876b24dc08ad4bf33d6409b6ef8d24401926bf",
+  "automorphism_quotient": "P^3(Q(omega))",
+  "chern_classes": {
+    "c1_left": [
+      "2",
+      "-2",
+      "0"
+    ],
+    "c1_right": [
+      "-2",
+      "2",
+      "0"
+    ],
+    "c1_total": [
+      "0",
+      "0",
+      "0"
+    ],
+    "c2_total": [
+      "2/3",
+      "5/3",
+      "4"
+    ],
+    "integral_c3_total": "-6",
+    "parameter_independent": true,
+    "quotient_index": "-3"
+  },
+  "constituent_local_freeness_exact": true,
+  "descent_excluded_locus": "empty",
+  "descent_theorem": "for a finite group in characteristic zero, invariants are exact; invariant Ext classes of linearized constituents are equivariant extensions and descend along the free quotient",
+  "determinant_trivial": true,
+  "extension_local_freeness_exact": true,
+  "genuine_su4_first_missing_input": "exact stability chamber and exclusion of proper structure-group reduction",
+  "genuine_su4_locus_computed": false,
+  "global_pair_index": 73,
+  "invariant_descent_exact": true,
+  "local_freeness_excluded_locus": "empty",
+  "local_freeness_theorem": "an extension of locally free sheaves is locally free because the quotient is projective on every local stalk",
+  "non_split_locus": "A^4(Q(omega)) minus the origin",
+  "non_split_locus_exact": true,
+  "parameter_space": "A^4(Q(omega))",
+  "projective_algebraic_lawful_locus": "P^3(Q(omega))",
+  "rank": 4,
+  "schema": "pair-73-algebraic-lawful-locus-v1",
+  "split_locus": "the affine origin",
+  "status": "exact non-split locally free descended determinant-trivial rank-four family; genuine SU(4) remains conditional on stability"
+}

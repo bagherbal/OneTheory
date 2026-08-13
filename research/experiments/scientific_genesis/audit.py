@@ -324,15 +324,13 @@ def _nodes() -> list[dict[str, object]]:
             "algebraic_lawful_locus",
             "rank-four algebraic lawful locus",
             "Computable carrier",
-            "BLOCKED",
-            "Non-splitness, local freeness, descent, determinant, Chern data, "
-            "and genuine SU(4) loci are not computed for the universal family.",
-            ("research/experiments/computable_carrier/downstream.py",),
-            missing=(
-                "universal rank-four family",
-                "parameterized Fitting ideals",
-                "equivariance and quotient descent",
-                "Chern and structure-group loci",
+            "COMPUTED",
+            "Every nonzero pair-73 class is a locally free descended rank-four "
+            "extension with trivial determinant and fixed Chern data; local "
+            "freeness and descent exclude no additional parameter.",
+            (
+                "data/generated/scientific_genesis/pair_73_algebraic_locus.json",
+                "research/experiments/scientific_genesis/pair_73_lawful_locus.py",
             ),
         ),
         _node(
@@ -346,6 +344,7 @@ def _nodes() -> list[dict[str, object]]:
                 "algebraic lawful family",
                 "destabilizing-subsheaf inequalities",
                 "nonempty Kahler chamber",
+                "exclusion of proper structure-group reduction",
             ),
         ),
         _node(
@@ -1167,6 +1166,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/pair_73_universal_ext.json",
         "data/generated/scientific_genesis/pair_73_source.json",
         "data/generated/scientific_genesis/pair_73_cech_lift.json",
+        "data/generated/scientific_genesis/pair_73_algebraic_locus.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1187,7 +1187,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 396,
+            "collected_tests_at_audit": 399,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1219,7 +1219,7 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact algebraic lawful locus for the universal derived rank-four family"
+                "exact stability chamber and genuine SU(4) locus for the pair-73 family"
             ),
         },
         "claims": _nodes(),
@@ -1237,6 +1237,8 @@ def build_state() -> dict[str, object]:
             "projective nonzero quotient",
             "exact chain-level lifts of all four pair-73 classes and their "
             "universal derived mapping cone",
+            "full nonzero pair-73 parameter space is locally free and descended "
+            "with trivial determinant and fixed Chern classes",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",

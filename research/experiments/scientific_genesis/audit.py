@@ -311,17 +311,13 @@ def _nodes() -> list[dict[str, object]]:
             "universal_rank_four_family",
             "universal rank-four mapping-cone family",
             "Computable carrier",
-            "BLOCKED",
-            "The universal Ext class is exact, but no compatible chain-level "
-            "transition or resolution lift has yet produced its mapping cone.",
+            "COMPUTED",
+            "All four pair-73 classes lift through exact projective-product "
+            "Cech descent into degree-one morphisms of the full resolution; "
+            "their universal linear combination has an exact derived cone.",
             (
-                "research/experiments/computable_carrier/horseshoe.py",
-                "research/experiments/computable_carrier/rank_four.py",
-            ),
-            missing=(
-                "chain-level lift into constituent transitions or resolutions",
-                "universal differential",
-                "D squared equals zero certificate",
+                "data/generated/scientific_genesis/pair_73_cech_lift.json",
+                "research/experiments/scientific_genesis/pair_73_cech_lift.py",
             ),
         ),
         _node(
@@ -699,18 +695,15 @@ def _edges() -> list[dict[str, object]]:
         _edge(
             "universal_ext_family",
             "universal_rank_four_family",
-            "A derived Ext class defines a rank-four family only after a "
-            "compatible chain-level lift and cone construction.",
+            "Exact projective-product contractions solve the three Cech descent "
+            "equations and turn each Ext class into a degree-one resolution morphism.",
             (
-                "research/experiments/computable_carrier/horseshoe.py",
-                "research/experiments/scientific_genesis/pair_73_universal.py",
+                "data/generated/scientific_genesis/pair_73_cech_lift.json",
+                "research/experiments/scientific_genesis/pair_73_cech_lift.py",
             ),
             (),
-            False,
-            (
-                "constituent transition lift may be unavailable",
-                "basis or sign incompatibility",
-            ),
+            True,
+            ("source digest, basis, or totalization-sign mismatch",),
         ),
         _edge(
             "universal_rank_four_family",
@@ -1172,6 +1165,8 @@ def build_state() -> dict[str, object]:
         "data/generated/computable_carrier/tier_b_schoen_outer_invariants.json",
         "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json",
         "data/generated/scientific_genesis/pair_73_universal_ext.json",
+        "data/generated/scientific_genesis/pair_73_source.json",
+        "data/generated/scientific_genesis/pair_73_cech_lift.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1192,7 +1187,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 393,
+            "collected_tests_at_audit": 396,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1224,8 +1219,7 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "chain-level lift of the universal Cech-Koszul Ext cocycle "
-                "and its exact rank-four mapping cone"
+                "exact algebraic lawful locus for the universal derived rank-four family"
             ),
         },
         "claims": _nodes(),
@@ -1241,6 +1235,8 @@ def build_state() -> dict[str, object]:
             "square-zero-unipotent exceptional family",
             "exact four-parameter pair-73 Ext family with split origin and "
             "projective nonzero quotient",
+            "exact chain-level lifts of all four pair-73 classes and their "
+            "universal derived mapping cone",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",

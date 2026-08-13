@@ -310,28 +310,38 @@ class ProductProjectiveMonomialCechComplex:
             raise ValueError("the lowest Čech degree has no incoming differential")
         if not self.complex.differential(degree)(cocycle).is_zero():
             raise ValueError("a Čech primitive requires an exact cocycle")
-        incoming = self.complex.differential(degree - 1)
-        augmented = Matrix(
-            tuple(
-                tuple(row) + (cocycle.coordinates[index],)
-                for index, row in enumerate(incoming.rows)
+        acyclic_factor = next(
+            (
+                index
+                for index, factor in enumerate(self.factors)
+                if 0 < len(factor.negative_support) < len(factor.variable_names)
             ),
-            scalar_type=cocycle.space.scalar_type,
+            None,
         )
-        reduced, pivots = augmented.rref()
-        unknown_count = incoming.domain.dimension
-        if any(
-            all(reduced[row][column].is_zero() for column in range(unknown_count))
-            and not reduced[row][unknown_count].is_zero()
-            for row in range(reduced.row_count)
-        ):
+        if acyclic_factor is None:
             raise ValueError("cocycle represents nonzero product Čech cohomology")
-        zero = _coerce_scalar(0, cocycle.space.scalar_type)
-        solution = [zero for _ in range(unknown_count)]
-        for row, pivot in enumerate(pivots):
-            if pivot < unknown_count:
-                solution[pivot] = reduced[row][unknown_count]
-        primitive = CoordinateVector(incoming.domain, tuple(solution))
+        selected = self.factors[acyclic_factor]
+        cone_vertex = next(
+            index
+            for index in range(len(selected.variable_names))
+            if index not in selected.negative_support
+        )
+        source_values = dict(zip(self.cells_at(degree), cocycle.coordinates, strict=True))
+        values = []
+        for cell in self.cells_at(degree - 1):
+            simplex = cell[acyclic_factor]
+            if cone_vertex in simplex:
+                values.append(_coerce_scalar(0, cocycle.space.scalar_type))
+                continue
+            expanded = tuple(sorted((*simplex, cone_vertex)))
+            source_cell = list(cell)
+            source_cell[acyclic_factor] = expanded
+            insertion_sign = -1 if expanded.index(cone_vertex) % 2 else 1
+            tensor_degree = sum(len(previous) - 1 for previous in cell[:acyclic_factor])
+            tensor_sign = -1 if tensor_degree % 2 else 1
+            values.append(source_values[tuple(source_cell)] * insertion_sign * tensor_sign)
+        incoming = self.complex.differential(degree - 1)
+        primitive = CoordinateVector(incoming.domain, tuple(values))
         if incoming(primitive) != cocycle:
             raise ValueError("exact product Čech primitive failed reconstruction")
         return primitive

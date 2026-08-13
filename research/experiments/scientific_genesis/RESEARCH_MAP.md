@@ -44,14 +44,17 @@ E(a) = a0 E0 + a1 E1 + a2 E2 + a3 E3
 ```
 
 Its affine split locus is exactly the origin, and scalar constituent
-automorphisms give the nonzero quotient `P^3(Q(omega))`. This is still a
-cohomology family, not a bundle. The next scientific object is its compatible
-chain-level lift and exact rank-four mapping cone. Existing mapping-cone,
-horseshoe, Fitting-ideal, Chern, group-action, and chart-localization engines
-must be reused. The lifted family then needs a local-freeness locus,
-equivariance and quotient descent, determinant and Chern checks, and a genuine
-`SU(4)` locus. Failure should produce a parameter ideal or necessary theorem,
-not a restart of broad enumeration.
+automorphisms give the nonzero quotient `P^3(Q(omega))`. All four basis classes
+now have exact chain-level lifts through Čech degrees three to zero. Their
+universal linear combination is a degree-one resolution morphism, so its
+derived mapping cone is exact and parameter-linear without selecting a point.
+
+This derived cone is not yet a locally free descended bundle. The next
+scientific object is its exact algebraic lawful locus. Existing Fitting-ideal,
+Chern, group-action, and chart-localization engines must be reused to determine
+local freeness, equivariance and quotient descent, determinant and Chern
+checks, and a genuine `SU(4)` locus. Failure should produce a parameter ideal
+or necessary theorem, not a restart of broad enumeration.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one

@@ -1,0 +1,70 @@
+{
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "a36d91338367a2419c23a2d79f1e31fa2454f5753a39e59cc1fcc7306a5969fe",
+  "basis_names": [
+    "class:0",
+    "class:1",
+    "class:2",
+    "class:3"
+  ],
+  "chain_level_lift_constructed": true,
+  "coefficient_field": "Q(omega)",
+  "derived_mapping_cone_available": true,
+  "descent_cech_degrees": [
+    3,
+    2,
+    1,
+    0
+  ],
+  "global_pair_index": 73,
+  "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
+  "lifted_term_counts": [
+    [
+      36,
+      504,
+      1764,
+      0
+    ],
+    [
+      36,
+      504,
+      1764,
+      0
+    ],
+    [
+      36,
+      504,
+      1764,
+      0
+    ],
+    [
+      36,
+      504,
+      1764,
+      0
+    ]
+  ],
+  "lifted_term_digests": [
+    "35d407525303f0491b1cbdd0ccb24c12ba461ec74d96f833d5dc5f9d80672465",
+    "3a894665010e5515d1c6c66d0eb60685696e8409d0123a427e5883d95f32ab2f",
+    "5ec0bb25428866fdea69c92709a4a993a0064059635ed90ea347aa08a6036a8a",
+    "0c43872ade13053340a8b7ea6567f1e6f82df280e9f64007a3acccbbc4d49965"
+  ],
+  "local_freeness_locus_computed": false,
+  "mapping_cone_constructed": true,
+  "mapping_cone_differential": "D_E=[[D_left,E(a)],[0,D_right]]",
+  "mapping_cone_squared_zero": true,
+  "quotient_descent_computed": false,
+  "schema": "pair-73-cech-hypercocycle-lift-v1",
+  "source_cycle_exact": true,
+  "status": "exact universal chain-level hypercocycle and derived mapping-cone input; local freeness, quotient descent, Chern gates, and SU(4) locus remain open",
+  "structure_group_locus_computed": false,
+  "total_cycles_exact": true,
+  "universal_linearity_exact": true,
+  "universal_parameters": [
+    "a0",
+    "a1",
+    "a2",
+    "a3"
+  ]
+}

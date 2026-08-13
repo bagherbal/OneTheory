@@ -23,6 +23,11 @@ review, and tests in its true production domain.
 
 `pair_73_universal_ext.json` records the exact four-parameter invariant Ext
 class recommended by the state audit. Its affine origin is the split locus and
-its certified nonzero automorphism quotient is `P^3(Q(omega))`. It does not
-contain a rank-four mapping cone or select an extension point; the first
-missing chain-level lift remains explicit in the artifact.
+its certified nonzero automorphism quotient is `P^3(Q(omega))`.
+
+`pair_73_source.json` is a compact, content-addressed slice of the complete
+invariant artifact. `pair_73_cech_lift.json` records exact chain-level lifts of
+all four classes and the resulting universal derived mapping-cone input. The
+resumable partial file is execution state only. None of these artifacts selects
+an extension point or claims local freeness, quotient descent, stability, or a
+physical carrier.

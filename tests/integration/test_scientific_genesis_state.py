@@ -12,7 +12,7 @@ Must not:
     convert a blocked scientific edge into an implemented bridge.
 
 Phase 0:
-    State-audit tests only; universal rank-four construction remains pending.
+    State-audit tests only; the rank-four algebraic lawful locus remains pending.
 """
 
 import json
@@ -51,6 +51,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["arbitrary_point_selected"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
-    assert claims["universal_rank_four_family"]["status"] == "BLOCKED"
+    assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
+    assert claims["algebraic_lawful_locus"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     assert state["fitted_inputs"] == []

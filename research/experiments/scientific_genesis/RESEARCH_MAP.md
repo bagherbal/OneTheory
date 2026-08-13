@@ -64,9 +64,16 @@ They exclude every pair-73 parameter at the published polarization
 positive orthant, and the one-parameter family `(t,1,1)` for integers `t >= 6`
 lies in both that cone and the necessary region. This proves a nonempty
 Kähler-cone intersection, not stability. The next object is classification of
-every other saturated destabilizing subsheaf and exclusion of proper
-structure-group reductions. Failure should produce a necessary theorem, not a
-restart of broad enumeration.
+the restriction of the universal outer class to forced constituent subobjects.
+
+That restriction is now exact. The right Serre line uses the last generator of
+the right two-term presentation, while every pair-73 Ext cocycle uses only the
+other four source columns. Its pullback extension therefore splits for every
+parameter, lifting the right line into the rank-four family. The lifted line
+has slope opposite to the left rank-two subbundle. One of the two has
+nonnegative slope at every polarization, so strict stability always fails.
+The pair-73 stable locus is empty and this candidate is retired. This is a
+scoped no-go, not a no-go for other Schoen bundles.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
@@ -101,9 +108,10 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: complete pair-73 stability from the exact
-necessary walls, then spectrum loci and the minimum common-DGA Yukawa slice,
-with the structural automorphism theorem pursued only when it can compress a
-needed calculation. Completing the final 144 large automorphism cases is
-resumable but suspended until it can change a dependency edge or independently
-verify a theorem.
+The governing queue is therefore: lift the pair-73 restriction theorem to the
+remaining 35 members of its minimum-dimensional topology block, retire that
+block if the support argument is universal, and then advance to the next
+minimum-dimensional family not killed by stability. Spectrum loci and the
+minimum common-DGA Yukawa slice remain downstream of the first stable family.
+Completing the final 144 large automorphism cases stays suspended until it can
+change a dependency edge or independently verify a theorem.

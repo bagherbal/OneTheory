@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "7a27a9c613bee0bc11cb209de009c4b894f6978193c35a92e6d9eb08b6a4193e",
+  "artifact_digest": "7cb26553dad21c3037c3672616ecf1d28f14418c6719d00a37e3b1b60ff128ed",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -47,6 +47,11 @@
       "sha256": "ac337c0e3a45476daa9bfa891c8288cb4537eed659be8b803b49251b56ac97f0"
     },
     {
+      "bytes": 1787,
+      "path": "data/generated/scientific_genesis/pair_73_stability_no_go.json",
+      "sha256": "98b8c3969e6fd97a707e30f929426cc1cd4b25f970bb1a6f4e21783ca1b48ca0"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -68,11 +73,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 403,
+    "collected_tests_at_audit": 406,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 102,
-    "test_python_files": 91
+    "research_python_files": 103,
+    "test_python_files": 92
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -88,7 +93,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "sufficient pair-73 stability chamber and Wilson-projected spectrum",
+    "replacement computable stability chamber and Wilson-projected spectrum",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -382,18 +387,15 @@
     {
       "assumptions": [],
       "evidence": [
-        "data/generated/scientific_genesis/pair_73_stability_wall.json",
-        "research/experiments/computable_carrier/downstream.py"
+        "data/generated/scientific_genesis/pair_73_stability_no_go.json",
+        "research/experiments/scientific_genesis/pair_73_stability_no_go.py"
       ],
       "id": "stability_chamber",
-      "label": "exact common stability chamber",
+      "label": "pair-73 slope-stable locus",
       "layer": "Computable carrier",
-      "missing_prerequisites": [
-        "classification of every remaining saturated destabilizing subsheaf",
-        "exclusion of proper structure-group reduction"
-      ],
-      "statement": "Necessary walls have a nonempty exact Kahler-cone intersection, but no sufficient chamber theorem exists.",
-      "status": "BLOCKED"
+      "missing_prerequisites": [],
+      "statement": "The right Serre line lifts through every pair-73 outer extension and has slope opposite to the left rank-two subbundle, so strict stability fails at every polarization and parameter.",
+      "status": "REFUTED"
     },
     {
       "assumptions": [],
@@ -405,11 +407,11 @@
       "label": "Wilson-projected carrier spectrum",
       "layer": "Computable carrier",
       "missing_prerequisites": [
-        "stable descended carrier",
+        "replacement stable descended carrier",
         "cohomology jumping loci",
         "Wilson projection certificate"
       ],
-      "statement": "The computable family has no parameter-dependent cohomology and Wilson-projected spectrum certificate.",
+      "statement": "Pair 73 is unstable and no replacement computable family has a parameter-dependent cohomology and Wilson-projected spectrum certificate.",
       "status": "BLOCKED"
     },
     {
@@ -421,8 +423,8 @@
       "label": "first frozen computable carrier",
       "layer": "Computable carrier",
       "missing_prerequisites": [
-        "algebraic lawful locus",
-        "stability chamber",
+        "replacement algebraic lawful family",
+        "nonempty stability chamber",
         "required structural spectrum"
       ],
       "statement": "No candidate has passed every rank, determinant, topology, local-freeness, descent, stability, and spectrum gate.",
@@ -884,12 +886,12 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "research/experiments/scientific_genesis/pair_73_stability_wall.py"
+        "research/experiments/scientific_genesis/pair_73_stability_wall.py",
+        "research/experiments/scientific_genesis/pair_73_stability_no_go.py"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "stable chamber may be empty",
-        "unseen destabilizing subsheaves"
+        "the stable chamber is empty for pair 73"
       ],
       "mathematical_reason": "A sufficient chamber must satisfy every forced wall and exclude all additional saturated destabilizing subsheaves.",
       "source": "necessary_stability_walls",
@@ -902,12 +904,13 @@
       "implementation_or_artifact": [
         "src/onetheory/physics/compactification.py"
       ],
-      "implication": "exact",
+      "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "cohomology may jump",
+        "pair 73 has empty stable locus",
+        "replacement cohomology may jump",
         "spectrum constraints may fail"
       ],
-      "mathematical_reason": "A stable descended bundle supplies the physical sheaf cohomology problem.",
+      "mathematical_reason": "A stable descended replacement bundle is required before the physical sheaf cohomology problem can proceed; pair 73 cannot supply it.",
       "source": "stability_chamber",
       "target": "physical_spectrum"
     },
@@ -1182,8 +1185,8 @@
       "orbit_parameter_space": "P^3(Q(omega))"
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "complete destabilizing-subsheaf analysis and genuine SU(4) locus for the pair-73 family",
-    "selection_status": "recommended, not selected as a physical point"
+    "next_required_object": "block-level stability classification for the remaining minimum-dimensional computable families",
+    "selection_status": "retired by exact family-wide stability no-go"
   },
   "research_value_scheduler": [
     {
@@ -1476,7 +1479,8 @@
   "scoped_no_go_results": [
     "declared projective Tier A ray pairs have zero invariant Ext-one classes",
     "current curvilinear rank-four Chern type has the wrong quotient index",
-    "declared monomial and transported finite linearization categories have no complete commuting lift pairs where recorded"
+    "declared monomial and transported finite linearization categories have no complete commuting lift pairs where recorded",
+    "pair 73 has empty slope-stable locus because the right Serre line lifts universally with slope opposite to the left rank-two subbundle"
   ],
   "structural_compression_questions": [
     {

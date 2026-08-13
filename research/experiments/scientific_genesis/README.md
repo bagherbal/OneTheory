@@ -26,5 +26,7 @@ The current pair-73 frontier includes exact universal extension, chain-lift,
 algebraic-locus, and necessary stability-wall artifacts. The forced subobjects
 exclude the family at the published polarization, but the complete Kähler cone
 is the published positive orthant and intersects the necessary region. All
-remaining saturated subsheaves have not been closed. No stable carrier or
-genuine `SU(4)` locus is claimed.
+pair-73 outer classes nevertheless restrict trivially to the right Serre line,
+which lifts with slope opposite to the left rank-two subbundle. Hence the
+pair-73 stable locus is empty. This retires only pair 73; no stable replacement
+carrier or genuine `SU(4)` locus is claimed.

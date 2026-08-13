@@ -349,18 +349,15 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "stability_chamber",
-            "exact common stability chamber",
+            "pair-73 slope-stable locus",
             "Computable carrier",
-            "BLOCKED",
-            "Necessary walls have a nonempty exact Kahler-cone intersection, "
-            "but no sufficient chamber theorem exists.",
+            "REFUTED",
+            "The right Serre line lifts through every pair-73 outer extension "
+            "and has slope opposite to the left rank-two subbundle, so strict "
+            "stability fails at every polarization and parameter.",
             (
-                "data/generated/scientific_genesis/pair_73_stability_wall.json",
-                "research/experiments/computable_carrier/downstream.py",
-            ),
-            missing=(
-                "classification of every remaining saturated destabilizing subsheaf",
-                "exclusion of proper structure-group reduction",
+                "data/generated/scientific_genesis/pair_73_stability_no_go.json",
+                "research/experiments/scientific_genesis/pair_73_stability_no_go.py",
             ),
         ),
         _node(
@@ -368,14 +365,14 @@ def _nodes() -> list[dict[str, object]]:
             "Wilson-projected carrier spectrum",
             "Computable carrier",
             "BLOCKED",
-            "The computable family has no parameter-dependent cohomology and "
-            "Wilson-projected spectrum certificate.",
+            "Pair 73 is unstable and no replacement computable family has a "
+            "parameter-dependent cohomology and Wilson-projected spectrum certificate.",
             (
                 "src/onetheory/physics/compactification.py",
                 "research/experiments/computable_carrier/downstream.py",
             ),
             missing=(
-                "stable descended carrier",
+                "replacement stable descended carrier",
                 "cohomology jumping loci",
                 "Wilson projection certificate",
             ),
@@ -388,7 +385,11 @@ def _nodes() -> list[dict[str, object]]:
             "No candidate has passed every rank, determinant, topology, "
             "local-freeness, descent, stability, and spectrum gate.",
             ("data/generated/computable_carrier/computable_carrier_artifact.json",),
-            missing=("algebraic lawful locus", "stability chamber", "required structural spectrum"),
+            missing=(
+                "replacement algebraic lawful family",
+                "nonempty stability chamber",
+                "required structural spectrum",
+            ),
         ),
         _node(
             "curvilinear_topology_route",
@@ -751,19 +752,27 @@ def _edges() -> list[dict[str, object]]:
             "stability_chamber",
             "A sufficient chamber must satisfy every forced wall and exclude all "
             "additional saturated destabilizing subsheaves.",
-            ("research/experiments/scientific_genesis/pair_73_stability_wall.py",),
+            (
+                "research/experiments/scientific_genesis/pair_73_stability_wall.py",
+                "research/experiments/scientific_genesis/pair_73_stability_no_go.py",
+            ),
             (),
             True,
-            ("stable chamber may be empty", "unseen destabilizing subsheaves"),
+            ("the stable chamber is empty for pair 73",),
         ),
         _edge(
             "stability_chamber",
             "physical_spectrum",
-            "A stable descended bundle supplies the physical sheaf cohomology problem.",
+            "A stable descended replacement bundle is required before the physical "
+            "sheaf cohomology problem can proceed; pair 73 cannot supply it.",
             ("src/onetheory/physics/compactification.py",),
             exact_law,
-            True,
-            ("cohomology may jump", "spectrum constraints may fail"),
+            False,
+            (
+                "pair 73 has empty stable locus",
+                "replacement cohomology may jump",
+                "spectrum constraints may fail",
+            ),
         ),
         _edge(
             "physical_spectrum",
@@ -1198,6 +1207,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/pair_73_cech_lift.json",
         "data/generated/scientific_genesis/pair_73_algebraic_locus.json",
         "data/generated/scientific_genesis/pair_73_stability_wall.json",
+        "data/generated/scientific_genesis/pair_73_stability_no_go.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1218,7 +1228,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 403,
+            "collected_tests_at_audit": 406,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1239,7 +1249,7 @@ def build_state() -> dict[str, object]:
         },
         "recommended_vertical_path": {
             "candidate_pair": 73,
-            "selection_status": "recommended, not selected as a physical point",
+            "selection_status": "retired by exact family-wide stability no-go",
             "criteria": {
                 "invariant_ext_dimension": 4,
                 "coefficient_field": "Q(omega)",
@@ -1250,8 +1260,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "complete destabilizing-subsheaf analysis and genuine SU(4) "
-                "locus for the pair-73 family"
+                "block-level stability classification for the remaining "
+                "minimum-dimensional computable families"
             ),
         },
         "claims": _nodes(),
@@ -1280,6 +1290,8 @@ def build_state() -> dict[str, object]:
             "current curvilinear rank-four Chern type has the wrong quotient index",
             "declared monomial and transported finite linearization categories "
             "have no complete commuting lift pairs where recorded",
+            "pair 73 has empty slope-stable locus because the right Serre line "
+            "lifts universally with slope opposite to the left rank-two subbundle",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -1293,7 +1305,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "sufficient pair-73 stability chamber and Wilson-projected spectrum",
+            "replacement computable stability chamber and Wilson-projected spectrum",
             "carrier-derived complete holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],

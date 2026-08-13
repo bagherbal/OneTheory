@@ -1,0 +1,44 @@
+{
+  "affine_slope_stable_locus": "empty",
+  "all_pair_73_parameters_unstable": true,
+  "arbitrary_extension_point_selected": false,
+  "arbitrary_polarization_selected": false,
+  "artifact_digest": "ce25b8fa4ad1b9c17e250341c6d72dcad2fe39a0cd9106bd7ac01753a7cd77f0",
+  "global_pair_index": 73,
+  "global_schoen_carrier_no_go": false,
+  "lifted_subbundle": "L_right -> V(a)",
+  "opposite_slope_identity": "mu(L_right) = -mu(V_left)",
+  "outer_extension_sequence": "0 -> V_left -> V(a) -> V_right -> 0",
+  "pair_73_computable_carrier_route_refuted": true,
+  "projective_slope_stable_locus": "empty",
+  "proper_structure_group_reduction_computed": false,
+  "pullback_extension_splits_for_all_parameters": true,
+  "restriction_chain_argument": "precomposition with the right Serre line keeps only Hom^0 columns 4,9,14,19,24; every source class uses columns 20,21,22,23, and Cech/Koszul descent preserves those Hom^0 indices while Hom^1 terms vanish under the line inclusion",
+  "restriction_map_zero_on_every_ext_basis_class": true,
+  "restriction_map_zero_on_universal_family": true,
+  "restriction_support_intersection": [],
+  "right_line_first_chern": [
+    "-1",
+    "1",
+    "0"
+  ],
+  "right_line_generator_index": 4,
+  "right_line_restriction_indices": [
+    4,
+    9,
+    14,
+    19,
+    24
+  ],
+  "right_presentation_target_rank": 5,
+  "right_serre_sequence": "0 -> L_right -> V_right -> I_right tensor M_right -> 0",
+  "schema": "pair-73-stability-no-go-v1",
+  "source_hom_support": [
+    20,
+    21,
+    22,
+    23
+  ],
+  "stability_logic": "if mu(V_left)>0 then V_left destabilizes; if mu(V_left)<0 then lifted L_right destabilizes; if mu(V_left)=0 strict slope stability fails",
+  "status": "exact scoped no-go: pair 73 has no slope-stable parameter at any Kahler polarization"
+}

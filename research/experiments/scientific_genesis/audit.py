@@ -2181,10 +2181,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "global overlap transitions from the six bound punctured Serre "
-                "frames to the support complement, followed by a synchronized "
-                "lift of the four derived-P1 representatives into the full "
-                "Schoen Cech complex"
+                "base-line and support-complement extension transitions for "
+                "the globally compatible ideal-level Serre frames, followed "
+                "by a synchronized lift of the four derived-P1 representatives "
+                "into the full Schoen Cech complex"
             ),
         },
         "claims": _nodes(),
@@ -2202,7 +2202,8 @@ def build_state() -> dict[str, object]:
             "mapping-cone certificates for W1 and W2",
             "exact free rank-two local Serre frames at all six I3/I6 support "
             "points with localized Hilbert--Burch-to-Koszul factorization and "
-            "binding to the nonboundary punctured blow-up-atlas cocycles",
+            "binding to the nonboundary punctured blow-up-atlas cocycles; all "
+            "ordered ideal-frame changes preserve the Koszul exact sequences",
             "exact cohomology-reduced outer model preserving the source Euler "
             "characteristic and isolating a common 90-dimensional excess",
             "exact standard-cover Cech contraction and finite transfer deriving "

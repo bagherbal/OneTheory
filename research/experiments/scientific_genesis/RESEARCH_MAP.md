@@ -264,6 +264,10 @@ Overlap transition matrices gluing these frames are still unresolved.
 The local frames are also bound to the existing exact blow-up atlas and its
 six nonboundary punctured unit cocycles. Global overlaps with the support
 complement, including line-frame factors, remain unresolved.
+All 30 ordered ideal-frame changes for each scheme also lift compatibly to the
+free rank-two middle term, with the Koszul subline transforming by the exact
+determinant. The remaining global data are the `O(+-f)` line frames and their
+extension gluing to the support complement.
 The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.

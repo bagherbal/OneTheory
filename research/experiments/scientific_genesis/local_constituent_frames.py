@@ -23,10 +23,16 @@ from dataclasses import dataclass
 
 from onetheory.math.numbers import Eisenstein
 from onetheory.math.polynomials import Polynomial
+from onetheory.math.sheaves import LaurentMatrix, LaurentPolynomial
 from onetheory.models.heterotic_schoen.visible import PointScheme, point_schemes
+from research.experiments.computable_carrier.pencil import tier_a_pencil_model
 from research.experiments.computable_carrier.serre_atlas import (
     AtlasSerreLocal,
+    SerrePushoutAtlas,
+    _homogeneous_coordinate_exponents,
+    _local_generator_pair,
     tier_a_atlas_serre_locals,
+    tier_a_serre_pushout_atlases,
 )
 
 from .relative_constituent_pushdowns import (
@@ -261,6 +267,55 @@ class BoundPuncturedSerreFrame:
         )
 
 
+def _laurent_column_image(
+    matrix: LaurentMatrix,
+    column: tuple[LaurentPolynomial, LaurentPolynomial],
+) -> tuple[LaurentPolynomial, LaurentPolynomial]:
+    """Apply one two-by-two Laurent matrix to a column."""
+
+    zero = LaurentPolynomial.zero(
+        matrix.variable_count,
+        scalar_type=matrix.scalar_type,
+    )
+    return tuple(
+        sum(
+            (matrix.rows[row][column_index] * column[column_index]
+             for column_index in range(2)),
+            zero,
+        )
+        for row in range(2)
+    )  # type: ignore[return-value]
+
+
+def _laurent_determinant(matrix: LaurentMatrix) -> LaurentPolynomial:
+    """Return the exact determinant of a two-by-two Laurent matrix."""
+
+    if matrix.shape != (2, 2):
+        raise ValueError("Serre frame transitions must be two by two")
+    return (
+        matrix.rows[0][0] * matrix.rows[1][1]
+        - matrix.rows[0][1] * matrix.rows[1][0]
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class BoundGlobalSerreAtlas:
+    """Ideal-level global frame changes with exact Koszul compatibility."""
+
+    atlas: SerrePushoutAtlas
+    koszul_compatible: bool
+
+    @property
+    def exact(self) -> bool:
+        """Return the global ideal-frame groupoid and exact-sequence gates."""
+
+        return (
+            self.atlas.all_invertible
+            and self.atlas.cocycle_consistent
+            and self.koszul_compatible
+        )
+
+
 def _local_frames(
     scheme: PointScheme,
     surface_factor: int,
@@ -322,9 +377,47 @@ def published_bound_punctured_frames() -> tuple[BoundPuncturedSerreFrame, ...]:
     return results
 
 
+def published_bound_global_atlases() -> tuple[BoundGlobalSerreAtlas, ...]:
+    """Upgrade existing ideal transitions to compatible free Serre middle frames."""
+
+    model = tier_a_pencil_model()
+    charts = {chart.name: chart for chart in model.blowup_atlas.charts}
+    homogeneous = _homogeneous_coordinate_exponents()
+    results = []
+    for atlas in tier_a_serre_pushout_atlases(model):
+        compatible = True
+        for source_name, target_name, transition in atlas.transitions:
+            source_row = _local_generator_pair(
+                charts[source_name].base_pivot,
+                atlas.multiplicity,
+                homogeneous,
+            )
+            target_row = _local_generator_pair(
+                charts[target_name].base_pivot,
+                atlas.multiplicity,
+                homogeneous,
+            )
+            source_koszul = (-source_row[1], source_row[0])
+            target_koszul = (-target_row[1], target_row[0])
+            determinant = _laurent_determinant(transition)
+            compatible &= _laurent_column_image(
+                transition,
+                target_koszul,
+            ) == tuple(
+                item * determinant for item in source_koszul
+            )
+        result = BoundGlobalSerreAtlas(atlas, compatible)
+        if not result.exact:
+            raise ValueError("a global ideal frame failed Koszul compatibility")
+        results.append(result)
+    return tuple(results)
+
+
 __all__ = [
     "BoundPuncturedSerreFrame",
+    "BoundGlobalSerreAtlas",
     "LocalKoszulSerreFrame",
+    "published_bound_global_atlases",
     "published_bound_punctured_frames",
     "published_local_constituent_frames",
 ]

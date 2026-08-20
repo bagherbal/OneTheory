@@ -15,6 +15,7 @@ Phase 0:
 """
 
 from research.experiments.scientific_genesis.local_constituent_frames import (
+    published_bound_global_atlases,
     published_bound_punctured_frames,
     published_local_constituent_frames,
 )
@@ -72,3 +73,15 @@ def test_local_frames_bind_to_existing_punctured_atlas_cocycles() -> None:
     assert tuple(
         binding.atlas.cocycle_monomial_exponents for binding in bindings
     ) == ((-1, -1),) * 3 + ((-1, -2),) * 3
+
+
+def test_ideal_atlas_transitions_preserve_koszul_serre_sequences() -> None:
+    """Every cross-chart generator change lifts to the free rank-two middle term."""
+
+    first, second = published_bound_global_atlases()
+
+    assert first.exact
+    assert second.exact
+    assert first.koszul_compatible
+    assert second.koszul_compatible
+    assert len(first.atlas.transitions) == len(second.atlas.transitions) == 30

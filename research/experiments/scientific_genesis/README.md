@@ -80,3 +80,9 @@ exact nonboundary punctured cocycle (`u^-1 v^-1` for I3 and `u^-1 v^-2` for
 I6), checked hypersurface incidence, and a nonzero fiber derivative. What
 remains is global overlap gluing between these punctured neighborhoods and the
 complement, including the constituent line-bundle frames.
+The existing 30 ordered blow-up-chart generator changes per scheme now also
+lift to the free Serre middle frames: for every transition `C`, the quotient
+row transforms by `C` and the Koszul subline by `det(C)`. Invertibility and all
+triple-overlap cocycles remain exact. The unresolved data are therefore the
+base `O(+-f)` line frames and the extension gluing to the support complement,
+not the ideal-level chart groupoid.

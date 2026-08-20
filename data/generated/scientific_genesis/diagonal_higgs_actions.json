@@ -1,0 +1,91 @@
+{
+  "artifact_digest": "d22e958a5147ea8fb31aa1214b74b707a9eec3ff327e1c8db6736936c95d8a6a",
+  "chain_maps_exact": true,
+  "character_multiplicities": [
+    [
+      [
+        0,
+        0
+      ],
+      3
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      2
+    ],
+    [
+      [
+        1,
+        0
+      ],
+      3
+    ],
+    [
+      [
+        1,
+        1
+      ],
+      2
+    ],
+    [
+      [
+        2,
+        0
+      ],
+      2
+    ],
+    [
+      [
+        2,
+        1
+      ],
+      2
+    ]
+  ],
+  "character_projection_promoted": false,
+  "characters_isolate_four_classes": false,
+  "current_cone_h1_dimension": 14,
+  "full_higgs_representatives_constructed": false,
+  "group_relations_exact": true,
+  "lawful_character_multiplicities": [
+    [
+      [
+        0,
+        1
+      ],
+      2
+    ],
+    [
+      [
+        2,
+        1
+      ],
+      2
+    ]
+  ],
+  "next_required_object": "a twist-natural relative chain correction and its lift through the diagonal Schoen Cech-Koszul contraction",
+  "published_character_table_used_as_action_input": false,
+  "schema": "diagonal-higgs-actions-v1",
+  "source_required_characters": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "status": "scoped no-go: deck characters do not isolate the four derived P1 Higgs classes inside the current excess cone cohomology"
+}

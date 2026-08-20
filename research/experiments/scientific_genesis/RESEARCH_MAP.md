@@ -252,7 +252,10 @@ constituent pushdown quasi-isomorphisms: W1 contracts its duality-forced
 cohomology `(0,4,4,0)`. The four resulting P1 classes still require
 chain-level lifts through the diagonal Schoen Cech--Koszul contraction;
 explicit local transition data, full Higgs cocycles, and trace data do not yet
-exist.
+exist. Exact deck action on the current 14-dimensional excess space rules out
+a character shortcut: its six character multiplicities are `3,2,3,2,2,2`,
+two source-required characters are absent, and the two present lawful
+characters are doubled. A twist-natural chain correction is mandatory.
 The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.

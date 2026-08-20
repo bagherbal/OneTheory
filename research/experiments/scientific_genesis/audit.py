@@ -416,10 +416,14 @@ def _nodes() -> list[dict[str, object]]:
                 "published_higgs_cohomology.json",
                 "data/generated/scientific_genesis/"
                 "relative_constituent_pushdowns.json",
+                "data/generated/scientific_genesis/"
+                "diagonal_higgs_actions.json",
                 "research/experiments/scientific_genesis/"
                 "published_higgs_cohomology.py",
                 "research/experiments/scientific_genesis/"
                 "relative_constituent_pushdowns.py",
+                "research/experiments/scientific_genesis/"
+                "diagonal_higgs_actions.py",
                 "tests/integration/"
                 "test_scientific_genesis_published_higgs_cohomology.py",
                 "tests/integration/"
@@ -2050,6 +2054,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_matter_cohomology.json",
         "data/generated/scientific_genesis/published_higgs_cohomology.json",
         "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
+        "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -2270,6 +2275,9 @@ def build_state() -> dict[str, object]:
             "the available projective I3/I6 pushouts give cover Ext-one "
             "dimensions 0/63 rather than the published 36/72, so they cannot "
             "stand in for fiber-sensitive W1/W2 presentations",
+            "the current 14-dimensional diagonal Higgs cone has exact character "
+            "multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors "
+            "rule out character projection as a four-class selector",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",

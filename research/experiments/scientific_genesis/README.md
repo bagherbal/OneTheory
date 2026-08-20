@@ -62,3 +62,10 @@ published W1/W2 signatures and their tensor has cohomology `(0,4,4,0)`.
 Promotion now requires lifting the four resulting P1 classes through the
 diagonal Schoen Cech--Koszul contraction; P1 representatives alone are not
 full carrier cocycles.
+
+The current 14-dimensional diagonal-cone cohomology also cannot be repaired by
+character selection. Its exact deck decomposition is
+`3(0,0)+2(0,1)+3(1,0)+2(1,1)+2(2,0)+2(2,1)`: two required characters are
+absent and the other two occur twice. No four-class subspace is selected.
+The next construction must therefore lift the relative quasi-isomorphisms at
+chain level and remove the excess through an actual differential correction.

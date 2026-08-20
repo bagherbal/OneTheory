@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "930bb2ea4a557a5198a6c06df555c271d1509d638bceb2f046064b7c7275ed5e",
+  "artifact_digest": "eb84d648ac0f78f60ffa6872ccf0a11492b700b7dedecf4ee6d7bf255f2adab1",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -172,6 +172,11 @@
       "sha256": "1eb54b37e0c58136c9be66929148ed993937eefe4e9ea1f11b3dbc4c9ca1db23"
     },
     {
+      "bytes": 1406,
+      "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
+      "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -196,8 +201,8 @@
     "collected_tests_at_audit": 498,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 136,
-    "test_python_files": 119
+    "research_python_files": 137,
+    "test_python_files": 120
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -522,8 +527,10 @@
       "evidence": [
         "data/generated/scientific_genesis/published_higgs_cohomology.json",
         "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
+        "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "research/experiments/scientific_genesis/published_higgs_cohomology.py",
         "research/experiments/scientific_genesis/relative_constituent_pushdowns.py",
+        "research/experiments/scientific_genesis/diagonal_higgs_actions.py",
         "tests/integration/test_scientific_genesis_published_higgs_cohomology.py",
         "tests/integration/test_scientific_genesis_relative_constituent_pushdowns.py"
       ],
@@ -2460,7 +2467,8 @@
     "all 72 families in candidates 16 and 36 have incompatible negative-slope requirements for the right-line preimage and universally lifted line",
     "all 72 families in candidates 4 and 24 lift a descended lower line whose slope and the forced left-line slope sum to a strictly positive fiber-class slope",
     "the final 72 families in candidates 5 and 25 have the same exact positive fiber-slope contradiction, exhausting only the declared finite monomial category",
-    "the available projective I3/I6 pushouts give cover Ext-one dimensions 0/63 rather than the published 36/72, so they cannot stand in for fiber-sensitive W1/W2 presentations"
+    "the available projective I3/I6 pushouts give cover Ext-one dimensions 0/63 rather than the published 36/72, so they cannot stand in for fiber-sensitive W1/W2 presentations",
+    "the current 14-dimensional diagonal Higgs cone has exact character multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors rule out character projection as a four-class selector"
   ],
   "structural_compression_questions": [
     {

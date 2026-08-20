@@ -201,15 +201,27 @@ Thus no stable family remains in the declared finite monomial category. This
 is not a no-go for general Schoen bundles. A wider search must first define a
 mathematically justified finite category before any new enumeration begins.
 
-The shortest vertical path now returns to the selected published carrier, but
-one tempting shortcut is excluded. Feeding the exact projective I3/I6
-pushouts into the sparse Schoen engine with the published V1/V2 twists gives
-forward and reverse cover Ext-one dimensions `0` and `63`. The source-bound
-carrier ledger requires `36` and `72`, with invariant dimensions `4` and `8`.
-Both tested total complexes square to zero, so this is an exact model mismatch,
-not an arithmetic failure. The projective pushouts are not W1/W2 chain models;
-fiber-sensitive dP9 Serre presentations must be derived before the four outer
-cocycles can be reconstructed. The published carrier itself is not refuted.
+The shortest vertical path now follows the selected published carrier. One
+tempting shortcut is excluded: exact projective I3/I6 pushouts give forward
+and reverse cover Ext-one dimensions `0` and `63`, not the source-bound `36`
+and `72`. Fiber-sensitive dP9 Serre presentations were therefore derived
+directly. Their exact constituent Ext-one dimensions are `2` and `5`; natural
+deck chain actions become the published representations after one explicit
+source-selected common character twist. Each unique invariant constituent
+class lifts to its Hilbert--Burch maximal-minor tuple divided by `mu nu`, and
+the resulting derived mapping cones square to zero exactly.
+
+Embedding those cones in the common Schoen grading first produced reduced
+outer dimensions `126/162` forward and `162/126` reverse, isolating one common
+90-dimensional excess without inserting a correction. A canonical
+standard-cover Cech contraction and finite homological perturbation now derive
+the missing differential. The exact transferred ranks are
+`1512/2988/1764` forward and `1764/2988/1512` reverse; both totals square to
+zero and independently yield cover cohomology `36/72` and `72/36`. The
+published dimensions are therefore reconstructed rather than used as rank
+inputs. The next missing object is the deck action on transferred outer
+cohomology and explicit invariant representatives in the common
+Cech--Koszul complex.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
@@ -220,10 +232,12 @@ distinct from the published reference carrier.
 ## Vertical physics blockers
 
 Generic DGA, module, contraction, cyclic-pairing, and HPL machinery already
-exists, but a carrier-specific synchronized complex, matter/Higgs cocycles,
-and trace data do not. The first flavor target is one complete generated
-`3 x 3` holomorphic Yukawa matrix. Its rank must be explained structurally
-before higher products are extended.
+exists, and the published constituent outer complexes are synchronized at
+cover level. Their transferred deck action, invariant outer cocycles, local
+transition data, matter/Higgs cocycles, and trace data do not yet exist. The
+first flavor target remains one complete generated `3 x 3` holomorphic Yukawa
+matrix. Its rank must be explained structurally before higher products are
+extended.
 
 Metrics are blocked first by explicit carrier extension data and then by
 section bases, global generation, and controlled Ricci-flat/HYM convergence.
@@ -244,13 +258,12 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: construct exact restriction maps for lower
-proper constituent sublines, beginning with the unique
-`O(3*tau1-phi)` section, then classify rank-two and dual rank-three conditions.
-Construct a universal mapping cone only if a stable locus survives. Continue by
-increasing invariant Ext dimension until one stable family survives or the
-declared category is exhausted.
-Spectrum loci and the minimum common-DGA Yukawa slice remain downstream of the
-first stable family. Completing the final 144 large automorphism cases stays
-suspended until it can change a dependency edge or independently verify a
-theorem.
+The governing queue is therefore: derive the deck action on the transferred
+published outer complexes, compute invariant cohomology representatives, and
+materialize the four source-required outer cocycles without importing archived
+matrices. If that closes, construct the exact published rank-four extension and
+test its local transition and stability gates before entering the minimum
+common-DGA Yukawa slice. The declared finite monomial replacement category is
+exhausted by scoped stability no-go results. Completing the final 144 large
+automorphism cases stays suspended until it can change a dependency edge or
+independently verify a theorem.

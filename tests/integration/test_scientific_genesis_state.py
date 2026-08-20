@@ -75,7 +75,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "published full-Cech outer transfer reconstruction"
+        "published transferred outer deck-action reconstruction"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
@@ -95,6 +95,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_constituent_deck_actions"]["status"] == "COMPUTED"
     assert claims["published_constituent_mapping_cones"]["status"] == "COMPUTED"
     assert claims["published_outer_reduced_model"]["status"] == "COMPUTED"
+    assert claims["published_outer_cech_transfer"]["status"] == "COMPUTED"
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     assert state["fitted_inputs"] == []

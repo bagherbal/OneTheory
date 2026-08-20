@@ -297,21 +297,37 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "published_outer_cech_transfer",
+            "published full-Cech outer hypercohomology",
+            "Reference realization",
+            "COMPUTED",
+            "Canonical standard-cover contraction and finite homological "
+            "perturbation derive square-zero outer complexes with forward "
+            "H1/H2 36/72 and reverse 72/36 without rank fitting.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_outer_cech_transfer.json",
+                "research/experiments/computable_carrier/"
+                "schoen_serre_outer_transfer.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_outer_cech_transfer.py",
+            ),
+        ),
+        _node(
             "published_chain_reconstruction",
             "published carrier chain reconstruction",
             "Reference realization",
             "BLOCKED",
-            "The reduced synchronized model isolates a common 90-dimensional "
-            "excess. The full standard-cover Cech contraction, its transferred "
-            "differential, and four invariant outer cocycles remain absent.",
+            "The full cover outer dimensions are now independently derived. "
+            "Deck actions on transferred cohomology and four explicit invariant "
+            "outer cocycles remain absent.",
             (
                 "data/generated/visible_carrier/visible_carrier_artifact.json",
                 "data/generated/scientific_genesis/"
-                "published_outer_reduced_mismatch.json",
+                "published_outer_cech_transfer.json",
             ),
             missing=(
-                "full standard-cover Cech contraction for the twisted outer complex",
-                "transferred outer differential removing the 90-dimensional excess",
+                "deck action on transferred outer cohomology",
                 "four invariant outer Ext cocycles",
                 "common Cech-Koszul basis and signs",
                 "local transition data",
@@ -966,16 +982,29 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "published_outer_reduced_model",
-            "published_chain_reconstruction",
+            "published_outer_cech_transfer",
             "The equal 90-dimensional H1/H2 excess identifies the exact net "
-            "rank that full Cech homotopy transfer must supply without fitting.",
+            "effect tested by full Cech homotopy transfer without fitting.",
             (
                 "research/experiments/computable_carrier/"
-                "schoen_serre_outer.py",
+                "schoen_serre_outer_transfer.py",
             ),
             (),
             True,
-            ("the missing transferred map has not yet been constructed",),
+            ("quotient deck invariants are not part of cover hypercohomology",),
+        ),
+        _edge(
+            "published_outer_cech_transfer",
+            "published_chain_reconstruction",
+            "The exact transferred complexes provide the common cover-level "
+            "chain object on which deck actions and invariant cocycles must act.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_outer_cech_transfer.json",
+            ),
+            (),
+            True,
+            ("the transferred deck action and invariant representatives are absent",),
         ),
         _edge(
             "published_visible_carrier",
@@ -1750,6 +1779,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_constituent_deck_actions.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
+        "data/generated/scientific_genesis/published_outer_cech_transfer.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1770,7 +1800,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 478,
+            "collected_tests_at_audit": 482,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1792,7 +1822,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "published full-Cech outer transfer reconstruction"
+                "published transferred outer deck-action reconstruction"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1874,8 +1904,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "full standard-cover Cech contraction for the constituent "
-                "twisted outer complex and its transferred differential"
+                "deck action on transferred outer cohomology and explicit "
+                "invariant representatives in the common Cech-Koszul complex"
             ),
         },
         "claims": _nodes(),
@@ -1893,6 +1923,8 @@ def build_state() -> dict[str, object]:
             "mapping-cone certificates for W1 and W2",
             "exact cohomology-reduced outer model preserving the source Euler "
             "characteristic and isolating a common 90-dimensional excess",
+            "exact standard-cover Cech contraction and finite transfer deriving "
+            "the published forward 36/72 and reverse 72/36 cover outer dimensions",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "

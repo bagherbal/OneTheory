@@ -1,0 +1,283 @@
+{
+  "all_full_cech_complexes_squared_zero": true,
+  "artifact_digest": "b4376d77f66266df795b1b63ecb104ffd8d28124d57c9ba8fadf90652af4e6d7",
+  "coefficient_field": "Q(omega)",
+  "cover": "standard affine cover of P2_x x P2_u x P1",
+  "forward": {
+    "cohomology_dimensions": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        36
+      ],
+      [
+        2,
+        72
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "differential_digests": [
+      [
+        -1,
+        "9c8385029084719eac56df6dfd4f1fd05d22a6b0fa7c471ba6ddf1f05ebd384b"
+      ],
+      [
+        0,
+        "8725c41944700d793b7ffb94bcaa66c667fb1da8394c4f7fce201d9961ee871f"
+      ],
+      [
+        1,
+        "a882854d5feeb615f7a2f4319606fb33b347ff84dce915290195850f70fcafc5"
+      ],
+      [
+        2,
+        "7c10aaa34750382f88d53f31274533b02d081225fcd678c0a93c7a872ddf615b"
+      ],
+      [
+        3,
+        "21d9195d07689a61c9c4490aa662f329b9c23436c631a732b7588973dc36694f"
+      ],
+      [
+        4,
+        "51c76575a0d2ac128d33e5bf33495d6f968de937ffb68ad36e7f5546548ab485"
+      ]
+    ],
+    "differential_ranks": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1512
+      ],
+      [
+        1,
+        2988
+      ],
+      [
+        2,
+        1764
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "orientation": "RHom(V2,V1)",
+    "squared_zero": true,
+    "total_dimensions": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1512
+      ],
+      [
+        1,
+        4536
+      ],
+      [
+        2,
+        4824
+      ],
+      [
+        3,
+        1764
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "transfer_depths": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        0
+      ]
+    ]
+  },
+  "invariant_outer_cocycles_computed": false,
+  "next_required_object": "deck action on the transferred outer cohomology and explicit invariant representatives in the common Cech-Koszul complex",
+  "outer_deck_action_computed": false,
+  "published_cover_dimensions_reconstructed": true,
+  "published_dimensions_used_as_rank_inputs": false,
+  "rank_90_map_inserted": false,
+  "reverse": {
+    "cohomology_dimensions": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        72
+      ],
+      [
+        2,
+        36
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "differential_digests": [
+      [
+        -1,
+        "bc7884bc460d2245c788672536b73a22784d9598ef918b147900149ab359984a"
+      ],
+      [
+        0,
+        "4e0d969cb1c014e1eac7720d70bc48029fd4f7aaecbd1572503cc79a7a6cc3f8"
+      ],
+      [
+        1,
+        "8bcbf7bd4d91fa50a94f18dbcd647251a01826bc5171a9b099edc6b04a3b4e21"
+      ],
+      [
+        2,
+        "f44a804641b0500e23c516807e9cd53221c14dbfa35c8bd44a680cc8907cf268"
+      ],
+      [
+        3,
+        "c6bf510fc7aadfea6e20ca7a6a3f0efd2275dea9a9d998d8f951adb15ed43b05"
+      ],
+      [
+        4,
+        "0bac61511e9dae2f59d930a179283188fc35fbf1d95e47f72d0a9f7b3a4e3b0b"
+      ]
+    ],
+    "differential_ranks": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1764
+      ],
+      [
+        1,
+        2988
+      ],
+      [
+        2,
+        1512
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "orientation": "RHom(V1,V2)",
+    "squared_zero": true,
+    "total_dimensions": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1764
+      ],
+      [
+        1,
+        4824
+      ],
+      [
+        2,
+        4536
+      ],
+      [
+        3,
+        1512
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "transfer_depths": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        0
+      ]
+    ]
+  },
+  "schema": "published-outer-cech-transfer-v1",
+  "status": "exact independent full-Cech reconstruction of both published cover outer-Ext dimensions",
+  "transfer_formula": "p Delta (1 + h Delta)^(-1) i"
+}

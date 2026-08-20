@@ -43,3 +43,12 @@ common-base Schoen line cohomology, including boundary-band cancellation and
 the degree-69 Euler regression. This validates the synchronization geometry
 only; the two constituent cones and their Higgs representatives are not yet
 lifted through it.
+
+Transferring the currently reconstructed constituent cones through that exact
+diagonal model gives a square-zero complex with cover cohomology
+`(0,14,18,4)`, not the published `(0,4,4,0)`. Both independent P1 gradings and
+all higher Koszul paths are retained, so the old shared-cover sign ambiguity is
+no longer the cause. The cone tensor is therefore not identified with the
+published `V1 tensor V2`. Promotion now requires deriving the relative
+pushdown quasi-isomorphisms of both cones and reproducing the source
+coboundary maps, including the duality-forced W1 isomorphism.

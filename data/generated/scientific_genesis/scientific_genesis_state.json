@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "c55691b87f9313117f17ac09c0d576d3f83ad5e21c5751fa70492ecfbf1e4a9b",
+  "artifact_digest": "930bb2ea4a557a5198a6c06df555c271d1509d638bceb2f046064b7c7275ed5e",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -117,9 +117,9 @@
       "sha256": "2e66f8021f1fffbe6e965178c45a1e263c9e1a8bb2c74f1bf95bf47ecddf9cf7"
     },
     {
-      "bytes": 2050,
+      "bytes": 2144,
       "path": "data/generated/scientific_genesis/published_constituent_ext_spaces.json",
-      "sha256": "c7119293ba1632d2334623c4c664d5515bbceefe45e2e0e7067f6bc940462e78"
+      "sha256": "8dba740909fe6ef69133021f4cc359700dffcc9aeee48ec3be0e561c956c58e4"
     },
     {
       "bytes": 5735,
@@ -167,6 +167,11 @@
       "sha256": "6da6dbcd553d328c55c901560c50d642356d9abaea333834a32aa8cb2f03550a"
     },
     {
+      "bytes": 10365,
+      "path": "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
+      "sha256": "1eb54b37e0c58136c9be66929148ed993937eefe4e9ea1f11b3dbc4c9ca1db23"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -191,8 +196,8 @@
     "collected_tests_at_audit": 498,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 133,
-    "test_python_files": 116
+    "research_python_files": 136,
+    "test_python_files": 119
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -510,19 +515,23 @@
     },
     {
       "assumptions": [
-        "published W1/W2 pushdowns",
+        "published constituent linearisations",
+        "relative duality for the locally free self-dual W1",
         "published Wilson-line embedding"
       ],
       "evidence": [
         "data/generated/scientific_genesis/published_higgs_cohomology.json",
+        "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
         "research/experiments/scientific_genesis/published_higgs_cohomology.py",
-        "tests/integration/test_scientific_genesis_published_higgs_cohomology.py"
+        "research/experiments/scientific_genesis/relative_constituent_pushdowns.py",
+        "tests/integration/test_scientific_genesis_published_higgs_cohomology.py",
+        "tests/integration/test_scientific_genesis_relative_constituent_pushdowns.py"
       ],
       "id": "published_higgs_cohomology",
       "label": "published universal-family Higgs cohomology",
       "layer": "Reference realization",
       "missing_prerequisites": [],
-      "statement": "Full-Cech transfer proves both determinant terms acyclic, while the exact derived tensor of the published P1 pushdowns gives H*(wedge^2 V)= (0,4,4,0) for every extension parameter. The inverse-pullback action on four canonical P1 Cech representatives generates the published deck-character decomposition exactly.",
+      "statement": "Full-Cech transfer proves both determinant terms acyclic, while relative projection, duality contraction, and an elementary transformation derive the W1/W2 P1 pushdowns. Their tensor gives H*(wedge^2 V)= (0,4,4,0) for every extension parameter. The inverse-pullback action on four canonical P1 Cech representatives generates the published deck-character decomposition exactly.",
       "status": "COMPUTED"
     },
     {
@@ -1322,11 +1331,11 @@
     },
     {
       "assumptions_required": [
-        "published W1/W2 pushdowns",
-        "derived pushdown tensor over the common P1"
+        "derived relative pushdowns over the common P1"
       ],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/published_higgs_cohomology.json"
+        "data/generated/scientific_genesis/published_higgs_cohomology.json",
+        "data/generated/scientific_genesis/relative_constituent_pushdowns.json"
       ],
       "implication": "exact",
       "known_failure_modes": [
@@ -1351,7 +1360,7 @@
     },
     {
       "assumptions_required": [
-        "published W1/W2 equivariant pushdowns",
+        "derived W1/W2 equivariant pushdowns",
         "published Wilson-line embedding"
       ],
       "implementation_or_artifact": [
@@ -1982,7 +1991,7 @@
     "exact universal rank-four outer cone over P^3(Q(omega)) with non-split, local-freeness, Chern, and descent gates",
     "nonempty generic stable descended genuine-SU(4) locus U_pub x K^s with nine exact slope inequalities and a rational open witness",
     "exact all-parameter matter cohomology H1(V)=3 Reg(Z3 x Z3), H1(V dual)=0, and a three-family Wilson projection",
-    "exact all-parameter Higgs cohomology H*(wedge^2 V)=(0,4,4,0) with an empty jumping locus and a generated derived-P1 deck action giving one Higgs pair with no color triplets",
+    "exact all-parameter Higgs cohomology H*(wedge^2 V)=(0,4,4,0) from derived W1/W2 relative quasi-isomorphisms, with an empty jumping locus and a generated derived-P1 deck action giving one Higgs pair with no color triplets",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
     "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family",
     "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient",
@@ -2375,9 +2384,10 @@
       "capability": "matter and Higgs cohomology",
       "locations": [
         "src/onetheory/models/heterotic_schoen/visible.py",
-        "data/generated/visible_carrier/visible_carrier_artifact.json"
+        "research/experiments/scientific_genesis/relative_constituent_pushdowns.py",
+        "research/experiments/scientific_genesis/published_higgs_cohomology.py"
       ],
-      "maturity": "reference dimensions only; computable representatives absent"
+      "maturity": "exact dimensions and relative representatives; full Schoen lifts absent"
     },
     {
       "capability": "common DGA",

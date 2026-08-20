@@ -49,6 +49,16 @@ diagonal model gives a square-zero complex with cover cohomology
 `(0,14,18,4)`, not the published `(0,4,4,0)`. Both independent P1 gradings and
 all higher Koszul paths are retained, so the old shared-cover sign ambiguity is
 no longer the cause. The cone tensor is therefore not identified with the
-published `V1 tensor V2`. Promotion now requires deriving the relative
-pushdown quasi-isomorphisms of both cones and reproducing the source
-coboundary maps, including the duality-forced W1 isomorphism.
+published `V1 tensor V2`.
+
+The relative calculation now projects the three reduced support points of
+`I3` and the three length-two local schemes of `I6` through the frozen cubic
+pencils. The selected maximal-minor classes are units in every local lci
+dualizing algebra. Relative duality contracts the W1
+`O(-2) -> O(-2)` pair, while character incompatibility kills the analogous W2
+coboundary and its three local units give the elementary transformation
+`O(-2) -> O(1)`. These independently derived quasi-isomorphisms reproduce the
+published W1/W2 signatures and their tensor has cohomology `(0,4,4,0)`.
+Promotion now requires lifting the four resulting P1 classes through the
+diagonal Schoen Cech--Koszul contraction; P1 representatives alone are not
+full carrier cocycles.

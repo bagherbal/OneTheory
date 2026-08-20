@@ -245,8 +245,14 @@ distinct from the published reference carrier.
 Generic DGA, module, contraction, cyclic-pairing, and HPL machinery already
 exists, and the published constituent outer complexes now have strict
 invariant outer bases and a universal descended rank-four cone in one
-synchronized cover complex. Its exact stable genuine-`SU(4)` locus, explicit
-local transition data, matter/Higgs cocycles, and trace data do not yet exist.
+synchronized cover complex. Exact relative projection now derives both
+constituent pushdown quasi-isomorphisms: W1 contracts its duality-forced
+`O(-2) -> O(-2)` pair, while W2 is the elementary transformation
+`O(-2) -> O(1)` across three reduced base points. Their derived tensor has
+cohomology `(0,4,4,0)`. The four resulting P1 classes still require
+chain-level lifts through the diagonal Schoen Cech--Koszul contraction;
+explicit local transition data, full Higgs cocycles, and trace data do not yet
+exist.
 The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.

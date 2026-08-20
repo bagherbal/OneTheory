@@ -1,0 +1,499 @@
+{
+  "all_quasi_isomorphisms_exact": true,
+  "artifact_digest": "7cb0b0ea7a70c905a207ab08387411b5e2811c4270f8dae45d91aa896298fd06",
+  "comparison_targets": [
+    "hep-th/0602073 source label eq:W1pushdown",
+    "hep-th/0602073 source label eq:W2pushdown"
+  ],
+  "constituents": [
+    {
+      "canonical_minor_cocycle": true,
+      "connecting_map": {
+        "isomorphism": true,
+        "normalization": "relative duality forces the unique nonzero scalar map; source and target bases normalize it to one",
+        "source": {
+          "character": [
+            "-1-omega",
+            "1"
+          ],
+          "degree": -2,
+          "label": "chi1^2 O(-2) quotient image"
+        },
+        "target": {
+          "character": [
+            "-1-omega",
+            "1"
+          ],
+          "degree": -2,
+          "label": "chi1^2 O(-2) line higher image"
+        }
+      },
+      "connecting_zero_by_character": false,
+      "direct_terms": [
+        {
+          "character": [
+            "omega",
+            "1"
+          ],
+          "degree": -1,
+          "label": "chi1 O(-1)"
+        }
+      ],
+      "elementary_transformation_exact": null,
+      "higher_terms": [
+        {
+          "character": [
+            "1",
+            "1"
+          ],
+          "degree": 0,
+          "label": "O"
+        }
+      ],
+      "name": "W1",
+      "quasi_isomorphism_exact": true,
+      "relative_duality_used": true,
+      "support": {
+        "exact": true,
+        "local_algebras": [
+          {
+            "generators": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "length": 1,
+            "local_complete_intersection": true,
+            "pivot": 0,
+            "projection_constant_to_first_order": true,
+            "standard_monomials": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "generators": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "length": 1,
+            "local_complete_intersection": true,
+            "pivot": 1,
+            "projection_constant_to_first_order": true,
+            "standard_monomials": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "generators": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "length": 1,
+            "local_complete_intersection": true,
+            "pivot": 2,
+            "projection_constant_to_first_order": true,
+            "standard_monomials": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "scheme": "I3",
+        "scheme_length": 3,
+        "support_deck_invariant": true,
+        "support_equation": [
+          {
+            "coefficient": "1",
+            "monomial": [
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "3+6*omega",
+            "monomial": [
+              0,
+              3
+            ]
+          }
+        ],
+        "support_forms": [
+          [
+            {
+              "coefficient": "1",
+              "monomial": [
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "2+omega",
+              "monomial": [
+                0,
+                1
+              ]
+            }
+          ],
+          [
+            {
+              "coefficient": "1",
+              "monomial": [
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1-2*omega",
+              "monomial": [
+                0,
+                1
+              ]
+            }
+          ],
+          [
+            {
+              "coefficient": "1",
+              "monomial": [
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "-1+omega",
+              "monomial": [
+                0,
+                1
+              ]
+            }
+          ]
+        ],
+        "support_is_reduced": true,
+        "surface_factor": 1
+      },
+      "twist_profiles_minus_two_through_two": [
+        [
+          -2,
+          [
+            0,
+            2,
+            1
+          ]
+        ],
+        [
+          -1,
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          0,
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          1,
+          [
+            1,
+            2,
+            0
+          ]
+        ],
+        [
+          2,
+          [
+            2,
+            3,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "canonical_minor_cocycle": true,
+      "connecting_map": null,
+      "connecting_zero_by_character": true,
+      "direct_terms": [
+        {
+          "character": [
+            "1",
+            "-1-omega"
+          ],
+          "degree": -1,
+          "label": "chi2^2 O(-1)"
+        },
+        {
+          "character": [
+            "1",
+            "omega"
+          ],
+          "degree": -2,
+          "label": "chi2 O(-2)"
+        }
+      ],
+      "elementary_transformation_exact": true,
+      "higher_terms": [
+        {
+          "character": [
+            "1",
+            "-1-omega"
+          ],
+          "degree": 1,
+          "label": "chi2^2 O(1)"
+        },
+        {
+          "character": [
+            "1",
+            "omega"
+          ],
+          "degree": 0,
+          "label": "chi2 O"
+        }
+      ],
+      "name": "W2",
+      "quasi_isomorphism_exact": true,
+      "relative_duality_used": false,
+      "support": {
+        "exact": true,
+        "local_algebras": [
+          {
+            "generators": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "length": 2,
+            "local_complete_intersection": true,
+            "pivot": 0,
+            "projection_constant_to_first_order": true,
+            "standard_monomials": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "generators": [
+              [
+                0,
+                1
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "length": 2,
+            "local_complete_intersection": true,
+            "pivot": 1,
+            "projection_constant_to_first_order": true,
+            "standard_monomials": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          },
+          {
+            "generators": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "length": 2,
+            "local_complete_intersection": true,
+            "pivot": 2,
+            "projection_constant_to_first_order": true,
+            "standard_monomials": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "scheme": "I6",
+        "scheme_length": 6,
+        "support_deck_invariant": true,
+        "support_equation": [
+          {
+            "coefficient": "1",
+            "monomial": [
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "-8/9-16/9*omega",
+            "monomial": [
+              0,
+              3
+            ]
+          }
+        ],
+        "support_forms": [
+          [
+            {
+              "coefficient": "1",
+              "monomial": [
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "2/3-2/3*omega",
+              "monomial": [
+                0,
+                1
+              ]
+            }
+          ],
+          [
+            {
+              "coefficient": "1",
+              "monomial": [
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "2/3+4/3*omega",
+              "monomial": [
+                0,
+                1
+              ]
+            }
+          ],
+          [
+            {
+              "coefficient": "1",
+              "monomial": [
+                1,
+                0
+              ]
+            },
+            {
+              "coefficient": "-4/3-2/3*omega",
+              "monomial": [
+                0,
+                1
+              ]
+            }
+          ]
+        ],
+        "support_is_reduced": true,
+        "surface_factor": 2
+      },
+      "twist_profiles_minus_two_through_two": [
+        [
+          -2,
+          [
+            0,
+            5,
+            1
+          ]
+        ],
+        [
+          -1,
+          [
+            0,
+            4,
+            0
+          ]
+        ],
+        [
+          0,
+          [
+            0,
+            4,
+            0
+          ]
+        ],
+        [
+          1,
+          [
+            1,
+            5,
+            0
+          ]
+        ],
+        [
+          2,
+          [
+            3,
+            7,
+            0
+          ]
+        ]
+      ]
+    }
+  ],
+  "derived_signatures_match_source": true,
+  "derived_tensor_dimensions": [
+    0,
+    4,
+    4,
+    0
+  ],
+  "full_schoen_cech_representatives_constructed": false,
+  "next_required_object": "chain-level lifts of the four derived P1 Higgs classes through the diagonal Schoen Cech-Koszul contraction",
+  "schema": "relative-constituent-pushdowns-v1",
+  "selected_source_inputs": [
+    "hep-th/0602073 source labels eq:W1def and eq:W2def",
+    "hep-th/0602073 source section sec:CB: W1/W2 local freeness",
+    "hep-th/0602073 relative-duality argument after source label eq:W1les"
+  ],
+  "source_pushdowns_imported_as_construction_input": false
+}

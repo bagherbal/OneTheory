@@ -406,20 +406,28 @@ def _nodes() -> list[dict[str, object]]:
             "Reference realization",
             "COMPUTED",
             "Full-Cech transfer proves both determinant terms acyclic, while "
-            "the exact derived tensor of the published P1 pushdowns gives "
+            "relative projection, duality contraction, and an elementary "
+            "transformation derive the W1/W2 P1 pushdowns. Their tensor gives "
             "H*(wedge^2 V)= (0,4,4,0) for every extension parameter. The "
             "inverse-pullback action on four canonical P1 Cech representatives "
             "generates the published deck-character decomposition exactly.",
             (
                 "data/generated/scientific_genesis/"
                 "published_higgs_cohomology.json",
+                "data/generated/scientific_genesis/"
+                "relative_constituent_pushdowns.json",
                 "research/experiments/scientific_genesis/"
                 "published_higgs_cohomology.py",
+                "research/experiments/scientific_genesis/"
+                "relative_constituent_pushdowns.py",
                 "tests/integration/"
                 "test_scientific_genesis_published_higgs_cohomology.py",
+                "tests/integration/"
+                "test_scientific_genesis_relative_constituent_pushdowns.py",
             ),
             (
-                "published W1/W2 pushdowns",
+                "published constituent linearisations",
+                "relative duality for the locally free self-dual W1",
                 "published Wilson-line embedding",
             ),
         ),
@@ -1188,10 +1196,11 @@ def _edges() -> list[dict[str, object]]:
             (
                 "data/generated/scientific_genesis/"
                 "published_higgs_cohomology.json",
+                "data/generated/scientific_genesis/"
+                "relative_constituent_pushdowns.json",
             ),
             (
-                "published W1/W2 pushdowns",
-                "derived pushdown tensor over the common P1",
+                "derived relative pushdowns over the common P1",
             ),
             True,
             (
@@ -1223,7 +1232,7 @@ def _edges() -> list[dict[str, object]]:
                 "published_higgs_cohomology.json",
             ),
             (
-                "published W1/W2 equivariant pushdowns",
+                "derived W1/W2 equivariant pushdowns",
                 "published Wilson-line embedding",
             ),
             True,
@@ -1818,10 +1827,13 @@ def _engines() -> list[dict[str, object]]:
         ),
         (
             "matter and Higgs cohomology",
-            "reference dimensions only; computable representatives absent",
+            "exact dimensions and relative representatives; full Schoen lifts absent",
             (
                 "src/onetheory/models/heterotic_schoen/visible.py",
-                "data/generated/visible_carrier/visible_carrier_artifact.json",
+                "research/experiments/scientific_genesis/"
+                "relative_constituent_pushdowns.py",
+                "research/experiments/scientific_genesis/"
+                "published_higgs_cohomology.py",
             ),
         ),
         (
@@ -2037,6 +2049,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_outer_stability_locus.json",
         "data/generated/scientific_genesis/published_matter_cohomology.json",
         "data/generated/scientific_genesis/published_higgs_cohomology.json",
+        "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -2191,8 +2204,9 @@ def build_state() -> dict[str, object]:
             "exact all-parameter matter cohomology H1(V)=3 Reg(Z3 x Z3), "
             "H1(V dual)=0, and a three-family Wilson projection",
             "exact all-parameter Higgs cohomology H*(wedge^2 V)=(0,4,4,0) "
-            "with an empty jumping locus and a generated derived-P1 deck action "
-            "giving one Higgs pair with no color triplets",
+            "from derived W1/W2 relative quasi-isomorphisms, with an empty "
+            "jumping locus and a generated derived-P1 deck action giving one "
+            "Higgs pair with no color triplets",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "

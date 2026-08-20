@@ -75,9 +75,22 @@ class SchoenSerreConstituent:
     name: str
     factor: int
     twist: LineDegree
-    cocycle: DPSurfaceSerreCechCocycle
+    cocycle: DPSurfaceSerreCechCocycle | None
     objects: tuple[SerreObject, ...]
     arrows: tuple[SerreArrow, ...]
+
+
+def schoen_unit_constituent() -> SchoenSerreConstituent:
+    """Return the trivially linearized structure sheaf as a one-object complex."""
+
+    return SchoenSerreConstituent(
+        "O_X",
+        0,
+        (0, 0, 0),
+        None,
+        (SerreObject("O_X", 0, (0, 0, 0)),),
+        (),
+    )
 
 
 def schoen_serre_constituent(
@@ -504,4 +517,5 @@ __all__ = [
     "SchoenSerreOuterHom",
     "schoen_serre_constituent",
     "schoen_serre_outer_hom",
+    "schoen_unit_constituent",
 ]

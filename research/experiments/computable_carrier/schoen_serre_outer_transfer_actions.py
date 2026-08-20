@@ -84,6 +84,16 @@ def _constituent_frame(
 ) -> Matrix:
     """Return the source-bound frame action on one constituent cone."""
 
+    if constituent.factor == 0:
+        if (
+            len(constituent.objects) != 1
+            or constituent.objects[0].position != 0
+            or constituent.objects[0].line_degree != (0, 0, 0)
+            or constituent.arrows
+        ):
+            raise ValueError("the unit constituent must be the one-object structure sheaf")
+        return Matrix.identity(1, scalar_type=Eisenstein)
+
     pair = tier_a_resolution_actions()[constituent.factor - 1]
     resolution = pair.action(generator)
     character = Eisenstein(1)

@@ -1,0 +1,284 @@
+{
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "1907542a1b657d24befa5d644578cedcf24f010bd833d05965a3c57c6aa82817",
+  "coefficient_field": "Q(omega)",
+  "constituents": [
+    {
+      "character_multiplicities": [
+        {
+          "character_exponents": [
+            0,
+            0
+          ],
+          "multiplicity": 1
+        },
+        {
+          "character_exponents": [
+            0,
+            1
+          ],
+          "multiplicity": 1
+        },
+        {
+          "character_exponents": [
+            0,
+            2
+          ],
+          "multiplicity": 1
+        },
+        {
+          "character_exponents": [
+            1,
+            0
+          ],
+          "multiplicity": 1
+        },
+        {
+          "character_exponents": [
+            1,
+            1
+          ],
+          "multiplicity": 1
+        },
+        {
+          "character_exponents": [
+            1,
+            2
+          ],
+          "multiplicity": 1
+        },
+        {
+          "character_exponents": [
+            2,
+            0
+          ],
+          "multiplicity": 1
+        },
+        {
+          "character_exponents": [
+            2,
+            1
+          ],
+          "multiplicity": 1
+        },
+        {
+          "character_exponents": [
+            2,
+            2
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "cover_cohomology_h0_to_h3": [
+        0,
+        9,
+        0,
+        0
+      ],
+      "deck_group_relations": true,
+      "full_representatives_are_cycles": true,
+      "full_representatives_are_invariant": true,
+      "h1_dimension": 9,
+      "invariant_h1_dimension": 1,
+      "name": "V1",
+      "strict_invariant_representative_digest": "253250a1e2816cb35b6600f02249c3f8c134ffb5807f7ff138865ccf55b3300b",
+      "strict_invariant_representative_term_counts": [
+        360
+      ]
+    },
+    {
+      "character_multiplicities": [
+        {
+          "character_exponents": [
+            0,
+            0
+          ],
+          "multiplicity": 2
+        },
+        {
+          "character_exponents": [
+            0,
+            1
+          ],
+          "multiplicity": 2
+        },
+        {
+          "character_exponents": [
+            0,
+            2
+          ],
+          "multiplicity": 2
+        },
+        {
+          "character_exponents": [
+            1,
+            0
+          ],
+          "multiplicity": 2
+        },
+        {
+          "character_exponents": [
+            1,
+            1
+          ],
+          "multiplicity": 2
+        },
+        {
+          "character_exponents": [
+            1,
+            2
+          ],
+          "multiplicity": 2
+        },
+        {
+          "character_exponents": [
+            2,
+            0
+          ],
+          "multiplicity": 2
+        },
+        {
+          "character_exponents": [
+            2,
+            1
+          ],
+          "multiplicity": 2
+        },
+        {
+          "character_exponents": [
+            2,
+            2
+          ],
+          "multiplicity": 2
+        }
+      ],
+      "cover_cohomology_h0_to_h3": [
+        0,
+        18,
+        0,
+        0
+      ],
+      "deck_group_relations": true,
+      "full_representatives_are_cycles": true,
+      "full_representatives_are_invariant": true,
+      "h1_dimension": 18,
+      "invariant_h1_dimension": 2,
+      "name": "V2",
+      "strict_invariant_representative_digest": "5f7b76a63b58ec7ab63e785437dc86dfcddbc98cedfddd9db2e66bfdad1dec22",
+      "strict_invariant_representative_term_counts": [
+        360,
+        189
+      ]
+    }
+  ],
+  "full_universal_visible_h1_chain_lifts_computed": false,
+  "next_required_object": "parameter-dependent H1(wedge^2 V(a)) complex, deck characters, and Higgs jumping locus",
+  "outer_long_exact_sequence": {
+    "all_extension_parameters": true,
+    "dual_cover_cohomology_h0_to_h3": [
+      0,
+      0,
+      27,
+      0
+    ],
+    "dual_h1_vanishes": true,
+    "reason_parameter_independent": "both constituent complexes have cohomology only in degree one, so every connecting map has zero domain or codomain",
+    "sequence": "0 -> V1 -> V(a) -> V2 -> 0",
+    "visible_cover_cohomology_h0_to_h3": [
+      0,
+      27,
+      0,
+      0
+    ],
+    "visible_h1_character_multiplicities": [
+      {
+        "character_exponents": [
+          0,
+          0
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          0,
+          1
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          0,
+          2
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          1,
+          0
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          1,
+          1
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          1,
+          2
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          2,
+          0
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          2,
+          1
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          2,
+          2
+        ],
+        "multiplicity": 3
+      }
+    ],
+    "visible_h1_representation": "3 Reg(Z3 x Z3)"
+  },
+  "schema": "published-matter-cohomology-v1",
+  "source": {
+    "arxiv_id": "hep-th/0512177",
+    "comparison_locators": [
+      "eq:9",
+      "eq:14",
+      "eq:burt2",
+      "eq:burt3"
+    ],
+    "published_dimensions_used_as_rank_inputs": false,
+    "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "version": "v3"
+  },
+  "stability_artifact_digest": "05feac75b4a7ee297e9a2cc5d944fa9ee347d0f585760e346f9a485ee26420bf",
+  "status": "exact parameter-independent three-family matter cohomology and Wilson projection from generated constituent Cech complexes",
+  "wilson_projection": {
+    "anti_families": 0,
+    "embedding_source": "hep-th/0512177 eq:burt4",
+    "families": 3,
+    "matter_exotic_blocks": 0,
+    "multiplicity_per_spin10_16_weight": 3,
+    "right_handed_neutrinos": 3,
+    "selection_constraint_used_as_rank_input": false
+  }
+}

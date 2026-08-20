@@ -377,6 +377,30 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "published_matter_cohomology",
+            "published universal-family matter cohomology",
+            "Reference realization",
+            "COMPUTED",
+            "Full transferred constituent complexes derive H1(V1)=Reg(G) "
+            "and H1(V2)=2 Reg(G), with all other constituent cohomology zero. "
+            "The outer long exact sequence therefore gives H1(V)=3 Reg(G) "
+            "and H1(V dual)=0 for every extension parameter; the Wilson "
+            "projection yields three complete families including nu_R.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_matter_cohomology.json",
+                "research/experiments/scientific_genesis/"
+                "published_matter_cohomology.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_matter_cohomology.py",
+            ),
+            (
+                "published Wilson-line embedding",
+                "Calabi--Yau Serre duality",
+                "Maschke semisimplicity in characteristic zero",
+            ),
+        ),
+        _node(
             "published_chain_reconstruction",
             "published carrier chain reconstruction",
             "Reference realization",
@@ -722,16 +746,19 @@ def _nodes() -> list[dict[str, object]]:
             "Wilson-projected carrier spectrum",
             "Computable carrier",
             "BLOCKED",
-            "Pair 73 is unstable and no replacement computable family has a "
-            "parameter-dependent cohomology and Wilson-projected spectrum certificate.",
+            "The stable published family has exact parameter-independent matter "
+            "cohomology and Wilson projection, but its generated wedge-square "
+            "complex and Higgs jumping locus remain absent. The replacement "
+            "computable category has no stable survivor.",
             (
                 "src/onetheory/physics/compactification.py",
                 "research/experiments/computable_carrier/downstream.py",
+                "data/generated/scientific_genesis/"
+                "published_matter_cohomology.json",
             ),
             missing=(
-                "replacement stable descended carrier",
-                "cohomology jumping loci",
-                "Wilson projection certificate",
+                "parameter-dependent wedge-square cohomology",
+                "Higgs jumping locus and Wilson projection",
             ),
         ),
         _node(
@@ -1107,6 +1134,37 @@ def _edges() -> list[dict[str, object]]:
                 "the proper exceptional parameter ideal is not computed",
                 "no explicit HYM metric is constructed",
             ),
+        ),
+        _edge(
+            "published_outer_stability_locus",
+            "published_matter_cohomology",
+            "The stable generic family makes the exact universal cone a lawful "
+            "carrier; pure degree-one constituent cohomology collapses its long "
+            "exact sequence independently of the extension parameters.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_matter_cohomology.json",
+            ),
+            (
+                "published Wilson-line embedding",
+                "Calabi--Yau Serre duality",
+                "Maschke semisimplicity",
+            ),
+            True,
+            ("Higgs cohomology is not determined by the matter sequence",),
+        ),
+        _edge(
+            "published_matter_cohomology",
+            "physical_spectrum",
+            "Exact deck characters and the Wilson embedding determine the "
+            "three-family and anti-family matter blocks.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_matter_cohomology.json",
+            ),
+            (),
+            True,
+            ("the Higgs and bundle-moduli blocks remain unresolved",),
         ),
         _edge(
             "published_outer_stability_locus",
@@ -1911,6 +1969,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_outer_cech_invariants.json",
         "data/generated/scientific_genesis/published_outer_universal_cone.json",
         "data/generated/scientific_genesis/published_outer_stability_locus.json",
+        "data/generated/scientific_genesis/published_matter_cohomology.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1931,7 +1990,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 492,
+            "collected_tests_at_audit": 495,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1953,7 +2012,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "published generic stable SU(4) outer family established"
+                "published matter sector closed; Higgs locus derivation"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2035,8 +2094,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "parameter-dependent matter and Higgs cohomology on the "
-                "published stable generic outer family"
+                "the exact parameter-dependent H1(wedge^2 V(a)) complex, "
+                "deck characters, and Higgs jumping locus"
             ),
         },
         "claims": _nodes(),
@@ -2062,6 +2121,8 @@ def build_state() -> dict[str, object]:
             "non-split, local-freeness, Chern, and descent gates",
             "nonempty generic stable descended genuine-SU(4) locus U_pub x K^s "
             "with nine exact slope inequalities and a rational open witness",
+            "exact all-parameter matter cohomology H1(V)=3 Reg(Z3 x Z3), "
+            "H1(V dual)=0, and a three-family Wilson projection",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "

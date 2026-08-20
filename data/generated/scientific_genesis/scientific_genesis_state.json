@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b61d355e2b0afd19d61c29a58203e32661df899b2f08daf2648aa7e769194e1b",
+  "artifact_digest": "355faa35c6421d7a71dfd9489842b85de6c50528ef1c4289db04f4529d10866f",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -162,6 +162,11 @@
       "sha256": "5d116fbd070565369afdd200c22190c76c9e01d2d443848e552b4eb17c637132"
     },
     {
+      "bytes": 4266,
+      "path": "data/generated/scientific_genesis/published_higgs_cohomology.json",
+      "sha256": "d7030894156eb08dd4e64139371cdc732df4ed837d0b6eed48058720fab72656"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -183,11 +188,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 495,
+    "collected_tests_at_audit": 498,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 132,
-    "test_python_files": 115
+    "research_python_files": 133,
+    "test_python_files": 116
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -203,7 +208,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "replacement computable stability chamber and Wilson-projected spectrum",
+    "chain-generated Higgs character decomposition and physical spectrum",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -501,6 +506,24 @@
       "layer": "Reference realization",
       "missing_prerequisites": [],
       "statement": "Full transferred constituent complexes derive H1(V1)=Reg(G) and H1(V2)=2 Reg(G), with all other constituent cohomology zero. The outer long exact sequence therefore gives H1(V)=3 Reg(G) and H1(V dual)=0 for every extension parameter; the Wilson projection yields three complete families including nu_R.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "published W1/W2 pushdowns",
+        "published Higgs deck characters",
+        "published Wilson-line embedding"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/published_higgs_cohomology.json",
+        "research/experiments/scientific_genesis/published_higgs_cohomology.py",
+        "tests/integration/test_scientific_genesis_published_higgs_cohomology.py"
+      ],
+      "id": "published_higgs_cohomology",
+      "label": "published universal-family Higgs cohomology",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "Full-Cech transfer proves both determinant terms acyclic, while the exact derived tensor of the published P1 pushdowns gives H*(wedge^2 V)= (0,4,4,0) for every extension parameter. The deck-character decomposition remains source-selected rather than generated from synchronized monoidal chain data.",
       "status": "COMPUTED"
     },
     {
@@ -834,16 +857,17 @@
       "evidence": [
         "src/onetheory/physics/compactification.py",
         "research/experiments/computable_carrier/downstream.py",
-        "data/generated/scientific_genesis/published_matter_cohomology.json"
+        "data/generated/scientific_genesis/published_matter_cohomology.json",
+        "data/generated/scientific_genesis/published_higgs_cohomology.json"
       ],
       "id": "physical_spectrum",
       "label": "Wilson-projected carrier spectrum",
       "layer": "Computable carrier",
       "missing_prerequisites": [
-        "parameter-dependent wedge-square cohomology",
-        "Higgs jumping locus and Wilson projection"
+        "chain-generated Higgs deck characters",
+        "full Higgs Cech representatives"
       ],
-      "statement": "The stable published family has exact parameter-independent matter cohomology and Wilson projection, but its generated wedge-square complex and Higgs jumping locus remain absent. The replacement computable category has no stable survivor.",
+      "statement": "The stable published family has exact parameter-independent matter and Higgs dimensions. Its one-pair, no-color-triplet projection is exact conditional arithmetic on source-selected deck characters, not yet a chain-generated spectrum. The replacement computable category has no stable survivor.",
       "status": "BLOCKED"
     },
     {
@@ -1298,6 +1322,22 @@
       "target": "published_matter_cohomology"
     },
     {
+      "assumptions_required": [
+        "published W1/W2 pushdowns",
+        "derived pushdown tensor over the common P1"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/published_higgs_cohomology.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the current tensor calculation does not generate full Cech representatives or their deck action"
+      ],
+      "mathematical_reason": "The lawful stable outer family supplies the same constituent and source gates used by the determinant filtration; acyclic outer terms remove all extension-parameter dependence.",
+      "source": "published_matter_cohomology",
+      "target": "published_higgs_cohomology"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/published_matter_cohomology.json"
@@ -1308,6 +1348,22 @@
       ],
       "mathematical_reason": "Exact deck characters and the Wilson embedding determine the three-family and anti-family matter blocks.",
       "source": "published_matter_cohomology",
+      "target": "physical_spectrum"
+    },
+    {
+      "assumptions_required": [
+        "published Higgs deck characters",
+        "published Wilson-line embedding"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/published_higgs_cohomology.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "the deck characters are not yet generated by the current monoidal Cech chain model"
+      ],
+      "mathematical_reason": "Exact character arithmetic projects the four Higgs classes to one doublet pair and no color triplets when the source-selected deck characters are supplied.",
+      "source": "published_higgs_cohomology",
       "target": "physical_spectrum"
     },
     {
@@ -1927,6 +1983,7 @@
     "exact universal rank-four outer cone over P^3(Q(omega)) with non-split, local-freeness, Chern, and descent gates",
     "nonempty generic stable descended genuine-SU(4) locus U_pub x K^s with nine exact slope inequalities and a rational open witness",
     "exact all-parameter matter cohomology H1(V)=3 Reg(Z3 x Z3), H1(V dual)=0, and a three-family Wilson projection",
+    "exact all-parameter Higgs cohomology H*(wedge^2 V)=(0,4,4,0) with an empty jumping locus; the one-pair Wilson projection remains conditional on source-selected deck characters",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
     "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family",
     "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient",
@@ -2090,8 +2147,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the exact parameter-dependent H1(wedge^2 V(a)) complex, deck characters, and Higgs jumping locus",
-    "selection_status": "published matter sector closed; Higgs locus derivation"
+    "next_required_object": "a synchronized monoidal Cech tensor action producing four Higgs representatives and their deck characters",
+    "selection_status": "published Higgs dimensions closed; monoidal Cech representatives"
   },
   "research_value_scheduler": [
     {

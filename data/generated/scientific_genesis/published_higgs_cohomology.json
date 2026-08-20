@@ -1,0 +1,200 @@
+{
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "e16d6f4de32bacf412f24f2f8709ed7038ccf35476fd098b4b7444d81d136b1e",
+  "coefficient_field": "Q(omega)",
+  "deck_characters": {
+    "generated_from_current_tensor_chain": false,
+    "h1_character_exponents": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "source_bound": true,
+    "status": "SELECTED"
+  },
+  "derived_pushdown_tensor": {
+    "base": "P1",
+    "cohomology_h0_to_h3": [
+      0,
+      4,
+      4,
+      0
+    ],
+    "exact": true,
+    "term_count": 8,
+    "terms": [
+      {
+        "basis_counts_h0_to_h3": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "fiber_degree": 0,
+        "first": "chi1 O(-1)",
+        "line_degree": -2,
+        "second": "chi2^2 O(-1)"
+      },
+      {
+        "basis_counts_h0_to_h3": [
+          0,
+          2,
+          0,
+          0
+        ],
+        "fiber_degree": 0,
+        "first": "chi1 O(-1)",
+        "line_degree": -3,
+        "second": "chi2 O(-2)"
+      },
+      {
+        "basis_counts_h0_to_h3": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "fiber_degree": 1,
+        "first": "chi1 O(-1)",
+        "line_degree": 0,
+        "second": "chi2^2 O(1)"
+      },
+      {
+        "basis_counts_h0_to_h3": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fiber_degree": 1,
+        "first": "chi1 O(-1)",
+        "line_degree": -1,
+        "second": "chi2 O"
+      },
+      {
+        "basis_counts_h0_to_h3": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fiber_degree": 1,
+        "first": "O",
+        "line_degree": -1,
+        "second": "chi2^2 O(-1)"
+      },
+      {
+        "basis_counts_h0_to_h3": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "fiber_degree": 1,
+        "first": "O",
+        "line_degree": -2,
+        "second": "chi2 O(-2)"
+      },
+      {
+        "basis_counts_h0_to_h3": [
+          0,
+          0,
+          2,
+          0
+        ],
+        "fiber_degree": 2,
+        "first": "O",
+        "line_degree": 1,
+        "second": "chi2^2 O(1)"
+      },
+      {
+        "basis_counts_h0_to_h3": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "fiber_degree": 2,
+        "first": "O",
+        "line_degree": 0,
+        "second": "chi2 O"
+      }
+    ]
+  },
+  "determinant_filtration": {
+    "both_acyclic_from_full_cech_transfer": true,
+    "consequence": "H*(wedge^2 V(a)) is isomorphic to H*(V1 tensor V2) for every outer extension parameter",
+    "det_v1_cohomology_h0_to_h3": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "det_v1_line_degree": [
+      -2,
+      2,
+      0
+    ],
+    "det_v2_cohomology_h0_to_h3": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "det_v2_line_degree": [
+      2,
+      -2,
+      0
+    ]
+  },
+  "full_higgs_cech_representatives_computed": false,
+  "matter_artifact_digest": "1907542a1b657d24befa5d644578cedcf24f010bd833d05965a3c57c6aa82817",
+  "next_required_object": "a synchronized monoidal Cech tensor action producing the four Higgs representatives and their deck characters",
+  "schema": "published-higgs-cohomology-v1",
+  "source": {
+    "arxiv_id": "hep-th/0512177",
+    "character_comparison_locator": "eq:17",
+    "dimension_comparison_locator": "eq:10",
+    "published_dimensions_used_as_rank_inputs": false,
+    "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "version": "v3",
+    "wilson_locator": "eq:19"
+  },
+  "status": "exact all-parameter four-dimensional Higgs cohomology; the one-pair Wilson projection remains source-character conditional",
+  "wedge_square": {
+    "all_extension_parameters": true,
+    "cohomology_h0_to_h3": [
+      0,
+      4,
+      4,
+      0
+    ],
+    "h1_dimension": 4,
+    "jumping_locus": "empty"
+  },
+  "wilson_projection": {
+    "character_arithmetic_exact": true,
+    "character_input_status": "SELECTED",
+    "higgs_pairs": 1,
+    "massless_color_triplets": 0,
+    "multiplicities": {
+      "color_antitriplet": 0,
+      "color_triplet": 0,
+      "down_higgs_doublet": 1,
+      "up_higgs_doublet": 1
+    }
+  }
+}

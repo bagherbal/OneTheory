@@ -34,3 +34,12 @@ theorem has since retired all 72 four-dimensional invariant-Ext families in
 the two factor orientations; larger blocks remain separate open calculations.
 The next 72 families in candidates 14 and 34 are also retired: their universally
 lifted right Serre line has strictly positive slope throughout the Kähler cone.
+
+The Higgs-lift path now keeps the two elliptic-base projective lines separate
+until geometry identifies them. An exact three-equation Koszul model on
+`P2_x x P1_p x P2_u x P1_q` imposes the two cubic pencils and the diagonal
+equation `p0*q1-p1*q0`. Its full product-Cech perturbation reproduces the
+common-base Schoen line cohomology, including boundary-band cancellation and
+the degree-69 Euler regression. This validates the synchronization geometry
+only; the two constituent cones and their Higgs representatives are not yet
+lifted through it.

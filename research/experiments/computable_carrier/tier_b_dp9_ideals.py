@@ -27,7 +27,12 @@ from dataclasses import dataclass
 from onetheory.math.homological import Bicomplex, CochainComplex, LinearMap, VectorSpace
 from onetheory.math.numbers import Eisenstein
 
-from .dp9_linebundles import DPSurfaceLineBundle, dp9_line_bundle
+from .dp9_linebundles import (
+    DP9_DIFFERENTIAL_DEGREES,
+    DP9_TOTAL_DEGREES,
+    DPSurfaceLineBundle,
+    dp9_line_bundle,
+)
 from .tier_b_monomial import InvariantMonomialScheme, tier_b_invariant_monomial_schemes
 
 
@@ -89,7 +94,7 @@ def _vertical_maps(
         degree: _direct_sum_maps(
             tuple(bundle.complex.differential(degree) for bundle in bundles)
         )
-        for degree in range(3)
+        for degree in DP9_DIFFERENTIAL_DEGREES
     }
 
 
@@ -211,7 +216,7 @@ def dp9_monomial_ideal_resolution(
             vertical,
         )
         for horizontal in (-1, 0)
-        for vertical in range(4)
+        for vertical in DP9_TOTAL_DEGREES
     }
     horizontal = {
         (-1, vertical): _horizontal_map(
@@ -220,7 +225,7 @@ def dp9_monomial_ideal_resolution(
             target_bundles,
             vertical,
         )
-        for vertical in range(4)
+        for vertical in DP9_TOTAL_DEGREES
     }
     vertical = {}
     for horizontal_degree, bundles in ((-1, source_bundles), (0, target_bundles)):

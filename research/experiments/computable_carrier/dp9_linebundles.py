@@ -39,6 +39,10 @@ Monomial = tuple[int, ...]
 FactorLabel = tuple[int, ...]
 KunnethLabel = tuple[Monomial, Monomial]
 
+DP9_TOTAL_DEGREES = tuple(range(-1, 4))
+DP9_DIFFERENTIAL_DEGREES = tuple(range(-1, 3))
+DP9_COHOMOLOGY_DEGREES = tuple(range(3))
+
 
 def _p2_basis(degree: int, cohomology_degree: int) -> tuple[Monomial, ...]:
     """Return the exact monomial basis of one P2 line-bundle cohomology."""
@@ -528,11 +532,11 @@ class DPSurfaceLineBundle:
 
     @property
     def cohomology_dimensions(self) -> tuple[tuple[int, int], ...]:
-        """Return exact dP9 line-bundle dimensions in degrees zero through three."""
+        """Return exact dP9 line-bundle dimensions in geometric degrees."""
 
         return tuple(
             (degree, self.complex.cohomology_dimension(degree))
-            for degree in self.complex.degrees
+            for degree in DP9_COHOMOLOGY_DEGREES
         )
 
     @property
@@ -641,14 +645,14 @@ def dp9_line_bundle(
         degree: target.space(degree).direct_sum(
             source.space(degree + 1),
         )
-        for degree in range(4)
+        for degree in DP9_TOTAL_DEGREES
     }
     graded = GradedVectorSpace(
         f"O_D({base_degree},{fiber_degree})",
         spaces,
     )
     differentials = {}
-    for degree in range(3):
+    for degree in DP9_DIFFERENTIAL_DEGREES:
         target_next = target.space(degree + 1)
         source_next = source.space(degree + 1)
         source_after_next = source.space(degree + 2)
@@ -677,6 +681,9 @@ def dp9_line_bundle(
 
 __all__ = [
     "AmbientLineBundle",
+    "DP9_COHOMOLOGY_DEGREES",
+    "DP9_DIFFERENTIAL_DEGREES",
+    "DP9_TOTAL_DEGREES",
     "DPSurfaceLineBundle",
     "ambient_line_bundle",
     "dp9_line_bundle",

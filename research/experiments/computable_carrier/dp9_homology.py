@@ -31,7 +31,12 @@ from onetheory.math.homological import (
 )
 from onetheory.math.numbers import Eisenstein
 
-from .dp9_linebundles import DPSurfaceLineBundle, dp9_line_bundle
+from .dp9_linebundles import (
+    DP9_DIFFERENTIAL_DEGREES,
+    DP9_TOTAL_DEGREES,
+    DPSurfaceLineBundle,
+    dp9_line_bundle,
+)
 from .polynomial_hom import PolynomialHomComplex
 from .projective_hom_search import (
     TierAProjectiveHomPairAudit,
@@ -80,7 +85,7 @@ def _term_spaces(
 
     spaces: dict[tuple[int, int], VectorSpace] = {}
     for parent_degree, selected in bundles:
-        for sheaf_degree in range(4):
+        for sheaf_degree in DP9_TOTAL_DEGREES:
             spaces[(parent_degree, sheaf_degree)] = _sum_space(
                 f"{parent.left.scheme.name}/{parent.right.scheme.name} dP9 "
                 f"Hom^{parent_degree},H^{sheaf_degree}",
@@ -110,7 +115,7 @@ def _vertical_maps(
 
     maps: dict[tuple[int, int], LinearMap] = {}
     for parent_degree, selected in bundles:
-        for sheaf_degree in range(3):
+        for sheaf_degree in DP9_DIFFERENTIAL_DEGREES:
             maps[(parent_degree, sheaf_degree)] = _direct_sum_maps(
                 tuple(
                     bundle.complex.differential(sheaf_degree)
@@ -225,7 +230,7 @@ def dp9_derived_hom(
     horizontal = {}
     bundle_map = dict(bundles)
     for parent_degree, _ in parent.differentials:
-        for sheaf_degree in range(4):
+        for sheaf_degree in DP9_TOTAL_DEGREES:
             horizontal[(parent_degree, sheaf_degree)] = _horizontal_map(
                 parent,
                 parent_degree,

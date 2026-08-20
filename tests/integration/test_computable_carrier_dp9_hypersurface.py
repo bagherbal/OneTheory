@@ -76,7 +76,19 @@ def test_dp9_line_bundle_cone_supports_nonzero_fiber_twists() -> None:
     line_bundle = dp9_line_bundle(-3, 1)
 
     assert line_bundle.squared_zero is True
-    assert line_bundle.cohomology_dimensions == ((0, 0), (1, 8), (2, 0), (3, 0))
+    assert line_bundle.cohomology_dimensions == ((0, 0), (1, 8), (2, 0))
+    assert line_bundle.complex.cohomology_dimension(-1) == 0
+    assert line_bundle.complex.cohomology_dimension(3) == 0
+
+
+def test_dp9_line_bundle_retains_both_koszul_boundaries() -> None:
+    """The finite cone includes the maps killing artificial edge cohomology."""
+
+    line_bundle = dp9_line_bundle(3, 1)
+
+    assert line_bundle.cohomology_dimensions == ((0, 19), (1, 0), (2, 0))
+    assert line_bundle.complex.cohomology_dimension(-1) == 0
+    assert line_bundle.complex.cohomology_dimension(3) == 0
 
 
 def test_dp9_line_bundle_multiplication_is_a_chain_map() -> None:

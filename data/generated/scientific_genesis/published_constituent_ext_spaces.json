@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "15cfb19e236f6f241263445bc2129d063a611ada445e80d71b87facc5b7f6343",
+  "artifact_digest": "33a46c5c0561f5467006ba00a1a62c75c8aa9eedb5b21e95010f225ac27cfc7f",
   "computed_dimensions": [
     2,
     5
@@ -23,6 +23,10 @@
         3
       ],
       "total_dimensions": [
+        [
+          -1,
+          0
+        ],
         [
           0,
           0
@@ -64,6 +68,10 @@
         4
       ],
       "total_dimensions": [
+        [
+          -1,
+          0
+        ],
         [
           0,
           8

@@ -33,7 +33,12 @@ from onetheory.math.homological import (
 from onetheory.math.numbers import Eisenstein
 from onetheory.models.heterotic_schoen.visible import PointScheme, point_schemes
 
-from .dp9_linebundles import DPSurfaceLineBundle, dp9_line_bundle
+from .dp9_linebundles import (
+    DP9_DIFFERENTIAL_DEGREES,
+    DP9_TOTAL_DEGREES,
+    DPSurfaceLineBundle,
+    dp9_line_bundle,
+)
 
 
 def _resolution_degrees(
@@ -196,14 +201,14 @@ def dp9_serre_ext(
             sheaf_degree,
         )
         for parent_degree, bundles in ((0, generators), (1, syzygies))
-        for sheaf_degree in range(4)
+        for sheaf_degree in DP9_TOTAL_DEGREES
     }
     vertical = {
         (parent_degree, sheaf_degree): _direct_sum_maps(
             tuple(bundle.complex.differential(sheaf_degree) for bundle in bundles)
         )
         for parent_degree, bundles in ((0, generators), (1, syzygies))
-        for sheaf_degree in range(3)
+        for sheaf_degree in DP9_DIFFERENTIAL_DEGREES
     }
     horizontal = {
         (0, sheaf_degree): _horizontal_map(
@@ -212,7 +217,7 @@ def dp9_serre_ext(
             syzygies,
             sheaf_degree,
         )
-        for sheaf_degree in range(4)
+        for sheaf_degree in DP9_TOTAL_DEGREES
     }
     bicomplex = Bicomplex(
         f"{scheme.name} dP9 Serre Ext",

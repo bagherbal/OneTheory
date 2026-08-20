@@ -49,9 +49,10 @@ def test_constituent_total_complexes_are_exact_complexes() -> None:
     assert w1.squared_zero
     assert w2.squared_zero
     assert tuple(item.total.degrees for item in (w1, w2)) == (
-        (0, 1, 2, 3, 4),
-        (0, 1, 2, 3, 4),
+        (-1, 0, 1, 2, 3, 4),
+        (-1, 0, 1, 2, 3, 4),
     )
+    assert all(item.total.cohomology_dimension(-1) == 0 for item in (w1, w2))
 
 
 def test_constituent_ext_dimensions_are_derived_as_two_and_five() -> None:

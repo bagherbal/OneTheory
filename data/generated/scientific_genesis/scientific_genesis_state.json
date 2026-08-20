@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "0c8c9cb9b142bb19d5420433760e0a3247e17be9900019d5dcbf8399682be3b9",
+  "artifact_digest": "a5cf5f27a0b1149773b77bdb3882044cf16d0583771757ccd2e6466225e2d09a",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -147,6 +147,11 @@
       "sha256": "b14134418180929a1d563db97fbf94991a4ea4425d5275bd2fb611ee91f78794"
     },
     {
+      "bytes": 1947,
+      "path": "data/generated/scientific_genesis/published_outer_universal_cone.json",
+      "sha256": "7c5ed7efa08751c357f0769174896fae5e51362cd037c172af0f2c49a2ec3f6c"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -168,11 +173,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 487,
+    "collected_tests_at_audit": 489,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 129,
-    "test_python_files": 112
+    "research_python_files": 130,
+    "test_python_files": 113
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -436,21 +441,38 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "published constituent local-freeness theorem"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/published_outer_universal_cone.json",
+        "research/experiments/scientific_genesis/published_outer_universal_cone.py",
+        "tests/integration/test_scientific_genesis_published_outer_universal_cone.py"
+      ],
+      "id": "published_outer_universal_cone",
+      "label": "published universal outer mapping cone",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "The four strict forward classes assemble over Q(omega)[a0,...,a3] into a parameter-linear rank-four block cone. Its square-zero, non-split, local-freeness, determinant, Chern, and descent gates close without selecting a projective point.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
-        "data/generated/scientific_genesis/published_outer_cech_invariants.json"
+        "data/generated/scientific_genesis/published_outer_cech_invariants.json",
+        "data/generated/scientific_genesis/published_outer_universal_cone.json"
       ],
       "id": "published_chain_reconstruction",
       "label": "published carrier chain reconstruction",
       "layer": "Reference realization",
       "missing_prerequisites": [
-        "universal forward outer extension parameters",
-        "universal rank-four derived outer mapping cone",
+        "exact stable locus over the forward projective family",
+        "exclusion of accidental proper structure-group reductions",
         "local transition data"
       ],
-      "statement": "The full cover outer dimensions, transferred deck actions, and strict invariant outer bases are independently derived. The parameter-dependent rank-four cone over the full nonzero forward family remains absent.",
+      "statement": "The parameter-dependent rank-four cone is exact, locally free, determinant-trivial, and descended over the full nonzero forward family. Its stable genuine-SU(4) locus and explicit local transition presentation remain absent.",
       "status": "BLOCKED"
     },
     {
@@ -1188,10 +1210,23 @@
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "the universal parameter-dependent cone is not yet constructed"
+        "the universal cone does not by itself prove slope stability"
       ],
       "mathematical_reason": "The four strict forward representatives provide the exact basis for the universal nonzero outer extension family.",
       "source": "published_outer_cech_invariants",
+      "target": "published_outer_universal_cone"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/published_outer_universal_cone.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "genuine SU(4) requires a stable locus, not Chern data alone"
+      ],
+      "mathematical_reason": "The universal block differential supplies the exact descended rank-four family on which stability and proper-reduction loci act.",
+      "source": "published_outer_universal_cone",
       "target": "published_chain_reconstruction"
     },
     {
@@ -1782,6 +1817,7 @@
     "exact cohomology-reduced outer model preserving the source Euler characteristic and isolating a common 90-dimensional excess",
     "exact standard-cover Cech contraction and finite transfer deriving the published forward 36/72 and reverse 72/36 cover outer dimensions",
     "exact transferred deck actions deriving invariant dimensions four and eight plus strict full-Cech representatives",
+    "exact universal rank-four outer cone over P^3(Q(omega)) with non-split, local-freeness, Chern, and descent gates",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
     "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family",
     "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient",
@@ -1945,8 +1981,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the universal rank-four derived cone over the projective nonzero locus of the four-dimensional forward invariant space",
-    "selection_status": "published universal outer-cone construction"
+    "next_required_object": "the exact stable genuine-SU(4) locus over the published forward projective outer family",
+    "selection_status": "published universal outer stability-locus derivation"
   },
   "research_value_scheduler": [
     {

@@ -1,0 +1,76 @@
+{
+  "affine_parameter_space": "A^4(Q(omega))",
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "4768fd2cd7ab91df3d71ed695c310c7129a37467e2bdc0f684233e9c0f002f73",
+  "basis_names": [
+    "e_0",
+    "e_1",
+    "e_2",
+    "e_3"
+  ],
+  "basis_term_counts": [
+    936,
+    1224,
+    936,
+    1224
+  ],
+  "chern_classes": {
+    "c1": [
+      "0",
+      "0",
+      "0"
+    ],
+    "c2": [
+      "8/3",
+      "5/3",
+      "4"
+    ],
+    "c3": "-6",
+    "parameter_independent": true
+  },
+  "coefficient_field": "Q(omega)",
+  "descent_locus": "all A^4(Q(omega))",
+  "determinant_c1": [
+    "0",
+    "0",
+    "0"
+  ],
+  "equivariant_descent_exact": true,
+  "first_missing_input": "the exact stable locus and exclusion of accidental proper structure-group reductions over P^3(Q(omega))",
+  "generated_complex": {
+    "differential": "D_E(a)=[[D_V1,e(a)],[0,D_V2]]",
+    "extension": "e(a)=a0 e_0+a1 e_1+a2 e_2+a3 e_3",
+    "objects": [
+      "V1",
+      "V2"
+    ],
+    "parameter_linear": true,
+    "squared_zero": true
+  },
+  "genuine_su4_locus_computed": false,
+  "invariant_artifact_digest": "4555ee74e7f16f8c68b7aa65e1d1fa7c2a54205550dc48566b1da6d33361f708",
+  "local_freeness_locus": "all A^4(Q(omega))",
+  "local_freeness_theorem": "an extension of locally free sheaves is locally free because the quotient is projective on each local stalk",
+  "non_split_locus": "A^4(Q(omega)) minus the origin",
+  "parameter_ring": "Q(omega)[a0,a1,a2,a3]",
+  "parameters": [
+    "a0",
+    "a1",
+    "a2",
+    "a3"
+  ],
+  "projective_non_split_space": "P^3(Q(omega))",
+  "rank": 4,
+  "schema": "published-outer-universal-cone-v1",
+  "split_locus": {
+    "description": "the affine origin only",
+    "ideal_generators": [
+      "a0",
+      "a1",
+      "a2",
+      "a3"
+    ]
+  },
+  "status": "exact universal non-split locally free descended rank-four derived cone; genuine SU(4) remains conditional on stability",
+  "universal_term_count": 4050
+}

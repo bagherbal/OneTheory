@@ -1050,3 +1050,12 @@ both bases. The calculation does not import those dimensions or fit a relative
 character. It also does not select a nonzero forward coordinate, construct the
 universal rank-four outer cone, or establish its non-split and local-freeness
 loci.
+
+The four forward representatives now assemble without point selection into a
+4,050-term universal outer arrow over `Q(omega)[a0,a1,a2,a3]`. The resulting
+block cone squares to zero and has split ideal `(a0,a1,a2,a3)`, so its nonzero
+orbit space is `P^3(Q(omega))`. Extensions of the published locally free
+constituents are locally free, and strict invariant cocycles give exact descent;
+rank, determinant, and Chern data agree with the published visible topology.
+This algebraic closure does not prove the stable genuine-`SU(4)` locus or
+exclude accidental proper structure-group reductions.

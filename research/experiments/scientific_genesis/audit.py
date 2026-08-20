@@ -333,24 +333,45 @@ def _nodes() -> list[dict[str, object]]:
             ("published constituent equivariant structures",),
         ),
         _node(
+            "published_outer_universal_cone",
+            "published universal outer mapping cone",
+            "Reference realization",
+            "COMPUTED",
+            "The four strict forward classes assemble over Q(omega)[a0,...,a3] "
+            "into a parameter-linear rank-four block cone. Its square-zero, "
+            "non-split, local-freeness, determinant, Chern, and descent gates "
+            "close without selecting a projective point.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_outer_universal_cone.json",
+                "research/experiments/scientific_genesis/"
+                "published_outer_universal_cone.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_outer_universal_cone.py",
+            ),
+            ("published constituent local-freeness theorem",),
+        ),
+        _node(
             "published_chain_reconstruction",
             "published carrier chain reconstruction",
             "Reference realization",
             "BLOCKED",
-            "The full cover outer dimensions, transferred deck actions, and "
-            "strict invariant outer bases are independently derived. The "
-            "parameter-dependent rank-four cone over the full nonzero forward "
-            "family remains absent.",
+            "The parameter-dependent rank-four cone is exact, locally free, "
+            "determinant-trivial, and descended over the full nonzero forward "
+            "family. Its stable genuine-SU(4) locus and explicit local "
+            "transition presentation remain absent.",
             (
                 "data/generated/visible_carrier/visible_carrier_artifact.json",
                 "data/generated/scientific_genesis/"
                 "published_outer_cech_transfer.json",
                 "data/generated/scientific_genesis/"
                 "published_outer_cech_invariants.json",
+                "data/generated/scientific_genesis/"
+                "published_outer_universal_cone.json",
             ),
             missing=(
-                "universal forward outer extension parameters",
-                "universal rank-four derived outer mapping cone",
+                "exact stable locus over the forward projective family",
+                "exclusion of accidental proper structure-group reductions",
                 "local transition data",
             ),
         ),
@@ -1030,7 +1051,7 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "published_outer_cech_invariants",
-            "published_chain_reconstruction",
+            "published_outer_universal_cone",
             "The four strict forward representatives provide the exact basis "
             "for the universal nonzero outer extension family.",
             (
@@ -1039,7 +1060,20 @@ def _edges() -> list[dict[str, object]]:
             ),
             (),
             True,
-            ("the universal parameter-dependent cone is not yet constructed",),
+            ("the universal cone does not by itself prove slope stability",),
+        ),
+        _edge(
+            "published_outer_universal_cone",
+            "published_chain_reconstruction",
+            "The universal block differential supplies the exact descended "
+            "rank-four family on which stability and proper-reduction loci act.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_outer_universal_cone.json",
+            ),
+            (),
+            True,
+            ("genuine SU(4) requires a stable locus, not Chern data alone",),
         ),
         _edge(
             "published_visible_carrier",
@@ -1816,6 +1850,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
         "data/generated/scientific_genesis/published_outer_cech_invariants.json",
+        "data/generated/scientific_genesis/published_outer_universal_cone.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1836,7 +1871,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 487,
+            "collected_tests_at_audit": 489,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1858,7 +1893,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "published universal outer-cone construction"
+                "published universal outer stability-locus derivation"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1940,8 +1975,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the universal rank-four derived cone over the projective "
-                "nonzero locus of the four-dimensional forward invariant space"
+                "the exact stable genuine-SU(4) locus over the published "
+                "forward projective outer family"
             ),
         },
         "claims": _nodes(),
@@ -1963,6 +1998,8 @@ def build_state() -> dict[str, object]:
             "the published forward 36/72 and reverse 72/36 cover outer dimensions",
             "exact transferred deck actions deriving invariant dimensions four "
             "and eight plus strict full-Cech representatives",
+            "exact universal rank-four outer cone over P^3(Q(omega)) with "
+            "non-split, local-freeness, Chern, and descent gates",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "

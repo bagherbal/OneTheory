@@ -226,7 +226,13 @@ same full Cech--Koszul complex. No expected fixed dimension or fitted relative
 character enters the action calculation. The remaining carrier choice is a
 universal parameter-dependent rank-four cone over the nonzero locus of the
 four-dimensional forward space; no distinguished projective point may be
-selected.
+selected. That universal cone is now executable over
+`Q(omega)[a0,a1,a2,a3]`: its 4,050-term outer arrow specializes to each strict
+basis class, its block differential squares to zero, and its split ideal is
+the affine origin. Every nonzero class is locally free and descended, with
+rank four, trivial determinant, `c2=(8/3,5/3,4)`, and `c3=-6`. The remaining
+carrier gate is the exact stable genuine-`SU(4)` locus over this `P^3`,
+including exclusion of accidental proper structure-group reductions.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
@@ -238,11 +244,12 @@ distinct from the published reference carrier.
 
 Generic DGA, module, contraction, cyclic-pairing, and HPL machinery already
 exists, and the published constituent outer complexes now have strict
-invariant outer bases in one synchronized cover complex. The universal
-parameter-dependent rank-four cone, local transition data, matter/Higgs
-cocycles, and trace data do not yet exist. The first flavor target remains one
-complete generated `3 x 3` holomorphic Yukawa matrix. Its rank must be
-explained structurally before higher products are extended.
+invariant outer bases and a universal descended rank-four cone in one
+synchronized cover complex. Its exact stable genuine-`SU(4)` locus, explicit
+local transition data, matter/Higgs cocycles, and trace data do not yet exist.
+The first flavor target remains one complete generated `3 x 3` holomorphic
+Yukawa matrix. Its rank must be explained structurally before higher products
+are extended.
 
 Metrics are blocked first by explicit carrier extension data and then by
 section bases, global generation, and controlled Ricci-flat/HYM convergence.

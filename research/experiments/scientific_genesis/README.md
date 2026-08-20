@@ -75,3 +75,8 @@ through the canonical Koszul column, and the Serre middle term is free of rank
 two. These local certificates are not yet glued; exact overlap transition
 matrices are required before the relative correction can enter the diagonal
 complex.
+The six frames are now bound to the reusable blow-up atlas: each point has an
+exact nonboundary punctured cocycle (`u^-1 v^-1` for I3 and `u^-1 v^-2` for
+I6), checked hypersurface incidence, and a nonzero fiber derivative. What
+remains is global overlap gluing between these punctured neighborhoods and the
+complement, including the constituent line-bundle frames.

@@ -261,6 +261,9 @@ supported points, the homogeneous ideal presentation reduces to a
 two-generator lci, every global Hilbert--Burch syzygy factors through its
 Koszul column, and the corresponding Serre middle term is free of rank two.
 Overlap transition matrices gluing these frames are still unresolved.
+The local frames are also bound to the existing exact blow-up atlas and its
+six nonboundary punctured unit cocycles. Global overlaps with the support
+complement, including line-frame factors, remain unresolved.
 The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.

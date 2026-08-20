@@ -15,6 +15,7 @@ Phase 0:
 """
 
 from research.experiments.scientific_genesis.local_constituent_frames import (
+    published_bound_punctured_frames,
     published_local_constituent_frames,
 )
 
@@ -58,3 +59,16 @@ def test_global_syzygies_reduce_to_local_koszul_multiples() -> None:
             first, second = frame.local_generators
             for image_first, image_second in frame.syzygy_images:
                 assert (first * image_first + second * image_second).is_zero()
+
+
+def test_local_frames_bind_to_existing_punctured_atlas_cocycles() -> None:
+    """The published frames reuse all six exact nonboundary unit pushouts."""
+
+    bindings = published_bound_punctured_frames()
+
+    assert len(bindings) == 6
+    assert all(binding.exact for binding in bindings)
+    assert tuple(binding.multiplicity for binding in bindings) == (1, 1, 1, 2, 2, 2)
+    assert tuple(
+        binding.atlas.cocycle_monomial_exponents for binding in bindings
+    ) == ((-1, -1),) * 3 + ((-1, -2),) * 3

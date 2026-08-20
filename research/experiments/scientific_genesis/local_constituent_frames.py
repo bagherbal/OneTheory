@@ -24,6 +24,10 @@ from dataclasses import dataclass
 from onetheory.math.numbers import Eisenstein
 from onetheory.math.polynomials import Polynomial
 from onetheory.models.heterotic_schoen.visible import PointScheme, point_schemes
+from research.experiments.computable_carrier.serre_atlas import (
+    AtlasSerreLocal,
+    tier_a_atlas_serre_locals,
+)
 
 from .relative_constituent_pushdowns import (
     AffinePointAlgebra,
@@ -227,6 +231,36 @@ class LocalKoszulSerreFrame:
         )
 
 
+@dataclass(frozen=True, slots=True)
+class BoundPuncturedSerreFrame:
+    """A published local frame bound to its existing punctured atlas cocycle."""
+
+    frame: LocalKoszulSerreFrame
+    atlas: AtlasSerreLocal
+
+    @property
+    def multiplicity(self) -> int:
+        """Return the nilpotent-direction multiplicity of the local scheme."""
+
+        return max(sum(generator) for generator in self.frame.algebra.generators)
+
+    @property
+    def exact(self) -> bool:
+        """Return every frame, incidence, and punctured-cocycle gate."""
+
+        return (
+            self.frame.exact
+            and self.atlas.scheme == self.frame.scheme
+            and self.atlas.local_model.multiplicity == self.multiplicity
+            and self.atlas.local_model.locally_free
+            and self.atlas.local_cocycle_exact
+            and self.atlas.local_cocycle_nonboundary
+            and self.atlas.cocycle_monomial_exponents == (-1, -self.multiplicity)
+            and self.atlas.hypersurface_incidence
+            and self.atlas.fiber_derivative_nonzero
+        )
+
+
 def _local_frames(
     scheme: PointScheme,
     surface_factor: int,
@@ -267,4 +301,30 @@ def published_local_constituent_frames(
     return (_local_frames(first, 1), _local_frames(second, 2))
 
 
-__all__ = ["LocalKoszulSerreFrame", "published_local_constituent_frames"]
+def published_bound_punctured_frames() -> tuple[BoundPuncturedSerreFrame, ...]:
+    """Bind all six published lci frames to the reusable punctured atlas data."""
+
+    frames = {
+        (frame.scheme, frame.pivot): frame
+        for group in published_local_constituent_frames()
+        for frame in group
+    }
+    point_pivots = {"p_a": 0, "p_b": 1, "p_c": 2}
+    results = tuple(
+        BoundPuncturedSerreFrame(
+            frames[(atlas.scheme, point_pivots[atlas.point])],
+            atlas,
+        )
+        for atlas in tier_a_atlas_serre_locals()
+    )
+    if not all(result.exact for result in results):
+        raise ValueError("a published local frame failed punctured-atlas binding")
+    return results
+
+
+__all__ = [
+    "BoundPuncturedSerreFrame",
+    "LocalKoszulSerreFrame",
+    "published_bound_punctured_frames",
+    "published_local_constituent_frames",
+]

@@ -1,7 +1,7 @@
 {
   "action_transfer_formula": "p' g i'",
   "all_representatives_explicit": true,
-  "artifact_digest": "032eca63e6dd9b16ec3277c89ad0ad7873f1d0b05c66bff1234304c308294d5c",
+  "artifact_digest": "4555ee74e7f16f8c68b7aa65e1d1fa7c2a54205550dc48566b1da6d33361f708",
   "coefficient_field": "Q(omega)",
   "cover": "standard affine cover of P2_x x P2_u x P1",
   "expected_invariant_dimensions_used_as_action_inputs": false,
@@ -173617,7 +173617,7 @@
     ]
   },
   "frame_character_status": "derived from source-bound dP9 linearizations and the exact change to the shared Schoen P1 overlap cocycle",
-  "next_required_object": "a source-justified nonzero coordinate in the four-dimensional forward invariant outer space, followed by its derived cone",
+  "next_required_object": "the universal rank-four derived cone over the projective nonzero locus of the four-dimensional forward invariant space",
   "outer_extension_coordinate_selected": false,
   "rank_four_bundle_constructed": false,
   "relative_character_fitted": false,
@@ -283552,7 +283552,7 @@
   },
   "reynolds_projector": "(1/9) sum_{a,b=0}^2 P^a T^b",
   "schema": "published-outer-cech-invariants-v1",
-  "status": "exact invariant outer Ext bases in one common Cech-Koszul complex; no extension coordinate is selected",
+  "status": "exact invariant outer Ext bases in one common Cech-Koszul complex; the universal outer family is not yet constructed",
   "synchronized_constituent_frame_characters": {
     "V1": {
       "P": "-1-omega",

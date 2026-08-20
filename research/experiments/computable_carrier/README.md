@@ -1048,4 +1048,5 @@ degree-one fixed spaces have dimensions four and eight. Exact order-nine
 Reynolds projection supplies strict full Cech--Koszul representatives for
 both bases. The calculation does not import those dimensions or fit a relative
 character. It also does not select a nonzero forward coordinate, construct the
-rank-four outer cone, or establish local freeness for such a selected cone.
+universal rank-four outer cone, or establish its non-split and local-freeness
+loci.

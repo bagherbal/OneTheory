@@ -196,12 +196,12 @@ class PublishedOuterCechInvariants:
             "outer_extension_coordinate_selected": False,
             "rank_four_bundle_constructed": False,
             "next_required_object": (
-                "a source-justified nonzero coordinate in the four-dimensional "
-                "forward invariant outer space, followed by its derived cone"
+                "the universal rank-four derived cone over the projective "
+                "nonzero locus of the four-dimensional forward invariant space"
             ),
             "status": (
                 "exact invariant outer Ext bases in one common Cech-Koszul "
-                "complex; no extension coordinate is selected"
+                "complex; the universal outer family is not yet constructed"
             ),
         }
 

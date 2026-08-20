@@ -224,8 +224,9 @@ on those cohomologies. Their common fixed dimensions are `4` forward and `8`
 reverse, and exact Reynolds averaging produces strict representatives in the
 same full Cech--Koszul complex. No expected fixed dimension or fitted relative
 character enters the action calculation. The remaining carrier choice is a
-source-justified nonzero coordinate in the four-dimensional forward space and
-the corresponding rank-four derived cone.
+universal parameter-dependent rank-four cone over the nonzero locus of the
+four-dimensional forward space; no distinguished projective point may be
+selected.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
@@ -237,8 +238,8 @@ distinct from the published reference carrier.
 
 Generic DGA, module, contraction, cyclic-pairing, and HPL machinery already
 exists, and the published constituent outer complexes now have strict
-invariant outer bases in one synchronized cover complex. A justified nonzero
-outer coordinate, its rank-four cone, local transition data, matter/Higgs
+invariant outer bases in one synchronized cover complex. The universal
+parameter-dependent rank-four cone, local transition data, matter/Higgs
 cocycles, and trace data do not yet exist. The first flavor target remains one
 complete generated `3 x 3` holomorphic Yukawa matrix. Its rank must be
 explained structurally before higher products are extended.

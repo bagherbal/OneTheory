@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "656caed40e326ca0cb40fbba835ba9981b119465ad85064e67ae5d974425457d",
+  "artifact_digest": "0c8c9cb9b142bb19d5420433760e0a3247e17be9900019d5dcbf8399682be3b9",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -142,9 +142,9 @@
       "sha256": "c2013dbdd4ead5f153d3bc6d311c3c16395d42ff25a8294122b8a50d781c974e"
     },
     {
-      "bytes": 6146483,
+      "bytes": 6146494,
       "path": "data/generated/scientific_genesis/published_outer_cech_invariants.json",
-      "sha256": "4d1377da8232eb057b994ecf93733632613954096b0a0d75ab079778916e6db0"
+      "sha256": "b14134418180929a1d563db97fbf94991a4ea4425d5275bd2fb611ee91f78794"
     },
     {
       "bytes": 29564,
@@ -446,11 +446,11 @@
       "label": "published carrier chain reconstruction",
       "layer": "Reference realization",
       "missing_prerequisites": [
-        "source-justified nonzero forward outer coordinate",
-        "rank-four derived outer mapping cone",
+        "universal forward outer extension parameters",
+        "universal rank-four derived outer mapping cone",
         "local transition data"
       ],
-      "statement": "The full cover outer dimensions, transferred deck actions, and strict invariant outer bases are independently derived. A source-justified nonzero forward coordinate and its rank-four derived cone remain absent.",
+      "statement": "The full cover outer dimensions, transferred deck actions, and strict invariant outer bases are independently derived. The parameter-dependent rank-four cone over the full nonzero forward family remains absent.",
       "status": "BLOCKED"
     },
     {
@@ -1188,9 +1188,9 @@
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "no individual nonzero extension coordinate is source-selected"
+        "the universal parameter-dependent cone is not yet constructed"
       ],
-      "mathematical_reason": "The four strict forward representatives provide the exact family in which a source-justified nonzero outer extension must live.",
+      "mathematical_reason": "The four strict forward representatives provide the exact basis for the universal nonzero outer extension family.",
       "source": "published_outer_cech_invariants",
       "target": "published_chain_reconstruction"
     },
@@ -1945,8 +1945,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "a source-justified nonzero coordinate in the four-dimensional forward invariant outer space and its rank-four derived cone",
-    "selection_status": "published outer extension-coordinate derivation"
+    "next_required_object": "the universal rank-four derived cone over the projective nonzero locus of the four-dimensional forward invariant space",
+    "selection_status": "published universal outer-cone construction"
   },
   "research_value_scheduler": [
     {

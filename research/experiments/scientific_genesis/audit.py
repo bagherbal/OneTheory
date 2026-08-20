@@ -338,9 +338,9 @@ def _nodes() -> list[dict[str, object]]:
             "Reference realization",
             "BLOCKED",
             "The full cover outer dimensions, transferred deck actions, and "
-            "strict invariant outer bases are independently derived. A "
-            "source-justified nonzero forward coordinate and its rank-four "
-            "derived cone remain absent.",
+            "strict invariant outer bases are independently derived. The "
+            "parameter-dependent rank-four cone over the full nonzero forward "
+            "family remains absent.",
             (
                 "data/generated/visible_carrier/visible_carrier_artifact.json",
                 "data/generated/scientific_genesis/"
@@ -349,8 +349,8 @@ def _nodes() -> list[dict[str, object]]:
                 "published_outer_cech_invariants.json",
             ),
             missing=(
-                "source-justified nonzero forward outer coordinate",
-                "rank-four derived outer mapping cone",
+                "universal forward outer extension parameters",
+                "universal rank-four derived outer mapping cone",
                 "local transition data",
             ),
         ),
@@ -1031,15 +1031,15 @@ def _edges() -> list[dict[str, object]]:
         _edge(
             "published_outer_cech_invariants",
             "published_chain_reconstruction",
-            "The four strict forward representatives provide the exact family "
-            "in which a source-justified nonzero outer extension must live.",
+            "The four strict forward representatives provide the exact basis "
+            "for the universal nonzero outer extension family.",
             (
                 "data/generated/scientific_genesis/"
                 "published_outer_cech_invariants.json",
             ),
             (),
             True,
-            ("no individual nonzero extension coordinate is source-selected",),
+            ("the universal parameter-dependent cone is not yet constructed",),
         ),
         _edge(
             "published_visible_carrier",
@@ -1858,7 +1858,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "published outer extension-coordinate derivation"
+                "published universal outer-cone construction"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1940,8 +1940,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "a source-justified nonzero coordinate in the four-dimensional "
-                "forward invariant outer space and its rank-four derived cone"
+                "the universal rank-four derived cone over the projective "
+                "nonzero locus of the four-dimensional forward invariant space"
             ),
         },
         "claims": _nodes(),

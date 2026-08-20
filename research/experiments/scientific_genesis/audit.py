@@ -314,22 +314,43 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "published_outer_cech_invariants",
+            "published invariant outer Cech representatives",
+            "Reference realization",
+            "COMPUTED",
+            "Exact p' g i' transfer derives commuting order-three deck actions "
+            "on cover H1. Their common fixed spaces have dimensions four and "
+            "eight, with strict Reynolds-averaged representatives in one "
+            "full Cech-Koszul complex.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_outer_cech_invariants.json",
+                "research/experiments/computable_carrier/"
+                "schoen_serre_outer_transfer_actions.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_outer_cech_invariants.py",
+            ),
+            ("published constituent equivariant structures",),
+        ),
+        _node(
             "published_chain_reconstruction",
             "published carrier chain reconstruction",
             "Reference realization",
             "BLOCKED",
-            "The full cover outer dimensions are now independently derived. "
-            "Deck actions on transferred cohomology and four explicit invariant "
-            "outer cocycles remain absent.",
+            "The full cover outer dimensions, transferred deck actions, and "
+            "strict invariant outer bases are independently derived. A "
+            "source-justified nonzero forward coordinate and its rank-four "
+            "derived cone remain absent.",
             (
                 "data/generated/visible_carrier/visible_carrier_artifact.json",
                 "data/generated/scientific_genesis/"
                 "published_outer_cech_transfer.json",
+                "data/generated/scientific_genesis/"
+                "published_outer_cech_invariants.json",
             ),
             missing=(
-                "deck action on transferred outer cohomology",
-                "four invariant outer Ext cocycles",
-                "common Cech-Koszul basis and signs",
+                "source-justified nonzero forward outer coordinate",
+                "rank-four derived outer mapping cone",
                 "local transition data",
             ),
         ),
@@ -995,16 +1016,30 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "published_outer_cech_transfer",
-            "published_chain_reconstruction",
-            "The exact transferred complexes provide the common cover-level "
-            "chain object on which deck actions and invariant cocycles must act.",
+            "published_outer_cech_invariants",
+            "Perturbed inclusion and projection transfer the synchronized "
+            "Schoen deck action to cover cohomology without fitting a relative "
+            "character or importing the expected fixed dimensions.",
             (
                 "data/generated/scientific_genesis/"
-                "published_outer_cech_transfer.json",
+                "published_outer_cech_invariants.json",
             ),
             (),
             True,
-            ("the transferred deck action and invariant representatives are absent",),
+            ("fixed cover classes do not select an outer extension coordinate",),
+        ),
+        _edge(
+            "published_outer_cech_invariants",
+            "published_chain_reconstruction",
+            "The four strict forward representatives provide the exact family "
+            "in which a source-justified nonzero outer extension must live.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_outer_cech_invariants.json",
+            ),
+            (),
+            True,
+            ("no individual nonzero extension coordinate is source-selected",),
         ),
         _edge(
             "published_visible_carrier",
@@ -1780,6 +1815,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
+        "data/generated/scientific_genesis/published_outer_cech_invariants.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1800,7 +1836,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 482,
+            "collected_tests_at_audit": 487,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1822,7 +1858,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "published transferred outer deck-action reconstruction"
+                "published outer extension-coordinate derivation"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1904,8 +1940,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "deck action on transferred outer cohomology and explicit "
-                "invariant representatives in the common Cech-Koszul complex"
+                "a source-justified nonzero coordinate in the four-dimensional "
+                "forward invariant outer space and its rank-four derived cone"
             ),
         },
         "claims": _nodes(),
@@ -1925,6 +1961,8 @@ def build_state() -> dict[str, object]:
             "characteristic and isolating a common 90-dimensional excess",
             "exact standard-cover Cech contraction and finite transfer deriving "
             "the published forward 36/72 and reverse 72/36 cover outer dimensions",
+            "exact transferred deck actions deriving invariant dimensions four "
+            "and eight plus strict full-Cech representatives",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "

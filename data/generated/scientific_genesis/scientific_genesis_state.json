@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "7b200b157153f383638a2e4c3e84b2689b6d1fa601359b38314d07d582c41e46",
+  "artifact_digest": "656caed40e326ca0cb40fbba835ba9981b119465ad85064e67ae5d974425457d",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -142,6 +142,11 @@
       "sha256": "c2013dbdd4ead5f153d3bc6d311c3c16395d42ff25a8294122b8a50d781c974e"
     },
     {
+      "bytes": 6146483,
+      "path": "data/generated/scientific_genesis/published_outer_cech_invariants.json",
+      "sha256": "4d1377da8232eb057b994ecf93733632613954096b0a0d75ab079778916e6db0"
+    },
+    {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
       "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
@@ -163,11 +168,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 482,
+    "collected_tests_at_audit": 487,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 127,
-    "test_python_files": 110
+    "research_python_files": 129,
+    "test_python_files": 112
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -415,21 +420,37 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "published constituent equivariant structures"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/published_outer_cech_invariants.json",
+        "research/experiments/computable_carrier/schoen_serre_outer_transfer_actions.py",
+        "tests/integration/test_scientific_genesis_published_outer_cech_invariants.py"
+      ],
+      "id": "published_outer_cech_invariants",
+      "label": "published invariant outer Cech representatives",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "Exact p' g i' transfer derives commuting order-three deck actions on cover H1. Their common fixed spaces have dimensions four and eight, with strict Reynolds-averaged representatives in one full Cech-Koszul complex.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "data/generated/visible_carrier/visible_carrier_artifact.json",
-        "data/generated/scientific_genesis/published_outer_cech_transfer.json"
+        "data/generated/scientific_genesis/published_outer_cech_transfer.json",
+        "data/generated/scientific_genesis/published_outer_cech_invariants.json"
       ],
       "id": "published_chain_reconstruction",
       "label": "published carrier chain reconstruction",
       "layer": "Reference realization",
       "missing_prerequisites": [
-        "deck action on transferred outer cohomology",
-        "four invariant outer Ext cocycles",
-        "common Cech-Koszul basis and signs",
+        "source-justified nonzero forward outer coordinate",
+        "rank-four derived outer mapping cone",
         "local transition data"
       ],
-      "statement": "The full cover outer dimensions are now independently derived. Deck actions on transferred cohomology and four explicit invariant outer cocycles remain absent.",
+      "statement": "The full cover outer dimensions, transferred deck actions, and strict invariant outer bases are independently derived. A source-justified nonzero forward coordinate and its rank-four derived cone remain absent.",
       "status": "BLOCKED"
     },
     {
@@ -1150,14 +1171,27 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/published_outer_cech_transfer.json"
+        "data/generated/scientific_genesis/published_outer_cech_invariants.json"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "the transferred deck action and invariant representatives are absent"
+        "fixed cover classes do not select an outer extension coordinate"
       ],
-      "mathematical_reason": "The exact transferred complexes provide the common cover-level chain object on which deck actions and invariant cocycles must act.",
+      "mathematical_reason": "Perturbed inclusion and projection transfer the synchronized Schoen deck action to cover cohomology without fitting a relative character or importing the expected fixed dimensions.",
       "source": "published_outer_cech_transfer",
+      "target": "published_outer_cech_invariants"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/published_outer_cech_invariants.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "no individual nonzero extension coordinate is source-selected"
+      ],
+      "mathematical_reason": "The four strict forward representatives provide the exact family in which a source-justified nonzero outer extension must live.",
+      "source": "published_outer_cech_invariants",
       "target": "published_chain_reconstruction"
     },
     {
@@ -1747,6 +1781,7 @@
     "exact invariant Cech maximal-minor cocycles and square-zero derived mapping-cone certificates for W1 and W2",
     "exact cohomology-reduced outer model preserving the source Euler characteristic and isolating a common 90-dimensional excess",
     "exact standard-cover Cech contraction and finite transfer deriving the published forward 36/72 and reverse 72/36 cover outer dimensions",
+    "exact transferred deck actions deriving invariant dimensions four and eight plus strict full-Cech representatives",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
     "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family",
     "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient",
@@ -1910,8 +1945,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "deck action on transferred outer cohomology and explicit invariant representatives in the common Cech-Koszul complex",
-    "selection_status": "published transferred outer deck-action reconstruction"
+    "next_required_object": "a source-justified nonzero coordinate in the four-dimensional forward invariant outer space and its rank-four derived cone",
+    "selection_status": "published outer extension-coordinate derivation"
   },
   "research_value_scheduler": [
     {

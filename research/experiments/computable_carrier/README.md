@@ -1039,3 +1039,13 @@ generator. Its complete P/T commuting-pair count remains zero, so the scoped
 negative result is not caused solely by a block-diagonal extension-line
 ansatz. This remains a resolution-level action diagnostic, not a sheaf
 linearization or quotient-descent certificate.
+
+The published fiber-sensitive constituent cones now have a separate exact
+vertical reconstruction. Standard-cover contraction derives cover outer
+cohomology `36/72` forward and `72/36` reverse. The synchronized shared-fiber
+linearizations transfer by `p' g i'` to commuting order-three actions, whose
+degree-one fixed spaces have dimensions four and eight. Exact order-nine
+Reynolds projection supplies strict full Cech--Koszul representatives for
+both bases. The calculation does not import those dimensions or fit a relative
+character. It also does not select a nonzero forward coordinate, construct the
+rank-four outer cone, or establish local freeness for such a selected cone.

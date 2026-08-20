@@ -585,6 +585,7 @@ def _add_extension_images(
     if p_cell != (required_vertex,):
         return
     target_cell = cast(Cell, (basis.cell[0], basis.cell[1], (0, 1)))
+    tensor_sign = -1 if sum(len(simplex) - 1 for simplex in basis.cell[:2]) % 2 else 1
     p_monomial = cast(
         Monomial2,
         tuple(value - 1 for value in basis.p_monomial),
@@ -613,7 +614,7 @@ def _add_extension_images(
                     p_monomial,
                     target_cell,
                 ),
-                coefficient * cast(Eisenstein, scalar),
+                coefficient * tensor_sign * cast(Eisenstein, scalar),
             )
         )
 

@@ -1,0 +1,272 @@
+{
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "05feac75b4a7ee297e9a2cc5d944fa9ee347d0f585760e346f9a485ee26420bf",
+  "certified_parameter_locus": {
+    "arbitrary_parameter_selected": false,
+    "description": "the nonempty Zariski-open locus of generic published nonsplit invariant extensions",
+    "every_nonzero_parameter_claimed": false,
+    "exceptional_locus_ideal_computed": false,
+    "name": "U_pub",
+    "nonempty": true,
+    "open": true
+  },
+  "certified_stable_locus": "U_pub x K^s",
+  "equivariantly_stable_and_descended": true,
+  "extension_parameter_space": "P^3(Q(omega))",
+  "full_parameterwise_stability_classification": false,
+  "kahler_chamber": {
+    "ambient": "x1>0, x2>0, y>0",
+    "anchor": [
+      "6",
+      "9",
+      "3"
+    ],
+    "anchor_slopes": [
+      "-621",
+      "-378",
+      "-702",
+      "-1512",
+      "-1269",
+      "-594",
+      "-918",
+      "-27",
+      "-675"
+    ],
+    "definition": "all nine listed slope polynomials are strictly negative",
+    "inequalities": [
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -6,
+          18,
+          -36,
+          -3,
+          -18
+        ],
+        "line_class": [
+          -1,
+          -2,
+          2
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -6,
+          -18,
+          -36,
+          6,
+          36
+        ],
+        "line_class": [
+          2,
+          -2,
+          -1
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -15,
+          0,
+          -90,
+          6,
+          36
+        ],
+        "line_class": [
+          2,
+          -5,
+          1
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          3,
+          18,
+          18,
+          -12,
+          -72
+        ],
+        "line_class": [
+          -4,
+          1,
+          2
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          3,
+          -18,
+          18,
+          -3,
+          -18
+        ],
+        "line_class": [
+          -1,
+          1,
+          -1
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          6,
+          0,
+          36,
+          -6,
+          -36
+        ],
+        "line_class": [
+          -2,
+          2,
+          0
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -3,
+          18,
+          -18,
+          -6,
+          -36
+        ],
+        "line_class": [
+          -2,
+          -1,
+          2
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -12,
+          18,
+          -72,
+          3,
+          18
+        ],
+        "line_class": [
+          1,
+          -4,
+          2
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -3,
+          -18,
+          -18,
+          3,
+          18
+        ],
+        "line_class": [
+          1,
+          -1,
+          -1
+        ]
+      }
+    ],
+    "name": "K^s",
+    "rational_open_box": {
+      "all_slopes_negative": true,
+      "coordinate_radius": "1/32",
+      "inside_positive_cone": true,
+      "strict_upper_bounds": [
+        "-623151/1024",
+        "-184557/512",
+        "-690477/1024",
+        "-1512453/1024",
+        "-322113/256",
+        "-148011/256",
+        "-920367/1024",
+        "-5637/1024",
+        "-170337/256"
+      ]
+    }
+  },
+  "schema": "published-outer-stability-locus-v1",
+  "slope_stable": true,
+  "source": {
+    "arxiv_id": "hep-th/0602073",
+    "locators": [
+      "eq:Vdef",
+      "sec:ext",
+      "prop:stable",
+      "eq:inequalities",
+      "eq:omega"
+    ],
+    "source_archive_sha256": "8e38123b9d2de8751deecbf295015497ab2ed891244215455fffe756bebf0aea",
+    "version": "v1"
+  },
+  "status": "nonempty generic stable descended genuine-SU(4) locus certified over the exact published Kahler chamber",
+  "structure_group": {
+    "argument": "stable determinant-trivial bundles have irreducible SU(4) HYM holonomy; on the simply connected cover the holonomy is connected, while every proper connected irreducible subgroup preserves a bilinear form and would force 2*c3=0",
+    "cover_c3": "-54",
+    "determinant_trivial": true,
+    "genuine_su4_on_certified_locus": true,
+    "proper_connected_irreducible_reduction_excluded": true,
+    "rank": 4,
+    "schoen_cover_simply_connected": true,
+    "stable_hym_irreducible": true
+  },
+  "universal_cone_digest": "4768fd2cd7ab91df3d71ed695c310c7129a37467e2bdc0f684233e9c0f002f73",
+  "unresolved_parameter_data": "equations for the proper exceptional subset P^3 minus U_pub"
+}

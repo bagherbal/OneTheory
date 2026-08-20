@@ -352,14 +352,39 @@ def _nodes() -> list[dict[str, object]]:
             ("published constituent local-freeness theorem",),
         ),
         _node(
+            "published_outer_stability_locus",
+            "published generic stable SU(4) outer locus",
+            "Reference realization",
+            "PROVED",
+            "The source-generic extension theorem pulls back to a nonempty "
+            "Zariski-open U_pub in the reconstructed P3. Nine exact slope "
+            "inequalities define K^s, a rational open box proves it nonempty, "
+            "and stable determinant-trivial rank four with nonzero c3 excludes "
+            "proper connected irreducible structure-group reductions.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_outer_stability_locus.json",
+                "research/experiments/scientific_genesis/"
+                "published_outer_stability_locus.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_outer_stability_locus.py",
+                "data/published/visible_carrier/source_manifest.json",
+            ),
+            (
+                "published generic stability theorem",
+                "Donaldson--Uhlenbeck--Yau correspondence",
+                "classification of connected irreducible subgroups of SU(4)",
+            ),
+        ),
+        _node(
             "published_chain_reconstruction",
             "published carrier chain reconstruction",
             "Reference realization",
             "BLOCKED",
             "The parameter-dependent rank-four cone is exact, locally free, "
             "determinant-trivial, and descended over the full nonzero forward "
-            "family. Its stable genuine-SU(4) locus and explicit local "
-            "transition presentation remain absent.",
+            "family, with a certified generic stable genuine-SU(4) locus. An "
+            "explicit local transition presentation remains absent.",
             (
                 "data/generated/visible_carrier/visible_carrier_artifact.json",
                 "data/generated/scientific_genesis/"
@@ -368,10 +393,10 @@ def _nodes() -> list[dict[str, object]]:
                 "published_outer_cech_invariants.json",
                 "data/generated/scientific_genesis/"
                 "published_outer_universal_cone.json",
+                "data/generated/scientific_genesis/"
+                "published_outer_stability_locus.json",
             ),
             missing=(
-                "exact stable locus over the forward projective family",
-                "exclusion of accidental proper structure-group reductions",
                 "local transition data",
             ),
         ),
@@ -1061,6 +1086,40 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             ("the universal cone does not by itself prove slope stability",),
+        ),
+        _edge(
+            "published_outer_universal_cone",
+            "published_outer_stability_locus",
+            "The reconstructed P3 identifies the source's generic extension "
+            "space, while exact slope inequalities and nonzero c3 certify a "
+            "nonempty stable genuine-SU(4) sublocus without choosing a point.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_outer_stability_locus.json",
+            ),
+            (
+                "published generic stability theorem",
+                "Donaldson--Uhlenbeck--Yau correspondence",
+                "rank-four connected subgroup classification",
+            ),
+            True,
+            (
+                "the proper exceptional parameter ideal is not computed",
+                "no explicit HYM metric is constructed",
+            ),
+        ),
+        _edge(
+            "published_outer_stability_locus",
+            "published_chain_reconstruction",
+            "The generic stable locus supplies lawful physical parameters for "
+            "the exact universal chain family.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_outer_stability_locus.json",
+            ),
+            (),
+            True,
+            ("local transition matrices remain absent",),
         ),
         _edge(
             "published_outer_universal_cone",
@@ -1851,6 +1910,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
         "data/generated/scientific_genesis/published_outer_cech_invariants.json",
         "data/generated/scientific_genesis/published_outer_universal_cone.json",
+        "data/generated/scientific_genesis/published_outer_stability_locus.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
         "Experimental_Draft_OneTheory.py",
@@ -1871,7 +1931,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 489,
+            "collected_tests_at_audit": 492,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -1893,7 +1953,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "published universal outer stability-locus derivation"
+                "published generic stable SU(4) outer family established"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -1975,8 +2035,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the exact stable genuine-SU(4) locus over the published "
-                "forward projective outer family"
+                "parameter-dependent matter and Higgs cohomology on the "
+                "published stable generic outer family"
             ),
         },
         "claims": _nodes(),
@@ -2000,6 +2060,8 @@ def build_state() -> dict[str, object]:
             "and eight plus strict full-Cech representatives",
             "exact universal rank-four outer cone over P^3(Q(omega)) with "
             "non-split, local-freeness, Chern, and descent gates",
+            "nonempty generic stable descended genuine-SU(4) locus U_pub x K^s "
+            "with nine exact slope inequalities and a rational open witness",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "

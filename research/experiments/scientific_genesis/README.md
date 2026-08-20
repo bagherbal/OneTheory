@@ -69,3 +69,9 @@ character selection. Its exact deck decomposition is
 absent and the other two occur twice. No four-class subspace is selected.
 The next construction must therefore lift the relative quasi-isomorphisms at
 chain level and remove the excess through an actual differential correction.
+All six supported points now have explicit affine lci frames: the global
+Hilbert--Burch generators reduce to two local generators, their syzygies factor
+through the canonical Koszul column, and the Serre middle term is free of rank
+two. These local certificates are not yet glued; exact overlap transition
+matrices are required before the relative correction can enter the diagonal
+complex.

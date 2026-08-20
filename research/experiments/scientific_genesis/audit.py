@@ -1757,6 +1757,8 @@ def _engines() -> list[dict[str, object]]:
             (
                 "research/experiments/computable_carrier/global_serre.py",
                 "research/experiments/computable_carrier/serre_pushout.py",
+                "research/experiments/scientific_genesis/"
+                "local_constituent_frames.py",
             ),
         ),
         ("Cech complexes", "established generic engine", ("src/onetheory/math/cech.py",)),
@@ -2179,8 +2181,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "a synchronized lift of the four derived-P1 representatives "
-                "into the full Schoen Cech complex"
+                "exact overlap transitions gluing the six local Serre frames, "
+                "followed by a synchronized lift of the four derived-P1 "
+                "representatives into the full Schoen Cech complex"
             ),
         },
         "claims": _nodes(),
@@ -2196,6 +2199,8 @@ def build_state() -> dict[str, object]:
             "constituent Ext representatives",
             "exact invariant Cech maximal-minor cocycles and square-zero derived "
             "mapping-cone certificates for W1 and W2",
+            "exact free rank-two local Serre frames at all six I3/I6 support "
+            "points with localized Hilbert--Burch-to-Koszul factorization",
             "exact cohomology-reduced outer model preserving the source Euler "
             "characteristic and isolating a common 90-dimensional excess",
             "exact standard-cover Cech contraction and finite transfer deriving "

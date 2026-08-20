@@ -256,6 +256,11 @@ exist. Exact deck action on the current 14-dimensional excess space rules out
 a character shortcut: its six character multiplicities are `3,2,3,2,2,2`,
 two source-required characters are absent, and the two present lawful
 characters are doubled. A twist-natural chain correction is mandatory.
+The local input to that correction is now explicit: at each of the six
+supported points, the homogeneous ideal presentation reduces to a
+two-generator lci, every global Hilbert--Burch syzygy factors through its
+Koszul column, and the corresponding Serre middle term is free of rank two.
+Overlap transition matrices gluing these frames are still unresolved.
 The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.

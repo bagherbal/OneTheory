@@ -29,7 +29,12 @@ from onetheory.math.numbers import Eisenstein
 from onetheory.math.polynomials import Polynomial
 
 from .dp9_serre_cech import DPSurfaceSerreCechCocycle
-from .schoen_linebundles import AmbientSchoenSpace, _factor_basis, _factor_matrix_for_terms
+from .schoen_linebundles import (
+    _KOSZUL_TOTAL_DEGREES,
+    AmbientSchoenSpace,
+    _factor_basis,
+    _factor_matrix_for_terms,
+)
 from .schoen_sparse_outer import (
     SparseLineBundle,
     SparseMap,
@@ -243,7 +248,7 @@ def _sparse_cech_line_map(
         raise ValueError("Čech line map has incompatible line degrees")
     results = []
     signs = (1, -1, -1, 1)
-    for degree in range(4):
+    for degree in _KOSZUL_TOTAL_DEGREES:
         source_blocks = (
             source.ambient_k0.space(degree),
             source.ambient_k1_x.space(degree + 1),
@@ -470,7 +475,7 @@ def schoen_serre_outer_hom(
         )
         for left_index, left_object in enumerate(left.objects)
         for right_index, right_object in enumerate(right.objects)
-        for sheaf_degree in range(4)
+        for sheaf_degree in _KOSZUL_TOTAL_DEGREES
     )
     by_degree = {
         degree: tuple(component for component in components if component.total_degree == degree)

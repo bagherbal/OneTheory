@@ -77,6 +77,28 @@ def test_sparse_line_bundle_reproduces_small_koszul_shapes() -> None:
     )
 
 
+def test_sparse_line_bundle_retains_boundary_koszul_degrees() -> None:
+    """Boundary maps preserve the complete-intersection Euler characteristic."""
+
+    line = sparse_line_bundle(-3, -4, 2)
+    dimensions = []
+    for degree in range(4):
+        incoming = line.differential(degree - 1).rank()
+        outgoing = line.differential(degree).rank()
+        dimensions.append(line.space(degree).dimension - incoming - outgoing)
+
+    assert line.squared_zero
+    assert dimensions == [0, 0, 72, 3]
+    assert sum((-1) ** degree * value for degree, value in enumerate(dimensions)) == 69
+    assert all(
+        line.space(degree).dimension
+        - line.differential(degree - 1).rank()
+        - line.differential(degree).rank()
+        == 0
+        for degree in (-2, -1, 4, 5)
+    )
+
+
 def test_representative_schoen_cover_outer_ext_is_exact_and_zero() -> None:
     """One surviving topology has a certified vanishing cover Ext-one."""
 
@@ -130,9 +152,18 @@ def test_nonzero_cover_ext_has_explicit_invariant_cocycles() -> None:
 
     assert candidate_index == 3
     assert outer.cover_ext_one_dimension == 36
-    assert [
-        basis.invariant.dimension for _, basis in invariant.bases
-    ] == [0, 0, 60, 146, 90, 8]
+    invariant_dimensions = {
+        degree: basis.invariant.dimension for degree, basis in invariant.bases
+    }
+    assert [invariant_dimensions[degree] for degree in range(-1, 5)] == [
+        0,
+        0,
+        60,
+        146,
+        90,
+        8,
+    ]
+    assert all(invariant_dimensions[degree] == 0 for degree in (-3, -2, 5, 6))
     assert invariant.invariant_ext_one_dimension == 4
     assert cocycles.representatives.domain.dimension == 4
     assert [len(item["terms"]) for item in record["representatives"]] == [

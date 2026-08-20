@@ -27,6 +27,7 @@ from onetheory.math.numbers import Eisenstein
 
 from .dp9_actions import published_coordinate_images
 from .dp9_deck_atlas import _cubic_characters
+from .schoen_linebundles import _KOSZUL_TOTAL_DEGREES
 from .schoen_sparse_outer import (
     SparseLineBundle,
     SparseMap,
@@ -194,7 +195,7 @@ class SchoenSparseDeckAction:
 
         components = tuple(
             (degree, self.line_component(line, degree))
-            for degree in range(4)
+            for degree in _KOSZUL_TOTAL_DEGREES
         )
         for degree, differential in line.differentials:
             left = dict(components)[degree + 1].compose(differential)
@@ -258,7 +259,7 @@ def schoen_sparse_line_action_audit(
             .compose(dict(components)[degree])
             .compose(dict(components)[degree])
             == _identity_sparse_map(line.space(degree))
-            for degree in range(4)
+            for degree in _KOSZUL_TOTAL_DEGREES
         )
         records.append(
             {

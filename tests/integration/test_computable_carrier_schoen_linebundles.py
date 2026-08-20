@@ -40,6 +40,23 @@ def test_negative_fiber_line_bundle_is_computed_exactly() -> None:
     assert line.cohomology_dimensions == ((0, 0), (1, 0), (2, 2), (3, 2))
 
 
+def test_boundary_differential_preserves_complete_intersection_euler() -> None:
+    """Ambient degree four contributes to the top geometric boundary map."""
+
+    line = schoen_line_bundle(-3, -4, 2)
+
+    assert line.squared_zero
+    assert line.cohomology_dimensions == ((0, 0), (1, 0), (2, 72), (3, 3))
+    assert sum(
+        (-1) ** degree * dimension
+        for degree, dimension in line.cohomology_dimensions
+    ) == 69
+    assert all(
+        line.complex.cohomology_dimension(degree) == 0
+        for degree in (-2, -1, 4, 5)
+    )
+
+
 def test_x_factor_multiplication_is_a_typed_chain_map() -> None:
     """Multiplication by an x-coordinate preserves the two-equation cone."""
 

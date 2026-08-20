@@ -27,6 +27,7 @@ from onetheory.math.numbers import Eisenstein
 
 from .projective_hom_action import _presentation_term_actions
 from .resolution_actions import ResolutionActionPair
+from .schoen_linebundles import _KOSZUL_TOTAL_DEGREES
 from .schoen_outer import _hom_term_lines
 from .schoen_sparse_actions import (
     SchoenSparseDeckAction,
@@ -134,7 +135,7 @@ def _total_cells(outer: SparseOuterHom) -> tuple[tuple[int, int], ...]:
     return tuple(
         (parent_degree, sheaf_degree)
         for parent_degree, _ in _hom_term_lines(outer.left, outer.right)
-        for sheaf_degree in range(4)
+        for sheaf_degree in _KOSZUL_TOTAL_DEGREES
     )
 
 

@@ -38,6 +38,8 @@ from onetheory.models.heterotic_schoen.geometry import schoen_geometry
 Monomial = tuple[int, ...]
 Factor = str
 _FACTORS = ("x", "u", "p")
+_KOSZUL_TOTAL_DEGREES = tuple(range(-2, 6))
+_KOSZUL_DIFFERENTIAL_DEGREES = tuple(range(-2, 5))
 
 
 @cache
@@ -498,7 +500,7 @@ class SchoenLineBundle:
 
         return tuple(
             (degree, self.complex.cohomology_dimension(degree))
-            for degree in self.complex.degrees
+            for degree in range(4)
         )
 
     @property
@@ -620,11 +622,11 @@ def schoen_line_bundle(
             k2,
             degree,
         )
-        for degree in range(4)
+        for degree in _KOSZUL_TOTAL_DEGREES
     }
     graded = GradedVectorSpace(f"O_X({x_degree},{u_degree},{p_degree})", spaces)
     differentials: dict[int, LinearMap] = {}
-    for degree in range(3):
+    for degree in _KOSZUL_DIFFERENTIAL_DEGREES:
         k0_source = k0.space(degree).vector_space
         k1_x_source = k1_x.space(degree + 1).vector_space
         k1_u_source = k1_u.space(degree + 1).vector_space

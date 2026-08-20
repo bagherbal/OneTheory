@@ -276,6 +276,13 @@ whose degree-one dimension is 5 in every pair. This remains a
 presentation-level restriction calculation: it is not global sheaf Ext,
 quotient descent, or a physical rank-four candidate.
 
+The Schoen complete-intersection engine retains total Koszul degrees from
+minus two through five before extracting geometric degrees zero through three.
+This is required because ambient H4 and H5 terms can supply boundary maps into
+top-degree cover cohomology. Exact regressions check cancellation of the outer
+bands and the complete-intersection Euler characteristic; truncating those
+acyclic bands is not a valid computational shortcut.
+
 The zero-fiber dP9 totalizations now receive the published P and T coordinate
 pullbacks, converted directly from the production Heisenberg lifts. Their
 presentation-term actions are combined with exact line-bundle cohomology

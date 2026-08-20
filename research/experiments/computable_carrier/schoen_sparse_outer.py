@@ -30,6 +30,8 @@ from onetheory.math.polynomials import Polynomial
 from onetheory.models.heterotic_schoen.geometry import schoen_geometry
 
 from .schoen_linebundles import (
+    _KOSZUL_DIFFERENTIAL_DEGREES,
+    _KOSZUL_TOTAL_DEGREES,
     AmbientSchoenSpace,
     SchoenAmbientLineBundle,
     _factor_basis,
@@ -515,7 +517,7 @@ class SparseLineBundle:
         if tuple(expected) != target.degrees:
             raise ValueError("sparse multiplication has incompatible line degrees")
         components = []
-        for degree in range(4):
+        for degree in _KOSZUL_TOTAL_DEGREES:
             source_blocks = (
                 self.ambient_k0.space(degree),
                 self.ambient_k1_x.space(degree + 1),
@@ -586,13 +588,13 @@ def sparse_line_bundle(x_degree: int, u_degree: int, p_degree: int) -> SparseLin
     k2 = ambient_schoen_line_bundle(x_degree - 3, u_degree - 3, p_degree - 2)
     spaces = tuple(
         (degree, _sparse_line_space(k0, k1_x, k1_u, k2, degree))
-        for degree in range(4)
+        for degree in _KOSZUL_TOTAL_DEGREES
     )
     differentials = []
     cox = schoen_geometry().cover.cox
     mu = Polynomial.monomial((1, 0), scalar_type=Eisenstein)
     nu = Polynomial.monomial((0, 1), scalar_type=Eisenstein)
-    for degree in range(3):
+    for degree in _KOSZUL_DIFFERENTIAL_DEGREES:
         source_blocks = (
             k0.space(degree).vector_space,
             k1_x.space(degree + 1).vector_space,
@@ -824,7 +826,7 @@ def _sparse_outer_hom_presentations(
             bundles[parent_degree], sheaf_degree
         )
         for parent_degree, _ in lines
-        for sheaf_degree in range(4)
+        for sheaf_degree in _KOSZUL_TOTAL_DEGREES
     }
     factors = {
         degree: _factor_matrix(parent, degree, left.factor, right.factor)
@@ -840,14 +842,14 @@ def _sparse_outer_hom_presentations(
             factors[degree],
         )
         for degree, _ in parent.differentials
-        for sheaf_degree in range(4)
+        for sheaf_degree in _KOSZUL_TOTAL_DEGREES
     }
     vertical = {
         (degree, sheaf_degree): _sparse_direct_sum_maps(
             tuple(bundle.differential(sheaf_degree) for bundle in bundles[degree])
         )
         for degree, _ in lines
-        for sheaf_degree in range(3)
+        for sheaf_degree in _KOSZUL_DIFFERENTIAL_DEGREES
     }
     degree_cells: dict[int, tuple[tuple[int, int], ...]] = {}
     for cell in spaces:

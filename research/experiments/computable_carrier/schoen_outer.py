@@ -33,7 +33,12 @@ from onetheory.math.homological import (
 
 from .pencil import tier_a_pencil_model
 from .polynomial_hom import PolynomialHomComplex, polynomial_hom_complex
-from .schoen_linebundles import SchoenLineBundle, schoen_line_bundle
+from .schoen_linebundles import (
+    _KOSZUL_DIFFERENTIAL_DEGREES,
+    _KOSZUL_TOTAL_DEGREES,
+    SchoenLineBundle,
+    schoen_line_bundle,
+)
 from .serre_pushout import SerrePushoutCandidate
 from .tier_b_outer import _candidate
 from .tier_b_serre_extensions import TierBSerreExtensionRay
@@ -386,7 +391,7 @@ def schoen_outer_hom(
             sheaf_degree,
         )
         for parent_degree, _ in lines
-        for sheaf_degree in range(4)
+        for sheaf_degree in _KOSZUL_TOTAL_DEGREES
     }
     vertical = {
         (parent_degree, sheaf_degree): _direct_sum_maps(
@@ -396,7 +401,7 @@ def schoen_outer_hom(
             )
         )
         for parent_degree, _ in lines
-        for sheaf_degree in range(3)
+        for sheaf_degree in _KOSZUL_DIFFERENTIAL_DEGREES
     }
     horizontal = {}
     factors = {
@@ -419,7 +424,7 @@ def schoen_outer_hom(
                     bundle_map[parent_degree + 1],
                     factors[parent_degree],
                 )
-                for sheaf_degree in range(4)
+                for sheaf_degree in _KOSZUL_TOTAL_DEGREES
             }
         )
     bicomplex = Bicomplex(

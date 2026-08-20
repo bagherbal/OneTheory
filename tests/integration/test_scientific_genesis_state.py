@@ -75,7 +75,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "published Higgs dimensions closed; monoidal Cech representatives"
+        "published spectrum closed; full Higgs Cech lift"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
@@ -101,7 +101,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_outer_stability_locus"]["status"] == "PROVED"
     assert claims["published_matter_cohomology"]["status"] == "COMPUTED"
     assert claims["published_higgs_cohomology"]["status"] == "COMPUTED"
-    assert claims["physical_spectrum"]["status"] == "BLOCKED"
+    assert claims["physical_spectrum"]["status"] == "COMPUTED"
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     assert state["fitted_inputs"] == []

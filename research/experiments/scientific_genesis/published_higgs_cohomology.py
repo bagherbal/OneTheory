@@ -2,18 +2,18 @@
 
 Owns:
     Acyclic determinant checks, the exact derived-P1 pushdown tensor, the
-    exterior-square filtration theorem, and source-scoped Higgs projection.
+    exterior-square filtration theorem, and generated base-Cech deck action.
 
 Depends on:
     Full-Čech line-bundle transfer, published W1/W2 pushdowns, exact P1
     cohomology, the matter artifact, and the published Wilson embedding.
 
 Must not:
-    Treat source-selected deck characters as generated chain actions, choose an
-    extension point, hide a jumping locus, or fabricate Higgs cocycles.
+    Use source character comparisons as construction input, choose an extension
+    point, hide a jumping locus, or claim a full Schoen cocycle lift.
 
 Phase 0:
-    Exact Higgs dimensions and projection are certified; full cocycles remain open.
+    Exact Higgs dimensions and base-Cech projection are certified; full lifts are open.
 """
 
 from __future__ import annotations
@@ -24,6 +24,9 @@ from functools import cache
 from itertools import product
 from pathlib import Path
 
+from onetheory.math.cech import projective_monomial_cech_complex
+from onetheory.math.linear import Matrix
+from onetheory.math.numbers import OMEGA, OMEGA2, Eisenstein
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
 )
@@ -41,6 +44,11 @@ from research.experiments.computable_carrier.schoen_serre_outer_transfer import 
     TransferredOuterHom,
     transferred_schoen_serre_outer_hom,
 )
+from research.experiments.computable_carrier.schoen_sparse_actions import (
+    _inverse_images,
+    _monomial_action,
+    schoen_sparse_deck_actions,
+)
 
 from .published_matter_cohomology import OUTPUT as MATTER_ARTIFACT
 
@@ -51,6 +59,7 @@ SPECTRUM_ARXIV_ID = "hep-th/0512177"
 SPECTRUM_SOURCE_SHA256 = (
     "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f"
 )
+SOURCE_H1_CHARACTERS = ((0, 1), (0, 2), (1, 2), (2, 1))
 Monomial2 = tuple[int, int]
 CharacterExponent = tuple[int, int]
 
@@ -138,6 +147,7 @@ class DerivedP1TensorTerm:
     second_label: str
     fiber_degree: int
     line_degree: int
+    scalar_character: tuple[Eisenstein, Eisenstein]
 
     def basis(self, total_degree: int) -> tuple[Monomial2, ...]:
         """Return the exact base-cohomology basis in one total degree."""
@@ -146,6 +156,32 @@ class DerivedP1TensorTerm:
         if base_degree not in (0, 1):
             return ()
         return _p1_basis(self.line_degree, base_degree)
+
+
+@dataclass(frozen=True, slots=True)
+class DerivedP1CechRepresentative:
+    """One canonical monomial Čech class in the derived pushdown tensor."""
+
+    term_index: int
+    total_degree: int
+    base_degree: int
+    monomial: Monomial2
+    cells: tuple[tuple[tuple[int, ...], Eisenstein], ...]
+
+    def __post_init__(self) -> None:
+        cech = projective_monomial_cech_complex(
+            ("p0", "p1"),
+            self.monomial,
+            scalar_type=Eisenstein,
+        )
+        if cech.expected_cohomology_degree != self.base_degree:
+            raise ValueError("derived P1 representative has the wrong Čech degree")
+        canonical_cells = tuple(
+            (simplex.vertices, Eisenstein(1))
+            for simplex in cech.simplices_at(self.base_degree)
+        )
+        if self.cells != canonical_cells:
+            raise ValueError("derived P1 representative is not the canonical cocycle")
 
 
 def _summands(
@@ -175,6 +211,10 @@ def _derived_tensor_terms(
                     second_term.label,
                     first_degree + second_degree,
                     first_term.degree + second_term.degree,
+                    (
+                        first_term.character[0] * second_term.character[0],
+                        first_term.character[1] * second_term.character[1],
+                    ),
                 )
             )
     return tuple(terms)
@@ -189,7 +229,6 @@ class PublishedHiggsCohomology:
     determinant_one: TransferredOuterHom
     determinant_two: TransferredOuterHom
     tensor_terms: tuple[DerivedP1TensorTerm, ...]
-    source_h1_characters: tuple[CharacterExponent, ...]
 
     def __post_init__(self) -> None:
         if self.determinant_one_dimensions != (0, 0, 0, 0):
@@ -198,8 +237,10 @@ class PublishedHiggsCohomology:
             raise ValueError("det(V2) is no longer acyclic")
         if self.tensor_dimensions != (0, 4, 4, 0):
             raise ValueError("the derived pushdown tensor no longer gives four Higgs classes")
-        if len(set(self.source_h1_characters)) != 4:
-            raise ValueError("the selected Higgs character comparison must have four classes")
+        if self.generated_h1_characters != SOURCE_H1_CHARACTERS:
+            raise ValueError("generated Higgs characters disagree with the source comparison")
+        if not self.p1_group_relations:
+            raise ValueError("derived P1 deck actions do not realize Z3 x Z3")
         if self.source_archive_sha256 != SPECTRUM_SOURCE_SHA256:
             raise ValueError("the Higgs source digest changed")
 
@@ -230,6 +271,131 @@ class PublishedHiggsCohomology:
 
         return self.tensor_dimensions
 
+    def p1_cech_representatives(
+        self,
+        total_degree: int,
+    ) -> tuple[DerivedP1CechRepresentative, ...]:
+        """Return canonical exact Čech representatives in one derived degree."""
+
+        representatives = []
+        for term_index, term in enumerate(self.tensor_terms):
+            base_degree = total_degree - term.fiber_degree
+            if base_degree not in (0, 1):
+                continue
+            for monomial in term.basis(total_degree):
+                cech = projective_monomial_cech_complex(
+                    ("p0", "p1"),
+                    monomial,
+                    scalar_type=Eisenstein,
+                )
+                representatives.append(
+                    DerivedP1CechRepresentative(
+                        term_index,
+                        total_degree,
+                        base_degree,
+                        monomial,
+                        tuple(
+                            (simplex.vertices, Eisenstein(1))
+                            for simplex in cech.simplices_at(base_degree)
+                        ),
+                    )
+                )
+        return tuple(representatives)
+
+    @staticmethod
+    def _orientation_sign(images: tuple[tuple[Eisenstein, tuple[int, ...]], ...]) -> int:
+        """Return the oriented top-simplex sign of a monomial pullback."""
+
+        permutation = tuple(exponents.index(1) for _, exponents in images)
+        inversions = sum(
+            permutation[left] > permutation[right]
+            for left in range(len(permutation))
+            for right in range(left + 1, len(permutation))
+        )
+        return -1 if inversions % 2 else 1
+
+    def p1_action_matrix(self, generator: str, total_degree: int = 1) -> Matrix:
+        """Generate one deck action by inverse pullback on P1 Čech cocycles."""
+
+        actions = {action.name: action for action in schoen_sparse_deck_actions()}
+        if generator not in actions:
+            raise KeyError(generator)
+        action = actions[generator]
+        inverse_images = _inverse_images(action.p_images)
+        representatives = self.p1_cech_representatives(total_degree)
+        indices = {
+            (representative.term_index, representative.monomial): index
+            for index, representative in enumerate(representatives)
+        }
+        rows = [
+            [Eisenstein(0) for _ in representatives]
+            for _ in representatives
+        ]
+        character_index = {"P": 0, "T": 1}[generator]
+        for column, representative in enumerate(representatives):
+            scalar, target_monomial = _monomial_action(
+                representative.monomial,
+                inverse_images,
+            )
+            if representative.base_degree == 1:
+                scalar *= self._orientation_sign(inverse_images)
+            term = self.tensor_terms[representative.term_index]
+            scalar *= term.scalar_character[character_index]
+            target = indices.get((representative.term_index, target_monomial))
+            if target is None:
+                raise ValueError("deck pullback escaped the derived P1 Čech basis")
+            rows[target][column] = scalar
+        return Matrix(tuple(tuple(row) for row in rows), scalar_type=Eisenstein)
+
+    @property
+    def p1_group_relations(self) -> bool:
+        """Return exact order-three and commutation gates on derived H1."""
+
+        p = self.p1_action_matrix("P")
+        t = self.p1_action_matrix("T")
+        identity = Matrix.identity(p.row_count, scalar_type=Eisenstein)
+        return (
+            p @ p @ p == identity
+            and t @ t @ t == identity
+            and p @ t == t @ p
+        )
+
+    @property
+    def h1_character_multiplicities(
+        self,
+    ) -> tuple[tuple[CharacterExponent, int], ...]:
+        """Derive the joint character decomposition of the P1 Čech classes."""
+
+        p = self.p1_action_matrix("P")
+        t = self.p1_action_matrix("T")
+        identity = Matrix.identity(p.row_count, scalar_type=Eisenstein)
+        roots = (Eisenstein(1), OMEGA, OMEGA2)
+        multiplicities = []
+        for first, second in product(range(3), repeat=2):
+            equations = Matrix(
+                (
+                    *((p - identity.scale(roots[first])).rows),
+                    *((t - identity.scale(roots[second])).rows),
+                ),
+                scalar_type=Eisenstein,
+            )
+            dimension = len(equations.nullspace())
+            if dimension:
+                multiplicities.append(((first, second), dimension))
+        if sum(value for _, value in multiplicities) != p.row_count:
+            raise ValueError("derived P1 deck characters do not span H1")
+        return tuple(multiplicities)
+
+    @property
+    def generated_h1_characters(self) -> tuple[CharacterExponent, ...]:
+        """Expand the exact generated character multiplicities deterministically."""
+
+        return tuple(
+            character
+            for character, multiplicity in self.h1_character_multiplicities
+            for _ in range(multiplicity)
+        )
+
     @staticmethod
     def _inverse(character: CharacterExponent) -> CharacterExponent:
         """Return the inverse Z3 x Z3 character."""
@@ -240,7 +406,7 @@ class PublishedHiggsCohomology:
         """Count invariant products with one declared Wilson character."""
 
         required = self._inverse(wilson_character)
-        return self.source_h1_characters.count(required)
+        return self.generated_h1_characters.count(required)
 
     def as_record(self) -> dict[str, object]:
         """Serialize exact dimensions and preserve the chain-character boundary."""
@@ -288,6 +454,9 @@ class PublishedHiggsCohomology:
                         "second": term.second_label,
                         "fiber_degree": term.fiber_degree,
                         "line_degree": term.line_degree,
+                        "scalar_character": [
+                            str(value) for value in term.scalar_character
+                        ],
                         "basis_counts_h0_to_h3": [
                             len(term.basis(degree)) for degree in range(4)
                         ],
@@ -297,6 +466,33 @@ class PublishedHiggsCohomology:
                 "cohomology_h0_to_h3": list(self.tensor_dimensions),
                 "exact": True,
             },
+            "derived_p1_cech": {
+                "h1_representatives": [
+                    {
+                        "term_index": representative.term_index,
+                        "base_degree": representative.base_degree,
+                        "monomial": list(representative.monomial),
+                        "cells": [
+                            {
+                                "simplex": list(cell),
+                                "coefficient": str(coefficient),
+                            }
+                            for cell, coefficient in representative.cells
+                        ],
+                    }
+                    for representative in self.p1_cech_representatives(1)
+                ],
+                "P_action": [
+                    [str(value) for value in row]
+                    for row in self.p1_action_matrix("P").rows
+                ],
+                "T_action": [
+                    [str(value) for value in row]
+                    for row in self.p1_action_matrix("T").rows
+                ],
+                "inverse_pullback_convention_explicit": True,
+                "group_relations": self.p1_group_relations,
+            },
             "wedge_square": {
                 "cohomology_h0_to_h3": list(self.wedge_square_dimensions),
                 "all_extension_parameters": True,
@@ -305,11 +501,19 @@ class PublishedHiggsCohomology:
             },
             "deck_characters": {
                 "h1_character_exponents": [
-                    list(character) for character in self.source_h1_characters
+                    list(character) for character in self.generated_h1_characters
                 ],
-                "status": "SELECTED",
-                "source_bound": True,
-                "generated_from_current_tensor_chain": False,
+                "multiplicities": [
+                    {
+                        "character_exponents": list(character),
+                        "multiplicity": multiplicity,
+                    }
+                    for character, multiplicity in self.h1_character_multiplicities
+                ],
+                "status": "COMPUTED",
+                "source_bound_pushdown_inputs": True,
+                "generated_from_derived_p1_cech_action": True,
+                "matches_source_comparison": True,
             },
             "wilson_projection": {
                 "multiplicities": projections,
@@ -322,17 +526,18 @@ class PublishedHiggsCohomology:
                     + projections["color_antitriplet"]
                 ),
                 "character_arithmetic_exact": True,
-                "character_input_status": "SELECTED",
+                "character_input_status": "COMPUTED_FROM_SELECTED_PUSHDOWNS",
             },
             "arbitrary_extension_point_selected": False,
+            "derived_p1_cech_representatives_computed": True,
             "full_higgs_cech_representatives_computed": False,
             "next_required_object": (
-                "a synchronized monoidal Cech tensor action producing the four "
-                "Higgs representatives and their deck characters"
+                "a synchronized lift of the four derived-P1 representatives "
+                "into the full Schoen Cech complex"
             ),
             "status": (
-                "exact all-parameter four-dimensional Higgs cohomology; the "
-                "one-pair Wilson projection remains source-character conditional"
+                "exact all-parameter four-dimensional Higgs cohomology and "
+                "generated one-pair Wilson projection from selected pushdowns"
             ),
         }
 
@@ -355,7 +560,6 @@ def published_higgs_cohomology() -> PublishedHiggsCohomology:
             unit,
         ),
         _derived_tensor_terms(first, second),
-        ((0, 1), (0, 2), (1, 2), (2, 1)),
     )
 
 
@@ -390,6 +594,7 @@ if __name__ == "__main__":
 
 
 __all__ = [
+    "DerivedP1CechRepresentative",
     "DerivedP1TensorTerm",
     "PublishedHiggsCohomology",
     "published_higgs_cohomology",

@@ -8,11 +8,11 @@ Depends on:
     The exact Higgs constructor and its content-addressed artifact.
 
 Must not:
-    Relabel selected deck characters as generated, choose an extension point,
-    or claim full Higgs Čech representatives are available.
+    Use source character comparisons as construction inputs, choose an extension
+    point, or claim full Higgs Čech representatives are available.
 
 Phase 0:
-    Higgs dimension and scoped projection tests only; cocycles remain open.
+    Higgs dimension and derived-P1 action tests only; full lifts remain open.
 """
 
 import json
@@ -39,7 +39,7 @@ def test_determinant_filtration_makes_higgs_dimensions_parameter_independent() -
 
 
 def test_higgs_projection_preserves_selected_character_provenance() -> None:
-    """Exact character arithmetic yields one pair without claiming chain derivation."""
+    """Inverse P1 pullback generates the source characters and one pair."""
 
     record = published_higgs_cohomology().as_record()
 
@@ -51,9 +51,16 @@ def test_higgs_projection_preserves_selected_character_provenance() -> None:
     }
     assert record["deck_characters"] == {
         "h1_character_exponents": [[0, 1], [0, 2], [1, 2], [2, 1]],
-        "status": "SELECTED",
-        "source_bound": True,
-        "generated_from_current_tensor_chain": False,
+        "multiplicities": [
+            {"character_exponents": [0, 1], "multiplicity": 1},
+            {"character_exponents": [0, 2], "multiplicity": 1},
+            {"character_exponents": [1, 2], "multiplicity": 1},
+            {"character_exponents": [2, 1], "multiplicity": 1},
+        ],
+        "status": "COMPUTED",
+        "source_bound_pushdown_inputs": True,
+        "generated_from_derived_p1_cech_action": True,
+        "matches_source_comparison": True,
     }
     assert record["wilson_projection"] == {
         "multiplicities": {
@@ -65,8 +72,11 @@ def test_higgs_projection_preserves_selected_character_provenance() -> None:
         "higgs_pairs": 1,
         "massless_color_triplets": 0,
         "character_arithmetic_exact": True,
-        "character_input_status": "SELECTED",
+        "character_input_status": "COMPUTED_FROM_SELECTED_PUSHDOWNS",
     }
+    assert record["derived_p1_cech"]["group_relations"] is True
+    assert len(record["derived_p1_cech"]["h1_representatives"]) == 4
+    assert record["derived_p1_cech_representatives_computed"] is True
     assert record["full_higgs_cech_representatives_computed"] is False
     assert record["arbitrary_extension_point_selected"] is False
 

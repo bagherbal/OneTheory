@@ -1,0 +1,6370 @@
+{
+  "all_global_cover_presentations_exact": true,
+  "artifact_digest": "0b3b06b502f6f376c69de6d5b0fa73f969803eaaa8a435123fb452ad811726d5",
+  "atlases": [
+    {
+      "all_determinant_one": true,
+      "all_relations_compatible": true,
+      "cocycle_consistent": true,
+      "constituent": "I3",
+      "deck_linearization_constructed": false,
+      "exact": true,
+      "inverse_consistent": true,
+      "transition_count": 30,
+      "transitions": [
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9-9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-18-18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1+2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_mu",
+          "target": "U_0_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_mu",
+          "target": "U_1_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9-9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-18-18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1+2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_mu",
+          "target": "U_1_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_mu",
+          "target": "U_2_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9-9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-18-18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1+2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_mu",
+          "target": "U_2_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "-18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9+9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "18+18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1-2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_nu",
+          "target": "U_0_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "-18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9+9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "18+18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1-2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_nu",
+          "target": "U_1_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_nu",
+          "target": "U_1_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "-18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9+9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "18+18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1-2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_nu",
+          "target": "U_2_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_nu",
+          "target": "U_2_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_mu",
+          "target": "U_0_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9-9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-18-18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1+2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_mu",
+          "target": "U_0_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9-9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-18-18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1+2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_mu",
+          "target": "U_1_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_mu",
+          "target": "U_2_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9-9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-18-18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1+2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_mu",
+          "target": "U_2_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "-18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9+9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "18+18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1-2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_nu",
+          "target": "U_0_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_nu",
+          "target": "U_0_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "-18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9+9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "18+18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1-2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_nu",
+          "target": "U_1_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "-18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9+9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "18+18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1-2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_nu",
+          "target": "U_2_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_nu",
+          "target": "U_2_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_mu",
+          "target": "U_0_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9-9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-18-18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1+2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_mu",
+          "target": "U_0_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_mu",
+          "target": "U_1_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9-9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-18-18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1+2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_mu",
+          "target": "U_1_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9-9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-18-18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1+omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1+2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_mu",
+          "target": "U_2_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "-18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9+9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "18+18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1-2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_nu",
+          "target": "U_0_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_nu",
+          "target": "U_0_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "-18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9+9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "18+18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1-2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_nu",
+          "target": "U_1_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_nu",
+          "target": "U_1_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I3",
+          "gauge": [
+            [
+              {
+                "coefficient": "-18",
+                "exponents": [
+                  1,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "9+9*omega",
+                "exponents": [
+                  0,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-18*omega",
+                "exponents": [
+                  1,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-9",
+                "exponents": [
+                  0,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-9*omega",
+                "exponents": [
+                  2,
+                  0,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "18+18*omega",
+                "exponents": [
+                  0,
+                  1,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "1-omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-1-2*omega",
+                "exponents": [
+                  0,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_nu",
+          "target": "U_2_mu",
+          "transition_determinant_one": true
+        }
+      ]
+    },
+    {
+      "all_determinant_one": true,
+      "all_relations_compatible": true,
+      "cocycle_consistent": true,
+      "constituent": "I6",
+      "deck_linearization_constructed": false,
+      "exact": true,
+      "inverse_consistent": true,
+      "transition_count": 30,
+      "transitions": [
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "42-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-48-42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3-2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-4/3-2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3-4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_mu",
+          "target": "U_0_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_mu",
+          "target": "U_1_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "42-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-48-42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3-2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-4/3-2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3-4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_mu",
+          "target": "U_1_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_mu",
+          "target": "U_2_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "42-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-48-42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3-2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-4/3-2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3-4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_mu",
+          "target": "U_2_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-42+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "48+42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3+2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "4/3+2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3+4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_nu",
+          "target": "U_0_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-42+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "48+42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3+2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "4/3+2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3+4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_nu",
+          "target": "U_1_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_nu",
+          "target": "U_1_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-42+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "48+42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3+2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "4/3+2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3+4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_nu",
+          "target": "U_2_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_0_nu",
+          "target": "U_2_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_mu",
+          "target": "U_0_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "42-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-48-42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3-2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-4/3-2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3-4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_mu",
+          "target": "U_0_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "42-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-48-42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3-2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-4/3-2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3-4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_mu",
+          "target": "U_1_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_mu",
+          "target": "U_2_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "42-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-48-42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3-2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-4/3-2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3-4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_mu",
+          "target": "U_2_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-42+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "48+42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3+2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "4/3+2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3+4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_nu",
+          "target": "U_0_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_nu",
+          "target": "U_0_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-42+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "48+42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3+2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "4/3+2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3+4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_nu",
+          "target": "U_1_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-42+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "48+42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3+2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "4/3+2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3+4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_nu",
+          "target": "U_2_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_1_nu",
+          "target": "U_2_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_mu",
+          "target": "U_0_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "42-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-48-42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3-2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-4/3-2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3-4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_mu",
+          "target": "U_0_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_mu",
+          "target": "U_1_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "42-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-48-42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3-2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-4/3-2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3-4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_mu",
+          "target": "U_1_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "42-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-48-42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-12-6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6+48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "6-6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "-omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3-2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1+omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-4/3-2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3-4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_mu",
+          "target": "U_2_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-42+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "48+42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3+2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "4/3+2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3+4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_nu",
+          "target": "U_0_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_nu",
+          "target": "U_0_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-42+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "48+42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3+2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "4/3+2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3+4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_nu",
+          "target": "U_1_mu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "hypersurface_homotopy": [
+            [],
+            [],
+            []
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_nu",
+          "target": "U_1_nu",
+          "transition_determinant_one": true
+        },
+        {
+          "constituent": "I6",
+          "gauge": [
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-42+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "48+42*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "12+6*omega",
+                "exponents": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-12*omega",
+                "exponents": [
+                  0,
+                  2,
+                  1,
+                  -1,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  2,
+                  0,
+                  1,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6-48*omega",
+                "exponents": [
+                  1,
+                  2,
+                  0,
+                  -1,
+                  -1
+                ]
+              },
+              {
+                "coefficient": "-6+6*omega",
+                "exponents": [
+                  0,
+                  1,
+                  2,
+                  -1,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "hypersurface_homotopy": [
+            [
+              {
+                "coefficient": "omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "-2/3+2/3*omega",
+                "exponents": [
+                  0,
+                  0,
+                  1,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1-omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "4/3+2/3*omega",
+                "exponents": [
+                  1,
+                  0,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -1,
+                  -2
+                ]
+              },
+              {
+                "coefficient": "2/3+4/3*omega",
+                "exponents": [
+                  0,
+                  1,
+                  0,
+                  -2,
+                  -1
+                ]
+              }
+            ]
+          ],
+          "rectangle_path_independent": true,
+          "relation_compatible_mod_hypersurface": true,
+          "source": "U_2_nu",
+          "target": "U_2_mu",
+          "transition_determinant_one": true
+        }
+      ]
+    }
+  ],
+  "deck_linearizations_constructed": false,
+  "next_required_object": "exact P/T comparison maps on the two global constituent atlases, followed by the mixed-cone Schoen outer transfer",
+  "schema": "published-constituent-overlap-transitions-v1",
+  "selected_mixed_cocycles_used": true
+}

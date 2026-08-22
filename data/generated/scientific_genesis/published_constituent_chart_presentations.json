@@ -1,0 +1,1116 @@
+{
+  "all_affine_presentations_exact": true,
+  "artifact_digest": "6566277c414062b090d4d212fab55ff79320e06fdcf6aeea34d1c775062c4125",
+  "next_required_object": "presentation comparison maps on all ordered chart overlaps, including the parent-zero Cech gauge components",
+  "overlap_transition_matrices_materialized": false,
+  "presentation_count": 12,
+  "presentations": [
+    {
+      "chart": "U_0_mu",
+      "complement_local_free": true,
+      "constituent": "I3",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "9+9*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-54",
+            "monomial": [
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "9+9*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "9+9*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "9",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "54*omega",
+            "monomial": [
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "9",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "9",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        2,
+        4
+      ],
+      "support_augmented_rank": 2,
+      "support_image_rank": 1,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_0_nu",
+      "complement_local_free": true,
+      "constituent": "I3",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "3*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3-3*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "3",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "-3",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "3+3*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        2,
+        4
+      ],
+      "support_augmented_rank": 2,
+      "support_image_rank": 1,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_1_mu",
+      "complement_local_free": true,
+      "constituent": "I3",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "9+9*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-54",
+            "monomial": [
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "9+9*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "9+9*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "9",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "54*omega",
+            "monomial": [
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "9",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "9",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        2,
+        4
+      ],
+      "support_augmented_rank": 2,
+      "support_image_rank": 1,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_1_nu",
+      "complement_local_free": true,
+      "constituent": "I3",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "3",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3-3*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "3*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "3+3*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        2,
+        4
+      ],
+      "support_augmented_rank": 2,
+      "support_image_rank": 1,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_2_mu",
+      "complement_local_free": true,
+      "constituent": "I3",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "9+9*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-54",
+            "monomial": [
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "9+9*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "9+9*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "9",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "54*omega",
+            "monomial": [
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "9",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "9",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        2,
+        4
+      ],
+      "support_augmented_rank": 2,
+      "support_image_rank": 1,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_2_nu",
+      "complement_local_free": true,
+      "constituent": "I3",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "3",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "3*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3-3*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "3+3*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        2,
+        4
+      ],
+      "support_augmented_rank": 2,
+      "support_image_rank": 1,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_0_mu",
+      "complement_local_free": true,
+      "constituent": "I6",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "4-4*omega",
+            "monomial": [
+              3,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "4+8*omega",
+            "monomial": [
+              0,
+              4,
+              0
+            ]
+          },
+          {
+            "coefficient": "-8-4*omega",
+            "monomial": [
+              0,
+              1,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "-8-4*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "4-4*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "4+8*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "-4-8*omega",
+            "monomial": [
+              4,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "8+4*omega",
+            "monomial": [
+              1,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "-4+4*omega",
+            "monomial": [
+              1,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        3,
+        5
+      ],
+      "support_augmented_rank": 3,
+      "support_image_rank": 2,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_0_nu",
+      "complement_local_free": true,
+      "constituent": "I6",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "6+3*omega",
+            "monomial": [
+              3,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "-18+18*omega",
+            "monomial": [
+              1,
+              2,
+              0
+            ]
+          },
+          {
+            "coefficient": "6+3*omega",
+            "monomial": [
+              0,
+              4,
+              0
+            ]
+          },
+          {
+            "coefficient": "6+3*omega",
+            "monomial": [
+              0,
+              1,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "-3+3*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-18-36*omega",
+            "monomial": [
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3+3*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3+3*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "3+6*omega",
+            "monomial": [
+              4,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-36-18*omega",
+            "monomial": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "3+6*omega",
+            "monomial": [
+              1,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "3+6*omega",
+            "monomial": [
+              1,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        3,
+        5
+      ],
+      "support_augmented_rank": 3,
+      "support_image_rank": 2,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_1_mu",
+      "complement_local_free": true,
+      "constituent": "I6",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "-8-4*omega",
+            "monomial": [
+              3,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "4+8*omega",
+            "monomial": [
+              0,
+              4,
+              0
+            ]
+          },
+          {
+            "coefficient": "4-4*omega",
+            "monomial": [
+              0,
+              1,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "4+8*omega",
+            "monomial": [
+              4,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "4-4*omega",
+            "monomial": [
+              1,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "-8-4*omega",
+            "monomial": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "-4+4*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "8+4*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "-4-8*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        3,
+        5
+      ],
+      "support_augmented_rank": 3,
+      "support_image_rank": 2,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_1_nu",
+      "complement_local_free": true,
+      "constituent": "I6",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "6+3*omega",
+            "monomial": [
+              3,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "-18+18*omega",
+            "monomial": [
+              1,
+              2,
+              0
+            ]
+          },
+          {
+            "coefficient": "6+3*omega",
+            "monomial": [
+              0,
+              4,
+              0
+            ]
+          },
+          {
+            "coefficient": "6+3*omega",
+            "monomial": [
+              0,
+              1,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "-3+3*omega",
+            "monomial": [
+              4,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-18-36*omega",
+            "monomial": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3+3*omega",
+            "monomial": [
+              1,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3+3*omega",
+            "monomial": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "3+6*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-36-18*omega",
+            "monomial": [
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "3+6*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "3+6*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        3,
+        5
+      ],
+      "support_augmented_rank": 3,
+      "support_image_rank": 2,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_2_mu",
+      "complement_local_free": true,
+      "constituent": "I6",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "-8-4*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "4-4*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "4+8*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "4+8*omega",
+            "monomial": [
+              4,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-8-4*omega",
+            "monomial": [
+              1,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "4-4*omega",
+            "monomial": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "-4+4*omega",
+            "monomial": [
+              3,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "-4-8*omega",
+            "monomial": [
+              0,
+              4,
+              0
+            ]
+          },
+          {
+            "coefficient": "8+4*omega",
+            "monomial": [
+              0,
+              1,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        3,
+        5
+      ],
+      "support_augmented_rank": 3,
+      "support_image_rank": 2,
+      "support_local_free": true
+    },
+    {
+      "chart": "U_2_nu",
+      "complement_local_free": true,
+      "constituent": "I6",
+      "exact": true,
+      "extension_map": [
+        [
+          {
+            "coefficient": "6+3*omega",
+            "monomial": [
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-18+18*omega",
+            "monomial": [
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "6+3*omega",
+            "monomial": [
+              0,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "6+3*omega",
+            "monomial": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "-3+3*omega",
+            "monomial": [
+              4,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": "-18-36*omega",
+            "monomial": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3+3*omega",
+            "monomial": [
+              1,
+              3,
+              0
+            ]
+          },
+          {
+            "coefficient": "-3+3*omega",
+            "monomial": [
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "coefficient": "3+6*omega",
+            "monomial": [
+              3,
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "-36-18*omega",
+            "monomial": [
+              1,
+              2,
+              0
+            ]
+          },
+          {
+            "coefficient": "3+6*omega",
+            "monomial": [
+              0,
+              4,
+              0
+            ]
+          },
+          {
+            "coefficient": "3+6*omega",
+            "monomial": [
+              0,
+              1,
+              0
+            ]
+          }
+        ]
+      ],
+      "middle_rank": 2,
+      "relation_composes_to_zero": true,
+      "relation_shape": [
+        3,
+        5
+      ],
+      "support_augmented_rank": 3,
+      "support_image_rank": 2,
+      "support_local_free": true
+    }
+  ],
+  "retired_projective_pushout_maps_used": false,
+  "schema": "published-constituent-chart-presentations-v1",
+  "selected_mixed_cocycles_used": true
+}

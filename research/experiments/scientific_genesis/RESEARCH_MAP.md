@@ -279,12 +279,21 @@ dualizing algebras gives a unit every time, independently of the two fiber
 charts modulo Hilbert--Burch boundaries. This supplies the lawful local-free
 constituent input that the earlier pure-Cech cone lacked.
 
+The lawful rays have now been converted into twelve affine finite
+presentations. Their support and complement form an exact local-free cover.
+On overlaps, the parent-zero Cech terms give explicit unipotent changes of the
+middle generators; the parent-one Koszul terms are precisely the residual
+multiples of the dP9 equation. All sixty ordered comparisons preserve the
+relations on the hypersurface, have determinant one, and obey inverse and
+triple-cocycle identities. This closes global cover gluing for the two
+constituents without using the retired projective pushout maps.
+
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the
 published carrier, even when their dimensions happen to match source ledgers.
-The immediate vertical task is to rebuild the global constituent twisted
-complexes from the mixed full-Cech rays, then rerun the synchronized outer and
-Higgs transfers before any Yukawa product is attempted.
+The immediate vertical task is to derive P/T comparison maps on these global
+atlases, then rerun the synchronized outer and Higgs transfers before any
+Yukawa product is attempted.
 The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.

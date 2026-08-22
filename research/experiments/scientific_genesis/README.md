@@ -102,8 +102,16 @@ three I3 points and all three length-two I6 points, the parent-one component
 of the mixed ray increases the Hilbert--Burch residue rank by one. The local
 Ext residue is one-dimensional, both fiber-chart evaluations differ only by a
 boundary, and the class is a unit in each lci dualizing algebra. Thus the
-selected constituent middle terms are locally free at their support. Global
-transition matrices and deck-linearized mapping cones remain to be rebuilt
-from these mixed cocycles. The former pure-Cech cones and every downstream
-chain calculation that used them are diagnostics, not reconstructions of the
-published W1/W2 bundles.
+selected constituent middle terms are locally free at their support.
+
+Those mixed rays now produce concrete pushout relations on all twelve affine
+base/fiber charts. Every relation composes to the declared ideal quotient,
+has rank-two cokernel, and is locally free on the union of the support-unit
+neighborhood with the ideal-unit complement. The parent-zero Cech component
+supplies the missing overlap gauge. Its unipotent middle-generator changes
+have determinant one, compare chart relations modulo the exact hypersurface
+homotopy, are independent of the two rectangle paths, and satisfy all inverse
+and ordered triple-cocycle identities. Thus W1 and W2 now have global cover
+presentations from the selected mixed classes. Deck linearization is the next
+gate. The former pure-Cech cones and every downstream chain calculation that
+used them are diagnostics, not reconstructions of the published W1/W2 bundles.

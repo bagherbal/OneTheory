@@ -112,6 +112,16 @@ supplies the missing overlap gauge. Its unipotent middle-generator changes
 have determinant one, compare chart relations modulo the exact hypersurface
 homotopy, are independent of the two rectangle paths, and satisfy all inverse
 and ordered triple-cocycle identities. Thus W1 and W2 now have global cover
-presentations from the selected mixed classes. Deck linearization is the next
-gate. The former pure-Cech cones and every downstream chain calculation that
-used them are diagnostics, not reconstructions of the published W1/W2 bundles.
+presentations from the selected mixed classes. The former pure-Cech cones and
+every downstream chain calculation that used them are diagnostics, not
+reconstructions of the published W1/W2 bundles.
+
+That deck gate now closes on the lawful atlases. Homogeneous P/T resolution
+maps alone have projective commutators, so they are not used as the quotient
+group law. Inserting the exact local frames of `O(-2)`, `O(-3)`, `O(-4)`, and
+`O(-2f)` gives twenty-four chart comparison maps. Every map preserves its
+pushout relation, intertwines all sixty overlap gauges, has order three, and
+commutes with the other deck generator. The comparison line is trivial for W1
+and has character `omega^2` for W2, as forced by the selected mixed rays.
+These are source-bound constituent linearizations; the corrected synchronized
+outer and Higgs complexes have not yet been rebuilt.

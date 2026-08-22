@@ -288,12 +288,20 @@ relations on the hypersurface, have determinant one, and obey inverse and
 triple-cocycle identities. This closes global cover gluing for the two
 constituents without using the retired projective pushout maps.
 
+Exact local line-frame factors now turn the geometric P/T chart maps and the
+Hilbert--Burch semilinear maps into honest constituent comparison maps. All
+twenty-four local relation squares commute, every ordered overlap square is
+equivariant, and the localized maps satisfy order three plus exact P/T
+commutation. This removes the projective resolution commutator as a false
+descent obstruction. The result is a source-bound deck linearization of W1
+and W2, not yet a reconstruction of the outer rank-four extension.
+
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the
 published carrier, even when their dimensions happen to match source ledgers.
-The immediate vertical task is to derive P/T comparison maps on these global
-atlases, then rerun the synchronized outer and Higgs transfers before any
-Yukawa product is attempted.
+The immediate vertical task is to rerun the synchronized outer and Higgs
+transfers from these mixed, deck-linearized atlases before any Yukawa product
+is attempted.
 The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.

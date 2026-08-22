@@ -1,0 +1,3221 @@
+{
+  "all_constituent_deck_atlases_exact": true,
+  "artifact_digest": "d2c66b65829d21078f0481003febaec7b4690c5b779e319db1133f679f2c7dba",
+  "atlases": [
+    {
+      "actions_commute": true,
+      "all_relations_compatible": true,
+      "comparison_count": 12,
+      "comparisons": [
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_0_mu",
+          "target": "U_2_mu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_0_nu",
+          "target": "U_2_nu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "1+omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1+omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_1_mu",
+          "target": "U_0_mu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "1+omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "1+omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_1_nu",
+          "target": "U_0_nu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_2_mu",
+          "target": "U_1_mu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [
+                {
+                  "coefficient": "-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_2_nu",
+          "target": "U_1_nu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_0_mu",
+          "target": "U_0_mu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_0_nu",
+          "target": "U_0_nu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_1_mu",
+          "target": "U_1_mu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_1_nu",
+          "target": "U_1_nu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_2_mu",
+          "target": "U_2_mu"
+        },
+        {
+          "constituent": "W1",
+          "extension_line_character": "1",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_2_nu",
+          "target": "U_2_nu"
+        }
+      ],
+      "constituent": "W1",
+      "exact": true,
+      "overlap_equivariant": true,
+      "p_order_three": true,
+      "t_order_three": true
+    },
+    {
+      "actions_commute": true,
+      "all_relations_compatible": true,
+      "comparison_count": 12,
+      "comparisons": [
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ]
+          ],
+          "source": "U_0_mu",
+          "target": "U_2_mu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ]
+          ],
+          "source": "U_0_nu",
+          "target": "U_2_nu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1+omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ]
+          ],
+          "source": "U_1_mu",
+          "target": "U_0_mu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1+omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ]
+          ],
+          "source": "U_1_nu",
+          "target": "U_0_nu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "1+omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ]
+          ],
+          "source": "U_2_mu",
+          "target": "U_1_mu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "P",
+          "middle": [
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "1+omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ]
+          ],
+          "source": "U_2_nu",
+          "target": "U_1_nu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_0_mu",
+          "target": "U_0_mu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_0_nu",
+          "target": "U_0_nu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_1_mu",
+          "target": "U_1_mu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_1_nu",
+          "target": "U_1_nu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_2_mu",
+          "target": "U_2_mu"
+        },
+        {
+          "constituent": "W2",
+          "extension_line_character": "-1-omega",
+          "generator": "T",
+          "middle": [
+            [
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "relation_compatible": true,
+          "relations": [
+            [
+              [
+                {
+                  "coefficient": "1",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [],
+              [
+                {
+                  "coefficient": "omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              []
+            ],
+            [
+              [],
+              [],
+              [
+                {
+                  "coefficient": "-1-omega",
+                  "exponents": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            ]
+          ],
+          "source": "U_2_nu",
+          "target": "U_2_nu"
+        }
+      ],
+      "constituent": "W2",
+      "exact": true,
+      "overlap_equivariant": true,
+      "p_order_three": true,
+      "t_order_three": true
+    }
+  ],
+  "local_line_frame_factors_included": true,
+  "next_required_object": "rebuild the synchronized Schoen outer and Higgs transfers from the mixed, deck-linearized constituent atlases",
+  "outer_rank_four_extension_reconstructed": false,
+  "projective_resolution_commutators_used_as_group_law": false,
+  "schema": "published-constituent-deck-atlases-v1"
+}

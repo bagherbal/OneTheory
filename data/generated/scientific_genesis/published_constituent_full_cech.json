@@ -1,0 +1,39 @@
+{
+  "all_full_cech_lifts_exact": true,
+  "artifact_digest": "e99c959e915e2d6b0acacfea2082e290ed535d8697a0d31900ee13cde257088c",
+  "constituents": [
+    {
+      "constituent": "W1",
+      "exact": true,
+      "full_cech_closed": true,
+      "full_term_count": 72,
+      "inclusion_depth": 2,
+      "koszul_term_count": 12,
+      "local_dualizing_units_evaluated": false,
+      "source_character": {
+        "P": "omega",
+        "T": "1"
+      },
+      "status": "source-selected mixed ray lifted to the full dP9 standard cover; local-unit evaluation remains open",
+      "transferred_maps_match_reduced_total": true
+    },
+    {
+      "constituent": "W2",
+      "exact": true,
+      "full_cech_closed": true,
+      "full_term_count": 117,
+      "inclusion_depth": 2,
+      "koszul_term_count": 18,
+      "local_dualizing_units_evaluated": false,
+      "source_character": {
+        "P": "-1-omega",
+        "T": "omega"
+      },
+      "status": "source-selected mixed ray lifted to the full dP9 standard cover; local-unit evaluation remains open",
+      "transferred_maps_match_reduced_total": true
+    }
+  ],
+  "next_required_object": "evaluation of each mixed cocycle in the six local dualizing algebras, followed by finite locally free presentations",
+  "pure_cech_trivial_character_cones_retired": true,
+  "schema": "published-constituent-full-cech-v1"
+}

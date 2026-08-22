@@ -1,0 +1,257 @@
+{
+  "all_selected_rays_are_local_units": true,
+  "artifact_digest": "9c4bf0d4981cf7ed21ea2a8192db67ec6e985e6402740a90f8c94c3b1076e1b4",
+  "constituent_middle_terms_locally_free_at_support": true,
+  "global_transition_matrices_materialized": false,
+  "local_units": [
+    {
+      "chart_independent_modulo_boundaries": true,
+      "chart_values": [
+        {
+          "fiber_chart": 0,
+          "syzygy_values": [
+            "-1/3-1/3*omega",
+            "-1/3"
+          ]
+        },
+        {
+          "fiber_chart": 1,
+          "syzygy_values": [
+            "-1/3-1/3*omega",
+            "-1/3*omega"
+          ]
+        }
+      ],
+      "constituent": "I3",
+      "every_chart_nonzero_in_cokernel": true,
+      "fiber_parameter": [
+        "-3-6*omega",
+        "3+3*omega"
+      ],
+      "local_ext_residue_dimension": 1,
+      "local_generators": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "local_length": 1,
+      "residue_image_rank": 1,
+      "support_pivot": 0,
+      "unit_in_local_dualizing_algebra": true
+    },
+    {
+      "chart_independent_modulo_boundaries": true,
+      "chart_values": [
+        {
+          "fiber_chart": 0,
+          "syzygy_values": [
+            "-1/3-1/3*omega",
+            "-1/3"
+          ]
+        },
+        {
+          "fiber_chart": 1,
+          "syzygy_values": [
+            "1/3*omega",
+            "-1/3"
+          ]
+        }
+      ],
+      "constituent": "I3",
+      "every_chart_nonzero_in_cokernel": true,
+      "fiber_parameter": [
+        "-3-6*omega",
+        "-3"
+      ],
+      "local_ext_residue_dimension": 1,
+      "local_generators": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "local_length": 1,
+      "residue_image_rank": 1,
+      "support_pivot": 1,
+      "unit_in_local_dualizing_algebra": true
+    },
+    {
+      "chart_independent_modulo_boundaries": true,
+      "chart_values": [
+        {
+          "fiber_chart": 0,
+          "syzygy_values": [
+            "-1/3-1/3*omega",
+            "-1/3"
+          ]
+        },
+        {
+          "fiber_chart": 1,
+          "syzygy_values": [
+            "1/3",
+            "1/3+1/3*omega"
+          ]
+        }
+      ],
+      "constituent": "I3",
+      "every_chart_nonzero_in_cokernel": true,
+      "fiber_parameter": [
+        "-3-6*omega",
+        "-3*omega"
+      ],
+      "local_ext_residue_dimension": 1,
+      "local_generators": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "local_length": 1,
+      "residue_image_rank": 1,
+      "support_pivot": 2,
+      "unit_in_local_dualizing_algebra": true
+    },
+    {
+      "chart_independent_modulo_boundaries": true,
+      "chart_values": [
+        {
+          "fiber_chart": 0,
+          "syzygy_values": [
+            "0",
+            "1/9-1/9*omega",
+            "0"
+          ]
+        },
+        {
+          "fiber_chart": 1,
+          "syzygy_values": [
+            "0",
+            "1/9-1/9*omega",
+            "0"
+          ]
+        }
+      ],
+      "constituent": "I6",
+      "every_chart_nonzero_in_cokernel": true,
+      "fiber_parameter": [
+        "-6-6*omega",
+        "3+6*omega"
+      ],
+      "local_ext_residue_dimension": 1,
+      "local_generators": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "local_length": 2,
+      "residue_image_rank": 2,
+      "support_pivot": 0,
+      "unit_in_local_dualizing_algebra": true
+    },
+    {
+      "chart_independent_modulo_boundaries": true,
+      "chart_values": [
+        {
+          "fiber_chart": 0,
+          "syzygy_values": [
+            "0",
+            "0",
+            "-1/9-2/9*omega"
+          ]
+        },
+        {
+          "fiber_chart": 1,
+          "syzygy_values": [
+            "0",
+            "0",
+            "-1/9-2/9*omega"
+          ]
+        }
+      ],
+      "constituent": "I6",
+      "every_chart_nonzero_in_cokernel": true,
+      "fiber_parameter": [
+        "6",
+        "3+6*omega"
+      ],
+      "local_ext_residue_dimension": 1,
+      "local_generators": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "local_length": 2,
+      "residue_image_rank": 2,
+      "support_pivot": 1,
+      "unit_in_local_dualizing_algebra": true
+    },
+    {
+      "chart_independent_modulo_boundaries": true,
+      "chart_values": [
+        {
+          "fiber_chart": 0,
+          "syzygy_values": [
+            "-2/9-1/9*omega",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "fiber_chart": 1,
+          "syzygy_values": [
+            "-2/9-1/9*omega",
+            "0",
+            "0"
+          ]
+        }
+      ],
+      "constituent": "I6",
+      "every_chart_nonzero_in_cokernel": true,
+      "fiber_parameter": [
+        "6*omega",
+        "3+6*omega"
+      ],
+      "local_ext_residue_dimension": 1,
+      "local_generators": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "local_length": 2,
+      "residue_image_rank": 2,
+      "support_pivot": 2,
+      "unit_in_local_dualizing_algebra": true
+    }
+  ],
+  "next_required_object": "finite locally free chart presentations induced by the six units, with exact overlap transitions and deck linearization",
+  "schema": "published-constituent-local-units-v1",
+  "unit_count": 6
+}

@@ -1,0 +1,60 @@
+{
+  "artifact_digest": "9cd8c93ee89a2f78f6b065024e9d2f4ac37af82211fb3d53a63e619b3c34bcc6",
+  "constituents": [
+    {
+      "constituent": "W1",
+      "derived_ext_coordinates": [
+        "-18-18*omega",
+        "1"
+      ],
+      "generator_cech_nonzero_count": 6,
+      "has_syzygy_koszul_component": true,
+      "local_freeness_claimed": false,
+      "old_trivial_character_is_different": true,
+      "selected_chain_eigenvector": true,
+      "source_character": {
+        "P": "omega",
+        "T": "1"
+      },
+      "status": "source-selected mixed Ext cocycle; full Cech lift and local-unit evaluation remain required",
+      "syzygy_koszul_nonzero_count": 4,
+      "total_cocycle_closed": true
+    },
+    {
+      "constituent": "W2",
+      "derived_ext_coordinates": [
+        "0",
+        "-omega",
+        "0",
+        "1+omega",
+        "1"
+      ],
+      "generator_cech_nonzero_count": 12,
+      "has_syzygy_koszul_component": true,
+      "local_freeness_claimed": false,
+      "old_trivial_character_is_different": true,
+      "selected_chain_eigenvector": true,
+      "source_character": {
+        "P": "-1-omega",
+        "T": "omega"
+      },
+      "status": "source-selected mixed Ext cocycle; full Cech lift and local-unit evaluation remain required",
+      "syzygy_koszul_nonzero_count": 6,
+      "total_cocycle_closed": true
+    }
+  ],
+  "existing_pure_cech_mapping_cones_identified_with_published_W1_W2": false,
+  "next_required_object": "full standard-cover Cech lifts of the mixed source-selected rays, followed by local dualizing-unit evaluation",
+  "schema": "published-constituent-ray-alignment-v1",
+  "source_selected_characters": [
+    {
+      "P": "omega",
+      "T": "1"
+    },
+    {
+      "P": "-1-omega",
+      "T": "omega"
+    }
+  ],
+  "trivial_character_selection_retired": true
+}

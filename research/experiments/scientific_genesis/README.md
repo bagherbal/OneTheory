@@ -86,3 +86,24 @@ row transforms by `C` and the Koszul subline by `det(C)`. Invertibility and all
 triple-overlap cocycles remain exact. The unresolved data are therefore the
 base `O(+-f)` line frames and the extension gluing to the support complement,
 not the ideal-level chart groupoid.
+
+A source-ray audit has now corrected the constituent extension convention.
+The simultaneous intertwiners do identify the derived Ext representations
+with the selected kernel actions, but the earlier reconstruction then chose
+the trivial kernel character. The actual source-selected rays have characters
+`(omega,1)` for W1 and `(omega^2,omega)` for W2. Pulling those rays back gives
+mixed Ext cocycles, not the former pure maximal-minor Cech classes. Both mixed
+rays have exact corrected inclusions in the full dP9 standard-cover complex;
+their raw Cech--Koszul--Hilbert--Burch differentials vanish, and the full
+transfer reproduces the finite Ext totals exactly.
+
+The missing local information is now evaluated rather than inferred. At all
+three I3 points and all three length-two I6 points, the parent-one component
+of the mixed ray increases the Hilbert--Burch residue rank by one. The local
+Ext residue is one-dimensional, both fiber-chart evaluations differ only by a
+boundary, and the class is a unit in each lci dualizing algebra. Thus the
+selected constituent middle terms are locally free at their support. Global
+transition matrices and deck-linearized mapping cones remain to be rebuilt
+from these mixed cocycles. The former pure-Cech cones and every downstream
+chain calculation that used them are diagnostics, not reconstructions of the
+published W1/W2 bundles.

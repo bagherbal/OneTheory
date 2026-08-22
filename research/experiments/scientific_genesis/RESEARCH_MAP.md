@@ -268,6 +268,23 @@ All 30 ordered ideal-frame changes for each scheme also lift compatibly to the
 free rank-two middle term, with the Koszul subline transforming by the exact
 determinant. The remaining global data are the `O(+-f)` line frames and their
 extension gluing to the support complement.
+
+The constituent-ray convention has since been corrected at its source. The
+published kernel rays are nontrivial eigenlines, with characters `(omega,1)`
+and `(omega^2,omega)`; selecting the fixed kernel line was not equivalent.
+Exact intertwiner pullback produces mixed representatives containing both the
+generator-Cech and syzygy/Koszul edge components. Their corrected standard-
+cover inclusions are closed exactly. Evaluation in all six local lci
+dualizing algebras gives a unit every time, independently of the two fiber
+charts modulo Hilbert--Burch boundaries. This supplies the lawful local-free
+constituent input that the earlier pure-Cech cone lacked.
+
+Consequently, outer and Higgs complexes built from the retired pure-Cech
+trivial-character cones cannot serve as chain reconstructions of the
+published carrier, even when their dimensions happen to match source ledgers.
+The immediate vertical task is to rebuild the global constituent twisted
+complexes from the mixed full-Cech rays, then rerun the synchronized outer and
+Higgs transfers before any Yukawa product is attempted.
 The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.

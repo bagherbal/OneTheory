@@ -53,8 +53,8 @@ published `V1 tensor V2`.
 
 The relative calculation now projects the three reduced support points of
 `I3` and the three length-two local schemes of `I6` through the frozen cubic
-pencils. The selected maximal-minor classes are units in every local lci
-dualizing algebra. Relative duality contracts the W1
+pencils. The source-selected mixed classes are certified units in every local
+lci dualizing algebra. Relative duality contracts the W1
 `O(-2) -> O(-2)` pair, while character incompatibility kills the analogous W2
 coboundary and its three local units give the elementary transformation
 `O(-2) -> O(1)`. These independently derived quasi-isomorphisms reproduce the

@@ -6,8 +6,8 @@ Owns:
     and finite certificates for the resulting derived pushdown objects.
 
 Depends on:
-    Frozen cubic pencils, exact monomial point schemes, invariant constituent
-    Cech classes, and published equivariant linearisations.
+    Frozen cubic pencils, exact monomial point schemes, selected mixed
+    constituent Cech classes, local dualizing units, and linearisations.
 
 Must not:
     Import the published pushdown formulas as construction input, identify the
@@ -37,7 +37,7 @@ from research.experiments.computable_carrier.schoen_sparse_actions import (
     schoen_sparse_deck_actions,
 )
 
-from .published_constituent_mapping_cones import published_constituent_mapping_cones
+from .published_constituent_full_cech import published_constituent_full_cech
 
 Monomial = tuple[int, ...]
 Character = tuple[Eisenstein, Eisenstein]
@@ -421,7 +421,8 @@ class RelativeConstituentPushdown:
     connecting_map: P1LineMap | None
     connecting_zero_by_character: bool
     elementary_transformation: ElementaryTransformation | None
-    canonical_minor_cocycle: bool
+    selected_mixed_cocycle: bool
+    local_extension_units: tuple[bool, ...]
     relative_duality_used: bool
 
     @property
@@ -442,7 +443,8 @@ class RelativeConstituentPushdown:
         )
         return (
             self.support.exact
-            and self.canonical_minor_cocycle
+            and self.selected_mixed_cocycle
+            and self.local_extension_units == (True, True, True)
             and connecting_exact
             and elementary_exact
         )
@@ -500,7 +502,8 @@ class RelativeConstituentPushdown:
                 if self.elementary_transformation is not None
                 else None
             ),
-            "canonical_minor_cocycle": self.canonical_minor_cocycle,
+            "selected_mixed_cocycle": self.selected_mixed_cocycle,
+            "local_extension_units": list(self.local_extension_units),
             "relative_duality_used": self.relative_duality_used,
             "twist_profiles_minus_two_through_two": [
                 [twist, list(self.hypercohomology_dimensions(twist))]
@@ -510,36 +513,39 @@ class RelativeConstituentPushdown:
         }
 
 
-def _local_serre_units(
-    canonical_minor_cocycle: bool,
-    support: ProjectedPointScheme,
-) -> tuple[bool, ...]:
-    """Apply the local lci maximal-minor theorem to the selected Serre class.
+def _selected_mixed_unit_data(
+) -> tuple[tuple[bool, tuple[bool, ...]], tuple[bool, tuple[bool, ...]]]:
+    """Bind each selected full Cech ray to its three evaluated local units."""
 
-    For a codimension-two local complete intersection, the Hilbert--Burch
-    maximal-minor class maps to the unit of the local dualizing algebra.  The
-    corresponding Serre extension is therefore locally free at that point.
-    """
-
-    return tuple(
-        canonical_minor_cocycle and algebra.is_local_complete_intersection
-        for algebra in support.local_algebras
+    from .published_constituent_local_units import (  # noqa: PLC0415
+        published_constituent_local_units,
     )
 
-
-def _canonical_minor_cocycles() -> tuple[bool, bool]:
-    """Check that both selected Cech classes are the Hilbert--Burch minor tuples."""
-
-    schemes = point_schemes()
-    cones = published_constituent_mapping_cones()
-    return tuple(
-        cone.cocycle.generator_polynomials == scheme.ideal_generators
-        and all(
-            algebra.is_local_complete_intersection
-            for algebra in projected_point_scheme(scheme, index + 1).local_algebras
+    full = published_constituent_full_cech()
+    units = published_constituent_local_units()
+    records = []
+    for result in full:
+        scheme = result.alignment.action.derived.extension.scheme.name
+        selected = tuple(
+            sorted(
+                (unit for unit in units if unit.constituent == scheme),
+                key=lambda unit: unit.frame.pivot,
+            )
         )
-        for index, (scheme, cone) in enumerate(zip(schemes, cones, strict=True))
-    )  # type: ignore[return-value]
+        if len(selected) != 3:
+            raise ValueError("each selected constituent requires three local units")
+        records.append(
+            (
+                result.exact
+                and result.alignment.has_syzygy_koszul_component
+                and result.alignment.old_trivial_character_is_different,
+                tuple(unit.unit_in_local_dualizing_algebra for unit in selected),
+            )
+        )
+    return cast(
+        tuple[tuple[bool, tuple[bool, ...]], tuple[bool, tuple[bool, ...]]],
+        tuple(records),
+    )
 
 
 def relative_constituent_pushdowns(
@@ -549,7 +555,7 @@ def relative_constituent_pushdowns(
     scheme_one, scheme_two = point_schemes()
     support_one = projected_point_scheme(scheme_one, 1)
     support_two = projected_point_scheme(scheme_two, 2)
-    canonical_one, canonical_two = _canonical_minor_cocycles()
+    (selected_one, units_one), (selected_two, units_two) = _selected_mixed_unit_data()
 
     w1_cancel_source = EquivariantP1Line(
         "chi1^2 O(-2) quotient image",
@@ -578,9 +584,10 @@ def relative_constituent_pushdowns(
         w1_connecting,
         False,
         None,
-        canonical_one,
-        canonical_one
-        and all(_local_serre_units(canonical_one, support_one))
+        selected_one,
+        units_one,
+        selected_one
+        and all(units_one)
         and w1_connecting.source.degree == w1_connecting.target.degree,
     )
 
@@ -592,7 +599,7 @@ def relative_constituent_pushdowns(
             "the monic product of the three exact support equations",
         ),
         support_two,
-        _local_serre_units(canonical_two, support_two),
+        units_two,
     )
     w2 = RelativeConstituentPushdown(
         "W2",
@@ -608,7 +615,8 @@ def relative_constituent_pushdowns(
         None,
         CHI2 != CHI2_SQUARED,
         w2_elementary,
-        canonical_two,
+        selected_two,
+        units_two,
         False,
     )
     if not w1.quasi_isomorphism_exact or not w2.quasi_isomorphism_exact:
@@ -664,7 +672,7 @@ def write_relative_constituent_pushdowns(path: Path = OUTPUT) -> dict[str, objec
         for item in source
     )
     payload: dict[str, object] = {
-        "schema": "relative-constituent-pushdowns-v1",
+        "schema": "relative-constituent-pushdowns-v2",
         "selected_source_inputs": [
             "hep-th/0602073 source labels eq:W1def and eq:W2def",
             "hep-th/0602073 source section sec:CB: W1/W2 local freeness",
@@ -678,6 +686,8 @@ def write_relative_constituent_pushdowns(path: Path = OUTPUT) -> dict[str, objec
         "all_quasi_isomorphisms_exact": all(
             item.quasi_isomorphism_exact for item in results
         ),
+        "selected_mixed_constituent_cocycles_used": True,
+        "retired_maximal_minor_cones_used": False,
         "source_pushdowns_imported_as_construction_input": False,
         "derived_signatures_match_source": (
             tuple(item.signature() for item in results) == source_signatures

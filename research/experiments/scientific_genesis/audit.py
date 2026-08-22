@@ -470,9 +470,9 @@ def _nodes() -> list[dict[str, object]]:
             "published universal-family Higgs cohomology",
             "Reference realization",
             "BLOCKED",
-            "Relative signatures recover the source tuple (0,4,4,0), but their "
-            "former chain attribution used retired cones. Four lawful P1 "
-            "classes still require mixed diagonal Schoen lifts.",
+            "Relative signatures now bind the selected mixed local units and "
+            "recover the source tuple (0,4,4,0). Four lawful P1 classes still "
+            "require explicit mixed diagonal Schoen lifts.",
             (
                 "data/generated/scientific_genesis/"
                 "published_higgs_cohomology.json",

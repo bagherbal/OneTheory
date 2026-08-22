@@ -1,13 +1,12 @@
 {
   "all_quasi_isomorphisms_exact": true,
-  "artifact_digest": "7cb0b0ea7a70c905a207ab08387411b5e2811c4270f8dae45d91aa896298fd06",
+  "artifact_digest": "e047debedef3af4dace938baefcbab29a4e62dc3fa2102bfb09dac9082152e3e",
   "comparison_targets": [
     "hep-th/0602073 source label eq:W1pushdown",
     "hep-th/0602073 source label eq:W2pushdown"
   ],
   "constituents": [
     {
-      "canonical_minor_cocycle": true,
       "connecting_map": {
         "isomorphism": true,
         "normalization": "relative duality forces the unique nonzero scalar map; source and target bases normalize it to one",
@@ -50,9 +49,15 @@
           "label": "O"
         }
       ],
+      "local_extension_units": [
+        true,
+        true,
+        true
+      ],
       "name": "W1",
       "quasi_isomorphism_exact": true,
       "relative_duality_used": true,
+      "selected_mixed_cocycle": true,
       "support": {
         "exact": true,
         "local_algebras": [
@@ -239,7 +244,6 @@
       ]
     },
     {
-      "canonical_minor_cocycle": true,
       "connecting_map": null,
       "connecting_zero_by_character": true,
       "direct_terms": [
@@ -279,9 +283,15 @@
           "label": "chi2 O"
         }
       ],
+      "local_extension_units": [
+        true,
+        true,
+        true
+      ],
       "name": "W2",
       "quasi_isomorphism_exact": true,
       "relative_duality_used": false,
+      "selected_mixed_cocycle": true,
       "support": {
         "exact": true,
         "local_algebras": [
@@ -489,7 +499,9 @@
   ],
   "full_schoen_cech_representatives_constructed": false,
   "next_required_object": "chain-level lifts of the four derived P1 Higgs classes through the diagonal Schoen Cech-Koszul contraction",
-  "schema": "relative-constituent-pushdowns-v1",
+  "retired_maximal_minor_cones_used": false,
+  "schema": "relative-constituent-pushdowns-v2",
+  "selected_mixed_constituent_cocycles_used": true,
   "selected_source_inputs": [
     "hep-th/0602073 source labels eq:W1def and eq:W2def",
     "hep-th/0602073 source section sec:CB: W1/W2 local freeness",

@@ -83,10 +83,14 @@ def test_relative_maps_contract_w1_and_elementary_transform_w2() -> None:
     assert w1.quasi_isomorphism_exact
     assert w1.connecting_map is not None
     assert w1.connecting_map.is_isomorphism
+    assert w1.selected_mixed_cocycle
+    assert w1.local_extension_units == (True, True, True)
     assert w1.relative_duality_used
     assert w2.quasi_isomorphism_exact
     assert w2.connecting_map is None
     assert w2.connecting_zero_by_character
+    assert w2.selected_mixed_cocycle
+    assert w2.local_extension_units == (True, True, True)
     assert w2.elementary_transformation is not None
     assert w2.elementary_transformation.exact
 
@@ -134,4 +138,6 @@ def test_relative_pushdown_artifact_is_content_addressed() -> None:
     assert fresh["artifact_digest"] == digest
     assert stored["derived_tensor_dimensions"] == [0, 4, 4, 0]
     assert stored["derived_signatures_match_source"] is True
+    assert stored["selected_mixed_constituent_cocycles_used"] is True
+    assert stored["retired_maximal_minor_cones_used"] is False
     assert stored["full_schoen_cech_representatives_constructed"] is False

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "013ec9c4581ea2c0465df958795532095cc5cf0b1523ae4eb1ab876d0dee915e",
+  "artifact_digest": "8184f2d83d2ade4d42472e219abbd1bd2d5bed1d900b16bed78285d37f77d397",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -197,9 +197,9 @@
       "sha256": "6da6dbcd553d328c55c901560c50d642356d9abaea333834a32aa8cb2f03550a"
     },
     {
-      "bytes": 10365,
+      "bytes": 10626,
       "path": "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
-      "sha256": "1eb54b37e0c58136c9be66929148ed993937eefe4e9ea1f11b3dbc4c9ca1db23"
+      "sha256": "f789b54ac509b2f3e67d4634072ee2476b8009ca366646a7ef2c88c22fbbefa4"
     },
     {
       "bytes": 1406,
@@ -633,7 +633,7 @@
         "four full diagonal Schoen Cech representatives",
         "strict deck action on the lifted Higgs classes"
       ],
-      "statement": "Relative signatures recover the source tuple (0,4,4,0), but their former chain attribution used retired cones. Four lawful P1 classes still require mixed diagonal Schoen lifts.",
+      "statement": "Relative signatures now bind the selected mixed local units and recover the source tuple (0,4,4,0). Four lawful P1 classes still require explicit mixed diagonal Schoen lifts.",
       "status": "BLOCKED"
     },
     {

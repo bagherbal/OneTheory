@@ -244,195 +244,247 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "published_constituent_deck_actions",
-            "published constituent deck-linearized cocycles",
+            "published constituent Ext representation alignment",
             "Reference realization",
             "COMPUTED",
-            "Natural dP9 chain actions are derived exactly. The unique common "
-            "character matching the published W1/W2 representations is "
-            "source-selected explicitly, yielding one invariant Ext class each.",
+            "Natural dP9 chain actions and an exact simultaneous intertwiner "
+            "recover the source representations. The fixed line of the aligned "
+            "representation is not the selected physical extension ray.",
             (
                 "data/generated/scientific_genesis/"
                 "published_constituent_deck_actions.json",
-                "research/experiments/computable_carrier/"
-                "dp9_serre_actions.py",
+                "research/experiments/computable_carrier/dp9_serre_actions.py",
                 "tests/integration/"
                 "test_scientific_genesis_published_constituent_deck_actions.py",
             ),
             ("published constituent equivariant representations",),
         ),
         _node(
-            "published_constituent_mapping_cones",
-            "published constituent derived mapping cones",
+            "published_constituent_ray_alignment",
+            "source-selected mixed constituent rays",
             "Reference realization",
             "COMPUTED",
-            "Each invariant W1/W2 class lifts to the exact maximal-minor tuple "
-            "divided by mu nu. Cech closure and Hilbert--Burch closure certify "
-            "the corresponding derived block differential squares to zero.",
+            "Pulling the selected W1/W2 rays through the exact intertwiners "
+            "gives nontrivial-character mixed Ext cocycles with necessary "
+            "syzygy/Koszul edge components.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_ray_alignment.json",
+                "research/experiments/scientific_genesis/"
+                "published_constituent_ray_alignment.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_constituent_ray_alignment.py",
+            ),
+            ("source-selected Serre ray coordinates",),
+        ),
+        _node(
+            "published_constituent_full_cech",
+            "selected mixed constituent full-Cech cocycles",
+            "Reference realization",
+            "COMPUTED",
+            "Finite homological perturbation lifts both selected mixed rays to "
+            "the complete P2 x P1 standard cover, where their raw total "
+            "differentials vanish exactly.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_full_cech.json",
+                "research/experiments/scientific_genesis/"
+                "published_constituent_full_cech.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_constituent_full_cech.py",
+            ),
+        ),
+        _node(
+            "published_constituent_local_units",
+            "selected constituent local dualizing units",
+            "Reference realization",
+            "PROVED",
+            "At every I3/I6 support point, the selected parent-one map spans "
+            "the one-dimensional local Ext residue. Both fiber charts give "
+            "the same nonzero unit modulo Hilbert--Burch boundaries.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_local_units.json",
+                "research/experiments/scientific_genesis/"
+                "published_constituent_local_units.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_constituent_local_units.py",
+            ),
+            ("finite lci Gorenstein support algebra",),
+        ),
+        _node(
+            "published_constituent_overlap_atlases",
+            "selected constituent global cover atlases",
+            "Reference realization",
+            "COMPUTED",
+            "Twelve affine rank-two pushouts are locally free on support and "
+            "complement. Sixty ordered overlap maps preserve the relations "
+            "modulo the dP9 equation and obey every cocycle law.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_chart_presentations.json",
+                "data/generated/scientific_genesis/"
+                "published_constituent_overlap_transitions.json",
+                "research/experiments/scientific_genesis/"
+                "published_constituent_overlap_transitions.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_constituent_overlap_transitions.py",
+            ),
+        ),
+        _node(
+            "published_constituent_deck_atlases",
+            "selected constituent deck-linearized atlases",
+            "Reference realization",
+            "COMPUTED",
+            "Local line-frame factors turn semilinear P/T resolution maps into "
+            "exact W1/W2 comparisons. Relation, overlap, order-three, and "
+            "commutation gates all close.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_deck_atlases.json",
+                "research/experiments/scientific_genesis/"
+                "published_constituent_deck_atlases.py",
+                "tests/integration/"
+                "test_scientific_genesis_published_constituent_deck_atlases.py",
+            ),
+            ("source-bound constituent equivariant structures",),
+        ),
+        _node(
+            "published_constituent_mapping_cones",
+            "trivial-character constituent mapping cones",
+            "Reference realization",
+            "REFUTED",
+            "The pure maximal-minor Cech cones select the trivial kernel "
+            "character. The source-selected rays have different characters "
+            "and nonzero edge components, so these are not W1/W2 chain models.",
             (
                 "data/generated/scientific_genesis/"
                 "published_constituent_mapping_cones.json",
-                "research/experiments/computable_carrier/"
-                "dp9_serre_cech.py",
-                "tests/integration/"
-                "test_scientific_genesis_published_constituent_mapping_cones.py",
+                "data/generated/scientific_genesis/"
+                "published_constituent_ray_alignment.json",
             ),
-            ("published Cayley-Bacharach local-freeness theorem",),
         ),
         _node(
             "published_outer_reduced_model",
-            "published outer cohomology-reduced model",
+            "retired trivial-ray outer reduced diagnostic",
             "Reference realization",
             "COMPUTED",
-            "The fiber-sensitive twisted constituents give exact square-zero "
-            "reduced outer complexes with forward H1/H2 126/162 and reverse "
-            "162/126. Both preserve the published Euler characteristic while "
-            "exhibiting one common 90-dimensional excess.",
+            "The retired cones give exact square-zero reduced dimensions "
+            "126/162 and 162/126. This diagnostic is not the selected W1/W2 "
+            "outer complex.",
             (
                 "data/generated/scientific_genesis/"
                 "published_outer_reduced_mismatch.json",
-                "research/experiments/computable_carrier/"
-                "schoen_serre_outer.py",
-                "tests/integration/"
-                "test_scientific_genesis_published_outer_reduced_mismatch.py",
+                "research/experiments/computable_carrier/schoen_serre_outer.py",
             ),
         ),
         _node(
             "published_outer_cech_transfer",
-            "published full-Cech outer hypercohomology",
+            "retired trivial-ray full-Cech outer diagnostic",
             "Reference realization",
             "COMPUTED",
-            "Canonical standard-cover contraction and finite homological "
-            "perturbation derive square-zero outer complexes with forward "
-            "H1/H2 36/72 and reverse 72/36 without rank fitting.",
+            "Full-Cech transfer gives dimensions 36/72 and 72/36 for the "
+            "retired cones. Matching source dimensions does not identify "
+            "wrong-character chain objects with W1/W2.",
             (
                 "data/generated/scientific_genesis/"
                 "published_outer_cech_transfer.json",
                 "research/experiments/computable_carrier/"
                 "schoen_serre_outer_transfer.py",
-                "tests/integration/"
-                "test_scientific_genesis_published_outer_cech_transfer.py",
             ),
         ),
         _node(
             "published_outer_cech_invariants",
-            "published invariant outer Cech representatives",
+            "retired trivial-ray outer invariant diagnostic",
             "Reference realization",
             "COMPUTED",
-            "Exact p' g i' transfer derives commuting order-three deck actions "
-            "on cover H1. Their common fixed spaces have dimensions four and "
-            "eight, with strict Reynolds-averaged representatives in one "
-            "full Cech-Koszul complex.",
+            "Transferred deck actions give fixed dimensions four and eight for "
+            "the retired cones. Their strict representatives are not published "
+            "outer classes.",
             (
                 "data/generated/scientific_genesis/"
                 "published_outer_cech_invariants.json",
                 "research/experiments/computable_carrier/"
                 "schoen_serre_outer_transfer_actions.py",
-                "tests/integration/"
-                "test_scientific_genesis_published_outer_cech_invariants.py",
             ),
-            ("published constituent equivariant structures",),
         ),
         _node(
             "published_outer_universal_cone",
-            "published universal outer mapping cone",
+            "retired trivial-ray universal outer cone",
             "Reference realization",
             "COMPUTED",
-            "The four strict forward classes assemble over Q(omega)[a0,...,a3] "
-            "into a parameter-linear rank-four block cone. Its square-zero, "
-            "non-split, local-freeness, determinant, Chern, and descent gates "
-            "close without selecting a projective point.",
+            "Four strict retired classes form an internally exact universal "
+            "rank-four cone. Its algebraic gates do not make it the published "
+            "carrier family.",
             (
                 "data/generated/scientific_genesis/"
                 "published_outer_universal_cone.json",
                 "research/experiments/scientific_genesis/"
                 "published_outer_universal_cone.py",
-                "tests/integration/"
-                "test_scientific_genesis_published_outer_universal_cone.py",
             ),
-            ("published constituent local-freeness theorem",),
         ),
         _node(
             "published_outer_stability_locus",
             "published generic stable SU(4) outer locus",
             "Reference realization",
-            "PROVED",
-            "The source-generic extension theorem pulls back to a nonempty "
-            "Zariski-open U_pub in the reconstructed P3. Nine exact slope "
-            "inequalities define K^s, a rational open box proves it nonempty, "
-            "and stable determinant-trivial rank four with nonzero c3 excludes "
-            "proper connected irreducible structure-group reductions.",
+            "BLOCKED",
+            "The source stability theorem and slope chamber remain evidence, "
+            "but their former reconstructed P3 used retired cones. The theorem "
+            "cannot be pulled back before the mixed outer family is rebuilt.",
             (
                 "data/generated/scientific_genesis/"
                 "published_outer_stability_locus.json",
-                "research/experiments/scientific_genesis/"
-                "published_outer_stability_locus.py",
-                "tests/integration/"
-                "test_scientific_genesis_published_outer_stability_locus.py",
                 "data/published/visible_carrier/source_manifest.json",
             ),
             (
                 "published generic stability theorem",
                 "Donaldson--Uhlenbeck--Yau correspondence",
-                "classification of connected irreducible subgroups of SU(4)",
+            ),
+            missing=(
+                "mixed constituent outer Ext parameter space",
+                "comparison with the source generic stable locus",
             ),
         ),
         _node(
             "published_matter_cohomology",
             "published universal-family matter cohomology",
             "Reference realization",
-            "COMPUTED",
-            "Full transferred constituent complexes derive H1(V1)=Reg(G) "
-            "and H1(V2)=2 Reg(G), with all other constituent cohomology zero. "
-            "The outer long exact sequence therefore gives H1(V)=3 Reg(G) "
-            "and H1(V dual)=0 for every extension parameter; the Wilson "
-            "projection yields three complete families including nu_R.",
+            "BLOCKED",
+            "The source ledger expects three regular representations and no "
+            "anti-families, but generated representatives used retired cones. "
+            "They must be recomputed from the mixed atlases.",
             (
                 "data/generated/scientific_genesis/"
                 "published_matter_cohomology.json",
                 "research/experiments/scientific_genesis/"
                 "published_matter_cohomology.py",
-                "tests/integration/"
-                "test_scientific_genesis_published_matter_cohomology.py",
             ),
-            (
-                "published Wilson-line embedding",
-                "Calabi--Yau Serre duality",
-                "Maschke semisimplicity in characteristic zero",
+            ("published Wilson-line embedding", "Calabi--Yau Serre duality"),
+            missing=(
+                "mixed-constituent synchronized matter transfer",
+                "strict deck-equivariant matter representatives",
             ),
         ),
         _node(
             "published_higgs_cohomology",
             "published universal-family Higgs cohomology",
             "Reference realization",
-            "COMPUTED",
-            "Full-Cech transfer proves both determinant terms acyclic, while "
-            "relative projection, duality contraction, and an elementary "
-            "transformation derive the W1/W2 P1 pushdowns. Their tensor gives "
-            "H*(wedge^2 V)= (0,4,4,0) for every extension parameter. The "
-            "inverse-pullback action on four canonical P1 Cech representatives "
-            "generates the published deck-character decomposition exactly.",
+            "BLOCKED",
+            "Relative signatures recover the source tuple (0,4,4,0), but their "
+            "former chain attribution used retired cones. Four lawful P1 "
+            "classes still require mixed diagonal Schoen lifts.",
             (
                 "data/generated/scientific_genesis/"
                 "published_higgs_cohomology.json",
                 "data/generated/scientific_genesis/"
                 "relative_constituent_pushdowns.json",
-                "data/generated/scientific_genesis/"
-                "diagonal_higgs_actions.json",
-                "research/experiments/scientific_genesis/"
-                "published_higgs_cohomology.py",
-                "research/experiments/scientific_genesis/"
-                "relative_constituent_pushdowns.py",
-                "research/experiments/scientific_genesis/"
-                "diagonal_higgs_actions.py",
-                "tests/integration/"
-                "test_scientific_genesis_published_higgs_cohomology.py",
-                "tests/integration/"
-                "test_scientific_genesis_relative_constituent_pushdowns.py",
+                "data/generated/scientific_genesis/diagonal_higgs_actions.json",
             ),
-            (
-                "published constituent linearisations",
-                "relative duality for the locally free self-dual W1",
-                "published Wilson-line embedding",
+            ("relative duality", "published Wilson-line embedding"),
+            missing=(
+                "mixed constituent relative chain quasi-isomorphisms",
+                "four full diagonal Schoen Cech representatives",
+                "strict deck action on the lifted Higgs classes",
             ),
         ),
         _node(
@@ -440,23 +492,20 @@ def _nodes() -> list[dict[str, object]]:
             "published carrier chain reconstruction",
             "Reference realization",
             "BLOCKED",
-            "The parameter-dependent rank-four cone is exact, locally free, "
-            "determinant-trivial, and descended over the full nonzero forward "
-            "family, with a certified generic stable genuine-SU(4) locus. An "
-            "explicit local transition presentation remains absent.",
+            "The selected rank-two constituents now have explicit locally free, "
+            "deck-linearized atlases. Their synchronized mixed outer Hom and "
+            "rank-four extension cone have not been reconstructed.",
             (
                 "data/generated/visible_carrier/visible_carrier_artifact.json",
                 "data/generated/scientific_genesis/"
-                "published_outer_cech_transfer.json",
+                "published_constituent_overlap_transitions.json",
                 "data/generated/scientific_genesis/"
-                "published_outer_cech_invariants.json",
-                "data/generated/scientific_genesis/"
-                "published_outer_universal_cone.json",
-                "data/generated/scientific_genesis/"
-                "published_outer_stability_locus.json",
+                "published_constituent_deck_atlases.json",
             ),
             missing=(
-                "local transition data",
+                "mixed-constituent synchronized outer Hom transfer",
+                "strict invariant outer representatives",
+                "lawful universal rank-four cone and transition atlas",
             ),
         ),
         _node(
@@ -780,12 +829,11 @@ def _nodes() -> list[dict[str, object]]:
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Reference realization",
-            "COMPUTED",
-            "The stable published family has exact parameter-independent matter "
-            "and Higgs dimensions. Inverse P1 Cech pullback generates the Higgs "
-            "deck characters, so the Wilson projection gives three families, "
-            "one Higgs pair, and no color triplets from selected published "
-            "carrier inputs.",
+            "BLOCKED",
+            "The source spectrum remains the target ledger, but the matter and "
+            "Higgs representatives used for the prior Wilson projection came "
+            "from retired cones. No chain-derived physical spectrum is currently "
+            "available from the selected mixed atlases.",
             (
                 "src/onetheory/physics/compactification.py",
                 "research/experiments/computable_carrier/downstream.py",
@@ -797,6 +845,11 @@ def _nodes() -> list[dict[str, object]]:
             assumptions=(
                 "published W1/W2 equivariant pushdowns",
                 "published Wilson-line embedding",
+            ),
+            missing=(
+                "mixed matter representatives",
+                "mixed Higgs representatives",
+                "lawful Wilson projection on both sectors",
             ),
         ),
         _node(
@@ -1088,16 +1141,81 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "published_constituent_deck_actions",
-            "published_constituent_mapping_cones",
-            "The chain-fixed invariant classes lift to explicit Cech overlap "
-            "maps whose maximal-minor syzygies close the derived cones.",
+            "published_constituent_ray_alignment",
+            "The simultaneous intertwiner pulls the source-selected rays back "
+            "to exact derived coordinates without changing their characters.",
             (
-                "research/experiments/computable_carrier/"
-                "dp9_serre_cech.py",
+                "data/generated/scientific_genesis/"
+                "published_constituent_ray_alignment.json",
             ),
-            ("published Cayley-Bacharach local-freeness theorem",),
+            ("source-selected Serre ray coordinates",),
             True,
-            ("local transition matrices are not yet materialized",),
+            ("choosing the fixed line selects a different extension class",),
+        ),
+        _edge(
+            "published_constituent_ray_alignment",
+            "published_constituent_full_cech",
+            "The corrected perturbation inclusion lifts each mixed cocycle to "
+            "the complete standard-cover total complex.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_full_cech.json",
+            ),
+            (),
+            True,
+            ("dropping the Koszul edge component changes the class",),
+        ),
+        _edge(
+            "published_constituent_full_cech",
+            "published_constituent_local_units",
+            "Localizing parent-one components in the lci residue algebras tests "
+            "the Cayley--Bacharach unit condition directly.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_local_units.json",
+            ),
+            ("finite lci Gorenstein support algebra",),
+            True,
+            ("a zero residue would make the middle term nonfree at support",),
+        ),
+        _edge(
+            "published_constituent_local_units",
+            "published_constituent_overlap_atlases",
+            "Local units make the affine pushouts free at support; parent-zero "
+            "Cech terms supply their exact overlap gauges.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_overlap_transitions.json",
+            ),
+            (),
+            True,
+            ("omitting hypersurface homotopies breaks relation comparison",),
+        ),
+        _edge(
+            "published_constituent_overlap_atlases",
+            "published_constituent_deck_atlases",
+            "Local line frames convert homogeneous semilinear maps into "
+            "comparisons satisfying the quotient deck group laws.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_deck_atlases.json",
+            ),
+            ("source-bound constituent equivariant structures",),
+            True,
+            ("projective commutators omit local frame factors",),
+        ),
+        _edge(
+            "published_constituent_deck_actions",
+            "published_constituent_mapping_cones",
+            "Comparing the fixed-line cone with the selected ray proves that "
+            "the former chooses the wrong joint character.",
+            (
+                "data/generated/scientific_genesis/"
+                "published_constituent_ray_alignment.json",
+            ),
+            (),
+            True,
+            ("the pure cone remains a diagnostic complex",),
         ),
         _edge(
             "published_constituent_mapping_cones",
@@ -1142,95 +1260,89 @@ def _edges() -> list[dict[str, object]]:
         _edge(
             "published_outer_cech_invariants",
             "published_outer_universal_cone",
-            "The four strict forward representatives provide the exact basis "
-            "for the universal nonzero outer extension family.",
+            "The four strict retired representatives form the exact basis of "
+            "their scoped diagnostic universal cone.",
             (
                 "data/generated/scientific_genesis/"
                 "published_outer_cech_invariants.json",
             ),
             (),
             True,
-            ("the universal cone does not by itself prove slope stability",),
+            ("the diagnostic cone is not the selected published family",),
         ),
         _edge(
-            "published_outer_universal_cone",
-            "published_outer_stability_locus",
-            "The reconstructed P3 identifies the source's generic extension "
-            "space, while exact slope inequalities and nonzero c3 certify a "
-            "nonempty stable genuine-SU(4) sublocus without choosing a point.",
+            "published_constituent_deck_atlases",
+            "published_chain_reconstruction",
+            "The lawful constituent atlases are required inputs for the "
+            "synchronized mixed outer Hom and rank-four extension cone.",
             (
                 "data/generated/scientific_genesis/"
-                "published_outer_stability_locus.json",
+                "published_constituent_deck_atlases.json",
             ),
+            (),
+            False,
             (
-                "published generic stability theorem",
-                "Donaldson--Uhlenbeck--Yau correspondence",
-                "rank-four connected subgroup classification",
-            ),
-            True,
-            (
-                "the proper exceptional parameter ideal is not computed",
-                "no explicit HYM metric is constructed",
+                "mixed outer transfer is not yet constructed",
+                "no rank-four transition atlas exists",
             ),
         ),
         _edge(
+            "published_chain_reconstruction",
             "published_outer_stability_locus",
+            "Only a lawful mixed outer parameter space can receive the source "
+            "generic stability theorem and exact slope chamber.",
+            ("data/published/visible_carrier/source_manifest.json",),
+            ("published generic stability theorem",),
+            False,
+            ("the lawful parameter space is not yet available",),
+        ),
+        _edge(
+            "published_chain_reconstruction",
             "published_matter_cohomology",
-            "The stable generic family makes the exact universal cone a lawful "
-            "carrier; pure degree-one constituent cohomology collapses its long "
-            "exact sequence independently of the extension parameters.",
+            "Matter cohomology must use the same strict mixed constituent and "
+            "outer chain objects as the carrier.",
             (
                 "data/generated/scientific_genesis/"
                 "published_matter_cohomology.json",
             ),
-            (
-                "published Wilson-line embedding",
-                "Calabi--Yau Serre duality",
-                "Maschke semisimplicity",
-            ),
-            True,
-            ("Higgs cohomology is not determined by the matter sequence",),
+            ("published Wilson-line embedding",),
+            False,
+            ("retired-cone representatives cannot supply this implication",),
         ),
         _edge(
-            "published_matter_cohomology",
+            "published_constituent_deck_atlases",
             "published_higgs_cohomology",
-            "The lawful stable outer family supplies the same constituent and "
-            "source gates used by the determinant filtration; acyclic outer "
-            "terms remove all extension-parameter dependence.",
+            "The lawful constituent maps must lift the four relative P1 classes "
+            "through the synchronized diagonal Schoen contraction.",
             (
-                "data/generated/scientific_genesis/"
-                "published_higgs_cohomology.json",
                 "data/generated/scientific_genesis/"
                 "relative_constituent_pushdowns.json",
             ),
+            ("derived relative signatures over the common P1",),
+            False,
             (
-                "derived relative pushdowns over the common P1",
-            ),
-            True,
-            (
-                "the current tensor calculation does not generate full Cech "
-                "representatives or their deck action",
+                "mixed relative chain maps are absent",
+                "full diagonal representatives are absent",
             ),
         ),
         _edge(
             "published_matter_cohomology",
             "physical_spectrum",
-            "Exact deck characters and the Wilson embedding determine the "
-            "three-family and anti-family matter blocks.",
+            "Strict mixed matter characters and the Wilson embedding would "
+            "determine the family and anti-family blocks.",
             (
                 "data/generated/scientific_genesis/"
                 "published_matter_cohomology.json",
             ),
             (),
-            True,
-            ("the matter edge alone does not determine the Higgs block",),
+            False,
+            ("the mixed matter calculation remains blocked",),
         ),
         _edge(
             "published_higgs_cohomology",
             "physical_spectrum",
-            "Inverse pullback on four exact derived-P1 Cech representatives "
-            "generates the deck characters, whose Wilson products select one "
-            "doublet pair and no color triplets.",
+            "Strict lifted Higgs characters and the Wilson embedding would "
+            "determine doublet and color-triplet multiplicities.",
             (
                 "data/generated/scientific_genesis/"
                 "published_higgs_cohomology.json",
@@ -1239,37 +1351,8 @@ def _edges() -> list[dict[str, object]]:
                 "derived W1/W2 equivariant pushdowns",
                 "published Wilson-line embedding",
             ),
-            True,
-            (
-                "a changed pushdown linearization changes the generated "
-                "character decomposition",
-            ),
-        ),
-        _edge(
-            "published_outer_stability_locus",
-            "published_chain_reconstruction",
-            "The generic stable locus supplies lawful physical parameters for "
-            "the exact universal chain family.",
-            (
-                "data/generated/scientific_genesis/"
-                "published_outer_stability_locus.json",
-            ),
-            (),
-            True,
-            ("local transition matrices remain absent",),
-        ),
-        _edge(
-            "published_outer_universal_cone",
-            "published_chain_reconstruction",
-            "The universal block differential supplies the exact descended "
-            "rank-four family on which stability and proper-reduction loci act.",
-            (
-                "data/generated/scientific_genesis/"
-                "published_outer_universal_cone.json",
-            ),
-            (),
-            True,
-            ("genuine SU(4) requires a stable locus, not Chern data alone",),
+            False,
+            ("the mixed Higgs calculation remains blocked",),
         ),
         _edge(
             "published_visible_carrier",
@@ -2047,6 +2130,12 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_pushout_mismatch.json",
         "data/generated/scientific_genesis/published_constituent_ext_spaces.json",
         "data/generated/scientific_genesis/published_constituent_deck_actions.json",
+        "data/generated/scientific_genesis/published_constituent_ray_alignment.json",
+        "data/generated/scientific_genesis/published_constituent_full_cech.json",
+        "data/generated/scientific_genesis/published_constituent_local_units.json",
+        "data/generated/scientific_genesis/published_constituent_chart_presentations.json",
+        "data/generated/scientific_genesis/published_constituent_overlap_transitions.json",
+        "data/generated/scientific_genesis/published_constituent_deck_atlases.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2077,7 +2166,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 498,
+            "collected_tests_at_audit": 537,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2099,7 +2188,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "published spectrum closed; full Higgs Cech lift"
+                "mixed constituent descent closed; outer transfer open"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2181,10 +2270,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "base-line and support-complement extension transitions for "
-                "the globally compatible ideal-level Serre frames, followed "
-                "by a synchronized lift of the four derived-P1 representatives "
-                "into the full Schoen Cech complex"
+                "synchronized mixed-constituent outer Hom transfer with strict "
+                "deck actions, followed by lawful matter and Higgs lifts"
             ),
         },
         "claims": _nodes(),
@@ -2196,30 +2283,20 @@ def build_state() -> dict[str, object]:
             "published Schoen geometry and selected one-Higgs reference carrier metadata",
             "exact fiber-sensitive dP9 Serre complexes deriving the published "
             "constituent Ext-one dimensions 2 and 5",
-            "exact natural dP9 deck chain actions plus source-aligned invariant "
-            "constituent Ext representatives",
-            "exact invariant Cech maximal-minor cocycles and square-zero derived "
-            "mapping-cone certificates for W1 and W2",
-            "exact free rank-two local Serre frames at all six I3/I6 support "
-            "points with localized Hilbert--Burch-to-Koszul factorization and "
-            "binding to the nonboundary punctured blow-up-atlas cocycles; all "
-            "ordered ideal-frame changes preserve the Koszul exact sequences",
-            "exact cohomology-reduced outer model preserving the source Euler "
-            "characteristic and isolating a common 90-dimensional excess",
-            "exact standard-cover Cech contraction and finite transfer deriving "
-            "the published forward 36/72 and reverse 72/36 cover outer dimensions",
-            "exact transferred deck actions deriving invariant dimensions four "
-            "and eight plus strict full-Cech representatives",
-            "exact universal rank-four outer cone over P^3(Q(omega)) with "
-            "non-split, local-freeness, Chern, and descent gates",
-            "nonempty generic stable descended genuine-SU(4) locus U_pub x K^s "
-            "with nine exact slope inequalities and a rational open witness",
-            "exact all-parameter matter cohomology H1(V)=3 Reg(Z3 x Z3), "
-            "H1(V dual)=0, and a three-family Wilson projection",
-            "exact all-parameter Higgs cohomology H*(wedge^2 V)=(0,4,4,0) "
-            "from derived W1/W2 relative quasi-isomorphisms, with an empty "
-            "jumping locus and a generated derived-P1 deck action giving one "
-            "Higgs pair with no color triplets",
+            "exact natural dP9 deck actions and simultaneous source-representation "
+            "intertwiners for both constituent Ext spaces",
+            "source-selected W1/W2 rays recovered as mixed Cech/Koszul cocycles "
+            "with exact full-standard-cover lifts",
+            "local dualizing-unit proofs at all six I3/I6 support points and "
+            "twelve locally free affine rank-two pushout presentations",
+            "sixty exact ordered overlap gauges forming global constituent "
+            "atlases, including hypersurface homotopies and cocycle laws",
+            "twenty-four exact localized P/T constituent comparisons preserving "
+            "relations and overlaps while satisfying the quotient group laws",
+            "retired trivial-character outer complexes retained only as scoped "
+            "dimension and transfer diagnostics",
+            "relative signatures recover the source Higgs dimension tuple "
+            "(0,4,4,0), pending lawful mixed chain lifts",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "
@@ -2283,6 +2360,9 @@ def build_state() -> dict[str, object]:
             "the available projective I3/I6 pushouts give cover Ext-one "
             "dimensions 0/63 rather than the published 36/72, so they cannot "
             "stand in for fiber-sensitive W1/W2 presentations",
+            "the fixed constituent kernel line is not the source-selected "
+            "W1/W2 ray; its pure-Cech mapping cones and downstream outer "
+            "objects are scoped diagnostics rather than carrier reconstructions",
             "the current 14-dimensional diagonal Higgs cone has exact character "
             "multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors "
             "rule out character projection as a four-class selector",

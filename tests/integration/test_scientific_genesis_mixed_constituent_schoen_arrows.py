@@ -34,8 +34,8 @@ def test_selected_mixed_arrows_embed_in_the_common_schoen_grading() -> None:
     assert second.name == "V2"
     assert len(first.objects) == 6
     assert len(second.objects) == 8
-    assert len(first.extension_terms) == 72
-    assert len(second.extension_terms) == 117
+    assert len(first.extension_terms) == 216
+    assert len(second.extension_terms) == 351
     assert first.all_terms_total_degree_one
     assert second.all_terms_total_degree_one
     assert first.all_multidegrees_compatible
@@ -59,6 +59,34 @@ def test_mixed_arrows_retain_local_maps_and_hypersurface_homotopies() -> None:
         assert all(term.regular_on_cell for term in constituent.extension_terms)
 
 
+def test_mixed_arrows_pull_back_over_every_unused_factor_patch() -> None:
+    """A factor cocycle is constant across the other projective cover."""
+
+    for constituent in mixed_schoen_constituents():
+        unused_factor = 1 if constituent.factor == 1 else 0
+        grouped: dict[tuple[object, ...], set[tuple[int, ...]]] = {}
+        for term in constituent.extension_terms:
+            key = (
+                term.source,
+                term.target,
+                term.parent_degree,
+                term.koszul_equation,
+                term.x_monomial,
+                term.u_monomial,
+                term.p_monomial,
+                tuple(
+                    cell
+                    for index, cell in enumerate(term.cell)
+                    if index != unused_factor
+                ),
+                term.coefficient,
+            )
+            grouped.setdefault(key, set()).add(term.cell[unused_factor])
+
+        assert grouped
+        assert all(cells == {(0,), (1,), (2,)} for cells in grouped.values())
+
+
 def test_mixed_schoen_arrow_artifact_is_current() -> None:
     """The frozen arrow certificate retains the outer-convolution boundary."""
 
@@ -68,4 +96,4 @@ def test_mixed_schoen_arrow_artifact_is_current() -> None:
     assert digest == _canonical_digest(stored)
     assert stored["all_common_schoen_arrows_exact"] is True
     assert stored["retired_pure_cech_arrows_used"] is False
-    assert stored["outer_hom_transfer_constructed"] is False
+    assert stored["outer_hom_transfer_constructed"] is True

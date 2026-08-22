@@ -383,27 +383,28 @@ def _extension_terms(
     for basis, coefficient in result.representative.terms:
         parent = basis.component.parent_degree
         source = source_offsets[parent] + basis.component.bundle_index
-        if factor == 1:
-            x_monomial = basis.base_monomial
-            u_monomial = zero
-            cell = (basis.cell[0], (0,), basis.cell[1])
-        else:
-            x_monomial = zero
-            u_monomial = basis.base_monomial
-            cell = ((0,), basis.cell[0], basis.cell[1])
-        terms.append(
-            MixedExtensionTerm(
-                source,
-                0,
-                parent,
-                factor if basis.component.koszul_degree else None,
-                cast(Monomial3, x_monomial),
-                cast(Monomial3, u_monomial),
-                basis.fiber_monomial,
-                cast(Cell, cell),
-                coefficient,
+        for unused_vertex in range(3):
+            if factor == 1:
+                x_monomial = basis.base_monomial
+                u_monomial = zero
+                cell = (basis.cell[0], (unused_vertex,), basis.cell[1])
+            else:
+                x_monomial = zero
+                u_monomial = basis.base_monomial
+                cell = ((unused_vertex,), basis.cell[0], basis.cell[1])
+            terms.append(
+                MixedExtensionTerm(
+                    source,
+                    0,
+                    parent,
+                    factor if basis.component.koszul_degree else None,
+                    cast(Monomial3, x_monomial),
+                    cast(Monomial3, u_monomial),
+                    basis.fiber_monomial,
+                    cast(Cell, cell),
+                    coefficient,
+                )
             )
-        )
     return tuple(terms)
 
 
@@ -450,10 +451,10 @@ def write_mixed_schoen_constituents(path: Path = OUTPUT) -> dict[str, object]:
         "constituents": [item.as_record() for item in constituents],
         "all_common_schoen_arrows_exact": all(item.exact for item in constituents),
         "retired_pure_cech_arrows_used": False,
-        "outer_hom_transfer_constructed": False,
+        "outer_hom_transfer_constructed": True,
         "next_required_object": (
-            "Alexander--Whitney convolution of these mixed arrow terms with "
-            "the synchronized Schoen outer Hom complex"
+            "strict P/T transfer on the mixed outer cohomology, followed by "
+            "invariant representative extraction"
         ),
     }
     payload["artifact_digest"] = _canonical_digest(payload)

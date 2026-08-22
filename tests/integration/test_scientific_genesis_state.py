@@ -99,6 +99,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_constituent_overlap_atlases"]["status"] == "COMPUTED"
     assert claims["published_constituent_deck_atlases"]["status"] == "COMPUTED"
     assert claims["mixed_constituent_schoen_arrows"]["status"] == "COMPUTED"
+    assert claims["mixed_schoen_outer_transfer"]["status"] == "COMPUTED"
     assert claims["published_constituent_mapping_cones"]["status"] == "REFUTED"
     assert claims["published_outer_reduced_model"]["status"] == "COMPUTED"
     assert claims["published_outer_cech_transfer"]["status"] == "COMPUTED"

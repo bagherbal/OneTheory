@@ -127,10 +127,16 @@ These are source-bound constituent linearizations; the corrected synchronized
 outer and Higgs complexes have not yet been rebuilt.
 
 The selected extension arrows are now embedded in the common Schoen grading
-without flattening their homotopies. V1 has 72 sparse terms and V2 has 117,
-distributed across parent-zero Cech overlaps, parent-one local extension maps,
-and parent-one hypersurface-Koszul corrections. Every term has total degree
-one, the required line-bundle multidegree, and no pole outside its declared
-cover cell. Both complete arrows remain closed and carry the selected P/T
-eigencharacters. Their Alexander--Whitney convolution with outer Hom cochains
-is the next implementation gate.
+without flattening their homotopies. Pullback over the unused projective factor
+gives V1 216 sparse terms and V2 351, distributed across parent-zero Cech
+overlaps, parent-one local extension maps, and parent-one
+hypersurface-Koszul corrections. Every term has total degree one, the required
+line-bundle multidegree, and no pole outside its declared cover cell.
+
+Exact Alexander--Whitney and Koszul convolution transfers both mixed outer Hom
+complexes through the standard-cover contraction. The transferred ranks are
+`1512/3006/1764` forward and `1764/3006/1512` reverse; both differentials
+square to zero and derive cover cohomology `18/54` and `54/18`. These differ
+from the retired pure-Cech `36/72` and `72/36` diagnostics. No source outer
+dimension was used as a rank input. Strict P/T transfer on these lawful mixed
+cohomologies is the next gate; quotient invariants remain unresolved.

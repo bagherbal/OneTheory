@@ -211,15 +211,15 @@ source-selected common character twist. Each unique invariant constituent
 class lifts to its Hilbert--Burch maximal-minor tuple divided by `mu nu`, and
 the resulting derived mapping cones square to zero exactly.
 
-Embedding those cones in the common Schoen grading first produced reduced
+Embedding the retired trivial-character cones in the common Schoen grading
+produced reduced
 outer dimensions `126/162` forward and `162/126` reverse, isolating one common
 90-dimensional excess without inserting a correction. A canonical
 standard-cover Cech contraction and finite homological perturbation now derive
 the missing differential. The exact transferred ranks are
 `1512/2988/1764` forward and `1764/2988/1512` reverse; both totals square to
-zero and independently yield cover cohomology `36/72` and `72/36`. The
-published dimensions are therefore reconstructed rather than used as rank
-inputs. Exact `p' g i'` transfer now gives commuting order-three deck actions
+zero and yield diagnostic cover cohomology `36/72` and `72/36`. Exact
+`p' g i'` transfer gives commuting order-three deck actions
 on those cohomologies. Their common fixed dimensions are `4` forward and `8`
 reverse, and exact Reynolds averaging produces strict representatives in the
 same full Cech--Koszul complex. No expected fixed dimension or fitted relative
@@ -232,7 +232,18 @@ basis class, its block differential squares to zero, and its split ideal is
 the affine origin. Every nonzero class is locally free and descended, with
 rank four, trivial determinant, `c2=(8/3,5/3,4)`, and `c3=-6`. The remaining
 carrier gate is the exact stable genuine-`SU(4)` locus over this `P^3`,
-including exclusion of accidental proper structure-group reductions.
+including exclusion of accidental proper structure-group reductions. This
+entire paragraph is retained as a scoped wrong-ray diagnostic, not a W1/W2
+reconstruction.
+
+The source-selected mixed cocycles are pulled back across every patch of the
+unused projective factor, giving 216 V1 terms and 351 V2 terms in the common
+Schoen cover. Alexander--Whitney Cech cup products and Koszul exterior
+products transfer their lawful outer Hom complexes exactly. The ranks are
+`1512/3006/1764` forward and `1764/3006/1512` reverse, with square-zero cover
+cohomology `18/54` and `54/18`. These results were not selected from source
+dimensions. Their strict P/T actions and quotient invariant representatives
+remain to be transferred before a lawful rank-four parameter space exists.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one

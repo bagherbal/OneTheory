@@ -1,17 +1,17 @@
 {
   "all_common_schoen_arrows_exact": true,
-  "artifact_digest": "26abb41e85d02ee82ba38ec2e99ffecc4a8e303744ed1ca02eb02a096047c83c",
+  "artifact_digest": "8527e26fa297a58a0139a67123fbf55ab9828da081609cd81615c18482468f81",
   "constituents": [
     {
       "all_multidegrees_compatible": true,
       "all_terms_regular_on_declared_cells": true,
       "all_terms_total_degree_one": true,
       "exact": true,
-      "extension_term_count": 72,
+      "extension_term_count": 216,
       "extension_term_distribution": {
-        "parent0:koszul0:cech1": 18,
-        "parent1:koszul0:cech0": 42,
-        "parent1:koszul1:cech1": 12
+        "parent0:koszul0:cech1": 54,
+        "parent1:koszul0:cech0": 126,
+        "parent1:koszul1:cech1": 36
       },
       "factor": 1,
       "full_constituent_cocycle_closed": true,
@@ -30,11 +30,11 @@
       "all_terms_regular_on_declared_cells": true,
       "all_terms_total_degree_one": true,
       "exact": true,
-      "extension_term_count": 117,
+      "extension_term_count": 351,
       "extension_term_distribution": {
-        "parent0:koszul0:cech1": 36,
-        "parent1:koszul0:cech0": 63,
-        "parent1:koszul1:cech1": 18
+        "parent0:koszul0:cech1": 108,
+        "parent1:koszul0:cech0": 189,
+        "parent1:koszul1:cech1": 54
       },
       "factor": 2,
       "full_constituent_cocycle_closed": true,
@@ -49,8 +49,8 @@
       ]
     }
   ],
-  "next_required_object": "Alexander--Whitney convolution of these mixed arrow terms with the synchronized Schoen outer Hom complex",
-  "outer_hom_transfer_constructed": false,
+  "next_required_object": "strict P/T transfer on the mixed outer cohomology, followed by invariant representative extraction",
+  "outer_hom_transfer_constructed": true,
   "retired_pure_cech_arrows_used": false,
   "schema": "mixed-constituent-schoen-arrows-v1"
 }

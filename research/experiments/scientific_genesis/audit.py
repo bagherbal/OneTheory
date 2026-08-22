@@ -355,7 +355,8 @@ def _nodes() -> list[dict[str, object]]:
             "Reference realization",
             "COMPUTED",
             "The complete V1/V2 extension cocycles occupy the synchronized "
-            "Schoen grading with 72 and 117 sparse terms. Degree, multidegree, "
+            "Schoen grading with 216 and 351 sparse terms after exact pullback "
+            "over the unused factor. Degree, multidegree, "
             "regularity, closure, and deck-character gates all close.",
             (
                 "data/generated/scientific_genesis/"
@@ -364,6 +365,23 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_constituent_schoen_arrows.py",
                 "tests/integration/"
                 "test_scientific_genesis_mixed_constituent_schoen_arrows.py",
+            ),
+        ),
+        _node(
+            "mixed_schoen_outer_transfer",
+            "selected mixed outer-Hom cover transfer",
+            "Reference realization",
+            "COMPUTED",
+            "Alexander--Whitney and Koszul convolution gives square-zero "
+            "cover cohomology 18/54 forward and 54/18 reverse without using "
+            "source outer dimensions as rank inputs.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_outer_transfer.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_outer_transfer.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_outer_transfer.py",
             ),
         ),
         _node(
@@ -1237,6 +1255,20 @@ def _edges() -> list[dict[str, object]]:
             ("flattening the mixed arrow recovers the retired wrong-ray type",),
         ),
         _edge(
+            "mixed_constituent_schoen_arrows",
+            "mixed_schoen_outer_transfer",
+            "Alexander--Whitney Cech multiplication and Koszul exterior "
+            "multiplication convolve the selected arrows with synchronized "
+            "outer Hom cochains through the exact cover contraction.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_outer_transfer.json",
+            ),
+            (),
+            True,
+            ("dropping totalization signs destroys square-zero",),
+        ),
+        _edge(
             "published_constituent_deck_actions",
             "published_constituent_mapping_cones",
             "Comparing the fixed-line cone with the selected ray proves that "
@@ -1303,18 +1335,18 @@ def _edges() -> list[dict[str, object]]:
             ("the diagnostic cone is not the selected published family",),
         ),
         _edge(
-            "mixed_constituent_schoen_arrows",
+            "mixed_schoen_outer_transfer",
             "published_chain_reconstruction",
-            "The complete synchronized mixed arrows are required inputs for "
-            "the outer Hom convolution and rank-four extension cone.",
+            "Strict quotient-invariant representatives of the lawful mixed "
+            "outer cohomology are required for a rank-four extension cone.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_constituent_schoen_arrows.json",
+                "mixed_schoen_outer_transfer.json",
             ),
             (),
             False,
             (
-                "mixed outer transfer is not yet constructed",
+                "mixed outer P/T transfer is not yet constructed",
                 "no rank-four transition atlas exists",
             ),
         ),
@@ -2169,6 +2201,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_constituent_overlap_transitions.json",
         "data/generated/scientific_genesis/published_constituent_deck_atlases.json",
         "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json",
+        "data/generated/scientific_genesis/mixed_schoen_outer_transfer.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2199,7 +2232,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 540,
+            "collected_tests_at_audit": 543,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2303,8 +2336,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "Alexander--Whitney convolution of the selected mixed arrows "
-                "with synchronized outer Hom cochains"
+                "strict P/T transfer on mixed outer cohomology followed by "
+                "invariant representative extraction"
             ),
         },
         "claims": _nodes(),
@@ -2327,7 +2360,9 @@ def build_state() -> dict[str, object]:
             "twenty-four exact localized P/T constituent comparisons preserving "
             "relations and overlaps while satisfying the quotient group laws",
             "selected V1/V2 arrows embedded in the common Schoen grading with "
-            "all 189 mixed Cech, local-map, and hypersurface-homotopy terms",
+            "all 567 pulled-back Cech, local-map, and hypersurface-homotopy terms",
+            "exact selected mixed outer-Hom transfer deriving cover cohomology "
+            "18/54 and 54/18 with square-zero differentials",
             "retired trivial-character outer complexes retained only as scoped "
             "dimension and transfer diagnostics",
             "relative signatures recover the source Higgs dimension tuple "

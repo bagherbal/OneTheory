@@ -350,6 +350,23 @@ def _nodes() -> list[dict[str, object]]:
             ("source-bound constituent equivariant structures",),
         ),
         _node(
+            "mixed_constituent_schoen_arrows",
+            "selected mixed arrows in the common Schoen cover",
+            "Reference realization",
+            "COMPUTED",
+            "The complete V1/V2 extension cocycles occupy the synchronized "
+            "Schoen grading with 72 and 117 sparse terms. Degree, multidegree, "
+            "regularity, closure, and deck-character gates all close.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_constituent_schoen_arrows.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_constituent_schoen_arrows.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_constituent_schoen_arrows.py",
+            ),
+        ),
+        _node(
             "published_constituent_mapping_cones",
             "trivial-character constituent mapping cones",
             "Reference realization",
@@ -501,6 +518,8 @@ def _nodes() -> list[dict[str, object]]:
                 "published_constituent_overlap_transitions.json",
                 "data/generated/scientific_genesis/"
                 "published_constituent_deck_atlases.json",
+                "data/generated/scientific_genesis/"
+                "mixed_constituent_schoen_arrows.json",
             ),
             missing=(
                 "mixed-constituent synchronized outer Hom transfer",
@@ -1205,6 +1224,19 @@ def _edges() -> list[dict[str, object]]:
             ("projective commutators omit local frame factors",),
         ),
         _edge(
+            "published_constituent_deck_atlases",
+            "mixed_constituent_schoen_arrows",
+            "Embedding the selected full cocycles in the synchronized grading "
+            "retains the local maps and hypersurface homotopies.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_constituent_schoen_arrows.json",
+            ),
+            (),
+            True,
+            ("flattening the mixed arrow recovers the retired wrong-ray type",),
+        ),
+        _edge(
             "published_constituent_deck_actions",
             "published_constituent_mapping_cones",
             "Comparing the fixed-line cone with the selected ray proves that "
@@ -1271,13 +1303,13 @@ def _edges() -> list[dict[str, object]]:
             ("the diagnostic cone is not the selected published family",),
         ),
         _edge(
-            "published_constituent_deck_atlases",
+            "mixed_constituent_schoen_arrows",
             "published_chain_reconstruction",
-            "The lawful constituent atlases are required inputs for the "
-            "synchronized mixed outer Hom and rank-four extension cone.",
+            "The complete synchronized mixed arrows are required inputs for "
+            "the outer Hom convolution and rank-four extension cone.",
             (
                 "data/generated/scientific_genesis/"
-                "published_constituent_deck_atlases.json",
+                "mixed_constituent_schoen_arrows.json",
             ),
             (),
             False,
@@ -2136,6 +2168,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_constituent_chart_presentations.json",
         "data/generated/scientific_genesis/published_constituent_overlap_transitions.json",
         "data/generated/scientific_genesis/published_constituent_deck_atlases.json",
+        "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2166,7 +2199,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 537,
+            "collected_tests_at_audit": 540,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2188,7 +2221,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "mixed constituent descent closed; outer transfer open"
+                "mixed Schoen arrows closed; outer convolution open"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2270,8 +2303,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "synchronized mixed-constituent outer Hom transfer with strict "
-                "deck actions, followed by lawful matter and Higgs lifts"
+                "Alexander--Whitney convolution of the selected mixed arrows "
+                "with synchronized outer Hom cochains"
             ),
         },
         "claims": _nodes(),
@@ -2293,6 +2326,8 @@ def build_state() -> dict[str, object]:
             "atlases, including hypersurface homotopies and cocycle laws",
             "twenty-four exact localized P/T constituent comparisons preserving "
             "relations and overlaps while satisfying the quotient group laws",
+            "selected V1/V2 arrows embedded in the common Schoen grading with "
+            "all 189 mixed Cech, local-map, and hypersurface-homotopy terms",
             "retired trivial-character outer complexes retained only as scoped "
             "dimension and transfer diagnostics",
             "relative signatures recover the source Higgs dimension tuple "

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "8184f2d83d2ade4d42472e219abbd1bd2d5bed1d900b16bed78285d37f77d397",
+  "artifact_digest": "500170486706688b39777c5f527f03573dd6540bd5bc894566d3fc00ff91c76f",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -157,6 +157,11 @@
       "sha256": "a18b4c1f447eb42dcf4ef3837660dd1e2f37d9762e5a39e06338fd28e5eb64ce"
     },
     {
+      "bytes": 1662,
+      "path": "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json",
+      "sha256": "e681c3f6fd8cb470a9e05b90d8fdf215fd9b2225adedd99ad71fb08d4b59d696"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -228,11 +233,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 537,
+    "collected_tests_at_audit": 540,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 144,
-    "test_python_files": 127
+    "research_python_files": 145,
+    "test_python_files": 128
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -515,6 +520,20 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json",
+        "research/experiments/scientific_genesis/mixed_constituent_schoen_arrows.py",
+        "tests/integration/test_scientific_genesis_mixed_constituent_schoen_arrows.py"
+      ],
+      "id": "mixed_constituent_schoen_arrows",
+      "label": "selected mixed arrows in the common Schoen cover",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "The complete V1/V2 extension cocycles occupy the synchronized Schoen grading with 72 and 117 sparse terms. Degree, multidegree, regularity, closure, and deck-character gates all close.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_constituent_ray_alignment.json"
       ],
@@ -641,7 +660,8 @@
       "evidence": [
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/generated/scientific_genesis/published_constituent_overlap_transitions.json",
-        "data/generated/scientific_genesis/published_constituent_deck_atlases.json"
+        "data/generated/scientific_genesis/published_constituent_deck_atlases.json",
+        "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json"
       ],
       "id": "published_chain_reconstruction",
       "label": "published carrier chain reconstruction",
@@ -1407,6 +1427,19 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "flattening the mixed arrow recovers the retired wrong-ray type"
+      ],
+      "mathematical_reason": "Embedding the selected full cocycles in the synchronized grading retains the local maps and hypersurface homotopies.",
+      "source": "published_constituent_deck_atlases",
+      "target": "mixed_constituent_schoen_arrows"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "data/generated/scientific_genesis/published_constituent_ray_alignment.json"
       ],
       "implication": "exact",
@@ -1472,15 +1505,15 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/published_constituent_deck_atlases.json"
+        "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
         "mixed outer transfer is not yet constructed",
         "no rank-four transition atlas exists"
       ],
-      "mathematical_reason": "The lawful constituent atlases are required inputs for the synchronized mixed outer Hom and rank-four extension cone.",
-      "source": "published_constituent_deck_atlases",
+      "mathematical_reason": "The complete synchronized mixed arrows are required inputs for the outer Hom convolution and rank-four extension cone.",
+      "source": "mixed_constituent_schoen_arrows",
       "target": "published_chain_reconstruction"
     },
     {
@@ -2146,6 +2179,7 @@
     "local dualizing-unit proofs at all six I3/I6 support points and twelve locally free affine rank-two pushout presentations",
     "sixty exact ordered overlap gauges forming global constituent atlases, including hypersurface homotopies and cocycle laws",
     "twenty-four exact localized P/T constituent comparisons preserving relations and overlaps while satisfying the quotient group laws",
+    "selected V1/V2 arrows embedded in the common Schoen grading with all 189 mixed Cech, local-map, and hypersurface-homotopy terms",
     "retired trivial-character outer complexes retained only as scoped dimension and transfer diagnostics",
     "relative signatures recover the source Higgs dimension tuple (0,4,4,0), pending lawful mixed chain lifts",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
@@ -2311,8 +2345,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "synchronized mixed-constituent outer Hom transfer with strict deck actions, followed by lawful matter and Higgs lifts",
-    "selection_status": "mixed constituent descent closed; outer transfer open"
+    "next_required_object": "Alexander--Whitney convolution of the selected mixed arrows with synchronized outer Hom cochains",
+    "selection_status": "mixed Schoen arrows closed; outer convolution open"
   },
   "research_value_scheduler": [
     {

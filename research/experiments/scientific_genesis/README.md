@@ -125,3 +125,12 @@ commutes with the other deck generator. The comparison line is trivial for W1
 and has character `omega^2` for W2, as forced by the selected mixed rays.
 These are source-bound constituent linearizations; the corrected synchronized
 outer and Higgs complexes have not yet been rebuilt.
+
+The selected extension arrows are now embedded in the common Schoen grading
+without flattening their homotopies. V1 has 72 sparse terms and V2 has 117,
+distributed across parent-zero Cech overlaps, parent-one local extension maps,
+and parent-one hypersurface-Koszul corrections. Every term has total degree
+one, the required line-bundle multidegree, and no pole outside its declared
+cover cell. Both complete arrows remain closed and carry the selected P/T
+eigencharacters. Their Alexander--Whitney convolution with outer Hom cochains
+is the next implementation gate.

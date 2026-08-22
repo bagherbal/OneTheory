@@ -296,6 +296,12 @@ commutation. This removes the projective resolution commutator as a false
 descent obstruction. The result is a source-bound deck linearization of W1
 and W2, not yet a reconstruction of the outer rank-four extension.
 
+Both mixed extension arrows now also occupy the synchronized Schoen cover as
+explicit sparse data. Their parent-zero, parent-one, and hypersurface-homotopy
+sectors pass exact degree, multidegree, regularity, closure, and deck-character
+checks. This is the complete constituent input needed by the corrected outer
+transfer; no outer cohomology is inferred from the embedding alone.
+
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the
 published carrier, even when their dimensions happen to match source ledgers.

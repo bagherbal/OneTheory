@@ -90,6 +90,42 @@ ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / "data/generated/scientific_genesis/mixed_schoen_outer_actions.json"
 
 
+def _basis_record(basis: OuterCechBasis) -> dict[str, object]:
+    """Serialize one full Cech--Koszul basis label exactly."""
+
+    component = basis.component
+    return {
+        "left_object": component.left_index,
+        "right_object": component.right_index,
+        "object_degree": component.object_degree,
+        "line_degree": list(component.line_degree),
+        "koszul_summand": component.koszul_summand,
+        "x_monomial": list(basis.x_monomial),
+        "u_monomial": list(basis.u_monomial),
+        "p_monomial": list(basis.p_monomial),
+        "cell": [list(simplex) for simplex in basis.cell],
+    }
+
+
+def _cech_record(
+    cochain: SparseOuterCechCochain,
+    name: str,
+) -> dict[str, object]:
+    """Serialize one strict invariant full-complex representative."""
+
+    return {
+        "name": name,
+        "term_count": len(cochain.terms),
+        "terms": [
+            {
+                "basis": _basis_record(basis),
+                "coefficient": str(coefficient),
+            }
+            for basis, coefficient in cochain.terms
+        ],
+    }
+
+
 def _source_character(
     constituent: MixedSchoenConstituent,
     generator: str,
@@ -448,6 +484,10 @@ class MixedCohomologyDeckAction:
             "strict_invariant_representative_count": len(
                 self.invariant_full_cech
             ),
+            "full_cech_koszul_representatives": [
+                _cech_record(cochain, f"invariant:{index}")
+                for index, cochain in enumerate(self.invariant_full_cech)
+            ],
             "maximum_action_depth": max(
                 (max(left, right) for _name, left, right in self.action_depths),
                 default=0,
@@ -677,7 +717,7 @@ def write_mixed_outer_actions(path: Path = OUTPUT) -> dict[str, object]:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(f".{path.name}.tmp")
     temporary.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
+        json.dumps(payload, sort_keys=True, separators=(",", ":")) + "\n",
         encoding="utf-8",
     )
     temporary.replace(path)

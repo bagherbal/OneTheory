@@ -72,13 +72,20 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["mixed_cover_h1_dimensions"] == [18, 54]
     assert path["criteria"]["mixed_invariant_h1_dimensions"] == [2, 6]
     assert path["criteria"]["mixed_strict_invariant_representatives"] == [2, 6]
+    assert path["criteria"]["lawful_mixed_projective_outer_space"] == (
+        "P^1(Q(omega))"
+    )
+    assert path["criteria"]["retired_source_scoped_outer_space"] == (
+        "P^3(Q(omega))"
+    )
+    assert path["criteria"]["outer_parameter_dimension_mismatch_unresolved"] is True
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "mixed quotient invariants closed; universal outer cone open"
+        "lawful mixed P1 cone closed; source stability comparison open"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
@@ -104,6 +111,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_constituent_schoen_arrows"]["status"] == "COMPUTED"
     assert claims["mixed_schoen_outer_transfer"]["status"] == "COMPUTED"
     assert claims["mixed_schoen_outer_actions"]["status"] == "COMPUTED"
+    assert claims["mixed_schoen_outer_universal_cone"]["status"] == "COMPUTED"
     assert claims["published_constituent_mapping_cones"]["status"] == "REFUTED"
     assert claims["published_outer_reduced_model"]["status"] == "COMPUTED"
     assert claims["published_outer_cech_transfer"]["status"] == "COMPUTED"

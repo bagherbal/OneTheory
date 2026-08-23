@@ -143,6 +143,14 @@ order-three P/T actions on both lawful mixed cohomologies. Their independently
 derived fixed dimensions are `2` forward and `6` reverse, and Reynolds
 averaging supplies strict full-Cech representatives for every fixed class.
 No expected invariant dimension, retired pure-Cech frame, or outer extension
-coordinate enters this calculation. The next gate is the universal lawful
-rank-four cone over the nonzero mixed invariant locus; no projective point is
-selected.
+coordinate enters this calculation. These representatives are the exact input
+for a universal lawful rank-four cone; they do not select a projective point.
+
+The two strict forward classes now generate the parameter-linear cone
+`e(a)=a0 e0+a1 e1`. Its block differential squares to zero exactly, its affine
+split locus is only the origin, and every nonzero class defines a locally free
+descended rank-four extension with the published topology. Thus the lawful
+non-split parameter space is `P^1(Q(omega))`, with no chosen point. The former
+source-scoped stability certificate used a retired `P^3` family; it cannot be
+restricted to this `P^1` by dimension alone. Exact stability and genuine-SU(4)
+analysis on the lawful family is the next gate.

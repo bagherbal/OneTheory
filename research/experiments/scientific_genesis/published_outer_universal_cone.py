@@ -31,6 +31,9 @@ from onetheory.models.heterotic_schoen.visible import visible_bundle
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
 )
+from research.experiments.computable_carrier.parameterized_outer import (
+    ParameterizedOuterCechCochain,
+)
 from research.experiments.computable_carrier.schoen_serre_outer_transfer import (
     OuterCechBasis,
     OuterCechComponent,
@@ -54,14 +57,6 @@ def _parameter(index: int) -> Polynomial:
         tuple(int(index == position) for position in range(len(PARAMETERS))),
         scalar_type=Eisenstein,
     )
-
-
-def _constant(polynomial: Polynomial) -> Eisenstein:
-    """Extract one exact scalar after complete specialization."""
-
-    if polynomial.variable_count != 0:
-        raise ValueError("universal specialization left an unresolved parameter")
-    return cast(Eisenstein, polynomial.coefficient(()))
 
 
 def _basis(raw: object) -> OuterCechBasis:
@@ -132,49 +127,6 @@ def _load_invariant_basis(
     if any(representative.is_zero() for representative in representatives):
         raise ValueError("an invariant outer basis class vanished while decoding")
     return digest, tuple(representatives)
-
-
-@dataclass(frozen=True, slots=True)
-class ParameterizedOuterCechCochain:
-    """An immutable full Čech cochain with linear polynomial coefficients."""
-
-    terms: tuple[tuple[OuterCechBasis, Polynomial], ...]
-
-    def __init__(
-        self,
-        terms: tuple[tuple[OuterCechBasis, Polynomial], ...] = (),
-    ) -> None:
-        values: dict[OuterCechBasis, Polynomial] = {}
-        for basis, coefficient in terms:
-            if coefficient.variable_count != len(PARAMETERS):
-                raise ValueError("universal outer coefficients require four parameters")
-            if coefficient.scalar_type is not Eisenstein or coefficient.degree > 1:
-                raise ValueError("universal outer coefficients must be linear over Q(omega)")
-            values[basis] = values.get(
-                basis,
-                Polynomial.zero(len(PARAMETERS), scalar_type=Eisenstein),
-            ) + coefficient
-        object.__setattr__(
-            self,
-            "terms",
-            tuple(
-                (basis, coefficient)
-                for basis, coefficient in sorted(values.items())
-                if not coefficient.is_zero()
-            ),
-        )
-
-    def specialize(self, values: tuple[Eisenstein, ...]) -> SparseOuterCechCochain:
-        """Evaluate the universal cochain at one exact affine parameter point."""
-
-        if len(values) != len(PARAMETERS):
-            raise ValueError("universal outer specialization requires four values")
-        return SparseOuterCechCochain(
-            tuple(
-                (basis, _constant(coefficient.substitute(values)))
-                for basis, coefficient in self.terms
-            )
-        )
 
 
 @dataclass(frozen=True, slots=True)
@@ -297,6 +249,7 @@ def published_universal_outer_cone() -> PublishedUniversalOuterCone:
 
     digest, representatives = _load_invariant_basis()
     extension = ParameterizedOuterCechCochain(
+        PARAMETERS,
         tuple(
             (basis, _parameter(index).scale(coefficient))
             for index, representative in enumerate(representatives)

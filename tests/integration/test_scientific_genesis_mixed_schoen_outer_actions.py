@@ -118,6 +118,16 @@ def test_mixed_outer_action_artifact_is_current() -> None:
     assert [
         item["strict_invariant_representative_count"] for item in orientations
     ] == [2, 6]
+    assert [
+        len(item["full_cech_koszul_representatives"])
+        for item in orientations
+    ] == [2, 6]
+    assert all(
+        representative["term_count"] == len(representative["terms"])
+        and representative["term_count"] > 0
+        for item in orientations
+        for representative in item["full_cech_koszul_representatives"]
+    )
     assert all(item["maximum_action_depth"] <= 4 for item in orientations)
     assert all(item["exact"] for item in orientations)
     assert [

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "12a2079fd5e8bb44ca467a14bec903e0fbfc2624532bbccb6df510dbe660f3ba",
+  "artifact_digest": "b839a5d3d3bbffeebd2d6ea638abb7f3038cf9b83d2a05f538a1c22bcfded34c",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -167,9 +167,14 @@
       "sha256": "1b4c45c2610383a8a631dcb3bd7b23e925c274442db34489c4ec0190ad67df5a"
     },
     {
-      "bytes": 102378,
+      "bytes": 75158318,
       "path": "data/generated/scientific_genesis/mixed_schoen_outer_actions.json",
-      "sha256": "ed08b81939de723608d91992ab05536cf7995476bea8ef45797bcf7b4c4ff815"
+      "sha256": "2fa4c31c501cd1caf181e75f0cc99fcf0e13499066350907abc26f1f81c79386"
+    },
+    {
+      "bytes": 2295,
+      "path": "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json",
+      "sha256": "035b8a208283571874a7742f597fd735dee3fa3aef44c54c312a241eea568143"
     },
     {
       "bytes": 6100,
@@ -243,11 +248,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 545,
+    "collected_tests_at_audit": 547,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 147,
-    "test_python_files": 130
+    "research_python_files": 149,
+    "test_python_files": 131
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -572,6 +577,20 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json",
+        "research/experiments/scientific_genesis/mixed_schoen_outer_universal_cone.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_outer_universal_cone.py"
+      ],
+      "id": "mixed_schoen_outer_universal_cone",
+      "label": "lawful mixed universal outer cone",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "The two strict forward invariant classes form an exact universal rank-four cone over P1(Q(omega)). Its split locus is the affine origin; local freeness, topology, and descent are parameter independent, with no projective point selected.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_constituent_ray_alignment.json"
       ],
@@ -647,10 +666,10 @@
       "label": "published generic stable SU(4) outer locus",
       "layer": "Reference realization",
       "missing_prerequisites": [
-        "mixed constituent outer Ext parameter space",
-        "comparison with the source generic stable locus"
+        "exact stability analysis on the lawful mixed P1 family",
+        "comparison of P1 with the source generic P3 locus"
       ],
-      "statement": "The source stability theorem and slope chamber remain evidence, but their former reconstructed P3 used retired cones. The theorem cannot be pulled back before the mixed outer family is rebuilt.",
+      "statement": "The source stability theorem and slope chamber remain evidence for a generic P3 family built from retired cones. The lawful mixed family is P1, and its intersection with the source generic locus has not been established.",
       "status": "BLOCKED"
     },
     {
@@ -697,19 +716,16 @@
       "assumptions": [],
       "evidence": [
         "data/generated/visible_carrier/visible_carrier_artifact.json",
-        "data/generated/scientific_genesis/published_constituent_overlap_transitions.json",
-        "data/generated/scientific_genesis/published_constituent_deck_atlases.json",
-        "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json"
+        "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json"
       ],
       "id": "published_chain_reconstruction",
       "label": "published carrier chain reconstruction",
       "layer": "Reference realization",
       "missing_prerequisites": [
-        "mixed-constituent synchronized outer Hom transfer",
-        "strict invariant outer representatives",
-        "lawful universal rank-four cone and transition atlas"
+        "comparison of the lawful P1 family with the source P3 ledger",
+        "stable genuine-SU(4) locus on the lawful family"
       ],
-      "statement": "The selected rank-two constituents now have explicit locally free, deck-linearized atlases. Their synchronized mixed outer Hom and rank-four extension cone have not been reconstructed.",
+      "statement": "The lawful mixed rank-two constituents and universal P1 outer cone are exact. The source carrier's former P3 parameter ledger does not yet have an exact comparison with this smaller lawful family.",
       "status": "BLOCKED"
     },
     {
@@ -1504,6 +1520,19 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the affine origin is the split extension"
+      ],
+      "mathematical_reason": "The strict forward fixed basis defines a parameter-linear outer arrow whose closed coefficients give an exact universal block mapping cone.",
+      "source": "mixed_schoen_outer_actions",
+      "target": "mixed_schoen_outer_universal_cone"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "data/generated/scientific_genesis/published_constituent_ray_alignment.json"
       ],
       "implication": "exact",
@@ -1569,15 +1598,15 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_outer_actions.json"
+        "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the universal mixed mapping cone is not yet constructed",
-        "no rank-four transition atlas exists"
+        "the lawful and retired parameter spaces have different dimensions",
+        "no exact comparison with the source generic locus exists"
       ],
-      "mathematical_reason": "The strict lawful invariant representatives supply the outer classes required for a universal rank-four extension cone.",
-      "source": "mixed_schoen_outer_actions",
+      "mathematical_reason": "The lawful universal P1 cone must be related to the source P3 parameter ledger before it can be identified with the published generic carrier family.",
+      "source": "mixed_schoen_outer_universal_cone",
       "target": "published_chain_reconstruction"
     },
     {
@@ -1589,9 +1618,9 @@
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the lawful parameter space is not yet available"
+        "the source P3 theorem cannot be restricted to P1 by dimension"
       ],
-      "mathematical_reason": "Only a lawful mixed outer parameter space can receive the source generic stability theorem and exact slope chamber.",
+      "mathematical_reason": "Only a lawful mixed outer parameter space can receive the source generic stability theorem after an exact comparison of parameter loci.",
       "source": "published_chain_reconstruction",
       "target": "published_outer_stability_locus"
     },
@@ -2246,6 +2275,7 @@
     "selected V1/V2 arrows embedded in the common Schoen grading with all 567 pulled-back Cech, local-map, and hypersurface-homotopy terms",
     "exact selected mixed outer-Hom transfer deriving cover cohomology 18/54 and 54/18 with square-zero differentials",
     "exact mixed outer P/T transfer deriving fixed dimensions 2/6 and strict full-Cech invariant representatives",
+    "exact lawful universal rank-four cone over P1(Q(omega)) with affine-origin split locus and no selected extension point",
     "retired trivial-character outer complexes retained only as scoped dimension and transfer diagnostics",
     "relative signatures recover the source Higgs dimension tuple (0,4,4,0), pending lawful mixed chain lifts",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
@@ -2343,6 +2373,7 @@
       ],
       "forced_subobject_retired_family_count": 648,
       "global_schoen_bundle_no_go": false,
+      "lawful_mixed_projective_outer_space": "P^1(Q(omega))",
       "minimum_forced_chamber_certificate": [
         "(2,1,t)",
         "t>7/2"
@@ -2398,6 +2429,7 @@
       },
       "next_survivor_restriction_rank": 20,
       "next_survivor_target_ext_dimension": 216,
+      "outer_parameter_dimension_mismatch_unresolved": true,
       "remaining_nonzero_candidate_blocks": [],
       "remaining_nonzero_family_count": 0,
       "retired_candidate_blocks": [
@@ -2416,6 +2448,7 @@
           828
         ]
       ],
+      "retired_source_scoped_outer_space": "P^3(Q(omega))",
       "slope_identity_retired_candidate_blocks": [
         16,
         36
@@ -2423,8 +2456,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "lawful universal rank-four extension over the nonzero mixed invariant Ext-one locus",
-    "selection_status": "mixed quotient invariants closed; universal outer cone open"
+    "next_required_object": "exact stable genuine-SU(4) locus of the lawful mixed P1 family and its comparison with the source generic P3 locus",
+    "selection_status": "lawful mixed P1 cone closed; source stability comparison open"
   },
   "research_value_scheduler": [
     {

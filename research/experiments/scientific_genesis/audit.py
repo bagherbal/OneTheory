@@ -403,6 +403,24 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_schoen_outer_universal_cone",
+            "lawful mixed universal outer cone",
+            "Reference realization",
+            "COMPUTED",
+            "The two strict forward invariant classes form an exact universal "
+            "rank-four cone over P1(Q(omega)). Its split locus is the affine "
+            "origin; local freeness, topology, and descent are parameter "
+            "independent, with no projective point selected.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_outer_universal_cone.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_outer_universal_cone.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_outer_universal_cone.py",
+            ),
+        ),
+        _node(
             "published_constituent_mapping_cones",
             "trivial-character constituent mapping cones",
             "Reference realization",
@@ -481,9 +499,10 @@ def _nodes() -> list[dict[str, object]]:
             "published generic stable SU(4) outer locus",
             "Reference realization",
             "BLOCKED",
-            "The source stability theorem and slope chamber remain evidence, "
-            "but their former reconstructed P3 used retired cones. The theorem "
-            "cannot be pulled back before the mixed outer family is rebuilt.",
+            "The source stability theorem and slope chamber remain evidence "
+            "for a generic P3 family built from retired cones. The lawful mixed "
+            "family is P1, and its intersection with the source generic locus "
+            "has not been established.",
             (
                 "data/generated/scientific_genesis/"
                 "published_outer_stability_locus.json",
@@ -494,8 +513,8 @@ def _nodes() -> list[dict[str, object]]:
                 "Donaldson--Uhlenbeck--Yau correspondence",
             ),
             missing=(
-                "mixed constituent outer Ext parameter space",
-                "comparison with the source generic stable locus",
+                "exact stability analysis on the lawful mixed P1 family",
+                "comparison of P1 with the source generic P3 locus",
             ),
         ),
         _node(
@@ -545,22 +564,17 @@ def _nodes() -> list[dict[str, object]]:
             "published carrier chain reconstruction",
             "Reference realization",
             "BLOCKED",
-            "The selected rank-two constituents now have explicit locally free, "
-            "deck-linearized atlases. Their synchronized mixed outer Hom and "
-            "rank-four extension cone have not been reconstructed.",
+            "The lawful mixed rank-two constituents and universal P1 outer cone "
+            "are exact. The source carrier's former P3 parameter ledger does "
+            "not yet have an exact comparison with this smaller lawful family.",
             (
                 "data/generated/visible_carrier/visible_carrier_artifact.json",
                 "data/generated/scientific_genesis/"
-                "published_constituent_overlap_transitions.json",
-                "data/generated/scientific_genesis/"
-                "published_constituent_deck_atlases.json",
-                "data/generated/scientific_genesis/"
-                "mixed_constituent_schoen_arrows.json",
+                "mixed_schoen_outer_universal_cone.json",
             ),
             missing=(
-                "mixed-constituent synchronized outer Hom transfer",
-                "strict invariant outer representatives",
-                "lawful universal rank-four cone and transition atlas",
+                "comparison of the lawful P1 family with the source P3 ledger",
+                "stable genuine-SU(4) locus on the lawful family",
             ),
         ),
         _node(
@@ -1301,6 +1315,20 @@ def _edges() -> list[dict[str, object]]:
             ("fixed representatives do not select an extension coordinate",),
         ),
         _edge(
+            "mixed_schoen_outer_actions",
+            "mixed_schoen_outer_universal_cone",
+            "The strict forward fixed basis defines a parameter-linear outer "
+            "arrow whose closed coefficients give an exact universal block "
+            "mapping cone.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_outer_universal_cone.json",
+            ),
+            (),
+            True,
+            ("the affine origin is the split extension",),
+        ),
+        _edge(
             "published_constituent_deck_actions",
             "published_constituent_mapping_cones",
             "Comparing the fixed-line cone with the selected ray proves that "
@@ -1367,30 +1395,32 @@ def _edges() -> list[dict[str, object]]:
             ("the diagnostic cone is not the selected published family",),
         ),
         _edge(
-            "mixed_schoen_outer_actions",
+            "mixed_schoen_outer_universal_cone",
             "published_chain_reconstruction",
-            "The strict lawful invariant representatives supply the outer "
-            "classes required for a universal rank-four extension cone.",
+            "The lawful universal P1 cone must be related to the source P3 "
+            "parameter ledger before it can be identified with the published "
+            "generic carrier family.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_outer_actions.json",
+                "mixed_schoen_outer_universal_cone.json",
             ),
             (),
             False,
             (
-                "the universal mixed mapping cone is not yet constructed",
-                "no rank-four transition atlas exists",
+                "the lawful and retired parameter spaces have different dimensions",
+                "no exact comparison with the source generic locus exists",
             ),
         ),
         _edge(
             "published_chain_reconstruction",
             "published_outer_stability_locus",
             "Only a lawful mixed outer parameter space can receive the source "
-            "generic stability theorem and exact slope chamber.",
+            "generic stability theorem after an exact comparison of parameter "
+            "loci.",
             ("data/published/visible_carrier/source_manifest.json",),
             ("published generic stability theorem",),
             False,
-            ("the lawful parameter space is not yet available",),
+            ("the source P3 theorem cannot be restricted to P1 by dimension",),
         ),
         _edge(
             "published_chain_reconstruction",
@@ -2235,6 +2265,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_transfer.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_actions.json",
+        "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2265,7 +2296,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 545,
+            "collected_tests_at_audit": 547,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2287,7 +2318,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "mixed quotient invariants closed; universal outer cone open"
+                "lawful mixed P1 cone closed; source stability comparison open"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2368,12 +2399,15 @@ def build_state() -> dict[str, object]:
                 "mixed_cover_h1_dimensions": [18, 54],
                 "mixed_invariant_h1_dimensions": [2, 6],
                 "mixed_strict_invariant_representatives": [2, 6],
+                "lawful_mixed_projective_outer_space": "P^1(Q(omega))",
+                "retired_source_scoped_outer_space": "P^3(Q(omega))",
+                "outer_parameter_dimension_mismatch_unresolved": True,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "lawful universal rank-four extension over the nonzero mixed "
-                "invariant Ext-one locus"
+                "exact stable genuine-SU(4) locus of the lawful mixed P1 "
+                "family and its comparison with the source generic P3 locus"
             ),
         },
         "claims": _nodes(),
@@ -2401,6 +2435,8 @@ def build_state() -> dict[str, object]:
             "18/54 and 54/18 with square-zero differentials",
             "exact mixed outer P/T transfer deriving fixed dimensions 2/6 and "
             "strict full-Cech invariant representatives",
+            "exact lawful universal rank-four cone over P1(Q(omega)) with "
+            "affine-origin split locus and no selected extension point",
             "retired trivial-character outer complexes retained only as scoped "
             "dimension and transfer diagnostics",
             "relative signatures recover the source Higgs dimension tuple "

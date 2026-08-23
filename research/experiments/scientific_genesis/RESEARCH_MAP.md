@@ -247,8 +247,19 @@ whose common fixed dimensions are `2` forward and `6` reverse. Exact Reynolds
 projectors produce strict invariant representatives in the same full
 Cech--Koszul complexes. No archived dimension, fitted character, or extension
 coordinate enters the result. A lawful rank-four parameter space still does
-not exist: the next object is the universal mixed mapping cone over the
-appropriate nonzero invariant locus, without selecting a projective point.
+not follow from dimensions alone; it requires the universal mixed mapping cone
+over the appropriate nonzero invariant locus.
+
+That universal cone is now exact. The two strict forward classes give
+`e(a)=a0 e0+a1 e1` over `Q(omega)[a0,a1]`; coefficient closure makes the block
+differential square to zero, and linear independence makes the affine split
+locus exactly the origin. Extensions of the certified locally free
+constituents are locally free, while strict invariance plus the constituent
+deck atlases gives descent. Rank, determinant, and Chern data are independent
+of the parameter, so the lawful non-split family is `P^1(Q(omega))` with no
+chosen point. This does not import the former source-scoped generic stability
+claim: that certificate used a retired `P^3` family. The intersection of the
+lawful `P^1` with a stable genuine-`SU(4)` locus remains unresolved.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
@@ -347,10 +358,11 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: construct the universal rank-four cone from
-the strict mixed invariant representatives, prove its nonzero split locus and
-local freeness without choosing a coordinate, then test descent and stability
-before entering the minimum common-DGA Yukawa slice. The declared finite
-monomial replacement category is exhausted by scoped stability no-go results.
-Completing the final 144 large automorphism cases stays suspended until it can
-change a dependency edge or independently verify a theorem.
+The governing queue is therefore: determine the exact stable genuine-`SU(4)`
+locus of the lawful mixed `P^1` family and compare it with the source generic
+`P^3` statement without inventing an embedding. If a nonempty component
+survives, compute its Wilson-projected spectrum before entering the minimum
+common-DGA Yukawa slice. The declared finite monomial replacement category is
+exhausted by scoped stability no-go results. Completing the final 144 large
+automorphism cases stays suspended until it can change a dependency edge or
+independently verify a theorem.

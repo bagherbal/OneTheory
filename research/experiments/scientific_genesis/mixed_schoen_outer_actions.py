@@ -79,6 +79,7 @@ from .mixed_constituent_schoen_arrows import (
     mixed_schoen_constituents,
 )
 from .mixed_schoen_outer_transfer import (
+    MixedSchoenComplex,
     MixedTransferredOuterHom,
     _CompatibleTermIndex,
     _mixed_perturbation,
@@ -146,10 +147,10 @@ def _constituent_frame(
 ) -> Matrix:
     """Return the exact homogeneous object frame of one mixed constituent."""
 
+    if factor == 0:
+        return Matrix.identity(1, scalar_type=Eisenstein)
     constituent = mixed_schoen_constituents()[factor - 1]
-    resolution = tier_a_resolution_actions()[constituent.factor - 1].action(
-        generator
-    )
+    resolution = tier_a_resolution_actions()[factor - 1].action(generator)
     target = resolution.target_action
     source = resolution.source_action
     if constituent.factor == 2:
@@ -167,8 +168,8 @@ def _constituent_frame(
 
 def _full_action(
     cochain: SparseOuterCechCochain,
-    left: MixedSchoenConstituent,
-    right: MixedSchoenConstituent,
+    left: MixedSchoenComplex,
+    right: MixedSchoenComplex,
     action: SchoenSparseDeckAction,
 ) -> SparseOuterCechCochain:
     """Apply exact pullback and selected-frame conjugation on full cochains."""
@@ -242,8 +243,8 @@ def _full_action(
 class _MixedContraction:
     """Reusable exact perturbation data for one mixed outer orientation."""
 
-    left: MixedSchoenConstituent
-    right: MixedSchoenConstituent
+    left: MixedSchoenComplex
+    right: MixedSchoenComplex
     left_skeleton: SchoenSerreConstituent = field(init=False)
     right_skeleton: SchoenSerreConstituent = field(init=False)
     components: dict[tuple[int, int, str], OuterCechComponent] = field(

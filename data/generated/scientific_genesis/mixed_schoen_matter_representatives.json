@@ -1,0 +1,231 @@
+{
+  "all_strict_character_representatives_exact": true,
+  "artifact_digest": "7bfa76b80c1ae79eaaecbff6a07c370d792bd99a022ae65d04e9523af56483cf",
+  "coefficient_field": "Q(omega)",
+  "constituents": [
+    {
+      "character_sectors": [
+        {
+          "character_exponents": [
+            0,
+            0
+          ],
+          "multiplicity": 1,
+          "strict_representative_term_counts": [
+            684
+          ]
+        },
+        {
+          "character_exponents": [
+            0,
+            1
+          ],
+          "multiplicity": 1,
+          "strict_representative_term_counts": [
+            684
+          ]
+        },
+        {
+          "character_exponents": [
+            0,
+            2
+          ],
+          "multiplicity": 1,
+          "strict_representative_term_counts": [
+            684
+          ]
+        },
+        {
+          "character_exponents": [
+            1,
+            0
+          ],
+          "multiplicity": 1,
+          "strict_representative_term_counts": [
+            684
+          ]
+        },
+        {
+          "character_exponents": [
+            1,
+            1
+          ],
+          "multiplicity": 1,
+          "strict_representative_term_counts": [
+            684
+          ]
+        },
+        {
+          "character_exponents": [
+            1,
+            2
+          ],
+          "multiplicity": 1,
+          "strict_representative_term_counts": [
+            684
+          ]
+        },
+        {
+          "character_exponents": [
+            2,
+            0
+          ],
+          "multiplicity": 1,
+          "strict_representative_term_counts": [
+            684
+          ]
+        },
+        {
+          "character_exponents": [
+            2,
+            1
+          ],
+          "multiplicity": 1,
+          "strict_representative_term_counts": [
+            684
+          ]
+        },
+        {
+          "character_exponents": [
+            2,
+            2
+          ],
+          "multiplicity": 1,
+          "strict_representative_term_counts": [
+            684
+          ]
+        }
+      ],
+      "cohomology_degree": 1,
+      "constituent": "V1",
+      "exact": true,
+      "factor": 1,
+      "full_representatives_are_cycles": true,
+      "full_representatives_have_declared_characters": true,
+      "group_relations": true,
+      "h1_dimension": 9,
+      "images_are_cycles": true,
+      "maximum_action_depth": 3,
+      "strict_representative_digest": "e306e08d981a1a97263b6bdd782146c5bdb3d2da945af9f5beed6b7579bd17e2"
+    },
+    {
+      "character_sectors": [
+        {
+          "character_exponents": [
+            0,
+            0
+          ],
+          "multiplicity": 2,
+          "strict_representative_term_counts": [
+            576,
+            576
+          ]
+        },
+        {
+          "character_exponents": [
+            0,
+            1
+          ],
+          "multiplicity": 2,
+          "strict_representative_term_counts": [
+            576,
+            576
+          ]
+        },
+        {
+          "character_exponents": [
+            0,
+            2
+          ],
+          "multiplicity": 2,
+          "strict_representative_term_counts": [
+            576,
+            576
+          ]
+        },
+        {
+          "character_exponents": [
+            1,
+            0
+          ],
+          "multiplicity": 2,
+          "strict_representative_term_counts": [
+            576,
+            576
+          ]
+        },
+        {
+          "character_exponents": [
+            1,
+            1
+          ],
+          "multiplicity": 2,
+          "strict_representative_term_counts": [
+            576,
+            576
+          ]
+        },
+        {
+          "character_exponents": [
+            1,
+            2
+          ],
+          "multiplicity": 2,
+          "strict_representative_term_counts": [
+            576,
+            576
+          ]
+        },
+        {
+          "character_exponents": [
+            2,
+            0
+          ],
+          "multiplicity": 2,
+          "strict_representative_term_counts": [
+            576,
+            576
+          ]
+        },
+        {
+          "character_exponents": [
+            2,
+            1
+          ],
+          "multiplicity": 2,
+          "strict_representative_term_counts": [
+            576,
+            576
+          ]
+        },
+        {
+          "character_exponents": [
+            2,
+            2
+          ],
+          "multiplicity": 2,
+          "strict_representative_term_counts": [
+            576,
+            576
+          ]
+        }
+      ],
+      "cohomology_degree": 1,
+      "constituent": "V2",
+      "exact": true,
+      "factor": 2,
+      "full_representatives_are_cycles": true,
+      "full_representatives_have_declared_characters": true,
+      "group_relations": true,
+      "h1_dimension": 18,
+      "images_are_cycles": true,
+      "maximum_action_depth": 3,
+      "strict_representative_digest": "ea28396f272fd0bee7cafb76e37bc7256e262ff04cffca775f9887b0cd0f6dbe"
+    }
+  ],
+  "expected_character_multiplicities_imported": false,
+  "next_required_object": "parameter-dependent correction lifting the V2 character classes into the universal visible cone",
+  "outer_extension_coordinate_selected": false,
+  "schema": "mixed-schoen-matter-representatives-v1",
+  "universal_cone_matter_lifts_computed": false
+}

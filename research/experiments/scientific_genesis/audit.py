@@ -973,6 +973,26 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "strict_mixed_matter_representatives",
+            "strict synchronized constituent matter classes",
+            "Computable carrier",
+            "COMPUTED",
+            "Exact transferred P/T actions decompose V1 and V2 H1 into one "
+            "and two copies of every deck character. Character projectors lift "
+            "all 27 classes to strict full Schoen Cech--Koszul cocycles.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_representatives.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_matter_representatives.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_matter_representatives.py",
+            ),
+            missing=(
+                "parameter-dependent V2 corrections in the universal cone",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -995,15 +1015,17 @@ def _nodes() -> list[dict[str, object]]:
             "carrier-specific common DGA package",
             "Flavor",
             "BLOCKED",
-            "Generic DGA, module, contraction, and HPL engines exist and the "
-            "lawful carrier component is frozen. Parameter-dependent full Schoen "
-            "matter/Higgs lifts and a common contraction are still absent.",
+            "Generic DGA, module, contraction, and HPL engines exist; the lawful "
+            "carrier component and strict constituent matter classes are now "
+            "fixed. Universal-cone matter corrections, Higgs lifts, and a common "
+            "contraction are still absent.",
             (
                 "src/onetheory/math/homological.py",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "parameter-dependent matter and Higgs Schoen hypercocycles",
+                "parameter-dependent universal-cone matter hypercocycles",
+                "full Schoen Higgs hypercocycles",
                 "restricted actions and contraction",
                 "cyclic pairing and trace conventions",
             ),
@@ -1548,6 +1570,22 @@ def _edges() -> list[dict[str, object]]:
             ("the result is structural spectrum, not a mass prediction",),
         ),
         _edge(
+            "mixed_schoen_observable_spectrum",
+            "strict_mixed_matter_representatives",
+            "The synchronized constituent complexes admit exact transferred "
+            "deck actions and character projectors on the same full Schoen "
+            "Cech--Koszul grading used by the frozen carrier.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_representatives.json",
+            ),
+            (),
+            True,
+            (
+                "constituent representatives are not yet universal-cone classes",
+            ),
+        ),
+        _edge(
             "published_matter_cohomology",
             "physical_spectrum",
             "Strict mixed matter characters and the Wilson embedding would "
@@ -1925,6 +1963,23 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             ("full matter/Higgs lifts or required pairings may be unavailable",),
+        ),
+        _edge(
+            "strict_mixed_matter_representatives",
+            "common_dga_package",
+            "Strict constituent character classes supply the raw matter cocycles, "
+            "but V2 classes require parameter-dependent exact corrections before "
+            "they are cocycles of the universal visible cone.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_representatives.json",
+            ),
+            (),
+            False,
+            (
+                "universal-cone correction map is not yet constructed",
+                "full Higgs Schoen representatives remain absent",
+            ),
         ),
         _edge(
             "common_dga_package",
@@ -2364,6 +2419,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_outer_stability_locus.json",
         "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
+        "data/generated/scientific_genesis/mixed_schoen_matter_representatives.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2394,7 +2450,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 558,
+            "collected_tests_at_audit": 560,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2416,7 +2472,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "lawful physical P1 component frozen; common-DGA lifts open"
+                "strict constituent matter lifted; universal-cone and Higgs lifts open"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2517,8 +2573,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "parameter-dependent matter and Higgs representatives in one "
-                "common Schoen DGA"
+                "parameter-dependent V2 universal-cone matter corrections and "
+                "one full Schoen Higgs representative in the common DGA"
             ),
         },
         "claims": _nodes(),
@@ -2558,6 +2614,8 @@ def build_state() -> dict[str, object]:
             "zero massless color triplets throughout the lawful P1",
             "the lawful physical P1 component is frozen as the first computable "
             "carrier without selecting an extension point or identifying source P3",
+            "all 27 synchronized constituent matter classes have strict full "
+            "Schoen Cech--Koszul representatives with exact joint deck characters",
             "retired trivial-character outer complexes retained only as scoped "
             "dimension and transfer diagnostics",
             "relative signatures recover the source Higgs dimension tuple "
@@ -2644,7 +2702,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "full common-Cech matter and Higgs representatives for Yukawa products",
+            "universal-cone matter corrections and full Schoen Higgs representatives",
             "carrier-derived complete holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],

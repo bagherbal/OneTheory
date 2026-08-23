@@ -242,8 +242,13 @@ Schoen cover. Alexander--Whitney Cech cup products and Koszul exterior
 products transfer their lawful outer Hom complexes exactly. The ranks are
 `1512/3006/1764` forward and `1764/3006/1512` reverse, with square-zero cover
 cohomology `18/54` and `54/18`. These results were not selected from source
-dimensions. Their strict P/T actions and quotient invariant representatives
-remain to be transferred before a lawful rank-four parameter space exists.
+dimensions. Exact perturbed P/T transfer gives commuting order-three actions
+whose common fixed dimensions are `2` forward and `6` reverse. Exact Reynolds
+projectors produce strict invariant representatives in the same full
+Cech--Koszul complexes. No archived dimension, fitted character, or extension
+coordinate enters the result. A lawful rank-four parameter space still does
+not exist: the next object is the universal mixed mapping cone over the
+appropriate nonzero invariant locus, without selecting a projective point.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
@@ -342,12 +347,10 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: derive the deck action on the transferred
-published outer complexes, compute invariant cohomology representatives, and
-materialize the four source-required outer cocycles without importing archived
-matrices. If that closes, construct the exact published rank-four extension and
-test its local transition and stability gates before entering the minimum
-common-DGA Yukawa slice. The declared finite monomial replacement category is
-exhausted by scoped stability no-go results. Completing the final 144 large
-automorphism cases stays suspended until it can change a dependency edge or
-independently verify a theorem.
+The governing queue is therefore: construct the universal rank-four cone from
+the strict mixed invariant representatives, prove its nonzero split locus and
+local freeness without choosing a coordinate, then test descent and stability
+before entering the minimum common-DGA Yukawa slice. The declared finite
+monomial replacement category is exhausted by scoped stability no-go results.
+Completing the final 144 large automorphism cases stays suspended until it can
+change a dependency edge or independently verify a theorem.

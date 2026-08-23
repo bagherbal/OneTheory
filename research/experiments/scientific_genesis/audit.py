@@ -385,6 +385,24 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_schoen_outer_actions",
+            "selected mixed outer quotient actions",
+            "Reference realization",
+            "COMPUTED",
+            "Exact perturbed P/T transfer gives commuting order-three actions "
+            "with fixed dimensions 2 forward and 6 reverse. Reynolds "
+            "averaging produces strict full-Cech representatives without "
+            "selecting an extension coordinate.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_outer_actions.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_outer_actions.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_outer_actions.py",
+            ),
+        ),
+        _node(
             "published_constituent_mapping_cones",
             "trivial-character constituent mapping cones",
             "Reference realization",
@@ -1269,6 +1287,20 @@ def _edges() -> list[dict[str, object]]:
             ("dropping totalization signs destroys square-zero",),
         ),
         _edge(
+            "mixed_schoen_outer_transfer",
+            "mixed_schoen_outer_actions",
+            "Perturbed inclusion and projection transfer the synchronized "
+            "deck action to lawful cover cohomology; exact Reynolds averaging "
+            "then selects strict fixed representatives.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_outer_actions.json",
+            ),
+            (),
+            True,
+            ("fixed representatives do not select an extension coordinate",),
+        ),
+        _edge(
             "published_constituent_deck_actions",
             "published_constituent_mapping_cones",
             "Comparing the fixed-line cone with the selected ray proves that "
@@ -1335,18 +1367,18 @@ def _edges() -> list[dict[str, object]]:
             ("the diagnostic cone is not the selected published family",),
         ),
         _edge(
-            "mixed_schoen_outer_transfer",
+            "mixed_schoen_outer_actions",
             "published_chain_reconstruction",
-            "Strict quotient-invariant representatives of the lawful mixed "
-            "outer cohomology are required for a rank-four extension cone.",
+            "The strict lawful invariant representatives supply the outer "
+            "classes required for a universal rank-four extension cone.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_outer_transfer.json",
+                "mixed_schoen_outer_actions.json",
             ),
             (),
             False,
             (
-                "mixed outer P/T transfer is not yet constructed",
+                "the universal mixed mapping cone is not yet constructed",
                 "no rank-four transition atlas exists",
             ),
         ),
@@ -2202,6 +2234,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_constituent_deck_atlases.json",
         "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_transfer.json",
+        "data/generated/scientific_genesis/mixed_schoen_outer_actions.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2232,7 +2265,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 543,
+            "collected_tests_at_audit": 545,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2254,7 +2287,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "mixed Schoen arrows closed; outer convolution open"
+                "mixed quotient invariants closed; universal outer cone open"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2332,12 +2365,15 @@ def build_state() -> dict[str, object]:
                     "P^23(Q(omega))": 36,
                 },
                 "arbitrary_point_selected": False,
+                "mixed_cover_h1_dimensions": [18, 54],
+                "mixed_invariant_h1_dimensions": [2, 6],
+                "mixed_strict_invariant_representatives": [2, 6],
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "strict P/T transfer on mixed outer cohomology followed by "
-                "invariant representative extraction"
+                "lawful universal rank-four extension over the nonzero mixed "
+                "invariant Ext-one locus"
             ),
         },
         "claims": _nodes(),
@@ -2363,6 +2399,8 @@ def build_state() -> dict[str, object]:
             "all 567 pulled-back Cech, local-map, and hypersurface-homotopy terms",
             "exact selected mixed outer-Hom transfer deriving cover cohomology "
             "18/54 and 54/18 with square-zero differentials",
+            "exact mixed outer P/T transfer deriving fixed dimensions 2/6 and "
+            "strict full-Cech invariant representatives",
             "retired trivial-character outer complexes retained only as scoped "
             "dimension and transfer diagnostics",
             "relative signatures recover the source Higgs dimension tuple "

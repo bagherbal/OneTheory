@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "20410c9233059da5a794ca2233050be701a2bfc086e2089933ab3d1cfaefbd21",
+  "artifact_digest": "12a2079fd5e8bb44ca467a14bec903e0fbfc2624532bbccb6df510dbe660f3ba",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -167,6 +167,11 @@
       "sha256": "1b4c45c2610383a8a631dcb3bd7b23e925c274442db34489c4ec0190ad67df5a"
     },
     {
+      "bytes": 102378,
+      "path": "data/generated/scientific_genesis/mixed_schoen_outer_actions.json",
+      "sha256": "ed08b81939de723608d91992ab05536cf7995476bea8ef45797bcf7b4c4ff815"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -238,11 +243,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 543,
+    "collected_tests_at_audit": 545,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 146,
-    "test_python_files": 129
+    "research_python_files": 147,
+    "test_python_files": 130
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -548,6 +553,20 @@
       "layer": "Reference realization",
       "missing_prerequisites": [],
       "statement": "Alexander--Whitney and Koszul convolution gives square-zero cover cohomology 18/54 forward and 54/18 reverse without using source outer dimensions as rank inputs.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_outer_actions.json",
+        "research/experiments/scientific_genesis/mixed_schoen_outer_actions.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_outer_actions.py"
+      ],
+      "id": "mixed_schoen_outer_actions",
+      "label": "selected mixed outer quotient actions",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "Exact perturbed P/T transfer gives commuting order-three actions with fixed dimensions 2 forward and 6 reverse. Reynolds averaging produces strict full-Cech representatives without selecting an extension coordinate.",
       "status": "COMPUTED"
     },
     {
@@ -1472,6 +1491,19 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_outer_actions.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "fixed representatives do not select an extension coordinate"
+      ],
+      "mathematical_reason": "Perturbed inclusion and projection transfer the synchronized deck action to lawful cover cohomology; exact Reynolds averaging then selects strict fixed representatives.",
+      "source": "mixed_schoen_outer_transfer",
+      "target": "mixed_schoen_outer_actions"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "data/generated/scientific_genesis/published_constituent_ray_alignment.json"
       ],
       "implication": "exact",
@@ -1537,15 +1569,15 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_outer_transfer.json"
+        "data/generated/scientific_genesis/mixed_schoen_outer_actions.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "mixed outer P/T transfer is not yet constructed",
+        "the universal mixed mapping cone is not yet constructed",
         "no rank-four transition atlas exists"
       ],
-      "mathematical_reason": "Strict quotient-invariant representatives of the lawful mixed outer cohomology are required for a rank-four extension cone.",
-      "source": "mixed_schoen_outer_transfer",
+      "mathematical_reason": "The strict lawful invariant representatives supply the outer classes required for a universal rank-four extension cone.",
+      "source": "mixed_schoen_outer_actions",
       "target": "published_chain_reconstruction"
     },
     {
@@ -2213,6 +2245,7 @@
     "twenty-four exact localized P/T constituent comparisons preserving relations and overlaps while satisfying the quotient group laws",
     "selected V1/V2 arrows embedded in the common Schoen grading with all 567 pulled-back Cech, local-map, and hypersurface-homotopy terms",
     "exact selected mixed outer-Hom transfer deriving cover cohomology 18/54 and 54/18 with square-zero differentials",
+    "exact mixed outer P/T transfer deriving fixed dimensions 2/6 and strict full-Cech invariant representatives",
     "retired trivial-character outer complexes retained only as scoped dimension and transfer diagnostics",
     "relative signatures recover the source Higgs dimension tuple (0,4,4,0), pending lawful mixed chain lifts",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
@@ -2319,11 +2352,23 @@
         "P^17(Q(omega))": 36,
         "P^23(Q(omega))": 36
       },
+      "mixed_cover_h1_dimensions": [
+        18,
+        54
+      ],
+      "mixed_invariant_h1_dimensions": [
+        2,
+        6
+      ],
       "mixed_sign_minimum_retired_candidate_blocks": [
         15,
         35
       ],
       "mixed_sign_minimum_retired_family_count": 72,
+      "mixed_strict_invariant_representatives": [
+        2,
+        6
+      ],
       "next_candidate_blocks": [],
       "next_survivor_complements_stability_proved": false,
       "next_survivor_forced_chamber_nonempty": true,
@@ -2378,8 +2423,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "strict P/T transfer on mixed outer cohomology followed by invariant representative extraction",
-    "selection_status": "mixed Schoen arrows closed; outer convolution open"
+    "next_required_object": "lawful universal rank-four extension over the nonzero mixed invariant Ext-one locus",
+    "selection_status": "mixed quotient invariants closed; universal outer cone open"
   },
   "research_value_scheduler": [
     {

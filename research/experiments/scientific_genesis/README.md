@@ -138,5 +138,11 @@ complexes through the standard-cover contraction. The transferred ranks are
 `1512/3006/1764` forward and `1764/3006/1512` reverse; both differentials
 square to zero and derive cover cohomology `18/54` and `54/18`. These differ
 from the retired pure-Cech `36/72` and `72/36` diagnostics. No source outer
-dimension was used as a rank input. Strict P/T transfer on these lawful mixed
-cohomologies is the next gate; quotient invariants remain unresolved.
+dimension was used as a rank input. Exact `p' g i'` transfer gives commuting
+order-three P/T actions on both lawful mixed cohomologies. Their independently
+derived fixed dimensions are `2` forward and `6` reverse, and Reynolds
+averaging supplies strict full-Cech representatives for every fixed class.
+No expected invariant dimension, retired pure-Cech frame, or outer extension
+coordinate enters this calculation. The next gate is the universal lawful
+rank-four cone over the nonzero mixed invariant locus; no projective point is
+selected.

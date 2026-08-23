@@ -1,0 +1,180 @@
+{
+  "all_coefficientwise_cone_identities_exact": true,
+  "all_lifts_strict_in_declared_characters": true,
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "504b96c343881a671ff5d3340a988650f4b7ed80586ac88ab4c9632ff82dc2f8",
+  "carrier_locus": "P^1(Q(omega)) x K^s",
+  "carrier_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "coefficient_field": "Q(omega)",
+  "higgs_lift_computed": false,
+  "next_required_object": "one strict full-Schoen Higgs representative in character (0,1)",
+  "physical_slice": {
+    "matrix": "up-type holomorphic Yukawa",
+    "matter_character_exponents": [
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "required_higgs_character_exponents": [
+      0,
+      1
+    ],
+    "source": {
+      "arxiv_id": "hep-th/0512177",
+      "locator": "eq:burt4; eq:19",
+      "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+      "version": "v3"
+    }
+  },
+  "prerequisite_artifact_digests": {
+    "strict_matter": "7bfa76b80c1ae79eaaecbff6a07c370d792bd99a022ae65d04e9523af56483cf",
+    "universal_cone": "1c227754a808ca9a45d2859dd1cfbdb9338129f63bfa9ccfde930c4862abc22d"
+  },
+  "schema": "mixed-schoen-universal-matter-lifts-v1",
+  "status": "exact parameter-linear universal matter basis for the first up-type Yukawa matrix",
+  "universal_visible_family_dimension_per_character": 3,
+  "v1_constant_classes": [
+    {
+      "character_exponents": [
+        2,
+        1
+      ],
+      "digest": "e789b650d444d54cf906541ddda89198a0adf963f4ef166e1d474bb4326b437d",
+      "term_count": 684
+    },
+    {
+      "character_exponents": [
+        1,
+        1
+      ],
+      "digest": "6b7a293624cadb6ec7061237f6ff836c496855599684b57093634de63fd84638",
+      "term_count": 684
+    }
+  ],
+  "v2_parameter_linear_lifts": [
+    {
+      "character_exponents": [
+        2,
+        1
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "local_family_index": 1,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "5b31e29ce675a790ed59fd50c4345a7ebc59bb80ad2e4cb631f2ad02d27d1221",
+          "correction_term_count": 38580,
+          "parameter": "a0",
+          "product_digest": "55952dd1e46be0b94c684874deebc626940988d6397ec182edc0c8e5446c9001",
+          "product_term_count": 71247
+        },
+        {
+          "correction_digest": "056cc20a3f00820d3761ce87b809014d369e817959808c61653448dc1108a03b",
+          "correction_term_count": 35405,
+          "parameter": "a1",
+          "product_digest": "ddf5a8f4016632caee2b26fcde70c700977c9aa6c8f4b0748b587c742f85e944",
+          "product_term_count": 63713
+        }
+      ],
+      "product_cycles_exact": true,
+      "strict_characters_exact": true,
+      "v2_digest": "c22a4cda46804e515dca009c19997af4de16538321d6b180b75b41f0f277bdd3",
+      "v2_term_count": 576
+    },
+    {
+      "character_exponents": [
+        2,
+        1
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "local_family_index": 2,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "79ed9c5507a14acd8171846f37fd2ddbb59737eca5a07212eabc2fbd7a24e8cc",
+          "correction_term_count": 37851,
+          "parameter": "a0",
+          "product_digest": "e374605e216b73495bed868fa27ef2c505354c945618a53040a5e2727e3a6077",
+          "product_term_count": 69768
+        },
+        {
+          "correction_digest": "45f26f998d8240edd7edaddb4d97fed414659cbf868b6f4f95a82e7c3f44dd55",
+          "correction_term_count": 33805,
+          "parameter": "a1",
+          "product_digest": "c399e7e9c0d17f6736382bd6e3ddb2e64ecc5aee53bad39cf150ba95319d7ae7",
+          "product_term_count": 59983
+        }
+      ],
+      "product_cycles_exact": true,
+      "strict_characters_exact": true,
+      "v2_digest": "6f7e0f3c6775ded805ffee9ef1e617c6665f206ebb0e832deb82fab78596f623",
+      "v2_term_count": 576
+    },
+    {
+      "character_exponents": [
+        1,
+        1
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "local_family_index": 1,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "eb5101feb5e0e0827ffc05b58d6251fa8ed0cbf3b4665cda8123ab8448eccdae",
+          "correction_term_count": 38580,
+          "parameter": "a0",
+          "product_digest": "99fd486e380ebb3bcc9243991da9db5722b7fb8d4820eb26778147426689d46b",
+          "product_term_count": 71259
+        },
+        {
+          "correction_digest": "d4cd5cbc17399f7426d1d625ac5e25feeb3910f1089d069e1829d35571ee24b0",
+          "correction_term_count": 35411,
+          "parameter": "a1",
+          "product_digest": "5977f738c89fcc47be73fa2649b5fcc6a8c75d939915dce4a36fc324f9734b03",
+          "product_term_count": 63722
+        }
+      ],
+      "product_cycles_exact": true,
+      "strict_characters_exact": true,
+      "v2_digest": "aafc6c446ba310f33d292c69dfce5a9c44d260e0fd6607e41bd776bc29349dc7",
+      "v2_term_count": 576
+    },
+    {
+      "character_exponents": [
+        1,
+        1
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "local_family_index": 2,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "01b9fa2805adba9bb81bf6fb6946e047c1180d6b8f08064b7a297116e589ba41",
+          "correction_term_count": 37851,
+          "parameter": "a0",
+          "product_digest": "f833657f8e75c721677a273ffa35735046588a412b6914c0d422e2e6312ce536",
+          "product_term_count": 69768
+        },
+        {
+          "correction_digest": "c91b83ee235d5cfceb8d9c711903cbc70e6ae06f7864e68544e45aad56fa54fc",
+          "correction_term_count": 33910,
+          "parameter": "a1",
+          "product_digest": "6f3b53a92ebc73216a525e58c648bebf7a60770b8d91f5ae027efc7b71521525",
+          "product_term_count": 60061
+        }
+      ],
+      "product_cycles_exact": true,
+      "strict_characters_exact": true,
+      "v2_digest": "d2fd6cc9a2776458f31de7455ac8165698fce16d2259bd030140ca23278845e9",
+      "v2_term_count": 576
+    }
+  ]
+}

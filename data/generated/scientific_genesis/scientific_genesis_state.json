@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "77657a3916ca911e467f6873646983c1fa02b46fe34756f29bcfd086086d7a1e",
+  "artifact_digest": "d00e6528736089dca312c49260f63fca936548a872bf7521a0b598654039ae2b",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -197,6 +197,11 @@
       "sha256": "2483a5a93498b971432bc9b7e412431d2c433a51f72147f3dd7196ee636a649a"
     },
     {
+      "bytes": 6031,
+      "path": "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json",
+      "sha256": "95dfcf8a4f5dd713291df4d5d79e591f841a02455e49acb99292b769a691b085"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -268,11 +273,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 560,
+    "collected_tests_at_audit": 562,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 154,
-    "test_python_files": 135
+    "research_python_files": 156,
+    "test_python_files": 136
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -288,7 +293,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "universal-cone matter corrections and full Schoen Higgs representatives",
+    "full Schoen Higgs representatives and the restricted cyclic trace",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -1137,6 +1142,23 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "published Wilson character assignment for the up-type sector"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json",
+        "research/experiments/scientific_genesis/mixed_schoen_universal_matter_lifts.py",
+        "research/experiments/scientific_genesis/mixed_schoen_common_dga.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_universal_matter_lifts.py"
+      ],
+      "id": "universal_matter_sector_lifts",
+      "label": "minimum universal visible matter sectors",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "For the two characters required by the first up-type matrix, all V2 matter classes have exact parameter-linear V1 corrections. Every coefficientwise cone identity and strict deck character holds over the full frozen P1 without selecting a point.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
@@ -1170,12 +1192,11 @@
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "parameter-dependent universal-cone matter hypercocycles",
-        "full Schoen Higgs hypercocycles",
+        "one full Schoen Higgs hypercocycle in character (0,1)",
         "restricted actions and contraction",
         "cyclic pairing and trace conventions"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier component and strict constituent matter classes are now fixed. Universal-cone matter corrections, Higgs lifts, and a common contraction are still absent.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier and minimum universal matter sectors are now fixed. A full-Schoen Higgs lift, restricted product hull, and cyclic trace remain absent.",
       "status": "BLOCKED"
     },
     {
@@ -2202,17 +2223,32 @@
       "target": "common_dga_package"
     },
     {
+      "assumptions_required": [
+        "published Wilson character assignment for the up-type sector"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "only the minimum two physical matter sectors are lifted"
+      ],
+      "mathematical_reason": "Signed full-Schoen composition and exact boundary contraction turn the strict V2 character classes into parameter-linear cocycles of the universal visible cone.",
+      "source": "strict_mixed_matter_representatives",
+      "target": "universal_matter_sector_lifts"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_matter_representatives.json"
+        "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "universal-cone correction map is not yet constructed",
-        "full Higgs Schoen representatives remain absent"
+        "the matching full-Schoen Higgs representative is absent",
+        "the product hull and cyclic trace are not yet certified"
       ],
-      "mathematical_reason": "Strict constituent character classes supply the raw matter cocycles, but V2 classes require parameter-dependent exact corrections before they are cocycles of the universal visible cone.",
-      "source": "strict_mixed_matter_representatives",
+      "mathematical_reason": "The universal matter cocycles provide both three-dimensional external matter bases required by the first up-type product.",
+      "source": "universal_matter_sector_lifts",
       "target": "common_dga_package"
     },
     {
@@ -2432,6 +2468,7 @@
     "acyclic determinant filtration and lawful relative pushdowns derive Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and zero massless color triplets throughout the lawful P1",
     "the lawful physical P1 component is frozen as the first computable carrier without selecting an extension point or identifying source P3",
     "all 27 synchronized constituent matter classes have strict full Schoen Cech--Koszul representatives with exact joint deck characters",
+    "the two matter sectors for the first up-type matrix have exact parameter-linear universal-cone lifts over the full frozen P1",
     "retired trivial-character outer complexes retained only as scoped dimension and transfer diagnostics",
     "relative signatures recover the source Higgs dimension tuple (0,4,4,0) from selected mixed constituent cocycles",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
@@ -2640,8 +2677,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "parameter-dependent V2 universal-cone matter corrections and one full Schoen Higgs representative in the common DGA",
-    "selection_status": "strict constituent matter lifted; universal-cone and Higgs lifts open"
+    "next_required_object": "one strict full-Schoen Higgs representative in character (0,1)",
+    "selection_status": "minimum universal matter lifted; one strict Higgs lift open"
   },
   "research_value_scheduler": [
     {

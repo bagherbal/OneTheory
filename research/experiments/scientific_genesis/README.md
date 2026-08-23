@@ -157,5 +157,25 @@ depend on those coordinates. Every lawful `P^1` point is therefore stable in
 the exact source chamber. On the simply connected cover, stability gives
 connected irreducible holonomy, while `c3=-54` excludes every proper connected
 irreducible rank-four reduction. The entire lawful family is genuinely
-`SU(4)` in that chamber. Generated matter and Higgs cohomology are the next
-gate.
+`SU(4)` in that chamber.
+
+That spectrum gate now closes without selecting an extension point. Direct
+mixed-complex transfers derive `H*(V1)=(0,9,0,0)` and
+`H*(V2)=(0,18,0,0)`, so the universal long exact sequence gives
+`H*(V)=(0,27,0,0)` for every projective parameter. Because the deck action is
+free and this cohomology is concentrated in degree one, holomorphic Lefschetz
+traces vanish for every nonidentity group element; character orthogonality
+therefore proves `H1(V)=3 Reg(Z3 x Z3)` without enumerating a large chain
+action. Calabi--Yau Serre duality gives `H1(V dual)=0`.
+
+The independently derived lawful relative pushdowns also close the structural
+Higgs calculation. Acyclic determinant lines make the exterior-square
+filtration parameter independent, and the exact derived-P1 action yields the
+four characters required by the source comparison. Wilson projection leaves
+one Higgs pair and no massless color triplets. Thus every point of the stable
+lawful `P1` satisfies the three-family, one-Higgs, no-exotic selection ledger.
+The connected component, rather than a point, is frozen as the first
+`ComputableOneTheoryCarrierState`; the source `P3` ledger remains a distinct
+`PublishedReferenceCarrierState`. The next gate is to lift parameter-dependent
+matter and Higgs representatives into one common Schoen DGA for the first
+exact Yukawa matrix.

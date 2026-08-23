@@ -560,6 +560,48 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "relative_constituent_pushdowns",
+            "lawful mixed constituent relative pushdowns",
+            "Computable carrier",
+            "COMPUTED",
+            "Selected mixed W1/W2 cocycles determine exact relative "
+            "quasi-isomorphisms. Their derived tensor has cohomology "
+            "(0,4,4,0) with generated equivariant line data.",
+            (
+                "data/generated/scientific_genesis/"
+                "relative_constituent_pushdowns.json",
+                "research/experiments/scientific_genesis/"
+                "relative_constituent_pushdowns.py",
+                "tests/integration/"
+                "test_scientific_genesis_relative_constituent_pushdowns.py",
+            ),
+            ("relative duality", "selected mixed constituent local units"),
+        ),
+        _node(
+            "mixed_schoen_observable_spectrum",
+            "lawful mixed-family structural spectrum",
+            "Computable carrier",
+            "COMPUTED",
+            "Synchronized mixed transfers derive pure constituent H1 dimensions "
+            "9 and 18. Free-action Lefschetz compression gives three regular "
+            "matter copies, while the acyclic determinant filtration and lawful "
+            "pushdowns give four Higgs classes, one Wilson-projected pair, and "
+            "no color triplets for every stable P1 parameter.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_observable_spectrum.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_observable_spectrum.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_observable_spectrum.py",
+            ),
+            (
+                "free ninefold Schoen deck action",
+                "published Wilson-line embedding",
+                "Calabi--Yau Serre duality",
+            ),
+        ),
+        _node(
             "published_chain_reconstruction",
             "published carrier chain reconstruction",
             "Reference realization",
@@ -897,41 +939,37 @@ def _nodes() -> list[dict[str, object]]:
             "physical_spectrum",
             "Wilson-projected carrier spectrum",
             "Reference realization",
-            "BLOCKED",
-            "The source spectrum remains the target ledger, but the matter and "
-            "Higgs representatives used for the prior Wilson projection came "
-            "from retired cones. No chain-derived physical spectrum is currently "
-            "available from the selected mixed atlases.",
+            "COMPUTED",
+            "The lawful mixed family has three Wilson-projected families, three "
+            "right-handed neutrinos, one Higgs pair, no anti-families, and no "
+            "massless color-triplet or exotic blocks throughout P1 x K^s.",
             (
                 "src/onetheory/physics/compactification.py",
-                "research/experiments/computable_carrier/downstream.py",
                 "data/generated/scientific_genesis/"
-                "published_matter_cohomology.json",
-                "data/generated/scientific_genesis/"
-                "published_higgs_cohomology.json",
+                "mixed_schoen_observable_spectrum.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_observable_spectrum.py",
             ),
             assumptions=(
-                "published W1/W2 equivariant pushdowns",
                 "published Wilson-line embedding",
-            ),
-            missing=(
-                "mixed matter representatives",
-                "mixed Higgs representatives",
-                "lawful Wilson projection on both sectors",
+                "three families and one Higgs pair are selection constraints",
             ),
         ),
         _node(
             "computable_carrier_state",
             "first frozen computable carrier",
             "Computable carrier",
-            "BLOCKED",
-            "No candidate has passed every rank, determinant, topology, "
-            "local-freeness, descent, stability, and spectrum gate.",
-            ("data/generated/computable_carrier/computable_carrier_artifact.json",),
-            missing=(
-                "replacement algebraic lawful family",
-                "nonempty stability chamber",
-                "required structural spectrum",
+            "COMPUTED",
+            "The unique currently derived lawful physical connected component "
+            "P1 is frozen for vertical computation. No extension point is "
+            "selected, and the source P3 ledger remains a distinct reference.",
+            (
+                "data/generated/scientific_genesis/"
+                "computable_one_theory_carrier_state.json",
+                "research/experiments/scientific_genesis/"
+                "computable_one_theory_carrier_state.py",
+                "tests/integration/"
+                "test_scientific_genesis_computable_one_theory_carrier_state.py",
             ),
         ),
         _node(
@@ -957,15 +995,15 @@ def _nodes() -> list[dict[str, object]]:
             "carrier-specific common DGA package",
             "Flavor",
             "BLOCKED",
-            "Generic DGA, module, contraction, and HPL engines exist, but no "
-            "synchronized carrier complex and physical representatives are available.",
+            "Generic DGA, module, contraction, and HPL engines exist and the "
+            "lawful carrier component is frozen. Parameter-dependent full Schoen "
+            "matter/Higgs lifts and a common contraction are still absent.",
             (
                 "src/onetheory/math/homological.py",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "synchronized V1/V2 Cech-Koszul complex",
-                "matter and Higgs hypercocycles",
+                "parameter-dependent matter and Higgs Schoen hypercocycles",
                 "restricted actions and contraction",
                 "cyclic pairing and trace conventions",
             ),
@@ -1456,6 +1494,60 @@ def _edges() -> list[dict[str, object]]:
             ),
         ),
         _edge(
+            "published_constituent_deck_atlases",
+            "relative_constituent_pushdowns",
+            "The selected deck-linearized mixed cocycles and exact local units "
+            "determine both relative W1/W2 quasi-isomorphism classes.",
+            (
+                "data/generated/scientific_genesis/"
+                "relative_constituent_pushdowns.json",
+            ),
+            ("relative duality",),
+            True,
+            ("full Schoen lifts are not part of the relative certificate",),
+        ),
+        _edge(
+            "published_outer_stability_locus",
+            "mixed_schoen_observable_spectrum",
+            "Direct synchronized mixed transfers compute constituent matter "
+            "cohomology on the lawful stable family; pure H1 makes it independent "
+            "of the outer parameter.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_observable_spectrum.json",
+            ),
+            ("free ninefold Schoen deck action",),
+            True,
+            ("full matter Schoen representatives remain to be lifted",),
+        ),
+        _edge(
+            "relative_constituent_pushdowns",
+            "mixed_schoen_observable_spectrum",
+            "Acyclic determinant lines identify exterior-square cohomology with "
+            "the derived tensor of the two lawful relative pushdowns for every "
+            "outer parameter.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_observable_spectrum.json",
+            ),
+            ("published Wilson-line embedding",),
+            True,
+            ("derived-P1 classes are not yet full Schoen DGA representatives",),
+        ),
+        _edge(
+            "mixed_schoen_observable_spectrum",
+            "physical_spectrum",
+            "Exact deck characters tensored with the source Wilson characters "
+            "determine all matter, Higgs, anti-family, and color-triplet blocks.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_observable_spectrum.json",
+            ),
+            ("three families and one Higgs pair are selection constraints",),
+            True,
+            ("the result is structural spectrum, not a mass prediction",),
+        ),
+        _edge(
             "published_matter_cohomology",
             "physical_spectrum",
             "Strict mixed matter characters and the Wilson embedding would "
@@ -1810,20 +1902,29 @@ def _edges() -> list[dict[str, object]]:
             "physical_spectrum",
             "computable_carrier_state",
             "Passing the declared three-family, one-Higgs, no-exotic "
-            "constraints freezes a carrier.",
-            ("research/experiments/computable_carrier/downstream.py",),
+            "constraints freezes the unique currently derived lawful physical "
+            "connected component without selecting a point.",
+            (
+                "data/generated/scientific_genesis/"
+                "computable_one_theory_carrier_state.json",
+            ),
             ("selection constraints are not predictions",),
             True,
-            ("no lawful parameter locus may satisfy all constraints",),
+            ("the source P3 ledger is not identified with the lawful P1",),
         ),
         _edge(
             "computable_carrier_state",
             "common_dga_package",
-            "A fixed carrier determines the synchronized complexes and products.",
-            ("src/onetheory/math/homological.py",),
+            "The frozen P1 component determines a universal parameter-dependent "
+            "carrier complex on which common products must be constructed.",
+            (
+                "data/generated/scientific_genesis/"
+                "computable_one_theory_carrier_state.json",
+                "src/onetheory/math/homological.py",
+            ),
             (),
             True,
-            ("required contractions or pairings may be unavailable",),
+            ("full matter/Higgs lifts or required pairings may be unavailable",),
         ),
         _edge(
             "common_dga_package",
@@ -2120,24 +2221,24 @@ def _scheduler() -> list[dict[str, object]]:
 
     tasks = [
         (
-            "universal_pair_73_mapping_cone",
+            "lawful_carrier_common_dga_lifts",
             5,
             4,
             5,
             5,
+            5,
             3,
-            2,
-            "Closes the first carrier-construction edge using existing exact cocycles.",
+            "Supplies the physical cocycles required by the first Yukawa product.",
         ),
         (
-            "pair_73_algebraic_locus",
-            5,
-            3,
-            5,
+            "minimal_common_dga_yukawa_slice",
             5,
             4,
-            2,
-            "Can validate or eliminate the entire simplest family symbolically.",
+            5,
+            5,
+            5,
+            3,
+            "Produces the first exact matrix from the frozen carrier component.",
         ),
         (
             "automorphism_trichotomy_theorem",
@@ -2150,34 +2251,24 @@ def _scheduler() -> list[dict[str, object]]:
             "Compresses repeated action data without blocking carrier construction.",
         ),
         (
-            "computable_family_stability_chamber",
+            "lawful_carrier_global_generation",
+            3,
+            3,
+            4,
+            4,
             4,
             3,
-            5,
-            4,
-            4,
-            3,
-            "Decides whether an algebraically lawful family can become physical.",
+            "Screens the later metric route before expensive numerical geometry.",
         ),
         (
-            "computable_family_spectrum_loci",
-            5,
-            3,
-            5,
-            5,
-            5,
-            3,
-            "Directly tests three-family and one-Higgs selection constraints.",
-        ),
-        (
-            "minimal_common_dga_yukawa_slice",
-            5,
+            "first_tree_rank_explanation",
+            4,
             4,
             5,
             5,
-            5,
-            3,
-            "Produces the first matrix once a carrier survives.",
+            4,
+            2,
+            "Determines whether higher products are mathematically required.",
         ),
         (
             "finish_automorphism_sweep",
@@ -2271,6 +2362,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_outer_actions.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_stability_locus.json",
+        "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
+        "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2301,7 +2394,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 550,
+            "collected_tests_at_audit": 558,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2323,7 +2416,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "lawful stable genuine-SU4 P1 closed; generated spectrum open"
+                "lawful physical P1 component frozen; common-DGA lifts open"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2410,12 +2503,22 @@ def build_state() -> dict[str, object]:
                 "lawful_P1_all_nonzero_parameters_stable_in_chamber": True,
                 "lawful_P1_genuine_su4_on_stable_chamber": True,
                 "retired_P3_embedding_used_for_stability": False,
+                "lawful_matter_h0_to_h3": [0, 27, 0, 0],
+                "lawful_dual_matter_h0_to_h3": [0, 0, 27, 0],
+                "lawful_matter_deck_representation": "3 Reg(Z3 x Z3)",
+                "lawful_higgs_h0_to_h3": [0, 4, 4, 0],
+                "lawful_wilson_projected_families": 3,
+                "lawful_wilson_projected_higgs_pairs": 1,
+                "lawful_massless_color_triplets": 0,
+                "lawful_structural_spectrum_all_P1": True,
+                "computable_carrier_component": "lawful-mixed-schoen-P1",
+                "computable_carrier_component_frozen": True,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "Wilson-projected matter and Higgs cohomology from the same "
-                "lawful mixed chain family"
+                "parameter-dependent matter and Higgs representatives in one "
+                "common Schoen DGA"
             ),
         },
         "claims": _nodes(),
@@ -2447,10 +2550,18 @@ def build_state() -> dict[str, object]:
             "affine-origin split locus and no selected extension point",
             "every lawful P1 extension stable in the exact source chamber with "
             "genuine SU(4) forced by nonzero cover c3",
+            "synchronized mixed constituent transfers derive matter cohomology "
+            "(0,27,0,0), with free-action Lefschetz compression proving three "
+            "regular deck representations",
+            "acyclic determinant filtration and lawful relative pushdowns derive "
+            "Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and "
+            "zero massless color triplets throughout the lawful P1",
+            "the lawful physical P1 component is frozen as the first computable "
+            "carrier without selecting an extension point or identifying source P3",
             "retired trivial-character outer complexes retained only as scoped "
             "dimension and transfer diagnostics",
             "relative signatures recover the source Higgs dimension tuple "
-            "(0,4,4,0), pending lawful mixed chain lifts",
+            "(0,4,4,0) from selected mixed constituent cocycles",
             "complete 1,440-pair cover Ext and invariant-cocycle screens in "
             "the declared computable category",
             "1,296 exact automorphism quotients including one "

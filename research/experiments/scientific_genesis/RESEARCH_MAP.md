@@ -269,18 +269,26 @@ irreducible rank-four reduction. Hence `P^1 x K^s` is a descended genuine-
 ledger remains mismatched, but that mismatch does not enter this stability
 implication.
 
-Only an algebraically lawful family may proceed to an exact stability chamber
-and parameter-dependent Wilson-projected spectrum. Three families and one
-Higgs pair remain selection constraints. The first component passing every
-gate should be frozen immediately as `ComputableOneTheoryCarrierState`, kept
-distinct from the published reference carrier.
+Direct mixed-complex transfers now derive constituent profiles `(0,9,0,0)`
+and `(0,18,0,0)`. The universal long exact sequence therefore fixes
+`H*(V)=(0,27,0,0)` and eliminates matter jumping over the entire lawful `P1`.
+Free-action holomorphic Lefschetz traces plus character orthogonality prove
+that `H1(V)` is three regular `Z3 x Z3` representations without a large chain-
+action enumeration; Calabi--Yau Serre duality gives no anti-families. Acyclic
+determinant lines and the lawful relative pushdowns similarly give
+`H*(wedge^2 V)=(0,4,4,0)` with an empty jumping locus. Their generated deck
+characters and the selected Wilson embedding leave one Higgs pair and no
+massless color triplets. Three families and one Higgs pair remain selection
+constraints, not predictions. Every stable `P1` point passes them, so the
+connected component is frozen as `ComputableOneTheoryCarrierState` without
+choosing a point and remains distinct from the published source `P3` ledger.
 
 ## Vertical physics blockers
 
 Generic DGA, module, contraction, cyclic-pairing, and HPL machinery already
 exists, and the lawful mixed outer complex now has strict invariant bases, a
-universal descended rank-four cone, and an exact stable genuine-`SU(4)`
-chamber. Exact relative projection now derives both
+universal descended rank-four cone, an exact stable genuine-`SU(4)` chamber,
+and a complete structural spectrum. Exact relative projection derives both
 constituent pushdown quasi-isomorphisms: W1 contracts its duality-forced
 `O(-2) -> O(-2)` pair, while W2 is the elementary transformation
 `O(-2) -> O(1)` across three reduced base points. Their derived tensor has
@@ -341,9 +349,9 @@ the stable genuine-`SU(4)` chamber now close from this input.
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the
 published carrier, even when their dimensions happen to match source ledgers.
-The immediate vertical task is to derive synchronized matter and Higgs
-representatives from the same mixed, deck-linearized family before any Yukawa
-product is attempted.
+The immediate vertical task is to lift the already-counted matter and Higgs
+classes into synchronized full Schoen representatives over the same universal
+mixed, deck-linearized `P1` family before any Yukawa product is attempted.
 The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.
@@ -367,11 +375,10 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: compute the Wilson-projected matter and
-Higgs spectrum of the lawful stable `P^1` family from synchronized mixed chain
-data. If the required three families and one Higgs pair survive, freeze the
-first computable carrier component before entering the minimum common-DGA
-Yukawa slice. The declared finite monomial replacement category is exhausted
+The governing queue is therefore: construct parameter-dependent full matter
+and Higgs lifts for the frozen lawful `P^1` carrier component, then build only
+the minimum common-DGA hull required for one complete `3 x 3` holomorphic
+Yukawa matrix. The declared finite monomial replacement category is exhausted
 by scoped stability no-go results. Completing the final 144 large automorphism
 cases stays suspended until it can change a dependency edge or independently
 verify a theorem.

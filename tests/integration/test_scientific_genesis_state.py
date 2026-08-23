@@ -12,7 +12,7 @@ Must not:
     convert a blocked scientific edge into an implemented bridge.
 
 Phase 0:
-    State-audit tests only; replacement-carrier stability remains pending.
+    State-audit tests only; common-DGA carrier representatives remain pending.
 """
 
 import json
@@ -82,13 +82,24 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["lawful_P1_all_nonzero_parameters_stable_in_chamber"] is True
     assert path["criteria"]["lawful_P1_genuine_su4_on_stable_chamber"] is True
     assert path["criteria"]["retired_P3_embedding_used_for_stability"] is False
+    assert path["criteria"]["lawful_matter_h0_to_h3"] == [0, 27, 0, 0]
+    assert path["criteria"]["lawful_dual_matter_h0_to_h3"] == [0, 0, 27, 0]
+    assert path["criteria"]["lawful_matter_deck_representation"] == (
+        "3 Reg(Z3 x Z3)"
+    )
+    assert path["criteria"]["lawful_higgs_h0_to_h3"] == [0, 4, 4, 0]
+    assert path["criteria"]["lawful_wilson_projected_families"] == 3
+    assert path["criteria"]["lawful_wilson_projected_higgs_pairs"] == 1
+    assert path["criteria"]["lawful_massless_color_triplets"] == 0
+    assert path["criteria"]["lawful_structural_spectrum_all_P1"] is True
+    assert path["criteria"]["computable_carrier_component_frozen"] is True
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "lawful stable genuine-SU4 P1 closed; generated spectrum open"
+        "lawful physical P1 component frozen; common-DGA lifts open"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
@@ -123,7 +134,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_outer_stability_locus"]["status"] == "COMPUTED"
     assert claims["published_matter_cohomology"]["status"] == "BLOCKED"
     assert claims["published_higgs_cohomology"]["status"] == "BLOCKED"
-    assert claims["physical_spectrum"]["status"] == "BLOCKED"
+    assert claims["relative_constituent_pushdowns"]["status"] == "COMPUTED"
+    assert claims["mixed_schoen_observable_spectrum"]["status"] == "COMPUTED"
+    assert claims["physical_spectrum"]["status"] == "COMPUTED"
+    assert claims["computable_carrier_state"]["status"] == "COMPUTED"
+    assert claims["common_dga_package"]["status"] == "BLOCKED"
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     assert state["fitted_inputs"] == []

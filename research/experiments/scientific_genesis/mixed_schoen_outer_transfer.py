@@ -23,7 +23,7 @@ from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
 from functools import cache
 from pathlib import Path
-from typing import cast
+from typing import Protocol, cast
 
 from onetheory.math.homological import VectorSpace
 from onetheory.math.numbers import Eisenstein
@@ -58,8 +58,9 @@ from research.experiments.computable_carrier.schoen_sparse_outer import (
 
 from .mixed_constituent_schoen_arrows import (
     Cell,
+    MixedConstituentObject,
     MixedExtensionTerm,
-    MixedSchoenConstituent,
+    MixedResolutionArrow,
     mixed_schoen_constituents,
 )
 
@@ -75,7 +76,49 @@ KOSZUL_SUBSETS = {
 SUBSET_KOSZUL = {subset: name for name, subset in KOSZUL_SUBSETS.items()}
 
 
-def _skeleton(constituent: MixedSchoenConstituent) -> SchoenSerreConstituent:
+class MixedSchoenComplex(Protocol):
+    """Structural interface consumed by the synchronized transfer."""
+
+    @property
+    def name(self) -> str: ...
+
+    @property
+    def factor(self) -> int: ...
+
+    @property
+    def twist(self) -> tuple[int, int, int]: ...
+
+    @property
+    def objects(self) -> tuple[MixedConstituentObject, ...]: ...
+
+    @property
+    def resolution_arrows(self) -> tuple[MixedResolutionArrow, ...]: ...
+
+    @property
+    def extension_terms(self) -> tuple[MixedExtensionTerm, ...]: ...
+
+
+@dataclass(frozen=True, slots=True)
+class MixedSchoenUnit:
+    """The structure sheaf in the synchronized mixed-complex grading."""
+
+    name: str = "O_X"
+    factor: int = 0
+    twist: tuple[int, int, int] = (0, 0, 0)
+    objects: tuple[MixedConstituentObject, ...] = (
+        MixedConstituentObject("O_X", 0, (0, 0, 0)),
+    )
+    resolution_arrows: tuple[MixedResolutionArrow, ...] = ()
+    extension_terms: tuple[MixedExtensionTerm, ...] = ()
+
+
+def mixed_schoen_unit() -> MixedSchoenUnit:
+    """Return the exact one-object unit for mixed derived-Hom calculations."""
+
+    return MixedSchoenUnit()
+
+
+def _skeleton(constituent: MixedSchoenComplex) -> SchoenSerreConstituent:
     """Return the object and resolution part without any extension shortcut."""
 
     factor = "x" if constituent.factor == 1 else "u"
@@ -236,7 +279,7 @@ def _term_image(
 class _CompatibleTermIndex:
     """Memoize compatible mixed terms without hashing full constituents."""
 
-    def __init__(self, constituent: MixedSchoenConstituent) -> None:
+    def __init__(self, constituent: MixedSchoenComplex) -> None:
         self._left: dict[int, tuple[MixedExtensionTerm, ...]] = {}
         self._right: dict[int, tuple[MixedExtensionTerm, ...]] = {}
         for object_index in range(len(constituent.objects)):
@@ -300,8 +343,8 @@ class _CompatibleTermIndex:
 
 def _mixed_extension_perturbation(
     cochain: SparseOuterCechCochain,
-    left: MixedSchoenConstituent,
-    right: MixedSchoenConstituent,
+    left: MixedSchoenComplex,
+    right: MixedSchoenComplex,
     components: dict[tuple[int, int, str], OuterCechComponent],
     left_index: _CompatibleTermIndex,
     right_index: _CompatibleTermIndex,
@@ -380,8 +423,8 @@ def _mixed_extension_perturbation(
 
 def _mixed_perturbation(
     cochain: SparseOuterCechCochain,
-    left: MixedSchoenConstituent,
-    right: MixedSchoenConstituent,
+    left: MixedSchoenComplex,
+    right: MixedSchoenComplex,
     left_skeleton: SchoenSerreConstituent,
     right_skeleton: SchoenSerreConstituent,
     components: dict[tuple[int, int, str], OuterCechComponent],
@@ -465,8 +508,8 @@ class MixedTransferredOuterHom:
 
 
 def _transfer_map(
-    left: MixedSchoenConstituent,
-    right: MixedSchoenConstituent,
+    left: MixedSchoenComplex,
+    right: MixedSchoenComplex,
     degree: int,
 ) -> tuple[SparseMap, int]:
     """Transfer one mixed full differential through the standard contraction."""
@@ -528,8 +571,8 @@ def _transfer_map(
 
 @cache
 def mixed_transferred_outer_hom(
-    left: MixedSchoenConstituent,
-    right: MixedSchoenConstituent,
+    left: MixedSchoenComplex,
+    right: MixedSchoenComplex,
 ) -> MixedTransferredOuterHom:
     """Transfer one selected mixed outer Hom exactly."""
 
@@ -702,7 +745,10 @@ if __name__ == "__main__":
 
 
 __all__ = [
+    "MixedSchoenComplex",
+    "MixedSchoenUnit",
     "MixedTransferredOuterHom",
     "mixed_outer_transfers",
+    "mixed_schoen_unit",
     "mixed_transferred_outer_hom",
 ]

@@ -1,0 +1,553 @@
+{
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "6ce8f4d2fc4ef815741d1c7146b038d310c7f626f9f8029851f4f80e9dfc2da3",
+  "coefficient_field": "Q(omega)",
+  "computable_carrier_component_frozen": false,
+  "entire_stable_family_passes_structural_spectrum": true,
+  "full_higgs_schoen_representatives_computed": false,
+  "full_matter_schoen_representatives_computed": false,
+  "higgs": {
+    "deck_characters": [
+      {
+        "character_exponents": [
+          0,
+          1
+        ],
+        "multiplicity": 1
+      },
+      {
+        "character_exponents": [
+          0,
+          2
+        ],
+        "multiplicity": 1
+      },
+      {
+        "character_exponents": [
+          1,
+          2
+        ],
+        "multiplicity": 1
+      },
+      {
+        "character_exponents": [
+          2,
+          1
+        ],
+        "multiplicity": 1
+      }
+    ],
+    "derived_pushdown_tensor": {
+      "cohomology_h0_to_h3": [
+        0,
+        4,
+        4,
+        0
+      ],
+      "h1_representative_count": 4,
+      "selected_mixed_constituent_cocycles_used": true,
+      "term_count": 8
+    },
+    "determinant_filtration": {
+      "acyclic": true,
+      "all_extension_parameters": true,
+      "det_v1_cohomology_h0_to_h3": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "det_v2_cohomology_h0_to_h3": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "group_relations_exact": true,
+    "wedge_square": {
+      "all_extension_parameters": true,
+      "cohomology_h0_to_h3": [
+        0,
+        4,
+        4,
+        0
+      ],
+      "jumping_locus": "empty"
+    },
+    "wilson_projection": {
+      "higgs_pairs": 1,
+      "massless_color_triplets": 0,
+      "multiplicities": {
+        "color_antitriplet": 0,
+        "color_triplet": 0,
+        "down_higgs_doublet": 1,
+        "up_higgs_doublet": 1
+      }
+    }
+  },
+  "lawful_physical_locus": "P^1(Q(omega)) x K^s",
+  "matter": {
+    "constituent_complexes": [
+      {
+        "cohomology_dimensions": [
+          [
+            -3,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "differential_ranks": [
+          [
+            -3,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            90
+          ],
+          [
+            1,
+            27
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "geometric_h0_to_h3": [
+          0,
+          9,
+          0,
+          0
+        ],
+        "left": "V1",
+        "path_depths": [
+          [
+            -3,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "right": "O_X",
+        "space_dimensions": [
+          [
+            -3,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            90
+          ],
+          [
+            1,
+            126
+          ],
+          [
+            2,
+            27
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "squared_zero": true
+      },
+      {
+        "cohomology_dimensions": [
+          [
+            -3,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            18
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "differential_ranks": [
+          [
+            -3,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            189
+          ],
+          [
+            1,
+            81
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "geometric_h0_to_h3": [
+          0,
+          18,
+          0,
+          0
+        ],
+        "left": "V2",
+        "path_depths": [
+          [
+            -3,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "right": "O_X",
+        "space_dimensions": [
+          [
+            -3,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            189
+          ],
+          [
+            1,
+            288
+          ],
+          [
+            2,
+            81
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "squared_zero": true
+      }
+    ],
+    "deck_representation": {
+      "chain_action_enumeration_required": false,
+      "character_multiplicities": [
+        {
+          "character_exponents": [
+            0,
+            0
+          ],
+          "multiplicity": 3
+        },
+        {
+          "character_exponents": [
+            0,
+            1
+          ],
+          "multiplicity": 3
+        },
+        {
+          "character_exponents": [
+            0,
+            2
+          ],
+          "multiplicity": 3
+        },
+        {
+          "character_exponents": [
+            1,
+            0
+          ],
+          "multiplicity": 3
+        },
+        {
+          "character_exponents": [
+            1,
+            1
+          ],
+          "multiplicity": 3
+        },
+        {
+          "character_exponents": [
+            1,
+            2
+          ],
+          "multiplicity": 3
+        },
+        {
+          "character_exponents": [
+            2,
+            0
+          ],
+          "multiplicity": 3
+        },
+        {
+          "character_exponents": [
+            2,
+            1
+          ],
+          "multiplicity": 3
+        },
+        {
+          "character_exponents": [
+            2,
+            2
+          ],
+          "multiplicity": 3
+        }
+      ],
+      "derivation": "free-action holomorphic Lefschetz traces vanish for all nonidentity deck elements; pure H1 and dimension 27 then force multiplicity three for every character",
+      "representation": "3 Reg(Z3 x Z3)",
+      "theorem_hypotheses": {
+        "carrier_equivariant": true,
+        "cohomology_concentrated_in_h1": true,
+        "deck_action_free": true
+      }
+    },
+    "universal_long_exact_sequence": {
+      "all_extension_parameters": true,
+      "dual_cover_cohomology_h0_to_h3": [
+        0,
+        0,
+        27,
+        0
+      ],
+      "jumping_locus": "empty",
+      "reason": "both synchronized constituent complexes have cohomology only in degree one",
+      "visible_cover_cohomology_h0_to_h3": [
+        0,
+        27,
+        0,
+        0
+      ]
+    },
+    "wilson_projection": {
+      "anti_families": 0,
+      "families": 3,
+      "matter_exotic_blocks": 0,
+      "right_handed_neutrinos": 3
+    }
+  },
+  "next_required_object": "freeze the lawful physical P1 component, then lift matter and Higgs representatives into one common Schoen DGA",
+  "physical_selection_constraints": {
+    "one_higgs_pair": true,
+    "three_families": true,
+    "three_right_handed_neutrinos": true,
+    "used_as_construction_inputs": false,
+    "zero_anti_families": true,
+    "zero_exotic_massless_blocks": true
+  },
+  "prerequisite_artifact_digests": {
+    "relative_pushdowns": "e047debedef3af4dace938baefcbab29a4e62dc3fa2102bfb09dac9082152e3e",
+    "stable_su4_locus": "2c88036bc3a99c948020fcd99b6acf661994f370f2144d8fc7930b51dfbd19ee",
+    "universal_cone": "1c227754a808ca9a45d2859dd1cfbdb9338129f63bfa9ccfde930c4862abc22d"
+  },
+  "schema": "mixed-schoen-observable-spectrum-v1",
+  "source": {
+    "arxiv_id": "hep-th/0512177",
+    "comparison_locators": [
+      "eq:Vcoh",
+      "eq:wedge2Vcoh"
+    ],
+    "free_action_source": {
+      "arxiv_id": "hep-th/0410055",
+      "source_archive_sha256": "ad75668ca40b14972f1e52d5232fee08b3b6130b27accff1217440fc1d65536a",
+      "version": "v2"
+    },
+    "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "source_cohomology_dimensions_used_as_rank_inputs": false,
+    "version": "v3",
+    "wilson_input_locators": [
+      "eq:burt4",
+      "eq:19"
+    ]
+  },
+  "status": "exact all-parameter three-family one-Higgs structural spectrum from the lawful mixed family"
+}

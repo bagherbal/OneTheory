@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "831e20339247a8d6e3d73f4f3f95fca9c5f6cd55a34ea5311e57dd5bead1e227",
+  "artifact_digest": "46a87304307089eb28be0b8fbf884304d04e003ef600c82138f62723e120da96",
   "artifacts": [
     {
       "bytes": 20014147,
@@ -182,6 +182,16 @@
       "sha256": "2c1bc57f28a8e60df5935fb15a603ac271c859109fc363a492be9152f05c09b6"
     },
     {
+      "bytes": 10238,
+      "path": "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
+      "sha256": "f9a64d8ca49f705371949ec2ca998174687689b02f4a310b570d55f7d55301da"
+    },
+    {
+      "bytes": 2189,
+      "path": "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
+      "sha256": "c6efae9482b501926365543056ec76405873db273b9b7d4d15d143ed13386c7c"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -253,11 +263,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 550,
+    "collected_tests_at_audit": 558,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 151,
-    "test_python_files": 132
+    "research_python_files": 153,
+    "test_python_files": 134
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -717,6 +727,41 @@
       "status": "BLOCKED"
     },
     {
+      "assumptions": [
+        "relative duality",
+        "selected mixed constituent local units"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
+        "research/experiments/scientific_genesis/relative_constituent_pushdowns.py",
+        "tests/integration/test_scientific_genesis_relative_constituent_pushdowns.py"
+      ],
+      "id": "relative_constituent_pushdowns",
+      "label": "lawful mixed constituent relative pushdowns",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "Selected mixed W1/W2 cocycles determine exact relative quasi-isomorphisms. Their derived tensor has cohomology (0,4,4,0) with generated equivariant line data.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "free ninefold Schoen deck action",
+        "published Wilson-line embedding",
+        "Calabi--Yau Serre duality"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
+        "research/experiments/scientific_genesis/mixed_schoen_observable_spectrum.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_observable_spectrum.py"
+      ],
+      "id": "mixed_schoen_observable_spectrum",
+      "label": "lawful mixed-family structural spectrum",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "Synchronized mixed transfers derive pure constituent H1 dimensions 9 and 18. Free-action Lefschetz compression gives three regular matter copies, while the acyclic determinant filtration and lawful pushdowns give four Higgs classes, one Wilson-projected pair, and no color triplets for every stable P1 parameter.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "data/generated/visible_carrier/visible_carrier_artifact.json",
@@ -1041,41 +1086,34 @@
     },
     {
       "assumptions": [
-        "published W1/W2 equivariant pushdowns",
-        "published Wilson-line embedding"
+        "published Wilson-line embedding",
+        "three families and one Higgs pair are selection constraints"
       ],
       "evidence": [
         "src/onetheory/physics/compactification.py",
-        "research/experiments/computable_carrier/downstream.py",
-        "data/generated/scientific_genesis/published_matter_cohomology.json",
-        "data/generated/scientific_genesis/published_higgs_cohomology.json"
+        "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
+        "research/experiments/scientific_genesis/mixed_schoen_observable_spectrum.py"
       ],
       "id": "physical_spectrum",
       "label": "Wilson-projected carrier spectrum",
       "layer": "Reference realization",
-      "missing_prerequisites": [
-        "mixed matter representatives",
-        "mixed Higgs representatives",
-        "lawful Wilson projection on both sectors"
-      ],
-      "statement": "The source spectrum remains the target ledger, but the matter and Higgs representatives used for the prior Wilson projection came from retired cones. No chain-derived physical spectrum is currently available from the selected mixed atlases.",
-      "status": "BLOCKED"
+      "missing_prerequisites": [],
+      "statement": "The lawful mixed family has three Wilson-projected families, three right-handed neutrinos, one Higgs pair, no anti-families, and no massless color-triplet or exotic blocks throughout P1 x K^s.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
       "evidence": [
-        "data/generated/computable_carrier/computable_carrier_artifact.json"
+        "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
+        "research/experiments/scientific_genesis/computable_one_theory_carrier_state.py",
+        "tests/integration/test_scientific_genesis_computable_one_theory_carrier_state.py"
       ],
       "id": "computable_carrier_state",
       "label": "first frozen computable carrier",
       "layer": "Computable carrier",
-      "missing_prerequisites": [
-        "replacement algebraic lawful family",
-        "nonempty stability chamber",
-        "required structural spectrum"
-      ],
-      "statement": "No candidate has passed every rank, determinant, topology, local-freeness, descent, stability, and spectrum gate.",
-      "status": "BLOCKED"
+      "missing_prerequisites": [],
+      "statement": "The unique currently derived lawful physical connected component P1 is frozen for vertical computation. No extension point is selected, and the source P3 ledger remains a distinct reference.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
@@ -1111,12 +1149,11 @@
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "synchronized V1/V2 Cech-Koszul complex",
-        "matter and Higgs hypercocycles",
+        "parameter-dependent matter and Higgs Schoen hypercocycles",
         "restricted actions and contraction",
         "cyclic pairing and trace conventions"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist, but no synchronized carrier complex and physical representatives are available.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist and the lawful carrier component is frozen. Parameter-dependent full Schoen matter/Higgs lifts and a common contraction are still absent.",
       "status": "BLOCKED"
     },
     {
@@ -1660,6 +1697,66 @@
       "target": "published_higgs_cohomology"
     },
     {
+      "assumptions_required": [
+        "relative duality"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/relative_constituent_pushdowns.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "full Schoen lifts are not part of the relative certificate"
+      ],
+      "mathematical_reason": "The selected deck-linearized mixed cocycles and exact local units determine both relative W1/W2 quasi-isomorphism classes.",
+      "source": "published_constituent_deck_atlases",
+      "target": "relative_constituent_pushdowns"
+    },
+    {
+      "assumptions_required": [
+        "free ninefold Schoen deck action"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "full matter Schoen representatives remain to be lifted"
+      ],
+      "mathematical_reason": "Direct synchronized mixed transfers compute constituent matter cohomology on the lawful stable family; pure H1 makes it independent of the outer parameter.",
+      "source": "published_outer_stability_locus",
+      "target": "mixed_schoen_observable_spectrum"
+    },
+    {
+      "assumptions_required": [
+        "published Wilson-line embedding"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "derived-P1 classes are not yet full Schoen DGA representatives"
+      ],
+      "mathematical_reason": "Acyclic determinant lines identify exterior-square cohomology with the derived tensor of the two lawful relative pushdowns for every outer parameter.",
+      "source": "relative_constituent_pushdowns",
+      "target": "mixed_schoen_observable_spectrum"
+    },
+    {
+      "assumptions_required": [
+        "three families and one Higgs pair are selection constraints"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the result is structural spectrum, not a mass prediction"
+      ],
+      "mathematical_reason": "Exact deck characters tensored with the source Wilson characters determine all matter, Higgs, anti-family, and color-triplet blocks.",
+      "source": "mixed_schoen_observable_spectrum",
+      "target": "physical_spectrum"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/published_matter_cohomology.json"
@@ -2045,26 +2142,27 @@
         "selection constraints are not predictions"
       ],
       "implementation_or_artifact": [
-        "research/experiments/computable_carrier/downstream.py"
+        "data/generated/scientific_genesis/computable_one_theory_carrier_state.json"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "no lawful parameter locus may satisfy all constraints"
+        "the source P3 ledger is not identified with the lawful P1"
       ],
-      "mathematical_reason": "Passing the declared three-family, one-Higgs, no-exotic constraints freezes a carrier.",
+      "mathematical_reason": "Passing the declared three-family, one-Higgs, no-exotic constraints freezes the unique currently derived lawful physical connected component without selecting a point.",
       "source": "physical_spectrum",
       "target": "computable_carrier_state"
     },
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
         "src/onetheory/math/homological.py"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "required contractions or pairings may be unavailable"
+        "full matter/Higgs lifts or required pairings may be unavailable"
       ],
-      "mathematical_reason": "A fixed carrier determines the synchronized complexes and products.",
+      "mathematical_reason": "The frozen P1 component determines a universal parameter-dependent carrier complex on which common products must be constructed.",
       "source": "computable_carrier_state",
       "target": "common_dga_package"
     },
@@ -2281,8 +2379,11 @@
     "exact mixed outer P/T transfer deriving fixed dimensions 2/6 and strict full-Cech invariant representatives",
     "exact lawful universal rank-four cone over P1(Q(omega)) with affine-origin split locus and no selected extension point",
     "every lawful P1 extension stable in the exact source chamber with genuine SU(4) forced by nonzero cover c3",
+    "synchronized mixed constituent transfers derive matter cohomology (0,27,0,0), with free-action Lefschetz compression proving three regular deck representations",
+    "acyclic determinant filtration and lawful relative pushdowns derive Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and zero massless color triplets throughout the lawful P1",
+    "the lawful physical P1 component is frozen as the first computable carrier without selecting an extension point or identifying source P3",
     "retired trivial-character outer complexes retained only as scoped dimension and transfer diagnostics",
-    "relative signatures recover the source Higgs dimension tuple (0,4,4,0), pending lawful mixed chain lifts",
+    "relative signatures recover the source Higgs dimension tuple (0,4,4,0) from selected mixed constituent cocycles",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
     "1,296 exact automorphism quotients including one square-zero-unipotent exceptional family",
     "exact four-parameter pair-73 Ext family with split origin and projective nonzero quotient",
@@ -2334,6 +2435,8 @@
       "additional_retired_family_count": 72,
       "arbitrary_point_selected": false,
       "coefficient_field": "Q(omega)",
+      "computable_carrier_component": "lawful-mixed-schoen-P1",
+      "computable_carrier_component_frozen": true,
       "current_minimum_retired_candidate_blocks": [
         8,
         28
@@ -2380,7 +2483,30 @@
       "global_schoen_bundle_no_go": false,
       "lawful_P1_all_nonzero_parameters_stable_in_chamber": true,
       "lawful_P1_genuine_su4_on_stable_chamber": true,
+      "lawful_dual_matter_h0_to_h3": [
+        0,
+        0,
+        27,
+        0
+      ],
+      "lawful_higgs_h0_to_h3": [
+        0,
+        4,
+        4,
+        0
+      ],
+      "lawful_massless_color_triplets": 0,
+      "lawful_matter_deck_representation": "3 Reg(Z3 x Z3)",
+      "lawful_matter_h0_to_h3": [
+        0,
+        27,
+        0,
+        0
+      ],
       "lawful_mixed_projective_outer_space": "P^1(Q(omega))",
+      "lawful_structural_spectrum_all_P1": true,
+      "lawful_wilson_projected_families": 3,
+      "lawful_wilson_projected_higgs_pairs": 1,
       "minimum_forced_chamber_certificate": [
         "(2,1,t)",
         "t>7/2"
@@ -2464,35 +2590,22 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "Wilson-projected matter and Higgs cohomology from the same lawful mixed chain family",
-    "selection_status": "lawful stable genuine-SU4 P1 closed; generated spectrum open"
+    "next_required_object": "parameter-dependent matter and Higgs representatives in one common Schoen DGA",
+    "selection_status": "lawful physical P1 component frozen; common-DGA lifts open"
   },
   "research_value_scheduler": [
     {
-      "priority_score": 21.5,
-      "rationale": "Closes the first carrier-construction edge using existing exact cocycles.",
+      "priority_score": 13.0,
+      "rationale": "Determines whether higher products are mathematically required.",
       "scores": {
-        "computational_cost": 3,
-        "distance_to_observable": 5,
+        "computational_cost": 4,
+        "distance_to_observable": 4,
         "foundational_importance": 4,
         "probability_of_discriminating_theory": 5,
         "risk_of_local_rabbit_hole": 2,
         "structural_reuse": 5
       },
-      "task": "universal_pair_73_mapping_cone"
-    },
-    {
-      "priority_score": 16.0,
-      "rationale": "Can validate or eliminate the entire simplest family symbolically.",
-      "scores": {
-        "computational_cost": 4,
-        "distance_to_observable": 5,
-        "foundational_importance": 3,
-        "probability_of_discriminating_theory": 5,
-        "risk_of_local_rabbit_hole": 2,
-        "structural_reuse": 5
-      },
-      "task": "pair_73_algebraic_locus"
+      "task": "first_tree_rank_explanation"
     },
     {
       "priority_score": 10.667,
@@ -2509,7 +2622,20 @@
     },
     {
       "priority_score": 8.6,
-      "rationale": "Produces the first matrix once a carrier survives.",
+      "rationale": "Supplies the physical cocycles required by the first Yukawa product.",
+      "scores": {
+        "computational_cost": 5,
+        "distance_to_observable": 5,
+        "foundational_importance": 4,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 3,
+        "structural_reuse": 5
+      },
+      "task": "lawful_carrier_common_dga_lifts"
+    },
+    {
+      "priority_score": 8.6,
+      "rationale": "Produces the first exact matrix from the frozen carrier component.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,
@@ -2521,30 +2647,17 @@
       "task": "minimal_common_dga_yukawa_slice"
     },
     {
-      "priority_score": 8.533,
-      "rationale": "Directly tests three-family and one-Higgs selection constraints.",
-      "scores": {
-        "computational_cost": 5,
-        "distance_to_observable": 5,
-        "foundational_importance": 3,
-        "probability_of_discriminating_theory": 5,
-        "risk_of_local_rabbit_hole": 3,
-        "structural_reuse": 5
-      },
-      "task": "computable_family_spectrum_loci"
-    },
-    {
-      "priority_score": 6.917,
-      "rationale": "Decides whether an algebraically lawful family can become physical.",
+      "priority_score": 4.25,
+      "rationale": "Screens the later metric route before expensive numerical geometry.",
       "scores": {
         "computational_cost": 4,
-        "distance_to_observable": 4,
+        "distance_to_observable": 3,
         "foundational_importance": 3,
-        "probability_of_discriminating_theory": 5,
+        "probability_of_discriminating_theory": 4,
         "risk_of_local_rabbit_hole": 3,
         "structural_reuse": 4
       },
-      "task": "computable_family_stability_chamber"
+      "task": "lawful_carrier_global_generation"
     },
     {
       "priority_score": 3.438,

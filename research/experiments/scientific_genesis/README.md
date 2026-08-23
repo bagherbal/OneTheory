@@ -151,6 +151,11 @@ The two strict forward classes now generate the parameter-linear cone
 split locus is only the origin, and every nonzero class defines a locally free
 descended rank-four extension with the published topology. Thus the lawful
 non-split parameter space is `P^1(Q(omega))`, with no chosen point. The former
-source-scoped stability certificate used a retired `P^3` family; it cannot be
-restricted to this `P^1` by dimension alone. Exact stability and genuine-SU(4)
-analysis on the lawful family is the next gate.
+source ledger used a four-dimensional invariant space, but the sufficient
+stability theorem is uniform over every nontrivial extension and does not
+depend on those coordinates. Every lawful `P^1` point is therefore stable in
+the exact source chamber. On the simply connected cover, stability gives
+connected irreducible holonomy, while `c3=-54` excludes every proper connected
+irreducible rank-four reduction. The entire lawful family is genuinely
+`SU(4)` in that chamber. Generated matter and Higgs cohomology are the next
+gate.

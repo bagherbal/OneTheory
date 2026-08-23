@@ -496,25 +496,25 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "published_outer_stability_locus",
-            "published generic stable SU(4) outer locus",
+            "lawful mixed stable SU(4) outer locus",
             "Reference realization",
-            "BLOCKED",
-            "The source stability theorem and slope chamber remain evidence "
-            "for a generic P3 family built from retired cones. The lawful mixed "
-            "family is P1, and its intersection with the source generic locus "
-            "has not been established.",
+            "COMPUTED",
+            "The published sufficient slope bounds depend only on constituent "
+            "subsheaves and nonsplitting. Every lawful P1 point is nonsplit, so "
+            "all are stable in the exact chamber; nonzero cover c3 excludes "
+            "proper connected irreducible structure-group reductions.",
             (
                 "data/generated/scientific_genesis/"
-                "published_outer_stability_locus.json",
+                "mixed_schoen_outer_stability_locus.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_outer_stability_locus.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_outer_stability_locus.py",
                 "data/published/visible_carrier/source_manifest.json",
             ),
             (
-                "published generic stability theorem",
+                "published nontrivial-extension stability theorem",
                 "Donaldson--Uhlenbeck--Yau correspondence",
-            ),
-            missing=(
-                "exact stability analysis on the lawful mixed P1 family",
-                "comparison of P1 with the source generic P3 locus",
             ),
         ),
         _node(
@@ -574,7 +574,6 @@ def _nodes() -> list[dict[str, object]]:
             ),
             missing=(
                 "comparison of the lawful P1 family with the source P3 ledger",
-                "stable genuine-SU(4) locus on the lawful family",
             ),
         ),
         _node(
@@ -1412,28 +1411,33 @@ def _edges() -> list[dict[str, object]]:
             ),
         ),
         _edge(
-            "published_chain_reconstruction",
+            "mixed_schoen_outer_universal_cone",
             "published_outer_stability_locus",
-            "Only a lawful mixed outer parameter space can receive the source "
-            "generic stability theorem after an exact comparison of parameter "
-            "loci.",
-            ("data/published/visible_carrier/source_manifest.json",),
-            ("published generic stability theorem",),
-            False,
-            ("the source P3 theorem cannot be restricted to P1 by dimension",),
+            "The source sufficient lower bound is uniform over nontrivial "
+            "extensions. The universal split ideal proves every P1 point is "
+            "nontrivial, while exact source slopes certify a common chamber.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_outer_stability_locus.json",
+            ),
+            ("published nontrivial-extension stability theorem",),
+            True,
+            ("the affine split origin is excluded before projectivization",),
         ),
         _edge(
-            "published_chain_reconstruction",
+            "published_outer_stability_locus",
             "published_matter_cohomology",
-            "Matter cohomology must use the same strict mixed constituent and "
-            "outer chain objects as the carrier.",
+            "The stable lawful family supplies the exact carrier chain on which "
+            "parameter-dependent matter cohomology must be transferred.",
             (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_outer_stability_locus.json",
                 "data/generated/scientific_genesis/"
                 "published_matter_cohomology.json",
             ),
             ("published Wilson-line embedding",),
             False,
-            ("retired-cone representatives cannot supply this implication",),
+            ("lawful mixed matter representatives have not been transferred",),
         ),
         _edge(
             "published_constituent_deck_atlases",
@@ -2266,6 +2270,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_outer_transfer.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_actions.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json",
+        "data/generated/scientific_genesis/mixed_schoen_outer_stability_locus.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2296,7 +2301,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 547,
+            "collected_tests_at_audit": 550,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2318,7 +2323,7 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "lawful mixed P1 cone closed; source stability comparison open"
+                "lawful stable genuine-SU4 P1 closed; generated spectrum open"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2402,12 +2407,15 @@ def build_state() -> dict[str, object]:
                 "lawful_mixed_projective_outer_space": "P^1(Q(omega))",
                 "retired_source_scoped_outer_space": "P^3(Q(omega))",
                 "outer_parameter_dimension_mismatch_unresolved": True,
+                "lawful_P1_all_nonzero_parameters_stable_in_chamber": True,
+                "lawful_P1_genuine_su4_on_stable_chamber": True,
+                "retired_P3_embedding_used_for_stability": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact stable genuine-SU(4) locus of the lawful mixed P1 "
-                "family and its comparison with the source generic P3 locus"
+                "Wilson-projected matter and Higgs cohomology from the same "
+                "lawful mixed chain family"
             ),
         },
         "claims": _nodes(),
@@ -2437,6 +2445,8 @@ def build_state() -> dict[str, object]:
             "strict full-Cech invariant representatives",
             "exact lawful universal rank-four cone over P1(Q(omega)) with "
             "affine-origin split locus and no selected extension point",
+            "every lawful P1 extension stable in the exact source chamber with "
+            "genuine SU(4) forced by nonzero cover c3",
             "retired trivial-character outer complexes retained only as scoped "
             "dimension and transfer diagnostics",
             "relative signatures recover the source Higgs dimension tuple "

@@ -1,0 +1,280 @@
+{
+  "all_nonzero_parameters_stable_in_chamber": true,
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "2c88036bc3a99c948020fcd99b6acf661994f370f2144d8fc7930b51dfbd19ee",
+  "certified_stable_locus": "P^1(Q(omega)) x K^s",
+  "dimension_mismatch_affects_stability_implication": false,
+  "equivariantly_stable_and_descended": true,
+  "extension_parameter_space": "P^1(Q(omega))",
+  "first_missing_input": "Wilson-projected matter and Higgs cohomology from the same lawful mixed chain family",
+  "kahler_chamber": {
+    "ambient": "x1>0, x2>0, y>0",
+    "anchor": [
+      "6",
+      "9",
+      "3"
+    ],
+    "anchor_slopes": [
+      "-621",
+      "-378",
+      "-702",
+      "-1512",
+      "-1269",
+      "-594",
+      "-918",
+      "-27",
+      "-675"
+    ],
+    "definition": "all nine source sufficient slope polynomials are negative",
+    "inequalities": [
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -6,
+          18,
+          -36,
+          -3,
+          -18
+        ],
+        "line_class": [
+          -1,
+          -2,
+          2
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -6,
+          -18,
+          -36,
+          6,
+          36
+        ],
+        "line_class": [
+          2,
+          -2,
+          -1
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -15,
+          0,
+          -90,
+          6,
+          36
+        ],
+        "line_class": [
+          2,
+          -5,
+          1
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          3,
+          18,
+          18,
+          -12,
+          -72
+        ],
+        "line_class": [
+          -4,
+          1,
+          2
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          3,
+          -18,
+          18,
+          -3,
+          -18
+        ],
+        "line_class": [
+          -1,
+          1,
+          -1
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          6,
+          0,
+          36,
+          -6,
+          -36
+        ],
+        "line_class": [
+          -2,
+          2,
+          0
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -3,
+          18,
+          -18,
+          -6,
+          -36
+        ],
+        "line_class": [
+          -2,
+          -1,
+          2
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -12,
+          18,
+          -72,
+          3,
+          18
+        ],
+        "line_class": [
+          1,
+          -4,
+          2
+        ]
+      },
+      {
+        "coefficient_order": [
+          "x1^2",
+          "x1*x2",
+          "x1*y",
+          "x2^2",
+          "x2*y"
+        ],
+        "coefficients": [
+          -3,
+          -18,
+          -18,
+          3,
+          18
+        ],
+        "line_class": [
+          1,
+          -1,
+          -1
+        ]
+      }
+    ],
+    "name": "K^s",
+    "rational_open_box": {
+      "all_slopes_negative": true,
+      "coordinate_radius": "1/32",
+      "inside_positive_cone": true,
+      "strict_upper_bounds": [
+        "-623151/1024",
+        "-184557/512",
+        "-690477/1024",
+        "-1512453/1024",
+        "-322113/256",
+        "-148011/256",
+        "-920367/1024",
+        "-5637/1024",
+        "-170337/256"
+      ]
+    }
+  },
+  "lawful_invariant_ext_dimension": 2,
+  "parameter_quantifier": {
+    "arbitrary_parameter_selected": false,
+    "every_nonzero_parameter": true,
+    "genericity_assumed": false,
+    "reason": "the sufficient lower stability bound depends only on constituent subsheaves and nonsplitting; every P1 point is a nontrivial extension",
+    "retired_P3_embedding_used": false
+  },
+  "schema": "mixed-schoen-outer-stability-locus-v1",
+  "source_invariant_ext_dimension": 4,
+  "sources": [
+    {
+      "arxiv_id": "hep-th/0602073",
+      "locators": [
+        "section 3.2, equations 10 and 15",
+        "Proposition 1 and equations 32 through 36"
+      ],
+      "source_archive_sha256": "8e38123b9d2de8751deecbf295015497ab2ed891244215455fffe756bebf0aea",
+      "version": "v1"
+    },
+    {
+      "arxiv_id": "hep-th/0512205",
+      "locators": [
+        "section 2.1 nontrivial-extension lower bound",
+        "split pair (0,V_R) exclusion"
+      ],
+      "source_archive_sha256": "f3c339b0ea7d5d26747dac8788400c785a3194077d09974eae5e04293f9a4eab",
+      "version": "v2"
+    }
+  ],
+  "status": "every lawful nonzero extension is stable and genuinely SU(4) throughout the certified Kahler chamber",
+  "structure_group": {
+    "argument": "stable determinant-trivial bundles have irreducible SU(4) HYM holonomy; on the simply connected cover the holonomy is connected, while a proper connected irreducible subgroup would force the odd Chern classes to be torsion",
+    "cover_c3": "-54",
+    "determinant_trivial": true,
+    "genuine_su4_on_certified_locus": true,
+    "proper_connected_irreducible_reduction_excluded": true,
+    "rank": 4,
+    "schoen_cover_simply_connected": true,
+    "stable_hym_irreducible": true
+  },
+  "universal_cone_digest": "1c227754a808ca9a45d2859dd1cfbdb9338129f63bfa9ccfde930c4862abc22d"
+}

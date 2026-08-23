@@ -53,6 +53,19 @@
         "eq:Kahlercone; invariant Kahler cone is x1,x2,y > 0"
       ],
       "role": "Serre ideal schemes, bundle stability, pushdowns, and extension dimension"
+    },
+    {
+      "arxiv_id": "hep-th/0512205",
+      "version": "v2",
+      "title": "Constraining the Kahler Moduli in the Heterotic Standard Model",
+      "source_archive_sha256": "f3c339b0ea7d5d26747dac8788400c785a3194077d09974eae5e04293f9a4eab",
+      "pdf_sha256": "4d856a1cf2184137cfb6112b4d4bc3b59efe8ff3874b03569825882cf49b5d03",
+      "locators": [
+        "section 2.1; nontrivial-extension stability lower and upper bounds",
+        "discussion after the lower bound; the split pair (0,V_R) is excluded",
+        "visible-bundle stablemaker witness"
+      ],
+      "role": "parameter-independent stability bounds for nontrivial bundle extensions"
     }
   ],
   "excluded_sources": [

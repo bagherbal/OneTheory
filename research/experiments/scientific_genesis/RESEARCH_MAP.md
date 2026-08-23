@@ -258,8 +258,16 @@ constituents are locally free, while strict invariance plus the constituent
 deck atlases gives descent. Rank, determinant, and Chern data are independent
 of the parameter, so the lawful non-split family is `P^1(Q(omega))` with no
 chosen point. This does not import the former source-scoped generic stability
-claim: that certificate used a retired `P^3` family. The intersection of the
-lawful `P^1` with a stable genuine-`SU(4)` locus remains unresolved.
+claim by inventing an embedding. The source sufficient-stability proof is
+instead uniform over nontrivial extensions: its lower bound depends only on
+constituent subsheaves and the absence of a splitting. Every projective point
+of the lawful `P^1` is nonsplit, so all are stable throughout the exact
+certified Kähler chamber. Stability gives irreducible connected holonomy on
+the simply connected cover, and cover `c3=-54` excludes every proper connected
+irreducible rank-four reduction. Hence `P^1 x K^s` is a descended genuine-
+`SU(4)` locus without a chosen extension point. The source invariant-dimension
+ledger remains mismatched, but that mismatch does not enter this stability
+implication.
 
 Only an algebraically lawful family may proceed to an exact stability chamber
 and parameter-dependent Wilson-projected spectrum. Three families and one
@@ -270,9 +278,9 @@ distinct from the published reference carrier.
 ## Vertical physics blockers
 
 Generic DGA, module, contraction, cyclic-pairing, and HPL machinery already
-exists, and the published constituent outer complexes now have strict
-invariant outer bases and a universal descended rank-four cone in one
-synchronized cover complex. Exact relative projection now derives both
+exists, and the lawful mixed outer complex now has strict invariant bases, a
+universal descended rank-four cone, and an exact stable genuine-`SU(4)`
+chamber. Exact relative projection now derives both
 constituent pushdown quasi-isomorphisms: W1 contracts its duality-forced
 `O(-2) -> O(-2)` pair, while W2 is the elementary transformation
 `O(-2) -> O(1)` across three reduced base points. Their derived tensor has
@@ -321,20 +329,21 @@ twenty-four local relation squares commute, every ordered overlap square is
 equivariant, and the localized maps satisfy order three plus exact P/T
 commutation. This removes the projective resolution commutator as a false
 descent obstruction. The result is a source-bound deck linearization of W1
-and W2, not yet a reconstruction of the outer rank-four extension.
+and W2 and supplies the constituent descent input used by the lawful outer
+rank-four extension.
 
 Both mixed extension arrows now also occupy the synchronized Schoen cover as
 explicit sparse data. Their parent-zero, parent-one, and hypersurface-homotopy
 sectors pass exact degree, multidegree, regularity, closure, and deck-character
-checks. This is the complete constituent input needed by the corrected outer
-transfer; no outer cohomology is inferred from the embedding alone.
+checks. Corrected outer transfer, strict invariants, the universal cone, and
+the stable genuine-`SU(4)` chamber now close from this input.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the
 published carrier, even when their dimensions happen to match source ledgers.
-The immediate vertical task is to rerun the synchronized outer and Higgs
-transfers from these mixed, deck-linearized atlases before any Yukawa product
-is attempted.
+The immediate vertical task is to derive synchronized matter and Higgs
+representatives from the same mixed, deck-linearized family before any Yukawa
+product is attempted.
 The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.
@@ -358,11 +367,11 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: determine the exact stable genuine-`SU(4)`
-locus of the lawful mixed `P^1` family and compare it with the source generic
-`P^3` statement without inventing an embedding. If a nonempty component
-survives, compute its Wilson-projected spectrum before entering the minimum
-common-DGA Yukawa slice. The declared finite monomial replacement category is
-exhausted by scoped stability no-go results. Completing the final 144 large
-automorphism cases stays suspended until it can change a dependency edge or
-independently verify a theorem.
+The governing queue is therefore: compute the Wilson-projected matter and
+Higgs spectrum of the lawful stable `P^1` family from synchronized mixed chain
+data. If the required three families and one Higgs pair survive, freeze the
+first computable carrier component before entering the minimum common-DGA
+Yukawa slice. The declared finite monomial replacement category is exhausted
+by scoped stability no-go results. Completing the final 144 large automorphism
+cases stays suspended until it can change a dependency edge or independently
+verify a theorem.

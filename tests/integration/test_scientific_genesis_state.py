@@ -79,13 +79,16 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "P^3(Q(omega))"
     )
     assert path["criteria"]["outer_parameter_dimension_mismatch_unresolved"] is True
+    assert path["criteria"]["lawful_P1_all_nonzero_parameters_stable_in_chamber"] is True
+    assert path["criteria"]["lawful_P1_genuine_su4_on_stable_chamber"] is True
+    assert path["criteria"]["retired_P3_embedding_used_for_stability"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "lawful mixed P1 cone closed; source stability comparison open"
+        "lawful stable genuine-SU4 P1 closed; generated spectrum open"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
@@ -117,7 +120,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_outer_cech_transfer"]["status"] == "COMPUTED"
     assert claims["published_outer_cech_invariants"]["status"] == "COMPUTED"
     assert claims["published_outer_universal_cone"]["status"] == "COMPUTED"
-    assert claims["published_outer_stability_locus"]["status"] == "BLOCKED"
+    assert claims["published_outer_stability_locus"]["status"] == "COMPUTED"
     assert claims["published_matter_cohomology"]["status"] == "BLOCKED"
     assert claims["published_higgs_cohomology"]["status"] == "BLOCKED"
     assert claims["physical_spectrum"]["status"] == "BLOCKED"

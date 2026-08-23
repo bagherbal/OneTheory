@@ -34,6 +34,7 @@ from onetheory.models.heterotic_schoen.visible import STABILITY_ROWS, visible_bu
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
 )
+from research.experiments.computable_carrier.stability import StabilityPolynomial
 
 from .published_outer_universal_cone import (
     OUTPUT as UNIVERSAL_CONE_ARTIFACT,
@@ -46,58 +47,6 @@ STABILITY_ARXIV_ID = "hep-th/0602073"
 STABILITY_SOURCE_SHA256 = (
     "8e38123b9d2de8751deecbf295015497ab2ed891244215455fffe756bebf0aea"
 )
-
-
-@dataclass(frozen=True, slots=True)
-class StabilityPolynomial:
-    """One exact quadratic slope inequality in the published divisor basis."""
-
-    line_class: tuple[int, int, int]
-    coefficients: tuple[int, int, int, int, int]
-    published_anchor_value: int
-
-    def evaluate(self, point: tuple[Rational, Rational, Rational]) -> Rational:
-        """Evaluate the slope at ``(x1, x2, y)`` exactly."""
-
-        x1, x2, y = point
-        a, b, c, d, e = (Rational(value) for value in self.coefficients)
-        return (
-            a * x1 * x1
-            + b * x1 * x2
-            + c * x1 * y
-            + d * x2 * x2
-            + e * x2 * y
-        )
-
-    def box_upper_bound(
-        self,
-        center: tuple[Rational, Rational, Rational],
-        radius: Rational,
-    ) -> Rational:
-        """Bound the polynomial above on a common coordinate box.
-
-        The exact Taylor expansion has a linear term bounded by the one-norm
-        of the gradient times ``radius`` and a quadratic remainder bounded by
-        the one-norm of the five displayed coefficients times ``radius**2``.
-        """
-
-        x1, x2, y = center
-        a, b, c, d, e = (Rational(value) for value in self.coefficients)
-        gradient = (
-            Rational(2) * a * x1 + b * x2 + c * y,
-            b * x1 + Rational(2) * d * x2 + e * y,
-            c * x1 + e * x2,
-        )
-        linear_bound = sum((abs(value) for value in gradient), Rational(0))
-        quadratic_bound = sum(
-            (abs(value) for value in (a, b, c, d, e)),
-            Rational(0),
-        )
-        return (
-            self.evaluate(center)
-            + linear_bound * radius
-            + quadratic_bound * radius * radius
-        )
 
 
 @dataclass(frozen=True, slots=True)

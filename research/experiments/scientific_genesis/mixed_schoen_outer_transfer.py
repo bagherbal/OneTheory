@@ -19,6 +19,7 @@ Phase 0:
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
 from functools import cache
@@ -74,6 +75,10 @@ KOSZUL_SUBSETS = {
     "k2": (1, 2),
 }
 SUBSET_KOSZUL = {subset: name for name, subset in KOSZUL_SUBSETS.items()}
+type ExtensionTermSign = Callable[
+    [str, MixedExtensionTerm, OuterCechBasis],
+    int,
+]
 
 
 class MixedSchoenComplex(Protocol):
@@ -347,6 +352,7 @@ def _mixed_extension_perturbation(
     components: dict[tuple[int, int, str], OuterCechComponent],
     left_index: _CompatibleTermIndex,
     right_index: _CompatibleTermIndex,
+    extra_sign: ExtensionTermSign | None = None,
 ) -> SparseOuterCechCochain:
     """Apply both selected mixed extension arrows to outer cochains."""
 
@@ -377,6 +383,8 @@ def _mixed_extension_perturbation(
                 sign *= -1
             if term.parent_degree == 0:
                 sign *= -1
+            if extra_sign is not None:
+                sign *= extra_sign("left", term, basis)
             image = _term_image(
                 basis,
                 coefficient,
@@ -407,6 +415,8 @@ def _mixed_extension_perturbation(
                 sign *= -1
             if term.parent_degree == 0:
                 sign *= -1
+            if extra_sign is not None:
+                sign *= extra_sign("right", term, basis)
             image = _term_image(
                 basis,
                 coefficient,

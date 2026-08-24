@@ -18,6 +18,7 @@ Phase 0:
 from __future__ import annotations
 
 import json
+from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass, replace
 from functools import cache
 from itertools import product
@@ -26,6 +27,10 @@ from typing import cast
 
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
+)
+from research.experiments.computable_carrier.schoen_serre_outer_transfer import (
+    OuterCechBasis,
+    SparseOuterCechCochain,
 )
 
 from .mixed_constituent_schoen_arrows import (
@@ -446,6 +451,198 @@ def tensor_sign_law_scan() -> dict[str, object]:
     return result
 
 
+def _tensor_term_factor(
+    term: MixedExtensionTerm,
+    second_count: int,
+) -> int:
+    """Return which constituent factor supplied one flattened tensor term."""
+
+    source_first, source_second = divmod(term.source, second_count)
+    target_first, target_second = divmod(term.target, second_count)
+    if source_second == target_second and source_first != target_first:
+        return 1
+    if source_first == target_first and source_second != target_second:
+        return 2
+    raise ValueError("a tensor extension term does not preserve its opposite factor")
+
+
+def _dynamic_sign_square(
+    static_coefficients: tuple[int, int, int, int, int, int],
+    dynamic_coefficients: tuple[int, int, int, int, int, int],
+    degree: int,
+    reduced_index: int,
+) -> int:
+    """Return one exact square support size under a live-degree parity law."""
+
+    from research.experiments.computable_carrier.schoen_serre_outer_transfer import (  # noqa: PLC0415
+        KOSZUL_DEGREES,
+        _cech_differential,
+        _include,
+        _reduced_basis,
+    )
+    from research.experiments.computable_carrier.schoen_serre_outer_transfer import (  # noqa: PLC0415
+        _perturbation as _structural_perturbation,
+    )
+
+    from .mixed_schoen_outer_actions import _MixedContraction  # noqa: PLC0415
+    from .mixed_schoen_outer_transfer import (  # noqa: PLC0415
+        _mixed_extension_perturbation,
+        mixed_schoen_unit,
+    )
+
+    candidate = _parity_law_candidate(static_coefficients)
+    contraction = _MixedContraction(candidate, mixed_schoen_unit())
+
+    def extra_sign(
+        composition: str,
+        term: MixedExtensionTerm,
+        basis: OuterCechBasis,
+    ) -> int:
+        if composition != "left":
+            return 1
+        factor = _tensor_term_factor(term, candidate.second_object_count)
+        offset = 0 if factor == 1 else 3
+        cech = basis.cech_degree % 2
+        koszul = KOSZUL_DEGREES[
+            basis.component.koszul_summand
+        ] % 2
+        exponent = (
+            dynamic_coefficients[offset] * cech
+            + dynamic_coefficients[offset + 1] * koszul
+            + dynamic_coefficients[offset + 2] * cech * koszul
+        ) % 2
+        return -1 if exponent else 1
+
+    def differential(
+        cochain: SparseOuterCechCochain,
+    ) -> SparseOuterCechCochain:
+        return (
+            _cech_differential(cochain)
+            + _structural_perturbation(
+                cochain,
+                contraction.left_skeleton,
+                contraction.right_skeleton,
+                contraction.components,
+            )
+            + _mixed_extension_perturbation(
+                cochain,
+                candidate,
+                contraction.right,
+                contraction.components,
+                contraction.left_index,
+                contraction.right_index,
+                extra_sign,
+            )
+        )
+
+    entry = _reduced_basis(
+        contraction.left_skeleton,
+        contraction.right_skeleton,
+        degree,
+    )[reduced_index]
+    seed = _include(entry)
+    first = differential(seed)
+    square = differential(first)
+    return len(square.terms)
+
+
+def _dynamic_sign_job(
+    job: tuple[
+        tuple[int, int, int, int, int, int],
+        tuple[int, int, int, int, int, int],
+        int,
+        int,
+    ],
+) -> tuple[
+    tuple[int, int, int, int, int, int],
+    tuple[int, int, int, int, int, int],
+    int,
+]:
+    """Evaluate one independent combined parity law in a worker process."""
+
+    static, dynamic, degree, reduced_index = job
+    return (
+        static,
+        dynamic,
+        _dynamic_sign_square(static, dynamic, degree, reduced_index),
+    )
+
+
+@cache
+def dynamic_tensor_sign_law_scan() -> dict[str, object]:
+    """Classify live Čech--Koszul parity laws on exact square witnesses."""
+
+    witnesses = ((0, 0), (1, 1), (1, 10))
+    survivors = tuple(product((0, 1), repeat=6))
+    survivor_counts = []
+    for degree, reduced_index in witnesses:
+        survivors = tuple(
+            coefficients
+            for coefficients in survivors
+            if _dynamic_sign_square(
+                (0, 0, 0, 0, 0, 0),
+                coefficients,
+                degree,
+                reduced_index,
+            )
+            == 0
+        )
+        survivor_counts.append(len(survivors))
+    return {
+        "law_family": (
+            "independent live parity exponents in ambient Cech degree, "
+            "Koszul degree, and their product"
+        ),
+        "declared_law_count": 64,
+        "witnesses": [list(witness) for witness in witnesses],
+        "survivor_counts": survivor_counts,
+        "surviving_laws": [list(item) for item in survivors],
+        "dynamic_sign_repair_exists_on_declared_witnesses": bool(survivors),
+    }
+
+
+@cache
+def combined_tensor_sign_law_scan() -> dict[str, object]:
+    """Attack every static-plus-live linear parity convention exactly."""
+
+    witnesses = ((0, 0), (1, 1), (1, 10))
+    laws = tuple(product((0, 1), repeat=6))
+    survivors = tuple(product(laws, laws))
+    survivor_counts = []
+    for degree, reduced_index in witnesses:
+        jobs = tuple(
+            (static, dynamic, degree, reduced_index)
+            for static, dynamic in survivors
+        )
+        with ProcessPoolExecutor(max_workers=min(16, len(jobs))) as executor:
+            evaluated = executor.map(_dynamic_sign_job, jobs, chunksize=16)
+            survivors = tuple(
+                (static, dynamic)
+                for static, dynamic, support_size in evaluated
+                if support_size == 0
+            )
+        survivor_counts.append(len(survivors))
+        if not survivors:
+            break
+    return {
+        "law_family": (
+            "all independent linear parity exponents in opposite object and "
+            "arrow-internal degrees, combined with live ambient Cech and "
+            "Koszul degrees"
+        ),
+        "declared_law_count": len(laws) ** 2,
+        "witnesses_used": [
+            list(witness) for witness in witnesses[: len(survivor_counts)]
+        ],
+        "survivor_counts": survivor_counts,
+        "surviving_laws": [
+            {"static": list(static), "dynamic": list(dynamic)}
+            for static, dynamic in survivors
+        ],
+        "parity_repair_exists": bool(survivors),
+    }
+
+
 def write_mixed_schoen_direct_tensor_audit(
     path: Path = OUTPUT,
 ) -> dict[str, object]:
@@ -457,7 +654,7 @@ def write_mixed_schoen_direct_tensor_audit(
     if not skeleton_square_zero:
         raise ValueError("the ordinary tensor skeleton lost square zero")
     payload: dict[str, object] = {
-        "schema": "mixed-schoen-direct-tensor-audit-v2",
+        "schema": "mixed-schoen-direct-tensor-audit-v3",
         "candidate_shape": {
             "object_count": len(candidate.objects),
             "resolution_arrow_count": len(candidate.resolution_arrows),
@@ -466,6 +663,7 @@ def write_mixed_schoen_direct_tensor_audit(
         },
         "naive_merged_arrow_witness": witness.as_record(),
         "parity_sign_law_scan": tensor_sign_law_scan(),
+        "combined_static_live_parity_scan": combined_tensor_sign_law_scan(),
         "physical_higgs_representative_available": False,
         "retired_diagonal_cones_used": False,
         "first_missing_input": (
@@ -474,7 +672,8 @@ def write_mixed_schoen_direct_tensor_audit(
         ),
         "status": (
             "ordinary tensor skeleton exact; naive merging of two full "
-            "Koszul-Cech arrow sets has nonzero differential square"
+            "Koszul-Cech arrow sets has nonzero differential square, and no "
+            "declared static-plus-live linear parity law repairs it"
         ),
     }
     payload["artifact_digest"] = _canonical_digest(payload)
@@ -504,6 +703,8 @@ if __name__ == "__main__":
 __all__ = [
     "MixedSchoenTensorComplex",
     "NaiveTensorSquareWitness",
+    "combined_tensor_sign_law_scan",
+    "dynamic_tensor_sign_law_scan",
     "naive_mixed_schoen_direct_tensor_candidate",
     "naive_tensor_square_witness",
     "ordinary_tensor_skeleton_square_zero",

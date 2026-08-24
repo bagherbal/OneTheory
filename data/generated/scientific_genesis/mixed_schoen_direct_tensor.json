@@ -1,10 +1,35 @@
 {
-  "artifact_digest": "20e325fc437c8d26987b30ca4220bceb1c368f9235aefc3a0b326c107d6101e1",
+  "artifact_digest": "5829678f5fe887915018f325b5d54107077c309a755824f43e4c2ec2594291ac",
   "candidate_shape": {
     "full_extension_term_count": 3834,
     "object_count": 48,
     "ordinary_resolution_skeleton_square_zero": true,
     "resolution_arrow_count": 68
+  },
+  "combined_static_live_parity_scan": {
+    "declared_law_count": 4096,
+    "law_family": "all independent linear parity exponents in opposite object and arrow-internal degrees, combined with live ambient Cech and Koszul degrees",
+    "parity_repair_exists": false,
+    "surviving_laws": [],
+    "survivor_counts": [
+      64,
+      32,
+      0
+    ],
+    "witnesses_used": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        10
+      ]
+    ]
   },
   "first_missing_input": "a chain diagonal with complete Koszul-Cech tensor signs for the two lawful mixed constituent complexes",
   "naive_merged_arrow_witness": {
@@ -68,6 +93,6 @@
   },
   "physical_higgs_representative_available": false,
   "retired_diagonal_cones_used": false,
-  "schema": "mixed-schoen-direct-tensor-audit-v2",
-  "status": "ordinary tensor skeleton exact; naive merging of two full Koszul-Cech arrow sets has nonzero differential square"
+  "schema": "mixed-schoen-direct-tensor-audit-v3",
+  "status": "ordinary tensor skeleton exact; naive merging of two full Koszul-Cech arrow sets has nonzero differential square, and no declared static-plus-live linear parity law repairs it"
 }

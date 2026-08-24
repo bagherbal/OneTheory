@@ -1047,8 +1047,8 @@ def _nodes() -> list[dict[str, object]]:
             "BLOCKED",
             "The signed 48-object ordinary tensor skeleton is square-zero. "
             "Naively merging the two already-resolved Koszul--Cech arrow sets "
-            "has an exact three-term D-squared witness. All 64 linear parity "
-            "sign laws are eliminated by three exact witnesses.",
+            "has an exact three-term D-squared witness. Three exact witnesses "
+            "eliminate all 4,096 declared static-plus-live linear parity laws.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_direct_tensor.json",
@@ -2854,8 +2854,8 @@ def build_state() -> dict[str, object]:
             "Higgs class without an equivariant chain comparison",
             "naively merging the two lawful full Koszul--Cech arrow sets gives "
             "an exact three-term differential-square witness, so a genuine "
-            "chain diagonal is required; three witnesses eliminate all 64 "
-            "linear parity-only sign repairs",
+            "chain diagonal is required; three witnesses eliminate all 4,096 "
+            "declared static-plus-live linear parity repairs",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",

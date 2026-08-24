@@ -809,7 +809,7 @@ def test_computable_carrier_artifact_digest_and_promotion_gate() -> None:
     assert external["status"] == "passed"
     assert external["image_digest"].startswith("sha256:")
     assert len(external["script_sha256"]) == 64
-    assert external["output"][-1] == "monomial_length_six_constituents: pass"
+    assert external["output"][-1] == "monomial_length_six_shift_frontier: pass"
     assert external["verified_scopes"] == {
         "baseline_hilbert_burch_and_split_transition": "passed",
         "curvilinear_rank_two_descent_inputs": "passed",

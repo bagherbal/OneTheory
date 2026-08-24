@@ -659,8 +659,8 @@ def build_artifact(root: Path) -> dict[str, object]:
                 "curvilinear_rank_four_topology: excluded_index_zero",
                 "curvilinear_tier_b_topology: excluded_no_index_three",
                 "monomial_tier_b_topology_counts: pass",
-                "monomial_length_six_shift_frontier: pass",
                 "monomial_length_six_constituents: pass",
+                "monomial_length_six_shift_frontier: pass",
             ],
             "verified_scopes": {
                 "baseline_hilbert_burch_and_split_transition": "passed",

@@ -1,0 +1,78 @@
+{
+  "all_products_are_full_chain_cycles": false,
+  "all_products_have_required_character": true,
+  "artifact_digest": "0ea6b0b1bf02af141fbc34c3391d8550259418f5789472b2d91ab1e38aa13f1f",
+  "audit_exact": true,
+  "candidate_nonzero_split_support": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "candidate_products": [
+    {
+      "column": 1,
+      "row": 0,
+      "term_count": 42171
+    },
+    {
+      "column": 2,
+      "row": 0,
+      "term_count": 42171
+    },
+    {
+      "column": 0,
+      "row": 1,
+      "term_count": 42171
+    },
+    {
+      "column": 0,
+      "row": 2,
+      "term_count": 42171
+    }
+  ],
+  "coefficient_field": "Q(omega)",
+  "column_character_exponents": [
+    1,
+    1
+  ],
+  "cyclic_trace_available": false,
+  "direct_product_hull_available": false,
+  "extension_point_selected": false,
+  "external_cover_substitution_used": false,
+  "family_basis": [
+    "V1",
+    "V2:1",
+    "V2:2"
+  ],
+  "holomorphic_yukawa_matrix_available": false,
+  "inserted_degree_zero_fiber_units_exact": true,
+  "next_required_object": "an exact equivariant chain comparison lifting the strict matter cocycles into the four-factor grouped Higgs complex",
+  "product_character_exponents": [
+    0,
+    2
+  ],
+  "product_plus_higgs_character_is_invariant": true,
+  "required_higgs_character_exponents": [
+    0,
+    1
+  ],
+  "row_character_exponents": [
+    2,
+    1
+  ],
+  "schema": "mixed-schoen-matter-tensor-audit-v1",
+  "status": "the canonical signed direct tensor preserves the required deck character but is not closed in the grouped Higgs differential"
+}

@@ -176,6 +176,9 @@ one Higgs pair and no massless color triplets. Thus every point of the stable
 lawful `P1` satisfies the three-family, one-Higgs, no-exotic selection ledger.
 The connected component, rather than a point, is frozen as the first
 `ComputableOneTheoryCarrierState`; the source `P3` ledger remains a distinct
-`PublishedReferenceCarrierState`. The next gate is to lift parameter-dependent
-matter and Higgs representatives into one common Schoen DGA for the first
-exact Yukawa matrix.
+`PublishedReferenceCarrierState`. Strict representatives now exist for the
+minimum universal matter sectors and the required Higgs character. Their
+canonical independent-fiber tensor preserves the required deck character, but
+all four candidate split products fail the grouped-chain cycle gate. The next
+gate is therefore an equivariant chain comparison into the four-factor Higgs
+complex, before a determinant pairing or Yukawa trace can be formed.

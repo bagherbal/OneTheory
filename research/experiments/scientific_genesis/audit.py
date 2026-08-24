@@ -1084,6 +1084,27 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_matter_tensor_comparison",
+            "direct matter-to-Higgs chain comparison",
+            "Flavor",
+            "BLOCKED",
+            "The canonical independent-fiber lift and fully derived totalization "
+            "sign preserve the required product character (0,2), but all four "
+            "candidate split products fail the exact grouped-chain cycle gate.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_tensor_audit.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_matter_tensor.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_matter_tensor.py",
+            ),
+            missing=(
+                "equivariant chain comparison from the strict matter complex "
+                "to the four-factor grouped Higgs complex",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1108,8 +1129,8 @@ def _nodes() -> list[dict[str, object]]:
             "BLOCKED",
             "Generic DGA, module, contraction, and HPL engines exist; the lawful "
             "carrier, minimum universal matter sectors, and strict required "
-            "Higgs cocycle are fixed. The restricted product hull and cyclic "
-            "trace remain absent.",
+            "Higgs cocycle are fixed. The direct matter tensor is not a cycle, "
+            "so the restricted product hull and cyclic trace remain absent.",
             (
                 "src/onetheory/math/homological.py",
                 "research/experiments/visible_common_dga/audit.py",
@@ -2170,6 +2191,36 @@ def _edges() -> list[dict[str, object]]:
             ),
         ),
         _edge(
+            "strict_mixed_higgs_representative",
+            "mixed_matter_tensor_comparison",
+            "The strict Higgs cocycle fixes the grouped four-factor target in "
+            "which candidate matter products must be exact cycles.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_tensor_audit.json",
+            ),
+            (),
+            True,
+            (
+                "the canonical signed direct tensor is not closed",
+            ),
+        ),
+        _edge(
+            "mixed_matter_tensor_comparison",
+            "common_dga_package",
+            "A lawful comparison would place matter and Higgs representatives "
+            "in one chain model before determinant pairing and tracing.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_tensor_audit.json",
+            ),
+            (),
+            False,
+            (
+                "the required equivariant chain comparison is absent",
+            ),
+        ),
+        _edge(
             "common_dga_package",
             "first_exact_yukawa",
             "Matter/Higgs cocycle products and trace yield a holomorphic matrix.",
@@ -2613,6 +2664,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json",
         "data/generated/scientific_genesis/mixed_schoen_chain_diagonal.json",
         "data/generated/scientific_genesis/mixed_schoen_chain_actions.json",
+        "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2643,7 +2695,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 570,
+            "collected_tests_at_audit": 572,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2666,7 +2718,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "minimum universal matter and source-required strict Higgs "
-                "cocycles lifted; restricted product hull remains unresolved"
+                "cocycles lifted; canonical direct matter tensors fail the "
+                "grouped-chain cycle gate"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2771,12 +2824,14 @@ def build_state() -> dict[str, object]:
                 "required_higgs_character_h1_dimension": 1,
                 "physical_higgs_representative_available": True,
                 "physical_higgs_representative_term_count": 27,
+                "direct_matter_product_character": [0, 2],
+                "direct_matter_product_hull_available": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the restricted common-DGA product hull and exact cyclic trace "
-                "for the two universal matter sectors and strict Higgs cocycle"
+                "an exact equivariant chain comparison for the strict matter "
+                "cocycles in the four-factor grouped Higgs complex"
             ),
         },
         "claims": _nodes(),

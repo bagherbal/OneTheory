@@ -108,6 +108,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["required_higgs_character_h1_dimension"] == 1
     assert path["criteria"]["physical_higgs_representative_available"] is True
     assert path["criteria"]["physical_higgs_representative_term_count"] == 27
+    assert path["criteria"]["direct_matter_product_character"] == [0, 2]
+    assert path["criteria"]["direct_matter_product_hull_available"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
@@ -115,8 +117,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "minimum universal matter and source-required strict Higgs "
-        "cocycles lifted; restricted product hull remains unresolved"
+        "cocycles lifted; canonical direct matter tensors fail the "
+        "grouped-chain cycle gate"
     )
+    assert claims["mixed_matter_tensor_comparison"]["status"] == "BLOCKED"
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"

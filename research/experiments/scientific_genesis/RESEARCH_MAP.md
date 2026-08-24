@@ -375,10 +375,12 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: construct parameter-dependent full matter
-and Higgs lifts for the frozen lawful `P^1` carrier component, then build only
-the minimum common-DGA hull required for one complete `3 x 3` holomorphic
-Yukawa matrix. The declared finite monomial replacement category is exhausted
+The governing queue is therefore: construct the exact equivariant chain
+comparison carrying the strict matter cocycles into the four-factor grouped
+Higgs complex, then build only the minimum common-DGA hull required for one
+complete `3 x 3` holomorphic Yukawa matrix. The canonical signed direct tensor
+has the required character but is not a cycle, so it cannot stand in for that
+comparison. The declared finite monomial replacement category is exhausted
 by scoped stability no-go results. Completing the final 144 large automorphism
 cases stays suspended until it can change a dependency edge or independently
 verify a theorem.

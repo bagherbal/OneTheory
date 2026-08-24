@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "01acf726528f1e7d344436b26db25366223f2d9e642463cc0ed6cfbeb1c17208",
+  "artifact_digest": "c62aff1116b0832ce88f5c91e69619c044eb3fcf41581847608c8db977d7c721",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -222,6 +222,11 @@
       "sha256": "a3301991904d4da57e2f47f8819c8717a878a2dbdebe8a9f68054403a7b7a9c4"
     },
     {
+      "bytes": 1652,
+      "path": "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json",
+      "sha256": "26ec4f24da3cab6838e8ab9e4797077a10bfeeaa5da1e7746c8bddcc914fafd0"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -293,11 +298,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 570,
+    "collected_tests_at_audit": 572,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 161,
-    "test_python_files": 140
+    "research_python_files": 162,
+    "test_python_files": 141
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1233,6 +1238,22 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json",
+        "research/experiments/scientific_genesis/mixed_schoen_matter_tensor.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_matter_tensor.py"
+      ],
+      "id": "mixed_matter_tensor_comparison",
+      "label": "direct matter-to-Higgs chain comparison",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "equivariant chain comparison from the strict matter complex to the four-factor grouped Higgs complex"
+      ],
+      "statement": "The canonical independent-fiber lift and fully derived totalization sign preserve the required product character (0,2), but all four candidate split products fail the exact grouped-chain cycle gate.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
       ],
       "id": "curvilinear_topology_route",
@@ -1267,7 +1288,7 @@
         "restricted actions and contraction",
         "cyclic pairing and trace conventions"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. The restricted product hull and cyclic trace remain absent.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. The direct matter tensor is not a cycle, so the restricted product hull and cyclic trace remain absent.",
       "status": "BLOCKED"
     },
     {
@@ -2395,6 +2416,32 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the canonical signed direct tensor is not closed"
+      ],
+      "mathematical_reason": "The strict Higgs cocycle fixes the grouped four-factor target in which candidate matter products must be exact cycles.",
+      "source": "strict_mixed_higgs_representative",
+      "target": "mixed_matter_tensor_comparison"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "the required equivariant chain comparison is absent"
+      ],
+      "mathematical_reason": "A lawful comparison would place matter and Higgs representatives in one chain model before determinant pairing and tracing.",
+      "source": "mixed_matter_tensor_comparison",
+      "target": "common_dga_package"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "src/onetheory/models/heterotic_schoen/flavor.py"
       ],
       "implication": "exact",
@@ -2683,6 +2730,11 @@
         ]
       ],
       "declared_computable_carrier_category_exhausted": true,
+      "direct_matter_product_character": [
+        0,
+        2
+      ],
+      "direct_matter_product_hull_available": false,
       "final_lower_line_lifts_universally": true,
       "final_lower_line_retired_candidate_blocks": [
         5,
@@ -2838,8 +2890,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the restricted common-DGA product hull and exact cyclic trace for the two universal matter sectors and strict Higgs cocycle",
-    "selection_status": "minimum universal matter and source-required strict Higgs cocycles lifted; restricted product hull remains unresolved"
+    "next_required_object": "an exact equivariant chain comparison for the strict matter cocycles in the four-factor grouped Higgs complex",
+    "selection_status": "minimum universal matter and source-required strict Higgs cocycles lifted; canonical direct matter tensors fail the grouped-chain cycle gate"
   },
   "research_value_scheduler": [
     {

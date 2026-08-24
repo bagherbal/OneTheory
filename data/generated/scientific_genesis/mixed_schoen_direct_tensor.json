@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "eea991109d2ff5d924b3171ddc5b170d31a129605090f18083e6519c554c83ad",
+  "artifact_digest": "20e325fc437c8d26987b30ca4220bceb1c368f9235aefc3a0b326c107d6101e1",
   "candidate_shape": {
     "full_extension_term_count": 3834,
     "object_count": 48,
@@ -41,8 +41,33 @@
     "seed_term_count": 2,
     "square_term_count": 3
   },
+  "parity_sign_law_scan": {
+    "declared_law_count": 64,
+    "law_family": "independent linear parity exponents in opposite object degree, internal Cech-minus-Koszul degree, and their product",
+    "sign_only_repair_exists": false,
+    "surviving_laws": [],
+    "survivor_counts": [
+      4,
+      2,
+      0
+    ],
+    "witnesses": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        10
+      ]
+    ]
+  },
   "physical_higgs_representative_available": false,
   "retired_diagonal_cones_used": false,
-  "schema": "mixed-schoen-direct-tensor-audit-v1",
+  "schema": "mixed-schoen-direct-tensor-audit-v2",
   "status": "ordinary tensor skeleton exact; naive merging of two full Koszul-Cech arrow sets has nonzero differential square"
 }

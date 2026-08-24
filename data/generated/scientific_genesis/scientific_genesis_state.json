@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "4adb2a35583511d5beecfaf8a5705ed5350ce09ee162914dacde94ea49ce2dcd",
+  "artifact_digest": "163ce4b6b4d6b8858ff2da733c010d840cdbfb7009f41e34849d76d5da0f8db4",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -207,9 +207,9 @@
       "sha256": "21eb770194fe5a371162ca98161ef362c3b0f381dbe26c78e87e592fc1807636"
     },
     {
-      "bytes": 1235,
+      "bytes": 1696,
       "path": "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json",
-      "sha256": "29b08bf9152efbf23e6734f237d7c8057e2b4d6052a0c1a887f18c91d3ee66f4"
+      "sha256": "69cfa19fce13da8f70d98bc2eb5b4f22782da4891f886ec75fadc01b7f3f9818"
     },
     {
       "bytes": 6100,
@@ -1202,7 +1202,7 @@
         "chain diagonal for the common Koszul--Cech resolution",
         "complete tensor totalization signs"
       ],
-      "statement": "The signed 48-object ordinary tensor skeleton is square-zero. Naively merging the two already-resolved Koszul--Cech arrow sets has an exact three-term D-squared witness and is not a complex.",
+      "statement": "The signed 48-object ordinary tensor skeleton is square-zero. Naively merging the two already-resolved Koszul--Cech arrow sets has an exact three-term D-squared witness. All 64 linear parity sign laws are eliminated by three exact witnesses.",
       "status": "BLOCKED"
     },
     {
@@ -3079,7 +3079,7 @@
     "the fixed constituent kernel line is not the source-selected W1/W2 ray; its pure-Cech mapping cones and downstream outer objects are scoped diagnostics rather than carrier reconstructions",
     "the current 14-dimensional diagonal Higgs cone has exact character multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors rule out character projection as a four-class selector",
     "the lawful determinant-twist Hom action has raw characters (1,0), (1,1), (2,0), (2,1), which no uniform scalar shift maps to the physical tensor characters; this route cannot identify a Higgs class without an equivariant chain comparison",
-    "naively merging the two lawful full Koszul--Cech arrow sets gives an exact three-term differential-square witness, so a genuine chain diagonal is required"
+    "naively merging the two lawful full Koszul--Cech arrow sets gives an exact three-term differential-square witness, so a genuine chain diagonal is required; three witnesses eliminate all 64 linear parity-only sign repairs"
   ],
   "structural_compression_questions": [
     {

@@ -18,8 +18,9 @@ Phase 0:
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from functools import cache
+from itertools import product
 from pathlib import Path
 from typing import cast
 
@@ -323,6 +324,128 @@ def ordinary_tensor_skeleton_square_zero() -> bool:
     return reduced.squared_zero
 
 
+def _parity_law_candidate(
+    coefficients: tuple[int, int, int, int, int, int],
+) -> MixedSchoenTensorComplex:
+    """Build one finite parity-law variant of the merged tensor arrows."""
+
+    first, second = mixed_schoen_constituents()
+    second_count = len(second.objects)
+    objects = tuple(
+        replace(
+            first_object,
+            name=f"{first_object.name}*{second_object.name}",
+            position=first_object.position + second_object.position,
+            line_degree=_add_degree(
+                first_object.line_degree,
+                second_object.line_degree,
+            ),
+        )
+        for first_object in first.objects
+        for second_object in second.objects
+    )
+    terms = []
+    for term in first.extension_terms:
+        internal = (term.cech_degree - term.koszul_degree) % 2
+        for second_index, second_object in enumerate(second.objects):
+            opposite = second_object.position % 2
+            exponent = (
+                coefficients[0] * opposite
+                + coefficients[1] * internal
+                + coefficients[2] * opposite * internal
+            ) % 2
+            terms.append(
+                replace(
+                    _shift_extension_term(
+                        term,
+                        term.source * second_count + second_index,
+                        term.target * second_count + second_index,
+                        -1 if exponent else 1,
+                    ),
+                    parent_degree=term.parent_degree - second_object.position,
+                )
+            )
+    for first_index, first_object in enumerate(first.objects):
+        opposite = first_object.position % 2
+        for term in second.extension_terms:
+            internal = (term.cech_degree - term.koszul_degree) % 2
+            exponent = (
+                coefficients[3] * opposite
+                + coefficients[4] * internal
+                + coefficients[5] * opposite * internal
+            ) % 2
+            terms.append(
+                replace(
+                    _shift_extension_term(
+                        term,
+                        first_index * second_count + term.source,
+                        first_index * second_count + term.target,
+                        -1 if exponent else 1,
+                    ),
+                    parent_degree=term.parent_degree - first_object.position,
+                )
+            )
+    return MixedSchoenTensorComplex(
+        f"parity-law:{''.join(str(value) for value in coefficients)}",
+        3,
+        _add_degree(first.twist, second.twist),
+        objects,
+        _tensor_resolution_arrows(first, second),
+        tuple(terms),
+        len(first.objects),
+        second_count,
+    )
+
+
+@cache
+def tensor_sign_law_scan() -> dict[str, object]:
+    """Falsify all linear parity-only repairs on three exact witnesses."""
+
+    from research.experiments.computable_carrier.schoen_serre_outer_transfer import (  # noqa: PLC0415
+        _include,
+        _reduced_basis,
+    )
+
+    from .mixed_schoen_outer_actions import _MixedContraction  # noqa: PLC0415
+    from .mixed_schoen_outer_transfer import mixed_schoen_unit  # noqa: PLC0415
+
+    witnesses = ((0, 0), (1, 1), (1, 10))
+    survivors = tuple(product((0, 1), repeat=6))
+    survivor_counts = []
+    for degree, reduced_index in witnesses:
+        selected = []
+        for coefficients in survivors:
+            contraction = _MixedContraction(
+                _parity_law_candidate(coefficients),
+                mixed_schoen_unit(),
+            )
+            entry = _reduced_basis(
+                contraction.left_skeleton,
+                contraction.right_skeleton,
+                degree,
+            )[reduced_index]
+            seed = _include(entry)
+            square = contraction.differential(contraction.differential(seed))
+            if square.is_zero():
+                selected.append(coefficients)
+        survivors = tuple(selected)
+        survivor_counts.append(len(survivors))
+    result: dict[str, object] = {
+        "law_family": (
+            "independent linear parity exponents in opposite object degree, "
+            "internal Cech-minus-Koszul degree, and their product"
+        ),
+        "declared_law_count": 64,
+        "witnesses": [list(witness) for witness in witnesses],
+        "survivor_counts": survivor_counts,
+        "surviving_laws": [list(item) for item in survivors],
+        "sign_only_repair_exists": bool(survivors),
+    }
+    if survivor_counts != [4, 2, 0] or survivors:
+        raise ValueError("the tensor parity-law classification changed")
+    return result
+
+
 def write_mixed_schoen_direct_tensor_audit(
     path: Path = OUTPUT,
 ) -> dict[str, object]:
@@ -334,7 +457,7 @@ def write_mixed_schoen_direct_tensor_audit(
     if not skeleton_square_zero:
         raise ValueError("the ordinary tensor skeleton lost square zero")
     payload: dict[str, object] = {
-        "schema": "mixed-schoen-direct-tensor-audit-v1",
+        "schema": "mixed-schoen-direct-tensor-audit-v2",
         "candidate_shape": {
             "object_count": len(candidate.objects),
             "resolution_arrow_count": len(candidate.resolution_arrows),
@@ -342,6 +465,7 @@ def write_mixed_schoen_direct_tensor_audit(
             "ordinary_resolution_skeleton_square_zero": skeleton_square_zero,
         },
         "naive_merged_arrow_witness": witness.as_record(),
+        "parity_sign_law_scan": tensor_sign_law_scan(),
         "physical_higgs_representative_available": False,
         "retired_diagonal_cones_used": False,
         "first_missing_input": (
@@ -383,5 +507,6 @@ __all__ = [
     "naive_mixed_schoen_direct_tensor_candidate",
     "naive_tensor_square_witness",
     "ordinary_tensor_skeleton_square_zero",
+    "tensor_sign_law_scan",
     "write_mixed_schoen_direct_tensor_audit",
 ]

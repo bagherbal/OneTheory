@@ -44,5 +44,8 @@ def test_direct_tensor_artifact_is_content_addressed_and_fail_closed() -> None:
     assert payload["naive_merged_arrow_witness"][
         "differential_square_nonzero"
     ] is True
+    assert payload["parity_sign_law_scan"]["declared_law_count"] == 64
+    assert payload["parity_sign_law_scan"]["survivor_counts"] == [4, 2, 0]
+    assert payload["parity_sign_law_scan"]["sign_only_repair_exists"] is False
     assert payload["physical_higgs_representative_available"] is False
     assert "chain diagonal" in payload["first_missing_input"]

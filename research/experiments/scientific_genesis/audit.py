@@ -1016,6 +1016,31 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "higgs_determinant_twist_route",
+            "determinant-twist Higgs comparison route",
+            "Flavor",
+            "BLOCKED",
+            "The lawful mixed Hom transfer has exact cohomology (0,4,4,0) and "
+            "an exact Z3 x Z3 action, but its four raw characters do not match "
+            "the physical tensor characters under any uniform scalar shift.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_twist_audit.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_higgs_twist_audit.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_higgs_twist_audit.py",
+            ),
+            assumptions=(
+                "rank-two determinant identity",
+                "det(V2) = det(V1)^-1",
+            ),
+            missing=(
+                "equivariant chain comparison for the determinant-twist identity",
+                "or a direct lawful mixed tensor transfer",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1040,14 +1065,14 @@ def _nodes() -> list[dict[str, object]]:
             "BLOCKED",
             "Generic DGA, module, contraction, and HPL engines exist; the lawful "
             "carrier and minimum universal matter sectors are now fixed. A "
-            "full-Schoen Higgs lift, restricted product hull, and cyclic trace "
-            "remain absent.",
+            "lawful equivariant Higgs identification, restricted product hull, "
+            "and cyclic trace remain absent.",
             (
                 "src/onetheory/math/homological.py",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "one full Schoen Higgs hypercocycle in character (0,1)",
+                "one lawfully identified full Schoen Higgs hypercocycle",
                 "restricted actions and contraction",
                 "cyclic pairing and trace conventions",
             ),
@@ -1070,9 +1095,8 @@ def _nodes() -> list[dict[str, object]]:
             "No complete matrix has been evaluated from generated carrier chain data.",
             ("research/experiments/visible_common_dga/audit.py",),
             missing=(
-                "frozen computable carrier",
-                "common DGA package",
-                "matter and Higgs cocycles",
+                "lawfully identified Higgs cocycle",
+                "restricted product hull",
                 "trace evaluation",
             ),
         ),
@@ -2003,6 +2027,26 @@ def _edges() -> list[dict[str, object]]:
             ("only the minimum two physical matter sectors are lifted",),
         ),
         _edge(
+            "computable_carrier_state",
+            "higgs_determinant_twist_route",
+            "The frozen lawful constituent complexes and exact determinant "
+            "degrees determine a synchronized outer-Hom transfer whose "
+            "cohomology and deck action can be derived independently.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_twist_audit.json",
+            ),
+            (
+                "rank-two determinant identity",
+                "det(V2) = det(V1)^-1",
+            ),
+            True,
+            (
+                "the Hom realization lacks an equivariant chain comparison "
+                "with the physical tensor",
+            ),
+        ),
+        _edge(
             "universal_matter_sector_lifts",
             "common_dga_package",
             "The universal matter cocycles provide both three-dimensional "
@@ -2016,6 +2060,22 @@ def _edges() -> list[dict[str, object]]:
             (
                 "the matching full-Schoen Higgs representative is absent",
                 "the product hull and cyclic trace are not yet certified",
+            ),
+        ),
+        _edge(
+            "higgs_determinant_twist_route",
+            "common_dga_package",
+            "A lawful equivariant tensor comparison would turn one transferred "
+            "class into the required full-Schoen Higgs input.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_twist_audit.json",
+            ),
+            (),
+            False,
+            (
+                "no raw Hom character may be selected as a physical tensor class",
+                "no uniform scalar character repairs the exact mismatch",
             ),
         ),
         _edge(
@@ -2458,6 +2518,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
         "data/generated/scientific_genesis/mixed_schoen_matter_representatives.json",
         "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json",
+        "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2488,7 +2549,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 562,
+            "collected_tests_at_audit": 564,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2510,7 +2571,8 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "minimum universal matter lifted; one strict Higgs lift open"
+                "minimum universal matter lifted; determinant-twist Higgs "
+                "identification blocked by an exact character mismatch"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2611,7 +2673,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "one strict full-Schoen Higgs representative in character (0,1)"
+                "an equivariant chain comparison for the determinant-twist "
+                "tensor identity or a direct lawful mixed tensor transfer"
             ),
         },
         "claims": _nodes(),
@@ -2655,6 +2718,8 @@ def build_state() -> dict[str, object]:
             "Schoen Cech--Koszul representatives with exact joint deck characters",
             "the two matter sectors for the first up-type matrix have exact "
             "parameter-linear universal-cone lifts over the full frozen P1",
+            "the determinant-twist Hom route derives Higgs cohomology "
+            "(0,4,4,0) and a complete exact deck action without selecting a class",
             "retired trivial-character outer complexes retained only as scoped "
             "dimension and transfer diagnostics",
             "relative signatures recover the source Higgs dimension tuple "
@@ -2728,6 +2793,10 @@ def build_state() -> dict[str, object]:
             "the current 14-dimensional diagonal Higgs cone has exact character "
             "multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors "
             "rule out character projection as a four-class selector",
+            "the lawful determinant-twist Hom action has raw characters "
+            "(1,0), (1,1), (2,0), (2,1), which no uniform scalar shift maps "
+            "to the physical tensor characters; this route cannot identify a "
+            "Higgs class without an equivariant chain comparison",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -2741,7 +2810,8 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "full Schoen Higgs representatives and the restricted cyclic trace",
+            "equivariantly identified full Schoen Higgs representatives and "
+            "the restricted cyclic trace",
             "carrier-derived complete holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],

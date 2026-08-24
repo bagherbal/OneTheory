@@ -1,10 +1,10 @@
 {
-  "artifact_digest": "d00e6528736089dca312c49260f63fca936548a872bf7521a0b598654039ae2b",
+  "artifact_digest": "631dcc43cf3ca81d573f2464df8c7d49d2a05a37cb2de315793f94dcde73b82d",
   "artifacts": [
     {
-      "bytes": 20014147,
+      "bytes": 20014451,
       "path": "data/generated/computable_carrier/computable_carrier_artifact.json",
-      "sha256": "3e420166c448221405b0edd5a329491c53c10c5efd6eb055e333889c2c465bc4"
+      "sha256": "09fa7cd817f200e7f3de090d1b0a00be246de6384abec66034e99a60f41ae797"
     },
     {
       "bytes": 555841,
@@ -202,6 +202,11 @@
       "sha256": "95dfcf8a4f5dd713291df4d5d79e591f841a02455e49acb99292b769a691b085"
     },
     {
+      "bytes": 3854,
+      "path": "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
+      "sha256": "21eb770194fe5a371162ca98161ef362c3b0f381dbe26c78e87e592fc1807636"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -273,11 +278,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 562,
+    "collected_tests_at_audit": 564,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 156,
-    "test_python_files": 136
+    "research_python_files": 157,
+    "test_python_files": 137
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -293,7 +298,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "full Schoen Higgs representatives and the restricted cyclic trace",
+    "equivariantly identified full Schoen Higgs representatives and the restricted cyclic trace",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -1159,6 +1164,26 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "rank-two determinant identity",
+        "det(V2) = det(V1)^-1"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
+        "research/experiments/scientific_genesis/mixed_schoen_higgs_twist_audit.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_higgs_twist_audit.py"
+      ],
+      "id": "higgs_determinant_twist_route",
+      "label": "determinant-twist Higgs comparison route",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "equivariant chain comparison for the determinant-twist identity",
+        "or a direct lawful mixed tensor transfer"
+      ],
+      "statement": "The lawful mixed Hom transfer has exact cohomology (0,4,4,0) and an exact Z3 x Z3 action, but its four raw characters do not match the physical tensor characters under any uniform scalar shift.",
+      "status": "BLOCKED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
@@ -1192,11 +1217,11 @@
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "one full Schoen Higgs hypercocycle in character (0,1)",
+        "one lawfully identified full Schoen Higgs hypercocycle",
         "restricted actions and contraction",
         "cyclic pairing and trace conventions"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier and minimum universal matter sectors are now fixed. A full-Schoen Higgs lift, restricted product hull, and cyclic trace remain absent.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier and minimum universal matter sectors are now fixed. A lawful equivariant Higgs identification, restricted product hull, and cyclic trace remain absent.",
       "status": "BLOCKED"
     },
     {
@@ -1223,9 +1248,8 @@
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "frozen computable carrier",
-        "common DGA package",
-        "matter and Higgs cocycles",
+        "lawfully identified Higgs cocycle",
+        "restricted product hull",
         "trace evaluation"
       ],
       "statement": "No complete matrix has been evaluated from generated carrier chain data.",
@@ -2238,6 +2262,22 @@
       "target": "universal_matter_sector_lifts"
     },
     {
+      "assumptions_required": [
+        "rank-two determinant identity",
+        "det(V2) = det(V1)^-1"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the Hom realization lacks an equivariant chain comparison with the physical tensor"
+      ],
+      "mathematical_reason": "The frozen lawful constituent complexes and exact determinant degrees determine a synchronized outer-Hom transfer whose cohomology and deck action can be derived independently.",
+      "source": "computable_carrier_state",
+      "target": "higgs_determinant_twist_route"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json"
@@ -2249,6 +2289,20 @@
       ],
       "mathematical_reason": "The universal matter cocycles provide both three-dimensional external matter bases required by the first up-type product.",
       "source": "universal_matter_sector_lifts",
+      "target": "common_dga_package"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "no raw Hom character may be selected as a physical tensor class",
+        "no uniform scalar character repairs the exact mismatch"
+      ],
+      "mathematical_reason": "A lawful equivariant tensor comparison would turn one transferred class into the required full-Schoen Higgs input.",
+      "source": "higgs_determinant_twist_route",
       "target": "common_dga_package"
     },
     {
@@ -2469,6 +2523,7 @@
     "the lawful physical P1 component is frozen as the first computable carrier without selecting an extension point or identifying source P3",
     "all 27 synchronized constituent matter classes have strict full Schoen Cech--Koszul representatives with exact joint deck characters",
     "the two matter sectors for the first up-type matrix have exact parameter-linear universal-cone lifts over the full frozen P1",
+    "the determinant-twist Hom route derives Higgs cohomology (0,4,4,0) and a complete exact deck action without selecting a class",
     "retired trivial-character outer complexes retained only as scoped dimension and transfer diagnostics",
     "relative signatures recover the source Higgs dimension tuple (0,4,4,0) from selected mixed constituent cocycles",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
@@ -2677,8 +2732,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "one strict full-Schoen Higgs representative in character (0,1)",
-    "selection_status": "minimum universal matter lifted; one strict Higgs lift open"
+    "next_required_object": "an equivariant chain comparison for the determinant-twist tensor identity or a direct lawful mixed tensor transfer",
+    "selection_status": "minimum universal matter lifted; determinant-twist Higgs identification blocked by an exact character mismatch"
   },
   "research_value_scheduler": [
     {
@@ -2972,7 +3027,8 @@
     "the final 72 families in candidates 5 and 25 have the same exact positive fiber-slope contradiction, exhausting only the declared finite monomial category",
     "the available projective I3/I6 pushouts give cover Ext-one dimensions 0/63 rather than the published 36/72, so they cannot stand in for fiber-sensitive W1/W2 presentations",
     "the fixed constituent kernel line is not the source-selected W1/W2 ray; its pure-Cech mapping cones and downstream outer objects are scoped diagnostics rather than carrier reconstructions",
-    "the current 14-dimensional diagonal Higgs cone has exact character multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors rule out character projection as a four-class selector"
+    "the current 14-dimensional diagonal Higgs cone has exact character multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors rule out character projection as a four-class selector",
+    "the lawful determinant-twist Hom action has raw characters (1,0), (1,1), (2,0), (2,1), which no uniform scalar shift maps to the physical tensor characters; this route cannot identify a Higgs class without an equivariant chain comparison"
   ],
   "structural_compression_questions": [
     {

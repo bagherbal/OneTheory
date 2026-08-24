@@ -99,7 +99,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "lawful physical P1 component frozen; common-DGA lifts open"
+        "minimum universal matter lifted; determinant-twist Higgs "
+        "identification blocked by an exact character mismatch"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
@@ -138,6 +139,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_schoen_observable_spectrum"]["status"] == "COMPUTED"
     assert claims["physical_spectrum"]["status"] == "COMPUTED"
     assert claims["computable_carrier_state"]["status"] == "COMPUTED"
+    assert claims["strict_mixed_matter_representatives"]["status"] == "COMPUTED"
+    assert claims["universal_matter_sector_lifts"]["status"] == "COMPUTED"
+    assert claims["higgs_determinant_twist_route"]["status"] == "BLOCKED"
     assert claims["common_dga_package"]["status"] == "BLOCKED"
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"

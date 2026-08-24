@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "30fbdd04fa68be458faa62196555e85c4292f5be8d0bc2d236992db7209ed1ab",
+  "artifact_digest": "fbbbe39bc68f16363dc01f8e4f4b32aa383240d4d88a8ac443771507ea80df7d",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -212,6 +212,11 @@
       "sha256": "ca640964b628b4dfd3fe71c428e1266bccdab76f8899869050c89a686a99d2eb"
     },
     {
+      "bytes": 1224,
+      "path": "data/generated/scientific_genesis/mixed_schoen_chain_diagonal.json",
+      "sha256": "9b08e86df3d57848c8b4b3bd53c6948dc83c7bec176cfd7129b2dfcf5a724528"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -283,11 +288,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 566,
+    "collected_tests_at_audit": 568,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 158,
-    "test_python_files": 138
+    "research_python_files": 159,
+    "test_python_files": 139
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -303,7 +308,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "a square-zero lawful Higgs tensor diagonal, strict full Schoen Higgs representatives, and the restricted cyclic trace",
+    "ambient transfer and strict full Schoen Higgs representatives, followed by the restricted cyclic trace",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -1191,19 +1196,21 @@
     {
       "assumptions": [],
       "evidence": [
-        "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json",
-        "research/experiments/scientific_genesis/mixed_schoen_direct_tensor.py",
-        "tests/integration/test_scientific_genesis_mixed_schoen_direct_tensor.py"
+        "data/generated/scientific_genesis/mixed_schoen_chain_diagonal.json",
+        "research/experiments/scientific_genesis/mixed_schoen_chain_diagonal.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_chain_diagonal.py",
+        "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json"
       ],
       "id": "higgs_direct_tensor_diagonal",
       "label": "lawful mixed Higgs tensor diagonal",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "chain diagonal for the common Koszul--Cech resolution",
-        "complete tensor totalization signs"
+        "exact ambient-cohomology transfer of the chain diagonal",
+        "strict deck action on transferred cohomology",
+        "physical Higgs representative extraction"
       ],
-      "statement": "The signed 48-object ordinary tensor skeleton is square-zero. Naively merging the two already-resolved Koszul--Cech arrow sets has an exact three-term D-squared witness. Three exact witnesses eliminate all 4,096 declared static-plus-live linear parity laws.",
-      "status": "BLOCKED"
+      "statement": "The canonical four-factor independent-cover tensor and its three-equation fiber-diagonal Koszul complex are constructed without shared-cover flattening. Exhaustive exact evaluation proves D-squared zero on all 4,896 ambient transfer seeds.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
@@ -2330,27 +2337,28 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json"
+        "data/generated/scientific_genesis/mixed_schoen_chain_diagonal.json"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "merging two copies of the common resolution is not a chain diagonal"
+        "shared-cover flattening before tensoring destroys strict closure",
+        "the transferred Higgs cohomology remains uncomputed"
       ],
-      "mathematical_reason": "The two frozen lawful constituent complexes determine an ordinary signed tensor skeleton and the resolved tensor problem directly.",
+      "mathematical_reason": "The two frozen lawful constituent complexes tensor on independent covers, after which the fiber diagonal is imposed by its exact Koszul equation.",
       "source": "computable_carrier_state",
       "target": "higgs_direct_tensor_diagonal"
     },
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "research/experiments/scientific_genesis/mixed_schoen_direct_tensor.py"
+        "research/experiments/scientific_genesis/mixed_schoen_chain_diagonal.py"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the naive merged-arrow differential has nonzero square",
-        "no physical Higgs class is available from that candidate"
+        "the ambient-cohomology transfer is not yet evaluated",
+        "no strict physical Higgs representative is available yet"
       ],
-      "mathematical_reason": "A square-zero common-resolution tensor diagonal would supply the lawful complex from which strict Higgs classes can be transferred.",
+      "mathematical_reason": "The square-zero common-resolution tensor diagonal supplies the lawful complex from which strict Higgs classes must be transferred.",
       "source": "higgs_direct_tensor_diagonal",
       "target": "common_dga_package"
     },
@@ -2675,6 +2683,8 @@
       "global_schoen_bundle_no_go": false,
       "lawful_P1_all_nonzero_parameters_stable_in_chamber": true,
       "lawful_P1_genuine_su4_on_stable_chamber": true,
+      "lawful_chain_diagonal_squared_zero": true,
+      "lawful_chain_diagonal_transfer_seed_count": 4896,
       "lawful_dual_matter_h0_to_h3": [
         0,
         0,
@@ -2755,6 +2765,7 @@
       "next_survivor_restriction_rank": 20,
       "next_survivor_target_ext_dimension": 216,
       "outer_parameter_dimension_mismatch_unresolved": true,
+      "physical_higgs_representative_available": false,
       "remaining_nonzero_candidate_blocks": [],
       "remaining_nonzero_family_count": 0,
       "retired_P3_embedding_used_for_stability": false,
@@ -2782,8 +2793,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "a square-zero chain diagonal with complete Koszul-Cech tensor signs for the two lawful mixed constituent complexes",
-    "selection_status": "minimum universal matter lifted; determinant-twist Higgs identification mismatched and direct tensor requires a chain diagonal"
+    "next_required_object": "the exact ambient-cohomology transfer and strict P/T action needed to extract a physical Higgs representative",
+    "selection_status": "minimum universal matter lifted; determinant-twist Higgs identification mismatched; lawful chain diagonal square certified"
   },
   "research_value_scheduler": [
     {
@@ -3079,7 +3090,8 @@
     "the fixed constituent kernel line is not the source-selected W1/W2 ray; its pure-Cech mapping cones and downstream outer objects are scoped diagnostics rather than carrier reconstructions",
     "the current 14-dimensional diagonal Higgs cone has exact character multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors rule out character projection as a four-class selector",
     "the lawful determinant-twist Hom action has raw characters (1,0), (1,1), (2,0), (2,1), which no uniform scalar shift maps to the physical tensor characters; this route cannot identify a Higgs class without an equivariant chain comparison",
-    "naively merging the two lawful full Koszul--Cech arrow sets gives an exact three-term differential-square witness, so a genuine chain diagonal is required; three witnesses eliminate all 4,096 declared static-plus-live linear parity repairs"
+    "naively merging the two lawful full Koszul--Cech arrow sets gives an exact three-term differential-square witness, so a genuine chain diagonal is required; three witnesses eliminate all 4,096 declared static-plus-live linear parity repairs",
+    "the canonical independent-cover tensor followed by the exact fiber diagonal closes on all 4,896 ambient transfer seeds; no physical Higgs class is claimed before cohomology transfer and deck action"
   ],
   "structural_compression_questions": [
     {

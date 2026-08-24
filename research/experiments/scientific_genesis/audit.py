@@ -1044,22 +1044,25 @@ def _nodes() -> list[dict[str, object]]:
             "higgs_direct_tensor_diagonal",
             "lawful mixed Higgs tensor diagonal",
             "Flavor",
-            "BLOCKED",
-            "The signed 48-object ordinary tensor skeleton is square-zero. "
-            "Naively merging the two already-resolved Koszul--Cech arrow sets "
-            "has an exact three-term D-squared witness. Three exact witnesses "
-            "eliminate all 4,096 declared static-plus-live linear parity laws.",
+            "COMPUTED",
+            "The canonical four-factor independent-cover tensor and its "
+            "three-equation fiber-diagonal Koszul complex are constructed "
+            "without shared-cover flattening. Exhaustive exact evaluation "
+            "proves D-squared zero on all 4,896 ambient transfer seeds.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_direct_tensor.json",
+                "mixed_schoen_chain_diagonal.json",
                 "research/experiments/scientific_genesis/"
-                "mixed_schoen_direct_tensor.py",
+                "mixed_schoen_chain_diagonal.py",
                 "tests/integration/"
-                "test_scientific_genesis_mixed_schoen_direct_tensor.py",
+                "test_scientific_genesis_mixed_schoen_chain_diagonal.py",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_direct_tensor.json",
             ),
             missing=(
-                "chain diagonal for the common Koszul--Cech resolution",
-                "complete tensor totalization signs",
+                "exact ambient-cohomology transfer of the chain diagonal",
+                "strict deck action on transferred cohomology",
+                "physical Higgs representative extraction",
             ),
         ),
         _node(
@@ -2103,32 +2106,34 @@ def _edges() -> list[dict[str, object]]:
         _edge(
             "computable_carrier_state",
             "higgs_direct_tensor_diagonal",
-            "The two frozen lawful constituent complexes determine an ordinary "
-            "signed tensor skeleton and the resolved tensor problem directly.",
+            "The two frozen lawful constituent complexes tensor on independent "
+            "covers, after which the fiber diagonal is imposed by its exact "
+            "Koszul equation.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_direct_tensor.json",
+                "mixed_schoen_chain_diagonal.json",
             ),
             (),
             True,
             (
-                "merging two copies of the common resolution is not a chain diagonal",
+                "shared-cover flattening before tensoring destroys strict closure",
+                "the transferred Higgs cohomology remains uncomputed",
             ),
         ),
         _edge(
             "higgs_direct_tensor_diagonal",
             "common_dga_package",
-            "A square-zero common-resolution tensor diagonal would supply the "
-            "lawful complex from which strict Higgs classes can be transferred.",
+            "The square-zero common-resolution tensor diagonal supplies the "
+            "lawful complex from which strict Higgs classes must be transferred.",
             (
                 "research/experiments/scientific_genesis/"
-                "mixed_schoen_direct_tensor.py",
+                "mixed_schoen_chain_diagonal.py",
             ),
             (),
             False,
             (
-                "the naive merged-arrow differential has nonzero square",
-                "no physical Higgs class is available from that candidate",
+                "the ambient-cohomology transfer is not yet evaluated",
+                "no strict physical Higgs representative is available yet",
             ),
         ),
         _edge(
@@ -2573,6 +2578,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
         "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json",
+        "data/generated/scientific_genesis/mixed_schoen_chain_diagonal.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2603,7 +2609,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 566,
+            "collected_tests_at_audit": 568,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2626,7 +2632,7 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "minimum universal matter lifted; determinant-twist Higgs "
-                "identification mismatched and direct tensor requires a chain diagonal"
+                "identification mismatched; lawful chain diagonal square certified"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2723,12 +2729,15 @@ def build_state() -> dict[str, object]:
                 "lawful_structural_spectrum_all_P1": True,
                 "computable_carrier_component": "lawful-mixed-schoen-P1",
                 "computable_carrier_component_frozen": True,
+                "lawful_chain_diagonal_transfer_seed_count": 4896,
+                "lawful_chain_diagonal_squared_zero": True,
+                "physical_higgs_representative_available": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "a square-zero chain diagonal with complete Koszul-Cech tensor "
-                "signs for the two lawful mixed constituent complexes"
+                "the exact ambient-cohomology transfer and strict P/T action "
+                "needed to extract a physical Higgs representative"
             ),
         },
         "claims": _nodes(),
@@ -2856,6 +2865,9 @@ def build_state() -> dict[str, object]:
             "an exact three-term differential-square witness, so a genuine "
             "chain diagonal is required; three witnesses eliminate all 4,096 "
             "declared static-plus-live linear parity repairs",
+            "the canonical independent-cover tensor followed by the exact fiber "
+            "diagonal closes on all 4,896 ambient transfer seeds; no physical "
+            "Higgs class is claimed before cohomology transfer and deck action",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -2869,8 +2881,8 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "a square-zero lawful Higgs tensor diagonal, strict full Schoen "
-            "Higgs representatives, and the restricted cyclic trace",
+            "ambient transfer and strict full Schoen Higgs representatives, "
+            "followed by the restricted cyclic trace",
             "carrier-derived complete holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],

@@ -1059,10 +1059,28 @@ def _nodes() -> list[dict[str, object]]:
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_direct_tensor.json",
             ),
-            missing=(
-                "exact ambient-cohomology transfer of the chain diagonal",
-                "strict deck action on transferred cohomology",
-                "physical Higgs representative extraction",
+        ),
+        _node(
+            "strict_mixed_higgs_representative",
+            "strict lawful up-type Higgs representative",
+            "Flavor",
+            "COMPUTED",
+            "Exact Reynolds projectors reduce the lawful chain diagonal to "
+            "the source-required P/T character (0,1). Its 100-to-243-to-170 "
+            "transfer has ranks 100 and 142, exact square zero, and a unique "
+            "H1 class lifted to a strict 27-term full Cech--Koszul cocycle.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_chain_actions.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_chain_transfer.py",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_chain_actions.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_chain_transfer.py",
+            ),
+            assumptions=(
+                "published Wilson character assignment for the up-type sector",
             ),
         ),
         _node(
@@ -1089,15 +1107,14 @@ def _nodes() -> list[dict[str, object]]:
             "Flavor",
             "BLOCKED",
             "Generic DGA, module, contraction, and HPL engines exist; the lawful "
-            "carrier and minimum universal matter sectors are now fixed. A "
-            "lawful Koszul--Cech Higgs tensor diagonal, restricted product "
-            "hull, and cyclic trace remain absent.",
+            "carrier, minimum universal matter sectors, and strict required "
+            "Higgs cocycle are fixed. The restricted product hull and cyclic "
+            "trace remain absent.",
             (
                 "src/onetheory/math/homological.py",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "one lawful full Schoen Higgs hypercocycle from the tensor diagonal",
                 "restricted actions and contraction",
                 "cyclic pairing and trace conventions",
             ),
@@ -1120,7 +1137,6 @@ def _nodes() -> list[dict[str, object]]:
             "No complete matrix has been evaluated from generated carrier chain data.",
             ("research/experiments/visible_common_dga/audit.py",),
             missing=(
-                "lawfully identified Higgs cocycle",
                 "restricted product hull",
                 "trace evaluation",
             ),
@@ -2083,7 +2099,6 @@ def _edges() -> list[dict[str, object]]:
             (),
             False,
             (
-                "the matching full-Schoen Higgs representative is absent",
                 "the product hull and cyclic trace are not yet certified",
             ),
         ),
@@ -2122,18 +2137,36 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "higgs_direct_tensor_diagonal",
-            "common_dga_package",
-            "The square-zero common-resolution tensor diagonal supplies the "
-            "lawful complex from which strict Higgs classes must be transferred.",
+            "strict_mixed_higgs_representative",
+            "Exact P/T projectors select the source-required character sector; "
+            "homological perturbation transfers its two maps and lifts the "
+            "unique H1 class to the full square-zero chain diagonal.",
             (
-                "research/experiments/scientific_genesis/"
-                "mixed_schoen_chain_diagonal.py",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_chain_actions.json",
+            ),
+            (
+                "published Wilson character assignment for the up-type sector",
+            ),
+            True,
+            (
+                "only the source-required character sector is transferred",
+            ),
+        ),
+        _edge(
+            "strict_mixed_higgs_representative",
+            "common_dga_package",
+            "The strict full-Schoen Higgs cocycle supplies the third chain input "
+            "required beside the two universal matter sectors.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_chain_actions.json",
             ),
             (),
             False,
             (
-                "the ambient-cohomology transfer is not yet evaluated",
-                "no strict physical Higgs representative is available yet",
+                "the restricted product hull is not yet certified",
+                "the cyclic trace convention remains unresolved",
             ),
         ),
         _edge(
@@ -2579,6 +2612,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
         "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json",
         "data/generated/scientific_genesis/mixed_schoen_chain_diagonal.json",
+        "data/generated/scientific_genesis/mixed_schoen_chain_actions.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2609,7 +2643,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 568,
+            "collected_tests_at_audit": 570,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2631,8 +2665,8 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "minimum universal matter lifted; determinant-twist Higgs "
-                "identification mismatched; lawful chain diagonal square certified"
+                "minimum universal matter and source-required strict Higgs "
+                "cocycles lifted; restricted product hull remains unresolved"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2731,13 +2765,18 @@ def build_state() -> dict[str, object]:
                 "computable_carrier_component_frozen": True,
                 "lawful_chain_diagonal_transfer_seed_count": 4896,
                 "lawful_chain_diagonal_squared_zero": True,
-                "physical_higgs_representative_available": False,
+                "required_higgs_character": [0, 1],
+                "required_higgs_character_space_dimensions": [100, 243, 170],
+                "required_higgs_character_differential_ranks": [100, 142],
+                "required_higgs_character_h1_dimension": 1,
+                "physical_higgs_representative_available": True,
+                "physical_higgs_representative_term_count": 27,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the exact ambient-cohomology transfer and strict P/T action "
-                "needed to extract a physical Higgs representative"
+                "the restricted common-DGA product hull and exact cyclic trace "
+                "for the two universal matter sectors and strict Higgs cocycle"
             ),
         },
         "claims": _nodes(),
@@ -2866,8 +2905,10 @@ def build_state() -> dict[str, object]:
             "chain diagonal is required; three witnesses eliminate all 4,096 "
             "declared static-plus-live linear parity repairs",
             "the canonical independent-cover tensor followed by the exact fiber "
-            "diagonal closes on all 4,896 ambient transfer seeds; no physical "
-            "Higgs class is claimed before cohomology transfer and deck action",
+            "diagonal closes on all 4,896 ambient transfer seeds",
+            "the source-required P/T character (0,1) has exact transferred "
+            "dimensions 100-to-243-to-170, differential ranks 100/142, and a "
+            "unique H1 class represented by a strict 27-term full cocycle",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -2881,8 +2922,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "ambient transfer and strict full Schoen Higgs representatives, "
-            "followed by the restricted cyclic trace",
+            "the restricted common-DGA product hull and cyclic trace",
             "carrier-derived complete holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],

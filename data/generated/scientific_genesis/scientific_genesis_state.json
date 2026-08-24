@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "fbbbe39bc68f16363dc01f8e4f4b32aa383240d4d88a8ac443771507ea80df7d",
+  "artifact_digest": "01acf726528f1e7d344436b26db25366223f2d9e642463cc0ed6cfbeb1c17208",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -217,6 +217,11 @@
       "sha256": "9b08e86df3d57848c8b4b3bd53c6948dc83c7bec176cfd7129b2dfcf5a724528"
     },
     {
+      "bytes": 143334,
+      "path": "data/generated/scientific_genesis/mixed_schoen_chain_actions.json",
+      "sha256": "a3301991904d4da57e2f47f8819c8717a878a2dbdebe8a9f68054403a7b7a9c4"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -288,11 +293,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 568,
+    "collected_tests_at_audit": 570,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 159,
-    "test_python_files": 139
+    "research_python_files": 161,
+    "test_python_files": 140
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -308,7 +313,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "ambient transfer and strict full Schoen Higgs representatives, followed by the restricted cyclic trace",
+    "the restricted common-DGA product hull and cyclic trace",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -1204,12 +1209,25 @@
       "id": "higgs_direct_tensor_diagonal",
       "label": "lawful mixed Higgs tensor diagonal",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "exact ambient-cohomology transfer of the chain diagonal",
-        "strict deck action on transferred cohomology",
-        "physical Higgs representative extraction"
-      ],
+      "missing_prerequisites": [],
       "statement": "The canonical four-factor independent-cover tensor and its three-equation fiber-diagonal Koszul complex are constructed without shared-cover flattening. Exhaustive exact evaluation proves D-squared zero on all 4,896 ambient transfer seeds.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "published Wilson character assignment for the up-type sector"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_chain_actions.json",
+        "research/experiments/scientific_genesis/mixed_schoen_chain_transfer.py",
+        "research/experiments/scientific_genesis/mixed_schoen_chain_actions.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_chain_transfer.py"
+      ],
+      "id": "strict_mixed_higgs_representative",
+      "label": "strict lawful up-type Higgs representative",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "Exact Reynolds projectors reduce the lawful chain diagonal to the source-required P/T character (0,1). Its 100-to-243-to-170 transfer has ranks 100 and 142, exact square zero, and a unique H1 class lifted to a strict 27-term full Cech--Koszul cocycle.",
       "status": "COMPUTED"
     },
     {
@@ -1246,11 +1264,10 @@
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "one lawful full Schoen Higgs hypercocycle from the tensor diagonal",
         "restricted actions and contraction",
         "cyclic pairing and trace conventions"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier and minimum universal matter sectors are now fixed. A lawful Koszul--Cech Higgs tensor diagonal, restricted product hull, and cyclic trace remain absent.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. The restricted product hull and cyclic trace remain absent.",
       "status": "BLOCKED"
     },
     {
@@ -1277,7 +1294,6 @@
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "lawfully identified Higgs cocycle",
         "restricted product hull",
         "trace evaluation"
       ],
@@ -2313,7 +2329,6 @@
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the matching full-Schoen Higgs representative is absent",
         "the product hull and cyclic trace are not yet certified"
       ],
       "mathematical_reason": "The universal matter cocycles provide both three-dimensional external matter bases required by the first up-type product.",
@@ -2349,17 +2364,32 @@
       "target": "higgs_direct_tensor_diagonal"
     },
     {
+      "assumptions_required": [
+        "published Wilson character assignment for the up-type sector"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_chain_actions.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "only the source-required character sector is transferred"
+      ],
+      "mathematical_reason": "Exact P/T projectors select the source-required character sector; homological perturbation transfers its two maps and lifts the unique H1 class to the full square-zero chain diagonal.",
+      "source": "higgs_direct_tensor_diagonal",
+      "target": "strict_mixed_higgs_representative"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "research/experiments/scientific_genesis/mixed_schoen_chain_diagonal.py"
+        "data/generated/scientific_genesis/mixed_schoen_chain_actions.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the ambient-cohomology transfer is not yet evaluated",
-        "no strict physical Higgs representative is available yet"
+        "the restricted product hull is not yet certified",
+        "the cyclic trace convention remains unresolved"
       ],
-      "mathematical_reason": "The square-zero common-resolution tensor diagonal supplies the lawful complex from which strict Higgs classes must be transferred.",
-      "source": "higgs_direct_tensor_diagonal",
+      "mathematical_reason": "The strict full-Schoen Higgs cocycle supplies the third chain input required beside the two universal matter sectors.",
+      "source": "strict_mixed_higgs_representative",
       "target": "common_dga_package"
     },
     {
@@ -2765,9 +2795,24 @@
       "next_survivor_restriction_rank": 20,
       "next_survivor_target_ext_dimension": 216,
       "outer_parameter_dimension_mismatch_unresolved": true,
-      "physical_higgs_representative_available": false,
+      "physical_higgs_representative_available": true,
+      "physical_higgs_representative_term_count": 27,
       "remaining_nonzero_candidate_blocks": [],
       "remaining_nonzero_family_count": 0,
+      "required_higgs_character": [
+        0,
+        1
+      ],
+      "required_higgs_character_differential_ranks": [
+        100,
+        142
+      ],
+      "required_higgs_character_h1_dimension": 1,
+      "required_higgs_character_space_dimensions": [
+        100,
+        243,
+        170
+      ],
       "retired_P3_embedding_used_for_stability": false,
       "retired_candidate_blocks": [
         3,
@@ -2793,8 +2838,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the exact ambient-cohomology transfer and strict P/T action needed to extract a physical Higgs representative",
-    "selection_status": "minimum universal matter lifted; determinant-twist Higgs identification mismatched; lawful chain diagonal square certified"
+    "next_required_object": "the restricted common-DGA product hull and exact cyclic trace for the two universal matter sectors and strict Higgs cocycle",
+    "selection_status": "minimum universal matter and source-required strict Higgs cocycles lifted; restricted product hull remains unresolved"
   },
   "research_value_scheduler": [
     {
@@ -3091,7 +3136,8 @@
     "the current 14-dimensional diagonal Higgs cone has exact character multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors rule out character projection as a four-class selector",
     "the lawful determinant-twist Hom action has raw characters (1,0), (1,1), (2,0), (2,1), which no uniform scalar shift maps to the physical tensor characters; this route cannot identify a Higgs class without an equivariant chain comparison",
     "naively merging the two lawful full Koszul--Cech arrow sets gives an exact three-term differential-square witness, so a genuine chain diagonal is required; three witnesses eliminate all 4,096 declared static-plus-live linear parity repairs",
-    "the canonical independent-cover tensor followed by the exact fiber diagonal closes on all 4,896 ambient transfer seeds; no physical Higgs class is claimed before cohomology transfer and deck action"
+    "the canonical independent-cover tensor followed by the exact fiber diagonal closes on all 4,896 ambient transfer seeds",
+    "the source-required P/T character (0,1) has exact transferred dimensions 100-to-243-to-170, differential ranks 100/142, and a unique H1 class represented by a strict 27-term full cocycle"
   ],
   "structural_compression_questions": [
     {

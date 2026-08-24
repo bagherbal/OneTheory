@@ -602,44 +602,70 @@ def _factor_total_degree(basis: ChainDiagonalBasis, factor: int) -> int:
     return position - koszul + cech
 
 
-def grouped_chain_diagonal_differential(
+def chain_diagonal_cech_differential(
     cochain: ChainDiagonalCochain,
 ) -> ChainDiagonalCochain:
-    """Apply the strict tensor differential followed by the diagonal Koszul map."""
+    """Apply the grouped raw Cech differential on both constituent covers."""
 
-    result = ChainDiagonalCochain()
+    result: list[tuple[ChainDiagonalBasis, Eisenstein]] = []
+    for basis, coefficient in cochain.terms:
+        first_degree = _factor_total_degree(basis, 1)
+        second_sign = -1 if first_degree % 2 else 1
+        result.extend(_factor_cech_images(basis, coefficient, 1, 1).terms)
+        result.extend(
+            _factor_cech_images(
+                basis,
+                coefficient,
+                2,
+                second_sign,
+            ).terms
+        )
+    return ChainDiagonalCochain(tuple(result))
+
+
+def chain_diagonal_perturbation(
+    cochain: ChainDiagonalCochain,
+) -> ChainDiagonalCochain:
+    """Apply constituent structural maps and the fiber-diagonal equation."""
+
+    result: list[tuple[ChainDiagonalBasis, Eisenstein]] = []
     for basis, coefficient in cochain.terms:
         first_degree = _factor_total_degree(basis, 1)
         second_degree = _factor_total_degree(basis, 2)
         second_sign = -1 if first_degree % 2 else 1
-        result = result + _factor_cech_images(basis, coefficient, 1, 1)
-        result = result + _factor_structural_images(basis, coefficient, 1, 1)
-        result = result + _factor_cech_images(
-            basis,
-            coefficient,
-            2,
-            second_sign,
+        result.extend(
+            _factor_structural_images(basis, coefficient, 1, 1).terms
         )
-        result = result + _factor_structural_images(
-            basis,
-            coefficient,
-            2,
-            second_sign,
+        result.extend(
+            _factor_structural_images(
+                basis,
+                coefficient,
+                2,
+                second_sign,
+            ).terms
         )
         if 2 in basis.component.subset:
             target_subset = tuple(item for item in basis.component.subset if item != 2)
             target = _target_component(basis.component.object_index, target_subset)
             diagonal_sign = -1 if (first_degree + second_degree) % 2 else 1
-            equation_terms: list[tuple[ChainDiagonalBasis, Eisenstein]] = []
             _add_equation(
-                equation_terms,
+                result,
                 basis,
                 coefficient * diagonal_sign,
                 target,
                 2,
             )
-            result = result + ChainDiagonalCochain(tuple(equation_terms))
-    return result
+    return ChainDiagonalCochain(tuple(result))
+
+
+def grouped_chain_diagonal_differential(
+    cochain: ChainDiagonalCochain,
+) -> ChainDiagonalCochain:
+    """Apply the strict tensor differential followed by the diagonal Koszul map."""
+
+    return chain_diagonal_cech_differential(cochain) + chain_diagonal_perturbation(
+        cochain
+    )
 
 
 def full_chain_diagonal_differential(
@@ -854,8 +880,10 @@ __all__ = [
     "ChainDiagonalSquareAudit",
     "ChainDiagonalSquareWitness",
     "OUTPUT",
+    "chain_diagonal_cech_differential",
     "chain_diagonal_extension_terms",
     "chain_diagonal_objects",
+    "chain_diagonal_perturbation",
     "chain_diagonal_square_audit",
     "chain_diagonal_square_witness",
     "full_chain_diagonal_differential",

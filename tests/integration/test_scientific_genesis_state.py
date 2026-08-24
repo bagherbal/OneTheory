@@ -95,15 +95,27 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["computable_carrier_component_frozen"] is True
     assert path["criteria"]["lawful_chain_diagonal_transfer_seed_count"] == 4896
     assert path["criteria"]["lawful_chain_diagonal_squared_zero"] is True
-    assert path["criteria"]["physical_higgs_representative_available"] is False
+    assert path["criteria"]["required_higgs_character"] == [0, 1]
+    assert path["criteria"]["required_higgs_character_space_dimensions"] == [
+        100,
+        243,
+        170,
+    ]
+    assert path["criteria"]["required_higgs_character_differential_ranks"] == [
+        100,
+        142,
+    ]
+    assert path["criteria"]["required_higgs_character_h1_dimension"] == 1
+    assert path["criteria"]["physical_higgs_representative_available"] is True
+    assert path["criteria"]["physical_higgs_representative_term_count"] == 27
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "minimum universal matter lifted; determinant-twist Higgs "
-        "identification mismatched; lawful chain diagonal square certified"
+        "minimum universal matter and source-required strict Higgs "
+        "cocycles lifted; restricted product hull remains unresolved"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
@@ -146,6 +158,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["universal_matter_sector_lifts"]["status"] == "COMPUTED"
     assert claims["higgs_determinant_twist_route"]["status"] == "BLOCKED"
     assert claims["higgs_direct_tensor_diagonal"]["status"] == "COMPUTED"
+    assert claims["strict_mixed_higgs_representative"]["status"] == "COMPUTED"
     assert claims["common_dga_package"]["status"] == "BLOCKED"
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"

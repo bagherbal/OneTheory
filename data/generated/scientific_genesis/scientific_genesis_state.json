@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "631dcc43cf3ca81d573f2464df8c7d49d2a05a37cb2de315793f94dcde73b82d",
+  "artifact_digest": "4adb2a35583511d5beecfaf8a5705ed5350ce09ee162914dacde94ea49ce2dcd",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -207,6 +207,11 @@
       "sha256": "21eb770194fe5a371162ca98161ef362c3b0f381dbe26c78e87e592fc1807636"
     },
     {
+      "bytes": 1235,
+      "path": "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json",
+      "sha256": "29b08bf9152efbf23e6734f237d7c8057e2b4d6052a0c1a887f18c91d3ee66f4"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -278,11 +283,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 564,
+    "collected_tests_at_audit": 566,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 157,
-    "test_python_files": 137
+    "research_python_files": 158,
+    "test_python_files": 138
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -298,7 +303,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "equivariantly identified full Schoen Higgs representatives and the restricted cyclic trace",
+    "a square-zero lawful Higgs tensor diagonal, strict full Schoen Higgs representatives, and the restricted cyclic trace",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -1186,6 +1191,23 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json",
+        "research/experiments/scientific_genesis/mixed_schoen_direct_tensor.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_direct_tensor.py"
+      ],
+      "id": "higgs_direct_tensor_diagonal",
+      "label": "lawful mixed Higgs tensor diagonal",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "chain diagonal for the common Koszul--Cech resolution",
+        "complete tensor totalization signs"
+      ],
+      "statement": "The signed 48-object ordinary tensor skeleton is square-zero. Naively merging the two already-resolved Koszul--Cech arrow sets has an exact three-term D-squared witness and is not a complex.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
       ],
       "id": "curvilinear_topology_route",
@@ -1217,11 +1239,11 @@
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "one lawfully identified full Schoen Higgs hypercocycle",
+        "one lawful full Schoen Higgs hypercocycle from the tensor diagonal",
         "restricted actions and contraction",
         "cyclic pairing and trace conventions"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier and minimum universal matter sectors are now fixed. A lawful equivariant Higgs identification, restricted product hull, and cyclic trace remain absent.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier and minimum universal matter sectors are now fixed. A lawful Koszul--Cech Higgs tensor diagonal, restricted product hull, and cyclic trace remain absent.",
       "status": "BLOCKED"
     },
     {
@@ -2308,6 +2330,33 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "merging two copies of the common resolution is not a chain diagonal"
+      ],
+      "mathematical_reason": "The two frozen lawful constituent complexes determine an ordinary signed tensor skeleton and the resolved tensor problem directly.",
+      "source": "computable_carrier_state",
+      "target": "higgs_direct_tensor_diagonal"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/mixed_schoen_direct_tensor.py"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "the naive merged-arrow differential has nonzero square",
+        "no physical Higgs class is available from that candidate"
+      ],
+      "mathematical_reason": "A square-zero common-resolution tensor diagonal would supply the lawful complex from which strict Higgs classes can be transferred.",
+      "source": "higgs_direct_tensor_diagonal",
+      "target": "common_dga_package"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "src/onetheory/models/heterotic_schoen/flavor.py"
       ],
       "implication": "exact",
@@ -2524,6 +2573,7 @@
     "all 27 synchronized constituent matter classes have strict full Schoen Cech--Koszul representatives with exact joint deck characters",
     "the two matter sectors for the first up-type matrix have exact parameter-linear universal-cone lifts over the full frozen P1",
     "the determinant-twist Hom route derives Higgs cohomology (0,4,4,0) and a complete exact deck action without selecting a class",
+    "the lawful 48-object direct tensor resolution skeleton is square-zero",
     "retired trivial-character outer complexes retained only as scoped dimension and transfer diagnostics",
     "relative signatures recover the source Higgs dimension tuple (0,4,4,0) from selected mixed constituent cocycles",
     "complete 1,440-pair cover Ext and invariant-cocycle screens in the declared computable category",
@@ -2732,8 +2782,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "an equivariant chain comparison for the determinant-twist tensor identity or a direct lawful mixed tensor transfer",
-    "selection_status": "minimum universal matter lifted; determinant-twist Higgs identification blocked by an exact character mismatch"
+    "next_required_object": "a square-zero chain diagonal with complete Koszul-Cech tensor signs for the two lawful mixed constituent complexes",
+    "selection_status": "minimum universal matter lifted; determinant-twist Higgs identification mismatched and direct tensor requires a chain diagonal"
   },
   "research_value_scheduler": [
     {
@@ -3028,7 +3078,8 @@
     "the available projective I3/I6 pushouts give cover Ext-one dimensions 0/63 rather than the published 36/72, so they cannot stand in for fiber-sensitive W1/W2 presentations",
     "the fixed constituent kernel line is not the source-selected W1/W2 ray; its pure-Cech mapping cones and downstream outer objects are scoped diagnostics rather than carrier reconstructions",
     "the current 14-dimensional diagonal Higgs cone has exact character multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors rule out character projection as a four-class selector",
-    "the lawful determinant-twist Hom action has raw characters (1,0), (1,1), (2,0), (2,1), which no uniform scalar shift maps to the physical tensor characters; this route cannot identify a Higgs class without an equivariant chain comparison"
+    "the lawful determinant-twist Hom action has raw characters (1,0), (1,1), (2,0), (2,1), which no uniform scalar shift maps to the physical tensor characters; this route cannot identify a Higgs class without an equivariant chain comparison",
+    "naively merging the two lawful full Koszul--Cech arrow sets gives an exact three-term differential-square witness, so a genuine chain diagonal is required"
   ],
   "structural_compression_questions": [
     {

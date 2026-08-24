@@ -121,7 +121,6 @@ def mixed_schoen_unit() -> MixedSchoenUnit:
 def _skeleton(constituent: MixedSchoenComplex) -> SchoenSerreConstituent:
     """Return the object and resolution part without any extension shortcut."""
 
-    factor = "x" if constituent.factor == 1 else "u"
     return SchoenSerreConstituent(
         constituent.name,
         constituent.factor,
@@ -136,7 +135,7 @@ def _skeleton(constituent: MixedSchoenComplex) -> SchoenSerreConstituent:
                 arrow.source,
                 arrow.target,
                 arrow.polynomial,
-                factor,
+                "x" if arrow.factor == 1 else "u",
                 0,
             )
             for arrow in constituent.resolution_arrows

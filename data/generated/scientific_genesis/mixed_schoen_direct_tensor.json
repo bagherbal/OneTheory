@@ -1,0 +1,48 @@
+{
+  "artifact_digest": "eea991109d2ff5d924b3171ddc5b170d31a129605090f18083e6519c554c83ad",
+  "candidate_shape": {
+    "full_extension_term_count": 3834,
+    "object_count": 48,
+    "ordinary_resolution_skeleton_square_zero": true,
+    "resolution_arrow_count": 68
+  },
+  "first_missing_input": "a chain diagonal with complete Koszul-Cech tensor signs for the two lawful mixed constituent complexes",
+  "naive_merged_arrow_witness": {
+    "component": {
+      "koszul_summand": "k2",
+      "left_object": 37,
+      "line_degree": [
+        -3,
+        -4,
+        2
+      ],
+      "object_degree": -2
+    },
+    "degree": 0,
+    "differential_square_nonzero": true,
+    "first_image_term_count": 50,
+    "monomials": {
+      "p": [
+        0,
+        0
+      ],
+      "u": [
+        -5,
+        -1,
+        -1
+      ],
+      "x": [
+        -4,
+        -1,
+        -1
+      ]
+    },
+    "reduced_index": 0,
+    "seed_term_count": 2,
+    "square_term_count": 3
+  },
+  "physical_higgs_representative_available": false,
+  "retired_diagonal_cones_used": false,
+  "schema": "mixed-schoen-direct-tensor-audit-v1",
+  "status": "ordinary tensor skeleton exact; naive merging of two full Koszul-Cech arrow sets has nonzero differential square"
+}

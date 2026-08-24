@@ -149,23 +149,50 @@ def determinant_twisted_second_constituent() -> MixedSchoenConstituent:
 
 
 @cache
-def _higgs_contraction() -> _MixedContraction:
-    """Return the exact Hom(V2 tensor det(V1), V1) contraction."""
+def determinant_dualized_first_constituent() -> MixedSchoenConstituent:
+    """Return V1 tensor det(V1)^-1 in the synchronized mixed grading."""
 
     first, _second = mixed_schoen_constituents()
-    return _MixedContraction(determinant_twisted_second_constituent(), first)
+    inverse_degree = cast(
+        tuple[int, int, int],
+        tuple(-value for value in DET_V1_DEGREE),
+    )
+    return replace(
+        first,
+        name="V1*det(V1)^-1",
+        twist=_add_degree(first.twist, inverse_degree),
+        objects=tuple(
+            replace(
+                object_,
+                line_degree=_add_degree(object_.line_degree, inverse_degree),
+            )
+            for object_ in first.objects
+        ),
+    )
+
+
+@cache
+def _higgs_contraction(orientation: int = 0) -> _MixedContraction:
+    """Return one exact determinant-twist outer-Hom contraction."""
+
+    first, second = mixed_schoen_constituents()
+    if orientation == 0:
+        return _MixedContraction(determinant_twisted_second_constituent(), first)
+    if orientation == 1:
+        return _MixedContraction(determinant_dualized_first_constituent(), second)
+    raise ValueError("a Higgs determinant-twist orientation is zero or one")
 
 
 def _higgs_action_job(
-    job: tuple[int, str, dict[int, Eisenstein]],
+    job: tuple[int, int, str, dict[int, Eisenstein]],
 ) -> tuple[int, str, dict[int, Eisenstein], tuple[int, int]]:
     """Transfer one Higgs-cohomology action in a worker process."""
 
-    column, generator, coefficients = job
+    orientation, column, generator, coefficients = job
     actions = {item.name: item for item in schoen_sparse_deck_actions()}
     image, depths = _apply_transferred_action(
         coefficients,
-        _higgs_contraction(),
+        _higgs_contraction(orientation),
         1,
         actions[generator],
     )
@@ -349,13 +376,14 @@ class MixedSchoenHiggsTwistAudit:
         }
 
 
-@cache
-def mixed_schoen_higgs_twist_audit() -> MixedSchoenHiggsTwistAudit:
-    """Derive the determinant-twist action without selecting a physical class."""
+def _derive_higgs_twist_route(
+    orientation: int,
+    left: MixedSchoenConstituent,
+    right: MixedSchoenConstituent,
+) -> MixedSchoenHiggsTwistAudit:
+    """Derive one determinant-twist action without selecting a physical class."""
 
-    first, _second = mixed_schoen_constituents()
-    twisted_second = determinant_twisted_second_constituent()
-    transferred = mixed_transferred_outer_hom(twisted_second, first)
+    transferred = mixed_transferred_outer_hom(left, right)
     spaces = dict(transferred.spaces)
     differentials = dict(transferred.differentials)
     outgoing = differentials[1]
@@ -365,7 +393,7 @@ def mixed_schoen_higgs_twist_audit() -> MixedSchoenHiggsTwistAudit:
     representatives = _select_columns(cycles, selected, "H1:higgs-audit")
     representative_columns = tuple(_columns(representatives))
     jobs = [
-        (column, generator, coefficients)
+        (orientation, column, generator, coefficients)
         for column, coefficients in enumerate(representative_columns)
         for generator in ("P", "T")
     ]
@@ -442,9 +470,35 @@ def mixed_schoen_higgs_twist_audit() -> MixedSchoenHiggsTwistAudit:
         ),
         _source_digest(),
     )
-    if not result.route_blocked:
+    if not result.exact_transfer:
+        raise ValueError("a determinant-twist Hom transfer gate failed")
+    if orientation == 0 and not result.route_blocked:
         raise ValueError("the determinant-twist comparison audit changed")
     return result
+
+
+@cache
+def mixed_schoen_higgs_twist_audit() -> MixedSchoenHiggsTwistAudit:
+    """Derive the audited Hom(V2 tensor det(V1), V1) action."""
+
+    first, _second = mixed_schoen_constituents()
+    return _derive_higgs_twist_route(
+        0,
+        determinant_twisted_second_constituent(),
+        first,
+    )
+
+
+@cache
+def mixed_schoen_higgs_dual_orientation() -> MixedSchoenHiggsTwistAudit:
+    """Derive Hom(V1 tensor det(V1)^-1, V2) for comparison."""
+
+    _first, second = mixed_schoen_constituents()
+    return _derive_higgs_twist_route(
+        1,
+        determinant_dualized_first_constituent(),
+        second,
+    )
 
 
 def write_mixed_schoen_higgs_twist_audit(
@@ -480,7 +534,9 @@ if __name__ == "__main__":
 
 __all__ = [
     "MixedSchoenHiggsTwistAudit",
+    "determinant_dualized_first_constituent",
     "determinant_twisted_second_constituent",
+    "mixed_schoen_higgs_dual_orientation",
     "mixed_schoen_higgs_twist_audit",
     "write_mixed_schoen_higgs_twist_audit",
 ]

@@ -1041,6 +1041,27 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "higgs_direct_tensor_diagonal",
+            "lawful mixed Higgs tensor diagonal",
+            "Flavor",
+            "BLOCKED",
+            "The signed 48-object ordinary tensor skeleton is square-zero. "
+            "Naively merging the two already-resolved Koszul--Cech arrow sets "
+            "has an exact three-term D-squared witness and is not a complex.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_direct_tensor.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_direct_tensor.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_direct_tensor.py",
+            ),
+            missing=(
+                "chain diagonal for the common Koszul--Cech resolution",
+                "complete tensor totalization signs",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1065,14 +1086,14 @@ def _nodes() -> list[dict[str, object]]:
             "BLOCKED",
             "Generic DGA, module, contraction, and HPL engines exist; the lawful "
             "carrier and minimum universal matter sectors are now fixed. A "
-            "lawful equivariant Higgs identification, restricted product hull, "
-            "and cyclic trace remain absent.",
+            "lawful Koszul--Cech Higgs tensor diagonal, restricted product "
+            "hull, and cyclic trace remain absent.",
             (
                 "src/onetheory/math/homological.py",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "one lawfully identified full Schoen Higgs hypercocycle",
+                "one lawful full Schoen Higgs hypercocycle from the tensor diagonal",
                 "restricted actions and contraction",
                 "cyclic pairing and trace conventions",
             ),
@@ -2079,6 +2100,37 @@ def _edges() -> list[dict[str, object]]:
             ),
         ),
         _edge(
+            "computable_carrier_state",
+            "higgs_direct_tensor_diagonal",
+            "The two frozen lawful constituent complexes determine an ordinary "
+            "signed tensor skeleton and the resolved tensor problem directly.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_direct_tensor.json",
+            ),
+            (),
+            True,
+            (
+                "merging two copies of the common resolution is not a chain diagonal",
+            ),
+        ),
+        _edge(
+            "higgs_direct_tensor_diagonal",
+            "common_dga_package",
+            "A square-zero common-resolution tensor diagonal would supply the "
+            "lawful complex from which strict Higgs classes can be transferred.",
+            (
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_direct_tensor.py",
+            ),
+            (),
+            False,
+            (
+                "the naive merged-arrow differential has nonzero square",
+                "no physical Higgs class is available from that candidate",
+            ),
+        ),
+        _edge(
             "common_dga_package",
             "first_exact_yukawa",
             "Matter/Higgs cocycle products and trace yield a holomorphic matrix.",
@@ -2519,6 +2571,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_matter_representatives.json",
         "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
+        "data/generated/scientific_genesis/mixed_schoen_direct_tensor.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2549,7 +2602,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 564,
+            "collected_tests_at_audit": 566,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2572,7 +2625,7 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "minimum universal matter lifted; determinant-twist Higgs "
-                "identification blocked by an exact character mismatch"
+                "identification mismatched and direct tensor requires a chain diagonal"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2673,8 +2726,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "an equivariant chain comparison for the determinant-twist "
-                "tensor identity or a direct lawful mixed tensor transfer"
+                "a square-zero chain diagonal with complete Koszul-Cech tensor "
+                "signs for the two lawful mixed constituent complexes"
             ),
         },
         "claims": _nodes(),
@@ -2720,6 +2773,7 @@ def build_state() -> dict[str, object]:
             "parameter-linear universal-cone lifts over the full frozen P1",
             "the determinant-twist Hom route derives Higgs cohomology "
             "(0,4,4,0) and a complete exact deck action without selecting a class",
+            "the lawful 48-object direct tensor resolution skeleton is square-zero",
             "retired trivial-character outer complexes retained only as scoped "
             "dimension and transfer diagnostics",
             "relative signatures recover the source Higgs dimension tuple "
@@ -2797,6 +2851,9 @@ def build_state() -> dict[str, object]:
             "(1,0), (1,1), (2,0), (2,1), which no uniform scalar shift maps "
             "to the physical tensor characters; this route cannot identify a "
             "Higgs class without an equivariant chain comparison",
+            "naively merging the two lawful full Koszul--Cech arrow sets gives "
+            "an exact three-term differential-square witness, so a genuine "
+            "chain diagonal is required",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -2810,8 +2867,8 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "equivariantly identified full Schoen Higgs representatives and "
-            "the restricted cyclic trace",
+            "a square-zero lawful Higgs tensor diagonal, strict full Schoen "
+            "Higgs representatives, and the restricted cyclic trace",
             "carrier-derived complete holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],

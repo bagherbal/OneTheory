@@ -100,7 +100,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "minimum universal matter lifted; determinant-twist Higgs "
-        "identification blocked by an exact character mismatch"
+        "identification mismatched and direct tensor requires a chain diagonal"
     )
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
@@ -142,6 +142,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["strict_mixed_matter_representatives"]["status"] == "COMPUTED"
     assert claims["universal_matter_sector_lifts"]["status"] == "COMPUTED"
     assert claims["higgs_determinant_twist_route"]["status"] == "BLOCKED"
+    assert claims["higgs_direct_tensor_diagonal"]["status"] == "BLOCKED"
     assert claims["common_dga_package"]["status"] == "BLOCKED"
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"

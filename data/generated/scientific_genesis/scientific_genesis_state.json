@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "0192762b4cc5b07877da989ede03edc9e3e5bbcdfce66cbc7dcfb1c1409fa7bb",
+  "artifact_digest": "ff3df1ac65c261ba103eadf0d7ce44d3a728a1346c768b3d74487589d7a4d808",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -232,6 +232,11 @@
       "sha256": "7df8eecdf40acdf0b53cae3c1aa90e8fb46351bae58f36b61341202ea93ae115"
     },
     {
+      "bytes": 1515,
+      "path": "data/generated/scientific_genesis/mixed_schoen_scalar_trace.json",
+      "sha256": "9cac999d6604aee99687faf4683f6cfa3aa2f8bc60689a347491e69dd79e6dfd"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -306,8 +311,8 @@
     "collected_tests_at_audit": 572,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 163,
-    "test_python_files": 142
+    "research_python_files": 164,
+    "test_python_files": 143
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -323,7 +328,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "the determinant pairing and cyclic trace on the restricted product hull",
+    "the alternating determinant contraction on the restricted product hull",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -1257,6 +1262,20 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_scalar_trace.json",
+        "research/experiments/scientific_genesis/mixed_schoen_scalar_trace.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_scalar_trace.py"
+      ],
+      "id": "mixed_scalar_trace_target",
+      "label": "mixed-Schoen scalar residue target",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "The constituent virtual determinants have degrees (-2,2,0) and (2,-2,0), hence cancel exactly. Adjunction identifies the unique degree-three scalar target with the ordered ambient canonical Laurent residue generator.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
       ],
       "id": "curvilinear_topology_route",
@@ -1289,10 +1308,10 @@
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "determinant pairing on the restricted product hull",
-        "cyclic trace convention and evaluation"
+        "alternating determinant chain contraction on the restricted hull",
+        "cyclic trace evaluation"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, but their determinant pairing and cyclic trace remain absent.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The alternating determinant chain contraction remains absent.",
       "status": "BLOCKED"
     },
     {
@@ -1319,7 +1338,7 @@
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "determinant pairing",
+        "alternating determinant chain contraction",
         "cyclic trace evaluation"
       ],
       "statement": "No complete matrix has been evaluated from generated carrier chain data.",
@@ -2446,6 +2465,19 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_scalar_trace.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the alternating chain contraction is not yet constructed"
+      ],
+      "mathematical_reason": "Virtual determinant cancellation and complete-intersection adjunction identify the unique reduced scalar residue coordinate that receives a future alternating chain contraction.",
+      "source": "mixed_scalar_trace_target",
+      "target": "common_dga_package"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "src/onetheory/models/heterotic_schoen/flavor.py"
       ],
       "implication": "exact",
@@ -2681,7 +2713,8 @@
     "the unique lower-line section has identically zero outer-Hom pullback in every candidate-4/24 family",
     "the same exact lower-line screen exhausts all 72 candidate-5/25 families in the declared monomial category",
     "the sparse Schoen engine accepts exact base pushouts directly and checks both published-carrier Hom orientations",
-    "finite HPL projection, strict re-inclusion, and exact Reynolds projection close all four split matter products as distinct cycles of character (0,2) in the grouped Higgs complex"
+    "finite HPL projection, strict re-inclusion, and exact Reynolds projection close all four split matter products as distinct cycles of character (0,2) in the grouped Higgs complex",
+    "virtual determinant cancellation and adjunction identify the unique ordered degree-three scalar residue target"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -2894,6 +2927,7 @@
         ]
       ],
       "retired_source_scoped_outer_space": "P^3(Q(omega))",
+      "scalar_residue_target_available": true,
       "slope_identity_retired_candidate_blocks": [
         16,
         36
@@ -2901,7 +2935,7 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the determinant pairing and cyclic trace on the exact restricted matter-product hull",
+    "next_required_object": "an exact alternating chain contraction from the restricted matter-product hull to the certified scalar residue target",
     "selection_status": "minimum universal matter and source-required strict Higgs cocycles lifted; exact equivariant comparison closes four restricted matter-product cycles"
   },
   "research_value_scheduler": [

@@ -1102,6 +1102,24 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_scalar_trace_target",
+            "mixed-Schoen scalar residue target",
+            "Flavor",
+            "COMPUTED",
+            "The constituent virtual determinants have degrees (-2,2,0) and "
+            "(2,-2,0), hence cancel exactly. Adjunction identifies the unique "
+            "degree-three scalar target with the ordered ambient canonical "
+            "Laurent residue generator.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_scalar_trace.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_scalar_trace.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_scalar_trace.py",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1127,8 +1145,9 @@ def _nodes() -> list[dict[str, object]]:
             "Generic DGA, module, contraction, and HPL engines exist; the lawful "
             "carrier, minimum universal matter sectors, and strict required "
             "Higgs cocycle are fixed. Exact equivariant comparison now supplies "
-            "the four restricted matter-product cycles, but their determinant "
-            "pairing and cyclic trace remain absent.",
+            "the four restricted matter-product cycles, while adjunction fixes "
+            "their one-dimensional scalar residue target. The alternating "
+            "determinant chain contraction remains absent.",
             (
                 "src/onetheory/math/homological.py",
                 "data/generated/scientific_genesis/"
@@ -1136,8 +1155,8 @@ def _nodes() -> list[dict[str, object]]:
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "determinant pairing on the restricted product hull",
-                "cyclic trace convention and evaluation",
+                "alternating determinant chain contraction on the restricted hull",
+                "cyclic trace evaluation",
             ),
         ),
         _node(
@@ -1158,7 +1177,7 @@ def _nodes() -> list[dict[str, object]]:
             "No complete matrix has been evaluated from generated carrier chain data.",
             ("research/experiments/visible_common_dga/audit.py",),
             missing=(
-                "determinant pairing",
+                "alternating determinant chain contraction",
                 "cyclic trace evaluation",
             ),
         ),
@@ -2222,6 +2241,22 @@ def _edges() -> list[dict[str, object]]:
             ),
         ),
         _edge(
+            "mixed_scalar_trace_target",
+            "common_dga_package",
+            "Virtual determinant cancellation and complete-intersection "
+            "adjunction identify the unique reduced scalar residue coordinate "
+            "that receives a future alternating chain contraction.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_scalar_trace.json",
+            ),
+            (),
+            True,
+            (
+                "the alternating chain contraction is not yet constructed",
+            ),
+        ),
+        _edge(
             "common_dga_package",
             "first_exact_yukawa",
             "Matter/Higgs cocycle products and trace yield a holomorphic matrix.",
@@ -2667,6 +2702,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_chain_actions.json",
         "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json",
         "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json",
+        "data/generated/scientific_genesis/mixed_schoen_scalar_trace.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2831,12 +2867,13 @@ def build_state() -> dict[str, object]:
                 "equivariant_matter_product_cycle_count": 4,
                 "equivariant_matter_product_character": [0, 2],
                 "determinant_trace_available": False,
+                "scalar_residue_target_available": True,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the determinant pairing and cyclic trace on the exact "
-                "restricted matter-product hull"
+                "an exact alternating chain contraction from the restricted "
+                "matter-product hull to the certified scalar residue target"
             ),
         },
         "claims": _nodes(),
@@ -2924,6 +2961,8 @@ def build_state() -> dict[str, object]:
             "finite HPL projection, strict re-inclusion, and exact Reynolds "
             "projection close all four split matter products as distinct cycles "
             "of character (0,2) in the grouped Higgs complex",
+            "virtual determinant cancellation and adjunction identify the unique "
+            "ordered degree-three scalar residue target",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -2985,7 +3024,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "the determinant pairing and cyclic trace on the restricted product hull",
+            "the alternating determinant contraction on the restricted product hull",
             "carrier-derived complete holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],

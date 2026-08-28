@@ -184,6 +184,8 @@ homological-perturbation projection and strict re-inclusion now correct each
 product to an exact grouped-chain cycle, and normalized Reynolds projection
 places all four distinct representatives in the required `(0,2)` character.
 This closes the equivariant matter-to-Higgs comparison without identifying the
-two elliptic fibers or selecting an extension point. The next exact gate is a
-determinant pairing and cyclic trace on this restricted product hull; no scalar
-coupling or Yukawa matrix is yet available.
+two elliptic fibers or selecting an extension point. The constituent virtual
+determinants cancel exactly, and complete-intersection adjunction identifies a
+unique ordered degree-three Laurent residue target in `H3(O_X)`. The next exact
+gate is the alternating chain contraction from the restricted product hull to
+that scalar complex; no coupling or Yukawa matrix is yet available.

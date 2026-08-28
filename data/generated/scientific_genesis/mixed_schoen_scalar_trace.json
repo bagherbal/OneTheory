@@ -1,0 +1,84 @@
+{
+  "alternating_determinant_contraction_available": false,
+  "artifact_digest": "c2b42c1c958bef969eb9b921225e2920299ea0668fb82041fdb23b78f11dfffa",
+  "coefficient_field": "Q(omega)",
+  "coordinate_residue_target_available": true,
+  "holomorphic_yukawa_matrix_available": false,
+  "next_required_object": "an exact alternating chain contraction from two grouped V1-tensor-V2 representatives to the certified scalar complex",
+  "schema": "mixed-schoen-scalar-trace-target-v1",
+  "target": {
+    "ambient_canonical_degree": [
+      -3,
+      -2,
+      -3,
+      -2
+    ],
+    "constituent_determinant_degrees": [
+      [
+        -2,
+        2,
+        0
+      ],
+      [
+        2,
+        -2,
+        0
+      ]
+    ],
+    "constituent_virtual_ranks": [
+      2,
+      2
+    ],
+    "coordinate_residue_normalization": "the displayed ordered top Laurent generator has trace one",
+    "determinant_product_degree": [
+      0,
+      0,
+      0
+    ],
+    "equation_degree_sum": [
+      3,
+      2,
+      3,
+      2
+    ],
+    "exact": true,
+    "structure_sheaf_cohomology_h0_to_h3": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "top_ambient_degree": [
+      -3,
+      -2,
+      -3,
+      -2
+    ],
+    "top_koszul_subset": [
+      0,
+      1,
+      2
+    ],
+    "top_laurent_monomials": [
+      [
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1
+      ]
+    ],
+    "top_reduced_dimension": 1
+  }
+}

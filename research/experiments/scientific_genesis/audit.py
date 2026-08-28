@@ -1120,6 +1120,25 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_local_determinant_pairings",
+            "mixed-Schoen local determinant pairings",
+            "Flavor",
+            "COMPUTED",
+            "Signed complementary maximal minors define the alternating forms "
+            "on all twelve rank-two constituent quotient presentations. They "
+            "annihilate every relation, factor their overlap differences by the "
+            "appropriate hypersurface, and satisfy all sixty corrected "
+            "covariance identities.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_determinant_pairing.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_determinant_pairing.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_determinant_pairing.py",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1146,8 +1165,9 @@ def _nodes() -> list[dict[str, object]]:
             "carrier, minimum universal matter sectors, and strict required "
             "Higgs cocycle are fixed. Exact equivariant comparison now supplies "
             "the four restricted matter-product cycles, while adjunction fixes "
-            "their one-dimensional scalar residue target. The alternating "
-            "determinant chain contraction remains absent.",
+            "their one-dimensional scalar residue target. Exact local "
+            "determinant pairings now descend across both constituent atlases, "
+            "but their grouped Cech--Koszul totalization remains absent.",
             (
                 "src/onetheory/math/homological.py",
                 "data/generated/scientific_genesis/"
@@ -1155,7 +1175,7 @@ def _nodes() -> list[dict[str, object]]:
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "alternating determinant chain contraction on the restricted hull",
+                "Alexander--Whitney-compatible determinant chain contraction",
                 "cyclic trace evaluation",
             ),
         ),
@@ -1177,7 +1197,7 @@ def _nodes() -> list[dict[str, object]]:
             "No complete matrix has been evaluated from generated carrier chain data.",
             ("research/experiments/visible_common_dga/audit.py",),
             missing=(
-                "alternating determinant chain contraction",
+                "grouped determinant chain contraction",
                 "cyclic trace evaluation",
             ),
         ),
@@ -2257,6 +2277,22 @@ def _edges() -> list[dict[str, object]]:
             ),
         ),
         _edge(
+            "mixed_local_determinant_pairings",
+            "common_dga_package",
+            "Complementary-minor forms give exact constituent determinant "
+            "pairings compatible with every hypersurface-corrected overlap; "
+            "their chain totalization is the remaining product operation.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_determinant_pairing.json",
+            ),
+            (),
+            True,
+            (
+                "the grouped Alexander--Whitney lift is not yet constructed",
+            ),
+        ),
+        _edge(
             "common_dga_package",
             "first_exact_yukawa",
             "Matter/Higgs cocycle products and trace yield a holomorphic matrix.",
@@ -2703,6 +2739,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json",
         "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json",
         "data/generated/scientific_genesis/mixed_schoen_scalar_trace.json",
+        "data/generated/scientific_genesis/mixed_schoen_determinant_pairing.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2868,12 +2905,13 @@ def build_state() -> dict[str, object]:
                 "equivariant_matter_product_character": [0, 2],
                 "determinant_trace_available": False,
                 "scalar_residue_target_available": True,
+                "local_determinant_pairings_available": True,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "an exact alternating chain contraction from the restricted "
-                "matter-product hull to the certified scalar residue target"
+                "the Alexander--Whitney-compatible lift of the certified local "
+                "determinant pairings to the grouped Cech--Koszul complex"
             ),
         },
         "claims": _nodes(),
@@ -2963,6 +3001,8 @@ def build_state() -> dict[str, object]:
             "of character (0,2) in the grouped Higgs complex",
             "virtual determinant cancellation and adjunction identify the unique "
             "ordered degree-three scalar residue target",
+            "complementary maximal minors give exact local determinant pairings "
+            "with hypersurface-corrected covariance on all sixty overlaps",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -3024,7 +3064,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "the alternating determinant contraction on the restricted product hull",
+            "the grouped determinant contraction on the restricted product hull",
             "carrier-derived complete holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],

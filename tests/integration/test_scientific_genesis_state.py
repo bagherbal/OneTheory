@@ -114,6 +114,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["equivariant_matter_product_character"] == [0, 2]
     assert path["criteria"]["determinant_trace_available"] is False
     assert path["criteria"]["scalar_residue_target_available"] is True
+    assert path["criteria"]["local_determinant_pairings_available"] is True
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
@@ -125,11 +126,12 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "restricted matter-product cycles"
     )
     assert path["next_required_object"] == (
-        "an exact alternating chain contraction from the restricted "
-        "matter-product hull to the certified scalar residue target"
+        "the Alexander--Whitney-compatible lift of the certified local "
+        "determinant pairings to the grouped Cech--Koszul complex"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
+    assert claims["mixed_local_determinant_pairings"]["status"] == "COMPUTED"
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"

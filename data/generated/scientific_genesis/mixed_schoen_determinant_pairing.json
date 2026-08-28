@@ -1,0 +1,46 @@
+{
+  "artifact_digest": "ff50d281cbc2eef2ee8115889fc96e1a4cd9fd3380258276a8468932c69e0695",
+  "coefficient_field": "Q(omega)",
+  "cyclic_trace_evaluated": false,
+  "grouped_chain_contraction_available": false,
+  "holomorphic_yukawa_matrix_available": false,
+  "local_determinant_pairings_available": true,
+  "next_required_object": "the Alexander-Whitney-compatible lift of the certified local pairings to the grouped Cech-Koszul chain complex",
+  "pairing": {
+    "alternating_pairings": true,
+    "chart_pairing_count": 12,
+    "chart_pairing_digests": [
+      "16508784bdb9013653a4169ab40d68495601fe1a5ef22b20933c5ece0c24b77d",
+      "ca1793eca47ec62726e519ca8a9a91fa0bb0482667fe891bf56d695effe2b4fd",
+      "16508784bdb9013653a4169ab40d68495601fe1a5ef22b20933c5ece0c24b77d",
+      "ca1793eca47ec62726e519ca8a9a91fa0bb0482667fe891bf56d695effe2b4fd",
+      "16508784bdb9013653a4169ab40d68495601fe1a5ef22b20933c5ece0c24b77d",
+      "ca1793eca47ec62726e519ca8a9a91fa0bb0482667fe891bf56d695effe2b4fd",
+      "6d3960410915ca0e8c7c926ce1cec313c0ada1deb461267ab1e5142bf5432839",
+      "e03d8c3c19bf67df7e31978dc7b47120d16a0f184820fc5d8820faff12505f90",
+      "6d3960410915ca0e8c7c926ce1cec313c0ada1deb461267ab1e5142bf5432839",
+      "e03d8c3c19bf67df7e31978dc7b47120d16a0f184820fc5d8820faff12505f90",
+      "6d3960410915ca0e8c7c926ce1cec313c0ada1deb461267ab1e5142bf5432839",
+      "e03d8c3c19bf67df7e31978dc7b47120d16a0f184820fc5d8820faff12505f90"
+    ],
+    "constituents": [
+      "I3",
+      "I6"
+    ],
+    "corrected_overlap_covariance_exact": true,
+    "distinct_chart_pairing_digest_count": 4,
+    "exact": true,
+    "hypersurface_factorization_exact": true,
+    "middle_ranks": [
+      4,
+      5
+    ],
+    "overlap_count": 60,
+    "relation_annihilation_exact": true,
+    "relation_ranks": [
+      2,
+      3
+    ]
+  },
+  "schema": "mixed-schoen-determinant-pairing-v1"
+}

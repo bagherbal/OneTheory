@@ -186,6 +186,9 @@ places all four distinct representatives in the required `(0,2)` character.
 This closes the equivariant matter-to-Higgs comparison without identifying the
 two elliptic fibers or selecting an extension point. The constituent virtual
 determinants cancel exactly, and complete-intersection adjunction identifies a
-unique ordered degree-three Laurent residue target in `H3(O_X)`. The next exact
-gate is the alternating chain contraction from the restricted product hull to
-that scalar complex; no coupling or Yukawa matrix is yet available.
+unique ordered degree-three Laurent residue target in `H3(O_X)`. Signed
+complementary minors also give the exact alternating forms on all twelve local
+rank-two quotient presentations; hypersurface homotopies restore every overlap
+covariance identity. The next exact gate is their Alexander--Whitney-compatible
+lift to the grouped Cech--Koszul complex; no coupling or Yukawa matrix is yet
+available.

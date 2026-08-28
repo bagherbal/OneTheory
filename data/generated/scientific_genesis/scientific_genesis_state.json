@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "ff3df1ac65c261ba103eadf0d7ce44d3a728a1346c768b3d74487589d7a4d808",
+  "artifact_digest": "0537129bedfe2afdaf73cdb4983b116e18166f715c14c192f5a4104af1fb65ed",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -237,6 +237,11 @@
       "sha256": "9cac999d6604aee99687faf4683f6cfa3aa2f8bc60689a347491e69dd79e6dfd"
     },
     {
+      "bytes": 1877,
+      "path": "data/generated/scientific_genesis/mixed_schoen_determinant_pairing.json",
+      "sha256": "411668ba35baea4de054315ca44d2d0663a0c75bcd76b3eb17b427cec0cc9ba9"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -311,8 +316,8 @@
     "collected_tests_at_audit": 572,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 164,
-    "test_python_files": 143
+    "research_python_files": 165,
+    "test_python_files": 144
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -328,7 +333,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "the alternating determinant contraction on the restricted product hull",
+    "the grouped determinant contraction on the restricted product hull",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -1276,6 +1281,20 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_determinant_pairing.json",
+        "research/experiments/scientific_genesis/mixed_schoen_determinant_pairing.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_determinant_pairing.py"
+      ],
+      "id": "mixed_local_determinant_pairings",
+      "label": "mixed-Schoen local determinant pairings",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "Signed complementary maximal minors define the alternating forms on all twelve rank-two constituent quotient presentations. They annihilate every relation, factor their overlap differences by the appropriate hypersurface, and satisfy all sixty corrected covariance identities.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
       ],
       "id": "curvilinear_topology_route",
@@ -1308,10 +1327,10 @@
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "alternating determinant chain contraction on the restricted hull",
+        "Alexander--Whitney-compatible determinant chain contraction",
         "cyclic trace evaluation"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The alternating determinant chain contraction remains absent.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. Exact local determinant pairings now descend across both constituent atlases, but their grouped Cech--Koszul totalization remains absent.",
       "status": "BLOCKED"
     },
     {
@@ -1338,7 +1357,7 @@
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "alternating determinant chain contraction",
+        "grouped determinant chain contraction",
         "cyclic trace evaluation"
       ],
       "statement": "No complete matrix has been evaluated from generated carrier chain data.",
@@ -2478,6 +2497,19 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_determinant_pairing.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the grouped Alexander--Whitney lift is not yet constructed"
+      ],
+      "mathematical_reason": "Complementary-minor forms give exact constituent determinant pairings compatible with every hypersurface-corrected overlap; their chain totalization is the remaining product operation.",
+      "source": "mixed_local_determinant_pairings",
+      "target": "common_dga_package"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "src/onetheory/models/heterotic_schoen/flavor.py"
       ],
       "implication": "exact",
@@ -2714,7 +2746,8 @@
     "the same exact lower-line screen exhausts all 72 candidate-5/25 families in the declared monomial category",
     "the sparse Schoen engine accepts exact base pushouts directly and checks both published-carrier Hom orientations",
     "finite HPL projection, strict re-inclusion, and exact Reynolds projection close all four split matter products as distinct cycles of character (0,2) in the grouped Higgs complex",
-    "virtual determinant cancellation and adjunction identify the unique ordered degree-three scalar residue target"
+    "virtual determinant cancellation and adjunction identify the unique ordered degree-three scalar residue target",
+    "complementary maximal minors give exact local determinant pairings with hypersurface-corrected covariance on all sixty overlaps"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -2835,6 +2868,7 @@
       "lawful_structural_spectrum_all_P1": true,
       "lawful_wilson_projected_families": 3,
       "lawful_wilson_projected_higgs_pairs": 1,
+      "local_determinant_pairings_available": true,
       "minimum_forced_chamber_certificate": [
         "(2,1,t)",
         "t>7/2"
@@ -2935,7 +2969,7 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "an exact alternating chain contraction from the restricted matter-product hull to the certified scalar residue target",
+    "next_required_object": "the Alexander--Whitney-compatible lift of the certified local determinant pairings to the grouped Cech--Koszul complex",
     "selection_status": "minimum universal matter and source-required strict Higgs cocycles lifted; exact equivariant comparison closes four restricted matter-product cycles"
   },
   "research_value_scheduler": [

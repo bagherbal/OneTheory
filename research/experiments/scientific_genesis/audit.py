@@ -1090,7 +1090,8 @@ def _nodes() -> list[dict[str, object]]:
             "BLOCKED",
             "The canonical independent-fiber lift and fully derived totalization "
             "sign preserve the required product character (0,2), but all four "
-            "candidate split products fail the exact grouped-chain cycle gate.",
+            "candidate split products have 67,854-term residuals in ordinary "
+            "pencil sectors and fail the exact grouped-chain cycle gate.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_matter_tensor_audit.json",

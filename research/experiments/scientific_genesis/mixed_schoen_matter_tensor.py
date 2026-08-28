@@ -19,6 +19,7 @@ Phase 0:
 from __future__ import annotations
 
 import json
+from collections import Counter
 from dataclasses import dataclass
 from functools import cache
 from pathlib import Path
@@ -44,6 +45,7 @@ from .mixed_schoen_chain_diagonal import (
     _object_indices,
     _simplex_cup,
     _target_component,
+    chain_diagonal_objects,
     full_chain_diagonal_differential,
 )
 from .mixed_schoen_matter_representatives import (
@@ -295,6 +297,7 @@ class SplitMatterTensorAudit:
     row_character: Character
     column_character: Character
     products: tuple[tuple[int, int, ChainDiagonalCochain], ...]
+    residuals: tuple[tuple[int, int, ChainDiagonalCochain], ...]
     products_are_cycles: bool
     products_have_required_character: bool
     inserted_units_exact: bool
@@ -323,6 +326,7 @@ class SplitMatterTensorAudit:
 
         return (
             len(self.products) == 4
+            and len(self.residuals) == 4
             and self.products_are_cycles
             and self.products_have_required_character
             and self.inserted_units_exact
@@ -361,6 +365,39 @@ class SplitMatterTensorAudit:
                     "term_count": len(product.terms),
                 }
                 for row, column, product in self.products
+            ],
+            "cycle_residuals": [
+                {
+                    "row": row,
+                    "column": column,
+                    "term_count": len(residual.terms),
+                    "koszul_subset_counts": {
+                        str(list(subset)): count
+                        for subset, count in sorted(
+                            Counter(
+                                basis.component.subset
+                                for basis, _coefficient in residual.terms
+                            ).items()
+                        )
+                    },
+                    "object_pair_counts": {
+                        str(list(pair)): count
+                        for pair, count in sorted(
+                            Counter(
+                                (
+                                    chain_diagonal_objects()[
+                                        basis.component.object_index
+                                    ].first_index,
+                                    chain_diagonal_objects()[
+                                        basis.component.object_index
+                                    ].second_index,
+                                )
+                                for basis, _coefficient in residual.terms
+                            ).items()
+                        )
+                    },
+                }
+                for row, column, residual in self.residuals
             ],
             "inserted_degree_zero_fiber_units_exact": self.inserted_units_exact,
             "all_products_are_full_chain_cycles": self.products_are_cycles,
@@ -418,9 +455,12 @@ def split_matter_tensor_audit() -> SplitMatterTensorAudit:
     )
     actions = {action.name: action for action in schoen_sparse_deck_actions()}
     character = _sum_character(row_character, column_character)
+    residuals = tuple(
+        (row, column, full_chain_diagonal_differential(product))
+        for row, column, product in products
+    )
     products_are_cycles = all(
-        full_chain_diagonal_differential(product).is_zero()
-        for _row, _column, product in products
+        residual.is_zero() for _row, _column, residual in residuals
     )
     products_have_character = all(
         all(
@@ -470,6 +510,7 @@ def split_matter_tensor_audit() -> SplitMatterTensorAudit:
         row_character,
         column_character,
         products,
+        residuals,
         products_are_cycles,
         products_have_character,
         inserted_units_exact,

@@ -179,6 +179,9 @@ The connected component, rather than a point, is frozen as the first
 `PublishedReferenceCarrierState`. Strict representatives now exist for the
 minimum universal matter sectors and the required Higgs character. Their
 canonical independent-fiber tensor preserves the required deck character, but
-all four candidate split products fail the grouped-chain cycle gate. The next
-gate is therefore an equivariant chain comparison into the four-factor Higgs
-complex, before a determinant pairing or Yukawa trace can be formed.
+all four candidate split products fail the grouped-chain cycle gate. Each exact
+residual spans the ordinary empty, first-pencil, second-pencil, and paired
+pencil Koszul sectors while carrying no diagonal-equation wedge, so a
+diagonal-only correction cannot close it. The next gate is therefore an
+equivariant chain comparison into the four-factor Higgs complex, before a
+determinant pairing or Yukawa trace can be formed.

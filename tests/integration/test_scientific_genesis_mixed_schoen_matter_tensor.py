@@ -16,6 +16,7 @@ Phase 0:
 """
 
 import json
+from collections import Counter
 
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
@@ -42,6 +43,33 @@ def test_direct_matter_products_fail_closed_in_the_higgs_complex() -> None:
         product.terms
         and {basis.total_degree for basis, _coefficient in product.terms} == {2}
         for _row, _column, product in result.products
+    )
+
+
+def test_direct_tensor_residual_is_not_diagonal_only() -> None:
+    """Every obstruction spans ordinary sectors and excludes the H wedge."""
+
+    result = split_matter_tensor_audit()
+    expected_subsets = Counter(
+        {
+            (): 52_908,
+            (0,): 4_617,
+            (1,): 9_573,
+            (0, 1): 756,
+        }
+    )
+    assert all(
+        len(residual.terms) == 67_854
+        and Counter(
+            basis.component.subset
+            for basis, _coefficient in residual.terms
+        )
+        == expected_subsets
+        and all(
+            2 not in basis.component.subset
+            for basis, _coefficient in residual.terms
+        )
+        for _row, _column, residual in result.residuals
     )
 
 

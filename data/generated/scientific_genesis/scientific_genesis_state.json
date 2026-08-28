@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "c62aff1116b0832ce88f5c91e69619c044eb3fcf41581847608c8db977d7c721",
+  "artifact_digest": "be4a8e02a87c176049895f09a3cd173713693f4a75c50c18a5d7039a3db7a09a",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -222,9 +222,9 @@
       "sha256": "a3301991904d4da57e2f47f8819c8717a878a2dbdebe8a9f68054403a7b7a9c4"
     },
     {
-      "bytes": 1652,
+      "bytes": 4551,
       "path": "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json",
-      "sha256": "26ec4f24da3cab6838e8ab9e4797077a10bfeeaa5da1e7746c8bddcc914fafd0"
+      "sha256": "4d4a8db8130d7a4addec70b885bc121b6025ccca99bd40ef0fc8cce5b5291d3f"
     },
     {
       "bytes": 6100,
@@ -1248,7 +1248,7 @@
       "missing_prerequisites": [
         "equivariant chain comparison from the strict matter complex to the four-factor grouped Higgs complex"
       ],
-      "statement": "The canonical independent-fiber lift and fully derived totalization sign preserve the required product character (0,2), but all four candidate split products fail the exact grouped-chain cycle gate.",
+      "statement": "The canonical independent-fiber lift and fully derived totalization sign preserve the required product character (0,2), but all four candidate split products have 67,854-term residuals in ordinary pencil sectors and fail the exact grouped-chain cycle gate.",
       "status": "BLOCKED"
     },
     {

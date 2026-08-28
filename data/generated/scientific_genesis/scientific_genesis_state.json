@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "be4a8e02a87c176049895f09a3cd173713693f4a75c50c18a5d7039a3db7a09a",
+  "artifact_digest": "0192762b4cc5b07877da989ede03edc9e3e5bbcdfce66cbc7dcfb1c1409fa7bb",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -227,6 +227,11 @@
       "sha256": "4d4a8db8130d7a4addec70b885bc121b6025ccca99bd40ef0fc8cce5b5291d3f"
     },
     {
+      "bytes": 6026,
+      "path": "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json",
+      "sha256": "7df8eecdf40acdf0b53cae3c1aa90e8fb46351bae58f36b61341202ea93ae115"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -301,8 +306,8 @@
     "collected_tests_at_audit": 572,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 162,
-    "test_python_files": 141
+    "research_python_files": 163,
+    "test_python_files": 142
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -318,7 +323,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "the restricted common-DGA product hull and cyclic trace",
+    "the determinant pairing and cyclic trace on the restricted product hull",
     "carrier-derived complete holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
@@ -1238,18 +1243,16 @@
     {
       "assumptions": [],
       "evidence": [
-        "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json",
-        "research/experiments/scientific_genesis/mixed_schoen_matter_tensor.py",
-        "tests/integration/test_scientific_genesis_mixed_schoen_matter_tensor.py"
+        "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json",
+        "research/experiments/scientific_genesis/mixed_schoen_matter_comparison.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_matter_comparison.py"
       ],
       "id": "mixed_matter_tensor_comparison",
       "label": "direct matter-to-Higgs chain comparison",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "equivariant chain comparison from the strict matter complex to the four-factor grouped Higgs complex"
-      ],
-      "statement": "The canonical independent-fiber lift and fully derived totalization sign preserve the required product character (0,2), but all four candidate split products have 67,854-term residuals in ordinary pencil sectors and fail the exact grouped-chain cycle gate.",
-      "status": "BLOCKED"
+      "missing_prerequisites": [],
+      "statement": "Finite homological-perturbation projection and strict re-inclusion, followed by the normalized joint-character Reynolds projector, turn all four split matter products into distinct exact cycles of the grouped Higgs complex with character (0,2).",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
@@ -1279,16 +1282,17 @@
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/homological.py",
+        "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json",
         "research/experiments/visible_common_dga/audit.py"
       ],
       "id": "common_dga_package",
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "restricted actions and contraction",
-        "cyclic pairing and trace conventions"
+        "determinant pairing on the restricted product hull",
+        "cyclic trace convention and evaluation"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. The direct matter tensor is not a cycle, so the restricted product hull and cyclic trace remain absent.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, but their determinant pairing and cyclic trace remain absent.",
       "status": "BLOCKED"
     },
     {
@@ -1315,8 +1319,8 @@
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "restricted product hull",
-        "trace evaluation"
+        "determinant pairing",
+        "cyclic trace evaluation"
       ],
       "statement": "No complete matrix has been evaluated from generated carrier chain data.",
       "status": "BLOCKED"
@@ -2404,9 +2408,8 @@
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/mixed_schoen_chain_actions.json"
       ],
-      "implication": "conditional_or_conjectural",
+      "implication": "exact",
       "known_failure_modes": [
-        "the restricted product hull is not yet certified",
         "the cyclic trace convention remains unresolved"
       ],
       "mathematical_reason": "The strict full-Schoen Higgs cocycle supplies the third chain input required beside the two universal matter sectors.",
@@ -2429,13 +2432,14 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json"
+        "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json"
       ],
-      "implication": "conditional_or_conjectural",
+      "implication": "exact",
       "known_failure_modes": [
-        "the required equivariant chain comparison is absent"
+        "the determinant pairing is not yet evaluated",
+        "the cyclic trace convention remains unresolved"
       ],
-      "mathematical_reason": "A lawful comparison would place matter and Higgs representatives in one chain model before determinant pairing and tracing.",
+      "mathematical_reason": "Finite HPL comparison and exact character projection place all four matter products in the grouped Higgs chain model before determinant pairing and tracing.",
       "source": "mixed_matter_tensor_comparison",
       "target": "common_dga_package"
     },
@@ -2676,7 +2680,8 @@
     "all 288 maximal quotient-generator restrictions have proper unstable kernels, leaving nonempty generic complements",
     "the unique lower-line section has identically zero outer-Hom pullback in every candidate-4/24 family",
     "the same exact lower-line screen exhausts all 72 candidate-5/25 families in the declared monomial category",
-    "the sparse Schoen engine accepts exact base pushouts directly and checks both published-carrier Hom orientations"
+    "the sparse Schoen engine accepts exact base pushouts directly and checks both published-carrier Hom orientations",
+    "finite HPL projection, strict re-inclusion, and exact Reynolds projection close all four split matter products as distinct cycles of character (0,2) in the grouped Higgs complex"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -2730,11 +2735,17 @@
         ]
       ],
       "declared_computable_carrier_category_exhausted": true,
+      "determinant_trace_available": false,
       "direct_matter_product_character": [
         0,
         2
       ],
-      "direct_matter_product_hull_available": false,
+      "direct_matter_product_hull_available": true,
+      "equivariant_matter_product_character": [
+        0,
+        2
+      ],
+      "equivariant_matter_product_cycle_count": 4,
       "final_lower_line_lifts_universally": true,
       "final_lower_line_retired_candidate_blocks": [
         5,
@@ -2890,8 +2901,8 @@
       "slope_identity_retired_family_count": 72
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "an exact equivariant chain comparison for the strict matter cocycles in the four-factor grouped Higgs complex",
-    "selection_status": "minimum universal matter and source-required strict Higgs cocycles lifted; canonical direct matter tensors fail the grouped-chain cycle gate"
+    "next_required_object": "the determinant pairing and cyclic trace on the exact restricted matter-product hull",
+    "selection_status": "minimum universal matter and source-required strict Higgs cocycles lifted; exact equivariant comparison closes four restricted matter-product cycles"
   },
   "research_value_scheduler": [
     {

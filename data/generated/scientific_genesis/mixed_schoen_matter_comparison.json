@@ -1,0 +1,146 @@
+{
+  "all_comparisons_exact": true,
+  "artifact_digest": "f5eab8d0c17b7a14f477811de88f1b155ad3361b0763f66fefe43041a5980f66",
+  "coefficient_field": "Q(omega)",
+  "comparison": "finite HPL projection, strict HPL inclusion, and normalized joint-character Reynolds projection",
+  "cyclic_trace_available": false,
+  "direct_product_hull_available": true,
+  "equivariant_representatives_are_distinct": true,
+  "extension_point_selected": false,
+  "family_slots": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "fiber_cover_substitution_used": false,
+  "holomorphic_yukawa_matrix_available": false,
+  "next_required_object": "the determinant pairing and cyclic trace on the exact restricted matter-product hull",
+  "schema": "mixed-schoen-matter-comparison-v1",
+  "witnesses": [
+    {
+      "character_exact": true,
+      "character_exponents": [
+        0,
+        2
+      ],
+      "column": 1,
+      "correction_closes_direct_residual": true,
+      "correction_digest": "b6e6e13a740d0ef7f1d58cd46ff70f3209b793b5b44ca81b92b9956df73b2c98",
+      "correction_term_count": 37845,
+      "direct_product_digest": "c643b18120ba049810a6b85a3850f4284d3c650ebfe3b194f477ba7a278760f4",
+      "direct_product_term_count": 42171,
+      "direct_residual_digest": "b5df34a4457b1e615aa5b3f51039822686d14c6f88e4ef42e21e1854c03c163d",
+      "direct_residual_term_count": 67854,
+      "equivariant_representative_digest": "813c3afd861c2900ea8c69fe7baca0c668fb40001eaff26dcaea6826be324a80",
+      "equivariant_representative_is_cycle": true,
+      "equivariant_representative_term_count": 23439,
+      "exact": true,
+      "inclusion_depth": 5,
+      "projection_depth": 5,
+      "projection_idempotent": true,
+      "reduced_representative_digest": "f3cfd3dfdea8fbebb6a491f5eb9fae74e2a560fa4be0999c0150b9d64a6fa563",
+      "reduced_representative_term_count": 168,
+      "row": 0,
+      "strict_representative_digest": "cf7ca735f8309c6ddf1548ec70ea6e9afdc19047c26953d2d6365e64bb526cb7",
+      "strict_representative_is_cycle": true,
+      "strict_representative_term_count": 20842
+    },
+    {
+      "character_exact": true,
+      "character_exponents": [
+        0,
+        2
+      ],
+      "column": 2,
+      "correction_closes_direct_residual": true,
+      "correction_digest": "b9a825af0a2a51a82baf8aadd40bebb393e098bcb69d1b2b064aea412436ac92",
+      "correction_term_count": 37845,
+      "direct_product_digest": "e9045bcd394c5b6fa5b616bfba51c5f158e1225a988b0df834c41023ee8ece77",
+      "direct_product_term_count": 42171,
+      "direct_residual_digest": "8782a8ba6df8d6b4c81aae7167e069989be9875d4a9164df557b343a312307cc",
+      "direct_residual_term_count": 67854,
+      "equivariant_representative_digest": "3f03d0dc00c2e4401f2bb2bd854c6d448c2b3ade3656082a78b6b59fbaefe2db",
+      "equivariant_representative_is_cycle": true,
+      "equivariant_representative_term_count": 23439,
+      "exact": true,
+      "inclusion_depth": 5,
+      "projection_depth": 5,
+      "projection_idempotent": true,
+      "reduced_representative_digest": "6d071c6488e620c77474670c22d1548b1ebb9f6b3d2c5e4125b1b7c61c619657",
+      "reduced_representative_term_count": 168,
+      "row": 0,
+      "strict_representative_digest": "5f4ca5ecdf733ebe11a322d5ec2eb705bad0eee12dbfbac3e1b148aef79d7aab",
+      "strict_representative_is_cycle": true,
+      "strict_representative_term_count": 20842
+    },
+    {
+      "character_exact": true,
+      "character_exponents": [
+        0,
+        2
+      ],
+      "column": 0,
+      "correction_closes_direct_residual": true,
+      "correction_digest": "76b2b1b385b69fb32fe705717f925a3f5a02e884cb7685dc4d124dca1187b53d",
+      "correction_term_count": 37845,
+      "direct_product_digest": "113328dc3b7f8fd3c5a907479b0266347fa9154b23f7f63ffaf8e36ec2d45253",
+      "direct_product_term_count": 42171,
+      "direct_residual_digest": "962f1aa525dc7e61ea4319fe5aa88448bfa3b8088045f3f619073ce70b6b78a2",
+      "direct_residual_term_count": 67854,
+      "equivariant_representative_digest": "5c187a25ca6e5de255b85af0bc042f0f778963482db0e982cc647c5878d9ba8a",
+      "equivariant_representative_is_cycle": true,
+      "equivariant_representative_term_count": 23439,
+      "exact": true,
+      "inclusion_depth": 5,
+      "projection_depth": 5,
+      "projection_idempotent": true,
+      "reduced_representative_digest": "04f31c4775122c27118eb8e03230a9297526a0e542f468263c0014ab55f8ca4b",
+      "reduced_representative_term_count": 168,
+      "row": 1,
+      "strict_representative_digest": "a6fb6b1d10bffe3cbcc53a8c5cbba72d2a7212e76d4b2f0a889a131c7cddc813",
+      "strict_representative_is_cycle": true,
+      "strict_representative_term_count": 20842
+    },
+    {
+      "character_exact": true,
+      "character_exponents": [
+        0,
+        2
+      ],
+      "column": 0,
+      "correction_closes_direct_residual": true,
+      "correction_digest": "82f83996b9aba52a21f9ebe14e1e62de3634ba94516b96f66011cd14fcf6bdad",
+      "correction_term_count": 37845,
+      "direct_product_digest": "7ea5828a90b7edb21a3cb9143e31c78f1f2e8028b46fbe0746ce10042b86658c",
+      "direct_product_term_count": 42171,
+      "direct_residual_digest": "2c496675b7a4932ea68ed1798b1a14c3c9e9fe65838b88b61057bc51240116ba",
+      "direct_residual_term_count": 67854,
+      "equivariant_representative_digest": "b130b8d1c53016f1de298ef677f4ff50b48fdbcfad43620e43ed10d2811b9b21",
+      "equivariant_representative_is_cycle": true,
+      "equivariant_representative_term_count": 23439,
+      "exact": true,
+      "inclusion_depth": 5,
+      "projection_depth": 5,
+      "projection_idempotent": true,
+      "reduced_representative_digest": "b063a1939e0eda9f906ff63ee72a651b17614bf3ba3c40ad8061b24649055faf",
+      "reduced_representative_term_count": 168,
+      "row": 2,
+      "strict_representative_digest": "137b6bac0052fd0f85900cda9bdb4059657cfabf3e959da55b3474e35305e2f7",
+      "strict_representative_is_cycle": true,
+      "strict_representative_term_count": 20842
+    }
+  ]
+}

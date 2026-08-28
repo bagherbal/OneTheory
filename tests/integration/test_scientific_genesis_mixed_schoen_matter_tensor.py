@@ -46,8 +46,8 @@ def test_direct_matter_products_fail_closed_in_the_higgs_complex() -> None:
     )
 
 
-def test_direct_tensor_residual_is_not_diagonal_only() -> None:
-    """Every obstruction spans ordinary sectors and excludes the H wedge."""
+def test_direct_tensor_residual_lies_below_diagonal_wedge() -> None:
+    """Every obstruction has ordinary support and no surviving H wedge."""
 
     result = split_matter_tensor_audit()
     expected_subsets = Counter(

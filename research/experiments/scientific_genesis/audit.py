@@ -1087,22 +1087,18 @@ def _nodes() -> list[dict[str, object]]:
             "mixed_matter_tensor_comparison",
             "direct matter-to-Higgs chain comparison",
             "Flavor",
-            "BLOCKED",
-            "The canonical independent-fiber lift and fully derived totalization "
-            "sign preserve the required product character (0,2), but all four "
-            "candidate split products have 67,854-term residuals in ordinary "
-            "pencil sectors and fail the exact grouped-chain cycle gate.",
+            "COMPUTED",
+            "Finite homological-perturbation projection and strict re-inclusion, "
+            "followed by the normalized joint-character Reynolds projector, "
+            "turn all four split matter products into distinct exact cycles of "
+            "the grouped Higgs complex with character (0,2).",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_matter_tensor_audit.json",
+                "mixed_schoen_matter_comparison.json",
                 "research/experiments/scientific_genesis/"
-                "mixed_schoen_matter_tensor.py",
+                "mixed_schoen_matter_comparison.py",
                 "tests/integration/"
-                "test_scientific_genesis_mixed_schoen_matter_tensor.py",
-            ),
-            missing=(
-                "equivariant chain comparison from the strict matter complex "
-                "to the four-factor grouped Higgs complex",
+                "test_scientific_genesis_mixed_schoen_matter_comparison.py",
             ),
         ),
         _node(
@@ -1130,15 +1126,18 @@ def _nodes() -> list[dict[str, object]]:
             "BLOCKED",
             "Generic DGA, module, contraction, and HPL engines exist; the lawful "
             "carrier, minimum universal matter sectors, and strict required "
-            "Higgs cocycle are fixed. The direct matter tensor is not a cycle, "
-            "so the restricted product hull and cyclic trace remain absent.",
+            "Higgs cocycle are fixed. Exact equivariant comparison now supplies "
+            "the four restricted matter-product cycles, but their determinant "
+            "pairing and cyclic trace remain absent.",
             (
                 "src/onetheory/math/homological.py",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_comparison.json",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "restricted actions and contraction",
-                "cyclic pairing and trace conventions",
+                "determinant pairing on the restricted product hull",
+                "cyclic trace convention and evaluation",
             ),
         ),
         _node(
@@ -1159,8 +1158,8 @@ def _nodes() -> list[dict[str, object]]:
             "No complete matrix has been evaluated from generated carrier chain data.",
             ("research/experiments/visible_common_dga/audit.py",),
             missing=(
-                "restricted product hull",
-                "trace evaluation",
+                "determinant pairing",
+                "cyclic trace evaluation",
             ),
         ),
         _node(
@@ -2185,9 +2184,8 @@ def _edges() -> list[dict[str, object]]:
                 "mixed_schoen_chain_actions.json",
             ),
             (),
-            False,
+            True,
             (
-                "the restricted product hull is not yet certified",
                 "the cyclic trace convention remains unresolved",
             ),
         ),
@@ -2209,16 +2207,18 @@ def _edges() -> list[dict[str, object]]:
         _edge(
             "mixed_matter_tensor_comparison",
             "common_dga_package",
-            "A lawful comparison would place matter and Higgs representatives "
-            "in one chain model before determinant pairing and tracing.",
+            "Finite HPL comparison and exact character projection place all four "
+            "matter products in the grouped Higgs chain model before determinant "
+            "pairing and tracing.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_matter_tensor_audit.json",
+                "mixed_schoen_matter_comparison.json",
             ),
             (),
-            False,
+            True,
             (
-                "the required equivariant chain comparison is absent",
+                "the determinant pairing is not yet evaluated",
+                "the cyclic trace convention remains unresolved",
             ),
         ),
         _edge(
@@ -2666,6 +2666,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_chain_diagonal.json",
         "data/generated/scientific_genesis/mixed_schoen_chain_actions.json",
         "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json",
+        "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2719,8 +2720,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "minimum universal matter and source-required strict Higgs "
-                "cocycles lifted; canonical direct matter tensors fail the "
-                "grouped-chain cycle gate"
+                "cocycles lifted; exact equivariant comparison closes four "
+                "restricted matter-product cycles"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2826,13 +2827,16 @@ def build_state() -> dict[str, object]:
                 "physical_higgs_representative_available": True,
                 "physical_higgs_representative_term_count": 27,
                 "direct_matter_product_character": [0, 2],
-                "direct_matter_product_hull_available": False,
+                "direct_matter_product_hull_available": True,
+                "equivariant_matter_product_cycle_count": 4,
+                "equivariant_matter_product_character": [0, 2],
+                "determinant_trace_available": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "an exact equivariant chain comparison for the strict matter "
-                "cocycles in the four-factor grouped Higgs complex"
+                "the determinant pairing and cyclic trace on the exact "
+                "restricted matter-product hull"
             ),
         },
         "claims": _nodes(),
@@ -2917,6 +2921,9 @@ def build_state() -> dict[str, object]:
             "families in the declared monomial category",
             "the sparse Schoen engine accepts exact base pushouts directly and "
             "checks both published-carrier Hom orientations",
+            "finite HPL projection, strict re-inclusion, and exact Reynolds "
+            "projection close all four split matter products as distinct cycles "
+            "of character (0,2) in the grouped Higgs complex",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -2978,7 +2985,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "the restricted common-DGA product hull and cyclic trace",
+            "the determinant pairing and cyclic trace on the restricted product hull",
             "carrier-derived complete holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],

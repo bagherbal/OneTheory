@@ -179,9 +179,11 @@ The connected component, rather than a point, is frozen as the first
 `PublishedReferenceCarrierState`. Strict representatives now exist for the
 minimum universal matter sectors and the required Higgs character. Their
 canonical independent-fiber tensor preserves the required deck character, but
-all four candidate split products fail the grouped-chain cycle gate. Each exact
-residual spans the ordinary empty, first-pencil, second-pencil, and paired
-pencil Koszul sectors while carrying no diagonal-equation wedge, so a
-diagonal-only correction cannot close it. The next gate is therefore an
-equivariant chain comparison into the four-factor Higgs complex, before a
-determinant pairing or Yukawa trace can be formed.
+its four direct products have nonzero grouped-chain residuals. Finite
+homological-perturbation projection and strict re-inclusion now correct each
+product to an exact grouped-chain cycle, and normalized Reynolds projection
+places all four distinct representatives in the required `(0,2)` character.
+This closes the equivariant matter-to-Higgs comparison without identifying the
+two elliptic fibers or selecting an extension point. The next exact gate is a
+determinant pairing and cyclic trace on this restricted product hull; no scalar
+coupling or Yukawa matrix is yet available.

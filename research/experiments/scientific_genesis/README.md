@@ -195,5 +195,13 @@ all four character-allowed products are exact scalar cycles with zero residue
 and explicit depth-four primitives; the other five entries are
 character-forbidden. The complete lawful tree-level up matrix is therefore the
 exact rank-zero matrix. This is a scoped tree-level no-go, not a nontrivial or
-physical Yukawa result. The next exact gate is the first deformation or higher
-product in the same lawful carrier DGA that escapes this certified zero.
+physical Yukawa result. The parameter-linear V1 corrections to the lifted V2
+matter classes are the first lawful deformation terms, but they live on the
+common three-factor Schoen presentation rather than the independent-fiber
+diagonal presentation used by the trace. A global homogeneous polynomial lift
+between these presentations is impossible: both required coefficients have
+negative q degree. Exact lifts do exist on the q0 and q1 charts, and their
+difference is the Koszul syzygy of the independent u-pencil and diagonal
+equation. The next exact gate is to apply this two-chart comparison and overlap
+homotopy to the full universal correction cochains before evaluating their
+scalar residues.

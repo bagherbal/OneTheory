@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "bccf973c56babe3dc013395d892dc4032bb945247a1cfe61ff8833be6c743032",
+  "artifact_digest": "a568c6f776aa886b521e4f7f9e0fda3c7c8f678848ca0a9a135760ea72951bc1",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -247,6 +247,11 @@
       "sha256": "448c33003487a7ab770242c79e1fb38478cda2041c56376f36b8be61238f3b5b"
     },
     {
+      "bytes": 1461,
+      "path": "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json",
+      "sha256": "8d7942fd51d8f953f2c7afa7459e51c0aa2fb62b11985b0b170c7d9a57fdf9cd"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -321,8 +326,8 @@
     "collected_tests_at_audit": 572,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 166,
-    "test_python_files": 145
+    "research_python_files": 167,
+    "test_python_files": 146
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -338,6 +343,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
+    "the Cech-local chain map for universal matter corrections",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
@@ -1314,6 +1320,20 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json",
+        "research/experiments/scientific_genesis/mixed_schoen_diagonal_comparison.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_diagonal_comparison.py"
+      ],
+      "id": "mixed_diagonal_local_comparison",
+      "label": "local common-to-diagonal pencil comparison",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "The common-Schoen second pencil has exact lifts on the two independent-fiber q charts. Their difference is the Koszul syzygy of the independent pencil and diagonal equation. Required coefficient multidegrees contain negative q degree, proving that no global homogeneous polynomial lift can replace this Cech data.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
       ],
       "id": "curvilinear_topology_route",
@@ -1339,16 +1359,17 @@
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/homological.py",
-        "data/generated/scientific_genesis/mixed_schoen_yukawa_trace.json",
+        "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json",
         "research/experiments/visible_common_dga/audit.py"
       ],
       "id": "common_dga_package",
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
+        "Cech-local common-to-diagonal correction chain map",
         "first lawful nontrivial deformation or higher product"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes; a nontrivial deformation or higher product remains absent.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes. The local common-to-diagonal pencil comparison is derived, but its Cech chain map has not yet been applied to the parameter-linear matter corrections.",
       "status": "BLOCKED"
     },
     {
@@ -1369,15 +1390,16 @@
     {
       "assumptions": [],
       "evidence": [
-        "data/generated/scientific_genesis/mixed_schoen_yukawa_trace.json"
+        "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json"
       ],
       "id": "first_exact_yukawa",
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
+        "Cech-local correction chain map",
         "first nonzero deformation or higher-product contribution"
       ],
-      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. A nontrivial matrix therefore requires a lawful deformation or higher-product contribution from the same carrier DGA.",
+      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The local comparison needed by the first parameter-linear correction is exact, but the full Cech chain map and resulting higher-product contribution remain unevaluated.",
       "status": "BLOCKED"
     },
     {
@@ -2569,6 +2591,41 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_yukawa_trace.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The exact rank-zero tree result requires the first lawful parameter-linear matter correction to be evaluated.",
+      "source": "mixed_tree_up_matrix",
+      "target": "mixed_diagonal_local_comparison"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The universal V2 lifts supply common-Schoen V1 correction cochains that must be compared with the independent-fiber tensor.",
+      "source": "universal_matter_sector_lifts",
+      "target": "mixed_diagonal_local_comparison"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the local coefficients are not yet applied to full cochains"
+      ],
+      "mathematical_reason": "The two chartwise pencil identities and their overlap syzygy supply the exact local coefficients for the missing chain map.",
+      "source": "mixed_diagonal_local_comparison",
+      "target": "common_dga_package"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "src/onetheory/models/heterotic_schoen/flavor.py"
       ],
       "implication": "conditional_or_conjectural",
@@ -2807,7 +2864,8 @@
     "finite HPL projection, strict re-inclusion, and exact Reynolds projection close all four split matter products as distinct cycles of character (0,2) in the grouped Higgs complex",
     "virtual determinant cancellation and adjunction identify the unique ordered degree-three scalar residue target",
     "complementary maximal minors give exact local determinant pairings with hypersurface-corrected covariance on all sixty overlaps",
-    "the unique grouped determinant orientation gives a complete exact rank-zero tree-level up matrix, with four explicit scalar primitives"
+    "the unique grouped determinant orientation gives a complete exact rank-zero tree-level up matrix, with four explicit scalar primitives",
+    "the common-Schoen second pencil has exact two-chart diagonal lifts whose overlap difference is its Koszul syzygy; negative required q degrees exclude a global homogeneous polynomial replacement"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -2842,6 +2900,7 @@
       ],
       "additional_retired_family_count": 72,
       "arbitrary_point_selected": false,
+      "cech_local_diagonal_comparison_required": true,
       "coefficient_field": "Q(omega)",
       "complete_tree_level_up_matrix_available": true,
       "computable_carrier_component": "lawful-mixed-schoen-P1",
@@ -2862,6 +2921,7 @@
         ]
       ],
       "declared_computable_carrier_category_exhausted": true,
+      "deformation_diagonal_local_comparison_available": true,
       "determinant_trace_available": true,
       "direct_matter_product_character": [
         0,
@@ -2900,6 +2960,7 @@
         40
       ],
       "forced_subobject_retired_family_count": 648,
+      "global_polynomial_diagonal_comparison_available": false,
       "global_schoen_bundle_no_go": false,
       "lawful_P1_all_nonzero_parameters_stable_in_chamber": true,
       "lawful_P1_genuine_su4_on_stable_chamber": true,
@@ -3033,8 +3094,8 @@
       "tree_level_up_scalar_primitives_exact": true
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the first exact deformation or higher product permitted by the lawful carrier DGA that escapes the tree-level zero",
-    "selection_status": "complete lawful tree-level up matrix derived as an exact rank-zero result; the nontrivial higher-product frontier remains open"
+    "next_required_object": "the full Cech-local chain comparison applying the two chart coefficients and their overlap homotopy to the universal matter-correction cochains",
+    "selection_status": "complete lawful tree-level up matrix derived as an exact rank-zero result; exact local diagonal-comparison data now fix the first higher-product chain-map boundary"
   },
   "research_value_scheduler": [
     {

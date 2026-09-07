@@ -1,0 +1,57 @@
+{
+  "artifact_digest": "5b6051f2dd49c75e0e0a6463d6f43521b3fbd0aae03af9da66ba98badf059076",
+  "cech_local_comparison_required": true,
+  "coefficient_field": "Q(omega)",
+  "cross_multiplied_identities": {
+    "q0*F_p-p0*G_q=-2*f(u)*delta": true,
+    "q1*F_p-p1*G_q=g(u)*delta": true
+  },
+  "deformation_product_computed": false,
+  "equations": {
+    "common_second_pencil": "F_p=2*f(u)*p1+g(u)*p0",
+    "diagonal": "delta=p0*q1-p1*q0",
+    "independent_second_pencil": "G_q=2*f(u)*q1+g(u)*q0"
+  },
+  "exact": true,
+  "extension_point_selected": false,
+  "fiber_identification_by_substitution_used": false,
+  "global_homogeneous_polynomial_lift_exists": false,
+  "local_chain_coefficients": {
+    "q0_nonzero": {
+      "G_q": "p0/q0",
+      "delta": "-2*f(u)/q0"
+    },
+    "q1_nonzero": {
+      "G_q": "p1/q1",
+      "delta": "g(u)/q1"
+    }
+  },
+  "next_required_object": "the full Cech-local chain comparison applying these two chart coefficients and their overlap homotopy to the universal matter-correction cochains",
+  "overlap_difference": {
+    "G_q_coefficient": "delta/(q0*q1)",
+    "delta_coefficient": "-G_q/(q0*q1)",
+    "koszul_syzygy_exact": true
+  },
+  "polynomial_variable_order": [
+    "u0",
+    "u1",
+    "u2",
+    "p0",
+    "p1",
+    "q0",
+    "q1"
+  ],
+  "required_global_coefficient_multidegrees_u_p_q": [
+    [
+      0,
+      1,
+      -1
+    ],
+    [
+      3,
+      0,
+      -1
+    ]
+  ],
+  "schema": "mixed-schoen-diagonal-comparison-v1"
+}

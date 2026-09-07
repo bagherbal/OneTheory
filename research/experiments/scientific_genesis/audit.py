@@ -1158,6 +1158,25 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_diagonal_local_comparison",
+            "local common-to-diagonal pencil comparison",
+            "Flavor",
+            "COMPUTED",
+            "The common-Schoen second pencil has exact lifts on the two "
+            "independent-fiber q charts. Their difference is the Koszul "
+            "syzygy of the independent pencil and diagonal equation. Required "
+            "coefficient multidegrees contain negative q degree, proving that "
+            "no global homogeneous polynomial lift can replace this Cech data.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_diagonal_comparison.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_diagonal_comparison.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_diagonal_comparison.py",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1186,15 +1205,17 @@ def _nodes() -> list[dict[str, object]]:
             "the four restricted matter-product cycles, while adjunction fixes "
             "their one-dimensional scalar residue target. The grouped "
             "determinant totalization is now exact and proves that every "
-            "tree-level entry vanishes; a nontrivial deformation or higher "
-            "product remains absent.",
+            "tree-level entry vanishes. The local common-to-diagonal pencil "
+            "comparison is derived, but its Cech chain map has not yet been "
+            "applied to the parameter-linear matter corrections.",
             (
                 "src/onetheory/math/homological.py",
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_yukawa_trace.json",
+                "mixed_schoen_diagonal_comparison.json",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
+                "Cech-local common-to-diagonal correction chain map",
                 "first lawful nontrivial deformation or higher product",
             ),
         ),
@@ -1214,13 +1235,15 @@ def _nodes() -> list[dict[str, object]]:
             "Flavor",
             "BLOCKED",
             "The complete carrier-derived tree-level up matrix is exactly zero. "
-            "A nontrivial matrix therefore requires a lawful deformation or "
-            "higher-product contribution from the same carrier DGA.",
+            "The local comparison needed by the first parameter-linear "
+            "correction is exact, but the full Cech chain map and resulting "
+            "higher-product contribution remain unevaluated.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_yukawa_trace.json",
+                "mixed_schoen_diagonal_comparison.json",
             ),
             missing=(
+                "Cech-local correction chain map",
                 "first nonzero deformation or higher-product contribution",
             ),
         ),
@@ -2366,6 +2389,47 @@ def _edges() -> list[dict[str, object]]:
             ),
         ),
         _edge(
+            "mixed_tree_up_matrix",
+            "mixed_diagonal_local_comparison",
+            "The exact rank-zero tree result requires the first lawful "
+            "parameter-linear matter correction to be evaluated.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_yukawa_trace.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "universal_matter_sector_lifts",
+            "mixed_diagonal_local_comparison",
+            "The universal V2 lifts supply common-Schoen V1 correction "
+            "cochains that must be compared with the independent-fiber tensor.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_universal_matter_lifts.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_diagonal_local_comparison",
+            "common_dga_package",
+            "The two chartwise pencil identities and their overlap syzygy "
+            "supply the exact local coefficients for the missing chain map.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_diagonal_comparison.json",
+            ),
+            (),
+            True,
+            (
+                "the local coefficients are not yet applied to full cochains",
+            ),
+        ),
+        _edge(
             "common_dga_package",
             "first_exact_yukawa",
             "A nontrivial lawful deformation or higher product followed by the "
@@ -2815,6 +2879,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_scalar_trace.json",
         "data/generated/scientific_genesis/mixed_schoen_determinant_pairing.json",
         "data/generated/scientific_genesis/mixed_schoen_yukawa_trace.json",
+        "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2868,8 +2933,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "complete lawful tree-level up matrix derived as an exact "
-                "rank-zero result; the nontrivial higher-product frontier "
-                "remains open"
+                "rank-zero result; exact local diagonal-comparison data now "
+                "fix the first higher-product chain-map boundary"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2985,12 +3050,16 @@ def build_state() -> dict[str, object]:
                 "tree_level_up_matrix_rank": 0,
                 "tree_level_up_scalar_primitives_exact": True,
                 "nontrivial_holomorphic_up_matrix_available": False,
+                "deformation_diagonal_local_comparison_available": True,
+                "global_polynomial_diagonal_comparison_available": False,
+                "cech_local_diagonal_comparison_required": True,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the first exact deformation or higher product permitted by "
-                "the lawful carrier DGA that escapes the tree-level zero"
+                "the full Cech-local chain comparison applying the two chart "
+                "coefficients and their overlap homotopy to the universal "
+                "matter-correction cochains"
             ),
         },
         "claims": _nodes(),
@@ -3084,6 +3153,9 @@ def build_state() -> dict[str, object]:
             "with hypersurface-corrected covariance on all sixty overlaps",
             "the unique grouped determinant orientation gives a complete exact "
             "rank-zero tree-level up matrix, with four explicit scalar primitives",
+            "the common-Schoen second pencil has exact two-chart diagonal lifts "
+            "whose overlap difference is its Koszul syzygy; negative required "
+            "q degrees exclude a global homogeneous polynomial replacement",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -3147,6 +3219,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
+            "the Cech-local chain map for universal matter corrections",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

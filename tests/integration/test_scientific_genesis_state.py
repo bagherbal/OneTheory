@@ -112,26 +112,31 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["direct_matter_product_hull_available"] is True
     assert path["criteria"]["equivariant_matter_product_cycle_count"] == 4
     assert path["criteria"]["equivariant_matter_product_character"] == [0, 2]
-    assert path["criteria"]["determinant_trace_available"] is False
+    assert path["criteria"]["determinant_trace_available"] is True
     assert path["criteria"]["scalar_residue_target_available"] is True
     assert path["criteria"]["local_determinant_pairings_available"] is True
+    assert path["criteria"]["complete_tree_level_up_matrix_available"] is True
+    assert path["criteria"]["tree_level_up_matrix_rank"] == 0
+    assert path["criteria"]["tree_level_up_scalar_primitives_exact"] is True
+    assert path["criteria"]["nontrivial_holomorphic_up_matrix_available"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "minimum universal matter and source-required strict Higgs "
-        "cocycles lifted; exact equivariant comparison closes four "
-        "restricted matter-product cycles"
+        "complete lawful tree-level up matrix derived as an exact "
+        "rank-zero result; the nontrivial higher-product frontier "
+        "remains open"
     )
     assert path["next_required_object"] == (
-        "the Alexander--Whitney-compatible lift of the certified local "
-        "determinant pairings to the grouped Cech--Koszul complex"
+        "the first exact deformation or higher product permitted by "
+        "the lawful carrier DGA that escapes the tree-level zero"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
     assert claims["mixed_local_determinant_pairings"]["status"] == "COMPUTED"
+    assert claims["mixed_tree_up_matrix"]["status"] == "COMPUTED"
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"

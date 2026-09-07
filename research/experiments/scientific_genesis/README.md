@@ -189,6 +189,11 @@ determinants cancel exactly, and complete-intersection adjunction identifies a
 unique ordered degree-three Laurent residue target in `H3(O_X)`. Signed
 complementary minors also give the exact alternating forms on all twelve local
 rank-two quotient presentations; hypersurface homotopies restore every overlap
-covariance identity. The next exact gate is their Alexander--Whitney-compatible
-lift to the grouped Cech--Koszul complex; no coupling or Yukawa matrix is yet
-available.
+covariance identity. Their grouped determinant contraction has a unique
+relative orientation across its eight Koszul supports. With that orientation,
+all four character-allowed products are exact scalar cycles with zero residue
+and explicit depth-four primitives; the other five entries are
+character-forbidden. The complete lawful tree-level up matrix is therefore the
+exact rank-zero matrix. This is a scoped tree-level no-go, not a nontrivial or
+physical Yukawa result. The next exact gate is the first deformation or higher
+product in the same lawful carrier DGA that escapes this certified zero.

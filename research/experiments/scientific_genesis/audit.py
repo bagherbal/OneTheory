@@ -1139,6 +1139,25 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_tree_up_matrix",
+            "lawful mixed-carrier tree-level up matrix",
+            "Flavor",
+            "COMPUTED",
+            "The unique relative determinant-totalization orientation makes "
+            "all four character-allowed products exact scalar cycles. Each "
+            "has zero residue and an explicit depth-four primitive; the other "
+            "five entries are character-forbidden, so the complete exact "
+            "three-by-three tree-level matrix has rank zero.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_yukawa_trace.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_yukawa_trace.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_yukawa_trace.py",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1165,18 +1184,18 @@ def _nodes() -> list[dict[str, object]]:
             "carrier, minimum universal matter sectors, and strict required "
             "Higgs cocycle are fixed. Exact equivariant comparison now supplies "
             "the four restricted matter-product cycles, while adjunction fixes "
-            "their one-dimensional scalar residue target. Exact local "
-            "determinant pairings now descend across both constituent atlases, "
-            "but their grouped Cech--Koszul totalization remains absent.",
+            "their one-dimensional scalar residue target. The grouped "
+            "determinant totalization is now exact and proves that every "
+            "tree-level entry vanishes; a nontrivial deformation or higher "
+            "product remains absent.",
             (
                 "src/onetheory/math/homological.py",
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_matter_comparison.json",
+                "mixed_schoen_yukawa_trace.json",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "Alexander--Whitney-compatible determinant chain contraction",
-                "cyclic trace evaluation",
+                "first lawful nontrivial deformation or higher product",
             ),
         ),
         _node(
@@ -1194,11 +1213,15 @@ def _nodes() -> list[dict[str, object]]:
             "first carrier-derived 3x3 holomorphic Yukawa matrix",
             "Flavor",
             "BLOCKED",
-            "No complete matrix has been evaluated from generated carrier chain data.",
-            ("research/experiments/visible_common_dga/audit.py",),
+            "The complete carrier-derived tree-level up matrix is exactly zero. "
+            "A nontrivial matrix therefore requires a lawful deformation or "
+            "higher-product contribution from the same carrier DGA.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_yukawa_trace.json",
+            ),
             missing=(
-                "grouped determinant chain contraction",
-                "cyclic trace evaluation",
+                "first nonzero deformation or higher-product contribution",
             ),
         ),
         _node(
@@ -2225,7 +2248,7 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             (
-                "the cyclic trace convention remains unresolved",
+                "the first nontrivial higher product remains unresolved",
             ),
         ),
         _edge(
@@ -2256,8 +2279,8 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             (
-                "the determinant pairing is not yet evaluated",
-                "the cyclic trace convention remains unresolved",
+                "the tree products are exact boundaries",
+                "the first nontrivial higher product remains unresolved",
             ),
         ),
         _edge(
@@ -2265,41 +2288,92 @@ def _edges() -> list[dict[str, object]]:
             "common_dga_package",
             "Virtual determinant cancellation and complete-intersection "
             "adjunction identify the unique reduced scalar residue coordinate "
-            "that receives a future alternating chain contraction.",
+            "used by the alternating chain contraction.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_scalar_trace.json",
             ),
             (),
             True,
-            (
-                "the alternating chain contraction is not yet constructed",
-            ),
+            (),
         ),
         _edge(
             "mixed_local_determinant_pairings",
             "common_dga_package",
             "Complementary-minor forms give exact constituent determinant "
-            "pairings compatible with every hypersurface-corrected overlap; "
-            "their chain totalization is the remaining product operation.",
+            "pairings compatible with every hypersurface-corrected overlap and "
+            "supply the local inputs to the grouped chain totalization.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_determinant_pairing.json",
             ),
             (),
             True,
+            (),
+        ),
+        _edge(
+            "mixed_matter_tensor_comparison",
+            "mixed_tree_up_matrix",
+            "The four exact equivariant matter products are the only "
+            "character-allowed matrix entries presented for scalar contraction.",
             (
-                "the grouped Alexander--Whitney lift is not yet constructed",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_comparison.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_scalar_trace_target",
+            "mixed_tree_up_matrix",
+            "Adjunction fixes the normalized one-dimensional scalar residue "
+            "coordinate used to evaluate every allowed entry.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_scalar_trace.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_local_determinant_pairings",
+            "mixed_tree_up_matrix",
+            "The certified complementary-minor forms determine the alternating "
+            "constituent contraction in the grouped total complex.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_determinant_pairing.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_tree_up_matrix",
+            "first_exact_yukawa",
+            "The exact rank-zero tree matrix fixes the baseline that a lawful "
+            "deformation or higher product must escape.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_yukawa_trace.json",
+            ),
+            (),
+            False,
+            (
+                "no nonzero deformation or higher-product contribution exists",
             ),
         ),
         _edge(
             "common_dga_package",
             "first_exact_yukawa",
-            "Matter/Higgs cocycle products and trace yield a holomorphic matrix.",
+            "A nontrivial lawful deformation or higher product followed by the "
+            "exact trace would yield a carrier-derived holomorphic matrix.",
             ("src/onetheory/models/heterotic_schoen/flavor.py",),
             (),
-            True,
-            ("matrix may vanish or have rank below three",),
+            False,
+            ("the required nonzero higher product is not yet derived",),
         ),
         _edge(
             "tree_holomorphic_flavor",
@@ -2740,6 +2814,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json",
         "data/generated/scientific_genesis/mixed_schoen_scalar_trace.json",
         "data/generated/scientific_genesis/mixed_schoen_determinant_pairing.json",
+        "data/generated/scientific_genesis/mixed_schoen_yukawa_trace.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2792,9 +2867,9 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "minimum universal matter and source-required strict Higgs "
-                "cocycles lifted; exact equivariant comparison closes four "
-                "restricted matter-product cycles"
+                "complete lawful tree-level up matrix derived as an exact "
+                "rank-zero result; the nontrivial higher-product frontier "
+                "remains open"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -2903,15 +2978,19 @@ def build_state() -> dict[str, object]:
                 "direct_matter_product_hull_available": True,
                 "equivariant_matter_product_cycle_count": 4,
                 "equivariant_matter_product_character": [0, 2],
-                "determinant_trace_available": False,
+                "determinant_trace_available": True,
                 "scalar_residue_target_available": True,
                 "local_determinant_pairings_available": True,
+                "complete_tree_level_up_matrix_available": True,
+                "tree_level_up_matrix_rank": 0,
+                "tree_level_up_scalar_primitives_exact": True,
+                "nontrivial_holomorphic_up_matrix_available": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the Alexander--Whitney-compatible lift of the certified local "
-                "determinant pairings to the grouped Cech--Koszul complex"
+                "the first exact deformation or higher product permitted by "
+                "the lawful carrier DGA that escapes the tree-level zero"
             ),
         },
         "claims": _nodes(),
@@ -3003,6 +3082,8 @@ def build_state() -> dict[str, object]:
             "ordered degree-three scalar residue target",
             "complementary maximal minors give exact local determinant pairings "
             "with hypersurface-corrected covariance on all sixty overlaps",
+            "the unique grouped determinant orientation gives a complete exact "
+            "rank-zero tree-level up matrix, with four explicit scalar primitives",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -3051,6 +3132,8 @@ def build_state() -> dict[str, object]:
             "the source-required P/T character (0,1) has exact transferred "
             "dimensions 100-to-243-to-170, differential ranks 100/142, and a "
             "unique H1 class represented by a strict 27-term full cocycle",
+            "the complete lawful tree-level up matrix is exactly zero: all four "
+            "character-allowed scalar cycles have explicit depth-four primitives",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -3064,8 +3147,8 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "the grouped determinant contraction on the restricted product hull",
-            "carrier-derived complete holomorphic Yukawa matrix",
+            "the first nontrivial deformation or higher-product Yukawa contribution",
+            "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],
         "duplicated_calculations": [

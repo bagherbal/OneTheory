@@ -1,0 +1,179 @@
+{
+  "artifact_digest": "4c4ff16ca149efa51643ee8c0f74e221f24122eeee69694405445c4c89f15dad",
+  "classification": "SCOPED_TREE_LEVEL_NO_GO",
+  "coefficient_field": "Q(omega)",
+  "complete_tree_level_up_matrix_available": true,
+  "extension_point_selected": false,
+  "next_required_object": "the first exact deformation or higher product permitted by the lawful carrier DGA that can escape the certified tree-level zero",
+  "nontrivial_tree_level_up_matrix_available": false,
+  "observational_inputs_used": false,
+  "physical_yukawa_matrix_available": false,
+  "schema": "mixed-schoen-holomorphic-up-trace-v1",
+  "trace_normalization": "the ordered ambient canonical Laurent residue generator has trace one",
+  "up_type_tree_matrix": {
+    "character_allowed_slots": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "character_forbidden_slots": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "determinant_orientation_supports": [
+      [],
+      [
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2
+      ]
+    ],
+    "determinant_orientation_vector": [
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1
+    ],
+    "entries": [
+      {
+        "column": 1,
+        "row": 0,
+        "value": "0"
+      },
+      {
+        "column": 2,
+        "row": 0,
+        "value": "0"
+      },
+      {
+        "column": 0,
+        "row": 1,
+        "value": "0"
+      },
+      {
+        "column": 0,
+        "row": 2,
+        "value": "0"
+      }
+    ],
+    "exact": true,
+    "matrix": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "matrix_rank": 0,
+    "primitive_depths": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "primitive_digests": [
+      "2a712f5e3a31a19c24f693fc72334c955e3918397def65d08396733099320d13",
+      "c742af01d05419edd625df78ff0103b69bb209444a02da3e15ef45fea708b4fd",
+      "dc08d2f3d3b53993a79b946b0c34f7422563b9f6fb9ac208daaaec72c0efd37e",
+      "7a5ccb3c466a29c3c61a10e508205d3864e9bc86014c0d0a8d6ede600941837a"
+    ],
+    "primitive_reconstructions_exact": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "primitive_term_counts": [
+      4086,
+      3771,
+      4086,
+      3771
+    ],
+    "scalar_digests": [
+      "79fcf8f6e72fe3c7f6d3d2e961c8a118f571af01f247cb06736b71a4c48d753e",
+      "89c349792bba179ce8f87f907a28447a910fde756504d86b80f0bc44bbed42b3",
+      "9af961864f7c11ff42d1a8c724be30b8e62384470de2374d3294a99e46b1058d",
+      "fd3258c961ddaf31589cf17776d1363ca2950ec9917fe34af7a1385848d314a6"
+    ],
+    "scalar_products_are_cycles": true,
+    "scalar_projection_depths": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "scalar_term_counts": [
+      6354,
+      5832,
+      6354,
+      5832
+    ],
+    "tree_level_nontrivial": false
+  }
+}

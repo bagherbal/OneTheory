@@ -33,6 +33,11 @@ from research.experiments.scientific_genesis.mixed_schoen_diagonal_chain_map imp
 from research.experiments.scientific_genesis.mixed_schoen_matter_representatives import (
     _matter_contraction,
 )
+from research.experiments.scientific_genesis.mixed_schoen_matter_tensor import (
+    IndependentMatterBasis,
+    IndependentMatterCochain,
+    external_lifted_matter_tensor,
+)
 
 
 def _regular_monomial(degree: int, size: int) -> tuple[int, ...]:
@@ -136,3 +141,46 @@ def test_comparison_intertwines_every_common_koszul_summand() -> None:
             diagonal_compare_common_matter(source_image)
         )
         assert full_chain_diagonal_differential(compared_source) == compared_image
+
+
+def test_lifted_tensor_annihilates_repeated_koszul_generators() -> None:
+    """Exterior multiplication drops terms sharing the independent equation."""
+
+    component = OuterCechComponent(0, 0, 0, (0, 3, 1), "k1_u")
+    common = SparseOuterCechCochain(
+        (
+            (
+                OuterCechBasis(
+                    component,
+                    (0, 0, 0),
+                    (0, 0, 0),
+                    (0, 0),
+                    ((0,), (0,), (0,)),
+                ),
+                Eisenstein(1),
+            ),
+        )
+    )
+    left = diagonal_compare_common_matter(common)
+    right = IndependentMatterCochain(
+        2,
+        0,
+        (
+            (
+                IndependentMatterBasis(
+                    2,
+                    0,
+                    (1,),
+                    0,
+                    ((0, 0, 0), (0, 0), (0, 0, 0), (0, 0)),
+                    ((0,), (0,), (0,), (0, 1)),
+                ),
+                Eisenstein(1),
+            ),
+        ),
+    )
+    product = external_lifted_matter_tensor(left, right)
+    assert product.terms
+    assert {
+        basis.component.subset for basis, _coefficient in product.terms
+    } == {(1, 2)}

@@ -253,7 +253,7 @@ def external_lifted_matter_tensor(
                 continue
             cell_sign, cell = cell_product
             subset = tuple(sorted((*left_subset, *right_subset)))
-            if len(subset) != len(left_subset) + len(right_subset):
+            if len(set(subset)) != len(subset):
                 continue
             target = _target_component(
                 objects[(left_index, right_index)],

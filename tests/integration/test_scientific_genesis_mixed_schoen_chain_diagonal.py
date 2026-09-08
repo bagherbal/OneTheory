@@ -39,7 +39,7 @@ def test_chain_diagonal_artifact_is_exhaustive_and_fail_closed() -> None:
     assert digest == _canonical_digest(payload)
     assert payload["construction"] == {
         "diagonal_equation_count": 3,
-        "full_extension_term_count": 7668,
+        "full_extension_term_count": 1278,
         "independent_cover_factor_count": 4,
         "object_count": 48,
         "signed_tensor_totalization": True,

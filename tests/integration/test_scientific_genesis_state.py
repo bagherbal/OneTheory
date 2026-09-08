@@ -128,6 +128,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         is False
     )
     assert path["criteria"]["cech_local_diagonal_comparison_required"] is True
+    assert path["criteria"]["cech_local_diagonal_chain_map_available"] is True
+    assert path["criteria"]["canonical_chain_extension_term_count"] == 1278
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
@@ -135,19 +137,19 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "complete lawful tree-level up matrix derived as an exact "
-        "rank-zero result; exact local diagonal-comparison data now "
-        "fix the first higher-product chain-map boundary"
+        "rank-zero result; exact Cech diagonal comparison now fixes "
+        "the first parameter-linear product boundary"
     )
     assert path["next_required_object"] == (
-        "the full Cech-local chain comparison applying the two chart "
-        "coefficients and their overlap homotopy to the universal "
-        "matter-correction cochains"
+        "the first exact parameter-linear correction product in the "
+        "grouped complex and its scalar residue"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
     assert claims["mixed_local_determinant_pairings"]["status"] == "COMPUTED"
     assert claims["mixed_tree_up_matrix"]["status"] == "COMPUTED"
     assert claims["mixed_diagonal_local_comparison"]["status"] == "COMPUTED"
+    assert claims["mixed_diagonal_chain_map"]["status"] == "COMPUTED"
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"

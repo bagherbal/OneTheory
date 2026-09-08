@@ -39,11 +39,11 @@ def test_all_split_products_have_exact_equivariant_comparisons() -> None:
     assert all(
         item.character == (0, 2)
         and len(item.direct_product.terms) == 42_171
-        and len(item.direct_residual.terms) == 67_854
+        and len(item.direct_residual.terms) == 43_917
         and len(item.reduced_representative.terms) == 168
         and len(item.strict_representative.terms) == 20_842
         and len(item.equivariant_representative.terms) == 23_439
-        and len(item.correction.terms) == 37_845
+        and len(item.correction.terms) == 35_625
         and item.projection_depth == 5
         and item.inclusion_depth == 5
         and item.projection_idempotent

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "a568c6f776aa886b521e4f7f9e0fda3c7c8f678848ca0a9a135760ea72951bc1",
+  "artifact_digest": "f1189a48fafa9dadd71b4cf5e3d481b0fd58cb2cc28ddc34c39ead79de73605e",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -214,22 +214,22 @@
     {
       "bytes": 1224,
       "path": "data/generated/scientific_genesis/mixed_schoen_chain_diagonal.json",
-      "sha256": "9b08e86df3d57848c8b4b3bd53c6948dc83c7bec176cfd7129b2dfcf5a724528"
+      "sha256": "747339b28768a56361e97d4ff15236895b42daf9509751ff96efd48459c636c4"
     },
     {
-      "bytes": 143334,
+      "bytes": 143233,
       "path": "data/generated/scientific_genesis/mixed_schoen_chain_actions.json",
-      "sha256": "a3301991904d4da57e2f47f8819c8717a878a2dbdebe8a9f68054403a7b7a9c4"
+      "sha256": "6c4eeee700211b1e65bc9f3511105d9ffaff38693299d02d3e638895d95f1b09"
     },
     {
-      "bytes": 4551,
+      "bytes": 4375,
       "path": "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json",
-      "sha256": "4d4a8db8130d7a4addec70b885bc121b6025ccca99bd40ef0fc8cce5b5291d3f"
+      "sha256": "88ebcffe4024a0abc81210254558332abbd879fc26e6d06d2ebb6add78af18d2"
     },
     {
       "bytes": 6026,
       "path": "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json",
-      "sha256": "7df8eecdf40acdf0b53cae3c1aa90e8fb46351bae58f36b61341202ea93ae115"
+      "sha256": "b6b4fbf9c203dd3434bc26c52a493a9f27d8e654852809eacc553ea8d06a9ac4"
     },
     {
       "bytes": 1515,
@@ -326,8 +326,8 @@
     "collected_tests_at_audit": 572,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 167,
-    "test_python_files": 146
+    "research_python_files": 168,
+    "test_python_files": 147
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1334,6 +1334,20 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_chain_diagonal.json",
+        "research/experiments/scientific_genesis/mixed_schoen_diagonal_chain_map.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_diagonal_chain_map.py"
+      ],
+      "id": "mixed_diagonal_chain_map",
+      "label": "common-to-diagonal Cech chain map",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "The two local pencil maps and their signed overlap homotopies extend to a basis-aware Cech chain map. Exact generator checks intertwine the full raw differential in all four Koszul summands, while the canonical diagonal tensor carries each constituent extension once rather than six times.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
       ],
       "id": "curvilinear_topology_route",
@@ -1360,16 +1374,16 @@
       "evidence": [
         "src/onetheory/math/homological.py",
         "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json",
+        "research/experiments/scientific_genesis/mixed_schoen_diagonal_chain_map.py",
         "research/experiments/visible_common_dga/audit.py"
       ],
       "id": "common_dga_package",
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "Cech-local common-to-diagonal correction chain map",
         "first lawful nontrivial deformation or higher product"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes. The local common-to-diagonal pencil comparison is derived, but its Cech chain map has not yet been applied to the parameter-linear matter corrections.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes. The exact common-to-diagonal Cech chain map now supplies the comparison required by the parameter-linear matter corrections.",
       "status": "BLOCKED"
     },
     {
@@ -1390,16 +1404,16 @@
     {
       "assumptions": [],
       "evidence": [
-        "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json"
+        "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json",
+        "research/experiments/scientific_genesis/mixed_schoen_diagonal_chain_map.py"
       ],
       "id": "first_exact_yukawa",
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "Cech-local correction chain map",
         "first nonzero deformation or higher-product contribution"
       ],
-      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The local comparison needed by the first parameter-linear correction is exact, but the full Cech chain map and resulting higher-product contribution remain unevaluated.",
+      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The full Cech comparison needed by the first parameter-linear correction is exact, but the resulting deformation contribution remains unevaluated.",
       "status": "BLOCKED"
     },
     {
@@ -2616,11 +2630,34 @@
         "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json"
       ],
       "implication": "exact",
-      "known_failure_modes": [
-        "the local coefficients are not yet applied to full cochains"
-      ],
-      "mathematical_reason": "The two chartwise pencil identities and their overlap syzygy supply the exact local coefficients for the missing chain map.",
+      "known_failure_modes": [],
+      "mathematical_reason": "The two chartwise pencil identities and their overlap syzygy supply the exact local coefficients for the Cech chain map.",
       "source": "mixed_diagonal_local_comparison",
+      "target": "mixed_diagonal_chain_map"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/mixed_schoen_diagonal_chain_map.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The full universal correction cochains fix the source grading and support on which the local comparison must act.",
+      "source": "universal_matter_sector_lifts",
+      "target": "mixed_diagonal_chain_map"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/mixed_schoen_diagonal_chain_map.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_diagonal_chain_map.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the first parameter-linear correction product is not yet evaluated"
+      ],
+      "mathematical_reason": "Exact totalization signs and overlap homotopies carry common matter corrections into the grouped four-factor complex.",
+      "source": "mixed_diagonal_chain_map",
       "target": "common_dga_package"
     },
     {
@@ -2865,7 +2902,8 @@
     "virtual determinant cancellation and adjunction identify the unique ordered degree-three scalar residue target",
     "complementary maximal minors give exact local determinant pairings with hypersurface-corrected covariance on all sixty overlaps",
     "the unique grouped determinant orientation gives a complete exact rank-zero tree-level up matrix, with four explicit scalar primitives",
-    "the common-Schoen second pencil has exact two-chart diagonal lifts whose overlap difference is its Koszul syzygy; negative required q degrees exclude a global homogeneous polynomial replacement"
+    "the common-Schoen second pencil has exact two-chart diagonal lifts whose overlap difference is its Koszul syzygy; negative required q degrees exclude a global homogeneous polynomial replacement",
+    "the signed two-chart comparison extends to an exact Cech chain map in all four Koszul summands, with each tensor extension term carried once under the identity on unused cover factors"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -2900,6 +2938,8 @@
       ],
       "additional_retired_family_count": 72,
       "arbitrary_point_selected": false,
+      "canonical_chain_extension_term_count": 1278,
+      "cech_local_diagonal_chain_map_available": true,
       "cech_local_diagonal_comparison_required": true,
       "coefficient_field": "Q(omega)",
       "complete_tree_level_up_matrix_available": true,
@@ -3094,8 +3134,8 @@
       "tree_level_up_scalar_primitives_exact": true
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the full Cech-local chain comparison applying the two chart coefficients and their overlap homotopy to the universal matter-correction cochains",
-    "selection_status": "complete lawful tree-level up matrix derived as an exact rank-zero result; exact local diagonal-comparison data now fix the first higher-product chain-map boundary"
+    "next_required_object": "the first exact parameter-linear correction product in the grouped complex and its scalar residue",
+    "selection_status": "complete lawful tree-level up matrix derived as an exact rank-zero result; exact Cech diagonal comparison now fixes the first parameter-linear product boundary"
   },
   "research_value_scheduler": [
     {

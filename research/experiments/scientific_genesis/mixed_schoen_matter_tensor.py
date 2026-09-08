@@ -61,6 +61,7 @@ ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / "data/generated/scientific_genesis/mixed_schoen_matter_tensor_audit.json"
 
 Character = tuple[int, int]
+type MatterGroupKey = tuple[int, tuple[int, ...], int, Cell4]
 
 
 @dataclass(frozen=True, slots=True, order=True)
@@ -135,6 +136,9 @@ def lift_matter_cochain(
         if component.right_index != 0:
             raise ValueError("matter representatives must be maps from the unit object")
         subset = _factor_subset(factor, component.koszul_summand)
+        source_factor_degrees = tuple(
+            len(simplex) - 1 for simplex in basis.cell
+        )
         for vertex in range(2):
             if factor == 1:
                 monomials = (
@@ -164,6 +168,12 @@ def lift_matter_cochain(
                 )
             else:
                 raise ValueError("independent matter factors are one and two")
+            reordering_sign = (
+                -1
+                if factor == 1
+                and source_factor_degrees[1] * source_factor_degrees[2] % 2
+                else 1
+            )
             terms.append(
                 (
                     IndependentMatterBasis(
@@ -174,7 +184,7 @@ def lift_matter_cochain(
                         monomials,
                         cell,
                     ),
-                    coefficient,
+                    coefficient * reordering_sign,
                 )
             )
     return IndependentMatterCochain(factor, next(iter(degrees)), tuple(terms))
@@ -205,71 +215,106 @@ def _cell_cup(left: Cell4, right: Cell4) -> tuple[int, Cell4] | None:
     return (-1 if crossings % 2 else 1), cast(Cell4, products)
 
 
+def external_lifted_matter_tensor(
+    left: IndependentMatterCochain,
+    right: IndependentMatterCochain,
+) -> ChainDiagonalCochain:
+    """Tensor an ordered pair of already-lifted matter cochains."""
+
+    if left.factor != 1 or right.factor != 2:
+        raise ValueError("the external tensor requires factor one before factor two")
+    objects = _object_indices()
+    grouped_left: dict[
+        MatterGroupKey,
+        list[tuple[tuple[Monomial, Monomial, Monomial, Monomial], Eisenstein]],
+    ] = {}
+    grouped_right: dict[
+        MatterGroupKey,
+        list[tuple[tuple[Monomial, Monomial, Monomial, Monomial], Eisenstein]],
+    ] = {}
+    for cochain, groups in ((left, grouped_left), (right, grouped_right)):
+        for basis, coefficient in cochain.terms:
+            key = (
+                basis.object_index,
+                basis.subset,
+                basis.object_degree,
+                basis.cell,
+            )
+            groups.setdefault(key, []).append((basis.monomials, coefficient))
+
+    values: dict[ChainDiagonalBasis, Eisenstein] = {}
+    for left_key, left_terms in grouped_left.items():
+        left_index, left_subset, left_object_degree, left_cell = left_key
+        left_cech_degree = sum(len(simplex) - 1 for simplex in left_cell)
+        for right_key, right_terms in grouped_right.items():
+            right_index, right_subset, right_object_degree, right_cell = right_key
+            cell_product = _cell_cup(left_cell, right_cell)
+            if cell_product is None:
+                continue
+            cell_sign, cell = cell_product
+            subset = tuple(sorted((*left_subset, *right_subset)))
+            if len(subset) != len(left_subset) + len(right_subset):
+                continue
+            target = _target_component(
+                objects[(left_index, right_index)],
+                subset,
+            )
+            internal_crossing = (
+                -len(left_subset) * right_object_degree
+                + left_cech_degree * (right_object_degree - len(right_subset))
+            )
+            second_cech_degree = sum(
+                len(simplex) - 1 for simplex in cell[2:]
+            )
+            grouped_conjugation = (
+                (right_object_degree - len(right_subset)) * second_cech_degree
+            )
+            sign_exponent = (
+                internal_crossing
+                + grouped_conjugation
+            )
+            sign = cell_sign * (-1 if sign_exponent % 2 else 1)
+            for left_monomials, left_coefficient in left_terms:
+                for right_monomials, right_coefficient in right_terms:
+                    monomials = cast(
+                        tuple[Monomial, Monomial, Monomial, Monomial],
+                        tuple(
+                            _sum_monomials(left_monomial, right_monomial)
+                            for left_monomial, right_monomial in zip(
+                                left_monomials,
+                                right_monomials,
+                                strict=True,
+                            )
+                        ),
+                    )
+                    basis = ChainDiagonalBasis(target, monomials, cell)
+                    coefficient = (
+                        left_coefficient * right_coefficient * sign
+                    )
+                    values[basis] = values.get(basis, Eisenstein(0)) + coefficient
+    result = ChainDiagonalCochain(
+        tuple(
+            (basis, coefficient)
+            for basis, coefficient in values.items()
+            if not coefficient.is_zero()
+        )
+    )
+    expected_degree = left.total_degree + right.total_degree
+    if any(basis.total_degree != expected_degree for basis, _coefficient in result.terms):
+        raise ValueError("the external matter tensor changed total degree")
+    return result
+
+
 def external_matter_tensor(
     first: SparseOuterCechCochain,
     second: SparseOuterCechCochain,
 ) -> ChainDiagonalCochain:
     """Tensor one V1 and one V2 matter cochain on independent fiber covers."""
 
-    left = lift_matter_cochain(first, 1)
-    right = lift_matter_cochain(second, 2)
-    objects = _object_indices()
-    terms = []
-    for left_basis, left_coefficient in left.terms:
-        for right_basis, right_coefficient in right.terms:
-            cell_product = _cell_cup(left_basis.cell, right_basis.cell)
-            if cell_product is None:
-                continue
-            cell_sign, cell = cell_product
-            subset = tuple(sorted((*left_basis.subset, *right_basis.subset)))
-            if len(subset) != len(left_basis.subset) + len(right_basis.subset):
-                continue
-            target = _target_component(
-                objects[(left_basis.object_index, right_basis.object_index)],
-                subset,
-            )
-            monomials = cast(
-                tuple[Monomial, Monomial, Monomial, Monomial],
-                tuple(
-                    _sum_monomials(left_monomial, right_monomial)
-                    for left_monomial, right_monomial in zip(
-                        left_basis.monomials,
-                        right_basis.monomials,
-                        strict=True,
-                    )
-                ),
-            )
-            internal_crossing = (
-                -len(left_basis.subset) * right_basis.object_degree
-                + left_basis.cech_degree * right_basis.structural_degree
-            )
-            first_cover_reordering = (
-                (len(left_basis.cell[1]) - 1)
-                * (len(left_basis.cell[2]) - 1)
-            )
-            second_cech_degree = sum(
-                len(simplex) - 1 for simplex in cell[2:]
-            )
-            grouped_conjugation = (
-                right_basis.structural_degree * second_cech_degree
-            )
-            sign_exponent = (
-                internal_crossing
-                + first_cover_reordering
-                + grouped_conjugation
-            )
-            sign = cell_sign * (-1 if sign_exponent % 2 else 1)
-            terms.append(
-                (
-                    ChainDiagonalBasis(target, monomials, cell),
-                    left_coefficient * right_coefficient * sign,
-                )
-            )
-    result = ChainDiagonalCochain(tuple(terms))
-    expected_degree = left.total_degree + right.total_degree
-    if any(basis.total_degree != expected_degree for basis, _coefficient in result.terms):
-        raise ValueError("the external matter tensor changed total degree")
-    return result
+    return external_lifted_matter_tensor(
+        lift_matter_cochain(first, 1),
+        lift_matter_cochain(second, 2),
+    )
 
 
 def _sector(
@@ -560,6 +605,7 @@ __all__ = [
     "IndependentMatterCochain",
     "OUTPUT",
     "SplitMatterTensorAudit",
+    "external_lifted_matter_tensor",
     "external_matter_tensor",
     "lift_matter_cochain",
     "split_matter_tensor_audit",

@@ -23,7 +23,6 @@ import json
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
 from functools import cache
-from itertools import product
 from pathlib import Path
 from typing import cast
 
@@ -287,28 +286,26 @@ def chain_diagonal_extension_terms() -> tuple[ChainDiagonalExtensionTerm, ...]:
         )
         equation = 0 if basis.component.koszul_degree else None
         for second_index in range(len(second.objects)):
-            sign = 1
-            for u_vertex, q_vertex in product(range(3), range(2)):
-                result.append(
-                    ChainDiagonalExtensionTerm(
-                        indices[(source_first, second_index)],
-                        indices[(0, second_index)],
-                        basis.component.parent_degree,
-                        equation,
-                        (basis.base_monomial, basis.fiber_monomial, zero3, zero2),
-                        cast(
-                            Cell4,
-                            (
-                                basis.cell[0],
-                                basis.cell[1],
-                                (u_vertex,),
-                                (q_vertex,),
-                            ),
+            result.append(
+                ChainDiagonalExtensionTerm(
+                    indices[(source_first, second_index)],
+                    indices[(0, second_index)],
+                    basis.component.parent_degree,
+                    equation,
+                    (basis.base_monomial, basis.fiber_monomial, zero3, zero2),
+                    cast(
+                        Cell4,
+                        (
+                            basis.cell[0],
+                            basis.cell[1],
+                            (0,),
+                            (0,),
                         ),
-                        coefficient * sign,
-                        1,
-                    )
+                    ),
+                    coefficient,
+                    1,
                 )
+            )
     for basis, coefficient in second.full.representative.terms:
         source_second = _source_index(
             second,
@@ -317,27 +314,26 @@ def chain_diagonal_extension_terms() -> tuple[ChainDiagonalExtensionTerm, ...]:
         )
         equation = 1 if basis.component.koszul_degree else None
         for first_index, _first_object in enumerate(first.objects):
-            for x_vertex, p_vertex in product(range(3), range(2)):
-                result.append(
-                    ChainDiagonalExtensionTerm(
-                        indices[(first_index, source_second)],
-                        indices[(first_index, 0)],
-                        basis.component.parent_degree,
-                        equation,
-                        (zero3, zero2, basis.base_monomial, basis.fiber_monomial),
-                        cast(
-                            Cell4,
-                            (
-                                (x_vertex,),
-                                (p_vertex,),
-                                basis.cell[0],
-                                basis.cell[1],
-                            ),
+            result.append(
+                ChainDiagonalExtensionTerm(
+                    indices[(first_index, source_second)],
+                    indices[(first_index, 0)],
+                    basis.component.parent_degree,
+                    equation,
+                    (zero3, zero2, basis.base_monomial, basis.fiber_monomial),
+                    cast(
+                        Cell4,
+                        (
+                            (0,),
+                            (0,),
+                            basis.cell[0],
+                            basis.cell[1],
                         ),
-                        coefficient,
-                        2,
-                    )
+                    ),
+                    coefficient,
+                    2,
                 )
+            )
     return tuple(result)
 
 

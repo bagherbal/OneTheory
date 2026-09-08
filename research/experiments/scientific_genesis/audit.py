@@ -1177,6 +1177,25 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_diagonal_chain_map",
+            "common-to-diagonal Cech chain map",
+            "Flavor",
+            "COMPUTED",
+            "The two local pencil maps and their signed overlap homotopies "
+            "extend to a basis-aware Cech chain map. Exact generator checks "
+            "intertwine the full raw differential in all four Koszul "
+            "summands, while the canonical diagonal tensor carries each "
+            "constituent extension once rather than six times.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_chain_diagonal.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_diagonal_chain_map.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_diagonal_chain_map.py",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1205,17 +1224,18 @@ def _nodes() -> list[dict[str, object]]:
             "the four restricted matter-product cycles, while adjunction fixes "
             "their one-dimensional scalar residue target. The grouped "
             "determinant totalization is now exact and proves that every "
-            "tree-level entry vanishes. The local common-to-diagonal pencil "
-            "comparison is derived, but its Cech chain map has not yet been "
-            "applied to the parameter-linear matter corrections.",
+            "tree-level entry vanishes. The exact common-to-diagonal Cech "
+            "chain map now supplies the comparison required by the "
+            "parameter-linear matter corrections.",
             (
                 "src/onetheory/math/homological.py",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_diagonal_comparison.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_diagonal_chain_map.py",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "Cech-local common-to-diagonal correction chain map",
                 "first lawful nontrivial deformation or higher product",
             ),
         ),
@@ -1235,15 +1255,16 @@ def _nodes() -> list[dict[str, object]]:
             "Flavor",
             "BLOCKED",
             "The complete carrier-derived tree-level up matrix is exactly zero. "
-            "The local comparison needed by the first parameter-linear "
-            "correction is exact, but the full Cech chain map and resulting "
-            "higher-product contribution remain unevaluated.",
+            "The full Cech comparison needed by the first parameter-linear "
+            "correction is exact, but the resulting deformation contribution "
+            "remains unevaluated.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_diagonal_comparison.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_diagonal_chain_map.py",
             ),
             missing=(
-                "Cech-local correction chain map",
                 "first nonzero deformation or higher-product contribution",
             ),
         ),
@@ -2416,17 +2437,46 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_diagonal_local_comparison",
-            "common_dga_package",
+            "mixed_diagonal_chain_map",
             "The two chartwise pencil identities and their overlap syzygy "
-            "supply the exact local coefficients for the missing chain map.",
+            "supply the exact local coefficients for the Cech chain map.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_diagonal_comparison.json",
             ),
             (),
             True,
+            (),
+        ),
+        _edge(
+            "universal_matter_sector_lifts",
+            "mixed_diagonal_chain_map",
+            "The full universal correction cochains fix the source grading "
+            "and support on which the local comparison must act.",
             (
-                "the local coefficients are not yet applied to full cochains",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_diagonal_chain_map.py",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_diagonal_chain_map",
+            "common_dga_package",
+            "Exact totalization signs and overlap homotopies carry common "
+            "matter corrections into the grouped four-factor complex.",
+            (
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_diagonal_chain_map.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_diagonal_chain_map.py",
+            ),
+            (),
+            True,
+            (
+                "the first parameter-linear correction product is not yet "
+                "evaluated",
             ),
         ),
         _edge(
@@ -2933,8 +2983,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "complete lawful tree-level up matrix derived as an exact "
-                "rank-zero result; exact local diagonal-comparison data now "
-                "fix the first higher-product chain-map boundary"
+                "rank-zero result; exact Cech diagonal comparison now fixes "
+                "the first parameter-linear product boundary"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3053,13 +3103,14 @@ def build_state() -> dict[str, object]:
                 "deformation_diagonal_local_comparison_available": True,
                 "global_polynomial_diagonal_comparison_available": False,
                 "cech_local_diagonal_comparison_required": True,
+                "cech_local_diagonal_chain_map_available": True,
+                "canonical_chain_extension_term_count": 1278,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the full Cech-local chain comparison applying the two chart "
-                "coefficients and their overlap homotopy to the universal "
-                "matter-correction cochains"
+                "the first exact parameter-linear correction product in the "
+                "grouped complex and its scalar residue"
             ),
         },
         "claims": _nodes(),
@@ -3156,6 +3207,9 @@ def build_state() -> dict[str, object]:
             "the common-Schoen second pencil has exact two-chart diagonal lifts "
             "whose overlap difference is its Koszul syzygy; negative required "
             "q degrees exclude a global homogeneous polynomial replacement",
+            "the signed two-chart comparison extends to an exact Cech chain "
+            "map in all four Koszul summands, with each tensor extension term "
+            "carried once under the identity on unused cover factors",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",

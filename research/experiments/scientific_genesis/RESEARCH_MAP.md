@@ -356,6 +356,17 @@ The first flavor target remains one complete generated `3 x 3` holomorphic
 Yukawa matrix. Its rank must be explained structurally before higher products
 are extended.
 
+The common-to-diagonal comparison is now an exact signed Cech chain map. Its
+two local pencil coefficients and overlap homotopy commute with the full raw
+differential in every Koszul summand, including the top wedge. Applying it to
+the first source-derived universal product gives an exact 243,075-term cycle.
+The comparison also exposed a sixfold repetition of constituent extension
+terms over cover factors where the differential acts by the identity; the
+canonical tensor now carries each extension term once and retains zero square
+on all 4,896 transfer seeds. The immediate flavor task is to form the first
+parameter-linear correction product from these mapped cochains and evaluate
+its exact scalar residue.
+
 Metrics are blocked first by explicit carrier extension data and then by
 section bases, global generation, and controlled Ricci-flat/HYM convergence.
 Physical Pfaffians are blocked by seed embeddings and determinant-line maps.

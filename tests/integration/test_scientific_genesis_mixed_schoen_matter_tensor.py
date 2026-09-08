@@ -52,14 +52,12 @@ def test_direct_tensor_residual_lies_below_diagonal_wedge() -> None:
     result = split_matter_tensor_audit()
     expected_subsets = Counter(
         {
-            (): 52_908,
-            (0,): 4_617,
-            (1,): 9_573,
-            (0, 1): 756,
+            (): 37_098,
+            (1,): 6_819,
         }
     )
     assert all(
-        len(residual.terms) == 67_854
+        len(residual.terms) == 43_917
         and Counter(
             basis.component.subset
             for basis, _coefficient in residual.terms

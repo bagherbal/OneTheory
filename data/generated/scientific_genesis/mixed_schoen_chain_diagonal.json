@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "87bb6ae4d94bbd58bac291e4f11796e3c99960fc9ddc645060549235396283c6",
+  "artifact_digest": "6e669d76110f360a972cb3a7bd8466b053172f4ef057401bb05967f6cbf9de0b",
   "constituent_inputs": {
     "all_full_cech_cocycles_exact": true,
     "retired_constituent_cones_used": false,
@@ -7,7 +7,7 @@
   },
   "construction": {
     "diagonal_equation_count": 3,
-    "full_extension_term_count": 7668,
+    "full_extension_term_count": 1278,
     "independent_cover_factor_count": 4,
     "object_count": 48,
     "signed_tensor_totalization": true

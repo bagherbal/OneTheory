@@ -202,6 +202,12 @@ diagonal presentation used by the trace. A global homogeneous polynomial lift
 between these presentations is impossible: both required coefficients have
 negative q degree. Exact lifts do exist on the q0 and q1 charts, and their
 difference is the Koszul syzygy of the independent u-pencil and diagonal
-equation. The next exact gate is to apply this two-chart comparison and overlap
-homotopy to the full universal correction cochains before evaluating their
-scalar residues.
+equation. The full signed Cech-local map now applies these chart coefficients
+and the overlap homotopy to arbitrary common-Schoen matter cochains. It
+intertwines all four Koszul summands with the grouped differential, and a
+source-derived 71,247-term universal product maps to an exact 243,075-term
+cycle. During this comparison the diagonal tensor was corrected to carry each
+constituent extension once; the former sixfold repetition came from
+enumerating cover vertices in factors on which the differential acts as the
+identity. The next exact gate is the first parameter-linear correction product
+and its scalar residue.

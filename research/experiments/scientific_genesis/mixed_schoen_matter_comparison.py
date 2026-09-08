@@ -41,14 +41,16 @@ from .mixed_schoen_chain_diagonal import (
     chain_diagonal_perturbation,
     full_chain_diagonal_differential,
 )
-from .mixed_schoen_chain_transfer import _homotopy, _projected_inclusion
+from .mixed_schoen_chain_transfer import (
+    _homotopy,
+    _include,
+    _projected_coordinates,
+    _reduced_entries,
+)
 from .mixed_schoen_matter_tensor import split_matter_tensor_audit
 
 ROOT = Path(__file__).resolve().parents[3]
-OUTPUT = (
-    ROOT
-    / "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json"
-)
+OUTPUT = ROOT / "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json"
 
 Character = tuple[int, int]
 
@@ -80,15 +82,21 @@ def _perturbed_projection_inclusion(
 ) -> tuple[ChainDiagonalCochain, int]:
     """Apply ``p (1 + Delta h)^-1`` and include its reduced coordinates."""
 
-    result = ChainDiagonalCochain()
+    values: dict[int, Eisenstein] = {}
     current = cochain
     depth = 0
     while not current.is_zero():
-        result = result + _projected_inclusion(current, degree)
+        for index, coefficient in _projected_coordinates(current, degree).items():
+            values[index] = values.get(index, Eisenstein(0)) + coefficient
         current = chain_diagonal_perturbation(_homotopy(current)).scale(-1)
         depth += 1
         if depth > 24:
             raise ValueError("the matter comparison projection did not terminate")
+    entries = _reduced_entries(degree)
+    result = ChainDiagonalCochain()
+    for index, coefficient in sorted(values.items()):
+        if not coefficient.is_zero():
+            result = result + _include(entries[index]).scale(coefficient)
     return result, depth
 
 
@@ -104,9 +112,7 @@ def _character_project(
     for p_exponent in range(3):
         term = p_power
         for t_exponent in range(3):
-            weight = OMEGA ** (
-                -character[0] * p_exponent - character[1] * t_exponent
-            )
+            weight = OMEGA ** (-character[0] * p_exponent - character[1] * t_exponent)
             total = total + term.scale(weight)
             term = _full_action(term, actions["T"])
         p_power = _full_action(p_power, actions["P"])
@@ -121,8 +127,7 @@ def _has_character(
 
     actions = {action.name: action for action in schoen_sparse_deck_actions()}
     return all(
-        _full_action(cochain, actions[name])
-        == cochain.scale(OMEGA ** character[index])
+        _full_action(cochain, actions[name]) == cochain.scale(OMEGA ** character[index])
         for index, name in enumerate(("P", "T"))
     )
 
@@ -171,38 +176,22 @@ class MatterComparisonWitness:
             "character_exponents": list(self.character),
             "direct_product_term_count": len(self.direct_product.terms),
             "direct_residual_term_count": len(self.direct_residual.terms),
-            "reduced_representative_term_count": len(
-                self.reduced_representative.terms
-            ),
-            "strict_representative_term_count": len(
-                self.strict_representative.terms
-            ),
-            "equivariant_representative_term_count": len(
-                self.equivariant_representative.terms
-            ),
+            "reduced_representative_term_count": len(self.reduced_representative.terms),
+            "strict_representative_term_count": len(self.strict_representative.terms),
+            "equivariant_representative_term_count": len(self.equivariant_representative.terms),
             "correction_term_count": len(self.correction.terms),
             "projection_depth": self.projection_depth,
             "inclusion_depth": self.inclusion_depth,
             "direct_product_digest": _cochain_digest(self.direct_product),
             "direct_residual_digest": _cochain_digest(self.direct_residual),
-            "reduced_representative_digest": _cochain_digest(
-                self.reduced_representative
-            ),
-            "strict_representative_digest": _cochain_digest(
-                self.strict_representative
-            ),
-            "equivariant_representative_digest": _cochain_digest(
-                self.equivariant_representative
-            ),
+            "reduced_representative_digest": _cochain_digest(self.reduced_representative),
+            "strict_representative_digest": _cochain_digest(self.strict_representative),
+            "equivariant_representative_digest": _cochain_digest(self.equivariant_representative),
             "correction_digest": _cochain_digest(self.correction),
             "projection_idempotent": self.projection_idempotent,
             "strict_representative_is_cycle": self.strict_representative_is_cycle,
-            "equivariant_representative_is_cycle": (
-                self.equivariant_representative_is_cycle
-            ),
-            "correction_closes_direct_residual": (
-                self.correction_closes_direct_residual
-            ),
+            "equivariant_representative_is_cycle": (self.equivariant_representative_is_cycle),
+            "correction_closes_direct_residual": (self.correction_closes_direct_residual),
             "character_exact": self.character_exact,
             "exact": self.exact,
         }
@@ -213,10 +202,7 @@ def mixed_schoen_matter_comparison() -> tuple[MatterComparisonWitness, ...]:
     """Construct exact equivariant comparisons for all split matter products."""
 
     audit = split_matter_tensor_audit()
-    residuals = {
-        (row, column): residual
-        for row, column, residual in audit.residuals
-    }
+    residuals = {(row, column): residual for row, column, residual in audit.residuals}
     witnesses = []
     for row, column, product in audit.products:
         reduced, projection_depth = _perturbed_projection_inclusion(product, 2)
@@ -239,14 +225,12 @@ def mixed_schoen_matter_comparison() -> tuple[MatterComparisonWitness, ...]:
             projected_again == reduced,
             full_chain_diagonal_differential(strict).is_zero(),
             full_chain_diagonal_differential(equivariant).is_zero(),
-            full_chain_diagonal_differential(correction)
-            == residuals[(row, column)].scale(-1),
+            full_chain_diagonal_differential(correction) == residuals[(row, column)].scale(-1),
             _has_character(equivariant, audit.product_character),
         )
         if not witness.exact:
             raise ValueError(
-                "the exact equivariant matter chain comparison failed: "
-                f"slot=({row}, {column})"
+                f"the exact equivariant matter chain comparison failed: slot=({row}, {column})"
             )
         witnesses.append(witness)
     return tuple(witnesses)
@@ -258,10 +242,7 @@ def write_mixed_schoen_matter_comparison(
     """Write the content-addressed exact matter comparison audit."""
 
     witnesses = mixed_schoen_matter_comparison()
-    digests = tuple(
-        _cochain_digest(witness.equivariant_representative)
-        for witness in witnesses
-    )
+    digests = tuple(_cochain_digest(witness.equivariant_representative) for witness in witnesses)
     payload: dict[str, object] = {
         "schema": "mixed-schoen-matter-comparison-v1",
         "coefficient_field": "Q(omega)",
@@ -279,8 +260,7 @@ def write_mixed_schoen_matter_comparison(
         "cyclic_trace_available": False,
         "holomorphic_yukawa_matrix_available": False,
         "next_required_object": (
-            "the determinant pairing and cyclic trace on the exact restricted "
-            "matter-product hull"
+            "the determinant pairing and cyclic trace on the exact restricted matter-product hull"
         ),
     }
     payload["artifact_digest"] = _canonical_digest(payload)

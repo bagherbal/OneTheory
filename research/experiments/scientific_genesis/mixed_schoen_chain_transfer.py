@@ -195,6 +195,20 @@ def _projected_inclusion(
 ) -> ChainDiagonalCochain:
     """Apply the grouped projection followed by its canonical inclusion."""
 
+    values = _projected_coordinates(cochain, total_degree)
+    entries = _reduced_entries(total_degree)
+    result = ChainDiagonalCochain()
+    for index, coefficient in sorted(values.items()):
+        result = result + _include(entries[index]).scale(coefficient)
+    return result
+
+
+def _projected_coordinates(
+    cochain: ChainDiagonalCochain,
+    total_degree: int,
+) -> dict[int, Eisenstein]:
+    """Project one full cochain without rebuilding canonical representatives."""
+
     entries = _reduced_entries(total_degree)
     indices = {(entry.component, entry.monomials): entry.index for entry in entries}
     values: dict[int, Eisenstein] = {}
@@ -204,11 +218,9 @@ def _projected_inclusion(
             continue
         index, sign = projection
         values[index] = values.get(index, Eisenstein(0)) + coefficient * sign
-    result = ChainDiagonalCochain()
-    for index, coefficient in sorted(values.items()):
-        if not coefficient.is_zero():
-            result = result + _include(entries[index]).scale(coefficient)
-    return result
+    return {
+        index: coefficient for index, coefficient in values.items() if not coefficient.is_zero()
+    }
 
 
 @dataclass(frozen=True, slots=True)

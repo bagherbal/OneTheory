@@ -18,9 +18,9 @@ Phase 0:
 
 from __future__ import annotations
 
-from collections import defaultdict
 from dataclasses import dataclass
 from functools import cache
+from itertools import groupby
 from typing import cast
 
 from onetheory.math.homological import VectorSpace
@@ -116,18 +116,16 @@ def _include(entry: ChainDiagonalReducedEntry) -> ChainDiagonalCochain:
 def _homotopy(cochain: ChainDiagonalCochain) -> ChainDiagonalCochain:
     """Contract the grouped raw Cech complex by exact sign conjugation."""
 
-    groups: dict[
-        tuple[
-            ChainDiagonalComponent,
-            tuple[Monomial, Monomial, Monomial, Monomial],
-        ],
-        dict[Cell4, Eisenstein],
-    ] = defaultdict(dict)
-    for basis, coefficient in cochain.terms:
-        sign = _conjugation_sign(basis.component, basis.cell)
-        groups[(basis.component, basis.monomials)][basis.cell] = coefficient * sign
     result = []
-    for (component, monomials), values in groups.items():
+    groups = groupby(
+        cochain.terms,
+        key=lambda term: (term[0].component, term[0].monomials),
+    )
+    for (component, monomials), group in groups:
+        values = {
+            basis.cell: coefficient * _conjugation_sign(basis.component, basis.cell)
+            for basis, coefficient in group
+        }
         cech = _product_cech(monomials)
         degrees = {sum(len(simplex) - 1 for simplex in cell) for cell in values}
         if len(degrees) != 1:
@@ -174,10 +172,7 @@ def _projection_index(
         for monomial in basis.monomials
     )
     sizes = (3, 2, 3, 2)
-    if any(
-        support and len(support) != size
-        for support, size in zip(supports, sizes, strict=True)
-    ):
+    if any(support and len(support) != size for support, size in zip(supports, sizes, strict=True)):
         return None
     pivot = cast(
         Cell4,
@@ -201,9 +196,7 @@ def _projected_inclusion(
     """Apply the grouped projection followed by its canonical inclusion."""
 
     entries = _reduced_entries(total_degree)
-    indices = {
-        (entry.component, entry.monomials): entry.index for entry in entries
-    }
+    indices = {(entry.component, entry.monomials): entry.index for entry in entries}
     values: dict[int, Eisenstein] = {}
     for basis, coefficient in cochain.terms:
         projection = _projection_index(basis, indices)
@@ -273,9 +266,7 @@ def _transferred_vector(
 
     source_entries = _reduced_entries(total_degree)
     target_entries = _reduced_entries(total_degree + 1)
-    target_indices = {
-        (entry.component, entry.monomials): entry.index for entry in target_entries
-    }
+    target_indices = {(entry.component, entry.monomials): entry.index for entry in target_entries}
     current = ChainDiagonalCochain()
     for source_index, coefficient in coefficients:
         current = current + _include(source_entries[source_index]).scale(coefficient)

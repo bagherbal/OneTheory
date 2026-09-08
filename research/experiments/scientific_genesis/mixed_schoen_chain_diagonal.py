@@ -118,8 +118,53 @@ class ChainDiagonalCochain:
             ),
         )
 
+    @classmethod
+    def _from_normalized_terms(
+        cls,
+        terms: tuple[tuple[ChainDiagonalBasis, Eisenstein], ...],
+    ) -> ChainDiagonalCochain:
+        """Construct from sorted unique nonzero terms produced internally."""
+
+        result = object.__new__(cls)
+        object.__setattr__(result, "terms", terms)
+        return result
+
+    def _combine(
+        self,
+        other: ChainDiagonalCochain,
+        other_sign: int,
+    ) -> ChainDiagonalCochain:
+        """Merge two normalized sparse cochains without a large hash table."""
+
+        left_index = 0
+        right_index = 0
+        terms: list[tuple[ChainDiagonalBasis, Eisenstein]] = []
+        while left_index < len(self.terms) and right_index < len(other.terms):
+            left_basis, left_coefficient = self.terms[left_index]
+            right_basis, right_coefficient = other.terms[right_index]
+            if left_basis < right_basis:
+                terms.append((left_basis, left_coefficient))
+                left_index += 1
+            elif right_basis < left_basis:
+                terms.append((right_basis, right_coefficient * other_sign))
+                right_index += 1
+            else:
+                coefficient = left_coefficient + right_coefficient * other_sign
+                if not coefficient.is_zero():
+                    terms.append((left_basis, coefficient))
+                left_index += 1
+                right_index += 1
+        terms.extend(self.terms[left_index:])
+        terms.extend(
+            (basis, coefficient * other_sign) for basis, coefficient in other.terms[right_index:]
+        )
+        return self._from_normalized_terms(tuple(terms))
+
     def __add__(self, other: ChainDiagonalCochain) -> ChainDiagonalCochain:
-        return ChainDiagonalCochain(self.terms + other.terms)
+        return self._combine(other, 1)
+
+    def __sub__(self, other: ChainDiagonalCochain) -> ChainDiagonalCochain:
+        return self._combine(other, -1)
 
     def scale(self, scalar: int | Eisenstein) -> ChainDiagonalCochain:
         """Scale every sparse coefficient exactly."""
@@ -603,20 +648,24 @@ def chain_diagonal_cech_differential(
 ) -> ChainDiagonalCochain:
     """Apply the grouped raw Cech differential on both constituent covers."""
 
-    result: list[tuple[ChainDiagonalBasis, Eisenstein]] = []
+    values: dict[ChainDiagonalBasis, Eisenstein] = {}
     for basis, coefficient in cochain.terms:
         first_degree = _factor_total_degree(basis, 1)
         second_sign = -1 if first_degree % 2 else 1
-        result.extend(_factor_cech_images(basis, coefficient, 1, 1).terms)
-        result.extend(
+        _accumulate_terms(
+            values,
+            _factor_cech_images(basis, coefficient, 1, 1).terms,
+        )
+        _accumulate_terms(
+            values,
             _factor_cech_images(
                 basis,
                 coefficient,
                 2,
                 second_sign,
-            ).terms
+            ).terms,
         )
-    return ChainDiagonalCochain(tuple(result))
+    return ChainDiagonalCochain._from_normalized_terms(tuple(sorted(values.items())))
 
 
 def chain_diagonal_perturbation(
@@ -624,34 +673,38 @@ def chain_diagonal_perturbation(
 ) -> ChainDiagonalCochain:
     """Apply constituent structural maps and the fiber-diagonal equation."""
 
-    result: list[tuple[ChainDiagonalBasis, Eisenstein]] = []
+    values: dict[ChainDiagonalBasis, Eisenstein] = {}
     for basis, coefficient in cochain.terms:
         first_degree = _factor_total_degree(basis, 1)
         second_degree = _factor_total_degree(basis, 2)
         second_sign = -1 if first_degree % 2 else 1
-        result.extend(
-            _factor_structural_images(basis, coefficient, 1, 1).terms
+        _accumulate_terms(
+            values,
+            _factor_structural_images(basis, coefficient, 1, 1).terms,
         )
-        result.extend(
+        _accumulate_terms(
+            values,
             _factor_structural_images(
                 basis,
                 coefficient,
                 2,
                 second_sign,
-            ).terms
+            ).terms,
         )
         if 2 in basis.component.subset:
             target_subset = tuple(item for item in basis.component.subset if item != 2)
             target = _target_component(basis.component.object_index, target_subset)
             diagonal_sign = -1 if (first_degree + second_degree) % 2 else 1
+            diagonal_terms: list[tuple[ChainDiagonalBasis, Eisenstein]] = []
             _add_equation(
-                result,
+                diagonal_terms,
                 basis,
                 coefficient * diagonal_sign,
                 target,
                 2,
             )
-    return ChainDiagonalCochain(tuple(result))
+            _accumulate_terms(values, tuple(diagonal_terms))
+    return ChainDiagonalCochain._from_normalized_terms(tuple(sorted(values.items())))
 
 
 def grouped_chain_diagonal_differential(
@@ -659,17 +712,63 @@ def grouped_chain_diagonal_differential(
 ) -> ChainDiagonalCochain:
     """Apply the strict tensor differential followed by the diagonal Koszul map."""
 
-    return chain_diagonal_cech_differential(cochain) + chain_diagonal_perturbation(
-        cochain
-    )
+    return chain_diagonal_cech_differential(cochain) + chain_diagonal_perturbation(cochain)
+
+
+def _accumulate_terms(
+    values: dict[ChainDiagonalBasis, Eisenstein],
+    terms: tuple[tuple[ChainDiagonalBasis, Eisenstein], ...],
+) -> None:
+    """Accumulate normalized sparse terms with immediate exact cancellation."""
+
+    for basis, coefficient in terms:
+        updated = values.get(basis, Eisenstein(0)) + coefficient
+        if updated.is_zero():
+            values.pop(basis, None)
+        else:
+            values[basis] = updated
 
 
 def full_chain_diagonal_differential(
     cochain: ChainDiagonalCochain,
 ) -> ChainDiagonalCochain:
-    """Apply the canonical grouped tensor/diagonal differential."""
+    """Apply the grouped differential with eager exact cancellation."""
 
-    return grouped_chain_diagonal_differential(cochain)
+    values: dict[ChainDiagonalBasis, Eisenstein] = {}
+
+    for basis, coefficient in cochain.terms:
+        first_degree = _factor_total_degree(basis, 1)
+        second_degree = _factor_total_degree(basis, 2)
+        second_sign = -1 if first_degree % 2 else 1
+        _accumulate_terms(
+            values,
+            _factor_cech_images(basis, coefficient, 1, 1).terms,
+        )
+        _accumulate_terms(values, _factor_cech_images(basis, coefficient, 2, second_sign).terms)
+        _accumulate_terms(values, _factor_structural_images(basis, coefficient, 1, 1).terms)
+        _accumulate_terms(
+            values,
+            _factor_structural_images(
+                basis,
+                coefficient,
+                2,
+                second_sign,
+            ).terms,
+        )
+        if 2 in basis.component.subset:
+            target_subset = tuple(item for item in basis.component.subset if item != 2)
+            target = _target_component(basis.component.object_index, target_subset)
+            diagonal_sign = -1 if (first_degree + second_degree) % 2 else 1
+            diagonal_terms: list[tuple[ChainDiagonalBasis, Eisenstein]] = []
+            _add_equation(
+                diagonal_terms,
+                basis,
+                coefficient * diagonal_sign,
+                target,
+                2,
+            )
+            _accumulate_terms(values, tuple(diagonal_terms))
+    return ChainDiagonalCochain._from_normalized_terms(tuple(sorted(values.items())))
 
 
 @cache

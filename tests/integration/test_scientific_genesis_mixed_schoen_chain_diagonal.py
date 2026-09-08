@@ -9,7 +9,11 @@ from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automo
 )
 from research.experiments.scientific_genesis.mixed_schoen_chain_diagonal import (
     OUTPUT,
+    _include,
+    _reduced_entries,
     chain_diagonal_square_witness,
+    full_chain_diagonal_differential,
+    grouped_chain_diagonal_differential,
 )
 
 
@@ -28,6 +32,16 @@ def test_chain_diagonal_closes_prior_discriminating_witnesses() -> None:
         (4, 82),
     ]
     assert all(item.squared_zero for item in witnesses)
+
+
+def test_streaming_differential_matches_grouped_oracle() -> None:
+    """Eager sparse cancellation preserves the canonical grouped differential."""
+
+    for degree, index in ((0, 0), (1, 1), (1, 10)):
+        cochain = _include(_reduced_entries(degree)[index])
+        assert full_chain_diagonal_differential(cochain) == (
+            grouped_chain_diagonal_differential(cochain)
+        )
 
 
 def test_chain_diagonal_artifact_is_exhaustive_and_fail_closed() -> None:

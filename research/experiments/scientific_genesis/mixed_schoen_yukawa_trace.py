@@ -102,12 +102,16 @@ def _pairing_terms(
     tuple[tuple[Monomial, Monomial, Monomial, Monomial], Eisenstein],
     ...,
 ]:
-    """Return the global determinant polynomial pairing with A1 tensor A2."""
+    """Pair F0 with A and annihilate all other resolution degrees."""
 
     if first_index == 0 or second_index == 0:
         return ()
-    first = _complementary_minor_polynomials(1)[first_index - 1]
-    second = _complementary_minor_polynomials(2)[second_index - 1]
+    first_minors = _complementary_minor_polynomials(1)
+    second_minors = _complementary_minor_polynomials(2)
+    if first_index > len(first_minors) or second_index > len(second_minors):
+        return ()
+    first = first_minors[first_index - 1]
+    second = second_minors[second_index - 1]
     zero2 = (0, 0)
     return tuple(
         (

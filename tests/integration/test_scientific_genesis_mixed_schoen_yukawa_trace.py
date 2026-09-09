@@ -22,8 +22,16 @@ from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automo
 )
 from research.experiments.scientific_genesis.mixed_schoen_yukawa_trace import (
     OUTPUT,
+    _pairing_terms,
     mixed_schoen_holomorphic_up_slice,
 )
+
+
+def test_determinant_chain_map_annihilates_relation_objects() -> None:
+    """F1 resolution terms map to zero through the Hilbert--Burch pairing."""
+
+    assert _pairing_terms(4, 1) == ()
+    assert _pairing_terms(1, 5) == ()
 
 
 def test_all_tree_up_entries_are_exact_boundaries() -> None:

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "08c4fe0e672a629931830de10369b146fa367d16137a84e55a046775da8276f1",
+  "artifact_digest": "670fbe6e6e35d092677e013561694950cd388a6c32a4a8dac9d3f6894dd5f70a",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -257,9 +257,9 @@
       "sha256": "41bf1f77c0fecce2f06ba85a1a5a56c3c9a3bfb5a68001d26055ce3bae2bbcd8"
     },
     {
-      "bytes": 1145,
+      "bytes": 1627,
       "path": "data/generated/scientific_genesis/mixed_schoen_higgs_leg_deformation.json",
-      "sha256": "b1022a3b7bca0d2a6fb89259838386efbf72c899a6df35acfb764d6af882773c"
+      "sha256": "53cded927a184fd1ade40b9bf4eb9cf7567e13e66703404c367261adabc00ee6"
     },
     {
       "bytes": 6100,
@@ -333,11 +333,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 594,
+    "collected_tests_at_audit": 596,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 171,
-    "test_python_files": 150
+    "research_python_files": 172,
+    "test_python_files": 151
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1385,7 +1385,7 @@
       "missing_prerequisites": [
         "full local Pluecker chain map for two V2 matter representatives"
       ],
-      "statement": "The a0 extension action on the strict Higgs is an exact determinant-line cycle. A deterministic 1,431-term primitive supplies its parameter-linear correction while retaining the p-minus-q diagonal twist explicitly.",
+      "statement": "The a0 extension action on the strict Higgs is an exact determinant-line cycle. A deterministic 1,431-term primitive supplies its parameter-linear correction. The exact local q-over-p identity and overlap homotopy map them to canonical 2,124-term and 1,908-term determinant-line cochains.",
       "status": "COMPUTED"
     },
     {
@@ -2990,7 +2990,7 @@
     "the common-Schoen second pencil has exact two-chart diagonal lifts whose overlap difference is its Koszul syzygy; negative required q degrees exclude a global homogeneous polynomial replacement",
     "the signed two-chart comparison extends to an exact Cech chain map in all four Koszul summands, with each tensor extension term carried once under the identity on unused cover factors",
     "the first a0 matter leg transfers exactly to 72,099 character terms with a 7,797-term noncycle residual and zero partial scalar residue, so it is not promoted to a higher product",
-    "the complementary a0 Higgs action is an exact 1,593-term determinant-line cycle with an explicit 1,431-term correction"
+    "the complementary a0 Higgs action is an exact 1,593-term determinant-line cycle with an explicit 1,431-term correction; an exact Cech-Koszul line isomorphism maps these to canonical 2,124-term and 1,908-term cochains"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -3027,6 +3027,10 @@
       "arbitrary_point_selected": false,
       "bottom_v2_plucker_chain_map_available": false,
       "canonical_chain_extension_term_count": 1278,
+      "canonical_higgs_leg_action_is_cycle": true,
+      "canonical_higgs_leg_action_term_count": 2124,
+      "canonical_higgs_leg_correction_exact": true,
+      "canonical_higgs_leg_correction_term_count": 1908,
       "cech_local_diagonal_chain_map_available": true,
       "cech_local_diagonal_comparison_required": true,
       "coefficient_field": "Q(omega)",

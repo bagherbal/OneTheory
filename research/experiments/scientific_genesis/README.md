@@ -215,7 +215,9 @@ residual proves that this leg is not a cycle, and its still-nonclosed scalar
 contraction has exact residue zero; neither result is a Yukawa coefficient.
 The complementary Higgs extension action is an exact 1,593-term
 determinant-line cycle with a deterministic 1,431-term correction, retaining
-the diagonal p-minus-q twist explicitly. The next exact gate is the full local
-Pluecker chain map pairing two V2 matter representatives into the inverse
-determinant line. Until it exists, the two legs cannot be assembled into a
-complete higher product.
+the diagonal p-minus-q twist explicitly. Its exact q-over-p chart maps and
+overlap homotopy then give a canonical 2,124-term action and 1,908-term
+correction with the same cycle and boundary identities. The next exact gate is
+the full local Pluecker chain map pairing two V2 matter representatives into
+the inverse determinant line. Until it exists, the two legs cannot be
+assembled into a complete higher product.

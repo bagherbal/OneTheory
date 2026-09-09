@@ -140,6 +140,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["first_higgs_leg_correction_term_count"] == 1_431
     assert path["criteria"]["first_higgs_leg_action_is_cycle"] is True
     assert path["criteria"]["first_higgs_leg_correction_exact"] is True
+    assert path["criteria"]["canonical_higgs_leg_action_term_count"] == 2_124
+    assert path["criteria"]["canonical_higgs_leg_correction_term_count"] == 1_908
+    assert path["criteria"]["canonical_higgs_leg_action_is_cycle"] is True
+    assert path["criteria"]["canonical_higgs_leg_correction_exact"] is True
     assert path["criteria"]["bottom_v2_plucker_chain_map_available"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True

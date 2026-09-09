@@ -368,9 +368,11 @@ been formed and transferred exactly. Its 72,099-term character projection has
 a nonzero 7,797-term differential, and its nonclosed scalar contraction has
 zero residue, so this scoped leg is not promoted to a higher product. The
 complementary Higgs action is an exact determinant-line cycle with a certified
-boundary correction. The immediate flavor task is the full local Pluecker
-chain map pairing the two V2 matter representatives into the inverse
-determinant line; only then can both legs be combined and traced.
+boundary correction. The exact q-over-p local line maps and their overlap
+homotopy also place both in the canonical determinant normalization without
+identifying the two ambient fiber factors. The immediate flavor task is the
+full local Pluecker chain map pairing the two V2 matter representatives into
+the inverse determinant line; only then can both legs be combined and traced.
 
 Metrics are blocked first by explicit carrier extension data and then by
 section bases, global generation, and controlled Ricci-flat/HYM convergence.

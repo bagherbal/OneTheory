@@ -1225,8 +1225,9 @@ def _nodes() -> list[dict[str, object]]:
             "COMPUTED",
             "The a0 extension action on the strict Higgs is an exact "
             "determinant-line cycle. A deterministic 1,431-term primitive "
-            "supplies its parameter-linear correction while retaining the "
-            "p-minus-q diagonal twist explicitly.",
+            "supplies its parameter-linear correction. The exact local "
+            "q-over-p identity and overlap homotopy map them to canonical "
+            "2,124-term and 1,908-term determinant-line cochains.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_higgs_leg_deformation.json",
@@ -3059,7 +3060,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 594,
+            "collected_tests_at_audit": 596,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3214,6 +3215,10 @@ def build_state() -> dict[str, object]:
                 "first_higgs_leg_correction_term_count": 1431,
                 "first_higgs_leg_action_is_cycle": True,
                 "first_higgs_leg_correction_exact": True,
+                "canonical_higgs_leg_action_term_count": 2124,
+                "canonical_higgs_leg_correction_term_count": 1908,
+                "canonical_higgs_leg_action_is_cycle": True,
+                "canonical_higgs_leg_correction_exact": True,
                 "bottom_v2_plucker_chain_map_available": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
@@ -3324,7 +3329,9 @@ def build_state() -> dict[str, object]:
             "terms with a 7,797-term noncycle residual and zero partial scalar "
             "residue, so it is not promoted to a higher product",
             "the complementary a0 Higgs action is an exact 1,593-term "
-            "determinant-line cycle with an explicit 1,431-term correction",
+            "determinant-line cycle with an explicit 1,431-term correction; "
+            "an exact Cech-Koszul line isomorphism maps these to canonical "
+            "2,124-term and 1,908-term cochains",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",

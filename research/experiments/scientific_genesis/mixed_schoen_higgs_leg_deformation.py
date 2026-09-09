@@ -35,6 +35,10 @@ from research.experiments.computable_carrier.schoen_serre_outer_transfer import 
 from .diagonal_schoen_line_contraction import (
     exact_diagonal_ambient_line_primitive,
 )
+from .diagonal_schoen_line_isomorphism import (
+    canonicalize_p_minus_q_twist,
+    diagonal_twist_local_identity_exact,
+)
 from .diagonal_schoen_lines import (
     LineDegree4,
     Monomial,
@@ -59,6 +63,7 @@ from .mixed_schoen_yukawa_trace import (
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / "data/generated/scientific_genesis/mixed_schoen_higgs_leg_deformation.json"
 DETERMINANT_AMBIENT_DEGREES: LineDegree4 = (-2, 1, 2, -1)
+CANONICAL_DETERMINANT_AMBIENT_DEGREES: LineDegree4 = (-2, 0, 2, 0)
 
 
 def _add_monomials(*values: Monomial) -> Monomial:
@@ -169,11 +174,16 @@ class HiggsLegDeformationWitness:
     extension_source_term_count: int
     action: _FullCochain
     correction: _FullCochain
+    canonical_action: _FullCochain
+    canonical_correction: _FullCochain
     projection_depth: int
     inclusion_depth: int
     homotopy_depth: int
     action_is_cycle: bool
     correction_identity_exact: bool
+    diagonal_line_identity_exact: bool
+    canonical_action_is_cycle: bool
+    canonical_correction_identity_exact: bool
 
     @property
     def exact(self) -> bool:
@@ -186,6 +196,9 @@ class HiggsLegDeformationWitness:
             and bool(self.correction.terms)
             and self.action_is_cycle
             and self.correction_identity_exact
+            and self.diagonal_line_identity_exact
+            and self.canonical_action_is_cycle
+            and self.canonical_correction_identity_exact
         )
 
     def as_record(self) -> dict[str, object]:
@@ -203,11 +216,29 @@ class HiggsLegDeformationWitness:
             "action_digest": _full_cochain_digest(self.action),
             "correction_term_count": len(self.correction.terms),
             "correction_digest": _full_cochain_digest(self.correction),
+            "canonical_determinant_ambient_degrees": list(
+                CANONICAL_DETERMINANT_AMBIENT_DEGREES
+            ),
+            "canonical_action_term_count": len(self.canonical_action.terms),
+            "canonical_action_digest": _full_cochain_digest(
+                self.canonical_action
+            ),
+            "canonical_correction_term_count": len(
+                self.canonical_correction.terms
+            ),
+            "canonical_correction_digest": _full_cochain_digest(
+                self.canonical_correction
+            ),
             "projection_depth": self.projection_depth,
             "inclusion_depth": self.inclusion_depth,
             "homotopy_depth": self.homotopy_depth,
             "action_is_cycle": self.action_is_cycle,
             "correction_identity_exact": self.correction_identity_exact,
+            "diagonal_line_identity_exact": self.diagonal_line_identity_exact,
+            "canonical_action_is_cycle": self.canonical_action_is_cycle,
+            "canonical_correction_identity_exact": (
+                self.canonical_correction_identity_exact
+            ),
             "exact": self.exact,
             "bottom_matter_determinant_pairing_available": False,
             "holomorphic_yukawa_entry_available": False,
@@ -236,16 +267,32 @@ def first_higgs_leg_deformation() -> HiggsLegDeformationWitness:
         2,
     )
     correction = primitive.primitive.scale(-1)
+    canonical_action = canonicalize_p_minus_q_twist(
+        action,
+        DETERMINANT_AMBIENT_DEGREES,
+        CANONICAL_DETERMINANT_AMBIENT_DEGREES,
+    )
+    canonical_correction = canonicalize_p_minus_q_twist(
+        correction,
+        DETERMINANT_AMBIENT_DEGREES,
+        CANONICAL_DETERMINANT_AMBIENT_DEGREES,
+    )
     result = HiggsLegDeformationWitness(
         parameters[0],
         len(source.terms),
         action,
         correction,
+        canonical_action,
+        canonical_correction,
         primitive.projection_depth,
         primitive.inclusion_depth,
         primitive.homotopy_depth,
         scalar_full_differential(action).is_zero(),
         scalar_full_differential(correction) == action.scale(-1),
+        diagonal_twist_local_identity_exact(),
+        scalar_full_differential(canonical_action).is_zero(),
+        scalar_full_differential(canonical_correction)
+        == canonical_action.scale(-1),
     )
     if not result.exact:
         raise ValueError("the first Higgs-leg deformation lift failed")
@@ -286,6 +333,7 @@ if __name__ == "__main__":
 
 
 __all__ = [
+    "CANONICAL_DETERMINANT_AMBIENT_DEGREES",
     "DETERMINANT_AMBIENT_DEGREES",
     "HiggsLegDeformationWitness",
     "OUTPUT",

@@ -1,0 +1,42 @@
+{
+  "artifact_digest": "318516344a3f224e4516caaef28db11872e5ef00f883aab8e9c393a84e2e0a3a",
+  "coefficient_field": "Q(omega)",
+  "determinant_ambient_degrees": [
+    2,
+    0,
+    -2,
+    0
+  ],
+  "determinant_frame_character_exponents": [
+    1,
+    1
+  ],
+  "equivariant_character_exact": true,
+  "equivariant_pairing_digest": "72acf13f031a090e9c1e9d0f8d94c7b9fc8e12169b891395f951e3322dc7edf0",
+  "equivariant_pairing_is_cycle": true,
+  "equivariant_pairing_term_count": 11340,
+  "exact": true,
+  "exchange_identity_exact": true,
+  "exchange_primitive_term_count": 3900,
+  "extension_point_selected": false,
+  "f1_extension_defined": false,
+  "first_missing_input": "an exact chain homotopy comparing the grouped HPL matter-leg contraction with the equivariant V2 determinant pairing",
+  "holomorphic_yukawa_entry_available": false,
+  "matter_artifact_digest": "7bfa76b80c1ae79eaaecbff6a07c370d792bd99a022ae65d04e9523af56483cf",
+  "observational_inputs_used": false,
+  "pairing_digest": "674cf225bdcf256a787cd1d27bf7a0995daad7e4ede0e3f983e3bd35f89705d5",
+  "pairing_is_cycle": true,
+  "pairing_reduced_coordinate_count": 0,
+  "pairing_term_count": 8592,
+  "projection_depth": 2,
+  "reverse_pairing_digest": "c8e8012411caa68abb128972fb9a30eb822435efa0f424bb3e4d437fbba1c426",
+  "reverse_pairing_is_cycle": true,
+  "reverse_pairing_term_count": 8586,
+  "reverse_projection_depth": 2,
+  "reverse_reduced_coordinate_count": 0,
+  "schema": "mixed-schoen-v2-pluecker-chain-map-v1",
+  "target_character_exponents": [
+    0,
+    2
+  ]
+}

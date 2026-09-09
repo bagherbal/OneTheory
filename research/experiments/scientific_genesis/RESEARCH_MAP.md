@@ -346,6 +346,16 @@ sectors pass exact degree, multidegree, regularity, closure, and deck-character
 checks. Corrected outer transfer, strict invariants, the universal cone, and
 the stable genuine-`SU(4)` chamber now close from this input.
 
+The bottom V2 determinant pairing is now an exact full-Cech chain map on the
+actual A-plus-F0 support. Its local Pluecker matrices require one explicit
+hypersurface-quotient overlap homotopy; the two Alexander--Whitney orders are
+cohomologous through a 3,900-term primitive. The V2 determinant character is
+derived from the alternating resolution frames as `(1,1)`, and normalized
+Reynolds projection produces a closed 11,340-term representative in character
+`(0,2)`. Its product with the normalized Higgs correction satisfies Leibniz,
+but does not yet cancel the grouped matter-leg residual. An explicit comparison
+homotopy between those chain models is the next required object.
+
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the
 published carrier, even when their dimensions happen to match source ledgers.
@@ -370,9 +380,12 @@ zero residue, so this scoped leg is not promoted to a higher product. The
 complementary Higgs action is an exact determinant-line cycle with a certified
 boundary correction. The exact q-over-p local line maps and their overlap
 homotopy also place both in the canonical determinant normalization without
-identifying the two ambient fiber factors. The immediate flavor task is the
-full local Pluecker chain map pairing the two V2 matter representatives into
-the inverse determinant line; only then can both legs be combined and traced.
+identifying the two ambient fiber factors. The exact bottom V2 Pluecker map now
+closes in both cup orders, has an explicit exchange primitive, and Reynolds
+projects to the required `(0,2)` character. Its direct Higgs-action product is
+not cochain-equal to either sign of the grouped matter-leg residual. The
+immediate flavor task is therefore the exact homotopy comparing these two
+contraction routes; only then can both legs be combined and traced.
 
 Metrics are blocked first by explicit carrier extension data and then by
 section bases, global generation, and controlled Ricci-flat/HYM convergence.

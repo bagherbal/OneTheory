@@ -217,7 +217,13 @@ The complementary Higgs extension action is an exact 1,593-term
 determinant-line cycle with a deterministic 1,431-term correction, retaining
 the diagonal p-minus-q twist explicitly. Its exact q-over-p chart maps and
 overlap homotopy then give a canonical 2,124-term action and 1,908-term
-correction with the same cycle and boundary identities. The next exact gate is
-the full local Pluecker chain map pairing two V2 matter representatives into
-the inverse determinant line. Until it exists, the two legs cannot be
-assembled into a complete higher product.
+correction with the same cycle and boundary identities. Full local Pluecker
+matrices and their hypersurface overlap homotopy now pair the first two V2
+matter representatives into the determinant line. Both cup orders are exact
+cycles, their difference has an explicit 3,900-term primitive, and exact
+determinant-frame Reynolds projection gives a strict 11,340-term class of
+character `(0,2)`. Multiplying it by the normalized Higgs correction obeys
+Leibniz exactly, but its differential is not either sign of the grouped
+matter-leg residual. The next dependency is the explicit chain homotopy
+comparing those contraction routes; no higher product or Yukawa coefficient is
+reported before that homotopy exists.

@@ -20,7 +20,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-from collections import defaultdict
 from dataclasses import dataclass
 from functools import cache
 from pathlib import Path
@@ -35,13 +34,11 @@ from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automo
 
 from .diagonal_schoen_lines import (
     Cell4,
-    LineDegree4,
     Monomial,
     _FullBasis,
     _FullCochain,
     _homotopy,
     _perturbation,
-    _product_cech,
     _projection_index,
     _reduced_entries,
     _subtract_degrees,
@@ -233,45 +230,39 @@ def contract_with_strict_higgs(
 def _scalar_cech_differential(cochain: _FullCochain) -> _FullCochain:
     """Apply the signed four-factor Cech differential at fixed Koszul subset."""
 
-    groups: dict[
-        tuple[
-            tuple[int, ...],
-            LineDegree4,
-            tuple[Monomial, Monomial, Monomial, Monomial],
-        ],
-        dict[Cell4, Eisenstein],
-    ] = defaultdict(dict)
+    values: dict[_FullBasis, Eisenstein] = {}
     for basis, coefficient in cochain.terms:
-        groups[(basis.subset, basis.ambient_degrees, basis.monomials)][basis.cell] = (
-            coefficient
-        )
-    terms = []
-    for (subset, ambient_degrees, monomials), values in groups.items():
-        cech = _product_cech(monomials)
-        degrees = {sum(len(simplex) - 1 for simplex in cell) for cell in values}
-        if len(degrees) != 1:
-            raise ValueError("one scalar Laurent monomial spans multiple Cech degrees")
-        degree = next(iter(degrees))
-        image = cech.complex.differential(degree)(cech.cochain(degree, values))
-        sign = -1 if len(subset) % 2 else 1
-        terms.extend(
-            (
-                _FullBasis(
-                    subset,
-                    ambient_degrees,
-                    monomials,
-                    cast(Cell4, cell),
-                ),
-                cast(Eisenstein, coefficient) * sign,
-            )
-            for cell, coefficient in zip(
-                cech.cells_at(degree + 1),
-                image.coordinates,
-                strict=True,
-            )
-            if not coefficient.is_zero()
-        )
-    return _FullCochain(tuple(terms))
+        preceding_degree = 0
+        for factor, (simplex, monomial) in enumerate(
+            zip(basis.cell, basis.monomials, strict=True)
+        ):
+            tensor_sign = -1 if preceding_degree % 2 else 1
+            for vertex in range(len(monomial)):
+                if vertex in simplex:
+                    continue
+                target_simplex = tuple(sorted((*simplex, vertex)))
+                local_sign = -1 if target_simplex.index(vertex) % 2 else 1
+                cell = list(basis.cell)
+                cell[factor] = target_simplex
+                target = _FullBasis(
+                    basis.subset,
+                    basis.ambient_degrees,
+                    basis.monomials,
+                    cast(Cell4, tuple(cell)),
+                )
+                structural_sign = -1 if len(basis.subset) % 2 else 1
+                updated = values.get(target, Eisenstein(0)) + (
+                    coefficient
+                    * tensor_sign
+                    * local_sign
+                    * structural_sign
+                )
+                if updated.is_zero():
+                    values.pop(target, None)
+                else:
+                    values[target] = updated
+            preceding_degree += len(simplex) - 1
+    return _FullCochain(tuple(values.items()))
 
 
 def scalar_full_differential(cochain: _FullCochain) -> _FullCochain:

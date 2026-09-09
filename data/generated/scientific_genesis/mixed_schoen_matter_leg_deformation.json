@@ -1,0 +1,58 @@
+{
+  "artifact_digest": "dca8dc1dd05862af4acfd12bf3dd863f7e9636008151953395a84c8943d09c3f",
+  "classification": "SCOPED_MATTER_LEG_VANISHING",
+  "coefficient_field": "Q(omega)",
+  "column_character_exponents": [
+    1,
+    1
+  ],
+  "column_local_family_index": 1,
+  "diagonal_chain_map_exact": true,
+  "equivariant_projection": {
+    "character_exact": true,
+    "character_exponents": [
+      0,
+      2
+    ],
+    "digest": "b2f6135f44d0c2b500e9c73dce03c0f41575b63055542243bdd8ffb080e46ffa",
+    "is_cycle": false,
+    "residual_digest": "dd0d676e029c66d71b554ca92076f1bf2e4e4ce36f47dd739124033bdc395801",
+    "residual_term_count": 7797,
+    "term_count": 72099
+  },
+  "extension_point_selected": false,
+  "family_exchange_sign": 1,
+  "family_exchange_sign_derivation": "minus from exchanging two degree-one Cech classes times minus from exchanging the two bundle factors",
+  "first_missing_input": "the full local Pluecker chain map pairing two V2 matter representatives into the inverse determinant line",
+  "full_higher_product_available": false,
+  "grouped_hpl": {
+    "inclusion_depth": 5,
+    "projected_term_count": 866,
+    "projection_depth": 6,
+    "strict_term_count": 56679
+  },
+  "holomorphic_yukawa_entry_available": false,
+  "observational_inputs_used": false,
+  "parameter": "a0",
+  "partial_scalar_trace": {
+    "digest": "1da5710d998f18426d547de5b465e7d83d870455212d6092733a8b929503a791",
+    "is_cycle": false,
+    "projection_depth": 4,
+    "residual_digest": "81add1aa15c304e491b5ecdeb6a7a3469e4b94d66af2a92ff787b324f34a2048",
+    "residual_term_count": 378,
+    "residue": "0",
+    "term_count": 9414
+  },
+  "raw_exchange_symmetric": true,
+  "raw_product": {
+    "digest": "add6b1a3ffd7add04bfa84cd4d4ee598710ab4391e8be34b0b0a148e2cc7a409",
+    "term_count": 1715173
+  },
+  "row_character_exponents": [
+    2,
+    1
+  ],
+  "row_local_family_index": 1,
+  "schema": "mixed-schoen-matter-leg-deformation-v1",
+  "scoped_result_exact": true
+}

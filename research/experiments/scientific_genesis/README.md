@@ -209,5 +209,13 @@ source-derived 71,247-term universal product maps to an exact 243,075-term
 cycle. During this comparison the diagonal tensor was corrected to carry each
 constituent extension once; the former sixfold repetition came from
 enumerating cover vertices in factors on which the differential acts as the
-identity. The next exact gate is the first parameter-linear correction product
-and its scalar residue.
+identity. The family-symmetric `a0` matter leg now transfers exactly from
+1,715,173 raw terms to 72,099 character-projected terms. Its 7,797-term
+residual proves that this leg is not a cycle, and its still-nonclosed scalar
+contraction has exact residue zero; neither result is a Yukawa coefficient.
+The complementary Higgs extension action is an exact 1,593-term
+determinant-line cycle with a deterministic 1,431-term correction, retaining
+the diagonal p-minus-q twist explicitly. The next exact gate is the full local
+Pluecker chain map pairing two V2 matter representatives into the inverse
+determinant line. Until it exists, the two legs cannot be assembled into a
+complete higher product.

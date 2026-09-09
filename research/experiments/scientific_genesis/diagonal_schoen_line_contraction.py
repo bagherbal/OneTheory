@@ -31,6 +31,7 @@ from .diagonal_schoen_lines import (
     _projection_index,
     _reduced_entries,
     _subtract_degrees,
+    _transferred_differential,
     diagonal_schoen_line_bundle,
 )
 from .mixed_schoen_common_dga import _sparse_preimage
@@ -138,7 +139,7 @@ def _perturbed_line_homotopy(cochain: _FullCochain) -> tuple[_FullCochain, int]:
 class ExactDiagonalLinePrimitive:
     """One deterministic primitive with exact reconstruction evidence."""
 
-    schoen_degrees: tuple[int, int, int]
+    ambient_degrees: LineDegree4
     total_degree: int
     cocycle: _FullCochain
     primitive: _FullCochain
@@ -153,10 +154,23 @@ def exact_diagonal_line_primitive(
     schoen_degrees: tuple[int, int, int],
     total_degree: int,
 ) -> ExactDiagonalLinePrimitive:
-    """Solve one exact boundary through the diagonal line contraction."""
+    """Solve a canonically normalized Schoen-line boundary exactly."""
 
     line = diagonal_schoen_line_bundle(*schoen_degrees)
-    ambient_degrees = line.ambient_degrees
+    return exact_diagonal_ambient_line_primitive(
+        cocycle,
+        line.ambient_degrees,
+        total_degree,
+    )
+
+
+def exact_diagonal_ambient_line_primitive(
+    cocycle: _FullCochain,
+    ambient_degrees: LineDegree4,
+    total_degree: int,
+) -> ExactDiagonalLinePrimitive:
+    """Solve a boundary in one explicit four-factor line normalization."""
+
     _validate_degree(cocycle, ambient_degrees, total_degree)
     if not scalar_full_differential(cocycle).is_zero():
         raise ValueError("a diagonal line primitive requires a cocycle")
@@ -166,7 +180,7 @@ def exact_diagonal_line_primitive(
         total_degree,
     )
     source_coordinates = _sparse_preimage(
-        line.differential(total_degree - 1),
+        _transferred_differential(ambient_degrees, total_degree - 1),
         dict(projected),
     )
     lifted, inclusion_depth = strict_line_inclusion(
@@ -184,7 +198,7 @@ def exact_diagonal_line_primitive(
     if not exact:
         raise ValueError("the diagonal line contraction failed exact reconstruction")
     return ExactDiagonalLinePrimitive(
-        schoen_degrees,
+        ambient_degrees,
         total_degree,
         cocycle,
         primitive,
@@ -197,6 +211,7 @@ def exact_diagonal_line_primitive(
 
 __all__ = [
     "ExactDiagonalLinePrimitive",
+    "exact_diagonal_ambient_line_primitive",
     "exact_diagonal_line_primitive",
     "projected_line_coordinates",
     "strict_line_inclusion",

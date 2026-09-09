@@ -130,6 +130,17 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["cech_local_diagonal_comparison_required"] is True
     assert path["criteria"]["cech_local_diagonal_chain_map_available"] is True
     assert path["criteria"]["canonical_chain_extension_term_count"] == 1278
+    assert path["criteria"]["first_matter_leg_raw_term_count"] == 1_715_173
+    assert path["criteria"]["first_matter_leg_projected_term_count"] == 866
+    assert path["criteria"]["first_matter_leg_equivariant_term_count"] == 72_099
+    assert path["criteria"]["first_matter_leg_residual_term_count"] == 7_797
+    assert path["criteria"]["first_matter_leg_is_cycle"] is False
+    assert path["criteria"]["first_matter_leg_partial_scalar_residue"] == "0"
+    assert path["criteria"]["first_higgs_leg_action_term_count"] == 1_593
+    assert path["criteria"]["first_higgs_leg_correction_term_count"] == 1_431
+    assert path["criteria"]["first_higgs_leg_action_is_cycle"] is True
+    assert path["criteria"]["first_higgs_leg_correction_exact"] is True
+    assert path["criteria"]["bottom_v2_plucker_chain_map_available"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
@@ -137,12 +148,12 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "complete lawful tree-level up matrix derived as an exact "
-        "rank-zero result; exact Cech diagonal comparison now fixes "
-        "the first parameter-linear product boundary"
+        "rank-zero result; exact first-order matter and Higgs legs now "
+        "isolate the missing bottom V2 Pluecker chain map"
     )
     assert path["next_required_object"] == (
-        "the first exact parameter-linear correction product in the "
-        "grouped complex and its scalar residue"
+        "the full local Pluecker chain map pairing two V2 matter "
+        "representatives into the inverse determinant line"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -150,6 +161,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_tree_up_matrix"]["status"] == "COMPUTED"
     assert claims["mixed_diagonal_local_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_diagonal_chain_map"]["status"] == "COMPUTED"
+    assert claims["mixed_matter_leg_deformation"]["status"] == "COMPUTED"
+    assert claims["mixed_higgs_leg_deformation"]["status"] == "COMPUTED"
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"

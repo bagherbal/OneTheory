@@ -1196,6 +1196,50 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_matter_leg_deformation",
+            "first universal matter-leg deformation term",
+            "Flavor",
+            "COMPUTED",
+            "The family-symmetric a0 matter-leg product is transferred and "
+            "projected exactly. Its character-(0,2) representative is not a "
+            "cycle, and contraction with the strict Higgs remains nonclosed; "
+            "the resulting partial scalar residue is exactly zero and is not "
+            "a higher product or Yukawa entry.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_leg_deformation.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_matter_leg_deformation.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_matter_leg_deformation.py",
+            ),
+            missing=(
+                "full local Pluecker chain map for two V2 matter representatives",
+                "the complementary Higgs-leg contribution in one common target",
+            ),
+        ),
+        _node(
+            "mixed_higgs_leg_deformation",
+            "first universal Higgs-leg deformation lift",
+            "Flavor",
+            "COMPUTED",
+            "The a0 extension action on the strict Higgs is an exact "
+            "determinant-line cycle. A deterministic 1,431-term primitive "
+            "supplies its parameter-linear correction while retaining the "
+            "p-minus-q diagonal twist explicitly.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_leg_deformation.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_higgs_leg_deformation.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_higgs_leg_deformation.py",
+            ),
+            missing=(
+                "full local Pluecker chain map for two V2 matter representatives",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1225,18 +1269,24 @@ def _nodes() -> list[dict[str, object]]:
             "their one-dimensional scalar residue target. The grouped "
             "determinant totalization is now exact and proves that every "
             "tree-level entry vanishes. The exact common-to-diagonal Cech "
-            "chain map now supplies the comparison required by the "
-            "parameter-linear matter corrections.",
+            "chain map supplies the comparison required by the parameter-linear "
+            "matter corrections. The first matter leg is exactly nonclosed with "
+            "zero partial residue, while its complementary Higgs determinant-line "
+            "correction is exact.",
             (
                 "src/onetheory/math/homological.py",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_diagonal_comparison.json",
                 "research/experiments/scientific_genesis/"
                 "mixed_schoen_diagonal_chain_map.py",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_leg_deformation.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_leg_deformation.json",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "first lawful nontrivial deformation or higher product",
+                "full local Pluecker chain map for two V2 matter representatives",
             ),
         ),
         _node(
@@ -1255,17 +1305,18 @@ def _nodes() -> list[dict[str, object]]:
             "Flavor",
             "BLOCKED",
             "The complete carrier-derived tree-level up matrix is exactly zero. "
-            "The full Cech comparison needed by the first parameter-linear "
-            "correction is exact, but the resulting deformation contribution "
-            "remains unevaluated.",
+            "The first parameter-linear matter leg and complementary Higgs lift "
+            "are exact scoped results, but they cannot be assembled into a "
+            "higher product until the full local V2 Pluecker chain map exists.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_diagonal_comparison.json",
-                "research/experiments/scientific_genesis/"
-                "mixed_schoen_diagonal_chain_map.py",
+                "mixed_schoen_matter_leg_deformation.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_leg_deformation.json",
             ),
             missing=(
-                "first nonzero deformation or higher-product contribution",
+                "full local Pluecker chain map for two V2 matter representatives",
+                "first nonzero complete higher-product contribution",
             ),
         ),
         _node(
@@ -2463,20 +2514,66 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_diagonal_chain_map",
-            "common_dga_package",
+            "mixed_matter_leg_deformation",
             "Exact totalization signs and overlap homotopies carry common "
-            "matter corrections into the grouped four-factor complex.",
+            "matter corrections into the grouped four-factor complex where "
+            "the first ordered deformation terms can be multiplied.",
             (
                 "research/experiments/scientific_genesis/"
                 "mixed_schoen_diagonal_chain_map.py",
-                "tests/integration/"
-                "test_scientific_genesis_mixed_schoen_diagonal_chain_map.py",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_leg_deformation.json",
             ),
             (),
             True,
             (
-                "the first parameter-linear correction product is not yet "
-                "evaluated",
+                "the transferred matter leg is not closed by itself",
+            ),
+        ),
+        _edge(
+            "strict_mixed_higgs_representative",
+            "mixed_higgs_leg_deformation",
+            "The strict A1-tensor-A2 Higgs and universal a0 extension determine "
+            "an exact determinant-line action and its boundary correction.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_leg_deformation.json",
+            ),
+            (),
+            True,
+            (
+                "the determinant line retains an explicit diagonal p-minus-q twist",
+            ),
+        ),
+        _edge(
+            "mixed_matter_leg_deformation",
+            "common_dga_package",
+            "The exact noncycle residual identifies the terms that a complete "
+            "first-order higher product must cancel rather than hiding them in "
+            "a scalar residue.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_matter_leg_deformation.json",
+            ),
+            (),
+            True,
+            (
+                "the scoped zero residue is not a Yukawa coefficient",
+            ),
+        ),
+        _edge(
+            "mixed_higgs_leg_deformation",
+            "common_dga_package",
+            "The exact Higgs correction supplies the complementary extension "
+            "leg required by the first-order higher-product identity.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_leg_deformation.json",
+            ),
+            (),
+            True,
+            (
+                "the bottom V2 matter pairing is not yet defined",
             ),
         ),
         _edge(
@@ -2930,6 +3027,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_determinant_pairing.json",
         "data/generated/scientific_genesis/mixed_schoen_yukawa_trace.json",
         "data/generated/scientific_genesis/mixed_schoen_diagonal_comparison.json",
+        "data/generated/scientific_genesis/mixed_schoen_matter_leg_deformation.json",
+        "data/generated/scientific_genesis/mixed_schoen_higgs_leg_deformation.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -2960,7 +3059,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 572,
+            "collected_tests_at_audit": 594,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -2983,8 +3082,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "complete lawful tree-level up matrix derived as an exact "
-                "rank-zero result; exact Cech diagonal comparison now fixes "
-                "the first parameter-linear product boundary"
+                "rank-zero result; exact first-order matter and Higgs legs now "
+                "isolate the missing bottom V2 Pluecker chain map"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3105,12 +3204,23 @@ def build_state() -> dict[str, object]:
                 "cech_local_diagonal_comparison_required": True,
                 "cech_local_diagonal_chain_map_available": True,
                 "canonical_chain_extension_term_count": 1278,
+                "first_matter_leg_raw_term_count": 1715173,
+                "first_matter_leg_projected_term_count": 866,
+                "first_matter_leg_equivariant_term_count": 72099,
+                "first_matter_leg_residual_term_count": 7797,
+                "first_matter_leg_is_cycle": False,
+                "first_matter_leg_partial_scalar_residue": "0",
+                "first_higgs_leg_action_term_count": 1593,
+                "first_higgs_leg_correction_term_count": 1431,
+                "first_higgs_leg_action_is_cycle": True,
+                "first_higgs_leg_correction_exact": True,
+                "bottom_v2_plucker_chain_map_available": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the first exact parameter-linear correction product in the "
-                "grouped complex and its scalar residue"
+                "the full local Pluecker chain map pairing two V2 matter "
+                "representatives into the inverse determinant line"
             ),
         },
         "claims": _nodes(),
@@ -3210,6 +3320,11 @@ def build_state() -> dict[str, object]:
             "the signed two-chart comparison extends to an exact Cech chain "
             "map in all four Koszul summands, with each tensor extension term "
             "carried once under the identity on unused cover factors",
+            "the first a0 matter leg transfers exactly to 72,099 character "
+            "terms with a 7,797-term noncycle residual and zero partial scalar "
+            "residue, so it is not promoted to a higher product",
+            "the complementary a0 Higgs action is an exact 1,593-term "
+            "determinant-line cycle with an explicit 1,431-term correction",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -3273,7 +3388,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "the Cech-local chain map for universal matter corrections",
+            "the full local Pluecker chain map for two V2 matter representatives",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

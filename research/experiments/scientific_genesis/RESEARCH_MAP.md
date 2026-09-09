@@ -363,9 +363,14 @@ the first source-derived universal product gives an exact 243,075-term cycle.
 The comparison also exposed a sixfold repetition of constituent extension
 terms over cover factors where the differential acts by the identity; the
 canonical tensor now carries each extension term once and retains zero square
-on all 4,896 transfer seeds. The immediate flavor task is to form the first
-parameter-linear correction product from these mapped cochains and evaluate
-its exact scalar residue.
+on all 4,896 transfer seeds. The first family-symmetric `a0` matter leg has now
+been formed and transferred exactly. Its 72,099-term character projection has
+a nonzero 7,797-term differential, and its nonclosed scalar contraction has
+zero residue, so this scoped leg is not promoted to a higher product. The
+complementary Higgs action is an exact determinant-line cycle with a certified
+boundary correction. The immediate flavor task is the full local Pluecker
+chain map pairing the two V2 matter representatives into the inverse
+determinant line; only then can both legs be combined and traced.
 
 Metrics are blocked first by explicit carrier extension data and then by
 section bases, global generation, and controlled Ricci-flat/HYM convergence.
@@ -386,12 +391,11 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: construct the exact equivariant chain
-comparison carrying the strict matter cocycles into the four-factor grouped
-Higgs complex, then build only the minimum common-DGA hull required for one
-complete `3 x 3` holomorphic Yukawa matrix. The canonical signed direct tensor
-has the required character but is not a cycle, so it cannot stand in for that
-comparison. The declared finite monomial replacement category is exhausted
-by scoped stability no-go results. Completing the final 144 large automorphism
-cases stays suspended until it can change a dependency edge or independently
-verify a theorem.
+The governing queue is therefore: derive the full basis-aware local Pluecker
+chain map for two V2 representatives, assemble the certified matter and Higgs
+legs, then extend only the minimum common-DGA hull required for one complete
+`3 x 3` holomorphic Yukawa matrix. The partial zero residue cannot stand in for
+that higher product. The declared finite monomial replacement category is
+exhausted by scoped stability no-go results. Completing the final 144 large
+automorphism cases stays suspended until it can change a dependency edge or
+independently verify a theorem.

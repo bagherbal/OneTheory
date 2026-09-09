@@ -176,9 +176,7 @@ def _reduced_action_map(
     """Act exactly on one reduced ambient-cohomology degree."""
 
     entries = _reduced_entries(degree)
-    indices = {
-        (entry.component, entry.monomials): entry.index for entry in entries
-    }
+    indices = {(entry.component, entry.monomials): entry.index for entry in entries}
     objects = chain_diagonal_objects()
     object_indices = _object_indices()
     first_frame = _constituent_frame(1, action.name)
@@ -205,10 +203,13 @@ def _reduced_action_map(
                 target = indices.get((target_component, transformed))
                 if target is None:
                     raise ValueError("a deck action escaped the reduced transfer basis")
-                rows[target][entry.index] = rows[target].get(
-                    entry.index,
-                    Eisenstein(0),
-                ) + geometric * first_scalar * second_scalar
+                rows[target][entry.index] = (
+                    rows[target].get(
+                        entry.index,
+                        Eisenstein(0),
+                    )
+                    + geometric * first_scalar * second_scalar
+                )
     space = _space(degree)
     return SparseMap(space, space, _freeze_rows(rows))
 
@@ -224,7 +225,7 @@ def _full_action(
     first_frame = _constituent_frame(1, action.name)
     second_frame = _constituent_frame(2, action.name)
     equation_units = _equation_units(action)
-    result = []
+    values: dict[ChainDiagonalBasis, Eisenstein] = {}
     for basis, coefficient in cochain.terms:
         source_object = objects[basis.component.object_index]
         geometric, transformed = _transformed_monomials(basis.monomials, action)
@@ -244,13 +245,18 @@ def _full_action(
                     object_indices[(first_index, second_index)],
                     basis.component.subset,
                 )
-                result.append(
-                    (
-                        ChainDiagonalBasis(target_component, transformed, target_cell),
-                        coefficient * geometric * first_scalar * second_scalar,
-                    )
+                target_basis = ChainDiagonalBasis(
+                    target_component,
+                    transformed,
+                    target_cell,
                 )
-    return ChainDiagonalCochain(tuple(result))
+                target_coefficient = coefficient * geometric * first_scalar * second_scalar
+                updated = values.get(target_basis, Eisenstein(0)) + target_coefficient
+                if updated.is_zero():
+                    values.pop(target_basis, None)
+                else:
+                    values[target_basis] = updated
+    return ChainDiagonalCochain._from_normalized_terms(tuple(sorted(values.items())))
 
 
 def _raw_reduced_cochain(
@@ -307,9 +313,7 @@ def _character_basis(degree: int, character: Character) -> SparseMap:
     for p_exponent in range(3):
         term = p_power
         for t_exponent in range(3):
-            character_factor = OMEGA ** (
-                -character[0] * p_exponent - character[1] * t_exponent
-            )
+            character_factor = OMEGA ** (-character[0] * p_exponent - character[1] * t_exponent)
             projector = projector + term.scale(character_factor)
             term = t_action.compose(term)
         p_power = p_action.compose(p_power)
@@ -324,11 +328,7 @@ def _character_basis(degree: int, character: Character) -> SparseMap:
         domain,
         projector.codomain,
         _freeze_rows(
-            {
-                column: values[row]
-                for column, values in enumerate(columns)
-                if row in values
-            }
+            {column: values[row] for column, values in enumerate(columns) if row in values}
             for row in range(projector.codomain.dimension)
         ),
     )
@@ -355,9 +355,7 @@ def _character_differential(
     source_columns = tuple(_columns(source))
     target_columns = tuple(_columns(target))
     solver = _SparseSpanSolver(target_columns)
-    support_indices = tuple(
-        sorted({index for column in source_columns for index in column})
-    )
+    support_indices = tuple(sorted({index for column in source_columns for index in column}))
     jobs = tuple((degree, index) for index in support_indices)
     with ProcessPoolExecutor(max_workers=min(16, len(jobs))) as executor:
         completed = tuple(executor.map(_character_transfer_job, jobs, chunksize=4))
@@ -370,10 +368,13 @@ def _character_differential(
             transferred = transferred_by_source[source_index]
             maximum_depth = max(maximum_depth, transferred.path_depth)
             for target_index, coefficient in transferred.entries:
-                ambient_values[target_index] = ambient_values.get(
-                    target_index,
-                    Eisenstein(0),
-                ) + source_coefficient * coefficient
+                ambient_values[target_index] = (
+                    ambient_values.get(
+                        target_index,
+                        Eisenstein(0),
+                    )
+                    + source_coefficient * coefficient
+                )
         coordinate_columns.append(
             solver.coordinates(
                 {
@@ -496,9 +497,7 @@ class MixedSchoenHiggsDeckAction:
             "character_space_dimensions": {
                 str(degree): basis.domain.dimension for degree, basis in self.character_bases
             },
-            "differential_ranks": {
-                str(degree): map_.rank() for degree, map_ in self.differentials
-            },
+            "differential_ranks": {str(degree): map_.rank() for degree, map_ in self.differentials},
             "differentials": [
                 {
                     "degree": degree,
@@ -514,9 +513,7 @@ class MixedSchoenHiggsDeckAction:
             "required_full_cochain": _cochain_record(self.required_full_cochain),
             "maximum_inclusion_depth": self.inclusion_depth,
             "maximum_transfer_path_depths": dict(self.path_depths),
-            "transferred_differential_squared_zero": (
-                self.transferred_differential_squared_zero
-            ),
+            "transferred_differential_squared_zero": (self.transferred_differential_squared_zero),
             "group_relations_exact": self.group_relations_exact,
             "character_bases_exact": self.character_bases_exact,
             "full_representative_is_cycle": self.full_representative_is_cycle,
@@ -535,13 +532,9 @@ def mixed_schoen_higgs_deck_action() -> MixedSchoenHiggsDeckAction:
     """Derive and gate the source-required lawful full Higgs representative."""
 
     actions = {action.name: action for action in schoen_sparse_deck_actions()}
-    bases = tuple(
-        (degree, _character_basis(degree, UP_HIGGS_CHARACTER))
-        for degree in (0, 1, 2)
-    )
+    bases = tuple((degree, _character_basis(degree, UP_HIGGS_CHARACTER)) for degree in (0, 1, 2))
     maps_with_depths = tuple(
-        (degree, _character_differential(degree, UP_HIGGS_CHARACTER))
-        for degree in (0, 1)
+        (degree, _character_differential(degree, UP_HIGGS_CHARACTER)) for degree in (0, 1)
     )
     maps = {degree: item[0] for degree, item in maps_with_depths}
     cycles = maps[1].kernel_inclusion()
@@ -559,16 +552,12 @@ def mixed_schoen_higgs_deck_action() -> MixedSchoenHiggsDeckAction:
             and t_action.compose(t_action).compose(t_action) == identity
             and p_action.compose(t_action) == t_action.compose(p_action)
         )
-        character_bases_exact &= (
-            p_action.compose(basis)
-            == basis.scale(OMEGA ** UP_HIGGS_CHARACTER[0])
-            and t_action.compose(basis)
-            == basis.scale(OMEGA ** UP_HIGGS_CHARACTER[1])
-        )
+        character_bases_exact &= p_action.compose(basis) == basis.scale(
+            OMEGA ** UP_HIGGS_CHARACTER[0]
+        ) and t_action.compose(basis) == basis.scale(OMEGA ** UP_HIGGS_CHARACTER[1])
     cycle = full_chain_diagonal_differential(full).is_zero()
     strict = all(
-        _full_action(full, actions[name])
-        == full.scale(OMEGA ** UP_HIGGS_CHARACTER[index])
+        _full_action(full, actions[name]) == full.scale(OMEGA ** UP_HIGGS_CHARACTER[index])
         for index, name in enumerate(("P", "T"))
     )
     result = MixedSchoenHiggsDeckAction(

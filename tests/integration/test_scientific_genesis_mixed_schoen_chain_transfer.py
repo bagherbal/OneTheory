@@ -8,10 +8,16 @@ from onetheory.math.numbers import Eisenstein
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
 )
+from research.experiments.computable_carrier.schoen_sparse_actions import (
+    schoen_sparse_deck_actions,
+)
 from research.experiments.scientific_genesis.mixed_schoen_chain_actions import (
     OUTPUT,
+    _full_action,
 )
 from research.experiments.scientific_genesis.mixed_schoen_chain_transfer import (
+    _include,
+    _reduced_entries,
     raw_contraction_witness,
     transferred_column,
 )
@@ -33,6 +39,21 @@ def test_grouped_cech_contraction_and_hpl_column_are_exact() -> None:
         (1222, Eisenstein(3, 6)),
         (1281, Eisenstein(3, 6)),
         (1296, Eisenstein(3, 3)),
+    )
+
+
+def test_sparse_chain_actions_retain_exact_group_laws() -> None:
+    """Eager action cancellation preserves order three and commutation."""
+
+    source = _include(_reduced_entries(0)[0])
+    actions = {item.name: item for item in schoen_sparse_deck_actions()}
+    for name in ("P", "T"):
+        image = source
+        for _power in range(3):
+            image = _full_action(image, actions[name])
+        assert image == source
+    assert _full_action(_full_action(source, actions["P"]), actions["T"]) == (
+        _full_action(_full_action(source, actions["T"]), actions["P"])
     )
 
 

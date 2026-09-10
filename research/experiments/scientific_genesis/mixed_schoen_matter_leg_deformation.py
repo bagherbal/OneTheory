@@ -142,7 +142,11 @@ class MatterLegDeformationWitness:
         """Return whether every claimed partial-result gate is exact."""
 
         return (
-            self.parameter == "a0"
+            self.parameter in ("a0", "a1")
+            and self.row_character == UP_MATTER_CHARACTERS[0]
+            and self.column_character == UP_MATTER_CHARACTERS[1]
+            and self.row_local_family_index in (1, 2)
+            and self.column_local_family_index in (1, 2)
             and self.exchange_sign == 1
             and self.raw_exchange_symmetric
             and self.raw_term_count > 0
@@ -215,13 +219,36 @@ class MatterLegDeformationWitness:
 
 
 @cache
-def first_matter_leg_deformation() -> MatterLegDeformationWitness:
-    """Derive the first `a0` lower-block matter-leg contribution exactly."""
+def matter_leg_deformation(
+    parameter_index: int,
+    row_local_family_index: int,
+    column_local_family_index: int,
+) -> MatterLegDeformationWitness:
+    """Derive one indexed lower-block matter-leg contribution exactly."""
 
+    if parameter_index not in (0, 1):
+        raise ValueError("the carrier parameter index is unavailable")
+    if row_local_family_index not in (1, 2) or column_local_family_index not in (
+        1,
+        2,
+    ):
+        raise ValueError("local V2 family indices must be one or two")
     universal = mixed_schoen_universal_matter_lifts()
-    row = _selected_lift(universal.v2_lifts, UP_MATTER_CHARACTERS[0], 1)
-    column = _selected_lift(universal.v2_lifts, UP_MATTER_CHARACTERS[1], 1)
-    first, second = _matter_leg_terms(row, column, 0)
+    try:
+        parameter = universal.parameters[parameter_index]
+    except IndexError as error:
+        raise ValueError("the carrier parameter index is unavailable") from error
+    row = _selected_lift(
+        universal.v2_lifts,
+        UP_MATTER_CHARACTERS[0],
+        row_local_family_index,
+    )
+    column = _selected_lift(
+        universal.v2_lifts,
+        UP_MATTER_CHARACTERS[1],
+        column_local_family_index,
+    )
+    first, second = _matter_leg_terms(row, column, parameter_index)
     raw = first + second
     raw_exchange_symmetric = raw == second + first
     projected, projection_depth = _perturbed_projection_inclusion(raw, 2)
@@ -233,7 +260,7 @@ def first_matter_leg_deformation() -> MatterLegDeformationWitness:
     scalar_residual = scalar_full_differential(scalar)
     residue, scalar_depth = scalar_residue(scalar)
     result = MatterLegDeformationWitness(
-        universal.parameters[0],
+        parameter,
         row.character,
         column.character,
         row.local_family_index,
@@ -262,8 +289,15 @@ def first_matter_leg_deformation() -> MatterLegDeformationWitness:
         diagonal_chain_map_certificate().exact,
     )
     if not result.scoped_result_exact:
-        raise ValueError("the first matter-leg deformation certificate failed")
+        raise ValueError("the indexed matter-leg deformation certificate failed")
     return result
+
+
+@cache
+def first_matter_leg_deformation() -> MatterLegDeformationWitness:
+    """Derive the first `a0` lower-block matter-leg contribution exactly."""
+
+    return matter_leg_deformation(0, 1, 1)
 
 
 def write_matter_leg_deformation(path: Path = OUTPUT) -> dict[str, object]:
@@ -303,5 +337,6 @@ __all__ = [
     "MatterLegDeformationWitness",
     "OUTPUT",
     "first_matter_leg_deformation",
+    "matter_leg_deformation",
     "write_matter_leg_deformation",
 ]

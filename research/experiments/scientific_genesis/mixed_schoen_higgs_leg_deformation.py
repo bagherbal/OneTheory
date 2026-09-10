@@ -190,7 +190,7 @@ class HiggsLegDeformationWitness:
         """Return whether the full determinant-line lift closes exactly."""
 
         return (
-            self.parameter == "a0"
+            self.parameter in ("a0", "a1")
             and self.extension_source_term_count > 0
             and bool(self.action.terms)
             and bool(self.correction.terms)
@@ -252,15 +252,22 @@ class HiggsLegDeformationWitness:
 
 
 @cache
-def first_higgs_leg_deformation() -> HiggsLegDeformationWitness:
-    """Derive the `a0` Higgs correction without selecting a carrier point."""
+def higgs_leg_deformation(parameter_index: int) -> HiggsLegDeformationWitness:
+    """Derive one indexed Higgs correction without selecting a carrier point."""
 
+    if parameter_index not in (0, 1):
+        raise ValueError("the carrier parameter index is unavailable")
     _action_digest, parameters, extensions = _load_forward_basis()
     if parameters != ("a0", "a1"):
         raise ValueError("the universal extension parameter basis changed")
-    source = _source_zero_component(extensions[0])
+    try:
+        parameter = parameters[parameter_index]
+        extension = extensions[parameter_index]
+    except IndexError as error:
+        raise ValueError("the carrier parameter index is unavailable") from error
+    source = _source_zero_component(extension)
     higgs = mixed_schoen_higgs_deck_action().required_full_cochain
-    action = extension_higgs_action(extensions[0], higgs)
+    action = extension_higgs_action(extension, higgs)
     primitive = exact_diagonal_ambient_line_primitive(
         action,
         DETERMINANT_AMBIENT_DEGREES,
@@ -278,7 +285,7 @@ def first_higgs_leg_deformation() -> HiggsLegDeformationWitness:
         CANONICAL_DETERMINANT_AMBIENT_DEGREES,
     )
     result = HiggsLegDeformationWitness(
-        parameters[0],
+        parameter,
         len(source.terms),
         action,
         correction,
@@ -295,8 +302,15 @@ def first_higgs_leg_deformation() -> HiggsLegDeformationWitness:
         == canonical_action.scale(-1),
     )
     if not result.exact:
-        raise ValueError("the first Higgs-leg deformation lift failed")
+        raise ValueError("the indexed Higgs-leg deformation lift failed")
     return result
+
+
+@cache
+def first_higgs_leg_deformation() -> HiggsLegDeformationWitness:
+    """Derive the `a0` Higgs correction without selecting a carrier point."""
+
+    return higgs_leg_deformation(0)
 
 
 def write_higgs_leg_deformation(path: Path = OUTPUT) -> dict[str, object]:
@@ -339,5 +353,6 @@ __all__ = [
     "OUTPUT",
     "extension_higgs_action",
     "first_higgs_leg_deformation",
+    "higgs_leg_deformation",
     "write_higgs_leg_deformation",
 ]

@@ -39,15 +39,15 @@ from .diagonal_schoen_lines import _FullCochain
 from .mixed_schoen_higgs_leg_deformation import (
     OUTPUT as HIGGS_ARTIFACT,
 )
-from .mixed_schoen_higgs_leg_deformation import first_higgs_leg_deformation
+from .mixed_schoen_higgs_leg_deformation import higgs_leg_deformation
 from .mixed_schoen_matter_leg_deformation import (
     OUTPUT as MATTER_ARTIFACT,
 )
-from .mixed_schoen_matter_leg_deformation import first_matter_leg_deformation
+from .mixed_schoen_matter_leg_deformation import matter_leg_deformation
 from .mixed_schoen_v2_pluecker_chain_map import (
     OUTPUT as PLUECKER_ARTIFACT,
 )
-from .mixed_schoen_v2_pluecker_chain_map import first_v2_pluecker_pairing
+from .mixed_schoen_v2_pluecker_chain_map import local_v2_pluecker_pairing
 from .mixed_schoen_yukawa_trace import (
     _full_cochain_digest,
     scalar_full_differential,
@@ -128,9 +128,9 @@ class FirstHigherProductCoefficient:
         """Return whether this scoped coefficient is fully certified."""
 
         return (
-            self.parameter == "a0"
-            and self.row_local_family_index == 1
-            and self.column_local_family_index == 1
+            self.parameter in ("a0", "a1")
+            and self.row_local_family_index in (1, 2)
+            and self.column_local_family_index in (1, 2)
             and self.v1_determinant_character == (1, 0)
             and self.v2_determinant_character == (1, 1)
             and self.scalar_frame_character == (2, 1)
@@ -226,12 +226,23 @@ class FirstHigherProductCoefficient:
 
 
 @cache
-def first_higher_product_coefficient() -> FirstHigherProductCoefficient:
-    """Derive the first complete a0 lower-(1,1) coefficient from source data."""
+def higher_product_coefficient(
+    parameter_index: int,
+    row_local_family_index: int,
+    column_local_family_index: int,
+) -> FirstHigherProductCoefficient:
+    """Derive one complete indexed first-order coefficient from source data."""
 
-    matter = first_matter_leg_deformation()
-    higgs = first_higgs_leg_deformation()
-    bottom = first_v2_pluecker_pairing()
+    matter = matter_leg_deformation(
+        parameter_index,
+        row_local_family_index,
+        column_local_family_index,
+    )
+    higgs = higgs_leg_deformation(parameter_index)
+    bottom = local_v2_pluecker_pairing(
+        row_local_family_index,
+        column_local_family_index,
+    )
     v1_character = constituent_determinant_character(1)
     v2_character = constituent_determinant_character(2)
     scalar_frame = _sum_character(v1_character, v2_character)
@@ -329,8 +340,15 @@ def first_higher_product_coefficient() -> FirstHigherProductCoefficient:
         residue_depth,
     )
     if not result.exact:
-        raise ValueError("the first complete higher-product coefficient failed")
+        raise ValueError("the indexed complete higher-product coefficient failed")
     return result
+
+
+@cache
+def first_higher_product_coefficient() -> FirstHigherProductCoefficient:
+    """Derive the first complete a0 lower-(1,1) coefficient from source data."""
+
+    return higher_product_coefficient(0, 1, 1)
 
 
 def write_first_higher_product(path: Path = OUTPUT) -> dict[str, object]:
@@ -378,5 +396,6 @@ __all__ = [
     "FirstHigherProductCoefficient",
     "OUTPUT",
     "first_higher_product_coefficient",
+    "higher_product_coefficient",
     "write_first_higher_product",
 ]

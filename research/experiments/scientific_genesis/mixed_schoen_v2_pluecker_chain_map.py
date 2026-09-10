@@ -467,25 +467,43 @@ def v2_pluecker_pairing_witness(
 
 
 @cache
-def first_v2_pluecker_pairing() -> V2PlueckerPairingWitness:
-    """Pair the first local classes in the two required matter characters."""
+def local_v2_pluecker_pairing(
+    row_local_family_index: int,
+    column_local_family_index: int,
+) -> V2PlueckerPairingWitness:
+    """Pair one indexed local class from each required matter character."""
 
+    if row_local_family_index not in (1, 2) or column_local_family_index not in (
+        1,
+        2,
+    ):
+        raise ValueError("local V2 family indices must be one or two")
     _first, second = mixed_schoen_matter_representatives()
     sectors = {sector.character: sector for sector in second.sectors}
     row_character, column_character = UP_MATTER_CHARACTERS
-    left = lift_matter_cochain(
-        sectors[row_character].full_representatives[0],
-        2,
-    )
-    right = lift_matter_cochain(
-        sectors[column_character].full_representatives[0],
-        2,
-    )
+    try:
+        left_representative = sectors[row_character].full_representatives[
+            row_local_family_index - 1
+        ]
+        right_representative = sectors[column_character].full_representatives[
+            column_local_family_index - 1
+        ]
+    except IndexError as error:
+        raise ValueError("the local V2 family index is unavailable") from error
+    left = lift_matter_cochain(left_representative, 2)
+    right = lift_matter_cochain(right_representative, 2)
     target_character = (
         (row_character[0] + column_character[0]) % 3,
         (row_character[1] + column_character[1]) % 3,
     )
     return v2_pluecker_pairing_witness(left, right, target_character)
+
+
+@cache
+def first_v2_pluecker_pairing() -> V2PlueckerPairingWitness:
+    """Pair the first local classes in the two required matter characters."""
+
+    return local_v2_pluecker_pairing(1, 1)
 
 
 def write_v2_pluecker_pairing(path: Path = OUTPUT) -> dict[str, object]:
@@ -531,6 +549,7 @@ __all__ = [
     "OUTPUT",
     "V2PlueckerPairingWitness",
     "first_v2_pluecker_pairing",
+    "local_v2_pluecker_pairing",
     "pair_v2_matter_representatives",
     "v2_pluecker_pairing_witness",
     "write_v2_pluecker_pairing",

@@ -358,9 +358,14 @@ diagonal contraction supplies a depth-three primitive of their exact mismatch;
 Reynolds projection makes the 105,348-term primitive invariant without changing
 its differential. Subtracting it yields an exact closed 268,905-term scalar
 cochain for the `a0` lower-`(1,1)` slot, whose residue is zero. This establishes
-one complete coefficient only. The remaining local-family slots and the `a1`
-direction must be computed or compressed structurally before a first-order
-matrix is available.
+one complete coefficient only, so the other coefficients cannot be inferred
+from it. Computing all eight source-derived coefficients gives distinct
+complete cochain digests but exact zero residues in every slot. Both
+three-family coefficient matrices therefore vanish over `Q(omega)[a0,a1]`, and
+the complete first-order matrix has generic rank zero without a selected
+projective parameter. The next shortest flavor calculation is the `f5`
+contribution unless a structural theorem proves persistent rank deficiency
+first.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

@@ -173,7 +173,17 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         path["criteria"]["first_complete_higher_product_cochain_term_count"]
         == 268_905
     )
-    assert path["criteria"]["complete_first_order_matrix_available"] is False
+    assert path["criteria"]["complete_first_order_coefficient_count"] == 8
+    assert path["criteria"]["complete_first_order_matrix_available"] is True
+    assert path["criteria"]["complete_first_order_matrix_rank"] == 0
+    assert path["criteria"]["complete_first_order_matrix_parameter_basis"] == [
+        "a0",
+        "a1",
+    ]
+    assert (
+        path["criteria"]["complete_first_order_matrix_extension_point_selected"]
+        is False
+    )
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
@@ -181,12 +191,12 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "complete lawful tree-level up matrix derived as an exact "
-        "rank-zero result; the first complete a0 higher-product "
-        "coefficient also vanishes exactly"
+        "rank-zero result; the complete universal first-order matrix "
+        "also has exact rank zero"
     )
     assert path["next_required_object"] == (
-        "the remaining local-family and a1 first-order coefficients, "
-        "preferably compressed by multilinearity or symmetry"
+        "the next f5 contribution or a structural theorem proving "
+        "persistent rank deficiency"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -198,6 +208,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_higgs_leg_deformation"]["status"] == "COMPUTED"
     assert claims["mixed_v2_pluecker_chain_map"]["status"] == "COMPUTED"
     assert claims["mixed_first_higher_product_coefficient"]["status"] == "COMPUTED"
+    assert claims["mixed_first_order_up_matrix"]["status"] == "COMPUTED"
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"

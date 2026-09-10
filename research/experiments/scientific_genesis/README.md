@@ -229,5 +229,11 @@ comparison primitive for that mismatch, and Reynolds averaging makes its
 105,348-term representative descend. The resulting 268,905-term `a0`
 lower-`(1,1)` scalar cochain is exactly closed and has exact residue zero. This
 is the first complete higher-product coefficient, but only a scoped vanishing;
-the remaining local-family and `a1` coefficients are still required before any
-first-order matrix claim.
+the remaining coefficients cannot be inferred from it. Direct source
+evaluation of all four local-family pairs in both `a0` and `a1` directions
+produces eight distinct complete cochain certificates, each exactly closed with
+zero residue. The two universal three-family coefficient matrices therefore
+vanish identically over `Q(omega)[a0,a1]`, so the complete first-order matrix
+has exact generic rank zero without selecting a carrier point. This is a scoped
+first-order no-go only; the next task is the `f5` contribution or a structural
+theorem proving that the declared branch remains rank deficient.

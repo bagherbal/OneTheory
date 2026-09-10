@@ -1214,7 +1214,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_matter_leg_deformation.py",
             ),
             missing=(
-                "remaining local-family and a1 first-order coefficients",
+                "the next f5 contribution or a persistent-vanishing theorem",
             ),
         ),
         _node(
@@ -1236,7 +1236,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_higgs_leg_deformation.py",
             ),
             missing=(
-                "remaining local-family and a1 first-order coefficients",
+                "the next f5 contribution or a persistent-vanishing theorem",
             ),
         ),
         _node(
@@ -1258,7 +1258,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_v2_pluecker_chain_map.py",
             ),
             missing=(
-                "remaining local-family and a1 first-order coefficients",
+                "the next f5 contribution or a persistent-vanishing theorem",
             ),
         ),
         _node(
@@ -1279,7 +1279,29 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_first_higher_product.py",
             ),
             missing=(
-                "remaining local-family and a1 first-order coefficients",
+                "the next f5 contribution or a persistent-vanishing theorem",
+            ),
+        ),
+        _node(
+            "mixed_first_order_up_matrix",
+            "complete universal first-order up matrix",
+            "Flavor",
+            "COMPUTED",
+            "All four local-family pairs in both carrier directions have "
+            "distinct exact complete-cochain certificates and zero residues. "
+            "The two three-family coefficient matrices therefore vanish over "
+            "Q(omega)[a0,a1], giving generic first-order rank zero without a "
+            "selected projective parameter.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_order_matrix.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_first_order_matrix.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_first_order_matrix.py",
+            ),
+            missing=(
+                "the next f5 contribution or a persistent-vanishing theorem",
             ),
         ),
         _node(
@@ -1316,8 +1338,8 @@ def _nodes() -> list[dict[str, object]]:
             "matter corrections. The first matter leg is exactly nonclosed with "
             "zero partial residue, while its complementary Higgs determinant-line "
             "correction is exact. The equivariant bottom V2 determinant pairing "
-            "is also exact, and a fixed-contraction comparison primitive closes "
-            "the first a0 lower-(1,1) coefficient with zero residue.",
+            "is also exact. Fixed-contraction comparison primitives close all "
+            "eight parameter-linear coefficients with zero residue.",
             (
                 "src/onetheory/math/homological.py",
                 "data/generated/scientific_genesis/"
@@ -1332,10 +1354,12 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_v2_pluecker_chain_map.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_first_higher_product.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_order_matrix.json",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "remaining local-family and a1 first-order coefficients",
+                "the next f5 contribution or a persistent-vanishing theorem",
             ),
         ),
         _node(
@@ -1356,9 +1380,9 @@ def _nodes() -> list[dict[str, object]]:
             "The complete carrier-derived tree-level up matrix is exactly zero. "
             "The first parameter-linear matter leg and complementary Higgs lift "
             "are exact scoped results, and the bottom V2 Pluecker pairing is "
-            "closed and equivariant. Their first complete a0 lower-(1,1) "
-            "coefficient is an exact scoped zero; the rest of the first-order "
-            "matrix remains uncomputed.",
+            "closed and equivariant. All eight complete first-order "
+            "coefficients vanish exactly, so the universal first-order matrix "
+            "also has rank zero.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_matter_leg_deformation.json",
@@ -1368,9 +1392,11 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_v2_pluecker_chain_map.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_first_higher_product.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_order_matrix.json",
             ),
             missing=(
-                "remaining local-family and a1 first-order coefficients",
+                "the next f5 contribution or a persistent-vanishing theorem",
                 "first nonzero complete higher-product contribution",
             ),
         ),
@@ -2703,17 +2729,31 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_first_higher_product_coefficient",
-            "first_exact_yukawa",
-            "The complete a0 lower-(1,1) residue fixes one entry of the "
-            "first-order matrix exactly.",
+            "mixed_first_order_up_matrix",
+            "The complete a0 lower-(1,1) residue anchors the indexed exact "
+            "pipeline used for every first-order coefficient.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_first_higher_product.json",
+                "mixed_schoen_first_order_matrix.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_first_order_up_matrix",
+            "first_exact_yukawa",
+            "The complete universal first-order zero fixes the next lawful "
+            "Yukawa frontier at f5 or a structural vanishing theorem.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_order_matrix.json",
             ),
             (),
             True,
             (
-                "one zero coefficient does not determine the remaining matrix",
+                "rank zero through first order does not prove all higher "
+                "products vanish",
             ),
         ),
         _edge(
@@ -3171,6 +3211,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_higgs_leg_deformation.json",
         "data/generated/scientific_genesis/mixed_schoen_v2_pluecker_chain_map.json",
         "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
+        "data/generated/scientific_genesis/mixed_schoen_first_order_matrix.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -3201,7 +3242,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 600,
+            "collected_tests_at_audit": 609,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3224,8 +3265,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "complete lawful tree-level up matrix derived as an exact "
-                "rank-zero result; the first complete a0 higher-product "
-                "coefficient also vanishes exactly"
+                "rank-zero result; the complete universal first-order matrix "
+                "also has exact rank zero"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3371,13 +3412,17 @@ def build_state() -> dict[str, object]:
                 "first_complete_higher_product_coefficient_available": True,
                 "first_complete_higher_product_coefficient": "0",
                 "first_complete_higher_product_cochain_term_count": 268905,
-                "complete_first_order_matrix_available": False,
+                "complete_first_order_coefficient_count": 8,
+                "complete_first_order_matrix_available": True,
+                "complete_first_order_matrix_rank": 0,
+                "complete_first_order_matrix_parameter_basis": ["a0", "a1"],
+                "complete_first_order_matrix_extension_point_selected": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the remaining local-family and a1 first-order coefficients, "
-                "preferably compressed by multilinearity or symmetry"
+                "the next f5 contribution or a structural theorem proving "
+                "persistent rank deficiency"
             ),
         },
         "claims": _nodes(),
@@ -3539,6 +3584,8 @@ def build_state() -> dict[str, object]:
             "to character (0,2)",
             "the first complete a0 lower-(1,1) higher-product coefficient has "
             "an invariant comparison primitive and exact zero residue",
+            "all eight first-order higher-product coefficients close exactly "
+            "with zero residue, so the universal first-order up matrix has rank zero",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -3552,7 +3599,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "the remaining first-order higher-product matrix coefficients",
+            "the next f5 higher-product matrix contribution",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

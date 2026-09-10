@@ -1327,6 +1327,30 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_flavor_character_support",
+            "source-pinned Yukawa character support",
+            "Flavor",
+            "COMPUTED",
+            "The published matter and Higgs Wilson assignments give four "
+            "exact invariant character triples. Reusing certified up-sector "
+            "inputs leaves a minimum workload of seven new chain objects for "
+            "the down sector, versus eight for Dirac neutrinos and eleven for "
+            "charged leptons, without observational or carrier-point input.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_flavor_character_support.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_flavor_character_support.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_flavor_character_support.py",
+                "data/published/visible_carrier/source_manifest.json",
+            ),
+            missing=(
+                "universal matter lifts in character (1,0)",
+                "strict Higgs representative in character (0,2)",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1408,7 +1432,8 @@ def _nodes() -> list[dict[str, object]]:
             "closed and equivariant. All eight complete first-order "
             "coefficients vanish exactly. Exterior-filtration truncation proves "
             "that the full universal up matrix has rank zero, so this branch "
-            "cannot supply the required nontrivial matrix.",
+            "cannot supply the required nontrivial matrix. Exact source "
+            "characters select the down sector as the next minimum workload.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_matter_leg_deformation.json",
@@ -1422,10 +1447,13 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_first_order_matrix.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_up_yukawa_no_go.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_flavor_character_support.json",
             ),
             missing=(
-                "exact Wilson character support for the next flavor sector",
-                "first nonzero complete higher-product contribution",
+                "universal matter lifts in character (1,0)",
+                "strict Higgs representative in character (0,2)",
+                "complete carrier-derived down-sector matrix",
             ),
         ),
         _node(
@@ -2783,17 +2811,32 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_up_yukawa_no_go",
-            "first_exact_yukawa",
-            "The branch theorem excludes the up-type sector and redirects the "
-            "nontrivial-matrix search to an untested flavor sector.",
+            "mixed_flavor_character_support",
+            "The branch theorem excludes the up-type sector before exact "
+            "published characters rank the remaining flavor workloads.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_up_yukawa_no_go.json",
+                "mixed_schoen_flavor_character_support.json",
             ),
             (),
             True,
             (
                 "the theorem is scoped to the selected up-type characters",
+            ),
+        ),
+        _edge(
+            "mixed_flavor_character_support",
+            "first_exact_yukawa",
+            "The exact invariant triples and existing-chain inventory select "
+            "the down sector as the minimum next matrix calculation.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_flavor_character_support.json",
+            ),
+            (),
+            True,
+            (
+                "character support does not determine a Yukawa coefficient",
             ),
         ),
         _edge(
@@ -3253,6 +3296,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
         "data/generated/scientific_genesis/mixed_schoen_first_order_matrix.json",
         "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_flavor_character_support.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -3283,7 +3328,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 611,
+            "collected_tests_at_audit": 613,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3305,8 +3350,8 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "the full universal holomorphic up matrix is exactly rank zero "
-                "throughout the frozen P1 branch"
+                "exact source characters select the down sector as the minimum "
+                "post-up-no-go chain workload"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3462,12 +3507,18 @@ def build_state() -> dict[str, object]:
                 "complete_universal_holomorphic_up_matrix_available": True,
                 "complete_universal_holomorphic_up_matrix_rank": 0,
                 "declared_up_branch_can_reach_rank_three": False,
+                "all_published_yukawa_character_products_invariant": True,
+                "selected_next_flavor_sector": "down",
+                "selected_next_flavor_chain_object_count": 7,
+                "selected_next_matter_character": [1, 0],
+                "selected_next_higgs_character": [0, 2],
+                "flavor_sector_selected_from_observations": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the lowest-complexity untested Yukawa sector on the same "
-                "carrier, beginning with its exact Wilson character support"
+                "universal matter lifts in character (1,0) and a strict Higgs "
+                "representative in character (0,2) for the down sector"
             ),
         },
         "claims": _nodes(),
@@ -3574,6 +3625,8 @@ def build_state() -> dict[str, object]:
             "determinant-line cycle with an explicit 1,431-term correction; "
             "an exact Cech-Koszul line isomorphism maps these to canonical "
             "2,124-term and 1,908-term cochains",
+            "published Wilson characters make all four Yukawa triples invariant "
+            "and select the down sector as the seven-object minimum next workload",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -3646,7 +3699,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "exact Wilson character support for the next flavor sector",
+            "universal down-sector matter and Higgs chain representatives",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

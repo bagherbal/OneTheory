@@ -372,8 +372,11 @@ finite exterior-bidegree enumeration admits only order zero in the four
 higher contribution are structurally zero on this one-sided branch. The
 complete universal holomorphic up matrix is therefore exactly rank zero over
 the entire frozen `P1`. This is a branch- and sector-scoped no-go; the shortest
-remaining route begins by deriving exact Wilson character support for the
-lowest-complexity untested flavor sector on the same carrier.
+remaining route is now fixed by exact Wilson support from the published source.
+All four Yukawa character triples are invariant. After reusing the certified up
+inputs, the down sector requires seven new chain objects, fewer than the eight
+for Dirac neutrinos or eleven for charged leptons. Its missing inputs are the
+universal matter character `(1,0)` and strict Higgs character `(0,2)`.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

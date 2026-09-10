@@ -1,0 +1,280 @@
+{
+  "all_character_products_invariant": true,
+  "artifact_digest": "50e36809a20fec89dd47f9601b43736423aeb55064f595fa579c8fe454115501",
+  "coefficient_field": "Q(omega)",
+  "extension_point_selected": false,
+  "multiplets": [
+    {
+      "name": "Q",
+      "representation": "(3,2,1,1)",
+      "required_cohomology_character_exponents": [
+        2,
+        1
+      ],
+      "wilson_character_exponents": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "u^c",
+      "representation": "(bar3,1,-4,-1)",
+      "required_cohomology_character_exponents": [
+        1,
+        1
+      ],
+      "wilson_character_exponents": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "d^c",
+      "representation": "(bar3,1,2,-1)",
+      "required_cohomology_character_exponents": [
+        1,
+        0
+      ],
+      "wilson_character_exponents": [
+        2,
+        0
+      ]
+    },
+    {
+      "name": "L",
+      "representation": "(1,2,-3,-3)",
+      "required_cohomology_character_exponents": [
+        0,
+        0
+      ],
+      "wilson_character_exponents": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "e^c",
+      "representation": "(1,1,6,3)",
+      "required_cohomology_character_exponents": [
+        0,
+        1
+      ],
+      "wilson_character_exponents": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "nu^c",
+      "representation": "(1,1,0,3)",
+      "required_cohomology_character_exponents": [
+        0,
+        2
+      ],
+      "wilson_character_exponents": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "H_u",
+      "representation": "(1,2,3,0)",
+      "required_cohomology_character_exponents": [
+        0,
+        1
+      ],
+      "wilson_character_exponents": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "H_d",
+      "representation": "(1,bar2,-3,0)",
+      "required_cohomology_character_exponents": [
+        0,
+        2
+      ],
+      "wilson_character_exponents": [
+        0,
+        1
+      ]
+    }
+  ],
+  "next_required_object": "universal matter lifts in character (1,0) and a strict Higgs representative in character (0,2)",
+  "observational_inputs_used": false,
+  "prerequisite_artifact_digests": {
+    "observable_spectrum": "6ce8f4d2fc4ef815741d1c7146b038d310c7f626f9f8029851f4f80e9dfc2da3",
+    "strict_matter": "7bfa76b80c1ae79eaaecbff6a07c370d792bd99a022ae65d04e9523af56483cf",
+    "strict_up_higgs": "14201804a8e9b5927a83ecd7366aa0d461bc17b621b4b01e94afc2c04cfde06a",
+    "universal_up_matter": "504b96c343881a671ff5d3340a988650f4b7ed80586ac88ab4c9632ff82dc2f8",
+    "universal_up_no_go": "fa7e0f5918969baa7f4740cfb8dedf7abd26a3be6e6b3fdc910042e24d3fe1c1"
+  },
+  "schema": "mixed-schoen-flavor-character-support-v1",
+  "sectors": [
+    {
+      "character_product_is_invariant": true,
+      "coupling": [
+        "Q",
+        "u^c",
+        "H_u"
+      ],
+      "minimum_new_chain_object_count": 0,
+      "missing_higgs_characters": [],
+      "missing_matter_characters": [],
+      "name": "up",
+      "new_higgs_chain_object_count": 0,
+      "new_matter_parameter_correction_count": 0,
+      "required_cohomology_characters": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "character_product_is_invariant": true,
+      "coupling": [
+        "Q",
+        "d^c",
+        "H_d"
+      ],
+      "minimum_new_chain_object_count": 7,
+      "missing_higgs_characters": [
+        [
+          0,
+          2
+        ]
+      ],
+      "missing_matter_characters": [
+        [
+          1,
+          0
+        ]
+      ],
+      "name": "down",
+      "new_higgs_chain_object_count": 3,
+      "new_matter_parameter_correction_count": 4,
+      "required_cohomology_characters": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "character_product_is_invariant": true,
+      "coupling": [
+        "L",
+        "e^c",
+        "H_d"
+      ],
+      "minimum_new_chain_object_count": 11,
+      "missing_higgs_characters": [
+        [
+          0,
+          2
+        ]
+      ],
+      "missing_matter_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "name": "charged_lepton",
+      "new_higgs_chain_object_count": 3,
+      "new_matter_parameter_correction_count": 8,
+      "required_cohomology_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "character_product_is_invariant": true,
+      "coupling": [
+        "L",
+        "nu^c",
+        "H_u"
+      ],
+      "minimum_new_chain_object_count": 8,
+      "missing_higgs_characters": [],
+      "missing_matter_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "name": "dirac_neutrino",
+      "new_higgs_chain_object_count": 0,
+      "new_matter_parameter_correction_count": 8,
+      "required_cohomology_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    }
+  ],
+  "selected_minimum_new_chain_object_count": 7,
+  "selected_next_sector": "down",
+  "selected_required_new_higgs_character": [
+    0,
+    2
+  ],
+  "selected_required_new_matter_character": [
+    1,
+    0
+  ],
+  "selection_rule": "minimize new source-chain objects after reusing certified matter and Higgs characters",
+  "source": {
+    "arxiv_id": "hep-th/0512177",
+    "higgs_wilson_locator": "eq:19",
+    "matter_wilson_locator": "eq:burt4",
+    "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "version": "v3"
+  },
+  "yukawa_coefficient_computed": false
+}

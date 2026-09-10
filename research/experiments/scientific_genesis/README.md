@@ -246,4 +246,8 @@ Consequently `f5` and all later contributions vanish structurally on this
 one-sided branch. Combining this truncation with the two complete zero matrices
 proves that the full universal holomorphic up matrix is rank zero throughout
 the frozen `P1`. The no-go does not apply to another flavor sector or carrier;
-the next vertical task is the lowest-complexity untested sector on this carrier.
+the published Wilson assignments fix all four invariant Yukawa triples. Reusing
+the exact up inputs leaves seven new chain objects for the down sector, eight
+for Dirac neutrinos, and eleven for charged leptons. The down sector is
+therefore the deterministic next target. It first requires universal matter
+lifts in character `(1,0)` and a strict Higgs representative in `(0,2)`.

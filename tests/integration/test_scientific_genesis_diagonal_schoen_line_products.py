@@ -17,7 +17,11 @@ Phase 0:
 from __future__ import annotations
 
 from onetheory.math.numbers import Eisenstein
+from research.experiments.computable_carrier.schoen_sparse_actions import (
+    schoen_sparse_deck_actions,
+)
 from research.experiments.scientific_genesis.diagonal_schoen_line_actions import (
+    diagonal_line_full_action,
     line_has_character,
     project_line_character,
 )
@@ -26,6 +30,10 @@ from research.experiments.scientific_genesis.diagonal_schoen_line_contraction im
 )
 from research.experiments.scientific_genesis.diagonal_schoen_line_products import (
     diagonal_line_product,
+)
+from research.experiments.scientific_genesis.diagonal_schoen_lines import (
+    _FullBasis,
+    _FullCochain,
 )
 from research.experiments.scientific_genesis.mixed_schoen_yukawa_trace import (
     scalar_full_differential,
@@ -47,3 +55,25 @@ def test_scalar_unit_is_invariant_and_multiplicative() -> None:
     assert line_has_character(unit, (0, 0), (0, 0))
     assert project_line_character(unit, (0, 0), (0, 0)) == unit
     assert diagonal_line_product(unit, unit, (0, 0, 0, 0)) == unit
+
+
+def test_line_product_intertwines_deck_actions() -> None:
+    """Deck pullback respects the signed product and summed line frame."""
+
+    cell = ((0,), (0,), (0,), (0,))
+    monomials = ((0, 0, 0), (0, 0), (0, 0, 0), (0, 0))
+    left = _FullCochain(
+        ((_FullBasis((0,), (0, 0, 0, 0), monomials, cell), Eisenstein(1)),)
+    )
+    right = _FullCochain(
+        ((_FullBasis((1,), (0, 0, 0, 0), monomials, cell), Eisenstein(1)),)
+    )
+    product = diagonal_line_product(left, right, (3, 1, 3, 1))
+
+    for action in schoen_sparse_deck_actions():
+        expected = diagonal_line_product(
+            diagonal_line_full_action(left, action, (1, 0)),
+            diagonal_line_full_action(right, action, (1, 1)),
+            (3, 1, 3, 1),
+        )
+        assert diagonal_line_full_action(product, action, (2, 1)) == expected

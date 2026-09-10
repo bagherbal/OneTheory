@@ -28,6 +28,7 @@ from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automo
     _canonical_digest,
 )
 
+from .diagonal_schoen_lines import _FullCochain
 from .mixed_schoen_chain_actions import (
     _perturbed_inclusion,
     mixed_schoen_higgs_deck_action,
@@ -126,6 +127,8 @@ class MatterLegDeformationWitness:
     equivariant_residual_term_count: int
     equivariant_residual_digest: str
     character_exact: bool
+    scalar: _FullCochain
+    scalar_residual: _FullCochain
     scalar_term_count: int
     scalar_digest: str
     scalar_residual_term_count: int
@@ -248,6 +251,8 @@ def first_matter_leg_deformation() -> MatterLegDeformationWitness:
         len(equivariant_residual.terms),
         _cochain_digest(equivariant_residual),
         _has_character(equivariant, PRODUCT_CHARACTER),
+        scalar,
+        scalar_residual,
         len(scalar.terms),
         _full_cochain_digest(scalar),
         len(scalar_residual.terms),

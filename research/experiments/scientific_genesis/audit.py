@@ -1214,7 +1214,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_matter_leg_deformation.py",
             ),
             missing=(
-                "chain homotopy to the equivariant V2 determinant pairing",
+                "remaining local-family and a1 first-order coefficients",
             ),
         ),
         _node(
@@ -1236,7 +1236,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_higgs_leg_deformation.py",
             ),
             missing=(
-                "chain homotopy to the grouped matter-leg contraction",
+                "remaining local-family and a1 first-order coefficients",
             ),
         ),
         _node(
@@ -1258,7 +1258,28 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_v2_pluecker_chain_map.py",
             ),
             missing=(
-                "chain homotopy to the grouped matter-leg contraction",
+                "remaining local-family and a1 first-order coefficients",
+            ),
+        ),
+        _node(
+            "mixed_first_higher_product_coefficient",
+            "first complete higher-product coefficient",
+            "Flavor",
+            "COMPUTED",
+            "The fixed diagonal contraction gives a depth-three primitive for "
+            "the grouped-to-Pluecker mismatch, and exact Reynolds averaging "
+            "makes it descend. The resulting a0 lower-(1,1) scalar cochain is "
+            "closed with 268,905 terms and has exact residue zero.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_higher_product.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_first_higher_product.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_first_higher_product.py",
+            ),
+            missing=(
+                "remaining local-family and a1 first-order coefficients",
             ),
         ),
         _node(
@@ -1295,8 +1316,8 @@ def _nodes() -> list[dict[str, object]]:
             "matter corrections. The first matter leg is exactly nonclosed with "
             "zero partial residue, while its complementary Higgs determinant-line "
             "correction is exact. The equivariant bottom V2 determinant pairing "
-            "is also exact, but the two contraction routes still require an "
-            "explicit comparison homotopy.",
+            "is also exact, and a fixed-contraction comparison primitive closes "
+            "the first a0 lower-(1,1) coefficient with zero residue.",
             (
                 "src/onetheory/math/homological.py",
                 "data/generated/scientific_genesis/"
@@ -1309,10 +1330,12 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_higgs_leg_deformation.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_v2_pluecker_chain_map.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_higher_product.json",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "grouped-to-Pluecker chain-comparison homotopy",
+                "remaining local-family and a1 first-order coefficients",
             ),
         ),
         _node(
@@ -1333,8 +1356,9 @@ def _nodes() -> list[dict[str, object]]:
             "The complete carrier-derived tree-level up matrix is exactly zero. "
             "The first parameter-linear matter leg and complementary Higgs lift "
             "are exact scoped results, and the bottom V2 Pluecker pairing is "
-            "closed and equivariant. They cannot be assembled into a higher "
-            "product until their chain models have an explicit comparison homotopy.",
+            "closed and equivariant. Their first complete a0 lower-(1,1) "
+            "coefficient is an exact scoped zero; the rest of the first-order "
+            "matrix remains uncomputed.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_matter_leg_deformation.json",
@@ -1342,9 +1366,11 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_higgs_leg_deformation.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_v2_pluecker_chain_map.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_higher_product.json",
             ),
             missing=(
-                "grouped-to-Pluecker chain-comparison homotopy",
+                "remaining local-family and a1 first-order coefficients",
                 "first nonzero complete higher-product contribution",
             ),
         ),
@@ -2602,8 +2628,8 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             (
-                "the grouped and determinant-line contractions are not yet "
-                "connected by an explicit chain homotopy",
+                "direct cochain equality fails and requires the certified "
+                "fixed-contraction comparison primitive",
             ),
         ),
         _edge(
@@ -2632,7 +2658,62 @@ def _edges() -> list[dict[str, object]]:
             True,
             (
                 "its direct Higgs-action product is not cochain-equal to the "
-                "grouped matter-leg residual",
+                "grouped matter-leg residual; the fixed contraction supplies "
+                "the required input-level primitive",
+            ),
+        ),
+        _edge(
+            "mixed_matter_leg_deformation",
+            "mixed_first_higher_product_coefficient",
+            "The exact nonclosed matter scalar fixes one side of the uniquely "
+            "signed grouped-to-Pluecker comparison residual.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_higher_product.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_higgs_leg_deformation",
+            "mixed_first_higher_product_coefficient",
+            "The strict determinant-line correction supplies the complementary "
+            "first-order Higgs leg and its exact boundary identity.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_higher_product.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_v2_pluecker_chain_map",
+            "mixed_first_higher_product_coefficient",
+            "The equivariant V2 determinant class pairs with the Higgs "
+            "correction in the common scalar target.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_higher_product.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_first_higher_product_coefficient",
+            "first_exact_yukawa",
+            "The complete a0 lower-(1,1) residue fixes one entry of the "
+            "first-order matrix exactly.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_first_higher_product.json",
+            ),
+            (),
+            True,
+            (
+                "one zero coefficient does not determine the remaining matrix",
             ),
         ),
         _edge(
@@ -3089,6 +3170,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_matter_leg_deformation.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_leg_deformation.json",
         "data/generated/scientific_genesis/mixed_schoen_v2_pluecker_chain_map.json",
+        "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -3119,7 +3201,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 598,
+            "collected_tests_at_audit": 600,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3142,8 +3224,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "complete lawful tree-level up matrix derived as an exact "
-                "rank-zero result; exact first-order matter and Higgs legs now "
-                "isolate the missing grouped-to-Pluecker comparison homotopy"
+                "rank-zero result; the first complete a0 higher-product "
+                "coefficient also vanishes exactly"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3284,13 +3366,18 @@ def build_state() -> dict[str, object]:
                 "bottom_v2_plucker_equivariant_term_count": 11340,
                 "bottom_v2_plucker_character": [0, 2],
                 "bottom_v2_plucker_character_exact": True,
-                "grouped_plucker_comparison_homotopy_available": False,
+                "first_input_level_comparison_primitive_available": True,
+                "first_input_level_comparison_primitive_term_count": 105348,
+                "first_complete_higher_product_coefficient_available": True,
+                "first_complete_higher_product_coefficient": "0",
+                "first_complete_higher_product_cochain_term_count": 268905,
+                "complete_first_order_matrix_available": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "an exact chain homotopy comparing the grouped HPL matter-leg "
-                "contraction with the equivariant V2 determinant pairing"
+                "the remaining local-family and a1 first-order coefficients, "
+                "preferably compressed by multilinearity or symmetry"
             ),
         },
         "claims": _nodes(),
@@ -3450,6 +3537,8 @@ def build_state() -> dict[str, object]:
             "the first source-derived V2 Pluecker pairing closes in both cup "
             "orders, has an explicit exchange primitive, and projects exactly "
             "to character (0,2)",
+            "the first complete a0 lower-(1,1) higher-product coefficient has "
+            "an invariant comparison primitive and exact zero residue",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -3463,7 +3552,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "the grouped-to-Pluecker chain-comparison homotopy",
+            "the remaining first-order higher-product matrix coefficients",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

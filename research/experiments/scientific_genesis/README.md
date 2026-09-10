@@ -224,6 +224,10 @@ cycles, their difference has an explicit 3,900-term primitive, and exact
 determinant-frame Reynolds projection gives a strict 11,340-term class of
 character `(0,2)`. Multiplying it by the normalized Higgs correction obeys
 Leibniz exactly, but its differential is not either sign of the grouped
-matter-leg residual. The next dependency is the explicit chain homotopy
-comparing those contraction routes; no higher product or Yukawa coefficient is
-reported before that homotopy exists.
+matter-leg residual. The fixed diagonal contraction gives an exact depth-three
+comparison primitive for that mismatch, and Reynolds averaging makes its
+105,348-term representative descend. The resulting 268,905-term `a0`
+lower-`(1,1)` scalar cochain is exactly closed and has exact residue zero. This
+is the first complete higher-product coefficient, but only a scoped vanishing;
+the remaining local-family and `a1` coefficients are still required before any
+first-order matrix claim.

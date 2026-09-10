@@ -353,8 +353,14 @@ cohomologous through a 3,900-term primitive. The V2 determinant character is
 derived from the alternating resolution frames as `(1,1)`, and normalized
 Reynolds projection produces a closed 11,340-term representative in character
 `(0,2)`. Its product with the normalized Higgs correction satisfies Leibniz,
-but does not yet cancel the grouped matter-leg residual. An explicit comparison
-homotopy between those chain models is the next required object.
+but does not directly cancel the grouped matter-leg residual. The fixed
+diagonal contraction supplies a depth-three primitive of their exact mismatch;
+Reynolds projection makes the 105,348-term primitive invariant without changing
+its differential. Subtracting it yields an exact closed 268,905-term scalar
+cochain for the `a0` lower-`(1,1)` slot, whose residue is zero. This establishes
+one complete coefficient only. The remaining local-family slots and the `a1`
+direction must be computed or compressed structurally before a first-order
+matrix is available.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

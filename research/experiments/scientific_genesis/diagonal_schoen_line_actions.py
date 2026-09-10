@@ -18,6 +18,8 @@ Phase 0:
 
 from __future__ import annotations
 
+from functools import cache
+
 from onetheory.math.linear import Matrix
 from onetheory.math.numbers import OMEGA, Eisenstein
 from research.experiments.computable_carrier.schoen_sparse_actions import (
@@ -25,7 +27,7 @@ from research.experiments.computable_carrier.schoen_sparse_actions import (
     schoen_sparse_deck_actions,
 )
 
-from .diagonal_schoen_lines import _FullBasis, _FullCochain
+from .diagonal_schoen_lines import Cell4, Monomial, _FullBasis, _FullCochain
 from .mixed_constituent_schoen_arrows import mixed_schoen_constituents
 from .mixed_schoen_chain_actions import (
     _cell_image,
@@ -35,6 +37,40 @@ from .mixed_schoen_chain_actions import (
 from .mixed_schoen_outer_actions import _constituent_frame
 
 Character = tuple[int, int]
+
+
+@cache
+def _cached_monomial_image(
+    monomials: tuple[Monomial, Monomial, Monomial, Monomial],
+    action: SchoenSparseDeckAction,
+) -> tuple[Eisenstein, tuple[Monomial, Monomial, Monomial, Monomial]]:
+    """Cache one coefficient-free Laurent-monomial deck image."""
+
+    return _transformed_monomials(monomials, action)
+
+
+@cache
+def _cached_cell_image(
+    cell: Cell4,
+    action: SchoenSparseDeckAction,
+) -> tuple[int, Cell4]:
+    """Cache one oriented product-cover cell image."""
+
+    return _cell_image(cell, action)
+
+
+@cache
+def _cached_subset_unit(
+    subset: tuple[int, ...],
+    action: SchoenSparseDeckAction,
+) -> Eisenstein:
+    """Cache the exact Koszul equation unit of one wedge subset."""
+
+    units = _equation_units(action)
+    result = Eisenstein(1)
+    for equation in subset:
+        result *= units[equation]
+    return result
 
 
 def _character_exponent(value: Eisenstein) -> int:
@@ -100,28 +136,25 @@ def diagonal_line_full_action(
     if generator_index is None:
         raise ValueError("line actions are defined for the P and T generators")
     frame_scalar = OMEGA ** frame_character[generator_index]
-    equation_units = _equation_units(action)
     terms = []
     for basis, coefficient in cochain.terms:
-        monomial_scalar, monomials = _transformed_monomials(
+        monomial_scalar, monomials = _cached_monomial_image(
             basis.monomials,
             action,
         )
-        cell_sign, cell = _cell_image(basis.cell, action)
-        scalar = coefficient * monomial_scalar * cell_sign * frame_scalar
-        for equation in basis.subset:
-            scalar *= equation_units[equation]
-        terms.append(
-            (
-                _FullBasis(
-                    basis.subset,
-                    basis.ambient_degrees,
-                    monomials,
-                    cell,
-                ),
-                scalar,
-            )
+        cell_sign, cell = _cached_cell_image(basis.cell, action)
+        geometric = (
+            monomial_scalar
+            * cell_sign
+            * _cached_subset_unit(basis.subset, action)
         )
+        target = _FullBasis(
+            basis.subset,
+            basis.ambient_degrees,
+            monomials,
+            cell,
+        )
+        terms.append((target, coefficient * geometric * frame_scalar))
     return _FullCochain(tuple(terms))
 
 

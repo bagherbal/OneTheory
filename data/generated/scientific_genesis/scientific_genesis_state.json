@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "fdcf6345096b2141b2deb962b63c63c0b7ad1631a28e10e6a1c2fae3722ea4f8",
+  "artifact_digest": "c8cc876fbcdf99bb7305000708ee5f47bd551c63b0dd96aad3b5e46b02be8d6a",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -267,6 +267,11 @@
       "sha256": "ec0594988bd4066730fbbf8e9ecf8f90d79cbc75098686c96d4af49d83fe71fa"
     },
     {
+      "bytes": 2497,
+      "path": "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
+      "sha256": "7de45a45298badbdbfa0d14d46d32fc2b480075082e93dcbb16dfdc4f31238b2"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -338,11 +343,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 598,
+    "collected_tests_at_audit": 600,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 175,
-    "test_python_files": 153
+    "research_python_files": 176,
+    "test_python_files": 154
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -358,7 +363,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "the grouped-to-Pluecker chain-comparison homotopy",
+    "the remaining first-order higher-product matrix coefficients",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
@@ -1371,7 +1376,7 @@
       "label": "first universal matter-leg deformation term",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "chain homotopy to the equivariant V2 determinant pairing"
+        "remaining local-family and a1 first-order coefficients"
       ],
       "statement": "The family-symmetric a0 matter-leg product is transferred and projected exactly. Its character-(0,2) representative is not a cycle, and contraction with the strict Higgs remains nonclosed; the resulting partial scalar residue is exactly zero and is not a higher product or Yukawa entry.",
       "status": "COMPUTED"
@@ -1387,7 +1392,7 @@
       "label": "first universal Higgs-leg deformation lift",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "chain homotopy to the grouped matter-leg contraction"
+        "remaining local-family and a1 first-order coefficients"
       ],
       "statement": "The a0 extension action on the strict Higgs is an exact determinant-line cycle. A deterministic 1,431-term primitive supplies its parameter-linear correction. The exact local q-over-p identity and overlap homotopy map them to canonical 2,124-term and 1,908-term determinant-line cochains.",
       "status": "COMPUTED"
@@ -1403,9 +1408,25 @@
       "label": "equivariant V2 determinant pairing",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "chain homotopy to the grouped matter-leg contraction"
+        "remaining local-family and a1 first-order coefficients"
       ],
       "statement": "Full local Pluecker matrices and the exact hypersurface overlap homotopy pair the first source-derived V2 matter classes. Both cup orders close and differ by an explicit boundary; alternating determinant frames and Reynolds projection give a strict closed 11,340-term representative of character (0,2).",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
+        "research/experiments/scientific_genesis/mixed_schoen_first_higher_product.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_first_higher_product.py"
+      ],
+      "id": "mixed_first_higher_product_coefficient",
+      "label": "first complete higher-product coefficient",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "remaining local-family and a1 first-order coefficients"
+      ],
+      "statement": "The fixed diagonal contraction gives a depth-three primitive for the grouped-to-Pluecker mismatch, and exact Reynolds averaging makes it descend. The resulting a0 lower-(1,1) scalar cochain is closed with 268,905 terms and has exact residue zero.",
       "status": "COMPUTED"
     },
     {
@@ -1441,15 +1462,16 @@
         "data/generated/scientific_genesis/mixed_schoen_matter_leg_deformation.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_leg_deformation.json",
         "data/generated/scientific_genesis/mixed_schoen_v2_pluecker_chain_map.json",
+        "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
         "research/experiments/visible_common_dga/audit.py"
       ],
       "id": "common_dga_package",
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "grouped-to-Pluecker chain-comparison homotopy"
+        "remaining local-family and a1 first-order coefficients"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes. The exact common-to-diagonal Cech chain map supplies the comparison required by the parameter-linear matter corrections. The first matter leg is exactly nonclosed with zero partial residue, while its complementary Higgs determinant-line correction is exact. The equivariant bottom V2 determinant pairing is also exact, but the two contraction routes still require an explicit comparison homotopy.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes. The exact common-to-diagonal Cech chain map supplies the comparison required by the parameter-linear matter corrections. The first matter leg is exactly nonclosed with zero partial residue, while its complementary Higgs determinant-line correction is exact. The equivariant bottom V2 determinant pairing is also exact, and a fixed-contraction comparison primitive closes the first a0 lower-(1,1) coefficient with zero residue.",
       "status": "BLOCKED"
     },
     {
@@ -1472,16 +1494,17 @@
       "evidence": [
         "data/generated/scientific_genesis/mixed_schoen_matter_leg_deformation.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_leg_deformation.json",
-        "data/generated/scientific_genesis/mixed_schoen_v2_pluecker_chain_map.json"
+        "data/generated/scientific_genesis/mixed_schoen_v2_pluecker_chain_map.json",
+        "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json"
       ],
       "id": "first_exact_yukawa",
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "grouped-to-Pluecker chain-comparison homotopy",
+        "remaining local-family and a1 first-order coefficients",
         "first nonzero complete higher-product contribution"
       ],
-      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. They cannot be assembled into a higher product until their chain models have an explicit comparison homotopy.",
+      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. Their first complete a0 lower-(1,1) coefficient is an exact scoped zero; the rest of the first-order matrix remains uncomputed.",
       "status": "BLOCKED"
     },
     {
@@ -2761,7 +2784,7 @@
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "the grouped and determinant-line contractions are not yet connected by an explicit chain homotopy"
+        "direct cochain equality fails and requires the certified fixed-contraction comparison primitive"
       ],
       "mathematical_reason": "The exact Higgs correction supplies the complementary extension leg required by the first-order higher-product identity.",
       "source": "mixed_higgs_leg_deformation",
@@ -2785,11 +2808,57 @@
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "its direct Higgs-action product is not cochain-equal to the grouped matter-leg residual"
+        "its direct Higgs-action product is not cochain-equal to the grouped matter-leg residual; the fixed contraction supplies the required input-level primitive"
       ],
       "mathematical_reason": "The strict bottom determinant pairing supplies the complementary line-valued factor required by the Higgs correction.",
       "source": "mixed_v2_pluecker_chain_map",
       "target": "common_dga_package"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The exact nonclosed matter scalar fixes one side of the uniquely signed grouped-to-Pluecker comparison residual.",
+      "source": "mixed_matter_leg_deformation",
+      "target": "mixed_first_higher_product_coefficient"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The strict determinant-line correction supplies the complementary first-order Higgs leg and its exact boundary identity.",
+      "source": "mixed_higgs_leg_deformation",
+      "target": "mixed_first_higher_product_coefficient"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The equivariant V2 determinant class pairs with the Higgs correction in the common scalar target.",
+      "source": "mixed_v2_pluecker_chain_map",
+      "target": "mixed_first_higher_product_coefficient"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "one zero coefficient does not determine the remaining matrix"
+      ],
+      "mathematical_reason": "The complete a0 lower-(1,1) residue fixes one entry of the first-order matrix exactly.",
+      "source": "mixed_first_higher_product_coefficient",
+      "target": "first_exact_yukawa"
     },
     {
       "assumptions_required": [],
@@ -3088,6 +3157,7 @@
       "cech_local_diagonal_chain_map_available": true,
       "cech_local_diagonal_comparison_required": true,
       "coefficient_field": "Q(omega)",
+      "complete_first_order_matrix_available": false,
       "complete_tree_level_up_matrix_available": true,
       "computable_carrier_component": "lawful-mixed-schoen-P1",
       "computable_carrier_component_frozen": true,
@@ -3125,10 +3195,15 @@
         25
       ],
       "final_lower_line_retired_family_count": 72,
+      "first_complete_higher_product_cochain_term_count": 268905,
+      "first_complete_higher_product_coefficient": "0",
+      "first_complete_higher_product_coefficient_available": true,
       "first_higgs_leg_action_is_cycle": true,
       "first_higgs_leg_action_term_count": 1593,
       "first_higgs_leg_correction_exact": true,
       "first_higgs_leg_correction_term_count": 1431,
+      "first_input_level_comparison_primitive_available": true,
+      "first_input_level_comparison_primitive_term_count": 105348,
       "first_matter_leg_equivariant_term_count": 72099,
       "first_matter_leg_is_cycle": false,
       "first_matter_leg_partial_scalar_residue": "0",
@@ -3158,7 +3233,6 @@
       "forced_subobject_retired_family_count": 648,
       "global_polynomial_diagonal_comparison_available": false,
       "global_schoen_bundle_no_go": false,
-      "grouped_plucker_comparison_homotopy_available": false,
       "lawful_P1_all_nonzero_parameters_stable_in_chamber": true,
       "lawful_P1_genuine_su4_on_stable_chamber": true,
       "lawful_chain_diagonal_squared_zero": true,
@@ -3291,8 +3365,8 @@
       "tree_level_up_scalar_primitives_exact": true
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "an exact chain homotopy comparing the grouped HPL matter-leg contraction with the equivariant V2 determinant pairing",
-    "selection_status": "complete lawful tree-level up matrix derived as an exact rank-zero result; exact first-order matter and Higgs legs now isolate the missing grouped-to-Pluecker comparison homotopy"
+    "next_required_object": "the remaining local-family and a1 first-order coefficients, preferably compressed by multilinearity or symmetry",
+    "selection_status": "complete lawful tree-level up matrix derived as an exact rank-zero result; the first complete a0 higher-product coefficient also vanishes exactly"
   },
   "research_value_scheduler": [
     {
@@ -3592,7 +3666,8 @@
     "the canonical independent-cover tensor followed by the exact fiber diagonal closes on all 4,896 ambient transfer seeds",
     "the source-required P/T character (0,1) has exact transferred dimensions 100-to-243-to-170, differential ranks 100/142, and a unique H1 class represented by a strict 27-term full cocycle",
     "the complete lawful tree-level up matrix is exactly zero: all four character-allowed scalar cycles have explicit depth-four primitives",
-    "the first source-derived V2 Pluecker pairing closes in both cup orders, has an explicit exchange primitive, and projects exactly to character (0,2)"
+    "the first source-derived V2 Pluecker pairing closes in both cup orders, has an explicit exchange primitive, and projects exactly to character (0,2)",
+    "the first complete a0 lower-(1,1) higher-product coefficient has an invariant comparison primitive and exact zero residue"
   ],
   "structural_compression_questions": [
     {

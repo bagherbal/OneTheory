@@ -1,0 +1,72 @@
+{
+  "action_product": {
+    "digest": "bf50d43d6e62ab07ef09fde0b7ced917f88e6ebda35e4402b8c77651d85b14ab",
+    "term_count": 130725
+  },
+  "artifact_digest": "3f9fe94c4a05f39397ac50a76c267ae55e0f43f1c80e7f74ec299345c348cda3",
+  "bottom_pairing_term_count": 11340,
+  "classification": "SCOPED_FIRST_ORDER_ENTRY_VANISHING",
+  "coefficient_field": "Q(omega)",
+  "column_local_family_index": 1,
+  "comparison_residual": {
+    "digest": "0ef02a264ec35e12046df33f60f9f5a86e6b3159f2b543e8fd7fd752e9463ab3",
+    "is_cycle": true,
+    "term_count": 130815
+  },
+  "complete_first_order_matrix_available": false,
+  "complete_scalar_cochain": {
+    "digest": "8eb2097e668c731020ecebf6e87554493dd613960c862ace74a4240e2eb57adb",
+    "is_cycle": true,
+    "projection_depth": 4,
+    "residue": "0",
+    "term_count": 268905
+  },
+  "correction_product": {
+    "digest": "b6696c484f28fbb2d06acd5fa934b1c8c510fdc18053068e5e39773c41539d7b",
+    "term_count": 260391
+  },
+  "exact": true,
+  "extension_point_selected": false,
+  "first_missing_input": "the remaining local-family and a1 first-order coefficients, preferably compressed by multilinearity or symmetry",
+  "general_chain_homotopy_available": false,
+  "higgs_correction_character_exact": true,
+  "higgs_correction_term_count": 1980,
+  "holomorphic_yukawa_matrix_available": false,
+  "input_level_comparison_primitive_available": true,
+  "leibniz_identity_exact": true,
+  "matter_scalar_character_exact": true,
+  "matter_scalar_term_count": 9414,
+  "observational_inputs_used": false,
+  "parameter": "a0",
+  "prerequisite_artifact_digests": {
+    "higgs_leg": "ec363751f76d7fd8e99bbe09bc3efd31bd477353322ccb150fe7e7d32ad08765",
+    "matter_leg": "dca8dc1dd05862af4acfd12bf3dd863f7e9636008151953395a84c8943d09c3f",
+    "v2_pluecker": "318516344a3f224e4516caaef28db11872e5ef00f883aab8e9c393a84e2e0a3a"
+  },
+  "raw_comparison_primitive": {
+    "depth": 3,
+    "digest": "ec3551935d2f45f166af7a4a86573536a2b94a6d4214fda1f1bcb79fd8802b1e",
+    "identity_exact": true,
+    "term_count": 79450
+  },
+  "row_local_family_index": 1,
+  "scalar_frame_character_exponents": [
+    2,
+    1
+  ],
+  "schema": "mixed-schoen-first-higher-product-v1",
+  "strict_comparison_primitive": {
+    "character_exact": true,
+    "digest": "ae03a8f0996acecab15a124c17a236506ca6eae2333e69f4f39fd69c7cb59723",
+    "identity_exact": true,
+    "term_count": 105348
+  },
+  "v1_determinant_character_exponents": [
+    1,
+    0
+  ],
+  "v2_determinant_character_exponents": [
+    1,
+    1
+  ]
+}

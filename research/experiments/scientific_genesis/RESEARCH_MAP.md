@@ -365,7 +365,15 @@ three-family coefficient matrices therefore vanish over `Q(omega)[a0,a1]`, and
 the complete first-order matrix has generic rank zero without a selected
 projective parameter. The next shortest flavor calculation is the `f5`
 contribution unless a structural theorem proves persistent rank deficiency
-first.
+first. That theorem now follows from the triangular bundle filtration. The
+universal matter and Higgs representatives are exactly parameter-linear, while
+finite exterior-bidegree enumeration admits only order zero in the four
+`V1`-`V2` slots and order one in the four `V2`-`V2` slots. Thus `f5` and every
+higher contribution are structurally zero on this one-sided branch. The
+complete universal holomorphic up matrix is therefore exactly rank zero over
+the entire frozen `P1`. This is a branch- and sector-scoped no-go; the shortest
+remaining route begins by deriving exact Wilson character support for the
+lowest-complexity untested flavor sector on the same carrier.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

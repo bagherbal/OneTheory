@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b2f085afb577de8ae45272871515f0ddf7dada044f0ec80c6da6054569ee2098",
+  "artifact_digest": "21a2d0858177d9fbde1deeba4aa2016a2957a4b5f9ec2a9ca11fb1f8d8a50cb1",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -277,6 +277,11 @@
       "sha256": "58037fd3249dabe279e02dd6bc2b4dc64bfd2a3844c1d16ddaed2a8ef9da87c6"
     },
     {
+      "bytes": 3284,
+      "path": "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json",
+      "sha256": "623bc75eeaae396fec83c5a24d1174724d9e9794aa54378d9e280f7e09bec5b4"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -348,11 +353,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 609,
+    "collected_tests_at_audit": 611,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 177,
-    "test_python_files": 156
+    "research_python_files": 178,
+    "test_python_files": 157
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -368,7 +373,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "the next f5 higher-product matrix contribution",
+    "exact Wilson character support for the next flavor sector",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
@@ -1381,7 +1386,7 @@
       "label": "first universal matter-leg deformation term",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "the next f5 contribution or a persistent-vanishing theorem"
+        "exact Wilson character support for the next flavor sector"
       ],
       "statement": "The family-symmetric a0 matter-leg product is transferred and projected exactly. Its character-(0,2) representative is not a cycle, and contraction with the strict Higgs remains nonclosed; the resulting partial scalar residue is exactly zero and is not a higher product or Yukawa entry.",
       "status": "COMPUTED"
@@ -1397,7 +1402,7 @@
       "label": "first universal Higgs-leg deformation lift",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "the next f5 contribution or a persistent-vanishing theorem"
+        "exact Wilson character support for the next flavor sector"
       ],
       "statement": "The a0 extension action on the strict Higgs is an exact determinant-line cycle. A deterministic 1,431-term primitive supplies its parameter-linear correction. The exact local q-over-p identity and overlap homotopy map them to canonical 2,124-term and 1,908-term determinant-line cochains.",
       "status": "COMPUTED"
@@ -1413,7 +1418,7 @@
       "label": "equivariant V2 determinant pairing",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "the next f5 contribution or a persistent-vanishing theorem"
+        "exact Wilson character support for the next flavor sector"
       ],
       "statement": "Full local Pluecker matrices and the exact hypersurface overlap homotopy pair the first source-derived V2 matter classes. Both cup orders close and differ by an explicit boundary; alternating determinant frames and Reynolds projection give a strict closed 11,340-term representative of character (0,2).",
       "status": "COMPUTED"
@@ -1429,7 +1434,7 @@
       "label": "first complete higher-product coefficient",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "the next f5 contribution or a persistent-vanishing theorem"
+        "exact Wilson character support for the next flavor sector"
       ],
       "statement": "The fixed diagonal contraction gives a depth-three primitive for the grouped-to-Pluecker mismatch, and exact Reynolds averaging makes it descend. The resulting a0 lower-(1,1) scalar cochain is closed with 268,905 terms and has exact residue zero.",
       "status": "COMPUTED"
@@ -1445,10 +1450,26 @@
       "label": "complete universal first-order up matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "the next f5 contribution or a persistent-vanishing theorem"
+        "exact Wilson character support for the next flavor sector"
       ],
       "statement": "All four local-family pairs in both carrier directions have distinct exact complete-cochain certificates and zero residues. The two three-family coefficient matrices therefore vanish over Q(omega)[a0,a1], giving generic first-order rank zero without a selected projective parameter.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json",
+        "research/experiments/scientific_genesis/mixed_schoen_up_yukawa_no_go.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_up_yukawa_no_go.py"
+      ],
+      "id": "mixed_up_yukawa_no_go",
+      "label": "universal holomorphic up-type branch theorem",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "exact Wilson character support for the next flavor sector"
+      ],
+      "statement": "Exact parameter-linear matter and Higgs cocycles plus finite exterior-bidegree enumeration exclude every parameter order above one. The complete tree and first-order matrices both vanish, so the full universal up matrix has rank zero throughout the frozen P1 branch.",
+      "status": "PROVED"
     },
     {
       "assumptions": [],
@@ -1485,15 +1506,16 @@
         "data/generated/scientific_genesis/mixed_schoen_v2_pluecker_chain_map.json",
         "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
         "data/generated/scientific_genesis/mixed_schoen_first_order_matrix.json",
+        "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json",
         "research/experiments/visible_common_dga/audit.py"
       ],
       "id": "common_dga_package",
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "the next f5 contribution or a persistent-vanishing theorem"
+        "exact Wilson character support for the next flavor sector"
       ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes. The exact common-to-diagonal Cech chain map supplies the comparison required by the parameter-linear matter corrections. The first matter leg is exactly nonclosed with zero partial residue, while its complementary Higgs determinant-line correction is exact. The equivariant bottom V2 determinant pairing is also exact. Fixed-contraction comparison primitives close all eight parameter-linear coefficients with zero residue.",
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes. The exact common-to-diagonal Cech chain map supplies the comparison required by the parameter-linear matter corrections. The first matter leg is exactly nonclosed with zero partial residue, while its complementary Higgs determinant-line correction is exact. The equivariant bottom V2 determinant pairing is also exact. Fixed-contraction comparison primitives close all eight parameter-linear coefficients with zero residue. Exterior filtration then proves the full up-type branch remains zero.",
       "status": "BLOCKED"
     },
     {
@@ -1518,16 +1540,17 @@
         "data/generated/scientific_genesis/mixed_schoen_higgs_leg_deformation.json",
         "data/generated/scientific_genesis/mixed_schoen_v2_pluecker_chain_map.json",
         "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
-        "data/generated/scientific_genesis/mixed_schoen_first_order_matrix.json"
+        "data/generated/scientific_genesis/mixed_schoen_first_order_matrix.json",
+        "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json"
       ],
       "id": "first_exact_yukawa",
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "the next f5 contribution or a persistent-vanishing theorem",
+        "exact Wilson character support for the next flavor sector",
         "first nonzero complete higher-product contribution"
       ],
-      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly, so the universal first-order matrix also has rank zero.",
+      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix.",
       "status": "BLOCKED"
     },
     {
@@ -2884,14 +2907,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_first_order_matrix.json"
+        "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The complete first-order zero supplies the last coefficient set allowed by the finite exterior-filtration ledger.",
+      "source": "mixed_first_order_up_matrix",
+      "target": "mixed_up_yukawa_no_go"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "rank zero through first order does not prove all higher products vanish"
+        "the theorem is scoped to the selected up-type characters"
       ],
-      "mathematical_reason": "The complete universal first-order zero fixes the next lawful Yukawa frontier at f5 or a structural vanishing theorem.",
-      "source": "mixed_first_order_up_matrix",
+      "mathematical_reason": "The branch theorem excludes the up-type sector and redirects the nontrivial-matrix search to an untested flavor sector.",
+      "source": "mixed_up_yukawa_no_go",
       "target": "first_exact_yukawa"
     },
     {
@@ -3200,6 +3234,8 @@
       ],
       "complete_first_order_matrix_rank": 0,
       "complete_tree_level_up_matrix_available": true,
+      "complete_universal_holomorphic_up_matrix_available": true,
+      "complete_universal_holomorphic_up_matrix_rank": 0,
       "computable_carrier_component": "lawful-mixed-schoen-P1",
       "computable_carrier_component_frozen": true,
       "current_minimum_retired_candidate_blocks": [
@@ -3218,6 +3254,7 @@
         ]
       ],
       "declared_computable_carrier_category_exhausted": true,
+      "declared_up_branch_can_reach_rank_three": false,
       "deformation_diagonal_local_comparison_available": true,
       "determinant_trace_available": true,
       "direct_matter_product_character": [
@@ -3403,11 +3440,13 @@
       ],
       "slope_identity_retired_family_count": 72,
       "tree_level_up_matrix_rank": 0,
-      "tree_level_up_scalar_primitives_exact": true
+      "tree_level_up_scalar_primitives_exact": true,
+      "up_f5_and_higher_structurally_zero": true,
+      "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the next f5 contribution or a structural theorem proving persistent rank deficiency",
-    "selection_status": "complete lawful tree-level up matrix derived as an exact rank-zero result; the complete universal first-order matrix also has exact rank zero"
+    "next_required_object": "the lowest-complexity untested Yukawa sector on the same carrier, beginning with its exact Wilson character support",
+    "selection_status": "the full universal holomorphic up matrix is exactly rank zero throughout the frozen P1 branch"
   },
   "research_value_scheduler": [
     {
@@ -3709,7 +3748,8 @@
     "the complete lawful tree-level up matrix is exactly zero: all four character-allowed scalar cycles have explicit depth-four primitives",
     "the first source-derived V2 Pluecker pairing closes in both cup orders, has an explicit exchange primitive, and projects exactly to character (0,2)",
     "the first complete a0 lower-(1,1) higher-product coefficient has an invariant comparison primitive and exact zero residue",
-    "all eight first-order higher-product coefficients close exactly with zero residue, so the universal first-order up matrix has rank zero"
+    "all eight first-order higher-product coefficients close exactly with zero residue, so the universal first-order up matrix has rank zero",
+    "finite exterior-filtration typing excludes f5 and every higher up-type contribution, proving the full universal up matrix has rank zero"
   ],
   "structural_compression_questions": [
     {

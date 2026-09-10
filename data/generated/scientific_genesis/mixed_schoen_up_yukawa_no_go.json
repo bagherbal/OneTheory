@@ -1,0 +1,193 @@
+{
+  "allowed_parameter_orders_by_slot": [
+    {
+      "column": 0,
+      "orders": [],
+      "row": 0
+    },
+    {
+      "column": 1,
+      "orders": [
+        0
+      ],
+      "row": 0
+    },
+    {
+      "column": 2,
+      "orders": [
+        0
+      ],
+      "row": 0
+    },
+    {
+      "column": 0,
+      "orders": [
+        0
+      ],
+      "row": 1
+    },
+    {
+      "column": 1,
+      "orders": [
+        1
+      ],
+      "row": 1
+    },
+    {
+      "column": 2,
+      "orders": [
+        1
+      ],
+      "row": 1
+    },
+    {
+      "column": 0,
+      "orders": [
+        0
+      ],
+      "row": 2
+    },
+    {
+      "column": 1,
+      "orders": [
+        1
+      ],
+      "row": 2
+    },
+    {
+      "column": 2,
+      "orders": [
+        1
+      ],
+      "row": 2
+    }
+  ],
+  "artifact_digest": "fa7e0f5918969baa7f4740cfb8dedf7abd26a3be6e6b3fdc910042e24d3fe1c1",
+  "classification": "SCOPED_HOLOMORPHIC_UP_NO_GO",
+  "coefficient_field": "Q(omega)",
+  "complete_holomorphic_up_matrix_available": true,
+  "complete_universal_holomorphic_up_matrix": [
+    [
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0"
+    ]
+  ],
+  "complete_universal_holomorphic_up_rank": 0,
+  "constituent_ranks": {
+    "V1": 2,
+    "V2": 2
+  },
+  "declared_up_branch_can_reach_rank_three": false,
+  "determinant_target_bidegree": [
+    2,
+    2
+  ],
+  "exact": true,
+  "extension_point_selected": false,
+  "f5_and_higher_contributions_structurally_zero": true,
+  "first_order_coefficient_matrices": [
+    [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ]
+  ],
+  "higgs_representative_orders": {
+    "0": [
+      1,
+      1
+    ],
+    "1": [
+      2,
+      0
+    ]
+  },
+  "matter_representative_orders": {
+    "constant_family": {
+      "0": [
+        1,
+        0
+      ]
+    },
+    "lifted_families": {
+      "0": [
+        0,
+        1
+      ],
+      "1": [
+        1,
+        0
+      ]
+    }
+  },
+  "maximum_allowed_parameter_order": 1,
+  "next_required_object": "the lowest-complexity untested Yukawa sector on the same carrier, beginning with its exact Wilson character support",
+  "nontrivial_holomorphic_up_matrix_available": false,
+  "observational_inputs_used": false,
+  "parameter_orders_two_and_higher_structurally_zero": true,
+  "prerequisite_artifact_digests": {
+    "first_order_matrix": "159d8f02d5cc4fabe9f18a52bbb2c7ffa274e85fab84a362ad9847e00411470d",
+    "tree_matrix": "4c4ff16ca149efa51643ee8c0f74e221f24122eeee69694405445c4c89f15dad",
+    "universal_matter_lifts": "504b96c343881a671ff5d3340a988650f4b7ed80586ac88ab4c9632ff82dc2f8"
+  },
+  "schema": "mixed-schoen-universal-up-yukawa-no-go-v1",
+  "scope": "the frozen one-sided P1 extension branch and its selected up-type matter/Higgs characters only",
+  "tree_matrix": [
+    [
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0"
+    ]
+  ],
+  "triangular_extension_action": "V2 -> V1"
+}

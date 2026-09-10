@@ -54,25 +54,35 @@ MATTER_FILTRATION_TERMS = {
 HIGGS_FILTRATION_TERMS = ((0, (1, 1)), (1, (2, 0)))
 
 
-def first_order_filtration_allows(row: int, column: int) -> bool:
-    """Return whether exterior bidegree permits one first-order matrix slot."""
+def filtration_allowed_orders(row: int, column: int) -> tuple[int, ...]:
+    """Return every parameter order reaching determinant bidegree (2,2)."""
 
     try:
         row_terms = MATTER_FILTRATION_TERMS[row]
         column_terms = MATTER_FILTRATION_TERMS[column]
     except KeyError as error:
         raise ValueError("three-family indices must lie between zero and two") from error
-    return any(
-        row_order + column_order + higgs_order == 1
-        and (
-            row_degree[0] + column_degree[0] + higgs_degree[0],
-            row_degree[1] + column_degree[1] + higgs_degree[1],
+    return tuple(
+        sorted(
+            {
+                row_order + column_order + higgs_order
+                for row_order, row_degree in row_terms
+                for column_order, column_degree in column_terms
+                for higgs_order, higgs_degree in HIGGS_FILTRATION_TERMS
+                if (
+                    row_degree[0] + column_degree[0] + higgs_degree[0],
+                    row_degree[1] + column_degree[1] + higgs_degree[1],
+                )
+                == (2, 2)
+            }
         )
-        == (2, 2)
-        for row_order, row_degree in row_terms
-        for column_order, column_degree in column_terms
-        for higgs_order, higgs_degree in HIGGS_FILTRATION_TERMS
     )
+
+
+def first_order_filtration_allows(row: int, column: int) -> bool:
+    """Return whether exterior bidegree permits one first-order matrix slot."""
+
+    return 1 in filtration_allowed_orders(row, column)
 
 
 FIRST_ORDER_SLOTS = tuple(
@@ -333,6 +343,7 @@ __all__ = [
     "OUTPUT",
     "PARAMETERS",
     "STRUCTURAL_ZERO_SLOTS",
+    "filtration_allowed_orders",
     "first_order_filtration_allows",
     "mixed_schoen_first_order_matrix",
     "write_first_order_matrix",

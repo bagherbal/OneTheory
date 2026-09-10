@@ -236,4 +236,14 @@ zero residue. The two universal three-family coefficient matrices therefore
 vanish identically over `Q(omega)[a0,a1]`, so the complete first-order matrix
 has exact generic rank zero without selecting a carrier point. This is a scoped
 first-order no-go only; the next task is the `f5` contribution or a structural
-theorem proving that the declared branch remains rank deficient.
+theorem proving that the declared branch remains rank deficient. The universal
+matter and Higgs cocycles are exactly parameter-linear because the extension
+acts triangularly from `V2` to `V1`; its action on their correction targets is
+zero by bundle-factor typing. Exact exterior-bidegree enumeration then permits
+only tree order in the four `V1`-`V2` slots and first order in the four
+`V2`-`V2` slots. No order two or higher term can reach `det(V1) det(V2)`.
+Consequently `f5` and all later contributions vanish structurally on this
+one-sided branch. Combining this truncation with the two complete zero matrices
+proves that the full universal holomorphic up matrix is rank zero throughout
+the frozen `P1`. The no-go does not apply to another flavor sector or carrier;
+the next vertical task is the lowest-complexity untested sector on this carrier.

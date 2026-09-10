@@ -1214,7 +1214,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_matter_leg_deformation.py",
             ),
             missing=(
-                "the next f5 contribution or a persistent-vanishing theorem",
+                "exact Wilson character support for the next flavor sector",
             ),
         ),
         _node(
@@ -1236,7 +1236,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_higgs_leg_deformation.py",
             ),
             missing=(
-                "the next f5 contribution or a persistent-vanishing theorem",
+                "exact Wilson character support for the next flavor sector",
             ),
         ),
         _node(
@@ -1258,7 +1258,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_v2_pluecker_chain_map.py",
             ),
             missing=(
-                "the next f5 contribution or a persistent-vanishing theorem",
+                "exact Wilson character support for the next flavor sector",
             ),
         ),
         _node(
@@ -1279,7 +1279,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_first_higher_product.py",
             ),
             missing=(
-                "the next f5 contribution or a persistent-vanishing theorem",
+                "exact Wilson character support for the next flavor sector",
             ),
         ),
         _node(
@@ -1301,7 +1301,29 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_first_order_matrix.py",
             ),
             missing=(
-                "the next f5 contribution or a persistent-vanishing theorem",
+                "exact Wilson character support for the next flavor sector",
+            ),
+        ),
+        _node(
+            "mixed_up_yukawa_no_go",
+            "universal holomorphic up-type branch theorem",
+            "Flavor",
+            "PROVED",
+            "Exact parameter-linear matter and Higgs cocycles plus finite "
+            "exterior-bidegree enumeration exclude every parameter order above "
+            "one. The complete tree and first-order matrices both vanish, so "
+            "the full universal up matrix has rank zero throughout the frozen "
+            "P1 branch.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_up_yukawa_no_go.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_up_yukawa_no_go.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_up_yukawa_no_go.py",
+            ),
+            missing=(
+                "exact Wilson character support for the next flavor sector",
             ),
         ),
         _node(
@@ -1339,7 +1361,8 @@ def _nodes() -> list[dict[str, object]]:
             "zero partial residue, while its complementary Higgs determinant-line "
             "correction is exact. The equivariant bottom V2 determinant pairing "
             "is also exact. Fixed-contraction comparison primitives close all "
-            "eight parameter-linear coefficients with zero residue.",
+            "eight parameter-linear coefficients with zero residue. Exterior "
+            "filtration then proves the full up-type branch remains zero.",
             (
                 "src/onetheory/math/homological.py",
                 "data/generated/scientific_genesis/"
@@ -1356,10 +1379,12 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_first_higher_product.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_first_order_matrix.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_up_yukawa_no_go.json",
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "the next f5 contribution or a persistent-vanishing theorem",
+                "exact Wilson character support for the next flavor sector",
             ),
         ),
         _node(
@@ -1381,8 +1406,9 @@ def _nodes() -> list[dict[str, object]]:
             "The first parameter-linear matter leg and complementary Higgs lift "
             "are exact scoped results, and the bottom V2 Pluecker pairing is "
             "closed and equivariant. All eight complete first-order "
-            "coefficients vanish exactly, so the universal first-order matrix "
-            "also has rank zero.",
+            "coefficients vanish exactly. Exterior-filtration truncation proves "
+            "that the full universal up matrix has rank zero, so this branch "
+            "cannot supply the required nontrivial matrix.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_matter_leg_deformation.json",
@@ -1394,9 +1420,11 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_first_higher_product.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_first_order_matrix.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_up_yukawa_no_go.json",
             ),
             missing=(
-                "the next f5 contribution or a persistent-vanishing theorem",
+                "exact Wilson character support for the next flavor sector",
                 "first nonzero complete higher-product contribution",
             ),
         ),
@@ -2742,18 +2770,30 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_first_order_up_matrix",
-            "first_exact_yukawa",
-            "The complete universal first-order zero fixes the next lawful "
-            "Yukawa frontier at f5 or a structural vanishing theorem.",
+            "mixed_up_yukawa_no_go",
+            "The complete first-order zero supplies the last coefficient set "
+            "allowed by the finite exterior-filtration ledger.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_first_order_matrix.json",
+                "mixed_schoen_up_yukawa_no_go.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_up_yukawa_no_go",
+            "first_exact_yukawa",
+            "The branch theorem excludes the up-type sector and redirects the "
+            "nontrivial-matrix search to an untested flavor sector.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_up_yukawa_no_go.json",
             ),
             (),
             True,
             (
-                "rank zero through first order does not prove all higher "
-                "products vanish",
+                "the theorem is scoped to the selected up-type characters",
             ),
         ),
         _edge(
@@ -3212,6 +3252,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_v2_pluecker_chain_map.json",
         "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
         "data/generated/scientific_genesis/mixed_schoen_first_order_matrix.json",
+        "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -3242,7 +3283,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 609,
+            "collected_tests_at_audit": 611,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3264,9 +3305,8 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "complete lawful tree-level up matrix derived as an exact "
-                "rank-zero result; the complete universal first-order matrix "
-                "also has exact rank zero"
+                "the full universal holomorphic up matrix is exactly rank zero "
+                "throughout the frozen P1 branch"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3417,12 +3457,17 @@ def build_state() -> dict[str, object]:
                 "complete_first_order_matrix_rank": 0,
                 "complete_first_order_matrix_parameter_basis": ["a0", "a1"],
                 "complete_first_order_matrix_extension_point_selected": False,
+                "up_maximum_exterior_allowed_parameter_order": 1,
+                "up_f5_and_higher_structurally_zero": True,
+                "complete_universal_holomorphic_up_matrix_available": True,
+                "complete_universal_holomorphic_up_matrix_rank": 0,
+                "declared_up_branch_can_reach_rank_three": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the next f5 contribution or a structural theorem proving "
-                "persistent rank deficiency"
+                "the lowest-complexity untested Yukawa sector on the same "
+                "carrier, beginning with its exact Wilson character support"
             ),
         },
         "claims": _nodes(),
@@ -3586,6 +3631,8 @@ def build_state() -> dict[str, object]:
             "an invariant comparison primitive and exact zero residue",
             "all eight first-order higher-product coefficients close exactly "
             "with zero residue, so the universal first-order up matrix has rank zero",
+            "finite exterior-filtration typing excludes f5 and every higher "
+            "up-type contribution, proving the full universal up matrix has rank zero",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -3599,7 +3646,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "the next f5 higher-product matrix contribution",
+            "exact Wilson character support for the next flavor sector",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

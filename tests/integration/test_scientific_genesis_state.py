@@ -184,19 +184,26 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         path["criteria"]["complete_first_order_matrix_extension_point_selected"]
         is False
     )
+    assert path["criteria"]["up_maximum_exterior_allowed_parameter_order"] == 1
+    assert path["criteria"]["up_f5_and_higher_structurally_zero"] is True
+    assert (
+        path["criteria"]["complete_universal_holomorphic_up_matrix_available"]
+        is True
+    )
+    assert path["criteria"]["complete_universal_holomorphic_up_matrix_rank"] == 0
+    assert path["criteria"]["declared_up_branch_can_reach_rank_three"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "complete lawful tree-level up matrix derived as an exact "
-        "rank-zero result; the complete universal first-order matrix "
-        "also has exact rank zero"
+        "the full universal holomorphic up matrix is exactly rank zero "
+        "throughout the frozen P1 branch"
     )
     assert path["next_required_object"] == (
-        "the next f5 contribution or a structural theorem proving "
-        "persistent rank deficiency"
+        "the lowest-complexity untested Yukawa sector on the same "
+        "carrier, beginning with its exact Wilson character support"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -209,6 +216,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_v2_pluecker_chain_map"]["status"] == "COMPUTED"
     assert claims["mixed_first_higher_product_coefficient"]["status"] == "COMPUTED"
     assert claims["mixed_first_order_up_matrix"]["status"] == "COMPUTED"
+    assert claims["mixed_up_yukawa_no_go"]["status"] == "PROVED"
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"

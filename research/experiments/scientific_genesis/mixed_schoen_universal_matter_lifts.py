@@ -268,45 +268,20 @@ def _lift_v2_class(
 ) -> UniversalV2MatterLift:
     """Solve both universal parameter coefficients for one strict V2 class."""
 
-    first, _second = mixed_schoen_constituents()
-    unit = mixed_schoen_unit()
-    contraction = _matter_contraction(1)
-    transferred = mixed_transferred_outer_hom(first, unit)
-    actions = {item.name: item for item in schoen_sparse_deck_actions()}
     products = []
     corrections = []
     product_cycles = True
     correction_identities = True
     strict_characters = _strict_character(v2_representative, character, 2)
     for extension in extensions:
-        product = mixed_outer_cup(extension, v2_representative)
-        product_cycles = product_cycles and contraction.differential(product).is_zero()
-        strict_characters = strict_characters and _strict_character(
-            product,
+        product, correction, cycle, identity, strict = _lift_v2_coefficient(
             character,
-            1,
+            v2_representative,
+            extension,
         )
-        primitive = exact_mixed_primitive(
-            product,
-            contraction,
-            transferred,
-            2,
-        ).primitive
-        strict_primitive = _character_project(
-            primitive,
-            contraction,
-            actions,
-            character,
-        )
-        correction = strict_primitive.scale(-1)
-        correction_identities = correction_identities and (
-            contraction.differential(correction) + product
-        ).is_zero()
-        strict_characters = strict_characters and _strict_character(
-            correction,
-            character,
-            1,
-        )
+        product_cycles = product_cycles and cycle
+        correction_identities = correction_identities and identity
+        strict_characters = strict_characters and strict
         products.append(product)
         corrections.append(correction)
     result = UniversalV2MatterLift(
@@ -322,6 +297,47 @@ def _lift_v2_class(
     if not result.exact:
         raise ValueError("one universal V2 matter lift failed")
     return result
+
+
+def _lift_v2_coefficient(
+    character: tuple[int, int],
+    v2_representative: SparseOuterCechCochain,
+    extension: SparseOuterCechCochain,
+) -> tuple[
+    SparseOuterCechCochain,
+    SparseOuterCechCochain,
+    bool,
+    bool,
+    bool,
+]:
+    """Solve one universal parameter coefficient for one strict V2 class."""
+
+    first, _second = mixed_schoen_constituents()
+    unit = mixed_schoen_unit()
+    contraction = _matter_contraction(1)
+    transferred = mixed_transferred_outer_hom(first, unit)
+    actions = {item.name: item for item in schoen_sparse_deck_actions()}
+    product = mixed_outer_cup(extension, v2_representative)
+    product_cycle = contraction.differential(product).is_zero()
+    strict = _strict_character(product, character, 1)
+    primitive = exact_mixed_primitive(
+        product,
+        contraction,
+        transferred,
+        2,
+    ).primitive
+    strict_primitive = _character_project(
+        primitive,
+        contraction,
+        actions,
+        character,
+    )
+    correction = strict_primitive.scale(-1)
+    correction_identity = (
+        contraction.differential(correction) + product
+    ).is_zero()
+    strict = strict and _strict_character(correction, character, 1)
+    return product, correction, product_cycle, correction_identity, strict
 
 
 def _initialize_lift_worker(

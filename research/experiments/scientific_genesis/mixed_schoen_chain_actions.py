@@ -528,13 +528,19 @@ class MixedSchoenHiggsDeckAction:
 
 
 @cache
-def mixed_schoen_higgs_deck_action() -> MixedSchoenHiggsDeckAction:
-    """Derive and gate the source-required lawful full Higgs representative."""
+def mixed_schoen_higgs_deck_action_for_character(
+    required_character: Character,
+) -> MixedSchoenHiggsDeckAction:
+    """Derive and gate one lawful full Higgs character representative."""
 
     actions = {action.name: action for action in schoen_sparse_deck_actions()}
-    bases = tuple((degree, _character_basis(degree, UP_HIGGS_CHARACTER)) for degree in (0, 1, 2))
+    bases = tuple(
+        (degree, _character_basis(degree, required_character))
+        for degree in (0, 1, 2)
+    )
     maps_with_depths = tuple(
-        (degree, _character_differential(degree, UP_HIGGS_CHARACTER)) for degree in (0, 1)
+        (degree, _character_differential(degree, required_character))
+        for degree in (0, 1)
     )
     maps = {degree: item[0] for degree, item in maps_with_depths}
     cycles = maps[1].kernel_inclusion()
@@ -553,11 +559,14 @@ def mixed_schoen_higgs_deck_action() -> MixedSchoenHiggsDeckAction:
             and p_action.compose(t_action) == t_action.compose(p_action)
         )
         character_bases_exact &= p_action.compose(basis) == basis.scale(
-            OMEGA ** UP_HIGGS_CHARACTER[0]
-        ) and t_action.compose(basis) == basis.scale(OMEGA ** UP_HIGGS_CHARACTER[1])
+            OMEGA ** required_character[0]
+        ) and t_action.compose(basis) == basis.scale(
+            OMEGA ** required_character[1]
+        )
     cycle = full_chain_diagonal_differential(full).is_zero()
     strict = all(
-        _full_action(full, actions[name]) == full.scale(OMEGA ** UP_HIGGS_CHARACTER[index])
+        _full_action(full, actions[name])
+        == full.scale(OMEGA ** required_character[index])
         for index, name in enumerate(("P", "T"))
     )
     result = MixedSchoenHiggsDeckAction(
@@ -565,7 +574,7 @@ def mixed_schoen_higgs_deck_action() -> MixedSchoenHiggsDeckAction:
         tuple((degree, item[0]) for degree, item in maps_with_depths),
         tuple((degree, item[1]) for degree, item in maps_with_depths),
         representatives,
-        UP_HIGGS_CHARACTER,
+        required_character,
         full,
         depth,
         group_relations,
@@ -575,8 +584,17 @@ def mixed_schoen_higgs_deck_action() -> MixedSchoenHiggsDeckAction:
         _source_digest(),
     )
     if not result.physical_higgs_representative_available:
-        raise ValueError("the strict source-required Higgs representative gate failed")
+        raise ValueError(
+            "the strict source-required Higgs character representative gate failed"
+        )
     return result
+
+
+@cache
+def mixed_schoen_higgs_deck_action() -> MixedSchoenHiggsDeckAction:
+    """Return the source-required up-type Higgs representative."""
+
+    return mixed_schoen_higgs_deck_action_for_character(UP_HIGGS_CHARACTER)
 
 
 def write_chain_actions(path: Path = OUTPUT) -> dict[str, object]:
@@ -626,5 +644,6 @@ __all__ = [
     "MixedSchoenHiggsDeckAction",
     "OUTPUT",
     "mixed_schoen_higgs_deck_action",
+    "mixed_schoen_higgs_deck_action_for_character",
     "write_chain_actions",
 ]

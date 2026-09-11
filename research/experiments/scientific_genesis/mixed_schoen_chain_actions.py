@@ -26,7 +26,7 @@ from pathlib import Path
 from typing import cast
 
 from onetheory.math.homological import VectorSpace
-from onetheory.math.numbers import OMEGA, Eisenstein
+from onetheory.math.numbers import OMEGA, Eisenstein, Rational
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
 )
@@ -436,6 +436,126 @@ def _cochain_record(cochain: ChainDiagonalCochain) -> dict[str, object]:
     }
 
 
+def _parse_rational_text(value: str) -> Rational:
+    """Parse the canonical exact rational text emitted by ``Rational``."""
+
+    parts = value.split("/")
+    if len(parts) == 1:
+        return Rational(int(parts[0]))
+    if len(parts) == 2:
+        return Rational(int(parts[0]), int(parts[1]))
+    raise ValueError("the certified scalar has invalid rational syntax")
+
+
+def _parse_eisenstein_text(value: str) -> Eisenstein:
+    """Parse canonical ``a + b omega`` text without approximate coercion."""
+
+    if not value.endswith("omega"):
+        return Eisenstein(_parse_rational_text(value))
+    prefix = value[: -len("omega")]
+    if prefix.endswith("*"):
+        prefix = prefix[:-1]
+    split = max(prefix.rfind("+", 1), prefix.rfind("-", 1))
+    if split >= 0:
+        constant_text = prefix[:split]
+        omega_text = prefix[split:]
+        constant = _parse_rational_text(constant_text)
+    else:
+        omega_text = prefix
+        constant = Rational(0)
+    if omega_text in {"", "+"}:
+        omega = Rational(1)
+    elif omega_text == "-":
+        omega = Rational(-1)
+    else:
+        omega = _parse_rational_text(omega_text)
+    return Eisenstein(constant, omega)
+
+
+def _cochain_from_record(raw: object) -> ChainDiagonalCochain:
+    """Rehydrate one exact chain cochain from its canonical artifact record."""
+
+    if not isinstance(raw, dict):
+        raise ValueError("the certified Higgs cochain record is missing")
+    raw_terms = raw.get("terms")
+    term_count = raw.get("term_count")
+    if not isinstance(raw_terms, list) or term_count != len(raw_terms):
+        raise ValueError("the certified Higgs cochain term count changed")
+    object_indices = _object_indices()
+    terms: list[tuple[ChainDiagonalBasis, Eisenstein]] = []
+    for raw_term in raw_terms:
+        if not isinstance(raw_term, dict):
+            raise ValueError("a certified Higgs cochain term is malformed")
+        object_pair = raw_term.get("object_pair")
+        subset = raw_term.get("koszul_subset")
+        monomials = raw_term.get("monomials")
+        cell = raw_term.get("cell")
+        coefficient = raw_term.get("coefficient")
+        if (
+            not isinstance(object_pair, list)
+            or len(object_pair) != 2
+            or not all(isinstance(index, int) for index in object_pair)
+            or not isinstance(subset, list)
+            or not all(isinstance(index, int) for index in subset)
+            or not isinstance(monomials, list)
+            or len(monomials) != 4
+            or not isinstance(cell, list)
+            or len(cell) != 4
+            or not isinstance(coefficient, str)
+        ):
+            raise ValueError("a certified Higgs cochain term has invalid fields")
+        try:
+            object_index = object_indices[(object_pair[0], object_pair[1])]
+            typed_monomials = cast(
+                tuple[Monomial, Monomial, Monomial, Monomial],
+                tuple(tuple(int(value) for value in item) for item in monomials),
+            )
+            typed_cell = cast(
+                Cell4,
+                tuple(tuple(int(value) for value in item) for item in cell),
+            )
+        except (KeyError, TypeError, ValueError) as error:
+            raise ValueError("a certified Higgs cochain basis is invalid") from error
+        terms.append(
+            (
+                ChainDiagonalBasis(
+                    _target_component(object_index, tuple(subset)),
+                    typed_monomials,
+                    typed_cell,
+                ),
+                _parse_eisenstein_text(coefficient),
+            )
+        )
+    cochain = ChainDiagonalCochain(tuple(terms))
+    if _cochain_record(cochain) != raw:
+        raise ValueError("the certified Higgs cochain failed canonical round-trip")
+    return cochain
+
+
+@cache
+def load_certified_higgs_representative(
+    path: Path = OUTPUT,
+) -> ChainDiagonalCochain:
+    """Load the strict Higgs cocycle only after every artifact gate passes."""
+
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    digest = payload.pop("artifact_digest", None)
+    if not isinstance(digest, str) or digest != _canonical_digest(payload):
+        raise ValueError("the strict Higgs artifact digest failed")
+    if (
+        payload.get("schema") != "mixed-schoen-chain-actions-v1"
+        or payload.get("source_archive_sha256") != _source_digest()
+        or payload.get("required_character") != list(UP_HIGGS_CHARACTER)
+        or payload.get("character_h1_dimension") != 1
+        or payload.get("transferred_differential_squared_zero") is not True
+        or payload.get("full_representative_is_cycle") is not True
+        or payload.get("full_representative_has_strict_character") is not True
+        or payload.get("physical_higgs_representative_available") is not True
+    ):
+        raise ValueError("the strict Higgs artifact scientific gates failed")
+    return _cochain_from_record(payload.get("required_full_cochain"))
+
+
 @dataclass(frozen=True, slots=True)
 class MixedSchoenHiggsDeckAction:
     """The exact deck representation and strict required Higgs cocycle."""
@@ -643,6 +763,7 @@ if __name__ == "__main__":
 __all__ = [
     "MixedSchoenHiggsDeckAction",
     "OUTPUT",
+    "load_certified_higgs_representative",
     "mixed_schoen_higgs_deck_action",
     "mixed_schoen_higgs_deck_action_for_character",
     "write_chain_actions",

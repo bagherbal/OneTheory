@@ -18,8 +18,16 @@ from __future__ import annotations
 
 import json
 
+import pytest
+
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
+)
+from research.experiments.scientific_genesis.mixed_schoen_chain_actions import (
+    OUTPUT as HIGGS_REPRESENTATIVE_ARTIFACT,
+)
+from research.experiments.scientific_genesis.mixed_schoen_chain_actions import (
+    load_certified_higgs_representative,
 )
 from research.experiments.scientific_genesis.mixed_schoen_higgs_leg_deformation import (
     OUTPUT,
@@ -55,3 +63,19 @@ def test_first_higgs_leg_lift_is_exact_and_fail_closed() -> None:
     assert payload["extension_point_selected"] is False
     assert payload["observational_inputs_used"] is False
     assert "Pluecker chain map" in payload["first_missing_input"]
+
+
+def test_certified_higgs_representative_rehydrates_fail_closed(tmp_path) -> None:
+    """Downstream calculations consume only an untampered strict cocycle."""
+
+    representative = load_certified_higgs_representative()
+    assert len(representative.terms) == 27
+
+    tampered = json.loads(
+        HIGGS_REPRESENTATIVE_ARTIFACT.read_text(encoding="utf-8")
+    )
+    tampered["required_full_cochain"]["terms"][0]["coefficient"] = "1"
+    path = tmp_path / "tampered-chain-actions.json"
+    path.write_text(json.dumps(tampered), encoding="utf-8")
+    with pytest.raises(ValueError, match="artifact digest failed"):
+        load_certified_higgs_representative(path)

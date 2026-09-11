@@ -46,7 +46,7 @@ from .diagonal_schoen_lines import (
     _FullCochain,
     _subtract_degrees,
 )
-from .mixed_schoen_chain_actions import mixed_schoen_higgs_deck_action
+from .mixed_schoen_chain_actions import load_certified_higgs_representative
 from .mixed_schoen_chain_diagonal import (
     ChainDiagonalCochain,
     chain_diagonal_objects,
@@ -266,7 +266,7 @@ def higgs_leg_deformation(parameter_index: int) -> HiggsLegDeformationWitness:
     except IndexError as error:
         raise ValueError("the carrier parameter index is unavailable") from error
     source = _source_zero_component(extension)
-    higgs = mixed_schoen_higgs_deck_action().required_full_cochain
+    higgs = load_certified_higgs_representative()
     action = extension_higgs_action(extension, higgs)
     primitive = exact_diagonal_ambient_line_primitive(
         action,

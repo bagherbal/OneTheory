@@ -388,6 +388,14 @@ two V1 classes and four local V2 classes satisfy all eight coefficientwise cone
 identities and deck-character gates over `Q(omega)[a0,a1]`, without selecting a
 projective point. The immediate target is the complete tree-level
 Dirac-neutrino matrix using the existing strict up-Higgs cocycle and trace.
+That matrix is now complete: the four independently reconstructed 23,409-term
+matter cycles contract to scalar cycles of `6,354`, `5,832`, `5,832`, and
+`6,354` terms. All four normalized residues vanish, and depth-four primitives
+reconstruct every scalar cycle exactly. The associated-graded three-family
+matrix therefore has exact rank zero. This does not eliminate the universal
+Dirac-neutrino branch because its eight parameter corrections have not yet
+been traced. The immediate target is the complete first universal coefficient
+matrix, with no extension point selected.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

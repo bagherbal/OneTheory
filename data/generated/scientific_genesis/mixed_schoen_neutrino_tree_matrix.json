@@ -1,0 +1,164 @@
+{
+  "artifact_digest": "5db6d9e1df7fd0e3840c565a64b3ca8b27e15991bb5924ece62b519f91f185ab",
+  "classification": "SCOPED_TREE_LEVEL_NO_GO",
+  "coefficient_field": "Q(omega)",
+  "complete_tree_level_neutrino_matrix_available": true,
+  "dirac_neutrino_tree_matrix": {
+    "all_zero_entries_have_exact_primitives": true,
+    "character_allowed_slots": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "column_matter_character_exponents": [
+      0,
+      2
+    ],
+    "entries": [
+      {
+        "column": 1,
+        "exact": true,
+        "matter_digest": "7dbebb518c28e26a1e509368b8f2298998bb4c060de2aedbbcbe8cc1683bced6",
+        "matter_term_count": 23409,
+        "primitive_depth": 4,
+        "primitive_digest": "cd3ccafd543aa1e89815a399f0d10c8842341dd62efc2230cf6d1688a9047c62",
+        "primitive_reconstruction_exact": true,
+        "primitive_term_count": 4086,
+        "projection_depth": 4,
+        "row": 0,
+        "scalar_digest": "62990012f5d5ff9f44c5be37a1cd666a387bc57866fd3479576324a830c60343",
+        "scalar_is_cycle": true,
+        "scalar_term_count": 6354,
+        "value": "0"
+      },
+      {
+        "column": 2,
+        "exact": true,
+        "matter_digest": "13fb3ea2e953bad24f87e68137eee437399379176cc269285cacaf7ca6040b29",
+        "matter_term_count": 23409,
+        "primitive_depth": 4,
+        "primitive_digest": "62fa826b07ef7ea3f9a5785b90f58349ef52d1ebf675d3d64876d60aacb7d6db",
+        "primitive_reconstruction_exact": true,
+        "primitive_term_count": 3771,
+        "projection_depth": 4,
+        "row": 0,
+        "scalar_digest": "58a12063dd66d8abbbed8eb436701a185d409d5272a6c8a8c0e51cfcabe1f028",
+        "scalar_is_cycle": true,
+        "scalar_term_count": 5832,
+        "value": "0"
+      },
+      {
+        "column": 0,
+        "exact": true,
+        "matter_digest": "9236a7943e40f615efa35fb8facf5e0ddf6f94f694ee96354ebc1db865999d60",
+        "matter_term_count": 23409,
+        "primitive_depth": 4,
+        "primitive_digest": "148f7dee4488ad3a3401667bf27ef780126af26d285e8be47f6023bd1c42ed3d",
+        "primitive_reconstruction_exact": true,
+        "primitive_term_count": 3771,
+        "projection_depth": 4,
+        "row": 1,
+        "scalar_digest": "617e49c882c385c261beab4e524f464e689ba81949f67493cf9e4270323ca7b3",
+        "scalar_is_cycle": true,
+        "scalar_term_count": 5832,
+        "value": "0"
+      },
+      {
+        "column": 0,
+        "exact": true,
+        "matter_digest": "2b74129ac9ffec0e701795503ffddccb8639844c7f8dd6e4ee06ab694a12d895",
+        "matter_term_count": 23409,
+        "primitive_depth": 4,
+        "primitive_digest": "d0d9634457f51ef85c7a20e940794789ee71eb1acfb2dff65e2a208e041a7099",
+        "primitive_reconstruction_exact": true,
+        "primitive_term_count": 4086,
+        "projection_depth": 4,
+        "row": 2,
+        "scalar_digest": "f02922abc7334ac01b43260eb429c3e1c5b2feebcaba83c2d46afc83528db99d",
+        "scalar_is_cycle": true,
+        "scalar_term_count": 6354,
+        "value": "0"
+      }
+    ],
+    "exact": true,
+    "family_basis": [
+      "V1",
+      "V2:1",
+      "V2:2"
+    ],
+    "higgs_character_exponents": [
+      0,
+      1
+    ],
+    "matrix": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "matrix_rank": 0,
+    "row_matter_character_exponents": [
+      0,
+      0
+    ],
+    "structural_zero_slots": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "tree_level_nontrivial": false
+  },
+  "extension_point_selected": false,
+  "next_required_object": "the complete first mathematically allowed universal Dirac-neutrino coefficient matrix",
+  "nontrivial_holomorphic_neutrino_matrix_available": false,
+  "observational_inputs_used": false,
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "neutrino_matter_lifts": "31917dd6c0e5abd9f7fae1f981be51df3e9ff5a5f2f335fc46211d67393fecd6",
+    "strict_up_higgs": "14201804a8e9b5927a83ecd7366aa0d461bc17b621b4b01e94afc2c04cfde06a"
+  },
+  "schema": "mixed-schoen-holomorphic-neutrino-tree-matrix-v1",
+  "scope": "the associated-graded split-family product with the strict up-Higgs class; universal parameter corrections remain to be evaluated",
+  "trace_normalization": "the ordered ambient canonical Laurent residue generator has trace one"
+}

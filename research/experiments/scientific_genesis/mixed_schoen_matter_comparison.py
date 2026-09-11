@@ -47,7 +47,13 @@ from .mixed_schoen_chain_transfer import (
     _projected_coordinates,
     _reduced_entries,
 )
-from .mixed_schoen_matter_tensor import split_matter_tensor_audit
+from .mixed_schoen_matter_tensor import (
+    SplitMatterTensorAudit,
+    _sum_character,
+    split_matter_product_for_slot,
+    split_matter_tensor_audit,
+    split_matter_tensor_audit_for_characters,
+)
 
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / "data/generated/scientific_genesis/mixed_schoen_matter_comparison.json"
@@ -197,11 +203,11 @@ class MatterComparisonWitness:
         }
 
 
-@cache
-def mixed_schoen_matter_comparison() -> tuple[MatterComparisonWitness, ...]:
-    """Construct exact equivariant comparisons for all split matter products."""
+def _matter_comparison(
+    audit: SplitMatterTensorAudit,
+) -> tuple[MatterComparisonWitness, ...]:
+    """Construct exact equivariant comparisons from one tensor audit."""
 
-    audit = split_matter_tensor_audit()
     residuals = {(row, column): residual for row, column, residual in audit.residuals}
     witnesses = []
     for row, column, product in audit.products:
@@ -234,6 +240,75 @@ def mixed_schoen_matter_comparison() -> tuple[MatterComparisonWitness, ...]:
             )
         witnesses.append(witness)
     return tuple(witnesses)
+
+
+def mixed_schoen_matter_comparison_for_slot(
+    row_character: Character,
+    column_character: Character,
+    row: int,
+    column: int,
+) -> MatterComparisonWitness:
+    """Construct one exact comparison without evaluating unrelated slots."""
+
+    product = split_matter_product_for_slot(
+        row_character,
+        column_character,
+        row,
+        column,
+    )
+    residual = full_chain_diagonal_differential(product)
+    character = _sum_character(row_character, column_character)
+    reduced, projection_depth = _perturbed_projection_inclusion(product, 2)
+    strict, inclusion_depth = _perturbed_inclusion(reduced)
+    equivariant = _character_project(strict, character)
+    projected_again, _depth = _perturbed_projection_inclusion(strict, 2)
+    correction = equivariant + product.scale(-1)
+    witness = MatterComparisonWitness(
+        row,
+        column,
+        character,
+        product,
+        residual,
+        reduced,
+        strict,
+        equivariant,
+        correction,
+        projection_depth,
+        inclusion_depth,
+        projected_again == reduced,
+        full_chain_diagonal_differential(strict).is_zero(),
+        full_chain_diagonal_differential(equivariant).is_zero(),
+        full_chain_diagonal_differential(correction) == residual.scale(-1),
+        _has_character(equivariant, character),
+    )
+    if not witness.exact:
+        raise ValueError(
+            "the exact equivariant matter chain comparison failed: "
+            f"slot=({row}, {column})"
+        )
+    return witness
+
+
+@cache
+def mixed_schoen_matter_comparison_for_characters(
+    row_character: Character,
+    column_character: Character,
+) -> tuple[MatterComparisonWitness, ...]:
+    """Construct exact comparisons for one ordered matter-character pair."""
+
+    return _matter_comparison(
+        split_matter_tensor_audit_for_characters(
+            row_character,
+            column_character,
+        )
+    )
+
+
+@cache
+def mixed_schoen_matter_comparison() -> tuple[MatterComparisonWitness, ...]:
+    """Construct exact equivariant comparisons for the up-type matter pair."""
+
+    return _matter_comparison(split_matter_tensor_audit())
 
 
 def write_mixed_schoen_matter_comparison(
@@ -292,5 +367,7 @@ __all__ = [
     "MatterComparisonWitness",
     "OUTPUT",
     "mixed_schoen_matter_comparison",
+    "mixed_schoen_matter_comparison_for_characters",
+    "mixed_schoen_matter_comparison_for_slot",
     "write_mixed_schoen_matter_comparison",
 ]

@@ -335,6 +335,36 @@ def _sum_character(left: Character, right: Character) -> Character:
     return ((left[0] + right[0]) % 3, (left[1] + right[1]) % 3)
 
 
+def split_matter_product_for_slot(
+    row_character: Character,
+    column_character: Character,
+    row: int,
+    column: int,
+) -> ChainDiagonalCochain:
+    """Construct one split-family product without computing the other slots."""
+
+    first, second = mixed_schoen_matter_representatives()
+    first_row = _sector(first.sectors, row_character)
+    first_column = _sector(first.sectors, column_character)
+    second_row = _sector(second.sectors, row_character)
+    second_column = _sector(second.sectors, column_character)
+    if first_row.dimension != 1 or first_column.dimension != 1:
+        raise ValueError("the selected V1 matter sectors must be one-dimensional")
+    if second_row.dimension != 2 or second_column.dimension != 2:
+        raise ValueError("the selected V2 matter sectors must be two-dimensional")
+    if row == 0 and column in {1, 2}:
+        return external_matter_tensor(
+            first_row.full_representatives[0],
+            second_column.full_representatives[column - 1],
+        )
+    if column == 0 and row in {1, 2}:
+        return external_matter_tensor(
+            first_column.full_representatives[0],
+            second_row.full_representatives[row - 1],
+        )
+    raise ValueError("the split matter product supports only V1--V2 slots")
+
+
 @dataclass(frozen=True, slots=True)
 class SplitMatterTensorAudit:
     """The exact direct-tensor audit for one three-family split slice."""
@@ -470,11 +500,13 @@ class SplitMatterTensorAudit:
 
 
 @cache
-def split_matter_tensor_audit() -> SplitMatterTensorAudit:
-    """Audit the canonical direct tensor for the minimum up-type split slice."""
+def split_matter_tensor_audit_for_characters(
+    row_character: Character,
+    column_character: Character,
+) -> SplitMatterTensorAudit:
+    """Audit the canonical direct tensor for one ordered character pair."""
 
     first, second = mixed_schoen_matter_representatives()
-    row_character, column_character = UP_MATTER_CHARACTERS
     first_row = _sector(first.sectors, row_character)
     first_column = _sector(first.sectors, column_character)
     second_row = _sector(second.sectors, row_character)
@@ -571,6 +603,13 @@ def split_matter_tensor_audit() -> SplitMatterTensorAudit:
     return result
 
 
+@cache
+def split_matter_tensor_audit() -> SplitMatterTensorAudit:
+    """Audit the canonical direct tensor for the minimum up-type split slice."""
+
+    return split_matter_tensor_audit_for_characters(*UP_MATTER_CHARACTERS)
+
+
 def write_split_matter_tensor_audit(path: Path = OUTPUT) -> dict[str, object]:
     """Write the content-addressed direct matter-tensor obstruction."""
 
@@ -608,6 +647,8 @@ __all__ = [
     "external_lifted_matter_tensor",
     "external_matter_tensor",
     "lift_matter_cochain",
+    "split_matter_product_for_slot",
     "split_matter_tensor_audit",
+    "split_matter_tensor_audit_for_characters",
     "write_split_matter_tensor_audit",
 ]

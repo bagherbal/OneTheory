@@ -1414,6 +1414,28 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_neutrino_tree_matrix",
+            "associated-graded Dirac-neutrino matrix",
+            "Flavor",
+            "COMPUTED",
+            "All four character-allowed split-family determinant traces are "
+            "exact scalar cycles with zero residue and explicit global "
+            "primitives. The complete associated-graded three-family matrix "
+            "therefore has exact rank zero, while universal parameter "
+            "corrections remain unevaluated.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_neutrino_tree_matrix.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_neutrino_tree_matrix.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_neutrino_tree_matrix.py",
+            ),
+            missing=(
+                "complete first universal Dirac-neutrino coefficient matrix",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -2933,18 +2955,31 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "universal_neutrino_matter_lifts",
-            "first_exact_yukawa",
-            "The two complete matter bases can now be paired with the reused "
-            "strict Higgs class by the exact tree-level trace.",
+            "mixed_neutrino_tree_matrix",
+            "The two complete matter bases pair with the reused strict Higgs "
+            "class through the exact determinant trace.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_neutrino_matter_lifts.json",
+                "mixed_schoen_neutrino_tree_matrix.json",
             ),
             (),
             True,
             (
-                "the tree-level trace may vanish or remain rank deficient",
+                "the associated-graded trace need not include universal corrections",
             ),
+        ),
+        _edge(
+            "mixed_neutrino_tree_matrix",
+            "first_exact_yukawa",
+            "The exact tree-level zero fixes the baseline that the first "
+            "universal correction must escape to produce a nontrivial matrix.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_neutrino_tree_matrix.json",
+            ),
+            (),
+            False,
+            ("the first universal coefficient is not yet computed",),
         ),
         _edge(
             "common_dga_package",
@@ -3409,6 +3444,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_matter_lifts.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_neutrino_tree_matrix.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -3439,7 +3476,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 617,
+            "collected_tests_at_audit": 619,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3461,8 +3498,8 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "the exact down-Higgs chain obstruction reranks Dirac neutrinos "
-                "as the minimum available flavor workload"
+                "the exact Dirac-neutrino tree matrix vanishes, so the first "
+                "universal coefficient is the minimum available flavor edge"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3638,11 +3675,15 @@ def build_state() -> dict[str, object]:
                 "neutrino_universal_v2_lift_count": 4,
                 "neutrino_matter_parameter_correction_count": 8,
                 "all_neutrino_matter_lifts_exact": True,
+                "complete_neutrino_tree_matrix_available": True,
+                "complete_neutrino_tree_matrix_rank": 0,
+                "neutrino_tree_zero_entries_have_exact_primitives": True,
+                "neutrino_tree_extension_point_selected": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "complete carrier-derived tree-level Dirac-neutrino matrix"
+                "complete first universal Dirac-neutrino coefficient matrix"
             ),
         },
         "claims": _nodes(),

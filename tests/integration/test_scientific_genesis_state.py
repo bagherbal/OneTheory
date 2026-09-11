@@ -215,17 +215,24 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["neutrino_universal_v2_lift_count"] == 4
     assert path["criteria"]["neutrino_matter_parameter_correction_count"] == 8
     assert path["criteria"]["all_neutrino_matter_lifts_exact"] is True
+    assert path["criteria"]["complete_neutrino_tree_matrix_available"] is True
+    assert path["criteria"]["complete_neutrino_tree_matrix_rank"] == 0
+    assert (
+        path["criteria"]["neutrino_tree_zero_entries_have_exact_primitives"]
+        is True
+    )
+    assert path["criteria"]["neutrino_tree_extension_point_selected"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "the exact down-Higgs chain obstruction reranks Dirac neutrinos "
-        "as the minimum available flavor workload"
+        "the exact Dirac-neutrino tree matrix vanishes, so the first "
+        "universal coefficient is the minimum available flavor edge"
     )
     assert path["next_required_object"] == (
-        "complete carrier-derived tree-level Dirac-neutrino matrix"
+        "complete first universal Dirac-neutrino coefficient matrix"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -243,6 +250,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_down_higgs_chain_obstruction"]["status"] == "REFUTED"
     assert claims["mixed_flavor_frontier"]["status"] == "COMPUTED"
     assert claims["universal_neutrino_matter_lifts"]["status"] == "COMPUTED"
+    assert claims["mixed_neutrino_tree_matrix"]["status"] == "COMPUTED"
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"

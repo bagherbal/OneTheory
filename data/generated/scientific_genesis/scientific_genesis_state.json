@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "d5e87c4f16ffa40db714792cc4c26b10975b451bf84812709f83415e441dea38",
+  "artifact_digest": "c1ab3024fc5ae2b48e5a440ca93672c4193a7737c31eede1c454cc063726a84d",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -302,6 +302,11 @@
       "sha256": "723fe9bff272f03594d1bd87ec8232ee52547d8ed678040e1b6303f8f3d655f2"
     },
     {
+      "bytes": 4647,
+      "path": "data/generated/scientific_genesis/mixed_schoen_neutrino_tree_matrix.json",
+      "sha256": "45dcdb38e6f2aa2970ef379f885500a348b6679fa248a146fe04a67b38fe46b5"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -373,11 +378,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 617,
+    "collected_tests_at_audit": 619,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 182,
-    "test_python_files": 161
+    "research_python_files": 183,
+    "test_python_files": 162
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1556,6 +1561,22 @@
         "complete carrier-derived tree-level Dirac-neutrino matrix"
       ],
       "statement": "Characters (0,0) and (0,2) each have one exact constant V1 class and two exact parameter-linear V2 lifts. All eight independently computed carrier-parameter corrections satisfy the cone identity and strict deck-character gates over the full frozen P1.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_tree_matrix.json",
+        "research/experiments/scientific_genesis/mixed_schoen_neutrino_tree_matrix.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_neutrino_tree_matrix.py"
+      ],
+      "id": "mixed_neutrino_tree_matrix",
+      "label": "associated-graded Dirac-neutrino matrix",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "complete first universal Dirac-neutrino coefficient matrix"
+      ],
+      "statement": "All four character-allowed split-family determinant traces are exact scalar cycles with zero residue and explicit global primitives. The complete associated-graded three-family matrix therefore has exact rank zero, while universal parameter corrections remain unevaluated.",
       "status": "COMPUTED"
     },
     {
@@ -3055,14 +3076,27 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_neutrino_matter_lifts.json"
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_tree_matrix.json"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "the tree-level trace may vanish or remain rank deficient"
+        "the associated-graded trace need not include universal corrections"
       ],
-      "mathematical_reason": "The two complete matter bases can now be paired with the reused strict Higgs class by the exact tree-level trace.",
+      "mathematical_reason": "The two complete matter bases pair with the reused strict Higgs class through the exact determinant trace.",
       "source": "universal_neutrino_matter_lifts",
+      "target": "mixed_neutrino_tree_matrix"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_tree_matrix.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "the first universal coefficient is not yet computed"
+      ],
+      "mathematical_reason": "The exact tree-level zero fixes the baseline that the first universal correction must escape to produce a nontrivial matrix.",
+      "source": "mixed_neutrino_tree_matrix",
       "target": "first_exact_yukawa"
     },
     {
@@ -3375,6 +3409,8 @@
         "a1"
       ],
       "complete_first_order_matrix_rank": 0,
+      "complete_neutrino_tree_matrix_available": true,
+      "complete_neutrino_tree_matrix_rank": 0,
       "complete_tree_level_up_matrix_available": true,
       "complete_universal_holomorphic_up_matrix_available": true,
       "complete_universal_holomorphic_up_matrix_rank": 0,
@@ -3521,6 +3557,8 @@
         6
       ],
       "neutrino_matter_parameter_correction_count": 8,
+      "neutrino_tree_extension_point_selected": false,
+      "neutrino_tree_zero_entries_have_exact_primitives": true,
       "neutrino_universal_matter_character_count": 2,
       "neutrino_universal_v1_class_count": 2,
       "neutrino_universal_v2_lift_count": 4,
@@ -3630,8 +3668,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "complete carrier-derived tree-level Dirac-neutrino matrix",
-    "selection_status": "the exact down-Higgs chain obstruction reranks Dirac neutrinos as the minimum available flavor workload"
+    "next_required_object": "complete first universal Dirac-neutrino coefficient matrix",
+    "selection_status": "the exact Dirac-neutrino tree matrix vanishes, so the first universal coefficient is the minimum available flavor edge"
   },
   "research_value_scheduler": [
     {

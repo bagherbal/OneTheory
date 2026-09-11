@@ -258,4 +258,12 @@ universal matter lifts in characters `(0,0)` and `(0,2)`. Those four universal
 matter classes are now exact over the whole frozen `P1`: two 684-term constant
 V1 classes and four 576-term V2 classes carry eight independently solved
 parameter corrections. Every cycle, correction identity, and strict character
-gate closes. The next object is the complete tree-level Dirac-neutrino matrix.
+gate closes. The complete associated-graded Dirac-neutrino calculation now
+reconstructs all four character-allowed matter products independently. Their
+23,409-term equivariant representatives contract to exact scalar cycles with
+term counts `6,354`, `5,832`, `5,832`, and `6,354`; every residue is zero and
+each has an explicit depth-four primitive. Thus the complete tree matrix has
+exact rank zero. This no-go is scoped to the associated-graded product: the
+already-derived universal matter corrections have not been omitted or declared
+zero. The next object is the complete first universal Dirac-neutrino
+coefficient matrix.

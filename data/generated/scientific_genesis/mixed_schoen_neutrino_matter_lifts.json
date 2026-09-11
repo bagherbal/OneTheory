@@ -1,0 +1,173 @@
+{
+  "all_coefficientwise_cone_identities_exact": true,
+  "all_lifts_strict_in_declared_characters": true,
+  "all_neutrino_matter_lifts_exact": true,
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "31917dd6c0e5abd9f7fae1f981be51df3e9ff5a5f2f335fc46211d67393fecd6",
+  "carrier_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "coefficient_field": "Q(omega)",
+  "matter_character_exponents": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "new_matter_parameter_correction_count": 8,
+  "next_required_object": "complete carrier-derived tree-level Dirac-neutrino matrix",
+  "observational_inputs_used": false,
+  "prerequisite_artifact_digests": {
+    "flavor_frontier": "9ebaf8d892cf7b21cb8787a38dfa879cd693916fcd5e4f038bf1d227c1572fc1",
+    "strict_matter": "7bfa76b80c1ae79eaaecbff6a07c370d792bd99a022ae65d04e9523af56483cf",
+    "universal_cone": "1c227754a808ca9a45d2859dd1cfbdb9338129f63bfa9ccfde930c4862abc22d"
+  },
+  "schema": "mixed-schoen-neutrino-matter-lifts-v1",
+  "selected_sector": "dirac_neutrino",
+  "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+  "universal_visible_family_dimension_per_character": 3,
+  "v1_constant_classes": [
+    {
+      "character_exponents": [
+        0,
+        0
+      ],
+      "digest": "f9b02c8c9812ef1bda5be0d6f3eaa3400bab64ea3c8693ef4e482d5661363f5b",
+      "strict_character_exact": true,
+      "term_count": 684
+    },
+    {
+      "character_exponents": [
+        0,
+        2
+      ],
+      "digest": "1f55f2681953e927ffa3ba6f8c9720cebbd08316240aa0c5494cff310ba98aa1",
+      "strict_character_exact": true,
+      "term_count": 684
+    }
+  ],
+  "v2_parameter_linear_lifts": [
+    {
+      "character_exponents": [
+        0,
+        0
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "local_family_index": 1,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "e88f1285927322027d8bccd63ef28f27e82a208750eed84d89eef5b895539224",
+          "correction_term_count": 37944,
+          "parameter": "a0",
+          "product_digest": "b00b093949fe659ae4edb1469d6e22f818bb1c47b5665797e3addccbfb9b5d4d",
+          "product_term_count": 69879
+        },
+        {
+          "correction_digest": "c4380888528584328adb5b5ef82a859b5a97ddc1f1ed2becf8503f1a71120498",
+          "correction_term_count": 33685,
+          "parameter": "a1",
+          "product_digest": "0c45031262ac5fc747fd1d8fa7fd193d724183caad3827c25771db9306900757",
+          "product_term_count": 60309
+        }
+      ],
+      "product_cycles_exact": true,
+      "strict_characters_exact": true,
+      "v2_digest": "f018f838f6be3ab87fbc64f7bba4328b679b90555f2258866140b8655c5672cb",
+      "v2_term_count": 576
+    },
+    {
+      "character_exponents": [
+        0,
+        0
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "local_family_index": 2,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "896031e8e14bec54ab98e9ff89f3511cefde2e1ccbdfda305307cbbe7ebcbc10",
+          "correction_term_count": 38787,
+          "parameter": "a0",
+          "product_digest": "757921a31a65f77c06b169c1e42d37bce842b790a7f82dfc6e3e1b60af10a89c",
+          "product_term_count": 71730
+        },
+        {
+          "correction_digest": "4dc8c8e5a98fafe85b72ef8ef6c122f981e01cc75271ebc242774bcc059ad4d8",
+          "correction_term_count": 36210,
+          "parameter": "a1",
+          "product_digest": "c51b08f302afaca0f2f956057531fd9f5d6983efcf8c02f3db3c46a6dbdfc169",
+          "product_term_count": 65583
+        }
+      ],
+      "product_cycles_exact": true,
+      "strict_characters_exact": true,
+      "v2_digest": "99482daf1d95ef90c794b023739058c5ff902aed55b66cf520e06752ff89dd4f",
+      "v2_term_count": 576
+    },
+    {
+      "character_exponents": [
+        0,
+        2
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "local_family_index": 1,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "b089d9e501dd21f0edc70ba47f55a2992972415ad59770c033db4f8fd6c864f7",
+          "correction_term_count": 38550,
+          "parameter": "a0",
+          "product_digest": "a815bc6deb04b839b9aaccf7639f721cdf5520e66ec473fd38f3cd6a90aa8000",
+          "product_term_count": 71241
+        },
+        {
+          "correction_digest": "5e9f23b113536f3420fef17be1e4030b7a107cc2f29247f6aeaad4faaa9de919",
+          "correction_term_count": 36447,
+          "parameter": "a1",
+          "product_digest": "2832b3c057e9333156e9617e3e33b90eefa23abb2830fbd06d2171268da0a260",
+          "product_term_count": 65622
+        }
+      ],
+      "product_cycles_exact": true,
+      "strict_characters_exact": true,
+      "v2_digest": "d1ff8ed3c9ddfe1fad35d53b1eed2db8c4906eb2a327a340d4a9e26b549bd18e",
+      "v2_term_count": 576
+    },
+    {
+      "character_exponents": [
+        0,
+        2
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "local_family_index": 2,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "ee21cae3ff28489d3175dbd7946002217e5df286bcc7f9835ee2b64690ea1db3",
+          "correction_term_count": 37836,
+          "parameter": "a0",
+          "product_digest": "d9fc1db634aa23c24c1e3f50f52c458ba29921c55f2568cdc628e727a0098a26",
+          "product_term_count": 69795
+        },
+        {
+          "correction_digest": "0318fab5e93761396d208acac454c01401486cbaf85ddf101687afbfef9aa170",
+          "correction_term_count": 34672,
+          "parameter": "a1",
+          "product_digest": "4717d936549becbb15c9517efb467f8c402d236b2c000cd6a2f71328456b2509",
+          "product_term_count": 61707
+        }
+      ],
+      "product_cycles_exact": true,
+      "strict_characters_exact": true,
+      "v2_digest": "ee259b0f2bacb37655c754088511fb58c50027e5d1f109058e5efbef029c1cb2",
+      "v2_term_count": 576
+    }
+  ],
+  "yukawa_coefficient_computed": false
+}

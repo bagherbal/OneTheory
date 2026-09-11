@@ -1393,6 +1393,27 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "universal_neutrino_matter_lifts",
+            "universal Dirac-neutrino matter lifts",
+            "Flavor",
+            "COMPUTED",
+            "Characters (0,0) and (0,2) each have one exact constant V1 class "
+            "and two exact parameter-linear V2 lifts. All eight independently "
+            "computed carrier-parameter corrections satisfy the cone identity "
+            "and strict deck-character gates over the full frozen P1.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_neutrino_matter_lifts.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_neutrino_matter_lifts.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_neutrino_matter_lifts.py",
+            ),
+            missing=(
+                "complete carrier-derived tree-level Dirac-neutrino matrix",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1498,7 +1519,6 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_flavor_frontier.json",
             ),
             missing=(
-                "universal matter lifts in characters (0,0) and (0,2)",
                 "complete carrier-derived Dirac-neutrino matrix",
             ),
         ),
@@ -2900,17 +2920,30 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_flavor_frontier",
-            "first_exact_yukawa",
-            "The remaining source-supported workloads select Dirac neutrinos "
-            "as the shortest available complete-matrix route.",
+            "universal_neutrino_matter_lifts",
+            "The selected Dirac-neutrino sector requires exact universal "
+            "matter classes in characters (0,0) and (0,2).",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_flavor_frontier.json",
+                "mixed_schoen_neutrino_matter_lifts.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "universal_neutrino_matter_lifts",
+            "first_exact_yukawa",
+            "The two complete matter bases can now be paired with the reused "
+            "strict Higgs class by the exact tree-level trace.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_neutrino_matter_lifts.json",
             ),
             (),
             True,
             (
-                "sector selection does not determine a Yukawa coefficient",
+                "the tree-level trace may vanish or remain rank deficient",
             ),
         ),
         _edge(
@@ -3374,6 +3407,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_flavor_character_support.json",
         "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_neutrino_matter_lifts.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -3404,7 +3439,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 615,
+            "collected_tests_at_audit": 617,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3598,12 +3633,16 @@ def build_state() -> dict[str, object]:
                 "selected_available_flavor_chain_object_count": 8,
                 "selected_available_matter_characters": [[0, 0], [0, 2]],
                 "selected_available_reused_higgs_character": [0, 1],
+                "neutrino_universal_matter_character_count": 2,
+                "neutrino_universal_v1_class_count": 2,
+                "neutrino_universal_v2_lift_count": 4,
+                "neutrino_matter_parameter_correction_count": 8,
+                "all_neutrino_matter_lifts_exact": True,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "universal matter lifts in characters (0,0) and (0,2) for the "
-                "Dirac-neutrino sector"
+                "complete carrier-derived tree-level Dirac-neutrino matrix"
             ),
         },
         "claims": _nodes(),
@@ -3714,6 +3753,8 @@ def build_state() -> dict[str, object]:
             "and select the down sector as the seven-object minimum next workload",
             "the exact current-chain down-Higgs character complex has H1 zero, "
             "so fail-closed reranking selects the eight-object neutrino sector",
+            "both neutrino matter characters have exact universal lifts with "
+            "all eight parameter corrections certified over the frozen P1",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -3788,7 +3829,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "universal Dirac-neutrino matter chain representatives",
+            "complete carrier-derived Dirac-neutrino Yukawa matrix",
             "an equivariant chain repair for the unavailable down-Higgs character",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",

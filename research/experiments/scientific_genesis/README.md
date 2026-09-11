@@ -254,4 +254,8 @@ dimensions `100 -> 243 -> 176` and ranks `100/143`, however, so its `H1` is
 zero rather than the source-required one. No character twist is guessed. With
 the current down route fail-closed, the exact frontier selects the
 Dirac-neutrino sector, which reuses the strict `(0,1)` Higgs class and requires
-universal matter lifts in characters `(0,0)` and `(0,2)`.
+universal matter lifts in characters `(0,0)` and `(0,2)`. Those four universal
+matter classes are now exact over the whole frozen `P1`: two 684-term constant
+V1 classes and four 576-term V2 classes carry eight independently solved
+parameter corrections. Every cycle, correction identity, and strict character
+gate closes. The next object is the complete tree-level Dirac-neutrino matrix.

@@ -383,7 +383,11 @@ published multiplicity one only after the rank calculation. This route is
 therefore unavailable unless an exact equivariant chain comparison repairs the
 linearization. The next exact frontier is the Dirac-neutrino sector: it reuses
 the certified `(0,1)` Higgs representative and requires matter characters
-`(0,0)` and `(0,2)`.
+`(0,0)` and `(0,2)`. Both matter sectors now have exact universal lifts: their
+two V1 classes and four local V2 classes satisfy all eight coefficientwise cone
+identities and deck-character gates over `Q(omega)[a0,a1]`, without selecting a
+projective point. The immediate target is the complete tree-level
+Dirac-neutrino matrix using the existing strict up-Higgs cocycle and trace.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

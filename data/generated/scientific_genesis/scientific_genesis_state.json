@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "c5b92e76c4b2f2aba7b078cc7676b72cd777636b7784884e0a537ad77579be39",
+  "artifact_digest": "d5e87c4f16ffa40db714792cc4c26b10975b451bf84812709f83415e441dea38",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -297,6 +297,11 @@
       "sha256": "e9130382d200ba68066c426bd49140e7d9549295b44a37382d5b4afe6c7fd706"
     },
     {
+      "bytes": 5948,
+      "path": "data/generated/scientific_genesis/mixed_schoen_neutrino_matter_lifts.json",
+      "sha256": "723fe9bff272f03594d1bd87ec8232ee52547d8ed678040e1b6303f8f3d655f2"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -368,11 +373,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 615,
+    "collected_tests_at_audit": 617,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 181,
-    "test_python_files": 160
+    "research_python_files": 182,
+    "test_python_files": 161
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -388,7 +393,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "universal Dirac-neutrino matter chain representatives",
+    "complete carrier-derived Dirac-neutrino Yukawa matrix",
     "an equivariant chain repair for the unavailable down-Higgs character",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
@@ -1540,6 +1545,22 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_matter_lifts.json",
+        "research/experiments/scientific_genesis/mixed_schoen_neutrino_matter_lifts.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_neutrino_matter_lifts.py"
+      ],
+      "id": "universal_neutrino_matter_lifts",
+      "label": "universal Dirac-neutrino matter lifts",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "complete carrier-derived tree-level Dirac-neutrino matrix"
+      ],
+      "statement": "Characters (0,0) and (0,2) each have one exact constant V1 class and two exact parameter-linear V2 lifts. All eight independently computed carrier-parameter corrections satisfy the cone identity and strict deck-character gates over the full frozen P1.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
       ],
       "id": "curvilinear_topology_route",
@@ -1616,7 +1637,6 @@
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "universal matter lifts in characters (0,0) and (0,2)",
         "complete carrier-derived Dirac-neutrino matrix"
       ],
       "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix. The next down route also fails because its strict Higgs character has zero current-chain H1, so the exact frontier now selects Dirac neutrinos.",
@@ -3024,14 +3044,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json"
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_matter_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The selected Dirac-neutrino sector requires exact universal matter classes in characters (0,0) and (0,2).",
+      "source": "mixed_flavor_frontier",
+      "target": "universal_neutrino_matter_lifts"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_matter_lifts.json"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "sector selection does not determine a Yukawa coefficient"
+        "the tree-level trace may vanish or remain rank deficient"
       ],
-      "mathematical_reason": "The remaining source-supported workloads select Dirac neutrinos as the shortest available complete-matrix route.",
-      "source": "mixed_flavor_frontier",
+      "mathematical_reason": "The two complete matter bases can now be paired with the reused strict Higgs class by the exact tree-level trace.",
+      "source": "universal_neutrino_matter_lifts",
       "target": "first_exact_yukawa"
     },
     {
@@ -3281,7 +3312,8 @@
     "the first a0 matter leg transfers exactly to 72,099 character terms with a 7,797-term noncycle residual and zero partial scalar residue, so it is not promoted to a higher product",
     "the complementary a0 Higgs action is an exact 1,593-term determinant-line cycle with an explicit 1,431-term correction; an exact Cech-Koszul line isomorphism maps these to canonical 2,124-term and 1,908-term cochains",
     "published Wilson characters make all four Yukawa triples invariant and select the down sector as the seven-object minimum next workload",
-    "the exact current-chain down-Higgs character complex has H1 zero, so fail-closed reranking selects the eight-object neutrino sector"
+    "the exact current-chain down-Higgs character complex has H1 zero, so fail-closed reranking selects the eight-object neutrino sector",
+    "both neutrino matter characters have exact universal lifts with all eight parameter corrections certified over the frozen P1"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -3315,6 +3347,7 @@
         34
       ],
       "additional_retired_family_count": 72,
+      "all_neutrino_matter_lifts_exact": true,
       "all_published_yukawa_character_products_invariant": true,
       "arbitrary_point_selected": false,
       "bottom_v2_plucker_chain_map_available": true,
@@ -3487,6 +3520,10 @@
         2,
         6
       ],
+      "neutrino_matter_parameter_correction_count": 8,
+      "neutrino_universal_matter_character_count": 2,
+      "neutrino_universal_v1_class_count": 2,
+      "neutrino_universal_v2_lift_count": 4,
       "next_candidate_blocks": [],
       "next_survivor_complements_stability_proved": false,
       "next_survivor_forced_chamber_nonempty": true,
@@ -3593,7 +3630,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "universal matter lifts in characters (0,0) and (0,2) for the Dirac-neutrino sector",
+    "next_required_object": "complete carrier-derived tree-level Dirac-neutrino matrix",
     "selection_status": "the exact down-Higgs chain obstruction reranks Dirac neutrinos as the minimum available flavor workload"
   },
   "research_value_scheduler": [

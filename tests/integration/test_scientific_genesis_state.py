@@ -210,6 +210,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         [0, 2],
     ]
     assert path["criteria"]["selected_available_reused_higgs_character"] == [0, 1]
+    assert path["criteria"]["neutrino_universal_matter_character_count"] == 2
+    assert path["criteria"]["neutrino_universal_v1_class_count"] == 2
+    assert path["criteria"]["neutrino_universal_v2_lift_count"] == 4
+    assert path["criteria"]["neutrino_matter_parameter_correction_count"] == 8
+    assert path["criteria"]["all_neutrino_matter_lifts_exact"] is True
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
@@ -220,8 +225,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "as the minimum available flavor workload"
     )
     assert path["next_required_object"] == (
-        "universal matter lifts in characters (0,0) and (0,2) for the "
-        "Dirac-neutrino sector"
+        "complete carrier-derived tree-level Dirac-neutrino matrix"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -238,6 +242,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_flavor_character_support"]["status"] == "COMPUTED"
     assert claims["mixed_down_higgs_chain_obstruction"]["status"] == "REFUTED"
     assert claims["mixed_flavor_frontier"]["status"] == "COMPUTED"
+    assert claims["universal_neutrino_matter_lifts"]["status"] == "COMPUTED"
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"

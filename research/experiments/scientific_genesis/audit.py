@@ -1351,6 +1351,48 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_down_higgs_chain_obstruction",
+            "down-Higgs chain-character route",
+            "Flavor",
+            "REFUTED",
+            "The exact current-chain character-(0,2) spaces have dimensions "
+            "100, 243, and 176 with differential ranks 100 and 143, hence "
+            "H1 dimension zero. The published multiplicity-one requirement is "
+            "used only afterward, so no strict down-Higgs class is fabricated.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_down_higgs_action.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_down_higgs_action.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_down_higgs_action.py",
+            ),
+            missing=(
+                "exact equivariant chain comparison realizing source character (0,2)",
+            ),
+        ),
+        _node(
+            "mixed_flavor_frontier",
+            "post-obstruction exact flavor frontier",
+            "Flavor",
+            "COMPUTED",
+            "After the universal up no-go and exact down-Higgs chain "
+            "obstruction, Dirac neutrinos are the minimum available sector at "
+            "eight new matter-correction objects. The selection reuses the "
+            "strict Higgs character (0,1) and consumes no observations.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_flavor_frontier.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_flavor_frontier.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_flavor_frontier.py",
+            ),
+            missing=(
+                "universal matter lifts in characters (0,0) and (0,2)",
+            ),
+        ),
+        _node(
             "curvilinear_topology_route",
             "current curvilinear Chern-type route",
             "Scoped exclusions",
@@ -1432,8 +1474,9 @@ def _nodes() -> list[dict[str, object]]:
             "closed and equivariant. All eight complete first-order "
             "coefficients vanish exactly. Exterior-filtration truncation proves "
             "that the full universal up matrix has rank zero, so this branch "
-            "cannot supply the required nontrivial matrix. Exact source "
-            "characters select the down sector as the next minimum workload.",
+            "cannot supply the required nontrivial matrix. The next down route "
+            "also fails because its strict Higgs character has zero current-chain "
+            "H1, so the exact frontier now selects Dirac neutrinos.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_matter_leg_deformation.json",
@@ -1449,11 +1492,14 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_up_yukawa_no_go.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_flavor_character_support.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_down_higgs_action.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_flavor_frontier.json",
             ),
             missing=(
-                "universal matter lifts in character (1,0)",
-                "strict Higgs representative in character (0,2)",
-                "complete carrier-derived down-sector matrix",
+                "universal matter lifts in characters (0,0) and (0,2)",
+                "complete carrier-derived Dirac-neutrino matrix",
             ),
         ),
         _node(
@@ -2826,17 +2872,45 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_flavor_character_support",
-            "first_exact_yukawa",
-            "The exact invariant triples and existing-chain inventory select "
-            "the down sector as the minimum next matrix calculation.",
+            "mixed_down_higgs_chain_obstruction",
+            "The minimum down workload requires character (0,2), whose exact "
+            "current-chain cohomology must exist before any matrix calculation.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_flavor_character_support.json",
+                "mixed_schoen_down_higgs_action.json",
             ),
             (),
             True,
             (
-                "character support does not determine a Yukawa coefficient",
+                "an exact alternative equivariant chain action could reopen down",
+            ),
+        ),
+        _edge(
+            "mixed_down_higgs_chain_obstruction",
+            "mixed_flavor_frontier",
+            "The unavailable down prerequisite removes that sector from the "
+            "current exact chain frontier.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_flavor_frontier.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_flavor_frontier",
+            "first_exact_yukawa",
+            "The remaining source-supported workloads select Dirac neutrinos "
+            "as the shortest available complete-matrix route.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_flavor_frontier.json",
+            ),
+            (),
+            True,
+            (
+                "sector selection does not determine a Yukawa coefficient",
             ),
         ),
         _edge(
@@ -3298,6 +3372,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_flavor_character_support.json",
+        "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
+        "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -3328,7 +3404,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 613,
+            "collected_tests_at_audit": 615,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3350,8 +3426,8 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "exact source characters select the down sector as the minimum "
-                "post-up-no-go chain workload"
+                "the exact down-Higgs chain obstruction reranks Dirac neutrinos "
+                "as the minimum available flavor workload"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3513,12 +3589,21 @@ def build_state() -> dict[str, object]:
                 "selected_next_matter_character": [1, 0],
                 "selected_next_higgs_character": [0, 2],
                 "flavor_sector_selected_from_observations": False,
+                "down_higgs_character_space_dimensions": [100, 243, 176],
+                "down_higgs_character_differential_ranks": [100, 143],
+                "down_higgs_character_h1_dimension": 0,
+                "strict_down_higgs_representative_available": False,
+                "down_higgs_character_twist_guessed": False,
+                "selected_available_flavor_sector": "dirac_neutrino",
+                "selected_available_flavor_chain_object_count": 8,
+                "selected_available_matter_characters": [[0, 0], [0, 2]],
+                "selected_available_reused_higgs_character": [0, 1],
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "universal matter lifts in character (1,0) and a strict Higgs "
-                "representative in character (0,2) for the down sector"
+                "universal matter lifts in characters (0,0) and (0,2) for the "
+                "Dirac-neutrino sector"
             ),
         },
         "claims": _nodes(),
@@ -3627,6 +3712,8 @@ def build_state() -> dict[str, object]:
             "2,124-term and 1,908-term cochains",
             "published Wilson characters make all four Yukawa triples invariant "
             "and select the down sector as the seven-object minimum next workload",
+            "the exact current-chain down-Higgs character complex has H1 zero, "
+            "so fail-closed reranking selects the eight-object neutrino sector",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -3686,6 +3773,8 @@ def build_state() -> dict[str, object]:
             "with zero residue, so the universal first-order up matrix has rank zero",
             "finite exterior-filtration typing excludes f5 and every higher "
             "up-type contribution, proving the full universal up matrix has rank zero",
+            "the current chain action has exact H1 dimension zero in the "
+            "source-required down-Higgs character (0,2)",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -3699,7 +3788,8 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "universal down-sector matter and Higgs chain representatives",
+            "universal Dirac-neutrino matter chain representatives",
+            "an equivariant chain repair for the unavailable down-Higgs character",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

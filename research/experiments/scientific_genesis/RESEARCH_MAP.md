@@ -376,7 +376,14 @@ remaining route is now fixed by exact Wilson support from the published source.
 All four Yukawa character triples are invariant. After reusing the certified up
 inputs, the down sector requires seven new chain objects, fewer than the eight
 for Dirac neutrinos or eleven for charged leptons. Its missing inputs are the
-universal matter character `(1,0)` and strict Higgs character `(0,2)`.
+universal matter character `(1,0)` and strict Higgs character `(0,2)`. Exact
+restriction of the current chain action to `(0,2)` gives dimensions
+`100 -> 243 -> 176`, ranks `100/143`, and hence `H1 = 0`, contradicting the
+published multiplicity one only after the rank calculation. This route is
+therefore unavailable unless an exact equivariant chain comparison repairs the
+linearization. The next exact frontier is the Dirac-neutrino sector: it reuses
+the certified `(0,1)` Higgs representative and requires matter characters
+`(0,0)` and `(0,2)`.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

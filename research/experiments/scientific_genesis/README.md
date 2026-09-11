@@ -249,5 +249,9 @@ the frozen `P1`. The no-go does not apply to another flavor sector or carrier;
 the published Wilson assignments fix all four invariant Yukawa triples. Reusing
 the exact up inputs leaves seven new chain objects for the down sector, eight
 for Dirac neutrinos, and eleven for charged leptons. The down sector is
-therefore the deterministic next target. It first requires universal matter
-lifts in character `(1,0)` and a strict Higgs representative in `(0,2)`.
+therefore the first deterministic target. Its exact `(0,2)` chain complex has
+dimensions `100 -> 243 -> 176` and ranks `100/143`, however, so its `H1` is
+zero rather than the source-required one. No character twist is guessed. With
+the current down route fail-closed, the exact frontier selects the
+Dirac-neutrino sector, which reuses the strict `(0,1)` Higgs class and requires
+universal matter lifts in characters `(0,0)` and `(0,2)`.

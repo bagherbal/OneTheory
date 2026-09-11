@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "73e7d03dc9c33a88532b23beba476f91fcbb29d55bee300f162f4f6ec5def346",
+  "artifact_digest": "c5b92e76c4b2f2aba7b078cc7676b72cd777636b7784884e0a537ad77579be39",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -287,6 +287,16 @@
       "sha256": "9a9f330c96e9979928b4bc8f10bc48ad034ab1d68078759953e168f3f71c5983"
     },
     {
+      "bytes": 128885,
+      "path": "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
+      "sha256": "3fa93c0a708a2d90b4163d3269c4b0979902c101942d185df919854f65462edb"
+    },
+    {
+      "bytes": 1596,
+      "path": "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
+      "sha256": "e9130382d200ba68066c426bd49140e7d9549295b44a37382d5b4afe6c7fd706"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -358,11 +368,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 613,
+    "collected_tests_at_audit": 615,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 179,
-    "test_python_files": 158
+    "research_python_files": 181,
+    "test_python_files": 160
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -378,7 +388,8 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "universal down-sector matter and Higgs chain representatives",
+    "universal Dirac-neutrino matter chain representatives",
+    "an equivariant chain repair for the unavailable down-Higgs character",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
@@ -1497,6 +1508,38 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
+        "research/experiments/scientific_genesis/mixed_schoen_down_higgs_action.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_down_higgs_action.py"
+      ],
+      "id": "mixed_down_higgs_chain_obstruction",
+      "label": "down-Higgs chain-character route",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "exact equivariant chain comparison realizing source character (0,2)"
+      ],
+      "statement": "The exact current-chain character-(0,2) spaces have dimensions 100, 243, and 176 with differential ranks 100 and 143, hence H1 dimension zero. The published multiplicity-one requirement is used only afterward, so no strict down-Higgs class is fabricated.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
+        "research/experiments/scientific_genesis/mixed_schoen_flavor_frontier.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_flavor_frontier.py"
+      ],
+      "id": "mixed_flavor_frontier",
+      "label": "post-obstruction exact flavor frontier",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "universal matter lifts in characters (0,0) and (0,2)"
+      ],
+      "statement": "After the universal up no-go and exact down-Higgs chain obstruction, Dirac neutrinos are the minimum available sector at eight new matter-correction objects. The selection reuses the strict Higgs character (0,1) and consumes no observations.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "research/experiments/computable_carrier/tier_b_curvilinear_topology.py"
       ],
       "id": "curvilinear_topology_route",
@@ -1565,17 +1608,18 @@
         "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
         "data/generated/scientific_genesis/mixed_schoen_first_order_matrix.json",
         "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json",
-        "data/generated/scientific_genesis/mixed_schoen_flavor_character_support.json"
+        "data/generated/scientific_genesis/mixed_schoen_flavor_character_support.json",
+        "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
+        "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json"
       ],
       "id": "first_exact_yukawa",
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "universal matter lifts in character (1,0)",
-        "strict Higgs representative in character (0,2)",
-        "complete carrier-derived down-sector matrix"
+        "universal matter lifts in characters (0,0) and (0,2)",
+        "complete carrier-derived Dirac-neutrino matrix"
       ],
-      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix. Exact source characters select the down sector as the next minimum workload.",
+      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix. The next down route also fails because its strict Higgs character has zero current-chain H1, so the exact frontier now selects Dirac neutrinos.",
       "status": "BLOCKED"
     },
     {
@@ -2956,14 +3000,38 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_flavor_character_support.json"
+        "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "character support does not determine a Yukawa coefficient"
+        "an exact alternative equivariant chain action could reopen down"
       ],
-      "mathematical_reason": "The exact invariant triples and existing-chain inventory select the down sector as the minimum next matrix calculation.",
+      "mathematical_reason": "The minimum down workload requires character (0,2), whose exact current-chain cohomology must exist before any matrix calculation.",
       "source": "mixed_flavor_character_support",
+      "target": "mixed_down_higgs_chain_obstruction"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The unavailable down prerequisite removes that sector from the current exact chain frontier.",
+      "source": "mixed_down_higgs_chain_obstruction",
+      "target": "mixed_flavor_frontier"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "sector selection does not determine a Yukawa coefficient"
+      ],
+      "mathematical_reason": "The remaining source-supported workloads select Dirac neutrinos as the shortest available complete-matrix route.",
+      "source": "mixed_flavor_frontier",
       "target": "first_exact_yukawa"
     },
     {
@@ -3212,7 +3280,8 @@
     "the signed two-chart comparison extends to an exact Cech chain map in all four Koszul summands, with each tensor extension term carried once under the identity on unused cover factors",
     "the first a0 matter leg transfers exactly to 72,099 character terms with a 7,797-term noncycle residual and zero partial scalar residue, so it is not promoted to a higher product",
     "the complementary a0 Higgs action is an exact 1,593-term determinant-line cycle with an explicit 1,431-term correction; an exact Cech-Koszul line isomorphism maps these to canonical 2,124-term and 1,908-term cochains",
-    "published Wilson characters make all four Yukawa triples invariant and select the down sector as the seven-object minimum next workload"
+    "published Wilson characters make all four Yukawa triples invariant and select the down sector as the seven-object minimum next workload",
+    "the exact current-chain down-Higgs character complex has H1 zero, so fail-closed reranking selects the eight-object neutrino sector"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -3302,6 +3371,17 @@
         2
       ],
       "direct_matter_product_hull_available": true,
+      "down_higgs_character_differential_ranks": [
+        100,
+        143
+      ],
+      "down_higgs_character_h1_dimension": 0,
+      "down_higgs_character_space_dimensions": [
+        100,
+        243,
+        176
+      ],
+      "down_higgs_character_twist_guessed": false,
       "equivariant_matter_product_character": [
         0,
         2
@@ -3475,6 +3555,22 @@
       ],
       "retired_source_scoped_outer_space": "P^3(Q(omega))",
       "scalar_residue_target_available": true,
+      "selected_available_flavor_chain_object_count": 8,
+      "selected_available_flavor_sector": "dirac_neutrino",
+      "selected_available_matter_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "selected_available_reused_higgs_character": [
+        0,
+        1
+      ],
       "selected_next_flavor_chain_object_count": 7,
       "selected_next_flavor_sector": "down",
       "selected_next_higgs_character": [
@@ -3490,14 +3586,15 @@
         36
       ],
       "slope_identity_retired_family_count": 72,
+      "strict_down_higgs_representative_available": false,
       "tree_level_up_matrix_rank": 0,
       "tree_level_up_scalar_primitives_exact": true,
       "up_f5_and_higher_structurally_zero": true,
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "universal matter lifts in character (1,0) and a strict Higgs representative in character (0,2) for the down sector",
-    "selection_status": "exact source characters select the down sector as the minimum post-up-no-go chain workload"
+    "next_required_object": "universal matter lifts in characters (0,0) and (0,2) for the Dirac-neutrino sector",
+    "selection_status": "the exact down-Higgs chain obstruction reranks Dirac neutrinos as the minimum available flavor workload"
   },
   "research_value_scheduler": [
     {
@@ -3800,7 +3897,8 @@
     "the first source-derived V2 Pluecker pairing closes in both cup orders, has an explicit exchange primitive, and projects exactly to character (0,2)",
     "the first complete a0 lower-(1,1) higher-product coefficient has an invariant comparison primitive and exact zero residue",
     "all eight first-order higher-product coefficients close exactly with zero residue, so the universal first-order up matrix has rank zero",
-    "finite exterior-filtration typing excludes f5 and every higher up-type contribution, proving the full universal up matrix has rank zero"
+    "finite exterior-filtration typing excludes f5 and every higher up-type contribution, proving the full universal up matrix has rank zero",
+    "the current chain action has exact H1 dimension zero in the source-required down-Higgs character (0,2)"
   ],
   "structural_compression_questions": [
     {

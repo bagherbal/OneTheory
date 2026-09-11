@@ -1,0 +1,64 @@
+{
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "9ebaf8d892cf7b21cb8787a38dfa879cd693916fcd5e4f038bf1d227c1572fc1",
+  "coefficient_field": "Q(omega)",
+  "excluded_sectors": [
+    {
+      "exact_reason": "complete universal holomorphic matrix has exact rank zero",
+      "name": "up"
+    },
+    {
+      "exact_reason": "required strict Higgs character has exact chain H1 dimension zero",
+      "name": "down"
+    }
+  ],
+  "next_required_object": "universal matter lifts in characters (0,0) and (0,2) for the Dirac-neutrino sector",
+  "observational_inputs_used": false,
+  "prerequisite_artifact_digests": {
+    "down_higgs_chain_obstruction": "3884ef9db2250308424d0c7e874e853a1081f173106f5e72ff85b93519b1d32e",
+    "flavor_character_support": "50e36809a20fec89dd47f9601b43736423aeb55064f595fa579c8fe454115501",
+    "universal_up_no_go": "fa7e0f5918969baa7f4740cfb8dedf7abd26a3be6e6b3fdc910042e24d3fe1c1"
+  },
+  "remaining_sector_workloads": {
+    "charged_lepton": 11,
+    "dirac_neutrino": 8
+  },
+  "schema": "mixed-schoen-flavor-frontier-v1",
+  "selected_coupling": [
+    "L",
+    "nu^c",
+    "H_u"
+  ],
+  "selected_minimum_new_chain_object_count": 8,
+  "selected_next_sector": "dirac_neutrino",
+  "selected_required_cohomology_characters": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "selected_required_new_matter_characters": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "selected_reused_higgs_character": [
+    0,
+    1
+  ],
+  "selection_exact": true,
+  "yukawa_coefficient_computed": false
+}

@@ -18,6 +18,7 @@ Phase 0:
 
 from __future__ import annotations
 
+import gzip
 import json
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
@@ -37,10 +38,11 @@ from .mixed_schoen_matter_representatives import (
 )
 from .mixed_schoen_matter_representatives import (
     _cochain_digest,
+    _matter_contraction,
     mixed_schoen_matter_representatives,
 )
 from .mixed_schoen_outer_universal_cone import OUTPUT as UNIVERSAL_ARTIFACT
-from .mixed_schoen_outer_universal_cone import _load_forward_basis
+from .mixed_schoen_outer_universal_cone import _load_forward_basis, _representative
 from .mixed_schoen_universal_matter_lifts import (
     UniversalV2MatterLift,
     _lift_v2_coefficient,
@@ -48,6 +50,7 @@ from .mixed_schoen_universal_matter_lifts import (
     _strict_character,
     _verified_digest,
 )
+from .published_outer_cech_invariants import _cech_record
 
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = (
@@ -55,8 +58,30 @@ OUTPUT = (
     / "data/generated/scientific_genesis/"
     "mixed_schoen_neutrino_matter_lifts.json"
 )
+CACHE_DIRECTORY = (
+    ROOT
+    / "data/generated/scientific_genesis/"
+    ".mixed_schoen_neutrino_lift_cache"
+)
 NEUTRINO_MATTER_CHARACTERS = ((0, 0), (0, 2))
 _WORKER_EXTENSIONS: tuple[SparseOuterCechCochain, ...] = ()
+
+LiftCoefficient = tuple[
+    tuple[int, int],
+    int,
+    int,
+    SparseOuterCechCochain,
+    SparseOuterCechCochain,
+    bool,
+    bool,
+    bool,
+]
+LiftJob = tuple[
+    tuple[int, int],
+    int,
+    SparseOuterCechCochain,
+    int,
+]
 
 
 def _frontier_digest() -> str:
@@ -84,23 +109,152 @@ def _initialize_workers(
     _WORKER_EXTENSIONS = extensions
 
 
+def _cache_path(
+    character: tuple[int, int],
+    family_index: int,
+    parameter_index: int,
+) -> Path:
+    """Return the deterministic ignored restart-cache path for one lift."""
+
+    return CACHE_DIRECTORY / (
+        f"chi-{character[0]}-{character[1]}-"
+        f"family-{family_index}-a{parameter_index}.json.gz"
+    )
+
+
+def _cache_input_digest(
+    character: tuple[int, int],
+    family_index: int,
+    parameter_index: int,
+    representative: SparseOuterCechCochain,
+    extension: SparseOuterCechCochain,
+) -> str:
+    """Fingerprint every exact input on which one restart cache depends."""
+
+    return _canonical_digest(
+        {
+            "character_exponents": list(character),
+            "local_family_index": family_index,
+            "parameter_index": parameter_index,
+            "v2_representative_digest": _cochain_digest((representative,)),
+            "extension_coefficient_digest": _cochain_digest((extension,)),
+            "source_archive_sha256": _source_digest(),
+        }
+    )
+
+
+def _write_coefficient_cache(
+    result: LiftCoefficient,
+    representative: SparseOuterCechCochain,
+    extension: SparseOuterCechCochain,
+) -> None:
+    """Atomically checkpoint one exact lift without making it a source input."""
+
+    character, family_index, parameter_index, product, correction, cycle, identity, strict = (
+        result
+    )
+    payload: dict[str, object] = {
+        "schema": "mixed-schoen-neutrino-lift-cache-v1",
+        "character_exponents": list(character),
+        "local_family_index": family_index,
+        "parameter_index": parameter_index,
+        "input_digest": _cache_input_digest(
+            character,
+            family_index,
+            parameter_index,
+            representative,
+            extension,
+        ),
+        "product": _cech_record(product, "product"),
+        "product_digest": _cochain_digest((product,)),
+        "correction": _cech_record(correction, "correction"),
+        "correction_digest": _cochain_digest((correction,)),
+        "product_cycle_exact": cycle,
+        "correction_identity_exact": identity,
+        "strict_characters_exact": strict,
+    }
+    payload["cache_digest"] = _canonical_digest(payload)
+    path = _cache_path(character, family_index, parameter_index)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_name(f".{path.name}.tmp")
+    with gzip.open(temporary, "wt", encoding="utf-8") as stream:
+        json.dump(payload, stream, sort_keys=True, separators=(",", ":"))
+    temporary.replace(path)
+
+
+def _load_coefficient_cache(
+    job: LiftJob,
+    extensions: tuple[SparseOuterCechCochain, ...],
+) -> LiftCoefficient | None:
+    """Return one restart cache only after exact input and identity checks."""
+
+    character, family_index, representative, parameter_index = job
+    path = _cache_path(character, family_index, parameter_index)
+    if not path.is_file():
+        return None
+    try:
+        with gzip.open(path, "rt", encoding="utf-8") as stream:
+            payload = json.load(stream)
+        if not isinstance(payload, dict):
+            return None
+        cache_digest = payload.pop("cache_digest", None)
+        if not isinstance(cache_digest, str) or cache_digest != _canonical_digest(
+            payload
+        ):
+            return None
+        if (
+            payload.get("schema") != "mixed-schoen-neutrino-lift-cache-v1"
+            or payload.get("character_exponents") != list(character)
+            or payload.get("local_family_index") != family_index
+            or payload.get("parameter_index") != parameter_index
+            or payload.get("input_digest")
+            != _cache_input_digest(
+                character,
+                family_index,
+                parameter_index,
+                representative,
+                extensions[parameter_index],
+            )
+            or payload.get("product_cycle_exact") is not True
+            or payload.get("correction_identity_exact") is not True
+            or payload.get("strict_characters_exact") is not True
+        ):
+            return None
+        product = _representative(payload.get("product"))
+        correction = _representative(payload.get("correction"))
+        if (
+            payload.get("product_digest") != _cochain_digest((product,))
+            or payload.get("correction_digest") != _cochain_digest((correction,))
+        ):
+            return None
+        contraction = _matter_contraction(1)
+        product_cycle = contraction.differential(product).is_zero()
+        correction_identity = (
+            contraction.differential(correction) + product
+        ).is_zero()
+        strict = (
+            _strict_character(product, character, 1)
+            and _strict_character(correction, character, 1)
+        )
+        if not (product_cycle and correction_identity and strict):
+            return None
+        return (
+            character,
+            family_index,
+            parameter_index,
+            product,
+            correction,
+            product_cycle,
+            correction_identity,
+            strict,
+        )
+    except (EOFError, KeyError, OSError, TypeError, ValueError, json.JSONDecodeError):
+        return None
+
+
 def _coefficient_job(
-    job: tuple[
-        tuple[int, int],
-        int,
-        SparseOuterCechCochain,
-        int,
-    ],
-) -> tuple[
-    tuple[int, int],
-    int,
-    int,
-    SparseOuterCechCochain,
-    SparseOuterCechCochain,
-    bool,
-    bool,
-    bool,
-]:
+    job: LiftJob,
+) -> LiftCoefficient:
     """Solve one character, family, and parameter coefficient exactly."""
 
     character, family_index, representative, parameter_index = job
@@ -111,7 +265,7 @@ def _coefficient_job(
         representative,
         _WORKER_EXTENSIONS[parameter_index],
     )
-    return (
+    result: LiftCoefficient = (
         character,
         family_index,
         parameter_index,
@@ -121,6 +275,17 @@ def _coefficient_job(
         identity,
         strict,
     )
+    _write_coefficient_cache(
+        result,
+        representative,
+        _WORKER_EXTENSIONS[parameter_index],
+    )
+    print(
+        "checkpointed neutrino lift "
+        f"chi={character} family={family_index} a{parameter_index}",
+        flush=True,
+    )
+    return result
 
 
 @dataclass(frozen=True, slots=True)
@@ -241,12 +406,32 @@ def mixed_schoen_neutrino_matter_lifts() -> NeutrinoMatterLifts:
         for character, family_index, representative in v2_representatives
         for parameter_index in range(2)
     )
-    with ProcessPoolExecutor(
-        max_workers=len(jobs),
-        initializer=_initialize_workers,
-        initargs=(extensions,),
-    ) as executor:
-        coefficients = tuple(executor.map(_coefficient_job, jobs))
+    cached = tuple(
+        result
+        for job in jobs
+        if (result := _load_coefficient_cache(job, extensions)) is not None
+    )
+    for character, family_index, parameter_index, *_remainder in cached:
+        print(
+            "reused neutrino lift "
+            f"chi={character} family={family_index} a{parameter_index}",
+            flush=True,
+        )
+    cached_keys = {result[:3] for result in cached}
+    pending = tuple(
+        job
+        for job in jobs
+        if (job[0], job[1], job[3]) not in cached_keys
+    )
+    computed: tuple[LiftCoefficient, ...] = ()
+    if pending:
+        with ProcessPoolExecutor(
+            max_workers=len(pending),
+            initializer=_initialize_workers,
+            initargs=(extensions,),
+        ) as executor:
+            computed = tuple(executor.map(_coefficient_job, pending))
+    coefficients = cached + computed
     lifts = []
     for character, family_index, representative in v2_representatives:
         family = sorted(

@@ -33,7 +33,7 @@ from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automo
 from .mixed_schoen_chain_actions import (
     OUTPUT as HIGGS_ARTIFACT,
 )
-from .mixed_schoen_chain_actions import mixed_schoen_higgs_deck_action
+from .mixed_schoen_chain_actions import load_certified_higgs_representative
 from .mixed_schoen_matter_comparison import (
     _cochain_digest,
     mixed_schoen_matter_comparison_for_slot,
@@ -144,7 +144,7 @@ def _trace_slot(slot: tuple[int, int]) -> NeutrinoTreeEntry:
         row,
         column,
     )
-    higgs = mixed_schoen_higgs_deck_action().required_full_cochain
+    higgs = load_certified_higgs_representative()
     scalar = contract_with_strict_higgs(
         witness.equivariant_representative,
         higgs,
@@ -250,7 +250,7 @@ def mixed_schoen_holomorphic_neutrino_tree_matrix(
     """Evaluate all four allowed Dirac-neutrino entries independently."""
 
     mixed_schoen_matter_representatives()
-    mixed_schoen_higgs_deck_action()
+    load_certified_higgs_representative()
     with ProcessPoolExecutor(max_workers=len(ALLOWED_SLOTS)) as executor:
         entries = tuple(executor.map(_trace_slot, ALLOWED_SLOTS))
     result = HolomorphicNeutrinoTreeMatrix(entries)

@@ -39,15 +39,27 @@ from .diagonal_schoen_lines import _FullCochain
 from .mixed_schoen_higgs_leg_deformation import (
     OUTPUT as HIGGS_ARTIFACT,
 )
-from .mixed_schoen_higgs_leg_deformation import higgs_leg_deformation
+from .mixed_schoen_higgs_leg_deformation import (
+    HiggsLegDeformationWitness,
+    higgs_leg_deformation,
+)
 from .mixed_schoen_matter_leg_deformation import (
     OUTPUT as MATTER_ARTIFACT,
 )
-from .mixed_schoen_matter_leg_deformation import matter_leg_deformation
+from .mixed_schoen_matter_leg_deformation import (
+    MatterLegDeformationWitness,
+    matter_leg_deformation,
+    matter_leg_deformation_for_sector,
+)
+from .mixed_schoen_universal_matter_lifts import UniversalV2MatterLift
 from .mixed_schoen_v2_pluecker_chain_map import (
     OUTPUT as PLUECKER_ARTIFACT,
 )
-from .mixed_schoen_v2_pluecker_chain_map import local_v2_pluecker_pairing
+from .mixed_schoen_v2_pluecker_chain_map import (
+    V2PlueckerPairingWitness,
+    local_v2_pluecker_pairing,
+    local_v2_pluecker_pairing_for_characters,
+)
 from .mixed_schoen_yukawa_trace import (
     _full_cochain_digest,
     scalar_full_differential,
@@ -142,16 +154,11 @@ class FirstHigherProductCoefficient:
             and self.correction_product_term_count > 0
             and self.action_product_term_count > 0
             and self.leibniz_identity_exact
-            and self.comparison_residual_term_count > 0
             and self.comparison_residual_is_cycle
-            and self.raw_comparison_primitive_term_count > 0
             and self.raw_comparison_identity_exact
-            and self.strict_comparison_primitive_term_count > 0
             and self.strict_comparison_character_exact
             and self.strict_comparison_identity_exact
-            and self.complete_cochain_term_count > 0
             and self.complete_cochain_is_cycle
-            and self.residue.is_zero()
         )
 
     def as_record(self) -> dict[str, object]:
@@ -210,7 +217,11 @@ class FirstHigherProductCoefficient:
                 "residue": str(self.residue),
                 "projection_depth": self.residue_projection_depth,
             },
-            "classification": "SCOPED_FIRST_ORDER_ENTRY_VANISHING",
+            "classification": (
+                "SCOPED_FIRST_ORDER_ENTRY_VANISHING"
+                if self.residue.is_zero()
+                else "COMPUTED_FIRST_ORDER_ENTRY"
+            ),
             "exact": self.exact,
             "input_level_comparison_primitive_available": True,
             "general_chain_homotopy_available": False,
@@ -225,24 +236,13 @@ class FirstHigherProductCoefficient:
         }
 
 
-@cache
-def higher_product_coefficient(
-    parameter_index: int,
-    row_local_family_index: int,
-    column_local_family_index: int,
+def _assemble_higher_product_coefficient(
+    matter: MatterLegDeformationWitness,
+    higgs: HiggsLegDeformationWitness,
+    bottom: V2PlueckerPairingWitness,
 ) -> FirstHigherProductCoefficient:
-    """Derive one complete indexed first-order coefficient from source data."""
+    """Assemble one coefficient from independently certified exact legs."""
 
-    matter = matter_leg_deformation(
-        parameter_index,
-        row_local_family_index,
-        column_local_family_index,
-    )
-    higgs = higgs_leg_deformation(parameter_index)
-    bottom = local_v2_pluecker_pairing(
-        row_local_family_index,
-        column_local_family_index,
-    )
     v1_character = constituent_determinant_character(1)
     v2_character = constituent_determinant_character(2)
     scalar_frame = _sum_character(v1_character, v2_character)
@@ -344,6 +344,58 @@ def higher_product_coefficient(
     return result
 
 
+def higher_product_coefficient_for_sector(
+    parameters: tuple[str, str],
+    lifts: tuple[UniversalV2MatterLift, ...],
+    row_character: Character,
+    column_character: Character,
+    parameter_index: int,
+    row_local_family_index: int,
+    column_local_family_index: int,
+) -> FirstHigherProductCoefficient:
+    """Derive one indexed coefficient for an explicit matter-character pair."""
+
+    matter = matter_leg_deformation_for_sector(
+        parameters,
+        lifts,
+        row_character,
+        column_character,
+        parameter_index,
+        row_local_family_index,
+        column_local_family_index,
+    )
+    higgs = higgs_leg_deformation(parameter_index)
+    bottom = local_v2_pluecker_pairing_for_characters(
+        row_character,
+        column_character,
+        row_local_family_index,
+        column_local_family_index,
+    )
+    return _assemble_higher_product_coefficient(matter, higgs, bottom)
+
+
+@cache
+def higher_product_coefficient(
+    parameter_index: int,
+    row_local_family_index: int,
+    column_local_family_index: int,
+) -> FirstHigherProductCoefficient:
+    """Derive one complete indexed up-sector coefficient from source data."""
+
+    return _assemble_higher_product_coefficient(
+        matter_leg_deformation(
+            parameter_index,
+            row_local_family_index,
+            column_local_family_index,
+        ),
+        higgs_leg_deformation(parameter_index),
+        local_v2_pluecker_pairing(
+            row_local_family_index,
+            column_local_family_index,
+        ),
+    )
+
+
 @cache
 def first_higher_product_coefficient() -> FirstHigherProductCoefficient:
     """Derive the first complete a0 lower-(1,1) coefficient from source data."""
@@ -397,5 +449,6 @@ __all__ = [
     "OUTPUT",
     "first_higher_product_coefficient",
     "higher_product_coefficient",
+    "higher_product_coefficient_for_sector",
     "write_first_higher_product",
 ]

@@ -31,7 +31,7 @@ from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automo
 from .diagonal_schoen_lines import _FullCochain
 from .mixed_schoen_chain_actions import (
     _perturbed_inclusion,
-    mixed_schoen_higgs_deck_action,
+    load_certified_higgs_representative,
 )
 from .mixed_schoen_chain_diagonal import full_chain_diagonal_differential
 from .mixed_schoen_diagonal_chain_map import (
@@ -143,8 +143,11 @@ class MatterLegDeformationWitness:
 
         return (
             self.parameter in ("a0", "a1")
-            and self.row_character == UP_MATTER_CHARACTERS[0]
-            and self.column_character == UP_MATTER_CHARACTERS[1]
+            and (
+                (self.row_character[0] + self.column_character[0]) % 3,
+                (self.row_character[1] + self.column_character[1]) % 3,
+            )
+            == PRODUCT_CHARACTER
             and self.row_local_family_index in (1, 2)
             and self.column_local_family_index in (1, 2)
             and self.exchange_sign == 1
@@ -153,11 +156,8 @@ class MatterLegDeformationWitness:
             and self.projected_term_count > 0
             and self.strict_term_count > 0
             and self.equivariant_term_count > 0
-            and self.equivariant_residual_term_count > 0
             and self.character_exact
             and self.scalar_term_count > 0
-            and self.scalar_residual_term_count > 0
-            and self.scalar_residue_value.is_zero()
             and self.diagonal_chain_map_exact
         )
 
@@ -206,7 +206,11 @@ class MatterLegDeformationWitness:
             },
             "diagonal_chain_map_exact": self.diagonal_chain_map_exact,
             "scoped_result_exact": self.scoped_result_exact,
-            "classification": "SCOPED_MATTER_LEG_VANISHING",
+            "classification": (
+                "SCOPED_MATTER_LEG_VANISHING"
+                if self.scalar_residue_value.is_zero()
+                else "SCOPED_MATTER_LEG_PROJECTION"
+            ),
             "full_higher_product_available": False,
             "holomorphic_yukawa_entry_available": False,
             "extension_point_selected": False,
@@ -218,13 +222,16 @@ class MatterLegDeformationWitness:
         }
 
 
-@cache
-def matter_leg_deformation(
+def matter_leg_deformation_for_sector(
+    parameters: tuple[str, str],
+    lifts: tuple[UniversalV2MatterLift, ...],
+    row_character: tuple[int, int],
+    column_character: tuple[int, int],
     parameter_index: int,
     row_local_family_index: int,
     column_local_family_index: int,
 ) -> MatterLegDeformationWitness:
-    """Derive one indexed lower-block matter-leg contribution exactly."""
+    """Derive one indexed matter leg from an explicit universal sector."""
 
     if parameter_index not in (0, 1):
         raise ValueError("the carrier parameter index is unavailable")
@@ -233,19 +240,18 @@ def matter_leg_deformation(
         2,
     ):
         raise ValueError("local V2 family indices must be one or two")
-    universal = mixed_schoen_universal_matter_lifts()
     try:
-        parameter = universal.parameters[parameter_index]
+        parameter = parameters[parameter_index]
     except IndexError as error:
         raise ValueError("the carrier parameter index is unavailable") from error
     row = _selected_lift(
-        universal.v2_lifts,
-        UP_MATTER_CHARACTERS[0],
+        lifts,
+        row_character,
         row_local_family_index,
     )
     column = _selected_lift(
-        universal.v2_lifts,
-        UP_MATTER_CHARACTERS[1],
+        lifts,
+        column_character,
         column_local_family_index,
     )
     first, second = _matter_leg_terms(row, column, parameter_index)
@@ -255,7 +261,7 @@ def matter_leg_deformation(
     strict, inclusion_depth = _perturbed_inclusion(projected)
     equivariant = _character_project(strict, PRODUCT_CHARACTER)
     equivariant_residual = full_chain_diagonal_differential(equivariant)
-    higgs = mixed_schoen_higgs_deck_action().required_full_cochain
+    higgs = load_certified_higgs_representative()
     scalar = contract_with_strict_higgs(equivariant, higgs)
     scalar_residual = scalar_full_differential(scalar)
     residue, scalar_depth = scalar_residue(scalar)
@@ -291,6 +297,25 @@ def matter_leg_deformation(
     if not result.scoped_result_exact:
         raise ValueError("the indexed matter-leg deformation certificate failed")
     return result
+
+
+@cache
+def matter_leg_deformation(
+    parameter_index: int,
+    row_local_family_index: int,
+    column_local_family_index: int,
+) -> MatterLegDeformationWitness:
+    """Derive one indexed up-sector matter-leg contribution exactly."""
+
+    universal = mixed_schoen_universal_matter_lifts()
+    return matter_leg_deformation_for_sector(
+        universal.parameters,
+        universal.v2_lifts,
+        *UP_MATTER_CHARACTERS,
+        parameter_index,
+        row_local_family_index,
+        column_local_family_index,
+    )
 
 
 @cache
@@ -338,5 +363,6 @@ __all__ = [
     "OUTPUT",
     "first_matter_leg_deformation",
     "matter_leg_deformation",
+    "matter_leg_deformation_for_sector",
     "write_matter_leg_deformation",
 ]

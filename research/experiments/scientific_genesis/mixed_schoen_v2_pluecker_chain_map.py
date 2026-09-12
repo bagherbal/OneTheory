@@ -467,11 +467,13 @@ def v2_pluecker_pairing_witness(
 
 
 @cache
-def local_v2_pluecker_pairing(
+def local_v2_pluecker_pairing_for_characters(
+    row_character: Character,
+    column_character: Character,
     row_local_family_index: int,
     column_local_family_index: int,
 ) -> V2PlueckerPairingWitness:
-    """Pair one indexed local class from each required matter character."""
+    """Pair indexed local classes from an ordered character pair."""
 
     if row_local_family_index not in (1, 2) or column_local_family_index not in (
         1,
@@ -480,7 +482,6 @@ def local_v2_pluecker_pairing(
         raise ValueError("local V2 family indices must be one or two")
     _first, second = mixed_schoen_matter_representatives()
     sectors = {sector.character: sector for sector in second.sectors}
-    row_character, column_character = UP_MATTER_CHARACTERS
     try:
         left_representative = sectors[row_character].full_representatives[
             row_local_family_index - 1
@@ -497,6 +498,20 @@ def local_v2_pluecker_pairing(
         (row_character[1] + column_character[1]) % 3,
     )
     return v2_pluecker_pairing_witness(left, right, target_character)
+
+
+@cache
+def local_v2_pluecker_pairing(
+    row_local_family_index: int,
+    column_local_family_index: int,
+) -> V2PlueckerPairingWitness:
+    """Pair indexed local classes from the up-type matter characters."""
+
+    return local_v2_pluecker_pairing_for_characters(
+        *UP_MATTER_CHARACTERS,
+        row_local_family_index,
+        column_local_family_index,
+    )
 
 
 @cache
@@ -550,6 +565,7 @@ __all__ = [
     "V2PlueckerPairingWitness",
     "first_v2_pluecker_pairing",
     "local_v2_pluecker_pairing",
+    "local_v2_pluecker_pairing_for_characters",
     "pair_v2_matter_representatives",
     "v2_pluecker_pairing_witness",
     "write_v2_pluecker_pairing",

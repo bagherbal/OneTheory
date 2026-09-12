@@ -44,7 +44,7 @@ from .diagonal_schoen_lines import (
     _subtract_degrees,
 )
 from .mixed_constituent_schoen_arrows import mixed_schoen_constituents
-from .mixed_schoen_chain_actions import mixed_schoen_higgs_deck_action
+from .mixed_schoen_chain_actions import load_certified_higgs_representative
 from .mixed_schoen_chain_diagonal import (
     ChainDiagonalCochain,
     chain_diagonal_objects,
@@ -451,7 +451,7 @@ class HolomorphicUpSlice:
 def mixed_schoen_holomorphic_up_slice() -> HolomorphicUpSlice:
     """Evaluate the four lawful split-family determinant traces exactly."""
 
-    higgs = mixed_schoen_higgs_deck_action().required_full_cochain
+    higgs = load_certified_higgs_representative()
     entries = []
     counts = []
     depths = []

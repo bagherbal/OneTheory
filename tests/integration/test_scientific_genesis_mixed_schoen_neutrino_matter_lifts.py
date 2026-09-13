@@ -24,6 +24,7 @@ from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automo
 )
 from research.experiments.scientific_genesis.mixed_schoen_neutrino_matter_lifts import (
     OUTPUT,
+    _certified_lift_records,
 )
 
 
@@ -84,3 +85,23 @@ def test_all_eight_neutrino_corrections_are_independently_certified() -> None:
     assert payload["arbitrary_extension_point_selected"] is False
     assert payload["observational_inputs_used"] is False
     assert payload["yukawa_coefficient_computed"] is False
+
+
+def test_restart_cache_evidence_indexes_every_certified_coefficient() -> None:
+    """Restart validation resolves all eight exact aggregate records."""
+
+    records = _certified_lift_records()
+
+    assert set(records) == {
+        (character, family_index, parameter_index)
+        for character in ((0, 0), (0, 2))
+        for family_index in (1, 2)
+        for parameter_index in (0, 1)
+    }
+    first = records[((0, 0), 1, 0)]
+    assert first["v2_term_count"] == 576
+    assert first["product_term_count"] == 69879
+    assert first["correction_term_count"] == 37944
+    assert first["product_digest"] == (
+        "b00b093949fe659ae4edb1469d6e22f818bb1c47b5665797e3addccbfb9b5d4d"
+    )

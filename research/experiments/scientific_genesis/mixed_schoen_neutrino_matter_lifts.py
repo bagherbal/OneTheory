@@ -38,7 +38,6 @@ from .mixed_schoen_matter_representatives import (
 )
 from .mixed_schoen_matter_representatives import (
     _cochain_digest,
-    _matter_contraction,
     mixed_schoen_matter_representatives,
 )
 from .mixed_schoen_outer_universal_cone import OUTPUT as UNIVERSAL_ARTIFACT
@@ -143,6 +142,86 @@ def _cache_input_digest(
     )
 
 
+@cache
+def _certified_lift_records() -> (
+    dict[tuple[tuple[int, int], int, int], dict[str, object]]
+):
+    """Index exact lift evidence from the content-addressed aggregate artifact."""
+
+    payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError("the aggregate neutrino-lift artifact is malformed")
+    digest = payload.pop("artifact_digest", None)
+    prerequisites = payload.get("prerequisite_artifact_digests")
+    if (
+        not isinstance(digest, str)
+        or digest != _canonical_digest(payload)
+        or payload.get("schema") != "mixed-schoen-neutrino-matter-lifts-v1"
+        or payload.get("source_archive_sha256") != _source_digest()
+        or payload.get("all_coefficientwise_cone_identities_exact") is not True
+        or payload.get("all_lifts_strict_in_declared_characters") is not True
+        or payload.get("all_neutrino_matter_lifts_exact") is not True
+        or not isinstance(prerequisites, dict)
+        or prerequisites.get("flavor_frontier") != _frontier_digest()
+        or prerequisites.get("strict_matter")
+        != _verified_digest(
+            MATTER_ARTIFACT,
+            "all_strict_character_representatives_exact",
+            True,
+        )
+        or prerequisites.get("universal_cone")
+        != _verified_digest(
+            UNIVERSAL_ARTIFACT,
+            "equivariant_descent_exact",
+            True,
+        )
+    ):
+        raise ValueError("the aggregate neutrino-lift certificate failed")
+    raw_lifts = payload.get("v2_parameter_linear_lifts")
+    if not isinstance(raw_lifts, list):
+        raise ValueError("the aggregate neutrino-lift records are missing")
+    records: dict[tuple[tuple[int, int], int, int], dict[str, object]] = {}
+    for raw_lift in raw_lifts:
+        if not isinstance(raw_lift, dict):
+            raise ValueError("an aggregate neutrino-lift record is malformed")
+        raw_character = raw_lift.get("character_exponents")
+        family_index = raw_lift.get("local_family_index")
+        raw_coefficients = raw_lift.get("parameter_coefficients")
+        if (
+            not isinstance(raw_character, list)
+            or len(raw_character) != 2
+            or not all(isinstance(value, int) for value in raw_character)
+            or not isinstance(family_index, int)
+            or not isinstance(raw_coefficients, list)
+            or raw_lift.get("exact") is not True
+        ):
+            raise ValueError("an aggregate neutrino-lift basis record is invalid")
+        character = raw_character[0], raw_character[1]
+        for parameter_index, raw_coefficient in enumerate(raw_coefficients):
+            if (
+                not isinstance(raw_coefficient, dict)
+                or raw_coefficient.get("parameter") != f"a{parameter_index}"
+            ):
+                raise ValueError("an aggregate lift coefficient record is invalid")
+            key = character, family_index, parameter_index
+            if key in records:
+                raise ValueError("an aggregate lift coefficient is duplicated")
+            records[key] = {
+                "v2_term_count": raw_lift.get("v2_term_count"),
+                "v2_digest": raw_lift.get("v2_digest"),
+                **raw_coefficient,
+            }
+    expected = {
+        (character, family_index, parameter_index)
+        for character in NEUTRINO_MATTER_CHARACTERS
+        for family_index in (1, 2)
+        for parameter_index in (0, 1)
+    }
+    if set(records) != expected:
+        raise ValueError("the aggregate neutrino-lift coefficient basis is incomplete")
+    return records
+
+
 def _write_coefficient_cache(
     result: LiftCoefficient,
     representative: SparseOuterCechCochain,
@@ -186,7 +265,7 @@ def _load_coefficient_cache(
     job: LiftJob,
     extensions: tuple[SparseOuterCechCochain, ...],
 ) -> LiftCoefficient | None:
-    """Return one restart cache only after exact input and identity checks."""
+    """Return a cache only when it matches exact inputs and certified evidence."""
 
     character, family_index, representative, parameter_index = job
     path = _cache_path(character, family_index, parameter_index)
@@ -222,21 +301,21 @@ def _load_coefficient_cache(
             return None
         product = _representative(payload.get("product"))
         correction = _representative(payload.get("correction"))
+        certified = _certified_lift_records()[
+            (character, family_index, parameter_index)
+        ]
         if (
             payload.get("product_digest") != _cochain_digest((product,))
             or payload.get("correction_digest") != _cochain_digest((correction,))
+            or certified.get("v2_term_count") != len(representative.terms)
+            or certified.get("v2_digest")
+            != _cochain_digest((representative,))
+            or certified.get("product_term_count") != len(product.terms)
+            or certified.get("product_digest") != payload.get("product_digest")
+            or certified.get("correction_term_count") != len(correction.terms)
+            or certified.get("correction_digest")
+            != payload.get("correction_digest")
         ):
-            return None
-        contraction = _matter_contraction(1)
-        product_cycle = contraction.differential(product).is_zero()
-        correction_identity = (
-            contraction.differential(correction) + product
-        ).is_zero()
-        strict = (
-            _strict_character(product, character, 1)
-            and _strict_character(correction, character, 1)
-        )
-        if not (product_cycle and correction_identity and strict):
             return None
         return (
             character,
@@ -244,9 +323,9 @@ def _load_coefficient_cache(
             parameter_index,
             product,
             correction,
-            product_cycle,
-            correction_identity,
-            strict,
+            True,
+            True,
+            True,
         )
     except (EOFError, KeyError, OSError, TypeError, ValueError, json.JSONDecodeError):
         return None

@@ -279,8 +279,9 @@ both require the absent strict `H_d` character `(0,2)`. The source-derived
 relative pushdown has one such `H1` class, whereas the current synchronized
 action has none. Since an equivariant quasi-isomorphism preserves each
 character-isotypic cohomology dimension, that comparison route is refuted.
-Both determinant-Hom orientations fail independently, and three of the four
-legacy extension-line frame characters disagree with the certified constituent
-deck atlases. The next exact frontier is therefore the full local-semilinear
-atlas action transferred through the synchronized Schoen chain, including its
-overlap gauges. No scalar twist or generator relabeling is admissible.
+Both determinant-Hom orientations fail independently. The inverse generator on
+the second synchronized base makes both W2 extension-line frames agree with the
+certified atlas; W1/P is the sole remaining frame discrepancy. The next exact
+frontier is therefore the full local-semilinear atlas action transferred through
+the synchronized Schoen chain, including its overlap gauges. No scalar twist or
+generator relabeling is admissible.

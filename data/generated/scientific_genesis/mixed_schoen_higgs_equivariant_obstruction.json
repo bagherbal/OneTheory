@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "8023654f831d369877782899946d16d6e201882b6467553bd29082f82b7cf3f2",
+  "artifact_digest": "ac3d8453726669d6d9e6fe55f9da071089f49852c78fdc89f8f2c34b6debe18a",
   "both_determinant_hom_orientations_blocked": true,
   "character_twist_guessed": false,
   "coefficient_field": "Q(omega)",
@@ -8,39 +8,48 @@
   "current_comparison_route_refuted": true,
   "deck_generators_relabelled": false,
   "equivariant_quasi_isomorphism_available": false,
+  "factor_action_orientations_exact": true,
   "isotypic_dimension_mismatch": true,
   "legacy_frame_atlas_comparisons": [
     {
-      "atlas_character": "1",
       "constituent": "W1",
       "factor": 1,
       "generator": "P",
       "legacy_character": "omega",
-      "matches": false
+      "matches": false,
+      "native_atlas_character": "1",
+      "synchronized_atlas_character": "1",
+      "synchronized_generator_power": 1
     },
     {
-      "atlas_character": "1",
       "constituent": "W1",
       "factor": 1,
       "generator": "T",
       "legacy_character": "1",
-      "matches": true
+      "matches": true,
+      "native_atlas_character": "1",
+      "synchronized_atlas_character": "1",
+      "synchronized_generator_power": 1
     },
     {
-      "atlas_character": "-1-omega",
       "constituent": "W2",
       "factor": 2,
       "generator": "P",
       "legacy_character": "omega",
-      "matches": false
+      "matches": true,
+      "native_atlas_character": "-1-omega",
+      "synchronized_atlas_character": "omega",
+      "synchronized_generator_power": 2
     },
     {
-      "atlas_character": "-1-omega",
       "constituent": "W2",
       "factor": 2,
       "generator": "T",
       "legacy_character": "omega",
-      "matches": false
+      "matches": true,
+      "native_atlas_character": "-1-omega",
+      "synchronized_atlas_character": "omega",
+      "synchronized_generator_power": 2
     }
   ],
   "legacy_frame_matches_atlas": false,

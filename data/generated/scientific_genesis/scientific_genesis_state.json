@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "a9775ed2f9b05b1c57915b0a386d669cb59dccf8a685a91a2098c8e93c7870ac",
+  "artifact_digest": "e1d9d2f0b799d6a144a645d2ea6e2ce39fcfb53e03c57a1f45a97f91bd5d4a09",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -292,9 +292,9 @@
       "sha256": "3fa93c0a708a2d90b4163d3269c4b0979902c101942d185df919854f65462edb"
     },
     {
-      "bytes": 2251,
+      "bytes": 2665,
       "path": "data/generated/scientific_genesis/mixed_schoen_higgs_equivariant_obstruction.json",
-      "sha256": "d803e31626715024799a4f6ed85e3a9b6c23c725938403038bf3e03fc67c2425"
+      "sha256": "bceed8ec8f17271c34dc8726308b5fdb3704c7d5dd789b9cd4f102f3e40c3709"
     },
     {
       "bytes": 1596,
@@ -1551,7 +1551,7 @@
         "full local-semilinear constituent deck action on the synchronized chain",
         "overlap-gauge terms in the transferred action"
       ],
-      "statement": "An equivariant quasi-isomorphism must preserve every isotypic cohomology dimension. The source-derived P1 tensor has one character-(0,2) H1 class while the current synchronized chain has none. Both determinant-Hom orientations also fail, and three of four legacy extension-line frame characters differ from the exact constituent deck atlases.",
+      "statement": "An equivariant quasi-isomorphism must preserve every isotypic cohomology dimension. The source-derived P1 tensor has one character-(0,2) H1 class while the current synchronized chain has none. Both determinant-Hom orientations also fail. After accounting for the inverse generator on the second synchronized base, only the W1/P extension-line frame differs from its exact constituent atlas.",
       "status": "REFUTED"
     },
     {
@@ -3422,7 +3422,7 @@
     "both neutrino matter characters have exact universal lifts with all eight parameter corrections certified over the frozen P1",
     "the complete Dirac-neutrino tree matrix has four independent exact zero residues with explicit depth-four primitives",
     "the source-derived H_d character-(0,2) H1 has dimension one while the current synchronized action has dimension zero, refuting an equivariant quasi-isomorphism for that action",
-    "three of four synchronized extension-line frame characters differ from the exact constituent deck atlases"
+    "the inverse deck orientation on the second synchronized base makes both W2 extension-line frames agree with their exact atlas; only the W1/P frame remains discrepant"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -3536,6 +3536,7 @@
         2
       ],
       "equivariant_matter_product_cycle_count": 4,
+      "factor_action_orientations_exact": true,
       "final_lower_line_lifts_universally": true,
       "final_lower_line_retired_candidate_blocks": [
         5,
@@ -3609,7 +3610,7 @@
       "lawful_structural_spectrum_all_P1": true,
       "lawful_wilson_projected_families": 3,
       "lawful_wilson_projected_higgs_pairs": 1,
-      "legacy_frame_atlas_mismatch_count": 3,
+      "legacy_frame_atlas_mismatch_count": 1,
       "legacy_frame_matches_constituent_atlases": false,
       "local_determinant_pairings_available": true,
       "minimum_forced_chamber_certificate": [

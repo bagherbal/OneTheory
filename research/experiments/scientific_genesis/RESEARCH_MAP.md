@@ -411,12 +411,12 @@ chain restriction has `H1 = 0`. The source-derived relative pushdown instead
 has dimension one in that isotypic sector, so no equivariant quasi-isomorphism
 can use the current synchronized action. Both determinant-Hom orientations are
 also character-inequivalent to the physical tensor under every uniform scalar
-shift. Exact constituent deck atlases expose the constructive defect: three of
-four legacy extension-line frame characters disagree with the local-semilinear
-atlas data. The shortest rigorous route is therefore to transfer the full
-atlas action, including overlap gauges, through the synchronized Schoen chain.
-No character twist, generator relabeling, or observational selector is
-permitted.
+shift. The second synchronized base carries the inverse deck generator, so its
+two W2 extension-line frames agree with the squared native atlas characters.
+The sole remaining frame discrepancy is W1/P. The shortest rigorous route is
+therefore to transfer the full atlas action, including overlap gauges, through
+the synchronized Schoen chain. No character twist, generator relabeling, or
+observational selector is permitted.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

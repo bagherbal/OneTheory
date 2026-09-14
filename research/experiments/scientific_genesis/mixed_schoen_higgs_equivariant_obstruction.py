@@ -28,6 +28,10 @@ from onetheory.math.numbers import Eisenstein
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
 )
+from research.experiments.computable_carrier.schoen_sparse_actions import (
+    CoordinateImage,
+    schoen_sparse_deck_actions,
+)
 
 from .mixed_schoen_outer_actions import _constituent_frame
 from .published_constituent_deck_atlases import (
@@ -94,13 +98,20 @@ class FrameCharacterComparison:
     factor: int
     generator: str
     legacy_character: Eisenstein
-    atlas_character: Eisenstein
+    native_atlas_character: Eisenstein
+    synchronized_generator_power: int
+
+    @property
+    def synchronized_atlas_character(self) -> Eisenstein:
+        """Return the atlas character in the synchronized factor orientation."""
+
+        return self.native_atlas_character**self.synchronized_generator_power
 
     @property
     def matches(self) -> bool:
         """Return whether the synchronized frame uses the atlas character."""
 
-        return self.legacy_character == self.atlas_character
+        return self.legacy_character == self.synchronized_atlas_character
 
     def as_record(self) -> dict[str, object]:
         """Serialize one exact frame-character comparison."""
@@ -110,9 +121,41 @@ class FrameCharacterComparison:
             "factor": self.factor,
             "generator": self.generator,
             "legacy_character": str(self.legacy_character),
-            "atlas_character": str(self.atlas_character),
+            "native_atlas_character": str(self.native_atlas_character),
+            "synchronized_generator_power": self.synchronized_generator_power,
+            "synchronized_atlas_character": str(
+                self.synchronized_atlas_character
+            ),
             "matches": self.matches,
         }
+
+
+def _compose_images(first: CoordinateImage, second: CoordinateImage) -> CoordinateImage:
+    """Compose two exact monomial coordinate substitutions."""
+
+    result = []
+    for second_scalar, second_exponents in second:
+        scalar = second_scalar
+        exponents = [0] * len(first)
+        for power, (first_scalar, first_exponents) in zip(
+            second_exponents,
+            first,
+            strict=True,
+        ):
+            scalar *= first_scalar**power
+            for index, exponent in enumerate(first_exponents):
+                exponents[index] += power * exponent
+        result.append((scalar, tuple(exponents)))
+    return tuple(result)
+
+
+def _factor_action_orientations_exact() -> bool:
+    """Check that the second synchronized base carries the inverse action."""
+
+    return all(
+        action.u_images == _compose_images(action.x_images, action.x_images)
+        for action in schoen_sparse_deck_actions()
+    )
 
 
 def _frame_character_comparisons() -> tuple[FrameCharacterComparison, ...]:
@@ -135,6 +178,7 @@ def _frame_character_comparisons() -> tuple[FrameCharacterComparison, ...]:
                     generator,
                     _constituent_frame(factor, generator)[0][0],
                     next(iter(atlas_values)),
+                    1 if factor == 1 else 2,
                 )
             )
     return tuple(comparisons)
@@ -149,6 +193,7 @@ class HiggsEquivariantObstruction:
     current_chain_exact: bool
     determinant_hom_orientations_blocked: bool
     constituent_atlases_exact: bool
+    factor_action_orientations_exact: bool
     frame_comparisons: tuple[FrameCharacterComparison, ...]
     prerequisite_artifact_digests: tuple[tuple[str, str], ...]
 
@@ -180,6 +225,7 @@ class HiggsEquivariantObstruction:
             and self.current_chain_exact
             and self.determinant_hom_orientations_blocked
             and self.constituent_atlases_exact
+            and self.factor_action_orientations_exact
             and len(self.frame_comparisons) == 4
             and not self.legacy_frame_matches_atlas
             and not self.equivariant_quasi_isomorphism_available
@@ -206,6 +252,9 @@ class HiggsEquivariantObstruction:
                 self.determinant_hom_orientations_blocked
             ),
             "constituent_atlases_exact": self.constituent_atlases_exact,
+            "factor_action_orientations_exact": (
+                self.factor_action_orientations_exact
+            ),
             "legacy_frame_atlas_comparisons": [
                 item.as_record() for item in self.frame_comparisons
             ],
@@ -255,6 +304,7 @@ def higgs_equivariant_obstruction() -> HiggsEquivariantObstruction:
         current_chain_exact,
         hom.get("all_determinant_hom_orientations_blocked") is True,
         atlas.get("all_constituent_deck_atlases_exact") is True,
+        _factor_action_orientations_exact(),
         _frame_character_comparisons(),
         (
             ("lawful_spectrum", spectrum_digest),

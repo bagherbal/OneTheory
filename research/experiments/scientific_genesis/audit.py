@@ -1377,9 +1377,9 @@ def _nodes() -> list[dict[str, object]]:
             "An equivariant quasi-isomorphism must preserve every isotypic "
             "cohomology dimension. The source-derived P1 tensor has one "
             "character-(0,2) H1 class while the current synchronized chain has "
-            "none. Both determinant-Hom orientations also fail, and three of "
-            "four legacy extension-line frame characters differ from the exact "
-            "constituent deck atlases.",
+            "none. Both determinant-Hom orientations also fail. After accounting "
+            "for the inverse generator on the second synchronized base, only the "
+            "W1/P extension-line frame differs from its exact constituent atlas.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_higgs_equivariant_obstruction.json",
@@ -3772,7 +3772,8 @@ def build_state() -> dict[str, object]:
                 "current_h_d_comparison_route_refuted": True,
                 "both_determinant_hom_orientations_blocked": True,
                 "legacy_frame_matches_constituent_atlases": False,
-                "legacy_frame_atlas_mismatch_count": 3,
+                "factor_action_orientations_exact": True,
+                "legacy_frame_atlas_mismatch_count": 1,
                 "selected_available_flavor_sector": "dirac_neutrino",
                 "selected_available_flavor_chain_object_count": 8,
                 "selected_available_matter_characters": [[0, 0], [0, 2]],
@@ -3919,8 +3920,9 @@ def build_state() -> dict[str, object]:
             "the source-derived H_d character-(0,2) H1 has dimension one while "
             "the current synchronized action has dimension zero, refuting an "
             "equivariant quasi-isomorphism for that action",
-            "three of four synchronized extension-line frame characters differ "
-            "from the exact constituent deck atlases",
+            "the inverse deck orientation on the second synchronized base makes "
+            "both W2 extension-line frames agree with their exact atlas; only "
+            "the W1/P frame remains discrepant",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",

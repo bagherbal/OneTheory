@@ -207,7 +207,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["current_h_d_comparison_route_refuted"] is True
     assert path["criteria"]["both_determinant_hom_orientations_blocked"] is True
     assert path["criteria"]["legacy_frame_matches_constituent_atlases"] is False
-    assert path["criteria"]["legacy_frame_atlas_mismatch_count"] == 3
+    assert path["criteria"]["factor_action_orientations_exact"] is True
+    assert path["criteria"]["legacy_frame_atlas_mismatch_count"] == 1
     assert path["criteria"]["selected_available_flavor_sector"] == "dirac_neutrino"
     assert path["criteria"]["selected_available_flavor_chain_object_count"] == 8
     assert path["criteria"]["selected_available_matter_characters"] == [

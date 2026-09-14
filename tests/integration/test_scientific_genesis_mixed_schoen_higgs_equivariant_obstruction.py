@@ -38,15 +38,22 @@ def test_exact_atlas_exposes_the_legacy_frame_gap() -> None:
 
     assert payload["both_determinant_hom_orientations_blocked"] is True
     assert payload["constituent_atlases_exact"] is True
+    assert payload["factor_action_orientations_exact"] is True
     assert payload["legacy_frame_matches_atlas"] is False
-    assert [item["matches"] for item in comparisons] == [False, True, False, False]
+    assert [item["matches"] for item in comparisons] == [False, True, True, True]
     assert [
-        (item["constituent"], item["generator"], item["atlas_character"])
+        (
+            item["constituent"],
+            item["generator"],
+            item["native_atlas_character"],
+            item["synchronized_generator_power"],
+            item["synchronized_atlas_character"],
+        )
         for item in comparisons
     ] == [
-        ("W1", "P", "1"),
-        ("W1", "T", "1"),
-        ("W2", "P", "-1-omega"),
-        ("W2", "T", "-1-omega"),
+        ("W1", "P", "1", 1, "1"),
+        ("W1", "T", "1", 1, "1"),
+        ("W2", "P", "-1-omega", 2, "omega"),
+        ("W2", "T", "-1-omega", 2, "omega"),
     ]
     assert "local-semilinear" in payload["next_required_object"]

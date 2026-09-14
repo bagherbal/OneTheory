@@ -1431,8 +1431,28 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/"
                 "test_scientific_genesis_mixed_schoen_neutrino_tree_matrix.py",
             ),
+        ),
+        _node(
+            "mixed_neutrino_first_order_matrix",
+            "complete universal Dirac-neutrino matrix",
+            "Flavor",
+            "COMPUTED",
+            "All eight parameter and local-family coefficients are exact "
+            "closed scalar cochains with distinct digests and zero residue. "
+            "Both parameter coefficient matrices vanish. Exterior filtration "
+            "allows no order above one, so the complete universal "
+            "Dirac-neutrino matrix has exact rank zero on the frozen P1.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_neutrino_first_order_matrix.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_neutrino_first_order_matrix.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_neutrino_first_order_matrix.py",
+            ),
             missing=(
-                "complete first universal Dirac-neutrino coefficient matrix",
+                "exact equivariant chain comparison realizing source H_d "
+                "character (0,2)",
             ),
         ),
         _node(
@@ -1493,7 +1513,8 @@ def _nodes() -> list[dict[str, object]]:
                 "research/experiments/visible_common_dga/audit.py",
             ),
             missing=(
-                "exact Wilson character support for the next flavor sector",
+                "strict source H_d representative from an exact equivariant "
+                "chain comparison",
             ),
         ),
         _node(
@@ -1519,7 +1540,10 @@ def _nodes() -> list[dict[str, object]]:
             "that the full universal up matrix has rank zero, so this branch "
             "cannot supply the required nontrivial matrix. The next down route "
             "also fails because its strict Higgs character has zero current-chain "
-            "H1, so the exact frontier now selects Dirac neutrinos.",
+            "H1. The complete Dirac-neutrino tree and first-order matrices also "
+            "vanish, while filtration excludes every higher order. The exact "
+            "frontier is therefore the missing equivariant comparison for the "
+            "source H_d character shared by down and charged leptons.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_matter_leg_deformation.json",
@@ -1539,9 +1563,12 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_down_higgs_action.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_flavor_frontier.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_neutrino_first_order_matrix.json",
             ),
             missing=(
-                "complete carrier-derived Dirac-neutrino matrix",
+                "exact equivariant chain comparison realizing source H_d "
+                "character (0,2)",
             ),
         ),
         _node(
@@ -2970,16 +2997,30 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_neutrino_tree_matrix",
-            "first_exact_yukawa",
-            "The exact tree-level zero fixes the baseline that the first "
-            "universal correction must escape to produce a nontrivial matrix.",
+            "mixed_neutrino_first_order_matrix",
+            "The exact tree-level zero fixes the baseline for all eight "
+            "independent universal parameter corrections.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_neutrino_tree_matrix.json",
+                "mixed_schoen_neutrino_first_order_matrix.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_neutrino_first_order_matrix",
+            "first_exact_yukawa",
+            "The exact all-orders neutrino zero excludes that sector and "
+            "leaves the shared H_d equivariant comparison as the shortest "
+            "route back to down or charged-lepton flavor.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_neutrino_first_order_matrix.json",
             ),
             (),
             False,
-            ("the first universal coefficient is not yet computed",),
+            ("the source H_d character is absent from the current chain action",),
         ),
         _edge(
             "common_dga_package",
@@ -3446,6 +3487,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_neutrino_matter_lifts.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_tree_matrix.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_neutrino_first_order_matrix.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -3476,7 +3519,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 619,
+            "collected_tests_at_audit": 624,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3498,8 +3541,9 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "the exact Dirac-neutrino tree matrix vanishes, so the first "
-                "universal coefficient is the minimum available flavor edge"
+                "the complete universal up and Dirac-neutrino matrices vanish; "
+                "the shared source H_d equivariant comparison is the minimum "
+                "remaining flavor prerequisite"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3679,11 +3723,21 @@ def build_state() -> dict[str, object]:
                 "complete_neutrino_tree_matrix_rank": 0,
                 "neutrino_tree_zero_entries_have_exact_primitives": True,
                 "neutrino_tree_extension_point_selected": False,
+                "complete_neutrino_first_order_coefficient_count": 8,
+                "complete_universal_holomorphic_neutrino_matrix_available": True,
+                "complete_universal_holomorphic_neutrino_matrix_rank": 0,
+                "neutrino_maximum_exterior_allowed_parameter_order": 1,
+                "neutrino_higher_orders_structurally_zero": True,
+                "neutrino_extension_point_selected": False,
+                "remaining_current_chain_flavor_sector_available": False,
+                "shared_missing_higgs_character": [0, 2],
+                "next_exact_frontier_uses_observations": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "complete first universal Dirac-neutrino coefficient matrix"
+                "exact equivariant chain comparison realizing source H_d "
+                "character (0,2)"
             ),
         },
         "claims": _nodes(),
@@ -3796,6 +3850,8 @@ def build_state() -> dict[str, object]:
             "so fail-closed reranking selects the eight-object neutrino sector",
             "both neutrino matter characters have exact universal lifts with "
             "all eight parameter corrections certified over the frozen P1",
+            "the complete Dirac-neutrino tree matrix has four independent "
+            "exact zero residues with explicit depth-four primitives",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -3857,6 +3913,9 @@ def build_state() -> dict[str, object]:
             "up-type contribution, proving the full universal up matrix has rank zero",
             "the current chain action has exact H1 dimension zero in the "
             "source-required down-Higgs character (0,2)",
+            "all eight universal Dirac-neutrino coefficients have distinct "
+            "exact closed cochains but zero residue; exterior filtration "
+            "excludes higher orders, proving rank zero on the frozen P1",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -3870,7 +3929,6 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "complete carrier-derived Dirac-neutrino Yukawa matrix",
             "an equivariant chain repair for the unavailable down-Higgs character",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",

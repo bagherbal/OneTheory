@@ -397,6 +397,20 @@ Dirac-neutrino branch because its eight parameter corrections have not yet
 been traced. The immediate target is the complete first universal coefficient
 matrix, with no extension point selected.
 
+The complete universal Dirac-neutrino matrix is now certified. Its eight
+parameter/local-family higher-product cochains are independently exact and
+carry distinct content digests, but every normalized residue is zero. Hence
+both coefficient matrices vanish over `Q(omega)`, and the universal polynomial
+matrix has exact generic rank zero. The same exterior-filtration enumeration
+used for the up branch permits no order beyond one, so this is an all-orders
+result on the frozen one-sided `P1`, not a first-order truncation. It remains
+scoped to this carrier branch and sector. With up and Dirac neutrinos excluded,
+the current chain action supplies no untested flavor sector: both down and
+charged leptons need the source `H_d` character `(0,2)`, whose current exact
+chain restriction has `H1 = 0`. The shortest rigorous route is therefore an
+exact equivariant chain comparison recovering that source character. No
+character twist or observational selector is permitted.
+
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the
 published carrier, even when their dimensions happen to match source ledgers.

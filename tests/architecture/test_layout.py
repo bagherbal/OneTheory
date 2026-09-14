@@ -141,6 +141,8 @@ def test_every_created_directory_has_a_readme() -> None:
         ".pytest_cache",
         ".ruff_cache",
         ".venv",
+        ".mixed_schoen_neutrino_coefficient_cache",
+        ".mixed_schoen_neutrino_lift_cache",
         "__pycache__",
         "build",
         "dist",

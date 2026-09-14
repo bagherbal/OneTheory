@@ -266,4 +266,15 @@ each has an explicit depth-four primitive. Thus the complete tree matrix has
 exact rank zero. This no-go is scoped to the associated-graded product: the
 already-derived universal matter corrections have not been omitted or declared
 zero. The next object is the complete first universal Dirac-neutrino
-coefficient matrix.
+coefficient matrix. That matrix is now complete. All eight independently
+computed parameter and local-family coefficients are exact closed scalar
+cochains with distinct digests and zero residue; their term counts range from
+302,487 to 347,727. Both `a0` and `a1` coefficient matrices therefore vanish.
+Because exterior filtration permits only tree order in the mixed `V1`-`V2`
+slots and first order in the `V2`-`V2` slots, no higher contribution remains:
+the universal Dirac-neutrino matrix has exact rank zero over the entire frozen
+`P1`. This is a sector- and branch-scoped all-orders no-go. The current chain
+action now has no remaining available flavor sector: down and charged leptons
+both require the absent strict `H_d` character `(0,2)`. The next exact frontier
+is an equivariant chain comparison that recovers that source character without
+guessing a twist.

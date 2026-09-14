@@ -1,0 +1,610 @@
+{
+  "all_eight_coefficients_exact": true,
+  "artifact_digest": "08a3750a8a914d835113d7f2507c360aa87a549110ae7099e031dcd84337d89c",
+  "coefficient_field": "Q(omega)[a0,a1]",
+  "coefficient_matrices": {
+    "a0": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "a1": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ]
+  },
+  "coefficients": [
+    {
+      "action_product": {
+        "digest": "00871291febe8dbd2169dbe89c1f01b2bc81916a3453915c82dce09342d1dd02",
+        "term_count": 172326
+      },
+      "bottom_pairing_term_count": 15696,
+      "classification": "SCOPED_FIRST_ORDER_ENTRY_VANISHING",
+      "column_local_family_index": 1,
+      "comparison_residual": {
+        "digest": "262360f83d07b16ce2b79dc87ccb45811e0f9c76897fe65c5356d70516095ced",
+        "is_cycle": true,
+        "term_count": 172416
+      },
+      "complete_first_order_matrix_available": false,
+      "complete_scalar_cochain": {
+        "digest": "fa10235720171098509b6a1bea684275b32461892c06b95c86734c3da5915d94",
+        "is_cycle": true,
+        "projection_depth": 4,
+        "residue": "0",
+        "term_count": 347727
+      },
+      "correction_product": {
+        "digest": "1eb60ec32274a46bc3e81ec55f9fe20d01e49088424cebb8c7474ae2e738c644",
+        "term_count": 350082
+      },
+      "exact": true,
+      "extension_point_selected": false,
+      "first_missing_input": "the remaining local-family and a1 first-order coefficients, preferably compressed by multilinearity or symmetry",
+      "general_chain_homotopy_available": false,
+      "higgs_correction_character_exact": true,
+      "higgs_correction_term_count": 1980,
+      "holomorphic_yukawa_matrix_available": false,
+      "input_level_comparison_primitive_available": true,
+      "leibniz_identity_exact": true,
+      "matter_scalar_character_exact": true,
+      "matter_scalar_term_count": 9855,
+      "observational_inputs_used": false,
+      "parameter": "a0",
+      "raw_comparison_primitive": {
+        "depth": 3,
+        "digest": "04cd9e75c67c9633a53d0459b49e1defd9ecc552cea3af5cef68dbfb4dde2df3",
+        "identity_exact": true,
+        "term_count": 97960
+      },
+      "row_local_family_index": 1,
+      "scalar_frame_character_exponents": [
+        2,
+        1
+      ],
+      "strict_comparison_primitive": {
+        "character_exact": true,
+        "digest": "6f353e4d7b0cc58ea30b4b172975bed68ce1a012cecf3f92d5beeed58919b834",
+        "identity_exact": true,
+        "term_count": 125835
+      },
+      "v1_determinant_character_exponents": [
+        1,
+        0
+      ],
+      "v2_determinant_character_exponents": [
+        1,
+        1
+      ]
+    },
+    {
+      "action_product": {
+        "digest": "dfb95ab6e3371ee5ff9292e2d453cca627addc0477c6206d9ef616951cfcccd4",
+        "term_count": 157806
+      },
+      "bottom_pairing_term_count": 13914,
+      "classification": "SCOPED_FIRST_ORDER_ENTRY_VANISHING",
+      "column_local_family_index": 2,
+      "comparison_residual": {
+        "digest": "c88d83d5b3e5b49c30131554e99655c028a352684d02cb270171ebff1d44cfea",
+        "is_cycle": true,
+        "term_count": 157896
+      },
+      "complete_first_order_matrix_available": false,
+      "complete_scalar_cochain": {
+        "digest": "afdd62801080f789dede2c25f6ced92f3bbf5e15b7ac9cbbce238d8eab2bf120",
+        "is_cycle": true,
+        "projection_depth": 4,
+        "residue": "0",
+        "term_count": 318099
+      },
+      "correction_product": {
+        "digest": "b4aa27f3734005de624da74de7de95e3c909cc1e3b869ba64f49b4c464d9b2f1",
+        "term_count": 318126
+      },
+      "exact": true,
+      "extension_point_selected": false,
+      "first_missing_input": "the remaining local-family and a1 first-order coefficients, preferably compressed by multilinearity or symmetry",
+      "general_chain_homotopy_available": false,
+      "higgs_correction_character_exact": true,
+      "higgs_correction_term_count": 1980,
+      "holomorphic_yukawa_matrix_available": false,
+      "input_level_comparison_primitive_available": true,
+      "leibniz_identity_exact": true,
+      "matter_scalar_character_exact": true,
+      "matter_scalar_term_count": 9855,
+      "observational_inputs_used": false,
+      "parameter": "a0",
+      "raw_comparison_primitive": {
+        "depth": 3,
+        "digest": "592933d979979655daf883f6dbf2140d2b92c4000455ce0624ab1659339fe267",
+        "identity_exact": true,
+        "term_count": 88849
+      },
+      "row_local_family_index": 1,
+      "scalar_frame_character_exponents": [
+        2,
+        1
+      ],
+      "strict_comparison_primitive": {
+        "character_exact": true,
+        "digest": "6bb75952577af8aa00bb30a49d845607e5a61138fb8bc0e3be28b0373fc928f5",
+        "identity_exact": true,
+        "term_count": 114720
+      },
+      "v1_determinant_character_exponents": [
+        1,
+        0
+      ],
+      "v2_determinant_character_exponents": [
+        1,
+        1
+      ]
+    },
+    {
+      "action_product": {
+        "digest": "8d3a4b41a27962097ce83eb641706cfd6f9d17f7528c09b934e50de76a7a5868",
+        "term_count": 168426
+      },
+      "bottom_pairing_term_count": 15840,
+      "classification": "SCOPED_FIRST_ORDER_ENTRY_VANISHING",
+      "column_local_family_index": 1,
+      "comparison_residual": {
+        "digest": "a4658394cf562be7e3a3ce2199be09f11b7e204b4ed6724ecda3b65b6a858b80",
+        "is_cycle": true,
+        "term_count": 168516
+      },
+      "complete_first_order_matrix_available": false,
+      "complete_scalar_cochain": {
+        "digest": "347233067350cfed84b35b2fb3700ff62a3c4119fb1b8b4b82d8904413354b1d",
+        "is_cycle": true,
+        "projection_depth": 4,
+        "residue": "0",
+        "term_count": 345252
+      },
+      "correction_product": {
+        "digest": "3e87ea9df322502dc905a57031646d60ffbc2b497af0ee3996a852cb2a743a2c",
+        "term_count": 349209
+      },
+      "exact": true,
+      "extension_point_selected": false,
+      "first_missing_input": "the remaining local-family and a1 first-order coefficients, preferably compressed by multilinearity or symmetry",
+      "general_chain_homotopy_available": false,
+      "higgs_correction_character_exact": true,
+      "higgs_correction_term_count": 1980,
+      "holomorphic_yukawa_matrix_available": false,
+      "input_level_comparison_primitive_available": true,
+      "leibniz_identity_exact": true,
+      "matter_scalar_character_exact": true,
+      "matter_scalar_term_count": 9855,
+      "observational_inputs_used": false,
+      "parameter": "a0",
+      "raw_comparison_primitive": {
+        "depth": 3,
+        "digest": "4c90d873381388fe425fc7c1f5e469956bc0d9d206dda356682f587ce81533f1",
+        "identity_exact": true,
+        "term_count": 93523
+      },
+      "row_local_family_index": 2,
+      "scalar_frame_character_exponents": [
+        2,
+        1
+      ],
+      "strict_comparison_primitive": {
+        "character_exact": true,
+        "digest": "6daa85415cd264f578d1bd75342456e7d02cddab0437533f94c2dbf9cb3d8739",
+        "identity_exact": true,
+        "term_count": 120822
+      },
+      "v1_determinant_character_exponents": [
+        1,
+        0
+      ],
+      "v2_determinant_character_exponents": [
+        1,
+        1
+      ]
+    },
+    {
+      "action_product": {
+        "digest": "741ffd168bb5be57cbd3d7d9c7496084a2469e3619e68e397b646566eb58cb39",
+        "term_count": 172863
+      },
+      "bottom_pairing_term_count": 15624,
+      "classification": "SCOPED_FIRST_ORDER_ENTRY_VANISHING",
+      "column_local_family_index": 2,
+      "comparison_residual": {
+        "digest": "9755030f60f7f5e79ff0c846a50ef3682a2833a14219bf5ea9db30c180a7f2c2",
+        "is_cycle": true,
+        "term_count": 172953
+      },
+      "complete_first_order_matrix_available": false,
+      "complete_scalar_cochain": {
+        "digest": "053c6f2368c1b0d632275de10538c95f4e4db33732348b3cd287b881d64d0101",
+        "is_cycle": true,
+        "projection_depth": 4,
+        "residue": "0",
+        "term_count": 347658
+      },
+      "correction_product": {
+        "digest": "2dd52fca984098cdf73617ec610ac58d71380dd9ca99ea2d52344114a2532819",
+        "term_count": 351945
+      },
+      "exact": true,
+      "extension_point_selected": false,
+      "first_missing_input": "the remaining local-family and a1 first-order coefficients, preferably compressed by multilinearity or symmetry",
+      "general_chain_homotopy_available": false,
+      "higgs_correction_character_exact": true,
+      "higgs_correction_term_count": 1980,
+      "holomorphic_yukawa_matrix_available": false,
+      "input_level_comparison_primitive_available": true,
+      "leibniz_identity_exact": true,
+      "matter_scalar_character_exact": true,
+      "matter_scalar_term_count": 9855,
+      "observational_inputs_used": false,
+      "parameter": "a0",
+      "raw_comparison_primitive": {
+        "depth": 3,
+        "digest": "2b583a04dfa9a03f78d78837f3715cf90cb8cf18698dec7b0a4befd20a9a5300",
+        "identity_exact": true,
+        "term_count": 97911
+      },
+      "row_local_family_index": 2,
+      "scalar_frame_character_exponents": [
+        2,
+        1
+      ],
+      "strict_comparison_primitive": {
+        "character_exact": true,
+        "digest": "5418ae39d8a2d7b9ef150a58fa4d57ffbf3171f7a3eab9eff815447cd0b7a8aa",
+        "identity_exact": true,
+        "term_count": 125472
+      },
+      "v1_determinant_character_exponents": [
+        1,
+        0
+      ],
+      "v2_determinant_character_exponents": [
+        1,
+        1
+      ]
+    },
+    {
+      "action_product": {
+        "digest": "7dc2be9cb848f38d029e8e10e58973b9fa778709bc0cecd080a36759e2ff30b0",
+        "term_count": 167031
+      },
+      "bottom_pairing_term_count": 15696,
+      "classification": "SCOPED_FIRST_ORDER_ENTRY_VANISHING",
+      "column_local_family_index": 1,
+      "comparison_residual": {
+        "digest": "f340187dbc6ce683f057b0aeb0ae85f6ae7e3ae2d2dbe05a74af749cd05176e8",
+        "is_cycle": true,
+        "term_count": 167121
+      },
+      "complete_first_order_matrix_available": false,
+      "complete_scalar_cochain": {
+        "digest": "679d3b5be95b22a442d431e2f569c7c9edae1e25816a2e8caa9ac4d0c3c8377e",
+        "is_cycle": true,
+        "projection_depth": 4,
+        "residue": "0",
+        "term_count": 339381
+      },
+      "correction_product": {
+        "digest": "c5862256a0c8aff8dd13fd021fb7103081de63e2ee0e0d8be82232e6864bb813",
+        "term_count": 339033
+      },
+      "exact": true,
+      "extension_point_selected": false,
+      "first_missing_input": "the remaining local-family and a1 first-order coefficients, preferably compressed by multilinearity or symmetry",
+      "general_chain_homotopy_available": false,
+      "higgs_correction_character_exact": true,
+      "higgs_correction_term_count": 1980,
+      "holomorphic_yukawa_matrix_available": false,
+      "input_level_comparison_primitive_available": true,
+      "leibniz_identity_exact": true,
+      "matter_scalar_character_exact": true,
+      "matter_scalar_term_count": 9855,
+      "observational_inputs_used": false,
+      "parameter": "a1",
+      "raw_comparison_primitive": {
+        "depth": 3,
+        "digest": "3b5a6c6b94be621dae3ab1c71e18eb3f658f72753debfa1c467fb65554be1b90",
+        "identity_exact": true,
+        "term_count": 94763
+      },
+      "row_local_family_index": 1,
+      "scalar_frame_character_exponents": [
+        2,
+        1
+      ],
+      "strict_comparison_primitive": {
+        "character_exact": true,
+        "digest": "eff75b479e985493ef180a7b946c3ae265474173bb239409aa2874e2add5766f",
+        "identity_exact": true,
+        "term_count": 122943
+      },
+      "v1_determinant_character_exponents": [
+        1,
+        0
+      ],
+      "v2_determinant_character_exponents": [
+        1,
+        1
+      ]
+    },
+    {
+      "action_product": {
+        "digest": "50595c42ac267cbb3a84f05e65f9c518a4b994eb76ed9991f9056e608566e275",
+        "term_count": 149232
+      },
+      "bottom_pairing_term_count": 13914,
+      "classification": "SCOPED_FIRST_ORDER_ENTRY_VANISHING",
+      "column_local_family_index": 2,
+      "comparison_residual": {
+        "digest": "1c9bede7f565dbb23ab809ab12ea7d614891a88e3e6a3dd5c205af4b69c54b6f",
+        "is_cycle": true,
+        "term_count": 149322
+      },
+      "complete_first_order_matrix_available": false,
+      "complete_scalar_cochain": {
+        "digest": "3764325ee618cd961c518615100938eb7328dba8f92f16cc185efd31df446208",
+        "is_cycle": true,
+        "projection_depth": 4,
+        "residue": "0",
+        "term_count": 302487
+      },
+      "correction_product": {
+        "digest": "c7ff246d939ac8cec2003f64a6580ebf3e2962b575e8a85557db13019a4bd86a",
+        "term_count": 305166
+      },
+      "exact": true,
+      "extension_point_selected": false,
+      "first_missing_input": "the remaining local-family and a1 first-order coefficients, preferably compressed by multilinearity or symmetry",
+      "general_chain_homotopy_available": false,
+      "higgs_correction_character_exact": true,
+      "higgs_correction_term_count": 1980,
+      "holomorphic_yukawa_matrix_available": false,
+      "input_level_comparison_primitive_available": true,
+      "leibniz_identity_exact": true,
+      "matter_scalar_character_exact": true,
+      "matter_scalar_term_count": 9414,
+      "observational_inputs_used": false,
+      "parameter": "a1",
+      "raw_comparison_primitive": {
+        "depth": 3,
+        "digest": "b5a3a586f5afedc4bc79fdb4f0eadf3aa22e9fa5c91766d1e02ca56879cadb31",
+        "identity_exact": true,
+        "term_count": 82304
+      },
+      "row_local_family_index": 1,
+      "scalar_frame_character_exponents": [
+        2,
+        1
+      ],
+      "strict_comparison_primitive": {
+        "character_exact": true,
+        "digest": "a9dee06d0ea1254ae1065d5dd4bf293586e922cac60a37abdec8d11bfe448860",
+        "identity_exact": true,
+        "term_count": 104892
+      },
+      "v1_determinant_character_exponents": [
+        1,
+        0
+      ],
+      "v2_determinant_character_exponents": [
+        1,
+        1
+      ]
+    },
+    {
+      "action_product": {
+        "digest": "a025092e61764155992669bb7b922a83fa80f3b87358b9fef066ff9c9defc608",
+        "term_count": 163314
+      },
+      "bottom_pairing_term_count": 15840,
+      "classification": "SCOPED_FIRST_ORDER_ENTRY_VANISHING",
+      "column_local_family_index": 1,
+      "comparison_residual": {
+        "digest": "243d3e0d613bcc798e1085f95ec64207c2c51a94c15801b322567ae693d034b5",
+        "is_cycle": true,
+        "term_count": 163404
+      },
+      "complete_first_order_matrix_available": false,
+      "complete_scalar_cochain": {
+        "digest": "102f8a0ab6358bc1ff0ab2db092287ee98ecc3be8f639a120f8f29a5bb695827",
+        "is_cycle": true,
+        "projection_depth": 4,
+        "residue": "0",
+        "term_count": 334251
+      },
+      "correction_product": {
+        "digest": "af40606b26331f0e1fef6ed7bdecd30875e5cd5d60361ee88d792467fc5aafe3",
+        "term_count": 338196
+      },
+      "exact": true,
+      "extension_point_selected": false,
+      "first_missing_input": "the remaining local-family and a1 first-order coefficients, preferably compressed by multilinearity or symmetry",
+      "general_chain_homotopy_available": false,
+      "higgs_correction_character_exact": true,
+      "higgs_correction_term_count": 1980,
+      "holomorphic_yukawa_matrix_available": false,
+      "input_level_comparison_primitive_available": true,
+      "leibniz_identity_exact": true,
+      "matter_scalar_character_exact": true,
+      "matter_scalar_term_count": 9855,
+      "observational_inputs_used": false,
+      "parameter": "a1",
+      "raw_comparison_primitive": {
+        "depth": 3,
+        "digest": "0c9226c32ac9985f0aeba656698264de809db5d58e653aa5a075813171c22894",
+        "identity_exact": true,
+        "term_count": 89818
+      },
+      "row_local_family_index": 2,
+      "scalar_frame_character_exponents": [
+        2,
+        1
+      ],
+      "strict_comparison_primitive": {
+        "character_exact": true,
+        "digest": "21ee6f7dbf710dd734ff495a6b4307b1e5fd50dc4ff44059a5c1cccc1cbd9b90",
+        "identity_exact": true,
+        "term_count": 115344
+      },
+      "v1_determinant_character_exponents": [
+        1,
+        0
+      ],
+      "v2_determinant_character_exponents": [
+        1,
+        1
+      ]
+    },
+    {
+      "action_product": {
+        "digest": "467701b098655981befa4ddfb34da35836673dbf6d9257b1dde84ef89b462c3a",
+        "term_count": 168684
+      },
+      "bottom_pairing_term_count": 15624,
+      "classification": "SCOPED_FIRST_ORDER_ENTRY_VANISHING",
+      "column_local_family_index": 2,
+      "comparison_residual": {
+        "digest": "fcf86cd3c1f8bf24640a930ef7d112ea5fb28b82aa849da882706a36efe8a32a",
+        "is_cycle": true,
+        "term_count": 168774
+      },
+      "complete_first_order_matrix_available": false,
+      "complete_scalar_cochain": {
+        "digest": "387ce320fbdcc037787772cda4dbf1b7c7ff99ee8f71b13a464453cd51ed9433",
+        "is_cycle": true,
+        "projection_depth": 4,
+        "residue": "0",
+        "term_count": 338754
+      },
+      "correction_product": {
+        "digest": "de45f9b3499481ddbe6563c7778d9842f537095d100e75495af51af0e8ef8978",
+        "term_count": 338244
+      },
+      "exact": true,
+      "extension_point_selected": false,
+      "first_missing_input": "the remaining local-family and a1 first-order coefficients, preferably compressed by multilinearity or symmetry",
+      "general_chain_homotopy_available": false,
+      "higgs_correction_character_exact": true,
+      "higgs_correction_term_count": 1980,
+      "holomorphic_yukawa_matrix_available": false,
+      "input_level_comparison_primitive_available": true,
+      "leibniz_identity_exact": true,
+      "matter_scalar_character_exact": true,
+      "matter_scalar_term_count": 9414,
+      "observational_inputs_used": false,
+      "parameter": "a1",
+      "raw_comparison_primitive": {
+        "depth": 3,
+        "digest": "b147981923bff4b33d4c3ab298b81ac5dafa90c2d2f0b2fd91932f53125763a7",
+        "identity_exact": true,
+        "term_count": 94984
+      },
+      "row_local_family_index": 2,
+      "scalar_frame_character_exponents": [
+        2,
+        1
+      ],
+      "strict_comparison_primitive": {
+        "character_exact": true,
+        "digest": "25bfa4d20395541e0c2af358a41ae09694c5022b3919d737e99fc60320c03a86",
+        "identity_exact": true,
+        "term_count": 123726
+      },
+      "v1_determinant_character_exponents": [
+        1,
+        0
+      ],
+      "v2_determinant_character_exponents": [
+        1,
+        1
+      ]
+    }
+  ],
+  "complete_universal_holomorphic_neutrino_matrix_available": true,
+  "extension_point_selected": false,
+  "first_order_slots": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "generic_rank": 0,
+  "higher_orders_structurally_zero": true,
+  "matrix_expansion": "Y_nu(a)=a0 M0+a1 M1",
+  "maximum_exterior_allowed_parameter_order": 1,
+  "next_required_object": "a nontrivial carrier-derived holomorphic Yukawa matrix in another available flavor route",
+  "nontrivial": false,
+  "observational_inputs_used": false,
+  "parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "tree_matrix": "5db6d9e1df7fd0e3840c565a64b3ca8b27e15991bb5924ece62b519f91f185ab",
+    "universal_matter_lifts": "31917dd6c0e5abd9f7fae1f981be51df3e9ff5a5f2f335fc46211d67393fecd6"
+  },
+  "schema": "mixed-schoen-neutrino-first-order-matrix-v1",
+  "universal_lower_determinant": [],
+  "universal_matrix": [
+    [
+      [],
+      [],
+      []
+    ],
+    [
+      [],
+      [],
+      []
+    ],
+    [
+      [],
+      [],
+      []
+    ]
+  ]
+}

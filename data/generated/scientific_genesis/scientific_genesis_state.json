@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "c1ab3024fc5ae2b48e5a440ca93672c4193a7737c31eede1c454cc063726a84d",
+  "artifact_digest": "b0561f2b70660ccbf6bf414cf14d8a5bf9b6e53552e2eeeaf86c7ce9b62aaf42",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -307,6 +307,11 @@
       "sha256": "45dcdb38e6f2aa2970ef379f885500a348b6679fa248a146fe04a67b38fe46b5"
     },
     {
+      "bytes": 19987,
+      "path": "data/generated/scientific_genesis/mixed_schoen_neutrino_first_order_matrix.json",
+      "sha256": "a9a80428f2165e408c96ab01b74e17888a7ce9d877dfdb890929649338cd3cfd"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -378,11 +383,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 619,
+    "collected_tests_at_audit": 624,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 183,
-    "test_python_files": 162
+    "research_python_files": 184,
+    "test_python_files": 163
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -398,7 +403,6 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "complete carrier-derived Dirac-neutrino Yukawa matrix",
     "an equivariant chain repair for the unavailable down-Higgs character",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
@@ -1573,10 +1577,24 @@
       "id": "mixed_neutrino_tree_matrix",
       "label": "associated-graded Dirac-neutrino matrix",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "complete first universal Dirac-neutrino coefficient matrix"
-      ],
+      "missing_prerequisites": [],
       "statement": "All four character-allowed split-family determinant traces are exact scalar cycles with zero residue and explicit global primitives. The complete associated-graded three-family matrix therefore has exact rank zero, while universal parameter corrections remain unevaluated.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_first_order_matrix.json",
+        "research/experiments/scientific_genesis/mixed_schoen_neutrino_first_order_matrix.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_neutrino_first_order_matrix.py"
+      ],
+      "id": "mixed_neutrino_first_order_matrix",
+      "label": "complete universal Dirac-neutrino matrix",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "exact equivariant chain comparison realizing source H_d character (0,2)"
+      ],
+      "statement": "All eight parameter and local-family coefficients are exact closed scalar cochains with distinct digests and zero residue. Both parameter coefficient matrices vanish. Exterior filtration allows no order above one, so the complete universal Dirac-neutrino matrix has exact rank zero on the frozen P1.",
       "status": "COMPUTED"
     },
     {
@@ -1621,7 +1639,7 @@
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "exact Wilson character support for the next flavor sector"
+        "strict source H_d representative from an exact equivariant chain comparison"
       ],
       "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes. The exact common-to-diagonal Cech chain map supplies the comparison required by the parameter-linear matter corrections. The first matter leg is exactly nonclosed with zero partial residue, while its complementary Higgs determinant-line correction is exact. The equivariant bottom V2 determinant pairing is also exact. Fixed-contraction comparison primitives close all eight parameter-linear coefficients with zero residue. Exterior filtration then proves the full up-type branch remains zero.",
       "status": "BLOCKED"
@@ -1652,15 +1670,16 @@
         "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_character_support.json",
         "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
-        "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json"
+        "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_first_order_matrix.json"
       ],
       "id": "first_exact_yukawa",
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "complete carrier-derived Dirac-neutrino matrix"
+        "exact equivariant chain comparison realizing source H_d character (0,2)"
       ],
-      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix. The next down route also fails because its strict Higgs character has zero current-chain H1, so the exact frontier now selects Dirac neutrinos.",
+      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix. The next down route also fails because its strict Higgs character has zero current-chain H1. The complete Dirac-neutrino tree and first-order matrices also vanish, while filtration excludes every higher order. The exact frontier is therefore the missing equivariant comparison for the source H_d character shared by down and charged leptons.",
       "status": "BLOCKED"
     },
     {
@@ -3089,14 +3108,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_neutrino_tree_matrix.json"
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_first_order_matrix.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The exact tree-level zero fixes the baseline for all eight independent universal parameter corrections.",
+      "source": "mixed_neutrino_tree_matrix",
+      "target": "mixed_neutrino_first_order_matrix"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_first_order_matrix.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the first universal coefficient is not yet computed"
+        "the source H_d character is absent from the current chain action"
       ],
-      "mathematical_reason": "The exact tree-level zero fixes the baseline that the first universal correction must escape to produce a nontrivial matrix.",
-      "source": "mixed_neutrino_tree_matrix",
+      "mathematical_reason": "The exact all-orders neutrino zero excludes that sector and leaves the shared H_d equivariant comparison as the shortest route back to down or charged-lepton flavor.",
+      "source": "mixed_neutrino_first_order_matrix",
       "target": "first_exact_yukawa"
     },
     {
@@ -3347,7 +3377,8 @@
     "the complementary a0 Higgs action is an exact 1,593-term determinant-line cycle with an explicit 1,431-term correction; an exact Cech-Koszul line isomorphism maps these to canonical 2,124-term and 1,908-term cochains",
     "published Wilson characters make all four Yukawa triples invariant and select the down sector as the seven-object minimum next workload",
     "the exact current-chain down-Higgs character complex has H1 zero, so fail-closed reranking selects the eight-object neutrino sector",
-    "both neutrino matter characters have exact universal lifts with all eight parameter corrections certified over the frozen P1"
+    "both neutrino matter characters have exact universal lifts with all eight parameter corrections certified over the frozen P1",
+    "the complete Dirac-neutrino tree matrix has four independent exact zero residues with explicit depth-four primitives"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -3409,9 +3440,12 @@
         "a1"
       ],
       "complete_first_order_matrix_rank": 0,
+      "complete_neutrino_first_order_coefficient_count": 8,
       "complete_neutrino_tree_matrix_available": true,
       "complete_neutrino_tree_matrix_rank": 0,
       "complete_tree_level_up_matrix_available": true,
+      "complete_universal_holomorphic_neutrino_matrix_available": true,
+      "complete_universal_holomorphic_neutrino_matrix_rank": 0,
       "complete_universal_holomorphic_up_matrix_available": true,
       "complete_universal_holomorphic_up_matrix_rank": 0,
       "computable_carrier_component": "lawful-mixed-schoen-P1",
@@ -3556,13 +3590,17 @@
         2,
         6
       ],
+      "neutrino_extension_point_selected": false,
+      "neutrino_higher_orders_structurally_zero": true,
       "neutrino_matter_parameter_correction_count": 8,
+      "neutrino_maximum_exterior_allowed_parameter_order": 1,
       "neutrino_tree_extension_point_selected": false,
       "neutrino_tree_zero_entries_have_exact_primitives": true,
       "neutrino_universal_matter_character_count": 2,
       "neutrino_universal_v1_class_count": 2,
       "neutrino_universal_v2_lift_count": 4,
       "next_candidate_blocks": [],
+      "next_exact_frontier_uses_observations": false,
       "next_survivor_complements_stability_proved": false,
       "next_survivor_forced_chamber_nonempty": true,
       "next_survivor_forced_chamber_witnesses": [
@@ -3595,6 +3633,7 @@
       "outer_parameter_dimension_mismatch_unresolved": true,
       "physical_higgs_representative_available": true,
       "physical_higgs_representative_term_count": 27,
+      "remaining_current_chain_flavor_sector_available": false,
       "remaining_nonzero_candidate_blocks": [],
       "remaining_nonzero_family_count": 0,
       "required_higgs_character": [
@@ -3656,6 +3695,10 @@
         1,
         0
       ],
+      "shared_missing_higgs_character": [
+        0,
+        2
+      ],
       "slope_identity_retired_candidate_blocks": [
         16,
         36
@@ -3668,8 +3711,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "complete first universal Dirac-neutrino coefficient matrix",
-    "selection_status": "the exact Dirac-neutrino tree matrix vanishes, so the first universal coefficient is the minimum available flavor edge"
+    "next_required_object": "exact equivariant chain comparison realizing source H_d character (0,2)",
+    "selection_status": "the complete universal up and Dirac-neutrino matrices vanish; the shared source H_d equivariant comparison is the minimum remaining flavor prerequisite"
   },
   "research_value_scheduler": [
     {
@@ -3973,7 +4016,8 @@
     "the first complete a0 lower-(1,1) higher-product coefficient has an invariant comparison primitive and exact zero residue",
     "all eight first-order higher-product coefficients close exactly with zero residue, so the universal first-order up matrix has rank zero",
     "finite exterior-filtration typing excludes f5 and every higher up-type contribution, proving the full universal up matrix has rank zero",
-    "the current chain action has exact H1 dimension zero in the source-required down-Higgs character (0,2)"
+    "the current chain action has exact H1 dimension zero in the source-required down-Higgs character (0,2)",
+    "all eight universal Dirac-neutrino coefficients have distinct exact closed cochains but zero residue; exterior filtration excludes higher orders, proving rank zero on the frozen P1"
   ],
   "structural_compression_questions": [
     {

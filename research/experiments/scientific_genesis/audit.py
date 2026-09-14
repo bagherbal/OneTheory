@@ -1019,10 +1019,11 @@ def _nodes() -> list[dict[str, object]]:
             "higgs_determinant_twist_route",
             "determinant-twist Higgs comparison route",
             "Flavor",
-            "BLOCKED",
-            "The lawful mixed Hom transfer has exact cohomology (0,4,4,0) and "
-            "an exact Z3 x Z3 action, but its four raw characters do not match "
-            "the physical tensor characters under any uniform scalar shift.",
+            "REFUTED",
+            "Both determinant-Hom orientations have exact cohomology "
+            "(0,4,4,0) and exact Z3 x Z3 actions, but neither four-character "
+            "representation matches the physical tensor characters under any "
+            "uniform scalar shift.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_higgs_twist_audit.json",
@@ -1034,10 +1035,6 @@ def _nodes() -> list[dict[str, object]]:
             assumptions=(
                 "rank-two determinant identity",
                 "det(V2) = det(V1)^-1",
-            ),
-            missing=(
-                "equivariant chain comparison for the determinant-twist identity",
-                "or a direct lawful mixed tensor transfer",
             ),
         ),
         _node(
@@ -1368,7 +1365,32 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_down_higgs_action.py",
             ),
             missing=(
-                "exact equivariant chain comparison realizing source character (0,2)",
+                "full local-semilinear constituent deck action on the "
+                "synchronized chain, including overlap gauges",
+            ),
+        ),
+        _node(
+            "mixed_higgs_equivariant_comparison_obstruction",
+            "current Higgs equivariant comparison route",
+            "Flavor",
+            "REFUTED",
+            "An equivariant quasi-isomorphism must preserve every isotypic "
+            "cohomology dimension. The source-derived P1 tensor has one "
+            "character-(0,2) H1 class while the current synchronized chain has "
+            "none. Both determinant-Hom orientations also fail, and three of "
+            "four legacy extension-line frame characters differ from the exact "
+            "constituent deck atlases.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_equivariant_obstruction.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_higgs_equivariant_obstruction.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_higgs_equivariant_obstruction.py",
+            ),
+            missing=(
+                "full local-semilinear constituent deck action on the synchronized chain",
+                "overlap-gauge terms in the transferred action",
             ),
         ),
         _node(
@@ -1451,8 +1473,8 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_neutrino_first_order_matrix.py",
             ),
             missing=(
-                "exact equivariant chain comparison realizing source H_d "
-                "character (0,2)",
+                "full local-semilinear constituent deck action on the "
+                "synchronized chain, including overlap gauges",
             ),
         ),
         _node(
@@ -1541,9 +1563,10 @@ def _nodes() -> list[dict[str, object]]:
             "cannot supply the required nontrivial matrix. The next down route "
             "also fails because its strict Higgs character has zero current-chain "
             "H1. The complete Dirac-neutrino tree and first-order matrices also "
-            "vanish, while filtration excludes every higher order. The exact "
-            "frontier is therefore the missing equivariant comparison for the "
-            "source H_d character shared by down and charged leptons.",
+            "vanish, while filtration excludes every higher order. Isotypic "
+            "cohomology now refutes an equivariant comparison using the current "
+            "chain action. The exact frontier is the full local-semilinear atlas "
+            "action required to reconstruct the source H_d sector.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_matter_leg_deformation.json",
@@ -1565,10 +1588,12 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_flavor_frontier.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_neutrino_first_order_matrix.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_equivariant_obstruction.json",
             ),
             missing=(
-                "exact equivariant chain comparison realizing source H_d "
-                "character (0,2)",
+                "full local-semilinear constituent deck action transferred "
+                "through the synchronized Schoen chain",
             ),
         ),
         _node(
@@ -2968,6 +2993,20 @@ def _edges() -> list[dict[str, object]]:
             (),
         ),
         _edge(
+            "mixed_down_higgs_chain_obstruction",
+            "mixed_higgs_equivariant_comparison_obstruction",
+            "The zero current-chain H_d sector is compared with the exact "
+            "source-derived P1 isotypic multiplicity to test whether an "
+            "equivariant quasi-isomorphism can exist.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_equivariant_obstruction.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
             "mixed_flavor_frontier",
             "universal_neutrino_matter_lifts",
             "The selected Dirac-neutrino sector requires exact universal "
@@ -3010,17 +3049,33 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_neutrino_first_order_matrix",
-            "first_exact_yukawa",
+            "mixed_higgs_equivariant_comparison_obstruction",
             "The exact all-orders neutrino zero excludes that sector and "
-            "leaves the shared H_d equivariant comparison as the shortest "
-            "route back to down or charged-lepton flavor.",
+            "returns the shortest flavor route to the shared H_d equivariant "
+            "prerequisite.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_neutrino_first_order_matrix.json",
+                "mixed_schoen_higgs_equivariant_obstruction.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_higgs_equivariant_comparison_obstruction",
+            "first_exact_yukawa",
+            "The isotypic mismatch refutes the current comparison and makes "
+            "the full atlas-induced synchronized action the necessary input "
+            "for reopening down or charged-lepton flavor.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_equivariant_obstruction.json",
             ),
             (),
             False,
-            ("the source H_d character is absent from the current chain action",),
+            (
+                "the local-semilinear overlap action is not yet transferred",
+            ),
         ),
         _edge(
             "common_dga_package",
@@ -3482,6 +3537,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/"
         "mixed_schoen_flavor_character_support.json",
         "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_higgs_equivariant_obstruction.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_matter_lifts.json",
@@ -3519,7 +3576,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 624,
+            "collected_tests_at_audit": 627,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3542,8 +3599,9 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "the complete universal up and Dirac-neutrino matrices vanish; "
-                "the shared source H_d equivariant comparison is the minimum "
-                "remaining flavor prerequisite"
+                "the current H_d comparison is isotypically refuted, so the "
+                "atlas-induced synchronized action is the minimum remaining "
+                "flavor prerequisite"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3710,6 +3768,11 @@ def build_state() -> dict[str, object]:
                 "down_higgs_character_h1_dimension": 0,
                 "strict_down_higgs_representative_available": False,
                 "down_higgs_character_twist_guessed": False,
+                "source_derived_h_d_character_h1_dimension": 1,
+                "current_h_d_comparison_route_refuted": True,
+                "both_determinant_hom_orientations_blocked": True,
+                "legacy_frame_matches_constituent_atlases": False,
+                "legacy_frame_atlas_mismatch_count": 3,
                 "selected_available_flavor_sector": "dirac_neutrino",
                 "selected_available_flavor_chain_object_count": 8,
                 "selected_available_matter_characters": [[0, 0], [0, 2]],
@@ -3736,8 +3799,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "exact equivariant chain comparison realizing source H_d "
-                "character (0,2)"
+                "the full local-semilinear constituent deck action transferred "
+                "through the synchronized Schoen chain, including overlap gauges"
             ),
         },
         "claims": _nodes(),
@@ -3781,8 +3844,9 @@ def build_state() -> dict[str, object]:
             "Schoen Cech--Koszul representatives with exact joint deck characters",
             "the two matter sectors for the first up-type matrix have exact "
             "parameter-linear universal-cone lifts over the full frozen P1",
-            "the determinant-twist Hom route derives Higgs cohomology "
-            "(0,4,4,0) and a complete exact deck action without selecting a class",
+            "both determinant-twist Hom orientations derive Higgs cohomology "
+            "(0,4,4,0), but neither exact deck action matches the physical tensor "
+            "characters under a uniform scalar shift",
             "the lawful 48-object direct tensor resolution skeleton is square-zero",
             "retired trivial-character outer complexes retained only as scoped "
             "dimension and transfer diagnostics",
@@ -3852,6 +3916,11 @@ def build_state() -> dict[str, object]:
             "all eight parameter corrections certified over the frozen P1",
             "the complete Dirac-neutrino tree matrix has four independent "
             "exact zero residues with explicit depth-four primitives",
+            "the source-derived H_d character-(0,2) H1 has dimension one while "
+            "the current synchronized action has dimension zero, refuting an "
+            "equivariant quasi-isomorphism for that action",
+            "three of four synchronized extension-line frame characters differ "
+            "from the exact constituent deck atlases",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -3887,10 +3956,10 @@ def build_state() -> dict[str, object]:
             "the current 14-dimensional diagonal Higgs cone has exact character "
             "multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors "
             "rule out character projection as a four-class selector",
-            "the lawful determinant-twist Hom action has raw characters "
-            "(1,0), (1,1), (2,0), (2,1), which no uniform scalar shift maps "
-            "to the physical tensor characters; this route cannot identify a "
-            "Higgs class without an equivariant chain comparison",
+            "the two lawful determinant-twist Hom orientations have raw "
+            "characters (1,0), (1,1), (2,0), (2,1) and (1,0), (1,2), "
+            "(2,0), (2,2); neither admits a uniform scalar shift to the physical "
+            "tensor characters",
             "naively merging the two lawful full Koszul--Cech arrow sets gives "
             "an exact three-term differential-square witness, so a genuine "
             "chain diagonal is required; three witnesses eliminate all 4,096 "
@@ -3916,6 +3985,8 @@ def build_state() -> dict[str, object]:
             "all eight universal Dirac-neutrino coefficients have distinct "
             "exact closed cochains but zero residue; exterior filtration "
             "excludes higher orders, proving rank zero on the frozen P1",
+            "isotypic H1 dimensions one and zero refute the current source-to-"
+            "synchronized-chain equivariant comparison for H_d character (0,2)",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -3929,7 +4000,8 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "an equivariant chain repair for the unavailable down-Higgs character",
+            "the full local-semilinear constituent deck action with overlap "
+            "gauges for the unavailable down-Higgs character",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

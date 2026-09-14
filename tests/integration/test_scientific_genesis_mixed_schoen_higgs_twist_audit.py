@@ -44,3 +44,21 @@ def test_higgs_twist_artifact_is_exact_and_fail_closed() -> None:
     ]
     assert payload["source_tensor_character_comparison"]["matches"] is False
     assert "equivariant chain comparison" in payload["first_missing_input"]
+
+
+def test_dual_higgs_twist_orientation_is_also_blocked() -> None:
+    """Neither determinant-Hom orientation realizes the source tensor action."""
+
+    payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+    payload.pop("artifact_digest")
+    dual = payload["dual_orientation"]
+
+    assert payload["all_determinant_hom_orientations_blocked"] is True
+    assert dual["geometric_cohomology_h0_to_h3"] == [0, 4, 4, 0]
+    assert [
+        item["character_exponents"]
+        for item in dual["raw_hom_character_multiplicities"]
+    ] == [[1, 0], [1, 2], [2, 0], [2, 2]]
+    assert dual["source_tensor_character_comparison"]["matches"] is False
+    assert dual["uniform_character_shift_exists"] is False
+    assert dual["route_blocked_exact"] is True

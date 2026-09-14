@@ -235,6 +235,7 @@ def _source_digest() -> str:
 class MixedSchoenHiggsTwistAudit:
     """Exact Hom transfer and its unresolved equivariant tensor comparison."""
 
+    derived_identity_attempted: str
     transferred: MixedTransferredOuterHom
     representatives: SparseMap
     p_induced: Matrix
@@ -330,10 +331,7 @@ class MixedSchoenHiggsTwistAudit:
         return {
             "schema": "mixed-schoen-higgs-twist-audit-v1",
             "coefficient_field": "Q(omega)",
-            "derived_identity_attempted": (
-                "V1 tensor V2 = RHom(V2 tensor det(V1), V1), using "
-                "det(V2) = det(V1)^-1"
-            ),
+            "derived_identity_attempted": self.derived_identity_attempted,
             "det_v1_degree": list(DET_V1_DEGREE),
             "transfer": self.transferred.as_record(),
             "geometric_cohomology_h0_to_h3": list(self.geometric_dimensions),
@@ -451,6 +449,12 @@ def _derive_higgs_twist_route(
         )
     )
     result = MixedSchoenHiggsTwistAudit(
+        (
+            "V1 tensor V2 = RHom(V2 tensor det(V1), V1), using "
+            "det(V2) = det(V1)^-1"
+            if orientation == 0
+            else "V1 tensor V2 = RHom(V1 tensor det(V1)^-1, V2)"
+        ),
         transferred,
         representatives,
         p_induced,
@@ -506,7 +510,13 @@ def write_mixed_schoen_higgs_twist_audit(
 ) -> dict[str, object]:
     """Write the content-addressed determinant-twist obstruction certificate."""
 
-    payload = mixed_schoen_higgs_twist_audit().as_record()
+    primary = mixed_schoen_higgs_twist_audit()
+    dual = mixed_schoen_higgs_dual_orientation()
+    if not primary.route_blocked or not dual.route_blocked:
+        raise ValueError("a determinant-Hom orientation is no longer blocked")
+    payload = primary.as_record()
+    payload["dual_orientation"] = dual.as_record()
+    payload["all_determinant_hom_orientations_blocked"] = True
     payload["artifact_digest"] = _canonical_digest(payload)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(f".{path.name}.tmp")

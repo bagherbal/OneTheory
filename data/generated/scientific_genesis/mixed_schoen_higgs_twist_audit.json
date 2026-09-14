@@ -1,6 +1,7 @@
 {
+  "all_determinant_hom_orientations_blocked": true,
   "all_hom_transfer_gates_exact": true,
-  "artifact_digest": "730b9dd095f8288f61aae5bb1b81c774d563484932da5d49a8eacefc179a4d87",
+  "artifact_digest": "f0c05bdbb9e5f333dd7eee81506356edd3cfe474ed80687fbecd51ca8b036ab4",
   "coefficient_field": "Q(omega)",
   "derived_identity_attempted": "V1 tensor V2 = RHom(V2 tensor det(V1), V1), using det(V2) = det(V1)^-1",
   "det_v1_degree": [
@@ -8,6 +9,264 @@
     2,
     0
   ],
+  "dual_orientation": {
+    "all_hom_transfer_gates_exact": true,
+    "coefficient_field": "Q(omega)",
+    "derived_identity_attempted": "V1 tensor V2 = RHom(V1 tensor det(V1)^-1, V2)",
+    "det_v1_degree": [
+      -2,
+      2,
+      0
+    ],
+    "equivariant_tensor_identification_available": false,
+    "first_missing_input": "equivariant chain comparison for the determinant-twist tensor identity or a direct lawful mixed tensor transfer",
+    "geometric_cohomology_h0_to_h3": [
+      0,
+      4,
+      4,
+      0
+    ],
+    "group_relations_exact": true,
+    "physical_higgs_representative_available": false,
+    "prerequisite_artifact_digests": {
+      "mixed_arrows": "8527e26fa297a58a0139a67123fbf55ab9828da081609cd81615c18482468f81",
+      "structural_spectrum": "6ce8f4d2fc4ef815741d1c7146b038d310c7f626f9f8029851f4f80e9dfc2da3"
+    },
+    "raw_hom_character_multiplicities": [
+      {
+        "character_exponents": [
+          1,
+          0
+        ],
+        "multiplicity": 1
+      },
+      {
+        "character_exponents": [
+          1,
+          2
+        ],
+        "multiplicity": 1
+      },
+      {
+        "character_exponents": [
+          2,
+          0
+        ],
+        "multiplicity": 1
+      },
+      {
+        "character_exponents": [
+          2,
+          2
+        ],
+        "multiplicity": 1
+      }
+    ],
+    "retired_diagonal_cones_used": false,
+    "route_blocked_exact": true,
+    "schema": "mixed-schoen-higgs-twist-audit-v1",
+    "source_tensor_character_comparison": {
+      "arxiv_id": "hep-th/0512177",
+      "characters": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "locator": "eq:17",
+      "matches": false,
+      "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+      "used_as_action_input": false,
+      "version": "v3"
+    },
+    "status": "exact Hom cohomology and deck action; physical Higgs classes remain unavailable because the tensor comparison is unresolved",
+    "transfer": {
+      "cohomology_dimensions": [
+        [
+          -3,
+          0
+        ],
+        [
+          -2,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "differential_ranks": [
+        [
+          -3,
+          0
+        ],
+        [
+          -2,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          129
+        ],
+        [
+          1,
+          331
+        ],
+        [
+          2,
+          91
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "left": "V1*det(V1)^-1",
+      "path_depths": [
+        [
+          -3,
+          0
+        ],
+        [
+          -2,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "right": "V2",
+      "space_dimensions": [
+        [
+          -3,
+          0
+        ],
+        [
+          -2,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          129
+        ],
+        [
+          1,
+          464
+        ],
+        [
+          2,
+          426
+        ],
+        [
+          3,
+          91
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "squared_zero": true
+    },
+    "uniform_character_shift_exists": false
+  },
   "equivariant_tensor_identification_available": false,
   "first_missing_input": "equivariant chain comparison for the determinant-twist tensor identity or a direct lawful mixed tensor transfer",
   "geometric_cohomology_h0_to_h3": [

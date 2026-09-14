@@ -1,0 +1,63 @@
+{
+  "artifact_digest": "8023654f831d369877782899946d16d6e201882b6467553bd29082f82b7cf3f2",
+  "both_determinant_hom_orientations_blocked": true,
+  "character_twist_guessed": false,
+  "coefficient_field": "Q(omega)",
+  "constituent_atlases_exact": true,
+  "current_chain_h1_dimension": 0,
+  "current_comparison_route_refuted": true,
+  "deck_generators_relabelled": false,
+  "equivariant_quasi_isomorphism_available": false,
+  "isotypic_dimension_mismatch": true,
+  "legacy_frame_atlas_comparisons": [
+    {
+      "atlas_character": "1",
+      "constituent": "W1",
+      "factor": 1,
+      "generator": "P",
+      "legacy_character": "omega",
+      "matches": false
+    },
+    {
+      "atlas_character": "1",
+      "constituent": "W1",
+      "factor": 1,
+      "generator": "T",
+      "legacy_character": "1",
+      "matches": true
+    },
+    {
+      "atlas_character": "-1-omega",
+      "constituent": "W2",
+      "factor": 2,
+      "generator": "P",
+      "legacy_character": "omega",
+      "matches": false
+    },
+    {
+      "atlas_character": "-1-omega",
+      "constituent": "W2",
+      "factor": 2,
+      "generator": "T",
+      "legacy_character": "omega",
+      "matches": false
+    }
+  ],
+  "legacy_frame_matches_atlas": false,
+  "next_required_object": "the full local-semilinear constituent deck action transferred through the synchronized Schoen chain, including overlap gauges",
+  "observational_inputs_used": false,
+  "prerequisite_artifact_digests": {
+    "constituent_deck_atlases": "d2c66b65829d21078f0481003febaec7b4690c5b779e319db1133f679f2c7dba",
+    "current_down_action": "3884ef9db2250308424d0c7e874e853a1081f173106f5e72ff85b93519b1d32e",
+    "determinant_hom": "f0c05bdbb9e5f333dd7eee81506356edd3cfe474ed80687fbecd51ca8b036ab4",
+    "lawful_spectrum": "6ce8f4d2fc4ef815741d1c7146b038d310c7f626f9f8029851f4f80e9dfc2da3"
+  },
+  "required_character": [
+    0,
+    2
+  ],
+  "schema": "mixed-schoen-higgs-equivariant-obstruction-v1",
+  "source_derived_p1_h1_dimension": 1,
+  "status": "scoped no-go for the current synchronized action; the source H_d class remains unavailable until the atlas action is transferred",
+  "theorem": "an equivariant quasi-isomorphism induces an isomorphism on each character-isotypic cohomology group"
+}

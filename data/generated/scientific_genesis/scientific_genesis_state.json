@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b0561f2b70660ccbf6bf414cf14d8a5bf9b6e53552e2eeeaf86c7ce9b62aaf42",
+  "artifact_digest": "a9775ed2f9b05b1c57915b0a386d669cb59dccf8a685a91a2098c8e93c7870ac",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -202,9 +202,9 @@
       "sha256": "95dfcf8a4f5dd713291df4d5d79e591f841a02455e49acb99292b769a691b085"
     },
     {
-      "bytes": 3854,
+      "bytes": 8186,
       "path": "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
-      "sha256": "21eb770194fe5a371162ca98161ef362c3b0f381dbe26c78e87e592fc1807636"
+      "sha256": "962f7e15784d8a8e3c06ebef9d1cae54fc51aa81882dda6a74741327654bb482"
     },
     {
       "bytes": 2260,
@@ -290,6 +290,11 @@
       "bytes": 128885,
       "path": "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
       "sha256": "3fa93c0a708a2d90b4163d3269c4b0979902c101942d185df919854f65462edb"
+    },
+    {
+      "bytes": 2251,
+      "path": "data/generated/scientific_genesis/mixed_schoen_higgs_equivariant_obstruction.json",
+      "sha256": "d803e31626715024799a4f6ed85e3a9b6c23c725938403038bf3e03fc67c2425"
     },
     {
       "bytes": 1596,
@@ -383,11 +388,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 624,
+    "collected_tests_at_audit": 627,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 184,
-    "test_python_files": 163
+    "research_python_files": 185,
+    "test_python_files": 164
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -403,7 +408,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "an equivariant chain repair for the unavailable down-Higgs character",
+    "the full local-semilinear constituent deck action with overlap gauges for the unavailable down-Higgs character",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
@@ -1282,12 +1287,9 @@
       "id": "higgs_determinant_twist_route",
       "label": "determinant-twist Higgs comparison route",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "equivariant chain comparison for the determinant-twist identity",
-        "or a direct lawful mixed tensor transfer"
-      ],
-      "statement": "The lawful mixed Hom transfer has exact cohomology (0,4,4,0) and an exact Z3 x Z3 action, but its four raw characters do not match the physical tensor characters under any uniform scalar shift.",
-      "status": "BLOCKED"
+      "missing_prerequisites": [],
+      "statement": "Both determinant-Hom orientations have exact cohomology (0,4,4,0) and exact Z3 x Z3 actions, but neither four-character representation matches the physical tensor characters under any uniform scalar shift.",
+      "status": "REFUTED"
     },
     {
       "assumptions": [],
@@ -1530,9 +1532,26 @@
       "label": "down-Higgs chain-character route",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "exact equivariant chain comparison realizing source character (0,2)"
+        "full local-semilinear constituent deck action on the synchronized chain, including overlap gauges"
       ],
       "statement": "The exact current-chain character-(0,2) spaces have dimensions 100, 243, and 176 with differential ranks 100 and 143, hence H1 dimension zero. The published multiplicity-one requirement is used only afterward, so no strict down-Higgs class is fabricated.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_higgs_equivariant_obstruction.json",
+        "research/experiments/scientific_genesis/mixed_schoen_higgs_equivariant_obstruction.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_higgs_equivariant_obstruction.py"
+      ],
+      "id": "mixed_higgs_equivariant_comparison_obstruction",
+      "label": "current Higgs equivariant comparison route",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "full local-semilinear constituent deck action on the synchronized chain",
+        "overlap-gauge terms in the transferred action"
+      ],
+      "statement": "An equivariant quasi-isomorphism must preserve every isotypic cohomology dimension. The source-derived P1 tensor has one character-(0,2) H1 class while the current synchronized chain has none. Both determinant-Hom orientations also fail, and three of four legacy extension-line frame characters differ from the exact constituent deck atlases.",
       "status": "REFUTED"
     },
     {
@@ -1592,7 +1611,7 @@
       "label": "complete universal Dirac-neutrino matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "exact equivariant chain comparison realizing source H_d character (0,2)"
+        "full local-semilinear constituent deck action on the synchronized chain, including overlap gauges"
       ],
       "statement": "All eight parameter and local-family coefficients are exact closed scalar cochains with distinct digests and zero residue. Both parameter coefficient matrices vanish. Exterior filtration allows no order above one, so the complete universal Dirac-neutrino matrix has exact rank zero on the frozen P1.",
       "status": "COMPUTED"
@@ -1671,15 +1690,16 @@
         "data/generated/scientific_genesis/mixed_schoen_flavor_character_support.json",
         "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
-        "data/generated/scientific_genesis/mixed_schoen_neutrino_first_order_matrix.json"
+        "data/generated/scientific_genesis/mixed_schoen_neutrino_first_order_matrix.json",
+        "data/generated/scientific_genesis/mixed_schoen_higgs_equivariant_obstruction.json"
       ],
       "id": "first_exact_yukawa",
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "exact equivariant chain comparison realizing source H_d character (0,2)"
+        "full local-semilinear constituent deck action transferred through the synchronized Schoen chain"
       ],
-      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix. The next down route also fails because its strict Higgs character has zero current-chain H1. The complete Dirac-neutrino tree and first-order matrices also vanish, while filtration excludes every higher order. The exact frontier is therefore the missing equivariant comparison for the source H_d character shared by down and charged leptons.",
+      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix. The next down route also fails because its strict Higgs character has zero current-chain H1. The complete Dirac-neutrino tree and first-order matrices also vanish, while filtration excludes every higher order. Isotypic cohomology now refutes an equivariant comparison using the current chain action. The exact frontier is the full local-semilinear atlas action required to reconstruct the source H_d sector.",
       "status": "BLOCKED"
     },
     {
@@ -3084,6 +3104,17 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_higgs_equivariant_obstruction.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The zero current-chain H_d sector is compared with the exact source-derived P1 isotypic multiplicity to test whether an equivariant quasi-isomorphism can exist.",
+      "source": "mixed_down_higgs_chain_obstruction",
+      "target": "mixed_higgs_equivariant_comparison_obstruction"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "data/generated/scientific_genesis/mixed_schoen_neutrino_matter_lifts.json"
       ],
       "implication": "exact",
@@ -3119,14 +3150,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_neutrino_first_order_matrix.json"
+        "data/generated/scientific_genesis/mixed_schoen_higgs_equivariant_obstruction.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The exact all-orders neutrino zero excludes that sector and returns the shortest flavor route to the shared H_d equivariant prerequisite.",
+      "source": "mixed_neutrino_first_order_matrix",
+      "target": "mixed_higgs_equivariant_comparison_obstruction"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_higgs_equivariant_obstruction.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the source H_d character is absent from the current chain action"
+        "the local-semilinear overlap action is not yet transferred"
       ],
-      "mathematical_reason": "The exact all-orders neutrino zero excludes that sector and leaves the shared H_d equivariant comparison as the shortest route back to down or charged-lepton flavor.",
-      "source": "mixed_neutrino_first_order_matrix",
+      "mathematical_reason": "The isotypic mismatch refutes the current comparison and makes the full atlas-induced synchronized action the necessary input for reopening down or charged-lepton flavor.",
+      "source": "mixed_higgs_equivariant_comparison_obstruction",
       "target": "first_exact_yukawa"
     },
     {
@@ -3347,7 +3389,7 @@
     "the lawful physical P1 component is frozen as the first computable carrier without selecting an extension point or identifying source P3",
     "all 27 synchronized constituent matter classes have strict full Schoen Cech--Koszul representatives with exact joint deck characters",
     "the two matter sectors for the first up-type matrix have exact parameter-linear universal-cone lifts over the full frozen P1",
-    "the determinant-twist Hom route derives Higgs cohomology (0,4,4,0) and a complete exact deck action without selecting a class",
+    "both determinant-twist Hom orientations derive Higgs cohomology (0,4,4,0), but neither exact deck action matches the physical tensor characters under a uniform scalar shift",
     "the lawful 48-object direct tensor resolution skeleton is square-zero",
     "retired trivial-character outer complexes retained only as scoped dimension and transfer diagnostics",
     "relative signatures recover the source Higgs dimension tuple (0,4,4,0) from selected mixed constituent cocycles",
@@ -3378,7 +3420,9 @@
     "published Wilson characters make all four Yukawa triples invariant and select the down sector as the seven-object minimum next workload",
     "the exact current-chain down-Higgs character complex has H1 zero, so fail-closed reranking selects the eight-object neutrino sector",
     "both neutrino matter characters have exact universal lifts with all eight parameter corrections certified over the frozen P1",
-    "the complete Dirac-neutrino tree matrix has four independent exact zero residues with explicit depth-four primitives"
+    "the complete Dirac-neutrino tree matrix has four independent exact zero residues with explicit depth-four primitives",
+    "the source-derived H_d character-(0,2) H1 has dimension one while the current synchronized action has dimension zero, refuting an equivariant quasi-isomorphism for that action",
+    "three of four synchronized extension-line frame characters differ from the exact constituent deck atlases"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -3415,6 +3459,7 @@
       "all_neutrino_matter_lifts_exact": true,
       "all_published_yukawa_character_products_invariant": true,
       "arbitrary_point_selected": false,
+      "both_determinant_hom_orientations_blocked": true,
       "bottom_v2_plucker_chain_map_available": true,
       "bottom_v2_plucker_character": [
         0,
@@ -3450,6 +3495,7 @@
       "complete_universal_holomorphic_up_matrix_rank": 0,
       "computable_carrier_component": "lawful-mixed-schoen-P1",
       "computable_carrier_component_frozen": true,
+      "current_h_d_comparison_route_refuted": true,
       "current_minimum_retired_candidate_blocks": [
         8,
         28
@@ -3563,6 +3609,8 @@
       "lawful_structural_spectrum_all_P1": true,
       "lawful_wilson_projected_families": 3,
       "lawful_wilson_projected_higgs_pairs": 1,
+      "legacy_frame_atlas_mismatch_count": 3,
+      "legacy_frame_matches_constituent_atlases": false,
       "local_determinant_pairings_available": true,
       "minimum_forced_chamber_certificate": [
         "(2,1,t)",
@@ -3704,6 +3752,7 @@
         36
       ],
       "slope_identity_retired_family_count": 72,
+      "source_derived_h_d_character_h1_dimension": 1,
       "strict_down_higgs_representative_available": false,
       "tree_level_up_matrix_rank": 0,
       "tree_level_up_scalar_primitives_exact": true,
@@ -3711,8 +3760,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "exact equivariant chain comparison realizing source H_d character (0,2)",
-    "selection_status": "the complete universal up and Dirac-neutrino matrices vanish; the shared source H_d equivariant comparison is the minimum remaining flavor prerequisite"
+    "next_required_object": "the full local-semilinear constituent deck action transferred through the synchronized Schoen chain, including overlap gauges",
+    "selection_status": "the complete universal up and Dirac-neutrino matrices vanish; the current H_d comparison is isotypically refuted, so the atlas-induced synchronized action is the minimum remaining flavor prerequisite"
   },
   "research_value_scheduler": [
     {
@@ -4007,7 +4056,7 @@
     "the available projective I3/I6 pushouts give cover Ext-one dimensions 0/63 rather than the published 36/72, so they cannot stand in for fiber-sensitive W1/W2 presentations",
     "the fixed constituent kernel line is not the source-selected W1/W2 ray; its pure-Cech mapping cones and downstream outer objects are scoped diagnostics rather than carrier reconstructions",
     "the current 14-dimensional diagonal Higgs cone has exact character multiplicities 3,2,3,2,2,2; missing and repeated lawful sectors rule out character projection as a four-class selector",
-    "the lawful determinant-twist Hom action has raw characters (1,0), (1,1), (2,0), (2,1), which no uniform scalar shift maps to the physical tensor characters; this route cannot identify a Higgs class without an equivariant chain comparison",
+    "the two lawful determinant-twist Hom orientations have raw characters (1,0), (1,1), (2,0), (2,1) and (1,0), (1,2), (2,0), (2,2); neither admits a uniform scalar shift to the physical tensor characters",
     "naively merging the two lawful full Koszul--Cech arrow sets gives an exact three-term differential-square witness, so a genuine chain diagonal is required; three witnesses eliminate all 4,096 declared static-plus-live linear parity repairs",
     "the canonical independent-cover tensor followed by the exact fiber diagonal closes on all 4,896 ambient transfer seeds",
     "the source-required P/T character (0,1) has exact transferred dimensions 100-to-243-to-170, differential ranks 100/142, and a unique H1 class represented by a strict 27-term full cocycle",
@@ -4017,7 +4066,8 @@
     "all eight first-order higher-product coefficients close exactly with zero residue, so the universal first-order up matrix has rank zero",
     "finite exterior-filtration typing excludes f5 and every higher up-type contribution, proving the full universal up matrix has rank zero",
     "the current chain action has exact H1 dimension zero in the source-required down-Higgs character (0,2)",
-    "all eight universal Dirac-neutrino coefficients have distinct exact closed cochains but zero residue; exterior filtration excludes higher orders, proving rank zero on the frozen P1"
+    "all eight universal Dirac-neutrino coefficients have distinct exact closed cochains but zero residue; exterior filtration excludes higher orders, proving rank zero on the frozen P1",
+    "isotypic H1 dimensions one and zero refute the current source-to-synchronized-chain equivariant comparison for H_d character (0,2)"
   ],
   "structural_compression_questions": [
     {

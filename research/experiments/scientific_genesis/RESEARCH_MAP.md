@@ -407,9 +407,16 @@ result on the frozen one-sided `P1`, not a first-order truncation. It remains
 scoped to this carrier branch and sector. With up and Dirac neutrinos excluded,
 the current chain action supplies no untested flavor sector: both down and
 charged leptons need the source `H_d` character `(0,2)`, whose current exact
-chain restriction has `H1 = 0`. The shortest rigorous route is therefore an
-exact equivariant chain comparison recovering that source character. No
-character twist or observational selector is permitted.
+chain restriction has `H1 = 0`. The source-derived relative pushdown instead
+has dimension one in that isotypic sector, so no equivariant quasi-isomorphism
+can use the current synchronized action. Both determinant-Hom orientations are
+also character-inequivalent to the physical tensor under every uniform scalar
+shift. Exact constituent deck atlases expose the constructive defect: three of
+four legacy extension-line frame characters disagree with the local-semilinear
+atlas data. The shortest rigorous route is therefore to transfer the full
+atlas action, including overlap gauges, through the synchronized Schoen chain.
+No character twist, generator relabeling, or observational selector is
+permitted.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

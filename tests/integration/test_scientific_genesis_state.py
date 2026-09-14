@@ -203,6 +203,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["down_higgs_character_h1_dimension"] == 0
     assert path["criteria"]["strict_down_higgs_representative_available"] is False
     assert path["criteria"]["down_higgs_character_twist_guessed"] is False
+    assert path["criteria"]["source_derived_h_d_character_h1_dimension"] == 1
+    assert path["criteria"]["current_h_d_comparison_route_refuted"] is True
+    assert path["criteria"]["both_determinant_hom_orientations_blocked"] is True
+    assert path["criteria"]["legacy_frame_matches_constituent_atlases"] is False
+    assert path["criteria"]["legacy_frame_atlas_mismatch_count"] == 3
     assert path["criteria"]["selected_available_flavor_sector"] == "dirac_neutrino"
     assert path["criteria"]["selected_available_flavor_chain_object_count"] == 8
     assert path["criteria"]["selected_available_matter_characters"] == [
@@ -250,11 +255,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "the complete universal up and Dirac-neutrino matrices vanish; "
-        "the shared source H_d equivariant comparison is the minimum "
-        "remaining flavor prerequisite"
+        "the current H_d comparison is isotypically refuted, so the "
+        "atlas-induced synchronized action is the minimum remaining "
+        "flavor prerequisite"
     )
     assert path["next_required_object"] == (
-        "exact equivariant chain comparison realizing source H_d character (0,2)"
+        "the full local-semilinear constituent deck action transferred through "
+        "the synchronized Schoen chain, including overlap gauges"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -270,6 +277,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_up_yukawa_no_go"]["status"] == "PROVED"
     assert claims["mixed_flavor_character_support"]["status"] == "COMPUTED"
     assert claims["mixed_down_higgs_chain_obstruction"]["status"] == "REFUTED"
+    assert (
+        claims["mixed_higgs_equivariant_comparison_obstruction"]["status"]
+        == "REFUTED"
+    )
     assert claims["mixed_flavor_frontier"]["status"] == "COMPUTED"
     assert claims["universal_neutrino_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_neutrino_tree_matrix"]["status"] == "COMPUTED"
@@ -313,7 +324,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["computable_carrier_state"]["status"] == "COMPUTED"
     assert claims["strict_mixed_matter_representatives"]["status"] == "COMPUTED"
     assert claims["universal_matter_sector_lifts"]["status"] == "COMPUTED"
-    assert claims["higgs_determinant_twist_route"]["status"] == "BLOCKED"
+    assert claims["higgs_determinant_twist_route"]["status"] == "REFUTED"
     assert claims["higgs_direct_tensor_diagonal"]["status"] == "COMPUTED"
     assert claims["strict_mixed_higgs_representative"]["status"] == "COMPUTED"
     assert claims["common_dga_package"]["status"] == "BLOCKED"

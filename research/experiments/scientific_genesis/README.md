@@ -275,6 +275,12 @@ slots and first order in the `V2`-`V2` slots, no higher contribution remains:
 the universal Dirac-neutrino matrix has exact rank zero over the entire frozen
 `P1`. This is a sector- and branch-scoped all-orders no-go. The current chain
 action now has no remaining available flavor sector: down and charged leptons
-both require the absent strict `H_d` character `(0,2)`. The next exact frontier
-is an equivariant chain comparison that recovers that source character without
-guessing a twist.
+both require the absent strict `H_d` character `(0,2)`. The source-derived
+relative pushdown has one such `H1` class, whereas the current synchronized
+action has none. Since an equivariant quasi-isomorphism preserves each
+character-isotypic cohomology dimension, that comparison route is refuted.
+Both determinant-Hom orientations fail independently, and three of the four
+legacy extension-line frame characters disagree with the certified constituent
+deck atlases. The next exact frontier is therefore the full local-semilinear
+atlas action transferred through the synchronized Schoen chain, including its
+overlap gauges. No scalar twist or generator relabeling is admissible.

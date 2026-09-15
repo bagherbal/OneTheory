@@ -284,4 +284,11 @@ the second synchronized base makes both W2 extension-line frames agree with the
 certified atlas; W1/P is the sole remaining frame discrepancy. The next exact
 frontier is therefore the full local-semilinear atlas action transferred through
 the synchronized Schoen chain, including its overlap gauges. No scalar twist or
-generator relabeling is admissible.
+generator relabeling is admissible. The scalar cases are now closed exactly.
+Changing only the W1/P extension-line block produces a 14-term commutator with
+the synchronized differential. Because the W1 resolution graph is connected,
+a scalar-only chain repair must propagate the atlas ratio `omega^2` to every W1
+object. That uniform action is exact, but moves the target to legacy character
+`(1,2)`, whose restricted complex again has dimensions `100 -> 243 -> 176`,
+ranks `100/143`, and `H1 = 0`. The remaining frontier is specifically a
+non-scalar W1/P chain comparison derived from the exact overlap gauges.

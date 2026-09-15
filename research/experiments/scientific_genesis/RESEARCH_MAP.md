@@ -416,7 +416,13 @@ two W2 extension-line frames agree with the squared native atlas characters.
 The sole remaining frame discrepancy is W1/P. The shortest rigorous route is
 therefore to transfer the full atlas action, including overlap gauges, through
 the synchronized Schoen chain. No character twist, generator relabeling, or
-observational selector is permitted.
+observational selector is permitted. Both scalar realizations have now been
+tested. Replacing W1/P's line frame alone produces an exact 14-term commutator.
+Connectivity forces any scalar-only chain repair to multiply the full W1
+complex by `omega^2`; the target then corresponds to legacy character `(1,2)`,
+whose exact dimensions and ranks are again `100 -> 243 -> 176` and `100/143`,
+so `H1 = 0`. The open object is therefore a non-scalar local-semilinear W1/P
+comparison with off-diagonal terms derived from the certified overlap gauges.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

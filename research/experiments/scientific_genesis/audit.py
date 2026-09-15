@@ -1394,6 +1394,29 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_higgs_scalar_action_no_go",
+            "scalar Higgs-action repair routes",
+            "Flavor",
+            "REFUTED",
+            "Replacing only the W1/P extension-line frame by its atlas value "
+            "produces a nonzero 14-term chain commutator. Connectivity forces "
+            "a scalar-only repair to rescale the full W1 complex by omega^2; "
+            "that exact action shifts the target to legacy character (1,2), "
+            "whose exact H1 dimension is still zero.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_scalar_action_no_go.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_higgs_scalar_action_no_go.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_higgs_scalar_action_no_go.py",
+            ),
+            missing=(
+                "non-scalar local-semilinear W1/P chain comparison",
+                "overlap-gauge-derived off-diagonal correction terms",
+            ),
+        ),
+        _node(
             "mixed_flavor_frontier",
             "post-obstruction exact flavor frontier",
             "Flavor",
@@ -3063,18 +3086,32 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_higgs_equivariant_comparison_obstruction",
-            "first_exact_yukawa",
-            "The isotypic mismatch refutes the current comparison and makes "
-            "the full atlas-induced synchronized action the necessary input "
-            "for reopening down or charged-lepton flavor.",
+            "mixed_higgs_scalar_action_no_go",
+            "The unique remaining frame discrepancy is tested first by the "
+            "isolated line replacement and then by its connected uniform "
+            "scalar propagation.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_higgs_equivariant_obstruction.json",
+                "mixed_schoen_higgs_scalar_action_no_go.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_higgs_scalar_action_no_go",
+            "first_exact_yukawa",
+            "Both constant frame repairs fail, making an overlap-gauge-derived "
+            "non-scalar chain comparison necessary before down or charged-"
+            "lepton flavor can reopen.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_scalar_action_no_go.json",
             ),
             (),
             False,
             (
-                "the local-semilinear overlap action is not yet transferred",
+                "the non-scalar W1/P overlap correction is not yet derived",
             ),
         ),
         _edge(
@@ -3539,6 +3576,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_higgs_equivariant_obstruction.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_higgs_scalar_action_no_go.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_matter_lifts.json",
@@ -3576,7 +3615,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 627,
+            "collected_tests_at_audit": 629,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3599,8 +3638,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "the complete universal up and Dirac-neutrino matrices vanish; "
-                "the current H_d comparison is isotypically refuted, so the "
-                "atlas-induced synchronized action is the minimum remaining "
+                "current and scalar-repaired H_d actions are refuted, so the "
+                "non-scalar W1/P overlap comparison is the minimum remaining "
                 "flavor prerequisite"
             ),
             "criteria": {
@@ -3774,6 +3813,13 @@ def build_state() -> dict[str, object]:
                 "legacy_frame_matches_constituent_atlases": False,
                 "factor_action_orientations_exact": True,
                 "legacy_frame_atlas_mismatch_count": 1,
+                "isolated_atlas_line_commutator_term_count": 14,
+                "forced_uniform_w1_p_scalar": "-1-omega",
+                "uniform_scalar_shifted_character": [1, 2],
+                "uniform_scalar_character_space_dimensions": [100, 243, 176],
+                "uniform_scalar_differential_ranks": [100, 143],
+                "uniform_scalar_shifted_h1_dimension": 0,
+                "scalar_higgs_action_repairs_refuted": True,
                 "selected_available_flavor_sector": "dirac_neutrino",
                 "selected_available_flavor_chain_object_count": 8,
                 "selected_available_matter_characters": [[0, 0], [0, 2]],
@@ -3800,8 +3846,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the full local-semilinear constituent deck action transferred "
-                "through the synchronized Schoen chain, including overlap gauges"
+                "a non-scalar local-semilinear W1/P chain comparison derived "
+                "from the exact overlap gauges"
             ),
         },
         "claims": _nodes(),
@@ -3923,6 +3969,9 @@ def build_state() -> dict[str, object]:
             "the inverse deck orientation on the second synchronized base makes "
             "both W2 extension-line frames agree with their exact atlas; only "
             "the W1/P frame remains discrepant",
+            "the isolated W1/P atlas line substitution has a nonzero 14-term "
+            "commutator, while its forced uniform omega^2 propagation is an "
+            "exact action whose shifted character-(1,2) H1 remains zero",
         ],
         "scoped_no_go_results": [
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
@@ -3989,6 +4038,8 @@ def build_state() -> dict[str, object]:
             "excludes higher orders, proving rank zero on the frozen P1",
             "isotypic H1 dimensions one and zero refute the current source-to-"
             "synchronized-chain equivariant comparison for H_d character (0,2)",
+            "neither the isolated W1/P atlas line replacement nor its unique "
+            "connected uniform scalar propagation recovers the missing H_d class",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -4002,8 +4053,8 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "the full local-semilinear constituent deck action with overlap "
-            "gauges for the unavailable down-Higgs character",
+            "a non-scalar local-semilinear W1/P chain comparison from exact "
+            "overlap gauges for the unavailable down-Higgs character",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

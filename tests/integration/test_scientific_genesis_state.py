@@ -209,6 +209,17 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["legacy_frame_matches_constituent_atlases"] is False
     assert path["criteria"]["factor_action_orientations_exact"] is True
     assert path["criteria"]["legacy_frame_atlas_mismatch_count"] == 1
+    assert path["criteria"]["isolated_atlas_line_commutator_term_count"] == 14
+    assert path["criteria"]["forced_uniform_w1_p_scalar"] == "-1-omega"
+    assert path["criteria"]["uniform_scalar_shifted_character"] == [1, 2]
+    assert path["criteria"]["uniform_scalar_character_space_dimensions"] == [
+        100,
+        243,
+        176,
+    ]
+    assert path["criteria"]["uniform_scalar_differential_ranks"] == [100, 143]
+    assert path["criteria"]["uniform_scalar_shifted_h1_dimension"] == 0
+    assert path["criteria"]["scalar_higgs_action_repairs_refuted"] is True
     assert path["criteria"]["selected_available_flavor_sector"] == "dirac_neutrino"
     assert path["criteria"]["selected_available_flavor_chain_object_count"] == 8
     assert path["criteria"]["selected_available_matter_characters"] == [
@@ -256,13 +267,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "the complete universal up and Dirac-neutrino matrices vanish; "
-        "the current H_d comparison is isotypically refuted, so the "
-        "atlas-induced synchronized action is the minimum remaining "
+        "current and scalar-repaired H_d actions are refuted, so the "
+        "non-scalar W1/P overlap comparison is the minimum remaining "
         "flavor prerequisite"
     )
     assert path["next_required_object"] == (
-        "the full local-semilinear constituent deck action transferred through "
-        "the synchronized Schoen chain, including overlap gauges"
+        "a non-scalar local-semilinear W1/P chain comparison derived from the "
+        "exact overlap gauges"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -282,6 +293,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         claims["mixed_higgs_equivariant_comparison_obstruction"]["status"]
         == "REFUTED"
     )
+    assert claims["mixed_higgs_scalar_action_no_go"]["status"] == "REFUTED"
     assert claims["mixed_flavor_frontier"]["status"] == "COMPUTED"
     assert claims["universal_neutrino_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_neutrino_tree_matrix"]["status"] == "COMPUTED"

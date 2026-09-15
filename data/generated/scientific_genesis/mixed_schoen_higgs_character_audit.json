@@ -1,0 +1,290 @@
+{
+  "all_character_restrictions_exact": true,
+  "ambient_differential_digests": [
+    "4f57c1bdbd95323053e925685d1dd34b61c4073ed2b68a6b203fe2dae55783e3",
+    "590e8538390f2fb68afe779d388c9e450ec702bff47d332a44f3a4d581f33797"
+  ],
+  "ambient_differential_nonzero_entries": [
+    4170,
+    6632
+  ],
+  "ambient_space_dimensions": [
+    900,
+    2180,
+    1539
+  ],
+  "artifact_digest": "c478d94c1888bf7f6c44f570a8ac692c226acc2d16fe1976543db27216c431fe",
+  "character_spaces_exhaust_ambient": true,
+  "coefficient_field": "Q(omega)",
+  "current_characters_match_source": false,
+  "current_h1_characters": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "current_h1_dimension": 4,
+  "exact": true,
+  "matching_uniform_character_shifts": [],
+  "next_required_object": "an atlas-derived non-scalar chain action or a proof that the selected source equivariant structure is unrealizable on the synchronized complex",
+  "observational_inputs_used": false,
+  "schema": "mixed-schoen-higgs-character-audit-v1",
+  "sectors": [
+    {
+      "character": [
+        0,
+        0
+      ],
+      "differential_digests": [
+        "ca99fea68b34405cbbbe47a2f4aaf693fe7695c2a0625b71b26649d35d6ec055",
+        "e8586088416febf83607b114026a1463f1d9ce36b520ec6211a4391d5dc1d2a1"
+      ],
+      "differential_nonzero_entries": [
+        486,
+        743
+      ],
+      "differential_ranks": [
+        100,
+        141
+      ],
+      "differential_squared_zero": true,
+      "h1_dimension": 1,
+      "space_dimensions": [
+        100,
+        242,
+        169
+      ]
+    },
+    {
+      "character": [
+        0,
+        1
+      ],
+      "differential_digests": [
+        "c2b774dc17a71195250b2fec3805ff0528b97f1f8a2a7fdad5049b5c925192f3",
+        "899780d56c754684942903099141ee4784dd7a7ec9b5558827b78d2f9e357f49"
+      ],
+      "differential_nonzero_entries": [
+        484,
+        745
+      ],
+      "differential_ranks": [
+        100,
+        142
+      ],
+      "differential_squared_zero": true,
+      "h1_dimension": 1,
+      "space_dimensions": [
+        100,
+        243,
+        170
+      ]
+    },
+    {
+      "character": [
+        0,
+        2
+      ],
+      "differential_digests": [
+        "99f698c7c66258b95443f0c14e1677462ce102989bd5b30802ae7d5f16ca1a6e",
+        "79901a376c7ff42b300c8acf85002cb671f6ba43c685e3f67fec346edc2b17d0"
+      ],
+      "differential_nonzero_entries": [
+        486,
+        766
+      ],
+      "differential_ranks": [
+        100,
+        143
+      ],
+      "differential_squared_zero": true,
+      "h1_dimension": 0,
+      "space_dimensions": [
+        100,
+        243,
+        176
+      ]
+    },
+    {
+      "character": [
+        1,
+        0
+      ],
+      "differential_digests": [
+        "85d5e53977c4d2cc4f91a386fb887a3867ea97d2efe3d963abe384f63923b2c8",
+        "7a956bc5b299958ee743ccfca69682401c0ff2e69db577ee33409cdd4f99144c"
+      ],
+      "differential_nonzero_entries": [
+        486,
+        744
+      ],
+      "differential_ranks": [
+        100,
+        142
+      ],
+      "differential_squared_zero": true,
+      "h1_dimension": 0,
+      "space_dimensions": [
+        100,
+        242,
+        170
+      ]
+    },
+    {
+      "character": [
+        1,
+        1
+      ],
+      "differential_digests": [
+        "3a2140cfe8a01ba02f494a54023c1ad072be4c14311461fcac760d79bf6bea15",
+        "8d851b71f4a7a4c8216dae19b33551f885121a7c55ca52c60e6c46a0adf97929"
+      ],
+      "differential_nonzero_entries": [
+        484,
+        730
+      ],
+      "differential_ranks": [
+        100,
+        141
+      ],
+      "differential_squared_zero": true,
+      "h1_dimension": 0,
+      "space_dimensions": [
+        100,
+        241,
+        167
+      ]
+    },
+    {
+      "character": [
+        1,
+        2
+      ],
+      "differential_digests": [
+        "b8d115eb6965015a5bb75825e01ff016b0cd1731d971dbae553b8bc6b3d102a5",
+        "efd3575425cfde8b06f062875e67d6eae3edece1ed10d2c23c0a65d49acd4fac"
+      ],
+      "differential_nonzero_entries": [
+        486,
+        766
+      ],
+      "differential_ranks": [
+        100,
+        143
+      ],
+      "differential_squared_zero": true,
+      "h1_dimension": 0,
+      "space_dimensions": [
+        100,
+        243,
+        176
+      ]
+    },
+    {
+      "character": [
+        2,
+        0
+      ],
+      "differential_digests": [
+        "92635f8d6290a1d914f10910f44aca7a203809443f5a0cf6fa120d62be4b91a2",
+        "e43867c7c4403ead78f2b8dd4dad20177974f07b42ad6c2d2357e93ec097f22f"
+      ],
+      "differential_nonzero_entries": [
+        484,
+        734
+      ],
+      "differential_ranks": [
+        100,
+        140
+      ],
+      "differential_squared_zero": true,
+      "h1_dimension": 1,
+      "space_dimensions": [
+        100,
+        241,
+        167
+      ]
+    },
+    {
+      "character": [
+        2,
+        1
+      ],
+      "differential_digests": [
+        "12f4e0f2fae869f1f7d836b13713912fa51ddfdb1fafb95acf37fa1e9d28788d",
+        "9b0a7492d0ef678efe3aed31c83ce31a2e8b0f549ce6a469ba17d1bbb9609590"
+      ],
+      "differential_nonzero_entries": [
+        484,
+        742
+      ],
+      "differential_ranks": [
+        100,
+        141
+      ],
+      "differential_squared_zero": true,
+      "h1_dimension": 1,
+      "space_dimensions": [
+        100,
+        242,
+        168
+      ]
+    },
+    {
+      "character": [
+        2,
+        2
+      ],
+      "differential_digests": [
+        "c9f4f3d7ca00888659466772d94ab6ff2007136e5f9abdd5d39c5fe054dd1fca",
+        "409b1880a36568cad293ccce682ec406205d41c7a255bdb2883dd58968d750eb"
+      ],
+      "differential_nonzero_entries": [
+        486,
+        766
+      ],
+      "differential_ranks": [
+        100,
+        143
+      ],
+      "differential_squared_zero": true,
+      "h1_dimension": 0,
+      "space_dimensions": [
+        100,
+        243,
+        176
+      ]
+    }
+  ],
+  "selected_source_h1_characters": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "source_characters_used_as_rank_input": false
+}

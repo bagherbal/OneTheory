@@ -291,4 +291,10 @@ a scalar-only chain repair must propagate the atlas ratio `omega^2` to every W1
 object. That uniform action is exact, but moves the target to legacy character
 `(1,2)`, whose restricted complex again has dimensions `100 -> 243 -> 176`,
 ranks `100/143`, and `H1 = 0`. The remaining frontier is specifically a
-non-scalar W1/P chain comparison derived from the exact overlap gauges.
+non-scalar W1/P chain comparison derived from the exact overlap gauges. A
+single shared ambient transfer now gives the complete current representation:
+the four `H1` characters are `(0,0)`, `(0,1)`, `(2,0)`, and `(2,1)`. None of
+the nine uniform `Z3 x Z3` character shifts maps this multiset to the selected
+source characters `(0,1)`, `(0,2)`, `(1,2)`, and `(2,1)`. The rigorous fork is
+therefore an atlas-derived non-scalar action or a proof that the selected source
+equivariant structure is unrealizable on this synchronized complex.

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "8a535eb8d4e4d517cc5718615412fb33e12f33f39840391db0c92768516397fd",
+  "artifact_digest": "69143a0ba68ad227e07e05868d2e2248232f0eb66ed33a474414855a8630f1da",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -302,6 +302,11 @@
       "sha256": "a88684055cd37d658348538341b53bb199bd5f4cff97cb85baa5186851fe7cb7"
     },
     {
+      "bytes": 6116,
+      "path": "data/generated/scientific_genesis/mixed_schoen_higgs_character_audit.json",
+      "sha256": "ff5c708103326d2c40bb19ceae868c1b9036435181e4395cf928d39bf333b446"
+    },
+    {
       "bytes": 1596,
       "path": "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
       "sha256": "e9130382d200ba68066c426bd49140e7d9549295b44a37382d5b4afe6c7fd706"
@@ -393,11 +398,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 629,
+    "collected_tests_at_audit": 631,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 186,
-    "test_python_files": 165
+    "research_python_files": 187,
+    "test_python_files": 166
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -413,7 +418,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "a non-scalar local-semilinear W1/P chain comparison from exact overlap gauges for the unavailable down-Higgs character",
+    "an atlas-derived non-scalar Higgs chain action or equivariant unrealizability proof for the unavailable down-Higgs character",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
@@ -1575,6 +1580,25 @@
       ],
       "statement": "Replacing only the W1/P extension-line frame by its atlas value produces a nonzero 14-term chain commutator. Connectivity forces a scalar-only repair to rescale the full W1 complex by omega^2; that exact action shifts the target to legacy character (1,2), whose exact H1 dimension is still zero.",
       "status": "REFUTED"
+    },
+    {
+      "assumptions": [
+        "selected source Higgs characters used only after exact ranks"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_higgs_character_audit.json",
+        "research/experiments/scientific_genesis/mixed_schoen_higgs_character_audit.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_higgs_character_audit.py"
+      ],
+      "id": "mixed_higgs_full_character_audit",
+      "label": "complete synchronized Higgs character representation",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "atlas-derived non-scalar chain action",
+        "or a proof that the source action is unrealizable on this complex"
+      ],
+      "statement": "A single shared ambient transfer derives all nine exact character subcomplexes. Current H1 has characters (0,0), (0,1), (2,0), and (2,1). No uniform Z3 x Z3 character shift maps this multiset to the selected source Higgs representation.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
@@ -3194,14 +3218,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_higgs_scalar_action_no_go.json"
+        "data/generated/scientific_genesis/mixed_schoen_higgs_character_audit.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "Both scalar trials motivate deriving the complete current H1 representation before attempting a larger local comparison.",
+      "source": "mixed_higgs_scalar_action_no_go",
+      "target": "mixed_higgs_full_character_audit"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_higgs_character_audit.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
         "the non-scalar W1/P overlap correction is not yet derived"
       ],
-      "mathematical_reason": "Both constant frame repairs fail, making an overlap-gauge-derived non-scalar chain comparison necessary before down or charged-lepton flavor can reopen.",
-      "source": "mixed_higgs_scalar_action_no_go",
+      "mathematical_reason": "The complete character mismatch rules out every uniform twist, so flavor can reopen only through an atlas-derived non-scalar action or after refuting the selected equivariant realization.",
+      "source": "mixed_higgs_full_character_audit",
       "target": "first_exact_yukawa"
     },
     {
@@ -3456,7 +3491,8 @@
     "the complete Dirac-neutrino tree matrix has four independent exact zero residues with explicit depth-four primitives",
     "the source-derived H_d character-(0,2) H1 has dimension one while the current synchronized action has dimension zero, refuting an equivariant quasi-isomorphism for that action",
     "the inverse deck orientation on the second synchronized base makes both W2 extension-line frames agree with their exact atlas; only the W1/P frame remains discrepant",
-    "the isolated W1/P atlas line substitution has a nonzero 14-term commutator, while its forced uniform omega^2 propagation is an exact action whose shifted character-(1,2) H1 remains zero"
+    "the isolated W1/P atlas line substitution has a nonzero 14-term commutator, while its forced uniform omega^2 propagation is an exact action whose shifted character-(1,2) H1 remains zero",
+    "one shared ambient transfer derives current synchronized Higgs H1 characters (0,0), (0,1), (2,0), and (2,1)"
   ],
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
@@ -3511,6 +3547,24 @@
       "cech_local_diagonal_chain_map_available": true,
       "cech_local_diagonal_comparison_required": true,
       "coefficient_field": "Q(omega)",
+      "complete_current_higgs_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
       "complete_first_order_coefficient_count": 8,
       "complete_first_order_matrix_available": true,
       "complete_first_order_matrix_extension_point_selected": false,
@@ -3519,6 +3573,7 @@
         "a1"
       ],
       "complete_first_order_matrix_rank": 0,
+      "complete_higgs_character_audit_exact": true,
       "complete_neutrino_first_order_coefficient_count": 8,
       "complete_neutrino_tree_matrix_available": true,
       "complete_neutrino_tree_matrix_rank": 0,
@@ -3781,6 +3836,24 @@
         1,
         0
       ],
+      "selected_source_higgs_characters": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
       "shared_missing_higgs_character": [
         0,
         2
@@ -3794,6 +3867,7 @@
       "strict_down_higgs_representative_available": false,
       "tree_level_up_matrix_rank": 0,
       "tree_level_up_scalar_primitives_exact": true,
+      "uniform_higgs_character_shift_matches": [],
       "uniform_scalar_character_space_dimensions": [
         100,
         243,
@@ -3812,8 +3886,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "a non-scalar local-semilinear W1/P chain comparison derived from the exact overlap gauges",
-    "selection_status": "the complete universal up and Dirac-neutrino matrices vanish; current and scalar-repaired H_d actions are refuted, so the non-scalar W1/P overlap comparison is the minimum remaining flavor prerequisite"
+    "next_required_object": "an atlas-derived non-scalar Higgs chain action or a proof that the selected source equivariant structure is unrealizable on the synchronized complex",
+    "selection_status": "the complete universal up and Dirac-neutrino matrices vanish; the complete current Higgs representation matches no uniform shift of the source, so an atlas-derived non-scalar action or an equivariant unrealizability proof is the minimum frontier"
   },
   "research_value_scheduler": [
     {
@@ -4120,7 +4194,8 @@
     "the current chain action has exact H1 dimension zero in the source-required down-Higgs character (0,2)",
     "all eight universal Dirac-neutrino coefficients have distinct exact closed cochains but zero residue; exterior filtration excludes higher orders, proving rank zero on the frozen P1",
     "isotypic H1 dimensions one and zero refute the current source-to-synchronized-chain equivariant comparison for H_d character (0,2)",
-    "neither the isolated W1/P atlas line replacement nor its unique connected uniform scalar propagation recovers the missing H_d class"
+    "neither the isolated W1/P atlas line replacement nor its unique connected uniform scalar propagation recovers the missing H_d class",
+    "none of the nine uniform Z3 x Z3 character shifts maps the complete current Higgs H1 representation to the selected source multiset"
   ],
   "structural_compression_questions": [
     {

@@ -423,6 +423,13 @@ complex by `omega^2`; the target then corresponds to legacy character `(1,2)`,
 whose exact dimensions and ranks are again `100 -> 243 -> 176` and `100/143`,
 so `H1 = 0`. The open object is therefore a non-scalar local-semilinear W1/P
 comparison with off-diagonal terms derived from the certified overlap gauges.
+The complete synchronized representation is now derived from one shared pair
+of ambient maps: its `H1` characters are `(0,0)`, `(0,1)`, `(2,0)`, and
+`(2,1)`. Exhausting the nine group characters proves that no uniform shift maps
+these to source characters `(0,1)`, `(0,2)`, `(1,2)`, and `(2,1)`. The
+remaining exact fork is a genuinely non-scalar atlas action or a proof that the
+selected source equivariant structure cannot be realized on this synchronized
+complex.
 
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the

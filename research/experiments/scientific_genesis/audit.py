@@ -1470,6 +1470,32 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_atlas_higgs_character_incompatibility",
+            "atlas-induced Higgs character representation",
+            "Flavor",
+            "REFUTED",
+            "The exact constituent atlas ratios are (2,0) for W1 and (0,0) "
+            "for W2 relative to the synchronized lifts. Simplicity therefore "
+            "forces atlas Higgs characters (1,0), (1,1), (2,0), and (2,1), "
+            "which are incompatible with the selected source multiset. The "
+            "source pushdown labels are used only after this derivation.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_atlas_higgs_characters.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_atlas_higgs_characters.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_atlas_higgs_characters.py",
+            ),
+            assumptions=(
+                "the certified local atlases induce the factorwise tensor action",
+            ),
+            missing=(
+                "atlas-derived characters for each relative-pushdown line",
+                "the first exact source-convention mismatch",
+            ),
+        ),
+        _node(
             "mixed_flavor_frontier",
             "post-obstruction exact flavor frontier",
             "Flavor",
@@ -3180,18 +3206,32 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_higgs_linearization_no_go",
-            "first_exact_yukawa",
-            "The current carrier cannot supply H_d through another factorwise "
-            "linearization of the selected constituents, so flavor can reopen "
-            "only after direct atlas cohomology or a different exact realization.",
+            "mixed_atlas_higgs_character_incompatibility",
+            "The exact frame ratios identify the unique atlas characters on "
+            "both simple factors, so their product acts as a forced shift on "
+            "the complete synchronized Higgs representation.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_higgs_linearization_no_go.json",
+                "mixed_schoen_atlas_higgs_characters.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_atlas_higgs_character_incompatibility",
+            "first_exact_yukawa",
+            "The selected atlases do not supply the source Higgs representation, "
+            "so flavor can reopen only after locating the pushdown convention "
+            "mismatch or constructing a different exact realization.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_atlas_higgs_characters.json",
             ),
             (),
             False,
             (
-                "the selected source Higgs characters lack a direct atlas-cohomology derivation",
+                "individual relative-pushdown line characters remain source-bound",
             ),
         ),
         _edge(
@@ -3662,6 +3702,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_higgs_character_audit.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_higgs_linearization_no_go.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_atlas_higgs_characters.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_matter_lifts.json",
@@ -3722,9 +3764,9 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "the complete universal up and Dirac-neutrino matrices vanish; "
-                "exact simplicity closes every same-constituent factorwise "
-                "Higgs relinearization, so direct atlas cohomology or a different "
-                "exact constituent realization is the minimum frontier"
+                "the certified constituent atlases yield a Higgs representation "
+                "incompatible with the source-bound pushdown labels, so locating "
+                "the first line-character mismatch is the minimum frontier"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3921,6 +3963,17 @@ def build_state() -> dict[str, object]:
                 "selected_constituent_self_hom_h0_dimensions": [1, 1],
                 "selected_constituents_simple_over_q_omega": True,
                 "same_constituent_higgs_relinearization_available": False,
+                "constituent_atlas_over_synchronized_characters": [
+                    [2, 0],
+                    [0, 0],
+                ],
+                "atlas_induced_higgs_characters": [
+                    [1, 0],
+                    [1, 1],
+                    [2, 0],
+                    [2, 1],
+                ],
+                "atlas_higgs_characters_match_selected_source": False,
                 "selected_available_flavor_sector": "dirac_neutrino",
                 "selected_available_flavor_chain_object_count": 8,
                 "selected_available_matter_characters": [[0, 0], [0, 2]],
@@ -3947,8 +4000,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "a direct atlas cohomology derivation of the Higgs characters "
-                "or a different exact constituent realization"
+                "derive every relative-pushdown line character from the local "
+                "atlas action and locate the first source-convention mismatch"
             ),
         },
         "claims": _nodes(),
@@ -4147,6 +4200,8 @@ def build_state() -> dict[str, object]:
             "current Higgs H1 representation to the selected source multiset",
             "both selected mixed constituents are simple over Q(omega), so every "
             "same-object factorwise relinearization reduces to an exhausted shift",
+            "the certified constituent atlases force Higgs characters (1,0), "
+            "(1,1), (2,0), and (2,1), incompatible with the source-bound multiset",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -4160,8 +4215,8 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "direct atlas cohomology or a different exact constituent realization "
-            "for the unavailable down-Higgs character",
+            "atlas-derived relative-pushdown line characters resolving the "
+            "unavailable down-Higgs representation",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

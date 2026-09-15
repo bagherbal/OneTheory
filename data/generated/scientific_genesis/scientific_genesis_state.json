@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "3c9d7e7459753f6728b86e4684b027d39c388b95e7387ee6ea459094cf59edc9",
+  "artifact_digest": "468a19fd009f47f52ee3b5bf4f10fa5a59472a45b1fb96f35749d19a274fcb68",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -312,6 +312,11 @@
       "sha256": "f11af5f275cb2b5e234950a2c9113f2d98e00f650c36e502d3ee193e72e4686f"
     },
     {
+      "bytes": 2254,
+      "path": "data/generated/scientific_genesis/mixed_schoen_atlas_higgs_characters.json",
+      "sha256": "a4a3eb373a55efc82801d8f4b05561ce1f58070cd57cfffb3e71189242628e61"
+    },
+    {
       "bytes": 1596,
       "path": "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
       "sha256": "e9130382d200ba68066c426bd49140e7d9549295b44a37382d5b4afe6c7fd706"
@@ -406,8 +411,8 @@
     "collected_tests_at_audit": 631,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 188,
-    "test_python_files": 167
+    "research_python_files": 189,
+    "test_python_files": 168
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -423,7 +428,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "direct atlas cohomology or a different exact constituent realization for the unavailable down-Higgs character",
+    "atlas-derived relative-pushdown line characters resolving the unavailable down-Higgs representation",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
@@ -1623,6 +1628,25 @@
         "or a different exact constituent realization"
       ],
       "statement": "Exact synchronized self-Hom differentials have ranks 53 of 54 for V1 and 123 of 124 for V2, so both selected constituents are simple over Q(omega). Two linearizations of a simple object differ by a character. Since all nine uniform tensor-character shifts already fail, no factorwise relinearization of these same objects can realize the selected source Higgs representation.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [
+        "the certified local atlases induce the factorwise tensor action"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_atlas_higgs_characters.json",
+        "research/experiments/scientific_genesis/mixed_schoen_atlas_higgs_characters.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_atlas_higgs_characters.py"
+      ],
+      "id": "mixed_atlas_higgs_character_incompatibility",
+      "label": "atlas-induced Higgs character representation",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "atlas-derived characters for each relative-pushdown line",
+        "the first exact source-convention mismatch"
+      ],
+      "statement": "The exact constituent atlas ratios are (2,0) for W1 and (0,0) for W2 relative to the synchronized lifts. Simplicity therefore forces atlas Higgs characters (1,0), (1,1), (2,0), and (2,1), which are incompatible with the selected source multiset. The source pushdown labels are used only after this derivation.",
       "status": "REFUTED"
     },
     {
@@ -3265,14 +3289,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_higgs_linearization_no_go.json"
+        "data/generated/scientific_genesis/mixed_schoen_atlas_higgs_characters.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The exact frame ratios identify the unique atlas characters on both simple factors, so their product acts as a forced shift on the complete synchronized Higgs representation.",
+      "source": "mixed_higgs_linearization_no_go",
+      "target": "mixed_atlas_higgs_character_incompatibility"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_atlas_higgs_characters.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the selected source Higgs characters lack a direct atlas-cohomology derivation"
+        "individual relative-pushdown line characters remain source-bound"
       ],
-      "mathematical_reason": "The current carrier cannot supply H_d through another factorwise linearization of the selected constituents, so flavor can reopen only after direct atlas cohomology or a different exact realization.",
-      "source": "mixed_higgs_linearization_no_go",
+      "mathematical_reason": "The selected atlases do not supply the source Higgs representation, so flavor can reopen only after locating the pushdown convention mismatch or constructing a different exact realization.",
+      "source": "mixed_atlas_higgs_character_incompatibility",
       "target": "first_exact_yukawa"
     },
     {
@@ -3565,6 +3600,25 @@
       "all_neutrino_matter_lifts_exact": true,
       "all_published_yukawa_character_products_invariant": true,
       "arbitrary_point_selected": false,
+      "atlas_higgs_characters_match_selected_source": false,
+      "atlas_induced_higgs_characters": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
       "both_determinant_hom_orientations_blocked": true,
       "bottom_v2_plucker_chain_map_available": true,
       "bottom_v2_plucker_character": [
@@ -3620,6 +3674,16 @@
       "complete_universal_holomorphic_up_matrix_rank": 0,
       "computable_carrier_component": "lawful-mixed-schoen-P1",
       "computable_carrier_component_frozen": true,
+      "constituent_atlas_over_synchronized_characters": [
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
       "current_h_d_comparison_route_refuted": true,
       "current_minimum_retired_candidate_blocks": [
         8,
@@ -3928,8 +3992,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "a direct atlas cohomology derivation of the Higgs characters or a different exact constituent realization",
-    "selection_status": "the complete universal up and Dirac-neutrino matrices vanish; exact simplicity closes every same-constituent factorwise Higgs relinearization, so direct atlas cohomology or a different exact constituent realization is the minimum frontier"
+    "next_required_object": "derive every relative-pushdown line character from the local atlas action and locate the first source-convention mismatch",
+    "selection_status": "the complete universal up and Dirac-neutrino matrices vanish; the certified constituent atlases yield a Higgs representation incompatible with the source-bound pushdown labels, so locating the first line-character mismatch is the minimum frontier"
   },
   "research_value_scheduler": [
     {
@@ -4238,7 +4302,8 @@
     "isotypic H1 dimensions one and zero refute the current source-to-synchronized-chain equivariant comparison for H_d character (0,2)",
     "neither the isolated W1/P atlas line replacement nor its unique connected uniform scalar propagation recovers the missing H_d class",
     "none of the nine uniform Z3 x Z3 character shifts maps the complete current Higgs H1 representation to the selected source multiset",
-    "both selected mixed constituents are simple over Q(omega), so every same-object factorwise relinearization reduces to an exhausted shift"
+    "both selected mixed constituents are simple over Q(omega), so every same-object factorwise relinearization reduces to an exhausted shift",
+    "the certified constituent atlases force Higgs characters (1,0), (1,1), (2,0), and (2,1), incompatible with the source-bound multiset"
   ],
   "structural_compression_questions": [
     {

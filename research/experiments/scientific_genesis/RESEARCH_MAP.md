@@ -444,6 +444,16 @@ The shortest lawful frontier is now a direct atlas-cohomology derivation of the
 Higgs character representation; if that confirms the selected source labels,
 the current synchronized realization must be replaced rather than repaired.
 
+Applying that theorem to the exact frame comparisons derives the atlas Higgs
+representation directly. W1 has atlas-over-synchronized character `(2,0)` and
+W2 has `(0,0)`, so the tensor shifts the complete current support to `(1,0)`,
+`(1,1)`, `(2,0)`, and `(2,1)`. The result is incompatible with source-bound
+characters `(0,1)`, `(0,2)`, `(1,2)`, and `(2,1)`. No source character entered
+the construction, and no generator was relabelled. The next exact object is
+therefore not another Higgs chain action: it is the character of every
+relative-pushdown line derived from the local constituent atlas, sufficient to
+locate the first source-convention mismatch.
+
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the
 published carrier, even when their dimensions happen to match source ledgers.

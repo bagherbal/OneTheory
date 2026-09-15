@@ -310,3 +310,15 @@ linearized objects. This does not exclude a different constituent realization.
 The shortest remaining object is a direct atlas-cohomology derivation of the
 Higgs characters, or an exact replacement realization if that derivation
 confirms the source representation.
+
+The certified atlas representation is now derived without transferring a
+second large chain. Simplicity makes the exact atlas/current frame ratios into
+factor characters: W1 contributes `(2,0)` and W2 contributes `(0,0)`. Their
+tensor therefore shifts the complete synchronized cohomology to characters
+`(1,0)`, `(1,1)`, `(2,0)`, and `(2,1)`. This differs from the selected source
+multiset even though the source labels were not used as construction input.
+The incompatibility is between the present exact atlas realization and the
+source-bound relative-pushdown character labels; it does not choose which side
+is physically correct. The next calculation must derive every pushdown line
+character from the local atlas action and identify the first convention that
+diverges.

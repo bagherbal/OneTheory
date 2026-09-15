@@ -1,0 +1,99 @@
+{
+  "all_selected_constituents_simple": true,
+  "artifact_digest": "62ede068ba5956c476bd6c279f4778b0abe55f9b5f2a1156783ac903b5a1cf5a",
+  "character_twist_fitted": false,
+  "coefficient_field": "Q(omega)",
+  "constituent_self_hom_audits": [
+    {
+      "constituent": "V1",
+      "degree_one_space_dimension": 102,
+      "degree_zero_differential_digest": "495f1bf3b3ad15308d70ff73bc5c10a4e0d9567c586ce944afd9ff8930dd8d54",
+      "degree_zero_differential_nonzero_entries": 300,
+      "degree_zero_differential_rank": 53,
+      "degree_zero_space_dimension": 54,
+      "h0_endomorphism_dimension": 1,
+      "negative_self_hom_space_dimensions": [
+        0,
+        0,
+        0
+      ],
+      "simple_over_q_omega": true,
+      "transfer_path_depth": 5
+    },
+    {
+      "constituent": "V2",
+      "degree_one_space_dimension": 258,
+      "degree_zero_differential_digest": "38fa078aeaffa14a15b1175505ece07ac9b3017bc6db6c227cfcb938b2cf36c1",
+      "degree_zero_differential_nonzero_entries": 1368,
+      "degree_zero_differential_rank": 123,
+      "degree_zero_space_dimension": 124,
+      "h0_endomorphism_dimension": 1,
+      "negative_self_hom_space_dimensions": [
+        0,
+        0,
+        0
+      ],
+      "simple_over_q_omega": true,
+      "transfer_path_depth": 5
+    }
+  ],
+  "current_h1_characters": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "exact": true,
+  "linearization_difference_theorem": "two linearizations of one simple object differ by a group character",
+  "matching_uniform_character_shifts": [],
+  "next_required_object": "a direct atlas cohomology derivation of the Higgs characters or a different exact constituent realization",
+  "non_scalar_resolution_comparison_can_repair_cohomology": false,
+  "observational_inputs_used": false,
+  "physical_h_d_representative_available": false,
+  "prerequisite_artifact_digests": {
+    "complete_higgs_character_audit": "c478d94c1888bf7f6c44f570a8ac692c226acc2d16fe1976543db27216c431fe",
+    "constituent_deck_atlases": "d2c66b65829d21078f0481003febaec7b4690c5b779e319db1133f679f2c7dba",
+    "current_chain_action": "14201804a8e9b5927a83ecd7366aa0d461bc17b621b4b01e94afc2c04cfde06a",
+    "mixed_constituent_arrows": "8527e26fa297a58a0139a67123fbf55ab9828da081609cd81615c18482468f81"
+  },
+  "proof_steps": [
+    "compose the second lift with the inverse of the first lift",
+    "simplicity makes each resulting automorphism scalar",
+    "the linearization cocycle law makes those scalars a character",
+    "factor characters multiply to one uniform tensor character"
+  ],
+  "same_constituent_factorwise_linearization_repair_available": false,
+  "schema": "mixed-schoen-higgs-linearization-no-go-v1",
+  "scope": "the same selected V1 and V2 objects with factorwise deck linearizations; unrelated constituent realizations are not excluded",
+  "selected_source_equivariance_realized_by_current_complex": false,
+  "selected_source_h1_characters": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      1
+    ]
+  ]
+}

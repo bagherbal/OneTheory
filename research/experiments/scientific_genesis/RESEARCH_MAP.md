@@ -431,6 +431,19 @@ remaining exact fork is a genuinely non-scalar atlas action or a proof that the
 selected source equivariant structure cannot be realized on this synchronized
 complex.
 
+The exact self-Hom calculation resolves that fork for the same selected
+constituents. The synchronized degree-zero self-Hom maps have ranks `53/54`
+for V1 and `123/124` for V2, proving both endomorphism spaces are exactly the
+scalar field `Q(omega)`. Linearizations of a simple object form a torsor under
+group characters, so changing the two constituent linearizations can alter the
+tensor cohomology only by one uniform character shift. The exhaustive
+nine-shift mismatch therefore rules out every factorwise relinearization of
+these same V1/V2 objects, including non-scalar matrices introduced only by a
+resolution basis. It does not rule out unrelated constituent realizations.
+The shortest lawful frontier is now a direct atlas-cohomology derivation of the
+Higgs character representation; if that confirms the selected source labels,
+the current synchronized realization must be replaced rather than repaired.
+
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the
 published carrier, even when their dimensions happen to match source ledgers.

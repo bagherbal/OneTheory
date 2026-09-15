@@ -298,3 +298,15 @@ the nine uniform `Z3 x Z3` character shifts maps this multiset to the selected
 source characters `(0,1)`, `(0,2)`, `(1,2)`, and `(2,1)`. The rigorous fork is
 therefore an atlas-derived non-scalar action or a proof that the selected source
 equivariant structure is unrealizable on this synchronized complex.
+
+That fork is now closed for relinearizations of the same selected factors.
+Exact synchronized self-Hom transfers give `h0(End V1) = h0(End V2) = 1`
+over `Q(omega)`, so both constituents are simple. Any two linearizations of a
+simple object differ by a group character; on the tensor product, the two
+factor characters combine into one uniform shift. Since the complete audit
+already exhausted all nine shifts, no non-scalar resolution comparison can
+repair the cohomology representation while retaining these same factorwise
+linearized objects. This does not exclude a different constituent realization.
+The shortest remaining object is a direct atlas-cohomology derivation of the
+Higgs characters, or an exact replacement realization if that derivation
+confirms the source representation.

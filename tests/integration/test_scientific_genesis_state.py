@@ -234,6 +234,12 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     ]
     assert path["criteria"]["uniform_higgs_character_shift_matches"] == []
     assert path["criteria"]["complete_higgs_character_audit_exact"] is True
+    assert path["criteria"]["selected_constituent_self_hom_h0_dimensions"] == [1, 1]
+    assert path["criteria"]["selected_constituents_simple_over_q_omega"] is True
+    assert (
+        path["criteria"]["same_constituent_higgs_relinearization_available"]
+        is False
+    )
     assert path["criteria"]["selected_available_flavor_sector"] == "dirac_neutrino"
     assert path["criteria"]["selected_available_flavor_chain_object_count"] == 8
     assert path["criteria"]["selected_available_matter_characters"] == [
@@ -281,14 +287,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "the complete universal up and Dirac-neutrino matrices vanish; "
-        "the complete current Higgs representation matches no uniform "
-        "shift of the source, so an atlas-derived non-scalar action or "
-        "an equivariant unrealizability proof is the minimum frontier"
+        "exact simplicity closes every same-constituent factorwise "
+        "Higgs relinearization, so direct atlas cohomology or a different "
+        "exact constituent realization is the minimum frontier"
     )
     assert path["next_required_object"] == (
-        "an atlas-derived non-scalar Higgs chain action or a proof that the "
-        "selected source equivariant structure is unrealizable on the "
-        "synchronized complex"
+        "a direct atlas cohomology derivation of the Higgs characters "
+        "or a different exact constituent realization"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -310,6 +315,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert claims["mixed_higgs_scalar_action_no_go"]["status"] == "REFUTED"
     assert claims["mixed_higgs_full_character_audit"]["status"] == "COMPUTED"
+    assert claims["mixed_higgs_linearization_no_go"]["status"] == "REFUTED"
     assert claims["mixed_flavor_frontier"]["status"] == "COMPUTED"
     assert claims["universal_neutrino_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_neutrino_tree_matrix"]["status"] == "COMPUTED"

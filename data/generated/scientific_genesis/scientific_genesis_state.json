@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "69143a0ba68ad227e07e05868d2e2248232f0eb66ed33a474414855a8630f1da",
+  "artifact_digest": "3c9d7e7459753f6728b86e4684b027d39c388b95e7387ee6ea459094cf59edc9",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -307,6 +307,11 @@
       "sha256": "ff5c708103326d2c40bb19ceae868c1b9036435181e4395cf928d39bf333b446"
     },
     {
+      "bytes": 3123,
+      "path": "data/generated/scientific_genesis/mixed_schoen_higgs_linearization_no_go.json",
+      "sha256": "f11af5f275cb2b5e234950a2c9113f2d98e00f650c36e502d3ee193e72e4686f"
+    },
+    {
       "bytes": 1596,
       "path": "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
       "sha256": "e9130382d200ba68066c426bd49140e7d9549295b44a37382d5b4afe6c7fd706"
@@ -401,8 +406,8 @@
     "collected_tests_at_audit": 631,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 187,
-    "test_python_files": 166
+    "research_python_files": 188,
+    "test_python_files": 167
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -418,7 +423,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
-    "an atlas-derived non-scalar Higgs chain action or equivariant unrealizability proof for the unavailable down-Higgs character",
+    "direct atlas cohomology or a different exact constituent realization for the unavailable down-Higgs character",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
@@ -1599,6 +1604,26 @@
       ],
       "statement": "A single shared ambient transfer derives all nine exact character subcomplexes. Current H1 has characters (0,0), (0,1), (2,0), and (2,1). No uniform Z3 x Z3 character shift maps this multiset to the selected source Higgs representation.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "the repair keeps the same selected V1 and V2 objects",
+        "the tensor action is induced from constituent linearizations"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_higgs_linearization_no_go.json",
+        "research/experiments/scientific_genesis/mixed_schoen_higgs_linearization_no_go.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_higgs_linearization_no_go.py"
+      ],
+      "id": "mixed_higgs_linearization_no_go",
+      "label": "same-constituent Higgs relinearization routes",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "direct atlas cohomology derivation of Higgs characters",
+        "or a different exact constituent realization"
+      ],
+      "statement": "Exact synchronized self-Hom differentials have ranks 53 of 54 for V1 and 123 of 124 for V2, so both selected constituents are simple over Q(omega). Two linearizations of a simple object differ by a character. Since all nine uniform tensor-character shifts already fail, no factorwise relinearization of these same objects can realize the selected source Higgs representation.",
+      "status": "REFUTED"
     },
     {
       "assumptions": [],
@@ -3229,14 +3254,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_higgs_character_audit.json"
+        "data/generated/scientific_genesis/mixed_schoen_higgs_linearization_no_go.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The exhausted uniform character shifts become a no-go for all same-constituent relinearizations once exact self-Hom ranks prove that both factors are simple.",
+      "source": "mixed_higgs_full_character_audit",
+      "target": "mixed_higgs_linearization_no_go"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_higgs_linearization_no_go.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the non-scalar W1/P overlap correction is not yet derived"
+        "the selected source Higgs characters lack a direct atlas-cohomology derivation"
       ],
-      "mathematical_reason": "The complete character mismatch rules out every uniform twist, so flavor can reopen only through an atlas-derived non-scalar action or after refuting the selected equivariant realization.",
-      "source": "mixed_higgs_full_character_audit",
+      "mathematical_reason": "The current carrier cannot supply H_d through another factorwise linearization of the selected constituents, so flavor can reopen only after direct atlas cohomology or a different exact realization.",
+      "source": "mixed_higgs_linearization_no_go",
       "target": "first_exact_yukawa"
     },
     {
@@ -3808,6 +3844,7 @@
         ]
       ],
       "retired_source_scoped_outer_space": "P^3(Q(omega))",
+      "same_constituent_higgs_relinearization_available": false,
       "scalar_higgs_action_repairs_refuted": true,
       "scalar_residue_target_available": true,
       "selected_available_flavor_chain_object_count": 8,
@@ -3826,6 +3863,11 @@
         0,
         1
       ],
+      "selected_constituent_self_hom_h0_dimensions": [
+        1,
+        1
+      ],
+      "selected_constituents_simple_over_q_omega": true,
       "selected_next_flavor_chain_object_count": 7,
       "selected_next_flavor_sector": "down",
       "selected_next_higgs_character": [
@@ -3886,8 +3928,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "an atlas-derived non-scalar Higgs chain action or a proof that the selected source equivariant structure is unrealizable on the synchronized complex",
-    "selection_status": "the complete universal up and Dirac-neutrino matrices vanish; the complete current Higgs representation matches no uniform shift of the source, so an atlas-derived non-scalar action or an equivariant unrealizability proof is the minimum frontier"
+    "next_required_object": "a direct atlas cohomology derivation of the Higgs characters or a different exact constituent realization",
+    "selection_status": "the complete universal up and Dirac-neutrino matrices vanish; exact simplicity closes every same-constituent factorwise Higgs relinearization, so direct atlas cohomology or a different exact constituent realization is the minimum frontier"
   },
   "research_value_scheduler": [
     {
@@ -4195,7 +4237,8 @@
     "all eight universal Dirac-neutrino coefficients have distinct exact closed cochains but zero residue; exterior filtration excludes higher orders, proving rank zero on the frozen P1",
     "isotypic H1 dimensions one and zero refute the current source-to-synchronized-chain equivariant comparison for H_d character (0,2)",
     "neither the isolated W1/P atlas line replacement nor its unique connected uniform scalar propagation recovers the missing H_d class",
-    "none of the nine uniform Z3 x Z3 character shifts maps the complete current Higgs H1 representation to the selected source multiset"
+    "none of the nine uniform Z3 x Z3 character shifts maps the complete current Higgs H1 representation to the selected source multiset",
+    "both selected mixed constituents are simple over Q(omega), so every same-object factorwise relinearization reduces to an exhausted shift"
   ],
   "structural_compression_questions": [
     {

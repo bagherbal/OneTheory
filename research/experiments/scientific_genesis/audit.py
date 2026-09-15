@@ -1442,6 +1442,34 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_higgs_linearization_no_go",
+            "same-constituent Higgs relinearization routes",
+            "Flavor",
+            "REFUTED",
+            "Exact synchronized self-Hom differentials have ranks 53 of 54 "
+            "for V1 and 123 of 124 for V2, so both selected constituents are "
+            "simple over Q(omega). Two linearizations of a simple object differ "
+            "by a character. Since all nine uniform tensor-character shifts "
+            "already fail, no factorwise relinearization of these same objects "
+            "can realize the selected source Higgs representation.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_linearization_no_go.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_higgs_linearization_no_go.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_higgs_linearization_no_go.py",
+            ),
+            assumptions=(
+                "the repair keeps the same selected V1 and V2 objects",
+                "the tensor action is induced from constituent linearizations",
+            ),
+            missing=(
+                "direct atlas cohomology derivation of Higgs characters",
+                "or a different exact constituent realization",
+            ),
+        ),
+        _node(
             "mixed_flavor_frontier",
             "post-obstruction exact flavor frontier",
             "Flavor",
@@ -3138,18 +3166,32 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_higgs_full_character_audit",
-            "first_exact_yukawa",
-            "The complete character mismatch rules out every uniform twist, "
-            "so flavor can reopen only through an atlas-derived non-scalar "
-            "action or after refuting the selected equivariant realization.",
+            "mixed_higgs_linearization_no_go",
+            "The exhausted uniform character shifts become a no-go for all "
+            "same-constituent relinearizations once exact self-Hom ranks prove "
+            "that both factors are simple.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_higgs_character_audit.json",
+                "mixed_schoen_higgs_linearization_no_go.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_higgs_linearization_no_go",
+            "first_exact_yukawa",
+            "The current carrier cannot supply H_d through another factorwise "
+            "linearization of the selected constituents, so flavor can reopen "
+            "only after direct atlas cohomology or a different exact realization.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_higgs_linearization_no_go.json",
             ),
             (),
             False,
             (
-                "the non-scalar W1/P overlap correction is not yet derived",
+                "the selected source Higgs characters lack a direct atlas-cohomology derivation",
             ),
         ),
         _edge(
@@ -3618,6 +3660,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_higgs_scalar_action_no_go.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_higgs_character_audit.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_higgs_linearization_no_go.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_matter_lifts.json",
@@ -3678,9 +3722,9 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "the complete universal up and Dirac-neutrino matrices vanish; "
-                "the complete current Higgs representation matches no uniform "
-                "shift of the source, so an atlas-derived non-scalar action or "
-                "an equivariant unrealizability proof is the minimum frontier"
+                "exact simplicity closes every same-constituent factorwise "
+                "Higgs relinearization, so direct atlas cohomology or a different "
+                "exact constituent realization is the minimum frontier"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3874,6 +3918,9 @@ def build_state() -> dict[str, object]:
                 ],
                 "uniform_higgs_character_shift_matches": [],
                 "complete_higgs_character_audit_exact": True,
+                "selected_constituent_self_hom_h0_dimensions": [1, 1],
+                "selected_constituents_simple_over_q_omega": True,
+                "same_constituent_higgs_relinearization_available": False,
                 "selected_available_flavor_sector": "dirac_neutrino",
                 "selected_available_flavor_chain_object_count": 8,
                 "selected_available_matter_characters": [[0, 0], [0, 2]],
@@ -3900,9 +3947,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "an atlas-derived non-scalar Higgs chain action or a proof that "
-                "the selected source equivariant structure is unrealizable on "
-                "the synchronized complex"
+                "a direct atlas cohomology derivation of the Higgs characters "
+                "or a different exact constituent realization"
             ),
         },
         "claims": _nodes(),
@@ -4099,6 +4145,8 @@ def build_state() -> dict[str, object]:
             "connected uniform scalar propagation recovers the missing H_d class",
             "none of the nine uniform Z3 x Z3 character shifts maps the complete "
             "current Higgs H1 representation to the selected source multiset",
+            "both selected mixed constituents are simple over Q(omega), so every "
+            "same-object factorwise relinearization reduces to an exhausted shift",
         ],
         "open_assumptions": [
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
@@ -4112,8 +4160,8 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
-            "an atlas-derived non-scalar Higgs chain action or equivariant "
-            "unrealizability proof for the unavailable down-Higgs character",
+            "direct atlas cohomology or a different exact constituent realization "
+            "for the unavailable down-Higgs character",
             "the first nontrivial deformation or higher-product Yukawa contribution",
             "carrier-derived nontrivial holomorphic Yukawa matrix",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",

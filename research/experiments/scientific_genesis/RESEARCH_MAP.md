@@ -454,6 +454,17 @@ therefore not another Higgs chain action: it is the character of every
 relative-pushdown line derived from the local constituent atlas, sufficient to
 locate the first source-convention mismatch.
 
+The first divergence is the action convention itself. The synchronized
+complex labels eigenspaces of forward pullback, while source representations
+act on sections by inverse pullback. Exact inversion sends every forward
+character `(a,b)` to source character `(-a,-b)` modulo three. Consequently the
+existing strict 27-term forward-`(0,1)` cycle is source-`(0,2)` and supplies
+`H_d`; source-`(0,1)` has no class and cannot supply `H_u`. This correction
+changes no differential and fits no shift. It invalidates the prior physical
+routing of the up and Dirac-neutrino calculations and the claimed down-Higgs
+obstruction. The minimum frontier is now the convention-corrected down-matter
+pair and its full holomorphic matrix using the already certified `H_d` cycle.
+
 Consequently, outer and Higgs complexes built from the retired pure-Cech
 trivial-character cones cannot serve as chain reconstructions of the
 published carrier, even when their dimensions happen to match source ledgers.

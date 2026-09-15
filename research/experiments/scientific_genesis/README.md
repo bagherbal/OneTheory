@@ -322,3 +322,17 @@ source-bound relative-pushdown character labels; it does not choose which side
 is physically correct. The next calculation must derive every pushdown line
 character from the local atlas action and identify the first convention that
 diverges.
+
+That first convention mismatch is now exact and occurs before any pushdown
+line is compared. The synchronized chain decomposes the forward pullback,
+whereas the source-side action on sections uses inverse pullback. For an
+order-three deck generator, source character `(a,b)` therefore occupies the
+forward sector `(-a,-b)` modulo three. Applying this to all nine exact
+subcomplexes changes the synchronized source-action support to `(0,0)`,
+`(0,2)`, `(1,0)`, and `(1,2)`. In particular, the existing 27-term strict
+forward-`(0,1)` cycle is the physical `H_d` class of source character `(0,2)`,
+not `H_u`; source character `(0,1)` currently has zero `H1`. No chain map or
+character twist changed. The earlier up, Dirac-neutrino, and down-obstruction
+physical routing is therefore withdrawn. The next lawful calculation reuses
+the certified cycle as `H_d`, derives the convention-corrected down-matter
+sectors, and recomputes the down holomorphic matrix from the chain level.

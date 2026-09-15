@@ -251,13 +251,29 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         [2, 1],
     ]
     assert path["criteria"]["atlas_higgs_characters_match_selected_source"] is False
-    assert path["criteria"]["selected_available_flavor_sector"] == "dirac_neutrino"
-    assert path["criteria"]["selected_available_flavor_chain_object_count"] == 8
-    assert path["criteria"]["selected_available_matter_characters"] == [
+    assert path["criteria"]["source_action_is_inverse_forward_pullback"] is True
+    assert path["criteria"]["source_action_higgs_characters"] == [
         [0, 0],
         [0, 2],
+        [1, 0],
+        [1, 2],
     ]
-    assert path["criteria"]["selected_available_reused_higgs_character"] == [0, 1]
+    assert path["criteria"]["source_action_up_higgs_h1_dimension"] == 0
+    assert path["criteria"]["source_action_down_higgs_h1_dimension"] == 1
+    assert path["criteria"]["strict_forward_higgs_character"] == [0, 1]
+    assert path["criteria"]["strict_source_higgs_character"] == [0, 2]
+    assert (
+        path["criteria"]["strict_source_down_higgs_representative_available"]
+        is True
+    )
+    assert path["criteria"]["prior_physical_flavor_routing_valid"] is False
+    assert path["criteria"]["selected_available_flavor_sector"] == "down"
+    assert path["criteria"]["selected_available_flavor_chain_object_count"] is None
+    assert path["criteria"]["selected_available_matter_characters"] == [
+        [1, 0],
+        [2, 1],
+    ]
+    assert path["criteria"]["selected_available_reused_higgs_character"] == [0, 2]
     assert path["criteria"]["neutrino_universal_matter_character_count"] == 2
     assert path["criteria"]["neutrino_universal_v1_class_count"] == 2
     assert path["criteria"]["neutrino_universal_v2_lift_count"] == 4
@@ -285,11 +301,16 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert path["criteria"]["neutrino_higher_orders_structurally_zero"] is True
     assert path["criteria"]["neutrino_extension_point_selected"] is False
+    assert path["criteria"]["prior_up_matrix_physical_assignment_valid"] is False
     assert (
-        path["criteria"]["remaining_current_chain_flavor_sector_available"]
+        path["criteria"]["prior_neutrino_matrix_physical_assignment_valid"]
         is False
     )
-    assert path["criteria"]["shared_missing_higgs_character"] == [0, 2]
+    assert (
+        path["criteria"]["remaining_current_chain_flavor_sector_available"]
+        is True
+    )
+    assert path["criteria"]["shared_missing_higgs_character"] == [0, 1]
     assert path["criteria"]["next_exact_frontier_uses_observations"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
@@ -297,14 +318,14 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "the complete universal up and Dirac-neutrino matrices vanish; "
-        "the certified constituent atlases yield a Higgs representation "
-        "incompatible with the source-bound pushdown labels, so locating "
-        "the first line-character mismatch is the minimum frontier"
+        "inverse-pullback normalization routes the certified strict cycle "
+        "to physical H_d and invalidates the prior physical up, "
+        "Dirac-neutrino, and down-obstruction assignments; recomputing the "
+        "down matrix is the minimum frontier"
     )
     assert path["next_required_object"] == (
-        "derive every relative-pushdown line character from the local "
-        "atlas action and locate the first source-convention mismatch"
+        "convention-corrected down-matter representatives and the complete "
+        "down holomorphic Yukawa matrix"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -331,6 +352,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         claims["mixed_atlas_higgs_character_incompatibility"]["status"]
         == "REFUTED"
     )
+    assert claims["mixed_character_convention_correction"]["status"] == "PROVED"
     assert claims["mixed_flavor_frontier"]["status"] == "COMPUTED"
     assert claims["universal_neutrino_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_neutrino_tree_matrix"]["status"] == "COMPUTED"

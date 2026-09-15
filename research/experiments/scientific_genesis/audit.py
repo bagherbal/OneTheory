@@ -1496,6 +1496,31 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_character_convention_correction",
+            "source-action deck-character routing",
+            "Flavor",
+            "PROVED",
+            "The synchronized chain labels forward pullback, while the source "
+            "section representation uses inverse pullback. Exact factorwise "
+            "inversion routes the certified 27-term forward-(0,1) cycle to "
+            "physical H_d character (0,2); physical H_u character (0,1) has "
+            "H1 dimension zero. The prior up, neutrino, and down-obstruction "
+            "physical assignments are therefore invalid without changing a "
+            "chain map or fitting a character.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_character_convention.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_character_convention.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_character_convention.py",
+            ),
+            missing=(
+                "convention-corrected down-matter representatives",
+                "recomputed down holomorphic Yukawa matrix",
+            ),
+        ),
+        _node(
             "mixed_flavor_frontier",
             "post-obstruction exact flavor frontier",
             "Flavor",
@@ -3220,18 +3245,32 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_atlas_higgs_character_incompatibility",
-            "first_exact_yukawa",
-            "The selected atlases do not supply the source Higgs representation, "
-            "so flavor can reopen only after locating the pushdown convention "
-            "mismatch or constructing a different exact realization.",
+            "mixed_character_convention_correction",
+            "The apparent atlas/source mismatch requires both actions to be "
+            "placed in the same pullback convention before any line character "
+            "or physical sector can be compared.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_atlas_higgs_characters.json",
+                "mixed_schoen_character_convention.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_character_convention_correction",
+            "first_exact_yukawa",
+            "The convention-corrected strict H_d cycle reopens the down sector, "
+            "but its matter representatives and complete trace must be "
+            "recomputed before a holomorphic matrix exists.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_character_convention.json",
             ),
             (),
             False,
             (
-                "individual relative-pushdown line characters remain source-bound",
+                "down-matter representatives still use the prior sector routing",
             ),
         ),
         _edge(
@@ -3704,6 +3743,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_higgs_linearization_no_go.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_atlas_higgs_characters.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_character_convention.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_matter_lifts.json",
@@ -3763,10 +3804,10 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "the complete universal up and Dirac-neutrino matrices vanish; "
-                "the certified constituent atlases yield a Higgs representation "
-                "incompatible with the source-bound pushdown labels, so locating "
-                "the first line-character mismatch is the minimum frontier"
+                "inverse-pullback normalization routes the certified strict "
+                "cycle to physical H_d and invalidates the prior physical up, "
+                "Dirac-neutrino, and down-obstruction assignments; recomputing "
+                "the down matrix is the minimum frontier"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -3974,10 +4015,23 @@ def build_state() -> dict[str, object]:
                     [2, 1],
                 ],
                 "atlas_higgs_characters_match_selected_source": False,
-                "selected_available_flavor_sector": "dirac_neutrino",
-                "selected_available_flavor_chain_object_count": 8,
-                "selected_available_matter_characters": [[0, 0], [0, 2]],
-                "selected_available_reused_higgs_character": [0, 1],
+                "source_action_is_inverse_forward_pullback": True,
+                "source_action_higgs_characters": [
+                    [0, 0],
+                    [0, 2],
+                    [1, 0],
+                    [1, 2],
+                ],
+                "source_action_up_higgs_h1_dimension": 0,
+                "source_action_down_higgs_h1_dimension": 1,
+                "strict_forward_higgs_character": [0, 1],
+                "strict_source_higgs_character": [0, 2],
+                "strict_source_down_higgs_representative_available": True,
+                "prior_physical_flavor_routing_valid": False,
+                "selected_available_flavor_sector": "down",
+                "selected_available_flavor_chain_object_count": None,
+                "selected_available_matter_characters": [[1, 0], [2, 1]],
+                "selected_available_reused_higgs_character": [0, 2],
                 "neutrino_universal_matter_character_count": 2,
                 "neutrino_universal_v1_class_count": 2,
                 "neutrino_universal_v2_lift_count": 4,
@@ -3993,15 +4047,17 @@ def build_state() -> dict[str, object]:
                 "neutrino_maximum_exterior_allowed_parameter_order": 1,
                 "neutrino_higher_orders_structurally_zero": True,
                 "neutrino_extension_point_selected": False,
-                "remaining_current_chain_flavor_sector_available": False,
-                "shared_missing_higgs_character": [0, 2],
+                "prior_up_matrix_physical_assignment_valid": False,
+                "prior_neutrino_matrix_physical_assignment_valid": False,
+                "remaining_current_chain_flavor_sector_available": True,
+                "shared_missing_higgs_character": [0, 1],
                 "next_exact_frontier_uses_observations": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "derive every relative-pushdown line character from the local "
-                "atlas action and locate the first source-convention mismatch"
+                "convention-corrected down-matter representatives and the "
+                "complete down holomorphic Yukawa matrix"
             ),
         },
         "claims": _nodes(),

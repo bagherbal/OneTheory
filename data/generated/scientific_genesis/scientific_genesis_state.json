@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "468a19fd009f47f52ee3b5bf4f10fa5a59472a45b1fb96f35749d19a274fcb68",
+  "artifact_digest": "911a6f1b79795d66db960bf44d222a9c0db116db8bb5f5a8fb4ff91b53b0fab0",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -317,6 +317,11 @@
       "sha256": "a4a3eb373a55efc82801d8f4b05561ce1f58070cd57cfffb3e71189242628e61"
     },
     {
+      "bytes": 4922,
+      "path": "data/generated/scientific_genesis/mixed_schoen_character_convention.json",
+      "sha256": "eeae71927451dcafbf11852bef6364bc3269575a3b4c71582f4ee26c7a9d6268"
+    },
+    {
       "bytes": 1596,
       "path": "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
       "sha256": "e9130382d200ba68066c426bd49140e7d9549295b44a37382d5b4afe6c7fd706"
@@ -411,8 +416,8 @@
     "collected_tests_at_audit": 631,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 189,
-    "test_python_files": 168
+    "research_python_files": 190,
+    "test_python_files": 169
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1648,6 +1653,23 @@
       ],
       "statement": "The exact constituent atlas ratios are (2,0) for W1 and (0,0) for W2 relative to the synchronized lifts. Simplicity therefore forces atlas Higgs characters (1,0), (1,1), (2,0), and (2,1), which are incompatible with the selected source multiset. The source pushdown labels are used only after this derivation.",
       "status": "REFUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_character_convention.json",
+        "research/experiments/scientific_genesis/mixed_schoen_character_convention.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_character_convention.py"
+      ],
+      "id": "mixed_character_convention_correction",
+      "label": "source-action deck-character routing",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "convention-corrected down-matter representatives",
+        "recomputed down holomorphic Yukawa matrix"
+      ],
+      "statement": "The synchronized chain labels forward pullback, while the source section representation uses inverse pullback. Exact factorwise inversion routes the certified 27-term forward-(0,1) cycle to physical H_d character (0,2); physical H_u character (0,1) has H1 dimension zero. The prior up, neutrino, and down-obstruction physical assignments are therefore invalid without changing a chain map or fitting a character.",
+      "status": "PROVED"
     },
     {
       "assumptions": [],
@@ -3300,14 +3322,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_atlas_higgs_characters.json"
+        "data/generated/scientific_genesis/mixed_schoen_character_convention.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The apparent atlas/source mismatch requires both actions to be placed in the same pullback convention before any line character or physical sector can be compared.",
+      "source": "mixed_atlas_higgs_character_incompatibility",
+      "target": "mixed_character_convention_correction"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_character_convention.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "individual relative-pushdown line characters remain source-bound"
+        "down-matter representatives still use the prior sector routing"
       ],
-      "mathematical_reason": "The selected atlases do not supply the source Higgs representation, so flavor can reopen only after locating the pushdown convention mismatch or constructing a different exact realization.",
-      "source": "mixed_atlas_higgs_character_incompatibility",
+      "mathematical_reason": "The convention-corrected strict H_d cycle reopens the down sector, but its matter representatives and complete trace must be recomputed before a holomorphic matrix exists.",
+      "source": "mixed_character_convention_correction",
       "target": "first_exact_yukawa"
     },
     {
@@ -3873,7 +3906,10 @@
       "outer_parameter_dimension_mismatch_unresolved": true,
       "physical_higgs_representative_available": true,
       "physical_higgs_representative_term_count": 27,
-      "remaining_current_chain_flavor_sector_available": false,
+      "prior_neutrino_matrix_physical_assignment_valid": false,
+      "prior_physical_flavor_routing_valid": false,
+      "prior_up_matrix_physical_assignment_valid": false,
+      "remaining_current_chain_flavor_sector_available": true,
       "remaining_nonzero_candidate_blocks": [],
       "remaining_nonzero_family_count": 0,
       "required_higgs_character": [
@@ -3911,21 +3947,21 @@
       "same_constituent_higgs_relinearization_available": false,
       "scalar_higgs_action_repairs_refuted": true,
       "scalar_residue_target_available": true,
-      "selected_available_flavor_chain_object_count": 8,
-      "selected_available_flavor_sector": "dirac_neutrino",
+      "selected_available_flavor_chain_object_count": null,
+      "selected_available_flavor_sector": "down",
       "selected_available_matter_characters": [
         [
-          0,
+          1,
           0
         ],
         [
-          0,
-          2
+          2,
+          1
         ]
       ],
       "selected_available_reused_higgs_character": [
         0,
-        1
+        2
       ],
       "selected_constituent_self_hom_h0_dimensions": [
         1,
@@ -3962,15 +3998,45 @@
       ],
       "shared_missing_higgs_character": [
         0,
-        2
+        1
       ],
       "slope_identity_retired_candidate_blocks": [
         16,
         36
       ],
       "slope_identity_retired_family_count": 72,
+      "source_action_down_higgs_h1_dimension": 1,
+      "source_action_higgs_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "source_action_is_inverse_forward_pullback": true,
+      "source_action_up_higgs_h1_dimension": 0,
       "source_derived_h_d_character_h1_dimension": 1,
       "strict_down_higgs_representative_available": false,
+      "strict_forward_higgs_character": [
+        0,
+        1
+      ],
+      "strict_source_down_higgs_representative_available": true,
+      "strict_source_higgs_character": [
+        0,
+        2
+      ],
       "tree_level_up_matrix_rank": 0,
       "tree_level_up_scalar_primitives_exact": true,
       "uniform_higgs_character_shift_matches": [],
@@ -3992,8 +4058,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "derive every relative-pushdown line character from the local atlas action and locate the first source-convention mismatch",
-    "selection_status": "the complete universal up and Dirac-neutrino matrices vanish; the certified constituent atlases yield a Higgs representation incompatible with the source-bound pushdown labels, so locating the first line-character mismatch is the minimum frontier"
+    "next_required_object": "convention-corrected down-matter representatives and the complete down holomorphic Yukawa matrix",
+    "selection_status": "inverse-pullback normalization routes the certified strict cycle to physical H_d and invalidates the prior physical up, Dirac-neutrino, and down-obstruction assignments; recomputing the down matrix is the minimum frontier"
   },
   "research_value_scheduler": [
     {

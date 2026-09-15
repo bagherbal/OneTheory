@@ -1,0 +1,269 @@
+{
+  "artifact_digest": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241",
+  "chain_maps_changed": false,
+  "character_conversion": "source=(-forward) mod 3 factorwise",
+  "character_shift_fitted": false,
+  "coefficient_field": "Q(omega)",
+  "exact": true,
+  "forward_h1_characters": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "forward_pullback_definition": "substitute the declared deck coordinate images in cochains",
+  "next_required_object": "reuse the certified 27-term source-action H_d cochain with convention-corrected matter sectors and recompute the down holomorphic Yukawa matrix",
+  "observational_inputs_used": false,
+  "physical_down_higgs_representative_available": true,
+  "physical_up_higgs_representative_available": false,
+  "prerequisite_artifact_digests": {
+    "complete_forward_character_audit": "c478d94c1888bf7f6c44f570a8ac692c226acc2d16fe1976543db27216c431fe",
+    "strict_forward_character_cochain": "14201804a8e9b5927a83ecd7366aa0d461bc17b621b4b01e94afc2c04cfde06a"
+  },
+  "prior_down_higgs_obstruction_valid": false,
+  "prior_up_and_neutrino_physical_routing_valid": false,
+  "schema": "mixed-schoen-character-convention-v1",
+  "sectors": [
+    {
+      "differential_ranks": [
+        100,
+        141
+      ],
+      "exact": true,
+      "forward_pullback_character": [
+        0,
+        0
+      ],
+      "h1_dimension": 1,
+      "source_section_character": [
+        0,
+        0
+      ],
+      "space_dimensions": [
+        100,
+        242,
+        169
+      ]
+    },
+    {
+      "differential_ranks": [
+        100,
+        142
+      ],
+      "exact": true,
+      "forward_pullback_character": [
+        0,
+        1
+      ],
+      "h1_dimension": 1,
+      "source_section_character": [
+        0,
+        2
+      ],
+      "space_dimensions": [
+        100,
+        243,
+        170
+      ]
+    },
+    {
+      "differential_ranks": [
+        100,
+        143
+      ],
+      "exact": true,
+      "forward_pullback_character": [
+        0,
+        2
+      ],
+      "h1_dimension": 0,
+      "source_section_character": [
+        0,
+        1
+      ],
+      "space_dimensions": [
+        100,
+        243,
+        176
+      ]
+    },
+    {
+      "differential_ranks": [
+        100,
+        142
+      ],
+      "exact": true,
+      "forward_pullback_character": [
+        1,
+        0
+      ],
+      "h1_dimension": 0,
+      "source_section_character": [
+        2,
+        0
+      ],
+      "space_dimensions": [
+        100,
+        242,
+        170
+      ]
+    },
+    {
+      "differential_ranks": [
+        100,
+        141
+      ],
+      "exact": true,
+      "forward_pullback_character": [
+        1,
+        1
+      ],
+      "h1_dimension": 0,
+      "source_section_character": [
+        2,
+        2
+      ],
+      "space_dimensions": [
+        100,
+        241,
+        167
+      ]
+    },
+    {
+      "differential_ranks": [
+        100,
+        143
+      ],
+      "exact": true,
+      "forward_pullback_character": [
+        1,
+        2
+      ],
+      "h1_dimension": 0,
+      "source_section_character": [
+        2,
+        1
+      ],
+      "space_dimensions": [
+        100,
+        243,
+        176
+      ]
+    },
+    {
+      "differential_ranks": [
+        100,
+        140
+      ],
+      "exact": true,
+      "forward_pullback_character": [
+        2,
+        0
+      ],
+      "h1_dimension": 1,
+      "source_section_character": [
+        1,
+        0
+      ],
+      "space_dimensions": [
+        100,
+        241,
+        167
+      ]
+    },
+    {
+      "differential_ranks": [
+        100,
+        141
+      ],
+      "exact": true,
+      "forward_pullback_character": [
+        2,
+        1
+      ],
+      "h1_dimension": 1,
+      "source_section_character": [
+        1,
+        2
+      ],
+      "space_dimensions": [
+        100,
+        242,
+        168
+      ]
+    },
+    {
+      "differential_ranks": [
+        100,
+        143
+      ],
+      "exact": true,
+      "forward_pullback_character": [
+        2,
+        2
+      ],
+      "h1_dimension": 0,
+      "source_section_character": [
+        1,
+        1
+      ],
+      "space_dimensions": [
+        100,
+        243,
+        176
+      ]
+    }
+  ],
+  "source_action_h1_characters": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "source_down_higgs_character": [
+    0,
+    2
+  ],
+  "source_down_higgs_h1_dimension": 1,
+  "source_section_action_definition": "act on sections by the inverse deck pullback",
+  "source_up_higgs_character": [
+    0,
+    1
+  ],
+  "source_up_higgs_h1_dimension": 0,
+  "strict_cochain_forward_character": [
+    0,
+    1
+  ],
+  "strict_cochain_has_declared_forward_character": true,
+  "strict_cochain_is_cycle": true,
+  "strict_cochain_source_character": [
+    0,
+    2
+  ],
+  "strict_cochain_term_count": 27
+}

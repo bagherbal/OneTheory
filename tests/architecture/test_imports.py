@@ -17,10 +17,8 @@ Phase 0:
 """
 
 import ast
-import importlib
-import io
+import subprocess
 import sys
-from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -83,21 +81,30 @@ def _production_modules() -> list[str]:
     return sorted(_module_name(path) for path in PRODUCTION_ROOT.rglob("*.py"))
 
 
-def _clear_production_modules() -> None:
-    for name in list(sys.modules):
-        if name == "onetheory" or name.startswith("onetheory."):
-            del sys.modules[name]
-
-
 def test_package_and_subpackages_import_successfully_and_quietly() -> None:
-    _clear_production_modules()
-    stdout = io.StringIO()
-    stderr = io.StringIO()
-    with redirect_stdout(stdout), redirect_stderr(stderr):
-        for module_name in _production_modules():
-            importlib.import_module(module_name)
-    assert stdout.getvalue() == ""
-    assert stderr.getvalue() == ""
+    existing = {
+        name: module
+        for name, module in sys.modules.items()
+        if name == "onetheory" or name.startswith("onetheory.")
+    }
+    script = (
+        "import importlib\n"
+        f"modules = {_production_modules()!r}\n"
+        "for module_name in modules:\n"
+        "    importlib.import_module(module_name)\n"
+    )
+    completed = subprocess.run(
+        [sys.executable, "-c", script],
+        cwd=PROJECT_ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert completed.returncode == 0, completed.stderr
+    assert completed.stdout == ""
+    assert completed.stderr == ""
+    assert all(sys.modules.get(name) is module for name, module in existing.items())
 
 
 def test_unimplemented_production_modules_have_no_runtime_definitions() -> None:

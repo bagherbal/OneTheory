@@ -222,6 +222,22 @@ class MatterLegDeformationWitness:
         }
 
 
+def _validate_matter_leg_indices(
+    parameter_index: int,
+    row_local_family_index: int,
+    column_local_family_index: int,
+) -> None:
+    """Reject indices outside the finite parameter and local-family bases."""
+
+    if parameter_index not in (0, 1):
+        raise ValueError("the carrier parameter index is unavailable")
+    if row_local_family_index not in (1, 2) or column_local_family_index not in (
+        1,
+        2,
+    ):
+        raise ValueError("local V2 family indices must be one or two")
+
+
 def matter_leg_deformation_for_sector(
     parameters: tuple[str, str],
     lifts: tuple[UniversalV2MatterLift, ...],
@@ -233,13 +249,11 @@ def matter_leg_deformation_for_sector(
 ) -> MatterLegDeformationWitness:
     """Derive one indexed matter leg from an explicit universal sector."""
 
-    if parameter_index not in (0, 1):
-        raise ValueError("the carrier parameter index is unavailable")
-    if row_local_family_index not in (1, 2) or column_local_family_index not in (
-        1,
-        2,
-    ):
-        raise ValueError("local V2 family indices must be one or two")
+    _validate_matter_leg_indices(
+        parameter_index,
+        row_local_family_index,
+        column_local_family_index,
+    )
     try:
         parameter = parameters[parameter_index]
     except IndexError as error:
@@ -307,6 +321,11 @@ def matter_leg_deformation(
 ) -> MatterLegDeformationWitness:
     """Derive one indexed up-sector matter-leg contribution exactly."""
 
+    _validate_matter_leg_indices(
+        parameter_index,
+        row_local_family_index,
+        column_local_family_index,
+    )
     universal = mixed_schoen_universal_matter_lifts()
     return matter_leg_deformation_for_sector(
         universal.parameters,

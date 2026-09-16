@@ -38,17 +38,31 @@ def test_higgs_selector_rejects_unknown_parameter(parameter_index: int) -> None:
 
 
 @pytest.mark.parametrize(
-    ("parameter_index", "row_index", "column_index"),
-    [(2, 1, 1), (0, 0, 1), (0, 1, 3)],
+    ("parameter_index", "row_index", "column_index", "message"),
+    [
+        (2, 1, 1, "the carrier parameter index is unavailable"),
+        (0, 0, 1, "local V2 family indices must be one or two"),
+        (0, 1, 3, "local V2 family indices must be one or two"),
+    ],
 )
 def test_matter_selector_rejects_unknown_basis_input(
     parameter_index: int,
     row_index: int,
     column_index: int,
+    message: str,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    """The matter leg cannot expand the finite parameter or family bases."""
+    """Invalid finite-basis indices fail before universal reconstruction."""
 
-    with pytest.raises(ValueError):
+    def reconstruction_is_forbidden() -> None:
+        pytest.fail("invalid input reached universal matter reconstruction")
+
+    monkeypatch.setattr(
+        "research.experiments.scientific_genesis."
+        "mixed_schoen_matter_leg_deformation.mixed_schoen_universal_matter_lifts",
+        reconstruction_is_forbidden,
+    )
+    with pytest.raises(ValueError, match=message):
         matter_leg_deformation(parameter_index, row_index, column_index)
 
 

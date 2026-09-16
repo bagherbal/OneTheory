@@ -1,0 +1,231 @@
+{
+  "all_coefficientwise_cone_identities_exact": true,
+  "all_lifts_strict_in_forward_characters": true,
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "4d4feac1c424abc6df62b241f298200e11087682e109e07fe5e19373d290977e",
+  "carrier_locus": "P^1(Q(omega)) x K^s",
+  "carrier_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "coefficient_field": "Q(omega)",
+  "exact": true,
+  "next_required_object": "the complete convention-corrected down tree matrix followed by every exterior-allowed universal coefficient",
+  "observational_inputs_used": false,
+  "physical_slice": {
+    "forward_higgs_character_exponents": [
+      0,
+      1
+    ],
+    "forward_matter_character_exponents": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "matrix": "down-type holomorphic Yukawa",
+    "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "source_higgs_character_exponents": [
+      0,
+      2
+    ],
+    "source_matter_character_exponents": [
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ]
+  },
+  "prerequisite_artifact_digests": {
+    "character_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241",
+    "strict_matter": "7bfa76b80c1ae79eaaecbff6a07c370d792bd99a022ae65d04e9523af56483cf",
+    "universal_cone": "1c227754a808ca9a45d2859dd1cfbdb9338129f63bfa9ccfde930c4862abc22d"
+  },
+  "schema": "mixed-schoen-down-matter-lifts-v1",
+  "source_characters_obtained_only_by_exact_inversion": true,
+  "universal_visible_family_dimension_per_character": 3,
+  "v1_constant_classes": [
+    {
+      "digest": "4e572303b3410fcf6bcf3569b7134d3005b2e1cbe1aa55acf073483bd54162a6",
+      "forward_character_exponents": [
+        1,
+        2
+      ],
+      "source_character_exponents": [
+        2,
+        1
+      ],
+      "term_count": 684
+    },
+    {
+      "digest": "a8e244266cd64fd2dd3df7f0b15d2dca656c7ad1bcb7af3572c7a2e5430361e7",
+      "forward_character_exponents": [
+        2,
+        0
+      ],
+      "source_character_exponents": [
+        1,
+        0
+      ],
+      "term_count": 684
+    }
+  ],
+  "v2_parameter_linear_lifts": [
+    {
+      "character_exponents": [
+        1,
+        2
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "forward_character_exponents": [
+        1,
+        2
+      ],
+      "local_family_index": 1,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "c873f6fd0185f6373d5305bebd10469bbbaaab53adc015866e568d62c2ba414e",
+          "correction_term_count": 38550,
+          "parameter": "a0",
+          "product_digest": "00189f4bce9279dc4ccc65b12a0e28de0ea90b3c1c70dbd5e76299f3d8505725",
+          "product_term_count": 71241
+        },
+        {
+          "correction_digest": "163dd2d9f19efde9c27cb1a845f1346d5f99076fab44d830730d9c70cdfc8d27",
+          "correction_term_count": 36438,
+          "parameter": "a1",
+          "product_digest": "b589727d98cfd022666a5e30b0dd3bbaf0ef1fec20f47599929940a9f7510126",
+          "product_term_count": 65622
+        }
+      ],
+      "product_cycles_exact": true,
+      "source_character_exponents": [
+        2,
+        1
+      ],
+      "strict_characters_exact": true,
+      "v2_digest": "3a22d9125fcca248e47ad88bd504ee2a9baad00cc964a106f63173ed4baeebd2",
+      "v2_term_count": 576
+    },
+    {
+      "character_exponents": [
+        1,
+        2
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "forward_character_exponents": [
+        1,
+        2
+      ],
+      "local_family_index": 2,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "a0d21972a066f7ba23487e40a4e40aae2c8a0a55432ecef605d073342807a555",
+          "correction_term_count": 37818,
+          "parameter": "a0",
+          "product_digest": "dfad0e34cbea3d9078b15a9f1d39629c860683cd7af47014cb7957e9aa70df25",
+          "product_term_count": 69795
+        },
+        {
+          "correction_digest": "cae1ced2159bed755d4d04114e5fadfab53c27298333c3ff435019d65943a651",
+          "correction_term_count": 34672,
+          "parameter": "a1",
+          "product_digest": "d044caf119466f430cbe3fcaee16c26887dbd2621893878c93ce92ed70b530ee",
+          "product_term_count": 61722
+        }
+      ],
+      "product_cycles_exact": true,
+      "source_character_exponents": [
+        2,
+        1
+      ],
+      "strict_characters_exact": true,
+      "v2_digest": "919f43e7807b033650832eabe734b57dca2e93bd01cefac971009e435777fe77",
+      "v2_term_count": 576
+    },
+    {
+      "character_exponents": [
+        2,
+        0
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "forward_character_exponents": [
+        2,
+        0
+      ],
+      "local_family_index": 1,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "a4a0cf4b25c1c2aa33776ec9dce3226b0d8c64f5f902a4918cacf12b15d7be34",
+          "correction_term_count": 37944,
+          "parameter": "a0",
+          "product_digest": "141dbaa806f95e081ae949c2863f2680d8fc9456555ddedc0768ae2bae4d28ba",
+          "product_term_count": 69879
+        },
+        {
+          "correction_digest": "755ebbf4f253e943afba83203f644176bc3534f2ca4328b18cb66e227ec1981a",
+          "correction_term_count": 33689,
+          "parameter": "a1",
+          "product_digest": "9f5a8ac1046d453403f3f034c63af5f9ff005a50323fc5411bb4c5e4e68617fc",
+          "product_term_count": 60309
+        }
+      ],
+      "product_cycles_exact": true,
+      "source_character_exponents": [
+        1,
+        0
+      ],
+      "strict_characters_exact": true,
+      "v2_digest": "b380d136df35057d43ddab8eaa5898b4b51ea5b10d84f27f732e379e4c7d5d61",
+      "v2_term_count": 576
+    },
+    {
+      "character_exponents": [
+        2,
+        0
+      ],
+      "correction_identities_exact": true,
+      "exact": true,
+      "forward_character_exponents": [
+        2,
+        0
+      ],
+      "local_family_index": 2,
+      "parameter_coefficients": [
+        {
+          "correction_digest": "ded7b0a398db546dc53a00bbd783de08020c00746f096c9454d366e254aeedc4",
+          "correction_term_count": 38787,
+          "parameter": "a0",
+          "product_digest": "a5439aa42591824604e0f9afc4c377e0cacb598e77a5b58f4c0312607b6cbd0f",
+          "product_term_count": 71739
+        },
+        {
+          "correction_digest": "c5755f26b54a299721b36140e2c339c07dde959caa1ff7f8323cd3699d6339ca",
+          "correction_term_count": 36195,
+          "parameter": "a1",
+          "product_digest": "8c3b9f1c32da80467ef2bdca1a0b12b08ba6b21f4e7a2e2306ca8fa9b0733e7e",
+          "product_term_count": 65583
+        }
+      ],
+      "product_cycles_exact": true,
+      "source_character_exponents": [
+        1,
+        0
+      ],
+      "strict_characters_exact": true,
+      "v2_digest": "ad4a2ad2a8e912b9066c72877d2b293689688259eea012981e6ca91900afbe46",
+      "v2_term_count": 576
+    }
+  ]
+}

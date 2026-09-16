@@ -1516,8 +1516,30 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_character_convention.py",
             ),
             missing=(
-                "convention-corrected down-matter representatives",
                 "recomputed down holomorphic Yukawa matrix",
+            ),
+        ),
+        _node(
+            "universal_down_matter_lifts",
+            "convention-corrected universal down-matter lifts",
+            "Flavor",
+            "COMPUTED",
+            "Exact character inversion routes the physical source sectors "
+            "(2,1) and (1,0) to forward-chain sectors (1,2) and (2,0). "
+            "Those sectors contain two constant V1 classes and four V2 "
+            "classes with eight independently solved parameter corrections; "
+            "every cone identity and forward-character gate closes.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_down_matter_lifts.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_down_matter_lifts.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_down_matter_lifts.py",
+            ),
+            missing=(
+                "complete convention-corrected down tree matrix",
+                "every exterior-allowed universal down coefficient",
             ),
         ),
         _node(
@@ -3259,18 +3281,31 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_character_convention_correction",
-            "first_exact_yukawa",
-            "The convention-corrected strict H_d cycle reopens the down sector, "
-            "but its matter representatives and complete trace must be "
-            "recomputed before a holomorphic matrix exists.",
+            "universal_down_matter_lifts",
+            "Exact source-to-forward inversion selects the only admissible "
+            "chain sectors for the physical down-matter representatives.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_character_convention.json",
+                "mixed_schoen_down_matter_lifts.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "universal_down_matter_lifts",
+            "first_exact_yukawa",
+            "The convention-corrected H_d and down-matter bases provide exact "
+            "chain inputs, but their complete trace must be recomputed before "
+            "a holomorphic matrix exists.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_down_matter_lifts.json",
             ),
             (),
             False,
             (
-                "down-matter representatives still use the prior sector routing",
+                "the complete down tree and deformation matrices are unresolved",
             ),
         ),
         _edge(
@@ -3745,6 +3780,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_atlas_higgs_characters.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_character_convention.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_down_matter_lifts.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_matter_lifts.json",
@@ -3805,9 +3842,9 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "inverse-pullback normalization routes the certified strict "
-                "cycle to physical H_d and invalidates the prior physical up, "
-                "Dirac-neutrino, and down-obstruction assignments; recomputing "
-                "the down matrix is the minimum frontier"
+                "cycle to physical H_d; all convention-corrected down-matter "
+                "classes and universal corrections are exact, so the complete "
+                "down matrix is the minimum frontier"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4030,8 +4067,15 @@ def build_state() -> dict[str, object]:
                 "prior_physical_flavor_routing_valid": False,
                 "selected_available_flavor_sector": "down",
                 "selected_available_flavor_chain_object_count": None,
-                "selected_available_matter_characters": [[1, 0], [2, 1]],
+                "selected_available_matter_characters": [[2, 1], [1, 0]],
+                "selected_available_forward_matter_characters": [[1, 2], [2, 0]],
                 "selected_available_reused_higgs_character": [0, 2],
+                "down_universal_matter_character_count": 2,
+                "down_universal_v1_class_count": 2,
+                "down_universal_v2_lift_count": 4,
+                "down_matter_parameter_correction_count": 8,
+                "all_down_matter_lifts_exact": True,
+                "down_extension_point_selected": False,
                 "neutrino_universal_matter_character_count": 2,
                 "neutrino_universal_v1_class_count": 2,
                 "neutrino_universal_v2_lift_count": 4,
@@ -4056,8 +4100,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "convention-corrected down-matter representatives and the "
-                "complete down holomorphic Yukawa matrix"
+                "the complete convention-corrected down tree matrix followed "
+                "by every exterior-allowed universal coefficient"
             ),
         },
         "claims": _nodes(),

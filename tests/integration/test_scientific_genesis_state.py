@@ -270,10 +270,20 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["selected_available_flavor_sector"] == "down"
     assert path["criteria"]["selected_available_flavor_chain_object_count"] is None
     assert path["criteria"]["selected_available_matter_characters"] == [
-        [1, 0],
         [2, 1],
+        [1, 0],
+    ]
+    assert path["criteria"]["selected_available_forward_matter_characters"] == [
+        [1, 2],
+        [2, 0],
     ]
     assert path["criteria"]["selected_available_reused_higgs_character"] == [0, 2]
+    assert path["criteria"]["down_universal_matter_character_count"] == 2
+    assert path["criteria"]["down_universal_v1_class_count"] == 2
+    assert path["criteria"]["down_universal_v2_lift_count"] == 4
+    assert path["criteria"]["down_matter_parameter_correction_count"] == 8
+    assert path["criteria"]["all_down_matter_lifts_exact"] is True
+    assert path["criteria"]["down_extension_point_selected"] is False
     assert path["criteria"]["neutrino_universal_matter_character_count"] == 2
     assert path["criteria"]["neutrino_universal_v1_class_count"] == 2
     assert path["criteria"]["neutrino_universal_v2_lift_count"] == 4
@@ -319,13 +329,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "inverse-pullback normalization routes the certified strict cycle "
-        "to physical H_d and invalidates the prior physical up, "
-        "Dirac-neutrino, and down-obstruction assignments; recomputing the "
-        "down matrix is the minimum frontier"
+        "to physical H_d; all convention-corrected down-matter classes and "
+        "universal corrections are exact, so the complete down matrix is the "
+        "minimum frontier"
     )
     assert path["next_required_object"] == (
-        "convention-corrected down-matter representatives and the complete "
-        "down holomorphic Yukawa matrix"
+        "the complete convention-corrected down tree matrix followed by every "
+        "exterior-allowed universal coefficient"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -353,6 +363,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         == "REFUTED"
     )
     assert claims["mixed_character_convention_correction"]["status"] == "PROVED"
+    assert claims["universal_down_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_flavor_frontier"]["status"] == "COMPUTED"
     assert claims["universal_neutrino_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_neutrino_tree_matrix"]["status"] == "COMPUTED"

@@ -336,3 +336,14 @@ character twist changed. The earlier up, Dirac-neutrino, and down-obstruction
 physical routing is therefore withdrawn. The next lawful calculation reuses
 the certified cycle as `H_d`, derives the convention-corrected down-matter
 sectors, and recomputes the down holomorphic matrix from the chain level.
+
+The convention-corrected down-matter basis is now exact over the full lawful
+`P1`. Physical source characters `(2,1)` and `(1,0)` route by inverse pullback
+to forward-chain sectors `(1,2)` and `(2,0)`. These sectors contain two
+684-term constant `V1` classes and four 576-term `V2` classes. All eight
+parameter corrections were solved independently over `Q(omega)`; their cycle,
+cone-identity, and strict forward-character gates pass without choosing an
+extension point or consuming observational data. This establishes exact input
+objects, not a Yukawa result. The next calculation is the complete
+convention-corrected down tree matrix, followed by every exterior-allowed
+universal coefficient.

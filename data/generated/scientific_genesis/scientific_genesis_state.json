@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "911a6f1b79795d66db960bf44d222a9c0db116db8bb5f5a8fb4ff91b53b0fab0",
+  "artifact_digest": "588eb72da33c0b775b011f85f52268494f5e9046810e65367d80640a41026808",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -322,6 +322,11 @@
       "sha256": "eeae71927451dcafbf11852bef6364bc3269575a3b4c71582f4ee26c7a9d6268"
     },
     {
+      "bytes": 6935,
+      "path": "data/generated/scientific_genesis/mixed_schoen_down_matter_lifts.json",
+      "sha256": "50168e48c632e07ce99a8922c76142d70c1ad3bb56e861517a94e4d9233a63eb"
+    },
+    {
       "bytes": 1596,
       "path": "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
       "sha256": "e9130382d200ba68066c426bd49140e7d9549295b44a37382d5b4afe6c7fd706"
@@ -416,8 +421,8 @@
     "collected_tests_at_audit": 631,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 190,
-    "test_python_files": 169
+    "research_python_files": 191,
+    "test_python_files": 170
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1665,11 +1670,27 @@
       "label": "source-action deck-character routing",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "convention-corrected down-matter representatives",
         "recomputed down holomorphic Yukawa matrix"
       ],
       "statement": "The synchronized chain labels forward pullback, while the source section representation uses inverse pullback. Exact factorwise inversion routes the certified 27-term forward-(0,1) cycle to physical H_d character (0,2); physical H_u character (0,1) has H1 dimension zero. The prior up, neutrino, and down-obstruction physical assignments are therefore invalid without changing a chain map or fitting a character.",
       "status": "PROVED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_down_matter_lifts.json",
+        "research/experiments/scientific_genesis/mixed_schoen_down_matter_lifts.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_down_matter_lifts.py"
+      ],
+      "id": "universal_down_matter_lifts",
+      "label": "convention-corrected universal down-matter lifts",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "complete convention-corrected down tree matrix",
+        "every exterior-allowed universal down coefficient"
+      ],
+      "statement": "Exact character inversion routes the physical source sectors (2,1) and (1,0) to forward-chain sectors (1,2) and (2,0). Those sectors contain two constant V1 classes and four V2 classes with eight independently solved parameter corrections; every cone identity and forward-character gate closes.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
@@ -3333,14 +3354,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_character_convention.json"
+        "data/generated/scientific_genesis/mixed_schoen_down_matter_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "Exact source-to-forward inversion selects the only admissible chain sectors for the physical down-matter representatives.",
+      "source": "mixed_character_convention_correction",
+      "target": "universal_down_matter_lifts"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_down_matter_lifts.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "down-matter representatives still use the prior sector routing"
+        "the complete down tree and deformation matrices are unresolved"
       ],
-      "mathematical_reason": "The convention-corrected strict H_d cycle reopens the down sector, but its matter representatives and complete trace must be recomputed before a holomorphic matrix exists.",
-      "source": "mixed_character_convention_correction",
+      "mathematical_reason": "The convention-corrected H_d and down-matter bases provide exact chain inputs, but their complete trace must be recomputed before a holomorphic matrix exists.",
+      "source": "universal_down_matter_lifts",
       "target": "first_exact_yukawa"
     },
     {
@@ -3630,6 +3662,7 @@
         34
       ],
       "additional_retired_family_count": 72,
+      "all_down_matter_lifts_exact": true,
       "all_neutrino_matter_lifts_exact": true,
       "all_published_yukawa_character_products_invariant": true,
       "arbitrary_point_selected": false,
@@ -3742,6 +3775,7 @@
         2
       ],
       "direct_matter_product_hull_available": true,
+      "down_extension_point_selected": false,
       "down_higgs_character_differential_ranks": [
         100,
         143
@@ -3753,6 +3787,10 @@
         176
       ],
       "down_higgs_character_twist_guessed": false,
+      "down_matter_parameter_correction_count": 8,
+      "down_universal_matter_character_count": 2,
+      "down_universal_v1_class_count": 2,
+      "down_universal_v2_lift_count": 4,
       "equivariant_matter_product_character": [
         0,
         2
@@ -3949,14 +3987,24 @@
       "scalar_residue_target_available": true,
       "selected_available_flavor_chain_object_count": null,
       "selected_available_flavor_sector": "down",
-      "selected_available_matter_characters": [
+      "selected_available_forward_matter_characters": [
         [
           1,
-          0
+          2
         ],
         [
           2,
+          0
+        ]
+      ],
+      "selected_available_matter_characters": [
+        [
+          2,
           1
+        ],
+        [
+          1,
+          0
         ]
       ],
       "selected_available_reused_higgs_character": [
@@ -4058,8 +4106,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "convention-corrected down-matter representatives and the complete down holomorphic Yukawa matrix",
-    "selection_status": "inverse-pullback normalization routes the certified strict cycle to physical H_d and invalidates the prior physical up, Dirac-neutrino, and down-obstruction assignments; recomputing the down matrix is the minimum frontier"
+    "next_required_object": "the complete convention-corrected down tree matrix followed by every exterior-allowed universal coefficient",
+    "selection_status": "inverse-pullback normalization routes the certified strict cycle to physical H_d; all convention-corrected down-matter classes and universal corrections are exact, so the complete down matrix is the minimum frontier"
   },
   "research_value_scheduler": [
     {

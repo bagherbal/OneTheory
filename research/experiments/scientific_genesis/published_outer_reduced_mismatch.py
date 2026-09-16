@@ -40,6 +40,21 @@ ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / "data/generated/scientific_genesis/published_outer_reduced_mismatch.json"
 
 
+def _canonical_total_dimensions(
+    dimensions: tuple[tuple[int, int], ...],
+) -> list[list[int]]:
+    """Keep exact support with one zero-dimensional boundary on each side."""
+
+    values = dict(dimensions)
+    support = [degree for degree, dimension in dimensions if dimension > 0]
+    if not support:
+        return []
+    return [
+        [degree, values.get(degree, 0)]
+        for degree in range(min(support) - 1, max(support) + 2)
+    ]
+
+
 @dataclass(frozen=True, slots=True)
 class PublishedOuterReducedMismatch:
     """Exact E-page excess relative to the published outer hypercohomology."""
@@ -112,19 +127,23 @@ class PublishedOuterReducedMismatch:
             "forward": {
                 "computed_h1_h2": list(self.computed_forward),
                 "published_h1_h2": list(self.published_forward),
-                "total_dimensions": [
-                    [degree, space.dimension]
-                    for degree, space in self.forward.total_spaces
-                ],
+                "total_dimensions": _canonical_total_dimensions(
+                    tuple(
+                        (degree, space.dimension)
+                        for degree, space in self.forward.total_spaces
+                    )
+                ),
                 "squared_zero": self.forward.squared_zero,
             },
             "reverse": {
                 "computed_h1_h2": list(self.computed_reverse),
                 "published_h1_h2": list(self.published_reverse),
-                "total_dimensions": [
-                    [degree, space.dimension]
-                    for degree, space in self.reverse.total_spaces
-                ],
+                "total_dimensions": _canonical_total_dimensions(
+                    tuple(
+                        (degree, space.dimension)
+                        for degree, space in self.reverse.total_spaces
+                    )
+                ),
                 "squared_zero": self.reverse.squared_zero,
             },
             "euler_characteristics_match": self.euler_characteristics_match,

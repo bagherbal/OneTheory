@@ -38,6 +38,21 @@ VISIBLE_ARTIFACT = ROOT / "data/generated/visible_carrier/visible_carrier_artifa
 OUTPUT = ROOT / "data/generated/scientific_genesis/published_pushout_mismatch.json"
 
 
+def _canonical_total_dimensions(
+    dimensions: tuple[tuple[int, int], ...],
+) -> list[list[int]]:
+    """Keep exact support with one zero-dimensional boundary on each side."""
+
+    values = dict(dimensions)
+    support = [degree for degree, dimension in dimensions if dimension > 0]
+    if not support:
+        return []
+    return [
+        [degree, values.get(degree, 0)]
+        for degree in range(min(support) - 1, max(support) + 2)
+    ]
+
+
 def _published_dimensions() -> tuple[int, int, int, int]:
     """Read and verify the source-bound cover and quotient Ext dimensions."""
 
@@ -131,14 +146,12 @@ class PublishedPushoutMismatch:
                 "reverse_cover_ext_one_dimension": (
                     self.computed_reverse_cover_ext_one
                 ),
-                "forward_total_dimensions": [
-                    [degree, dimension]
-                    for degree, dimension in self.forward_total_dimensions
-                ],
-                "reverse_total_dimensions": [
-                    [degree, dimension]
-                    for degree, dimension in self.reverse_total_dimensions
-                ],
+                "forward_total_dimensions": _canonical_total_dimensions(
+                    self.forward_total_dimensions
+                ),
+                "reverse_total_dimensions": _canonical_total_dimensions(
+                    self.reverse_total_dimensions
+                ),
                 "both_complexes_squared_zero": self.both_complexes_squared_zero,
             },
             "dimension_mismatch_exact": True,

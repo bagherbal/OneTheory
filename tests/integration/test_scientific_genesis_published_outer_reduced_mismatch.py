@@ -25,6 +25,7 @@ from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automo
 from research.experiments.computable_carrier.schoen_sparse_outer import SparseMap
 from research.experiments.scientific_genesis.published_outer_reduced_mismatch import (
     OUTPUT,
+    _canonical_total_dimensions,
     published_outer_reduced_mismatch,
 )
 
@@ -37,6 +38,19 @@ def test_sparse_map_addition_normalizes_exact_cancellation() -> None:
     right = SparseMap(space, space, (((0, -Eisenstein(1)),),))
 
     assert (left + right).is_zero()
+
+
+def test_dimension_record_ignores_ambient_zero_padding() -> None:
+    """Serialized support keeps one boundary degree, independent of engine range."""
+
+    dimensions = tuple((degree, 7 if degree in (0, 1) else 0) for degree in range(-3, 5))
+
+    assert _canonical_total_dimensions(dimensions) == [
+        [-1, 0],
+        [0, 7],
+        [1, 7],
+        [2, 0],
+    ]
 
 
 def test_reduced_outer_models_are_exact_complexes() -> None:

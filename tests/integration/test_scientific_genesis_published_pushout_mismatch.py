@@ -22,6 +22,7 @@ from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automo
 )
 from research.experiments.scientific_genesis.published_pushout_mismatch import (
     OUTPUT,
+    _canonical_total_dimensions,
     published_pushout_mismatch,
 )
 
@@ -35,6 +36,19 @@ def test_published_ext_ledger_remains_source_bound() -> None:
     assert result.expected_reverse_cover_ext_one == 72
     assert result.expected_forward_invariant_ext_one == 4
     assert result.expected_reverse_invariant_ext_one == 8
+
+
+def test_adapter_dimension_record_ignores_ambient_zero_padding() -> None:
+    """The no-go artifact records exact support, not arbitrary zero tails."""
+
+    dimensions = tuple((degree, 5 if degree in (0, 1) else 0) for degree in range(-4, 6))
+
+    assert _canonical_total_dimensions(dimensions) == [
+        [-1, 0],
+        [0, 5],
+        [1, 5],
+        [2, 0],
+    ]
 
 
 def test_projective_pushout_adapter_fails_both_cover_dimensions() -> None:

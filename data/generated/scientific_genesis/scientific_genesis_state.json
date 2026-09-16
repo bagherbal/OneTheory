@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "588eb72da33c0b775b011f85f52268494f5e9046810e65367d80640a41026808",
+  "artifact_digest": "e6431e639279eb6269fdd632554ec5267535c333d5c85d5533cf53b44cfaa7b3",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -399,7 +399,7 @@
     {
       "bytes": 29564,
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
-      "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
+      "sha256": "7a64ecdea1580318b4a95165db59c7e85b3e14c555b6b38a0b10c03a7ba442fd"
     },
     {
       "bytes": 3551,

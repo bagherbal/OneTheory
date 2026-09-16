@@ -247,7 +247,7 @@
     },
     "status": "partially reconstructed"
   },
-  "artifact_digest": "bb14219856c7f712bd47ca0a51495b93598a07e911133e7a7c2481fd2fcebac6",
+  "artifact_digest": "b6610f86aa98ed073031ceac267610eedb65e6b45724317de479eb6d3caef2c8",
   "carrier": {
     "coefficient_field": "Q(omega)",
     "name": "published one-Higgs heterotic Schoen carrier",
@@ -967,7 +967,7 @@
     "retrieved_primary_source_archives": true,
     "source_manifest": {
       "path": "data/published/visible_carrier/source_manifest.json",
-      "sha256": "1d524ce9960d8d86dd54884fb22ba9ecd43fa248febde9173379e108f4509860"
+      "sha256": "dc7b51776d7b362ae748f2bfde8ff4a90d54c82becb6a55e2a6eafb31bc0c99d"
     }
   },
   "schema": {

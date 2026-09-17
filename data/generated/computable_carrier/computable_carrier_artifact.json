@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "9906db244b34287e13d632b92553e3ab2b293b45cc309cd63343181d440e3135",
+  "artifact_digest": "4033cd2d8cdad5492600b69f3d10b36f253da803fa99e9bfb4e9e6758561e29a",
   "construction": {
     "required_artifacts": [
       "Cox charts and localization records",
@@ -10597,7 +10597,7 @@
     },
     "reference_artifact": {
       "path": "data/generated/visible_carrier/visible_carrier_artifact.json",
-      "sha256": "fee0b4f3221e93a4b1c30606eaef29b84e13a17ed0b5e46133c5845c185d7fbb"
+      "sha256": "7a64ecdea1580318b4a95165db59c7e85b3e14c555b6b38a0b10c03a7ba442fd"
     },
     "superseded_two_higgs_data_used": false
   },

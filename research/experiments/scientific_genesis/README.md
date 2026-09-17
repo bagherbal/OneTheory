@@ -347,3 +347,12 @@ extension point or consuming observational data. This establishes exact input
 objects, not a Yukawa result. The next calculation is the complete
 convention-corrected down tree matrix, followed by every exterior-allowed
 universal coefficient.
+
+The complete convention-corrected down tree matrix is now exact. Its four
+character-allowed products each have 23,409 terms before contraction and yield
+closed scalar cochains with 5,832 or 6,354 terms. Every residue vanishes, with
+an independently reconstructed depth-four primitive containing 3,771 or 4,086
+terms. The associated-graded matrix therefore has exact rank zero. This is a
+scoped tree-level no-go, not a holomorphic or physical no-go: the eight exact
+matter corrections have not yet been inserted. The next required object is
+every exterior-allowed universal down-matrix coefficient.

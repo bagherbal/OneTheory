@@ -1543,6 +1543,29 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_down_tree_matrix",
+            "convention-corrected down tree matrix",
+            "Flavor",
+            "COMPUTED",
+            "All four source/forward-corrected character-allowed determinant "
+            "contractions have exact zero residue with independently "
+            "reconstructed depth-four primitives. The complete associated-"
+            "graded tree matrix therefore has exact rank zero; this result is "
+            "scoped to tree order and does not erase universal corrections.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_down_tree_matrix.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_down_tree_matrix.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_down_tree_matrix.py",
+            ),
+            missing=(
+                "every exterior-allowed universal down-matrix coefficient",
+                "complete holomorphic down matrix",
+            ),
+        ),
+        _node(
             "mixed_flavor_frontier",
             "post-obstruction exact flavor frontier",
             "Flavor",
@@ -3294,18 +3317,30 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "universal_down_matter_lifts",
-            "first_exact_yukawa",
-            "The convention-corrected H_d and down-matter bases provide exact "
-            "chain inputs, but their complete trace must be recomputed before "
-            "a holomorphic matrix exists.",
+            "mixed_down_tree_matrix",
+            "The convention-corrected H_d and down-matter bases determine all "
+            "four character-allowed associated-graded contractions.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_down_matter_lifts.json",
+                "mixed_schoen_down_tree_matrix.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_down_tree_matrix",
+            "first_exact_yukawa",
+            "The exact tree matrix vanishes, so a nontrivial holomorphic down "
+            "matrix now requires the exterior-allowed universal coefficients.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_down_tree_matrix.json",
             ),
             (),
             False,
             (
-                "the complete down tree and deformation matrices are unresolved",
+                "the universal down coefficients are unresolved",
             ),
         ),
         _edge(
@@ -3782,6 +3817,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_character_convention.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_down_matter_lifts.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_down_tree_matrix.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_matter_lifts.json",
@@ -3841,10 +3878,9 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "inverse-pullback normalization routes the certified strict "
-                "cycle to physical H_d; all convention-corrected down-matter "
-                "classes and universal corrections are exact, so the complete "
-                "down matrix is the minimum frontier"
+                "the convention-corrected down tree matrix is exactly rank "
+                "zero; every exterior-allowed universal down coefficient is "
+                "now the minimum frontier"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4076,6 +4112,10 @@ def build_state() -> dict[str, object]:
                 "down_matter_parameter_correction_count": 8,
                 "all_down_matter_lifts_exact": True,
                 "down_extension_point_selected": False,
+                "complete_down_tree_matrix_available": True,
+                "complete_down_tree_matrix_rank": 0,
+                "down_tree_zero_entries_have_exact_primitives": True,
+                "down_tree_extension_point_selected": False,
                 "neutrino_universal_matter_character_count": 2,
                 "neutrino_universal_v1_class_count": 2,
                 "neutrino_universal_v2_lift_count": 4,
@@ -4100,8 +4140,7 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the complete convention-corrected down tree matrix followed "
-                "by every exterior-allowed universal coefficient"
+                "every exterior-allowed universal down-matrix coefficient"
             ),
         },
         "claims": _nodes(),

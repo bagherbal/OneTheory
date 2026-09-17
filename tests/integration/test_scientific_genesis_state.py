@@ -284,6 +284,12 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["down_matter_parameter_correction_count"] == 8
     assert path["criteria"]["all_down_matter_lifts_exact"] is True
     assert path["criteria"]["down_extension_point_selected"] is False
+    assert path["criteria"]["complete_down_tree_matrix_available"] is True
+    assert path["criteria"]["complete_down_tree_matrix_rank"] == 0
+    assert (
+        path["criteria"]["down_tree_zero_entries_have_exact_primitives"] is True
+    )
+    assert path["criteria"]["down_tree_extension_point_selected"] is False
     assert path["criteria"]["neutrino_universal_matter_character_count"] == 2
     assert path["criteria"]["neutrino_universal_v1_class_count"] == 2
     assert path["criteria"]["neutrino_universal_v2_lift_count"] == 4
@@ -328,14 +334,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "inverse-pullback normalization routes the certified strict cycle "
-        "to physical H_d; all convention-corrected down-matter classes and "
-        "universal corrections are exact, so the complete down matrix is the "
-        "minimum frontier"
+        "the convention-corrected down tree matrix is exactly rank zero; every "
+        "exterior-allowed universal down coefficient is now the minimum frontier"
     )
     assert path["next_required_object"] == (
-        "the complete convention-corrected down tree matrix followed by every "
-        "exterior-allowed universal coefficient"
+        "every exterior-allowed universal down-matrix coefficient"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -364,6 +367,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert claims["mixed_character_convention_correction"]["status"] == "PROVED"
     assert claims["universal_down_matter_lifts"]["status"] == "COMPUTED"
+    assert claims["mixed_down_tree_matrix"]["status"] == "COMPUTED"
     assert claims["mixed_flavor_frontier"]["status"] == "COMPUTED"
     assert claims["universal_neutrino_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_neutrino_tree_matrix"]["status"] == "COMPUTED"

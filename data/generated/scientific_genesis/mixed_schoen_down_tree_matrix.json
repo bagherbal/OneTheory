@@ -1,0 +1,186 @@
+{
+  "artifact_digest": "4c827630ff59bdab5e46ec63d606f1dc16df3cc6299ed04d517dbd78dec8e698",
+  "classification": "SCOPED_TREE_LEVEL_NO_GO",
+  "coefficient_field": "Q(omega)",
+  "complete_tree_level_down_matrix_available": true,
+  "down_tree_matrix": {
+    "character_allowed_slots": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "entries": [
+      {
+        "column": 1,
+        "exact": true,
+        "matter_digest": "d7bbb6215bf016ae0b15e39378971dc4ea2c8936cd3aeef5388457c27492f80d",
+        "matter_term_count": 23409,
+        "projection_depth": 4,
+        "row": 0,
+        "scalar_digest": "be87563472ceb1bb61f00b404118e8d8913ee7e248680836f81d5f244a59c8aa",
+        "scalar_is_cycle": true,
+        "scalar_term_count": 5832,
+        "value": "0",
+        "zero_boundary_witness": {
+          "primitive_depth": 4,
+          "primitive_digest": "9f777b37a53600c020f2bccf35b628cb36b1fc50edceae92f27501216c5c316c",
+          "primitive_reconstruction_exact": true,
+          "primitive_term_count": 3771
+        }
+      },
+      {
+        "column": 2,
+        "exact": true,
+        "matter_digest": "6d9303a47db949e36b7ac34cf438fb3df633e9d1fdd887bc0ccedac3457ef68c",
+        "matter_term_count": 23409,
+        "projection_depth": 4,
+        "row": 0,
+        "scalar_digest": "64b61fa5e7e45d08a359bf5e29fd99b77184420dca449dfefcce94e793813b9a",
+        "scalar_is_cycle": true,
+        "scalar_term_count": 6354,
+        "value": "0",
+        "zero_boundary_witness": {
+          "primitive_depth": 4,
+          "primitive_digest": "38664ef4036ea5829f801622288664dc5a53a8e15040c3c63a67e3e286c76d6c",
+          "primitive_reconstruction_exact": true,
+          "primitive_term_count": 4086
+        }
+      },
+      {
+        "column": 0,
+        "exact": true,
+        "matter_digest": "b1c3b454f714dc0ae326de006f1e5092ea2114a19faefb5c4d5ea4e1bdb74cc1",
+        "matter_term_count": 23409,
+        "projection_depth": 4,
+        "row": 1,
+        "scalar_digest": "2731f867c230fffd2c7d9842f3239d31125932ba0e93ffda8f36503df9c237d9",
+        "scalar_is_cycle": true,
+        "scalar_term_count": 6354,
+        "value": "0",
+        "zero_boundary_witness": {
+          "primitive_depth": 4,
+          "primitive_digest": "a92a5366d55749e451efb499e8a9f53b3a18d476d343a8ab9266ec09d44e2d2f",
+          "primitive_reconstruction_exact": true,
+          "primitive_term_count": 4086
+        }
+      },
+      {
+        "column": 0,
+        "exact": true,
+        "matter_digest": "93e01d7372390e57dedebf827ebac3847ad100070fc143e152dc720308958267",
+        "matter_term_count": 23409,
+        "projection_depth": 4,
+        "row": 2,
+        "scalar_digest": "521fa8084d64c37e14d9d024e6a2fa6b74998e4a0add97c0af327883ceb5c631",
+        "scalar_is_cycle": true,
+        "scalar_term_count": 5832,
+        "value": "0",
+        "zero_boundary_witness": {
+          "primitive_depth": 4,
+          "primitive_digest": "13bd691e38ccd53995976a22dd874fbf39f30883de6a58dca43052c7673b7796",
+          "primitive_reconstruction_exact": true,
+          "primitive_term_count": 3771
+        }
+      }
+    ],
+    "exact": true,
+    "family_basis": [
+      "V1",
+      "V2:1",
+      "V2:2"
+    ],
+    "forward_column_matter_character_exponents": [
+      2,
+      0
+    ],
+    "forward_higgs_character_exponents": [
+      0,
+      1
+    ],
+    "forward_row_matter_character_exponents": [
+      1,
+      2
+    ],
+    "matrix": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "matrix_rank": 0,
+    "source_column_matter_character_exponents": [
+      1,
+      0
+    ],
+    "source_higgs_character_exponents": [
+      0,
+      2
+    ],
+    "source_row_matter_character_exponents": [
+      2,
+      1
+    ],
+    "structural_zero_slots": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "tree_level_nontrivial": false,
+    "zero_entries_have_exact_primitives": true
+  },
+  "exact": true,
+  "extension_point_selected": false,
+  "next_required_object": "every exterior-allowed universal down-matrix coefficient",
+  "nontrivial_holomorphic_down_matrix_available": false,
+  "observational_inputs_used": false,
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "character_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241",
+    "down_matter_lifts": "4d4feac1c424abc6df62b241f298200e11087682e109e07fe5e19373d290977e",
+    "strict_forward_higgs": "14201804a8e9b5927a83ecd7366aa0d461bc17b621b4b01e94afc2c04cfde06a"
+  },
+  "schema": "mixed-schoen-holomorphic-down-tree-matrix-v1",
+  "scope": "the associated-graded split-family product with the physical down-Higgs class; universal parameter corrections remain to be evaluated",
+  "trace_normalization": "the ordered ambient canonical Laurent residue generator has trace one"
+}

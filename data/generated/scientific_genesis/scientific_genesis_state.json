@@ -1,10 +1,10 @@
 {
-  "artifact_digest": "e6431e639279eb6269fdd632554ec5267535c333d5c85d5533cf53b44cfaa7b3",
+  "artifact_digest": "21cab7ed100fc745b77bcb3e6eb795867f4b28a08f51154f71076fcacca085fa",
   "artifacts": [
     {
       "bytes": 20014451,
       "path": "data/generated/computable_carrier/computable_carrier_artifact.json",
-      "sha256": "9e711c23fd6ff39498a75eb956333128b768bdc9aabf36025981ad74337a326f"
+      "sha256": "b56036dcb7938dc04fba2e4b489a583b0c08322c60e6ac6084d035123d48c9c0"
     },
     {
       "bytes": 555841,
@@ -327,6 +327,11 @@
       "sha256": "50168e48c632e07ce99a8922c76142d70c1ad3bb56e861517a94e4d9233a63eb"
     },
     {
+      "bytes": 5157,
+      "path": "data/generated/scientific_genesis/mixed_schoen_down_tree_matrix.json",
+      "sha256": "6ce231bce36c0472e0796b3e22d1ec70723e749856b23646b3e9f80fa5e70eb9"
+    },
+    {
       "bytes": 1596,
       "path": "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
       "sha256": "e9130382d200ba68066c426bd49140e7d9549295b44a37382d5b4afe6c7fd706"
@@ -421,8 +426,8 @@
     "collected_tests_at_audit": 631,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 191,
-    "test_python_files": 170
+    "research_python_files": 192,
+    "test_python_files": 171
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1690,6 +1695,23 @@
         "every exterior-allowed universal down coefficient"
       ],
       "statement": "Exact character inversion routes the physical source sectors (2,1) and (1,0) to forward-chain sectors (1,2) and (2,0). Those sectors contain two constant V1 classes and four V2 classes with eight independently solved parameter corrections; every cone identity and forward-character gate closes.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_down_tree_matrix.json",
+        "research/experiments/scientific_genesis/mixed_schoen_down_tree_matrix.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_down_tree_matrix.py"
+      ],
+      "id": "mixed_down_tree_matrix",
+      "label": "convention-corrected down tree matrix",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "every exterior-allowed universal down-matrix coefficient",
+        "complete holomorphic down matrix"
+      ],
+      "statement": "All four source/forward-corrected character-allowed determinant contractions have exact zero residue with independently reconstructed depth-four primitives. The complete associated-graded tree matrix therefore has exact rank zero; this result is scoped to tree order and does not erase universal corrections.",
       "status": "COMPUTED"
     },
     {
@@ -3365,14 +3387,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_down_matter_lifts.json"
+        "data/generated/scientific_genesis/mixed_schoen_down_tree_matrix.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The convention-corrected H_d and down-matter bases determine all four character-allowed associated-graded contractions.",
+      "source": "universal_down_matter_lifts",
+      "target": "mixed_down_tree_matrix"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_down_tree_matrix.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the complete down tree and deformation matrices are unresolved"
+        "the universal down coefficients are unresolved"
       ],
-      "mathematical_reason": "The convention-corrected H_d and down-matter bases provide exact chain inputs, but their complete trace must be recomputed before a holomorphic matrix exists.",
-      "source": "universal_down_matter_lifts",
+      "mathematical_reason": "The exact tree matrix vanishes, so a nontrivial holomorphic down matrix now requires the exterior-allowed universal coefficients.",
+      "source": "mixed_down_tree_matrix",
       "target": "first_exact_yukawa"
     },
     {
@@ -3721,6 +3754,8 @@
           1
         ]
       ],
+      "complete_down_tree_matrix_available": true,
+      "complete_down_tree_matrix_rank": 0,
       "complete_first_order_coefficient_count": 8,
       "complete_first_order_matrix_available": true,
       "complete_first_order_matrix_extension_point_selected": false,
@@ -3788,6 +3823,8 @@
       ],
       "down_higgs_character_twist_guessed": false,
       "down_matter_parameter_correction_count": 8,
+      "down_tree_extension_point_selected": false,
+      "down_tree_zero_entries_have_exact_primitives": true,
       "down_universal_matter_character_count": 2,
       "down_universal_v1_class_count": 2,
       "down_universal_v2_lift_count": 4,
@@ -4106,8 +4143,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the complete convention-corrected down tree matrix followed by every exterior-allowed universal coefficient",
-    "selection_status": "inverse-pullback normalization routes the certified strict cycle to physical H_d; all convention-corrected down-matter classes and universal corrections are exact, so the complete down matrix is the minimum frontier"
+    "next_required_object": "every exterior-allowed universal down-matrix coefficient",
+    "selection_status": "the convention-corrected down tree matrix is exactly rank zero; every exterior-allowed universal down coefficient is now the minimum frontier"
   },
   "research_value_scheduler": [
     {

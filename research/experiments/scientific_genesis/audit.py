@@ -1576,20 +1576,18 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_mixed_schoen_down_first_order_matrix.py",
             ),
             missing=(
-                "convention-corrected charged-lepton interpretation of the "
-                "existing forward-sector universal matrix",
                 "first nontrivial carrier-derived holomorphic Yukawa matrix",
             ),
         ),
         _node(
             "mixed_flavor_frontier",
-            "post-obstruction exact flavor frontier",
+            "superseded post-obstruction flavor frontier",
             "Flavor",
-            "COMPUTED",
-            "After the universal up no-go and exact down-Higgs chain "
-            "obstruction, Dirac neutrinos are the minimum available sector at "
-            "eight new matter-correction objects. The selection reuses the "
-            "strict Higgs character (0,1) and consumes no observations.",
+            "REFUTED",
+            "Before source-action inversion was recognized, this scheduler "
+            "selected a Dirac-neutrino interpretation of the forward sectors. "
+            "The object count and no-observation gate remain exact, but the "
+            "physical label is withdrawn by the convention certificate.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_flavor_frontier.json",
@@ -1598,19 +1596,17 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/"
                 "test_scientific_genesis_mixed_schoen_flavor_frontier.py",
             ),
-            missing=(
-                "universal matter lifts in characters (0,0) and (0,2)",
-            ),
         ),
         _node(
             "universal_neutrino_matter_lifts",
-            "universal Dirac-neutrino matter lifts",
+            "forward-sector matter lifts with legacy neutrino label",
             "Flavor",
             "COMPUTED",
             "Characters (0,0) and (0,2) each have one exact constant V1 class "
             "and two exact parameter-linear V2 lifts. All eight independently "
             "computed carrier-parameter corrections satisfy the cone identity "
-            "and strict deck-character gates over the full frozen P1.",
+            "and strict deck-character gates over the full frozen P1. Their "
+            "former Dirac-neutrino interpretation is withdrawn.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_neutrino_matter_lifts.json",
@@ -1619,20 +1615,18 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/"
                 "test_scientific_genesis_mixed_schoen_neutrino_matter_lifts.py",
             ),
-            missing=(
-                "complete carrier-derived tree-level Dirac-neutrino matrix",
-            ),
         ),
         _node(
             "mixed_neutrino_tree_matrix",
-            "associated-graded Dirac-neutrino matrix",
+            "forward-sector tree matrix with legacy neutrino label",
             "Flavor",
             "COMPUTED",
             "All four character-allowed split-family determinant traces are "
             "exact scalar cycles with zero residue and explicit global "
             "primitives. The complete associated-graded three-family matrix "
-            "therefore has exact rank zero, while universal parameter "
-            "corrections remain unevaluated.",
+            "therefore has exact rank zero. The physical neutrino label is "
+            "withdrawn; this chain result is retained as exact input to the "
+            "charged-lepton convention certificate.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_neutrino_tree_matrix.json",
@@ -1644,14 +1638,15 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "mixed_neutrino_first_order_matrix",
-            "complete universal Dirac-neutrino matrix",
+            "complete forward matrix with legacy neutrino label",
             "Flavor",
             "COMPUTED",
             "All eight parameter and local-family coefficients are exact "
             "closed scalar cochains with distinct digests and zero residue. "
             "Both parameter coefficient matrices vanish. Exterior filtration "
-            "allows no order above one, so the complete universal "
-            "Dirac-neutrino matrix has exact rank zero on the frozen P1.",
+            "allows no order above one, so the complete forward-sector matrix "
+            "has exact rank zero on the frozen P1. Its former Dirac-neutrino "
+            "physical assignment is withdrawn.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_neutrino_first_order_matrix.json",
@@ -1660,9 +1655,29 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/"
                 "test_scientific_genesis_mixed_schoen_neutrino_first_order_matrix.py",
             ),
+        ),
+        _node(
+            "mixed_charged_lepton_convention",
+            "convention-corrected charged-lepton matrix",
+            "Flavor",
+            "PROVED",
+            "Exact inverse-pullback routing identifies physical source matter "
+            "characters (0,0) and (0,1) with the already-certified forward "
+            "sectors (0,0) and (0,2), while physical H_d maps to forward "
+            "character (0,1). The tree and both first-order coefficient "
+            "matrices vanish, and exterior filtration excludes higher orders. "
+            "The complete charged-lepton matrix therefore has exact rank zero.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_charged_lepton_convention.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_charged_lepton_convention.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_charged_lepton_convention.py",
+            ),
             missing=(
-                "full local-semilinear constituent deck action on the "
-                "synchronized chain, including overlap gauges",
+                "exact replacement constituent or carrier realization with a "
+                "nontrivial holomorphic Yukawa matrix",
             ),
         ),
         _node(
@@ -1687,7 +1702,7 @@ def _nodes() -> list[dict[str, object]]:
             "common_dga_package",
             "carrier-specific common DGA package",
             "Flavor",
-            "BLOCKED",
+            "COMPUTED",
             "Generic DGA, module, contraction, and HPL engines exist; the lawful "
             "carrier, minimum universal matter sectors, and strict required "
             "Higgs cocycle are fixed. Exact equivariant comparison now supplies "
@@ -1701,7 +1716,8 @@ def _nodes() -> list[dict[str, object]]:
             "correction is exact. The equivariant bottom V2 determinant pairing "
             "is also exact. Fixed-contraction comparison primitives close all "
             "eight parameter-linear coefficients with zero residue. Exterior "
-            "filtration then proves the full up-type branch remains zero.",
+            "filtration proves the complete up, down, and charged-lepton "
+            "matrices vanish on the current carrier realization.",
             (
                 "src/onetheory/math/homological.py",
                 "data/generated/scientific_genesis/"
@@ -1720,11 +1736,11 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_first_order_matrix.json",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_up_yukawa_no_go.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_down_first_order_matrix.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_charged_lepton_convention.json",
                 "research/experiments/visible_common_dga/audit.py",
-            ),
-            missing=(
-                "strict source H_d representative from an exact equivariant "
-                "chain comparison",
             ),
         ),
         _node(
@@ -1748,13 +1764,11 @@ def _nodes() -> list[dict[str, object]]:
             "closed and equivariant. All eight complete first-order "
             "coefficients vanish exactly. Exterior-filtration truncation proves "
             "that the full universal up matrix has rank zero, so this branch "
-            "cannot supply the required nontrivial matrix. The next down route "
-            "also fails because its strict Higgs character has zero current-chain "
-            "H1. The complete Dirac-neutrino tree and first-order matrices also "
-            "vanish, while filtration excludes every higher order. Isotypic "
-            "cohomology now refutes an equivariant comparison using the current "
-            "chain action. The exact frontier is the full local-semilinear atlas "
-            "action required to reconstruct the source H_d sector.",
+            "cannot supply the required nontrivial matrix. Convention-corrected "
+            "down and charged-lepton matrices also vanish exactly through every "
+            "exterior-allowed order. The prior Dirac-neutrino assignment is "
+            "withdrawn. No available flavor sector on this frozen carrier "
+            "realization supplies the first nontrivial holomorphic matrix.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_matter_leg_deformation.json",
@@ -1777,11 +1791,13 @@ def _nodes() -> list[dict[str, object]]:
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_neutrino_first_order_matrix.json",
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_higgs_equivariant_obstruction.json",
+                "mixed_schoen_down_first_order_matrix.json",
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_charged_lepton_convention.json",
             ),
             missing=(
-                "full local-semilinear constituent deck action transferred "
-                "through the synchronized Schoen chain",
+                "exact replacement constituent or carrier realization with a "
+                "nontrivial holomorphic Yukawa matrix",
             ),
         ),
         _node(
@@ -3237,13 +3253,25 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_neutrino_first_order_matrix",
-            "mixed_higgs_equivariant_comparison_obstruction",
-            "The exact all-orders neutrino zero excludes that sector and "
-            "returns the shortest flavor route to the shared H_d equivariant "
-            "prerequisite.",
+            "mixed_charged_lepton_convention",
+            "The complete exact forward-sector matrix is relabelled only after "
+            "source-action inversion withdraws its Dirac-neutrino assignment.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_higgs_equivariant_obstruction.json",
+                "mixed_schoen_charged_lepton_convention.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_character_convention_correction",
+            "mixed_charged_lepton_convention",
+            "Inverse forward pullback sends physical charged-lepton source "
+            "characters to the certified forward matter and H_d sectors.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_charged_lepton_convention.json",
             ),
             (),
             True,
@@ -3366,6 +3394,20 @@ def _edges() -> list[dict[str, object]]:
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_down_first_order_matrix.json",
+            ),
+            (),
+            False,
+            ("the first nontrivial holomorphic Yukawa remains unresolved",),
+        ),
+        _edge(
+            "mixed_charged_lepton_convention",
+            "first_exact_yukawa",
+            "The last available physical flavor matrix on the frozen carrier "
+            "vanishes through every exterior-allowed order, so a nontrivial "
+            "matrix requires an exact replacement realization.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_charged_lepton_convention.json",
             ),
             (),
             False,
@@ -3856,6 +3898,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_neutrino_tree_matrix.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_first_order_matrix.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_charged_lepton_convention.json",
         "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
         "data/generated/scientific_genesis/published_outer_reduced_mismatch.json",
         "data/generated/scientific_genesis/published_outer_cech_transfer.json",
@@ -3886,7 +3930,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 631,
+            "collected_tests_at_audit": 653,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -3908,10 +3952,10 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "the convention-corrected physical down matrix is exactly "
-                "rank zero through every exterior-allowed order; the existing "
-                "forward-sector universal matrix must now be interpreted as "
-                "the physical charged-lepton sector"
+                "the convention-corrected physical down and charged-lepton "
+                "matrices are exactly rank zero through every exterior-allowed "
+                "order; the frozen carrier has no remaining available flavor "
+                "sector for a nontrivial holomorphic matrix"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4169,15 +4213,24 @@ def build_state() -> dict[str, object]:
                 "neutrino_extension_point_selected": False,
                 "prior_up_matrix_physical_assignment_valid": False,
                 "prior_neutrino_matrix_physical_assignment_valid": False,
-                "remaining_current_chain_flavor_sector_available": True,
+                "charged_lepton_source_matter_characters": [[0, 0], [0, 1]],
+                "charged_lepton_forward_matter_characters": [[0, 0], [0, 2]],
+                "charged_lepton_source_higgs_character": [0, 2],
+                "charged_lepton_forward_higgs_character": [0, 1],
+                "complete_universal_holomorphic_charged_lepton_matrix_available": True,
+                "complete_universal_holomorphic_charged_lepton_matrix_rank": 0,
+                "charged_lepton_maximum_exterior_allowed_parameter_order": 1,
+                "charged_lepton_higher_orders_structurally_zero": True,
+                "remaining_current_chain_flavor_sector_available": False,
+                "current_carrier_nontrivial_holomorphic_yukawa_available": False,
                 "shared_missing_higgs_character": [0, 1],
                 "next_exact_frontier_uses_observations": False,
             },
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the convention-corrected charged-lepton interpretation of "
-                "the existing forward-sector universal matrix"
+                "an exact replacement constituent or carrier realization with "
+                "a nontrivial holomorphic Yukawa matrix"
             ),
         },
         "claims": _nodes(),

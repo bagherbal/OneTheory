@@ -1,0 +1,93 @@
+{
+  "artifact_digest": "7a0cd06656863704feaea9d2694df4868203ac46c37d8da9c80b030e7c913d80",
+  "classification": "SCOPED_ALL_ORDERS_CHARGED_LEPTON_NO_GO",
+  "coefficient_field": "Q(omega)[a0,a1]",
+  "coefficient_matrices": {
+    "a0": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "a1": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ]
+  },
+  "complete_first_order_coefficient_count": 8,
+  "complete_universal_holomorphic_charged_lepton_matrix_available": true,
+  "exact": true,
+  "extension_point_selected": false,
+  "generic_rank": 0,
+  "higher_orders_structurally_zero": true,
+  "maximum_exterior_allowed_parameter_order": 1,
+  "next_required_object": "an exact replacement constituent or carrier realization with a nontrivial holomorphic Yukawa matrix",
+  "observational_inputs_used": false,
+  "physical_charged_lepton_assignment_exact": true,
+  "physical_slice": {
+    "forward_higgs_character_exponents": [
+      0,
+      1
+    ],
+    "forward_matter_character_exponents": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "matrix": "charged-lepton holomorphic Yukawa",
+    "source_higgs_character_exponents": [
+      0,
+      2
+    ],
+    "source_matter_character_exponents": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "character_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241",
+    "forward_matter_lifts": "31917dd6c0e5abd9f7fae1f981be51df3e9ff5a5f2f335fc46211d67393fecd6",
+    "forward_tree_matrix": "5db6d9e1df7fd0e3840c565a64b3ca8b27e15991bb5924ece62b519f91f185ab",
+    "forward_universal_matrix": "08a3750a8a914d835113d7f2507c360aa87a549110ae7099e031dcd84337d89c"
+  },
+  "prior_dirac_neutrino_physical_assignment_valid": false,
+  "schema": "mixed-schoen-charged-lepton-convention-v1",
+  "source_action_is_inverse_forward_pullback": true,
+  "tree_matrix_rank": 0
+}

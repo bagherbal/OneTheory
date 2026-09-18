@@ -370,3 +370,16 @@ charged-lepton interpretation of the existing forward-character `(0,0)` and
 `(0,2)` universal matrix; source/forward inversion, rather than recomputation,
 decides whether that previously mislabelled chain result closes the last
 available flavor route.
+
+Source/forward inversion closes that route without another dense chain
+calculation. Physical charged-lepton matter characters `(0,0)` and `(0,1)` map
+to the already-certified forward sectors `(0,0)` and `(0,2)`, while physical
+`H_d` maps to the forward `(0,1)` cycle. The retained forward-sector tree
+matrix and both first-order coefficient matrices vanish exactly. Exterior
+filtration excludes every higher order, so the complete charged-lepton matrix
+has exact rank zero on the frozen `P1`. The former Dirac-neutrino label on
+these chain results is withdrawn. Together with the convention-corrected up
+and down results, this exhausts the available flavor sectors of the current
+carrier realization. The next exact frontier is therefore a replacement
+constituent or carrier realization that can be independently certified before
+any metric or observable computation begins.

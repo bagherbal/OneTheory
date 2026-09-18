@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "2e8216ab5ab3bbe6192cb50e4516f8552087824111179350da3283911c93c666",
+  "artifact_digest": "83d20d6a256f835bd1e5d6a4228e1dfeccc9e05b12bb2f0a554173f1d8dc5ef9",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -357,6 +357,11 @@
       "sha256": "a9a80428f2165e408c96ab01b74e17888a7ce9d877dfdb890929649338cd3cfd"
     },
     {
+      "bytes": 2229,
+      "path": "data/generated/scientific_genesis/mixed_schoen_charged_lepton_convention.json",
+      "sha256": "c0523faa755aae38340d15518ecbbbeeb7f623c72cf4c66895fdfc97c044dc3b"
+    },
+    {
       "bytes": 6100,
       "path": "data/generated/scientific_genesis/published_constituent_mapping_cones.json",
       "sha256": "35c83ff913af29c06219a616ad72c31bbeaa50a20609bc4b900e2aa359a8b39c"
@@ -428,11 +433,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 631,
+    "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 193,
-    "test_python_files": 172
+    "research_python_files": 194,
+    "test_python_files": 173
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1724,7 +1729,6 @@
       "label": "complete universal convention-corrected down matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "convention-corrected charged-lepton interpretation of the existing forward-sector universal matrix",
         "first nontrivial carrier-derived holomorphic Yukawa matrix"
       ],
       "statement": "All eight parameter and local-family coefficients are exact closed scalar cochains with distinct digests and zero residue. Both parameter coefficient matrices vanish. Exterior filtration allows no order above one, so the complete universal physical down matrix has exact rank zero on the frozen P1.",
@@ -1738,13 +1742,11 @@
         "tests/integration/test_scientific_genesis_mixed_schoen_flavor_frontier.py"
       ],
       "id": "mixed_flavor_frontier",
-      "label": "post-obstruction exact flavor frontier",
+      "label": "superseded post-obstruction flavor frontier",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "universal matter lifts in characters (0,0) and (0,2)"
-      ],
-      "statement": "After the universal up no-go and exact down-Higgs chain obstruction, Dirac neutrinos are the minimum available sector at eight new matter-correction objects. The selection reuses the strict Higgs character (0,1) and consumes no observations.",
-      "status": "COMPUTED"
+      "missing_prerequisites": [],
+      "statement": "Before source-action inversion was recognized, this scheduler selected a Dirac-neutrino interpretation of the forward sectors. The object count and no-observation gate remain exact, but the physical label is withdrawn by the convention certificate.",
+      "status": "REFUTED"
     },
     {
       "assumptions": [],
@@ -1754,12 +1756,10 @@
         "tests/integration/test_scientific_genesis_mixed_schoen_neutrino_matter_lifts.py"
       ],
       "id": "universal_neutrino_matter_lifts",
-      "label": "universal Dirac-neutrino matter lifts",
+      "label": "forward-sector matter lifts with legacy neutrino label",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "complete carrier-derived tree-level Dirac-neutrino matrix"
-      ],
-      "statement": "Characters (0,0) and (0,2) each have one exact constant V1 class and two exact parameter-linear V2 lifts. All eight independently computed carrier-parameter corrections satisfy the cone identity and strict deck-character gates over the full frozen P1.",
+      "missing_prerequisites": [],
+      "statement": "Characters (0,0) and (0,2) each have one exact constant V1 class and two exact parameter-linear V2 lifts. All eight independently computed carrier-parameter corrections satisfy the cone identity and strict deck-character gates over the full frozen P1. Their former Dirac-neutrino interpretation is withdrawn.",
       "status": "COMPUTED"
     },
     {
@@ -1770,10 +1770,10 @@
         "tests/integration/test_scientific_genesis_mixed_schoen_neutrino_tree_matrix.py"
       ],
       "id": "mixed_neutrino_tree_matrix",
-      "label": "associated-graded Dirac-neutrino matrix",
+      "label": "forward-sector tree matrix with legacy neutrino label",
       "layer": "Flavor",
       "missing_prerequisites": [],
-      "statement": "All four character-allowed split-family determinant traces are exact scalar cycles with zero residue and explicit global primitives. The complete associated-graded three-family matrix therefore has exact rank zero, while universal parameter corrections remain unevaluated.",
+      "statement": "All four character-allowed split-family determinant traces are exact scalar cycles with zero residue and explicit global primitives. The complete associated-graded three-family matrix therefore has exact rank zero. The physical neutrino label is withdrawn; this chain result is retained as exact input to the charged-lepton convention certificate.",
       "status": "COMPUTED"
     },
     {
@@ -1784,13 +1784,27 @@
         "tests/integration/test_scientific_genesis_mixed_schoen_neutrino_first_order_matrix.py"
       ],
       "id": "mixed_neutrino_first_order_matrix",
-      "label": "complete universal Dirac-neutrino matrix",
+      "label": "complete forward matrix with legacy neutrino label",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "All eight parameter and local-family coefficients are exact closed scalar cochains with distinct digests and zero residue. Both parameter coefficient matrices vanish. Exterior filtration allows no order above one, so the complete forward-sector matrix has exact rank zero on the frozen P1. Its former Dirac-neutrino physical assignment is withdrawn.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_charged_lepton_convention.json",
+        "research/experiments/scientific_genesis/mixed_schoen_charged_lepton_convention.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_charged_lepton_convention.py"
+      ],
+      "id": "mixed_charged_lepton_convention",
+      "label": "convention-corrected charged-lepton matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "full local-semilinear constituent deck action on the synchronized chain, including overlap gauges"
+        "exact replacement constituent or carrier realization with a nontrivial holomorphic Yukawa matrix"
       ],
-      "statement": "All eight parameter and local-family coefficients are exact closed scalar cochains with distinct digests and zero residue. Both parameter coefficient matrices vanish. Exterior filtration allows no order above one, so the complete universal Dirac-neutrino matrix has exact rank zero on the frozen P1.",
-      "status": "COMPUTED"
+      "statement": "Exact inverse-pullback routing identifies physical source matter characters (0,0) and (0,1) with the already-certified forward sectors (0,0) and (0,2), while physical H_d maps to forward character (0,1). The tree and both first-order coefficient matrices vanish, and exterior filtration excludes higher orders. The complete charged-lepton matrix therefore has exact rank zero.",
+      "status": "PROVED"
     },
     {
       "assumptions": [],
@@ -1828,16 +1842,16 @@
         "data/generated/scientific_genesis/mixed_schoen_first_higher_product.json",
         "data/generated/scientific_genesis/mixed_schoen_first_order_matrix.json",
         "data/generated/scientific_genesis/mixed_schoen_up_yukawa_no_go.json",
+        "data/generated/scientific_genesis/mixed_schoen_down_first_order_matrix.json",
+        "data/generated/scientific_genesis/mixed_schoen_charged_lepton_convention.json",
         "research/experiments/visible_common_dga/audit.py"
       ],
       "id": "common_dga_package",
       "label": "carrier-specific common DGA package",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "strict source H_d representative from an exact equivariant chain comparison"
-      ],
-      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes. The exact common-to-diagonal Cech chain map supplies the comparison required by the parameter-linear matter corrections. The first matter leg is exactly nonclosed with zero partial residue, while its complementary Higgs determinant-line correction is exact. The equivariant bottom V2 determinant pairing is also exact. Fixed-contraction comparison primitives close all eight parameter-linear coefficients with zero residue. Exterior filtration then proves the full up-type branch remains zero.",
-      "status": "BLOCKED"
+      "missing_prerequisites": [],
+      "statement": "Generic DGA, module, contraction, and HPL engines exist; the lawful carrier, minimum universal matter sectors, and strict required Higgs cocycle are fixed. Exact equivariant comparison now supplies the four restricted matter-product cycles, while adjunction fixes their one-dimensional scalar residue target. The grouped determinant totalization is now exact and proves that every tree-level entry vanishes. The exact common-to-diagonal Cech chain map supplies the comparison required by the parameter-linear matter corrections. The first matter leg is exactly nonclosed with zero partial residue, while its complementary Higgs determinant-line correction is exact. The equivariant bottom V2 determinant pairing is also exact. Fixed-contraction comparison primitives close all eight parameter-linear coefficients with zero residue. Exterior filtration proves the complete up, down, and charged-lepton matrices vanish on the current carrier realization.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [
@@ -1867,15 +1881,16 @@
         "data/generated/scientific_genesis/mixed_schoen_down_higgs_action.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/mixed_schoen_neutrino_first_order_matrix.json",
-        "data/generated/scientific_genesis/mixed_schoen_higgs_equivariant_obstruction.json"
+        "data/generated/scientific_genesis/mixed_schoen_down_first_order_matrix.json",
+        "data/generated/scientific_genesis/mixed_schoen_charged_lepton_convention.json"
       ],
       "id": "first_exact_yukawa",
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "full local-semilinear constituent deck action transferred through the synchronized Schoen chain"
+        "exact replacement constituent or carrier realization with a nontrivial holomorphic Yukawa matrix"
       ],
-      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix. The next down route also fails because its strict Higgs character has zero current-chain H1. The complete Dirac-neutrino tree and first-order matrices also vanish, while filtration excludes every higher order. Isotypic cohomology now refutes an equivariant comparison using the current chain action. The exact frontier is the full local-semilinear atlas action required to reconstruct the source H_d sector.",
+      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix. Convention-corrected down and charged-lepton matrices also vanish exactly through every exterior-allowed order. The prior Dirac-neutrino assignment is withdrawn. No available flavor sector on this frozen carrier realization supplies the first nontrivial holomorphic matrix.",
       "status": "BLOCKED"
     },
     {
@@ -3326,13 +3341,24 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_higgs_equivariant_obstruction.json"
+        "data/generated/scientific_genesis/mixed_schoen_charged_lepton_convention.json"
       ],
       "implication": "exact",
       "known_failure_modes": [],
-      "mathematical_reason": "The exact all-orders neutrino zero excludes that sector and returns the shortest flavor route to the shared H_d equivariant prerequisite.",
+      "mathematical_reason": "The complete exact forward-sector matrix is relabelled only after source-action inversion withdraws its Dirac-neutrino assignment.",
       "source": "mixed_neutrino_first_order_matrix",
-      "target": "mixed_higgs_equivariant_comparison_obstruction"
+      "target": "mixed_charged_lepton_convention"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_charged_lepton_convention.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "Inverse forward pullback sends physical charged-lepton source characters to the certified forward matter and H_d sectors.",
+      "source": "mixed_character_convention_correction",
+      "target": "mixed_charged_lepton_convention"
     },
     {
       "assumptions_required": [],
@@ -3433,6 +3459,19 @@
       ],
       "mathematical_reason": "The physical down matrix vanishes at every exterior-allowed order, so a first nontrivial matrix must use another lawful physical sector or an exact replacement carrier realization.",
       "source": "mixed_down_first_order_matrix",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_charged_lepton_convention.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "the first nontrivial holomorphic Yukawa remains unresolved"
+      ],
+      "mathematical_reason": "The last available physical flavor matrix on the frozen carrier vanishes through every exterior-allowed order, so a nontrivial matrix requires an exact replacement realization.",
+      "source": "mixed_charged_lepton_convention",
       "target": "first_exact_yukawa"
     },
     {
@@ -3762,6 +3801,36 @@
       "canonical_higgs_leg_correction_term_count": 1908,
       "cech_local_diagonal_chain_map_available": true,
       "cech_local_diagonal_comparison_required": true,
+      "charged_lepton_forward_higgs_character": [
+        0,
+        1
+      ],
+      "charged_lepton_forward_matter_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "charged_lepton_higher_orders_structurally_zero": true,
+      "charged_lepton_maximum_exterior_allowed_parameter_order": 1,
+      "charged_lepton_source_higgs_character": [
+        0,
+        2
+      ],
+      "charged_lepton_source_matter_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
       "coefficient_field": "Q(omega)",
       "complete_current_higgs_characters": [
         [
@@ -3797,6 +3866,8 @@
       "complete_neutrino_tree_matrix_available": true,
       "complete_neutrino_tree_matrix_rank": 0,
       "complete_tree_level_up_matrix_available": true,
+      "complete_universal_holomorphic_charged_lepton_matrix_available": true,
+      "complete_universal_holomorphic_charged_lepton_matrix_rank": 0,
       "complete_universal_holomorphic_down_matrix_available": true,
       "complete_universal_holomorphic_down_matrix_rank": 0,
       "complete_universal_holomorphic_neutrino_matrix_available": true,
@@ -3815,6 +3886,7 @@
           0
         ]
       ],
+      "current_carrier_nontrivial_holomorphic_yukawa_available": false,
       "current_h_d_comparison_route_refuted": true,
       "current_minimum_retired_candidate_blocks": [
         8,
@@ -4016,7 +4088,7 @@
       "prior_neutrino_matrix_physical_assignment_valid": false,
       "prior_physical_flavor_routing_valid": false,
       "prior_up_matrix_physical_assignment_valid": false,
-      "remaining_current_chain_flavor_sector_available": true,
+      "remaining_current_chain_flavor_sector_available": false,
       "remaining_nonzero_candidate_blocks": [],
       "remaining_nonzero_family_count": 0,
       "required_higgs_character": [
@@ -4175,8 +4247,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the convention-corrected charged-lepton interpretation of the existing forward-sector universal matrix",
-    "selection_status": "the convention-corrected physical down matrix is exactly rank zero through every exterior-allowed order; the existing forward-sector universal matrix must now be interpreted as the physical charged-lepton sector"
+    "next_required_object": "an exact replacement constituent or carrier realization with a nontrivial holomorphic Yukawa matrix",
+    "selection_status": "the convention-corrected physical down and charged-lepton matrices are exactly rank zero through every exterior-allowed order; the frozen carrier has no remaining available flavor sector for a nontrivial holomorphic matrix"
   },
   "research_value_scheduler": [
     {

@@ -330,9 +330,47 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         path["criteria"]["prior_neutrino_matrix_physical_assignment_valid"]
         is False
     )
+    assert path["criteria"]["charged_lepton_source_matter_characters"] == [
+        [0, 0],
+        [0, 1],
+    ]
+    assert path["criteria"]["charged_lepton_forward_matter_characters"] == [
+        [0, 0],
+        [0, 2],
+    ]
+    assert path["criteria"]["charged_lepton_source_higgs_character"] == [0, 2]
+    assert path["criteria"]["charged_lepton_forward_higgs_character"] == [0, 1]
+    assert (
+        path["criteria"][
+            "complete_universal_holomorphic_charged_lepton_matrix_available"
+        ]
+        is True
+    )
+    assert (
+        path["criteria"][
+            "complete_universal_holomorphic_charged_lepton_matrix_rank"
+        ]
+        == 0
+    )
+    assert (
+        path["criteria"][
+            "charged_lepton_maximum_exterior_allowed_parameter_order"
+        ]
+        == 1
+    )
+    assert (
+        path["criteria"]["charged_lepton_higher_orders_structurally_zero"]
+        is True
+    )
     assert (
         path["criteria"]["remaining_current_chain_flavor_sector_available"]
-        is True
+        is False
+    )
+    assert (
+        path["criteria"][
+            "current_carrier_nontrivial_holomorphic_yukawa_available"
+        ]
+        is False
     )
     assert path["criteria"]["shared_missing_higgs_character"] == [0, 1]
     assert path["criteria"]["next_exact_frontier_uses_observations"] is False
@@ -342,14 +380,14 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "the convention-corrected physical down matrix is exactly rank zero "
-        "through every exterior-allowed order; the existing forward-sector "
-        "universal matrix must now be interpreted as the physical charged-lepton "
-        "sector"
+        "the convention-corrected physical down and charged-lepton matrices "
+        "are exactly rank zero through every exterior-allowed order; the frozen "
+        "carrier has no remaining available flavor sector for a nontrivial "
+        "holomorphic matrix"
     )
     assert path["next_required_object"] == (
-        "the convention-corrected charged-lepton interpretation of the existing "
-        "forward-sector universal matrix"
+        "an exact replacement constituent or carrier realization with a "
+        "nontrivial holomorphic Yukawa matrix"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -380,10 +418,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["universal_down_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_down_tree_matrix"]["status"] == "COMPUTED"
     assert claims["mixed_down_first_order_matrix"]["status"] == "PROVED"
-    assert claims["mixed_flavor_frontier"]["status"] == "COMPUTED"
+    assert claims["mixed_flavor_frontier"]["status"] == "REFUTED"
     assert claims["universal_neutrino_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_neutrino_tree_matrix"]["status"] == "COMPUTED"
     assert claims["mixed_neutrino_first_order_matrix"]["status"] == "COMPUTED"
+    assert claims["mixed_charged_lepton_convention"]["status"] == "PROVED"
     assert claims["stability_chamber"]["status"] == "REFUTED"
     assert claims["minimum_dimensional_stability_block"]["status"] == "REFUTED"
     assert claims["next_topology_stability_block"]["status"] == "REFUTED"
@@ -426,7 +465,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["higgs_determinant_twist_route"]["status"] == "REFUTED"
     assert claims["higgs_direct_tensor_diagonal"]["status"] == "COMPUTED"
     assert claims["strict_mixed_higgs_representative"]["status"] == "COMPUTED"
-    assert claims["common_dga_package"]["status"] == "BLOCKED"
+    assert claims["common_dga_package"]["status"] == "COMPUTED"
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     assert state["fitted_inputs"] == []

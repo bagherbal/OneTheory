@@ -1,0 +1,230 @@
+{
+  "all_nonzero_parameters_stable_in_chamber": true,
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "1c6797ecfef7944296fa39591ef0950a91db6c603d8a9474b568603695bda78c",
+  "certified_stable_locus": "P^5(Q(omega)) x K_reverse^s",
+  "equivariantly_stable_and_descended": true,
+  "extension_parameter_space": "P^5(Q(omega))",
+  "first_missing_input": "reverse-family matter and Higgs cohomology derived from the same synchronized chain",
+  "kahler_chamber": {
+    "ambient": "x1>0, x2>0, y>0",
+    "anchor": [
+      "3",
+      "2",
+      "2"
+    ],
+    "anchor_slopes": [
+      "-246",
+      "-210",
+      "-507",
+      "-93",
+      "-57",
+      "-102",
+      "-195",
+      "-348",
+      "-159"
+    ],
+    "inequalities": [
+      {
+        "coefficients": [
+          -6,
+          18,
+          -36,
+          -3,
+          -18
+        ],
+        "line_class": [
+          -1,
+          -2,
+          2
+        ]
+      },
+      {
+        "coefficients": [
+          -6,
+          -18,
+          -36,
+          6,
+          36
+        ],
+        "line_class": [
+          2,
+          -2,
+          -1
+        ]
+      },
+      {
+        "coefficients": [
+          -15,
+          0,
+          -90,
+          6,
+          36
+        ],
+        "line_class": [
+          2,
+          -5,
+          1
+        ]
+      },
+      {
+        "coefficients": [
+          3,
+          18,
+          18,
+          -12,
+          -72
+        ],
+        "line_class": [
+          -4,
+          1,
+          2
+        ]
+      },
+      {
+        "coefficients": [
+          3,
+          -18,
+          18,
+          -3,
+          -18
+        ],
+        "line_class": [
+          -1,
+          1,
+          -1
+        ]
+      },
+      {
+        "coefficients": [
+          -6,
+          0,
+          -36,
+          6,
+          36
+        ],
+        "line_class": [
+          2,
+          -2,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          -3,
+          18,
+          -18,
+          -6,
+          -36
+        ],
+        "line_class": [
+          -2,
+          -1,
+          2
+        ]
+      },
+      {
+        "coefficients": [
+          -12,
+          18,
+          -72,
+          3,
+          18
+        ],
+        "line_class": [
+          1,
+          -4,
+          2
+        ]
+      },
+      {
+        "coefficients": [
+          -3,
+          -18,
+          -18,
+          3,
+          18
+        ],
+        "line_class": [
+          1,
+          -1,
+          -1
+        ]
+      }
+    ],
+    "name": "K_reverse^s",
+    "rational_open_box": {
+      "all_slopes_negative": true,
+      "coordinate_radius": "1/4",
+      "inside_positive_cone": true,
+      "strict_upper_bounds": [
+        "-2967/16",
+        "-1185/8",
+        "-5709/16",
+        "-93/16",
+        "-75/4",
+        "-147/4",
+        "-2295/16",
+        "-3597/16",
+        "-507/4"
+      ]
+    },
+    "wall_side": "x1>x2"
+  },
+  "orientation_change": {
+    "factor_exchange_assumed": false,
+    "forward_forced_subobject_c1": [
+      -2,
+      2,
+      0
+    ],
+    "forward_sequence": "0 -> V1 -> E -> V2 -> 0",
+    "inequalities_guessed": false,
+    "reason": "the extension lower bound uses the same proper subsheaf pairs in either orientation; only the full injected constituent changes, while the full quotient alone is excluded by nonsplitting",
+    "reverse_forced_subobject_c1": [
+      2,
+      -2,
+      0
+    ],
+    "reverse_sequence": "0 -> V2 -> E_reverse -> V1 -> 0",
+    "unchanged_proper_pair_inequality_count": 8
+  },
+  "parameter_quantifier": {
+    "arbitrary_parameter_selected": false,
+    "every_nonzero_parameter": true,
+    "genericity_assumed": false,
+    "reason": "the lower-bound inequalities depend on constituent subsheaves and nonsplitting; every P5 point is nontrivial"
+  },
+  "schema": "mixed-schoen-reverse-outer-stability-locus-v1",
+  "sources": [
+    {
+      "arxiv_id": "hep-th/0602073",
+      "locators": [
+        "Proposition 1 and equations 32 through 36",
+        "discussion after Figure 1 and equation Vrevdef"
+      ],
+      "source_archive_sha256": "8e38123b9d2de8751deecbf295015497ab2ed891244215455fffe756bebf0aea",
+      "version": "v1"
+    },
+    {
+      "arxiv_id": "hep-th/0512205",
+      "locators": [
+        "section 2.1 extension lower bound",
+        "split pair (0,V_R) exclusion"
+      ],
+      "source_archive_sha256": "f3c339b0ea7d5d26747dac8788400c785a3194077d09974eae5e04293f9a4eab",
+      "version": "v2"
+    }
+  ],
+  "status": "every lawful nonzero reverse extension is stable and genuinely SU(4) throughout the certified reverse Kahler chamber",
+  "structure_group": {
+    "cover_c3": "-54",
+    "determinant_trivial": true,
+    "genuine_su4_on_certified_locus": true,
+    "proper_connected_irreducible_reduction_excluded": true,
+    "rank": 4,
+    "schoen_cover_simply_connected": true,
+    "stable_hym_irreducible": true
+  },
+  "universal_cone_digest": "802941c5bd1618150e7a8a04d284af1747e015ff3437dc19e89b05ad8d9e312b"
+}

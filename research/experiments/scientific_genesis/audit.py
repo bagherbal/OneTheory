@@ -443,6 +443,26 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_schoen_reverse_outer_stability_locus",
+            "lawful reverse stable genuine-SU(4) locus",
+            "Reference realization",
+            "PROVED",
+            "The extension lower bound preserves all eight proper-subsheaf "
+            "inequalities under reversal and replaces only the forced full "
+            "subobject V1 by V2. All nine exact slopes are negative on a "
+            "rational open box around (3,2,2), so every reverse P5 point is "
+            "stable there; nonzero cover c3 excludes proper connected "
+            "irreducible rank-four reduction.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_outer_stability_locus.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_reverse_outer_stability_locus.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_reverse_outer_stability_locus.py",
+            ),
+        ),
+        _node(
             "published_constituent_mapping_cones",
             "trivial-character constituent mapping cones",
             "Reference realization",
@@ -2170,6 +2190,20 @@ def _edges() -> list[dict[str, object]]:
             ("the affine origin is the split reverse extension",),
         ),
         _edge(
+            "mixed_schoen_reverse_outer_universal_cone",
+            "mixed_schoen_reverse_outer_stability_locus",
+            "The orientation-independent extension lower bound retains all "
+            "proper-subsheaf pairs and changes only the injected full "
+            "constituent; exact reverse slopes then certify an open chamber.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_outer_stability_locus.json",
+            ),
+            ("published extension lower-bound theorem",),
+            True,
+            ("the split affine origin is excluded before projectivization",),
+        ),
+        _edge(
             "published_constituent_deck_actions",
             "published_constituent_mapping_cones",
             "Comparing the fixed-line cone with the selected ray proves that "
@@ -3887,6 +3921,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_reverse_outer_universal_cone.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_reverse_outer_stability_locus.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_stability_locus.json",
         "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -3990,10 +4026,9 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "the convention-corrected physical down and charged-lepton "
-                "matrices are exactly rank zero through every exterior-allowed "
-                "order; the frozen carrier has no remaining available flavor "
-                "sector for a nontrivial holomorphic matrix"
+                "the forward P1 flavor sectors are exhausted at exact rank "
+                "zero; the reverse P5 replacement is stable and genuinely "
+                "SU(4), with its same-chain structural spectrum still required"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4080,7 +4115,12 @@ def build_state() -> dict[str, object]:
                 "lawful_reverse_local_freeness_all_parameters": True,
                 "lawful_reverse_equivariant_descent_all_parameters": True,
                 "lawful_reverse_extension_point_selected": False,
-                "lawful_reverse_exact_stability_locus_computed": False,
+                "lawful_reverse_exact_stability_locus_computed": True,
+                "lawful_reverse_stability_anchor": [3, 2, 2],
+                "lawful_reverse_stability_box_radius": "1/4",
+                "lawful_reverse_all_P5_stable_in_chamber": True,
+                "lawful_reverse_genuine_su4_on_stable_chamber": True,
+                "lawful_reverse_factor_exchange_assumed": False,
                 "retired_source_scoped_outer_space": "P^3(Q(omega))",
                 "outer_parameter_dimension_mismatch_unresolved": True,
                 "lawful_P1_all_nonzero_parameters_stable_in_chamber": True,
@@ -4273,8 +4313,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "the exact stable genuine-SU(4) locus of the lawful reverse "
-                "P5 family"
+                "reverse-family matter and Higgs cohomology derived from the "
+                "same synchronized chain"
             ),
         },
         "claims": _nodes(),
@@ -4306,6 +4346,8 @@ def build_state() -> dict[str, object]:
             "affine-origin split locus and no selected extension point",
             "exact lawful reverse universal rank-four cone over P5(Q(omega)) "
             "with affine-origin split locus and no selected extension point",
+            "every lawful reverse P5 extension stable on a rational open "
+            "Kahler box with genuine SU(4) forced by nonzero cover c3",
             "every lawful P1 extension stable in the exact source chamber with "
             "genuine SU(4) forced by nonzero cover c3",
             "synchronized mixed constituent transfers derive matter cohomology "

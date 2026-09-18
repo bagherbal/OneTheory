@@ -276,9 +276,15 @@ give `e(b)=b0 e0+...+b5 e5` in `RHom(V1,V2)`, so the reverse sequence
 `P^5(Q(omega))`. The universal block square, local freeness, descent, rank,
 determinant, and Chern data close exactly without choosing a point. The
 published source proves only the existence of a reverse stable subcone across
-the marginal wall at this stage; the exact stable locus and exclusion of
-accidental proper structure-group reductions remain the next gate. No reverse
-physical spectrum or flavor claim is made before that gate closes.
+the marginal wall, so the exact lower-bound system was reconstructed instead
+of factor-exchanging the asymmetric constituents. Reversal leaves all eight
+proper-subsheaf pair inequalities unchanged and replaces only the forced full
+subobject class `c1(V1)=(-2,2,0)` by `c1(V2)=(2,-2,0)`. Every slope is strictly
+negative on the rational radius-`1/4` box around `(3,2,2)`. Thus every point of
+the reverse `P5` is stable on this open chamber, while nonzero cover `c3=-54`
+excludes proper connected irreducible rank-four reductions. The next gate is
+the reverse structural spectrum from the same synchronized chain; no spectrum
+or flavor result is imported from the source assertion.
 
 Direct mixed-complex transfers now derive constituent profiles `(0,9,0,0)`
 and `(0,18,0,0)`. The universal long exact sequence therefore fixes

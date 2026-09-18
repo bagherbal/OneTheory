@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "4c26f1c6298176dd92ccf67f553673b3105b0376d86c0f38490553edbbdda380",
+  "artifact_digest": "ede0f944b66f8655415333a0c860ff19bd6b2ec604cee13dc2e4734d0800d573",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -180,6 +180,11 @@
       "bytes": 2894,
       "path": "data/generated/scientific_genesis/mixed_schoen_reverse_outer_universal_cone.json",
       "sha256": "e22b6d4fc324f5e219640d3da3c83046fca994e6f848c245cf113cf2dfaa199c"
+    },
+    {
+      "bytes": 4989,
+      "path": "data/generated/scientific_genesis/mixed_schoen_reverse_outer_stability_locus.json",
+      "sha256": "baf938ac58be1d55118f4181577e93e4406b6ce2b6d80801d0e347472c8b2582"
     },
     {
       "bytes": 6072,
@@ -441,8 +446,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 195,
-    "test_python_files": 174
+    "research_python_files": 196,
+    "test_python_files": 175
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -795,6 +800,20 @@
       ],
       "statement": "The six strict reverse invariant classes form an exact universal rank-four cone over P5(Q(omega)). Its split locus is the affine origin; local freeness, topology, and descent are parameter independent. No projective point or stable locus is selected.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_outer_stability_locus.json",
+        "research/experiments/scientific_genesis/mixed_schoen_reverse_outer_stability_locus.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_reverse_outer_stability_locus.py"
+      ],
+      "id": "mixed_schoen_reverse_outer_stability_locus",
+      "label": "lawful reverse stable genuine-SU(4) locus",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "The extension lower bound preserves all eight proper-subsheaf inequalities under reversal and replaces only the forced full subobject V1 by V2. All nine exact slopes are negative on a rational open box around (3,2,2), so every reverse P5 point is stable there; nonzero cover c3 excludes proper connected irreducible rank-four reduction.",
+      "status": "PROVED"
     },
     {
       "assumptions": [],
@@ -2311,6 +2330,21 @@
       "target": "mixed_schoen_reverse_outer_universal_cone"
     },
     {
+      "assumptions_required": [
+        "published extension lower-bound theorem"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_outer_stability_locus.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the split affine origin is excluded before projectivization"
+      ],
+      "mathematical_reason": "The orientation-independent extension lower bound retains all proper-subsheaf pairs and changes only the injected full constituent; exact reverse slopes then certify an open chamber.",
+      "source": "mixed_schoen_reverse_outer_universal_cone",
+      "target": "mixed_schoen_reverse_outer_stability_locus"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/published_constituent_ray_alignment.json"
@@ -3722,6 +3756,7 @@
     "exact mixed outer P/T transfer deriving fixed dimensions 2/6 and strict full-Cech invariant representatives",
     "exact lawful universal rank-four cone over P1(Q(omega)) with affine-origin split locus and no selected extension point",
     "exact lawful reverse universal rank-four cone over P5(Q(omega)) with affine-origin split locus and no selected extension point",
+    "every lawful reverse P5 extension stable on a rational open Kahler box with genuine SU(4) forced by nonzero cover c3",
     "every lawful P1 extension stable in the exact source chamber with genuine SU(4) forced by nonzero cover c3",
     "synchronized mixed constituent transfers derive matter cohomology (0,27,0,0), with free-action Lefschetz compression proving three regular deck representations",
     "acyclic determinant filtration and lawful relative pushdowns derive Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and zero massless color triplets throughout the lawful P1",
@@ -4046,12 +4081,21 @@
         0
       ],
       "lawful_mixed_projective_outer_space": "P^1(Q(omega))",
+      "lawful_reverse_all_P5_stable_in_chamber": true,
       "lawful_reverse_equivariant_descent_all_parameters": true,
-      "lawful_reverse_exact_stability_locus_computed": false,
+      "lawful_reverse_exact_stability_locus_computed": true,
       "lawful_reverse_extension_point_selected": false,
+      "lawful_reverse_factor_exchange_assumed": false,
+      "lawful_reverse_genuine_su4_on_stable_chamber": true,
       "lawful_reverse_local_freeness_all_parameters": true,
       "lawful_reverse_projective_outer_space": "P^5(Q(omega))",
       "lawful_reverse_split_locus": "affine origin only",
+      "lawful_reverse_stability_anchor": [
+        3,
+        2,
+        2
+      ],
+      "lawful_reverse_stability_box_radius": "1/4",
       "lawful_structural_spectrum_all_P1": true,
       "lawful_wilson_projected_families": 3,
       "lawful_wilson_projected_higgs_pairs": 1,
@@ -4289,8 +4333,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the exact stable genuine-SU(4) locus of the lawful reverse P5 family",
-    "selection_status": "the convention-corrected physical down and charged-lepton matrices are exactly rank zero through every exterior-allowed order; the frozen carrier has no remaining available flavor sector for a nontrivial holomorphic matrix"
+    "next_required_object": "reverse-family matter and Higgs cohomology derived from the same synchronized chain",
+    "selection_status": "the forward P1 flavor sectors are exhausted at exact rank zero; the reverse P5 replacement is stable and genuinely SU(4), with its same-chain structural spectrum still required"
   },
   "research_value_scheduler": [
     {

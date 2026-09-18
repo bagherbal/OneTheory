@@ -383,23 +383,31 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["lawful_reverse_local_freeness_all_parameters"] is True
     assert path["criteria"]["lawful_reverse_equivariant_descent_all_parameters"] is True
     assert path["criteria"]["lawful_reverse_extension_point_selected"] is False
-    assert path["criteria"]["lawful_reverse_exact_stability_locus_computed"] is False
+    assert path["criteria"]["lawful_reverse_exact_stability_locus_computed"] is True
+    assert path["criteria"]["lawful_reverse_stability_anchor"] == [3, 2, 2]
+    assert path["criteria"]["lawful_reverse_stability_box_radius"] == "1/4"
+    assert path["criteria"]["lawful_reverse_all_P5_stable_in_chamber"] is True
+    assert path["criteria"]["lawful_reverse_genuine_su4_on_stable_chamber"] is True
+    assert path["criteria"]["lawful_reverse_factor_exchange_assumed"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "the convention-corrected physical down and charged-lepton matrices "
-        "are exactly rank zero through every exterior-allowed order; the frozen "
-        "carrier has no remaining available flavor sector for a nontrivial "
-        "holomorphic matrix"
+        "the forward P1 flavor sectors are exhausted at exact rank zero; the "
+        "reverse P5 replacement is stable and genuinely SU(4), with its "
+        "same-chain structural spectrum still required"
     )
     assert path["next_required_object"] == (
-        "the exact stable genuine-SU(4) locus of the lawful reverse P5 family"
+        "reverse-family matter and Higgs cohomology derived from the same "
+        "synchronized chain"
     )
     assert claims["mixed_schoen_reverse_outer_universal_cone"]["status"] == (
         "COMPUTED"
+    )
+    assert claims["mixed_schoen_reverse_outer_stability_locus"]["status"] == (
+        "PROVED"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"

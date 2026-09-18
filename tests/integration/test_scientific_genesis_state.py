@@ -290,6 +290,14 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         path["criteria"]["down_tree_zero_entries_have_exact_primitives"] is True
     )
     assert path["criteria"]["down_tree_extension_point_selected"] is False
+    assert path["criteria"]["complete_down_first_order_coefficient_count"] == 8
+    assert (
+        path["criteria"]["complete_universal_holomorphic_down_matrix_available"]
+        is True
+    )
+    assert path["criteria"]["complete_universal_holomorphic_down_matrix_rank"] == 0
+    assert path["criteria"]["down_maximum_exterior_allowed_parameter_order"] == 1
+    assert path["criteria"]["down_higher_orders_structurally_zero"] is True
     assert path["criteria"]["neutrino_universal_matter_character_count"] == 2
     assert path["criteria"]["neutrino_universal_v1_class_count"] == 2
     assert path["criteria"]["neutrino_universal_v2_lift_count"] == 4
@@ -334,11 +342,14 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "the convention-corrected down tree matrix is exactly rank zero; every "
-        "exterior-allowed universal down coefficient is now the minimum frontier"
+        "the convention-corrected physical down matrix is exactly rank zero "
+        "through every exterior-allowed order; the existing forward-sector "
+        "universal matrix must now be interpreted as the physical charged-lepton "
+        "sector"
     )
     assert path["next_required_object"] == (
-        "every exterior-allowed universal down-matrix coefficient"
+        "the convention-corrected charged-lepton interpretation of the existing "
+        "forward-sector universal matrix"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
@@ -368,6 +379,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_character_convention_correction"]["status"] == "PROVED"
     assert claims["universal_down_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_down_tree_matrix"]["status"] == "COMPUTED"
+    assert claims["mixed_down_first_order_matrix"]["status"] == "PROVED"
     assert claims["mixed_flavor_frontier"]["status"] == "COMPUTED"
     assert claims["universal_neutrino_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_neutrino_tree_matrix"]["status"] == "COMPUTED"

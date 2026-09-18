@@ -356,3 +356,17 @@ terms. The associated-graded matrix therefore has exact rank zero. This is a
 scoped tree-level no-go, not a holomorphic or physical no-go: the eight exact
 matter corrections have not yet been inserted. The next required object is
 every exterior-allowed universal down-matrix coefficient.
+
+Those universal coefficients are now complete. All eight independently
+computed parameter and local-family entries are exact closed scalar cochains
+with distinct digests, between 302,238 and 345,342 terms, and zero residue at
+projection depth four. Both `a0` and `a1` coefficient matrices therefore
+vanish. Since the exterior filtration allows only tree order in mixed-family
+slots and first order in the lower block, no higher contribution remains: the
+convention-corrected physical down matrix has exact rank zero over the entire
+frozen `P1`. This is a carrier- and branch-scoped all-orders no-go, not a
+physical-mass statement. The next exact object is the convention-corrected
+charged-lepton interpretation of the existing forward-character `(0,0)` and
+`(0,2)` universal matrix; source/forward inversion, rather than recomputation,
+decides whether that previously mislabelled chain result closes the last
+available flavor route.

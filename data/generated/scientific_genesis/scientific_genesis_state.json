@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "21cab7ed100fc745b77bcb3e6eb795867f4b28a08f51154f71076fcacca085fa",
+  "artifact_digest": "2e8216ab5ab3bbe6192cb50e4516f8552087824111179350da3283911c93c666",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -332,6 +332,11 @@
       "sha256": "6ce231bce36c0472e0796b3e22d1ec70723e749856b23646b3e9f80fa5e70eb9"
     },
     {
+      "bytes": 20630,
+      "path": "data/generated/scientific_genesis/mixed_schoen_down_first_order_matrix.json",
+      "sha256": "913b40af51b047b251da3a4ea5be46b9cf9a42029ff662011ad697d1bcce26cd"
+    },
+    {
       "bytes": 1596,
       "path": "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
       "sha256": "e9130382d200ba68066c426bd49140e7d9549295b44a37382d5b4afe6c7fd706"
@@ -426,8 +431,8 @@
     "collected_tests_at_audit": 631,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 192,
-    "test_python_files": 171
+    "research_python_files": 193,
+    "test_python_files": 172
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1690,10 +1695,7 @@
       "id": "universal_down_matter_lifts",
       "label": "convention-corrected universal down-matter lifts",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "complete convention-corrected down tree matrix",
-        "every exterior-allowed universal down coefficient"
-      ],
+      "missing_prerequisites": [],
       "statement": "Exact character inversion routes the physical source sectors (2,1) and (1,0) to forward-chain sectors (1,2) and (2,0). Those sectors contain two constant V1 classes and four V2 classes with eight independently solved parameter corrections; every cone identity and forward-character gate closes.",
       "status": "COMPUTED"
     },
@@ -1707,12 +1709,26 @@
       "id": "mixed_down_tree_matrix",
       "label": "convention-corrected down tree matrix",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "every exterior-allowed universal down-matrix coefficient",
-        "complete holomorphic down matrix"
-      ],
+      "missing_prerequisites": [],
       "statement": "All four source/forward-corrected character-allowed determinant contractions have exact zero residue with independently reconstructed depth-four primitives. The complete associated-graded tree matrix therefore has exact rank zero; this result is scoped to tree order and does not erase universal corrections.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_down_first_order_matrix.json",
+        "research/experiments/scientific_genesis/mixed_schoen_down_first_order_matrix.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_down_first_order_matrix.py"
+      ],
+      "id": "mixed_down_first_order_matrix",
+      "label": "complete universal convention-corrected down matrix",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "convention-corrected charged-lepton interpretation of the existing forward-sector universal matrix",
+        "first nontrivial carrier-derived holomorphic Yukawa matrix"
+      ],
+      "statement": "All eight parameter and local-family coefficients are exact closed scalar cochains with distinct digests and zero residue. Both parameter coefficient matrices vanish. Exterior filtration allows no order above one, so the complete universal physical down matrix has exact rank zero on the frozen P1.",
+      "status": "PROVED"
     },
     {
       "assumptions": [],
@@ -3398,14 +3414,25 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
-        "data/generated/scientific_genesis/mixed_schoen_down_tree_matrix.json"
+        "data/generated/scientific_genesis/mixed_schoen_down_first_order_matrix.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The exact rank-zero tree matrix and all eight exterior-allowed universal coefficients determine the complete down matrix.",
+      "source": "mixed_down_tree_matrix",
+      "target": "mixed_down_first_order_matrix"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_down_first_order_matrix.json"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the universal down coefficients are unresolved"
+        "the first nontrivial holomorphic Yukawa remains unresolved"
       ],
-      "mathematical_reason": "The exact tree matrix vanishes, so a nontrivial holomorphic down matrix now requires the exterior-allowed universal coefficients.",
-      "source": "mixed_down_tree_matrix",
+      "mathematical_reason": "The physical down matrix vanishes at every exterior-allowed order, so a first nontrivial matrix must use another lawful physical sector or an exact replacement carrier realization.",
+      "source": "mixed_down_first_order_matrix",
       "target": "first_exact_yukawa"
     },
     {
@@ -3754,6 +3781,7 @@
           1
         ]
       ],
+      "complete_down_first_order_coefficient_count": 8,
       "complete_down_tree_matrix_available": true,
       "complete_down_tree_matrix_rank": 0,
       "complete_first_order_coefficient_count": 8,
@@ -3769,6 +3797,8 @@
       "complete_neutrino_tree_matrix_available": true,
       "complete_neutrino_tree_matrix_rank": 0,
       "complete_tree_level_up_matrix_available": true,
+      "complete_universal_holomorphic_down_matrix_available": true,
+      "complete_universal_holomorphic_down_matrix_rank": 0,
       "complete_universal_holomorphic_neutrino_matrix_available": true,
       "complete_universal_holomorphic_neutrino_matrix_rank": 0,
       "complete_universal_holomorphic_up_matrix_available": true,
@@ -3822,7 +3852,9 @@
         176
       ],
       "down_higgs_character_twist_guessed": false,
+      "down_higher_orders_structurally_zero": true,
       "down_matter_parameter_correction_count": 8,
+      "down_maximum_exterior_allowed_parameter_order": 1,
       "down_tree_extension_point_selected": false,
       "down_tree_zero_entries_have_exact_primitives": true,
       "down_universal_matter_character_count": 2,
@@ -4143,8 +4175,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "every exterior-allowed universal down-matrix coefficient",
-    "selection_status": "the convention-corrected down tree matrix is exactly rank zero; every exterior-allowed universal down coefficient is now the minimum frontier"
+    "next_required_object": "the convention-corrected charged-lepton interpretation of the existing forward-sector universal matrix",
+    "selection_status": "the convention-corrected physical down matrix is exactly rank zero through every exterior-allowed order; the existing forward-sector universal matrix must now be interpreted as the physical charged-lepton sector"
   },
   "research_value_scheduler": [
     {

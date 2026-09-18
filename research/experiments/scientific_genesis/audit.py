@@ -1537,10 +1537,6 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/"
                 "test_scientific_genesis_mixed_schoen_down_matter_lifts.py",
             ),
-            missing=(
-                "complete convention-corrected down tree matrix",
-                "every exterior-allowed universal down coefficient",
-            ),
         ),
         _node(
             "mixed_down_tree_matrix",
@@ -1560,9 +1556,29 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/"
                 "test_scientific_genesis_mixed_schoen_down_tree_matrix.py",
             ),
+        ),
+        _node(
+            "mixed_down_first_order_matrix",
+            "complete universal convention-corrected down matrix",
+            "Flavor",
+            "PROVED",
+            "All eight parameter and local-family coefficients are exact "
+            "closed scalar cochains with distinct digests and zero residue. "
+            "Both parameter coefficient matrices vanish. Exterior filtration "
+            "allows no order above one, so the complete universal physical "
+            "down matrix has exact rank zero on the frozen P1.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_down_first_order_matrix.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_down_first_order_matrix.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_down_first_order_matrix.py",
+            ),
             missing=(
-                "every exterior-allowed universal down-matrix coefficient",
-                "complete holomorphic down matrix",
+                "convention-corrected charged-lepton interpretation of the "
+                "existing forward-sector universal matrix",
+                "first nontrivial carrier-derived holomorphic Yukawa matrix",
             ),
         ),
         _node(
@@ -3330,18 +3346,30 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "mixed_down_tree_matrix",
-            "first_exact_yukawa",
-            "The exact tree matrix vanishes, so a nontrivial holomorphic down "
-            "matrix now requires the exterior-allowed universal coefficients.",
+            "mixed_down_first_order_matrix",
+            "The exact rank-zero tree matrix and all eight exterior-allowed "
+            "universal coefficients determine the complete down matrix.",
             (
                 "data/generated/scientific_genesis/"
-                "mixed_schoen_down_tree_matrix.json",
+                "mixed_schoen_down_first_order_matrix.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_down_first_order_matrix",
+            "first_exact_yukawa",
+            "The physical down matrix vanishes at every exterior-allowed "
+            "order, so a first nontrivial matrix must use another lawful "
+            "physical sector or an exact replacement carrier realization.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_down_first_order_matrix.json",
             ),
             (),
             False,
-            (
-                "the universal down coefficients are unresolved",
-            ),
+            ("the first nontrivial holomorphic Yukawa remains unresolved",),
         ),
         _edge(
             "common_dga_package",
@@ -3819,6 +3847,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_down_matter_lifts.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_down_tree_matrix.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_down_first_order_matrix.json",
         "data/generated/scientific_genesis/mixed_schoen_flavor_frontier.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_neutrino_matter_lifts.json",
@@ -3878,9 +3908,10 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "the convention-corrected down tree matrix is exactly rank "
-                "zero; every exterior-allowed universal down coefficient is "
-                "now the minimum frontier"
+                "the convention-corrected physical down matrix is exactly "
+                "rank zero through every exterior-allowed order; the existing "
+                "forward-sector universal matrix must now be interpreted as "
+                "the physical charged-lepton sector"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4116,6 +4147,11 @@ def build_state() -> dict[str, object]:
                 "complete_down_tree_matrix_rank": 0,
                 "down_tree_zero_entries_have_exact_primitives": True,
                 "down_tree_extension_point_selected": False,
+                "complete_down_first_order_coefficient_count": 8,
+                "complete_universal_holomorphic_down_matrix_available": True,
+                "complete_universal_holomorphic_down_matrix_rank": 0,
+                "down_maximum_exterior_allowed_parameter_order": 1,
+                "down_higher_orders_structurally_zero": True,
                 "neutrino_universal_matter_character_count": 2,
                 "neutrino_universal_v1_class_count": 2,
                 "neutrino_universal_v2_lift_count": 4,
@@ -4140,7 +4176,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "every exterior-allowed universal down-matrix coefficient"
+                "the convention-corrected charged-lepton interpretation of "
+                "the existing forward-sector universal matrix"
             ),
         },
         "claims": _nodes(),

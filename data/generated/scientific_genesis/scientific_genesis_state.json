@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "83d20d6a256f835bd1e5d6a4228e1dfeccc9e05b12bb2f0a554173f1d8dc5ef9",
+  "artifact_digest": "4c26f1c6298176dd92ccf67f553673b3105b0376d86c0f38490553edbbdda380",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -175,6 +175,11 @@
       "bytes": 2295,
       "path": "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json",
       "sha256": "035b8a208283571874a7742f597fd735dee3fa3aef44c54c312a241eea568143"
+    },
+    {
+      "bytes": 2894,
+      "path": "data/generated/scientific_genesis/mixed_schoen_reverse_outer_universal_cone.json",
+      "sha256": "e22b6d4fc324f5e219640d3da3c83046fca994e6f848c245cf113cf2dfaa199c"
     },
     {
       "bytes": 6072,
@@ -436,8 +441,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 194,
-    "test_python_files": 173
+    "research_python_files": 195,
+    "test_python_files": 174
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -772,6 +777,23 @@
       "layer": "Reference realization",
       "missing_prerequisites": [],
       "statement": "The two strict forward invariant classes form an exact universal rank-four cone over P1(Q(omega)). Its split locus is the affine origin; local freeness, topology, and descent are parameter independent, with no projective point selected.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_outer_universal_cone.json",
+        "research/experiments/scientific_genesis/mixed_schoen_reverse_outer_universal_cone.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_reverse_outer_universal_cone.py"
+      ],
+      "id": "mixed_schoen_reverse_outer_universal_cone",
+      "label": "lawful reverse mixed universal outer cone",
+      "layer": "Reference realization",
+      "missing_prerequisites": [
+        "exact reverse stable locus",
+        "exclusion of accidental proper structure-group reductions"
+      ],
+      "statement": "The six strict reverse invariant classes form an exact universal rank-four cone over P5(Q(omega)). Its split locus is the affine origin; local freeness, topology, and descent are parameter independent. No projective point or stable locus is selected.",
       "status": "COMPUTED"
     },
     {
@@ -2278,6 +2300,19 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_outer_universal_cone.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the affine origin is the split reverse extension"
+      ],
+      "mathematical_reason": "The six strict reverse fixed classes define a parameter-linear RHom(V1,V2) arrow whose closed coefficients give an exact universal block mapping cone.",
+      "source": "mixed_schoen_outer_actions",
+      "target": "mixed_schoen_reverse_outer_universal_cone"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "data/generated/scientific_genesis/published_constituent_ray_alignment.json"
       ],
       "implication": "exact",
@@ -3686,6 +3721,7 @@
     "exact selected mixed outer-Hom transfer deriving cover cohomology 18/54 and 54/18 with square-zero differentials",
     "exact mixed outer P/T transfer deriving fixed dimensions 2/6 and strict full-Cech invariant representatives",
     "exact lawful universal rank-four cone over P1(Q(omega)) with affine-origin split locus and no selected extension point",
+    "exact lawful reverse universal rank-four cone over P5(Q(omega)) with affine-origin split locus and no selected extension point",
     "every lawful P1 extension stable in the exact source chamber with genuine SU(4) forced by nonzero cover c3",
     "synchronized mixed constituent transfers derive matter cohomology (0,27,0,0), with free-action Lefschetz compression proving three regular deck representations",
     "acyclic determinant filtration and lawful relative pushdowns derive Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and zero massless color triplets throughout the lawful P1",
@@ -4010,6 +4046,12 @@
         0
       ],
       "lawful_mixed_projective_outer_space": "P^1(Q(omega))",
+      "lawful_reverse_equivariant_descent_all_parameters": true,
+      "lawful_reverse_exact_stability_locus_computed": false,
+      "lawful_reverse_extension_point_selected": false,
+      "lawful_reverse_local_freeness_all_parameters": true,
+      "lawful_reverse_projective_outer_space": "P^5(Q(omega))",
+      "lawful_reverse_split_locus": "affine origin only",
       "lawful_structural_spectrum_all_P1": true,
       "lawful_wilson_projected_families": 3,
       "lawful_wilson_projected_higgs_pairs": 1,
@@ -4247,7 +4289,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "an exact replacement constituent or carrier realization with a nontrivial holomorphic Yukawa matrix",
+    "next_required_object": "the exact stable genuine-SU(4) locus of the lawful reverse P5 family",
     "selection_status": "the convention-corrected physical down and charged-lepton matrices are exactly rank zero through every exterior-allowed order; the frozen carrier has no remaining available flavor sector for a nontrivial holomorphic matrix"
   },
   "research_value_scheduler": [

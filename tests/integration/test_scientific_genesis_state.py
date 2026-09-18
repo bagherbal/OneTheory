@@ -374,6 +374,16 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert path["criteria"]["shared_missing_higgs_character"] == [0, 1]
     assert path["criteria"]["next_exact_frontier_uses_observations"] is False
+    assert path["criteria"]["lawful_reverse_projective_outer_space"] == (
+        "P^5(Q(omega))"
+    )
+    assert path["criteria"]["lawful_reverse_split_locus"] == (
+        "affine origin only"
+    )
+    assert path["criteria"]["lawful_reverse_local_freeness_all_parameters"] is True
+    assert path["criteria"]["lawful_reverse_equivariant_descent_all_parameters"] is True
+    assert path["criteria"]["lawful_reverse_extension_point_selected"] is False
+    assert path["criteria"]["lawful_reverse_exact_stability_locus_computed"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
@@ -386,8 +396,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "holomorphic matrix"
     )
     assert path["next_required_object"] == (
-        "an exact replacement constituent or carrier realization with a "
-        "nontrivial holomorphic Yukawa matrix"
+        "the exact stable genuine-SU(4) locus of the lawful reverse P5 family"
+    )
+    assert claims["mixed_schoen_reverse_outer_universal_cone"]["status"] == (
+        "COMPUTED"
     )
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"

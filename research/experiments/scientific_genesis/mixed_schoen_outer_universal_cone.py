@@ -128,12 +128,21 @@ def _representative(raw: object) -> SparseOuterCechCochain:
     return result
 
 
-def _load_forward_basis() -> tuple[
+def _load_orientation_basis(
+    left: str,
+    right: str,
+    parameter_prefix: str,
+) -> tuple[
     str,
     tuple[str, ...],
     tuple[SparseOuterCechCochain, ...],
 ]:
-    """Load the lawful RHom(V2,V1) fixed basis from the action certificate."""
+    """Load one lawful fixed basis from the mixed action certificate."""
+
+    if (left, right) not in {("V1", "V2"), ("V2", "V1")}:
+        raise ValueError("mixed outer objects must be the selected V1/V2 pair")
+    if len(parameter_prefix) != 1 or not parameter_prefix.isidentifier():
+        raise ValueError("the outer parameter prefix must be one identifier letter")
 
     digest, payload = _verified_payload(ACTION_ARTIFACT)
     if (
@@ -146,32 +155,44 @@ def _load_forward_basis() -> tuple[
     orientations = payload.get("orientations")
     if not isinstance(orientations, list):
         raise ValueError("mixed outer action orientations are missing")
-    forward = next(
+    orientation = next(
         (
             item
             for item in orientations
             if isinstance(item, dict)
-            and item.get("left") == "V1"
-            and item.get("right") == "V2"
+            and item.get("left") == left
+            and item.get("right") == right
         ),
         None,
     )
-    if not isinstance(forward, dict) or forward.get("exact") is not True:
-        raise ValueError("lawful RHom(V2,V1) action certificate is missing")
-    raw_representatives = forward.get("full_cech_koszul_representatives")
-    invariant_dimension = forward.get("invariant_dimension")
+    if not isinstance(orientation, dict) or orientation.get("exact") is not True:
+        raise ValueError(f"lawful RHom({right},{left}) certificate is missing")
+    raw_representatives = orientation.get("full_cech_koszul_representatives")
+    invariant_dimension = orientation.get("invariant_dimension")
     if (
         not isinstance(invariant_dimension, int)
         or invariant_dimension <= 0
         or not isinstance(raw_representatives, list)
         or len(raw_representatives) != invariant_dimension
-        or forward.get("strict_invariant_representative_count")
+        or orientation.get("strict_invariant_representative_count")
         != invariant_dimension
     ):
         raise ValueError("mixed invariant basis dimension is inconsistent")
     representatives = tuple(_representative(item) for item in raw_representatives)
-    parameters = tuple(f"a{index}" for index in range(len(representatives)))
+    parameters = tuple(
+        f"{parameter_prefix}{index}" for index in range(len(representatives))
+    )
     return digest, parameters, representatives
+
+
+def _load_forward_basis() -> tuple[
+    str,
+    tuple[str, ...],
+    tuple[SparseOuterCechCochain, ...],
+]:
+    """Load the lawful RHom(V2,V1) fixed basis for existing computations."""
+
+    return _load_orientation_basis("V1", "V2", "a")
 
 
 @dataclass(frozen=True, slots=True)
@@ -180,6 +201,9 @@ class MixedSchoenUniversalOuterCone:
 
     action_artifact_digest: str
     prerequisite_artifact_digests: tuple[tuple[str, str], ...]
+    subobject_name: str
+    quotient_name: str
+    schema: str
     parameters: tuple[str, ...]
     basis_representatives: tuple[SparseOuterCechCochain, ...]
     extension: ParameterizedOuterCechCochain
@@ -196,6 +220,13 @@ class MixedSchoenUniversalOuterCone:
             self.parameters
         ):
             raise ValueError("universal parameters must index the invariant basis")
+        if (self.subobject_name, self.quotient_name) not in {
+            ("V1", "V2"),
+            ("V2", "V1"),
+        }:
+            raise ValueError("the universal cone must use the selected constituents")
+        if not self.schema:
+            raise ValueError("the universal cone requires an artifact schema")
         if self.extension.parameters != self.parameters:
             raise ValueError("universal outer coefficient basis changed")
         if not (
@@ -206,12 +237,37 @@ class MixedSchoenUniversalOuterCone:
             raise ValueError("universal cone prerequisites are not exact")
         if self.rank != 4 or self.determinant_c1 != ("0", "0", "0"):
             raise ValueError("the universal family lost rank or determinant")
-        for index, representative in enumerate(self.basis_representatives):
-            point = tuple(
-                Eisenstein(int(position == index))
+        allowed_monomials = {
+            tuple(
+                int(position == index)
                 for position in range(len(self.parameters))
             )
-            if self.extension.specialize(point) != representative:
+            for index in range(len(self.parameters))
+        }
+        if any(
+            monomial not in allowed_monomials
+            for _basis, coefficient in self.extension.terms
+            for monomial, _scalar in coefficient.terms
+        ):
+            raise ValueError("the universal outer arrow is not parameter-linear")
+        for index, representative in enumerate(self.basis_representatives):
+            monomial = tuple(
+                int(position == index)
+                for position in range(len(self.parameters))
+            )
+            specialized = SparseOuterCechCochain(
+                tuple(
+                    (basis, scalar)
+                    for basis, coefficient in self.extension.terms
+                    if not (
+                        scalar := cast(
+                            Eisenstein,
+                            coefficient.coefficient(monomial),
+                        )
+                    ).is_zero()
+                )
+            )
+            if specialized != representative:
                 raise ValueError("universal basis specialization failed")
 
     @property
@@ -252,8 +308,10 @@ class MixedSchoenUniversalOuterCone:
         affine = f"A^{count}(Q(omega))"
         projective = f"P^{count - 1}(Q(omega))"
         parameter_text = ",".join(self.parameters)
+        parameter_symbol = self.parameters[0][0]
+        orientation = f"RHom({self.quotient_name},{self.subobject_name})"
         return {
-            "schema": "mixed-schoen-outer-universal-cone-v1",
+            "schema": self.schema,
             "coefficient_field": "Q(omega)",
             "parameters": list(self.parameters),
             "parameter_count_derived_from_invariant_basis": True,
@@ -275,11 +333,14 @@ class MixedSchoenUniversalOuterCone:
                 self.prerequisite_artifact_digests
             ),
             "generated_complex": {
-                "objects": ["V1", "V2"],
-                "orientation": "RHom(V2,V1)",
-                "differential": "D_E(a)=[[D_V1,e(a)],[0,D_V2]]",
+                "objects": [self.subobject_name, self.quotient_name],
+                "orientation": orientation,
+                "differential": (
+                    f"D_E({parameter_symbol})=[[D_{self.subobject_name},"
+                    f"e({parameter_symbol})],[0,D_{self.quotient_name}]]"
+                ),
                 "extension": (
-                    "e(a)="
+                    f"e({parameter_symbol})="
                     + "+".join(
                         f"{parameter} e_{index}"
                         for index, parameter in enumerate(self.parameters)
@@ -317,11 +378,19 @@ class MixedSchoenUniversalOuterCone:
         }
 
 
-@cache
-def mixed_schoen_universal_outer_cone() -> MixedSchoenUniversalOuterCone:
-    """Construct the lawful universal cone without choosing a projective point."""
+def _build_universal_outer_cone(
+    left: str,
+    right: str,
+    parameter_prefix: str,
+    schema: str,
+) -> MixedSchoenUniversalOuterCone:
+    """Construct one exact universal orientation without selecting a point."""
 
-    action_digest, parameters, representatives = _load_forward_basis()
+    action_digest, parameters, representatives = _load_orientation_basis(
+        left,
+        right,
+        parameter_prefix,
+    )
     prerequisite_digests = []
     for name, path, exact_gate in (
         (
@@ -356,6 +425,9 @@ def mixed_schoen_universal_outer_cone() -> MixedSchoenUniversalOuterCone:
     return MixedSchoenUniversalOuterCone(
         action_digest,
         tuple(prerequisite_digests),
+        left,
+        right,
+        schema,
         parameters,
         representatives,
         extension,
@@ -363,9 +435,27 @@ def mixed_schoen_universal_outer_cone() -> MixedSchoenUniversalOuterCone:
         True,
         True,
         published.rank,
-        tuple(str(value) for value in published.c1),
-        tuple(str(value) for value in published.c2),
+        cast(
+            tuple[str, str, str],
+            tuple(str(value) for value in published.c1),
+        ),
+        cast(
+            tuple[str, str, str],
+            tuple(str(value) for value in published.c2),
+        ),
         str(published.c3),
+    )
+
+
+@cache
+def mixed_schoen_universal_outer_cone() -> MixedSchoenUniversalOuterCone:
+    """Construct the lawful forward cone without choosing a projective point."""
+
+    return _build_universal_outer_cone(
+        "V1",
+        "V2",
+        "a",
+        "mixed-schoen-outer-universal-cone-v1",
     )
 
 
@@ -390,9 +480,10 @@ def main() -> int:
     """Regenerate the lawful mixed universal outer-cone certificate."""
 
     payload = write_mixed_schoen_universal_outer_cone()
+    generated_complex = cast(dict[str, object], payload["generated_complex"])
     print(f"artifact_digest: {payload['artifact_digest']}")
     print(f"projective_non_split_space: {payload['projective_non_split_space']}")
-    print(f"mapping_cone_squared_zero: {payload['generated_complex']['squared_zero']}")
+    print(f"mapping_cone_squared_zero: {generated_complex['squared_zero']}")
     print(f"first_missing_input: {payload['first_missing_input']}")
     return 0
 

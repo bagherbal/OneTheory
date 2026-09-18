@@ -421,6 +421,28 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_schoen_reverse_outer_universal_cone",
+            "lawful reverse mixed universal outer cone",
+            "Reference realization",
+            "COMPUTED",
+            "The six strict reverse invariant classes form an exact universal "
+            "rank-four cone over P5(Q(omega)). Its split locus is the affine "
+            "origin; local freeness, topology, and descent are parameter "
+            "independent. No projective point or stable locus is selected.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_outer_universal_cone.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_reverse_outer_universal_cone.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_reverse_outer_universal_cone.py",
+            ),
+            missing=(
+                "exact reverse stable locus",
+                "exclusion of accidental proper structure-group reductions",
+            ),
+        ),
+        _node(
             "published_constituent_mapping_cones",
             "trivial-character constituent mapping cones",
             "Reference realization",
@@ -2132,6 +2154,20 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             ("the affine origin is the split extension",),
+        ),
+        _edge(
+            "mixed_schoen_outer_actions",
+            "mixed_schoen_reverse_outer_universal_cone",
+            "The six strict reverse fixed classes define a parameter-linear "
+            "RHom(V1,V2) arrow whose closed coefficients give an exact "
+            "universal block mapping cone.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_outer_universal_cone.json",
+            ),
+            (),
+            True,
+            ("the affine origin is the split reverse extension",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -3849,6 +3885,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/mixed_schoen_outer_transfer.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_actions.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_reverse_outer_universal_cone.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_stability_locus.json",
         "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -4037,6 +4075,12 @@ def build_state() -> dict[str, object]:
                 "mixed_invariant_h1_dimensions": [2, 6],
                 "mixed_strict_invariant_representatives": [2, 6],
                 "lawful_mixed_projective_outer_space": "P^1(Q(omega))",
+                "lawful_reverse_projective_outer_space": "P^5(Q(omega))",
+                "lawful_reverse_split_locus": "affine origin only",
+                "lawful_reverse_local_freeness_all_parameters": True,
+                "lawful_reverse_equivariant_descent_all_parameters": True,
+                "lawful_reverse_extension_point_selected": False,
+                "lawful_reverse_exact_stability_locus_computed": False,
                 "retired_source_scoped_outer_space": "P^3(Q(omega))",
                 "outer_parameter_dimension_mismatch_unresolved": True,
                 "lawful_P1_all_nonzero_parameters_stable_in_chamber": True,
@@ -4229,8 +4273,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "an exact replacement constituent or carrier realization with "
-                "a nontrivial holomorphic Yukawa matrix"
+                "the exact stable genuine-SU(4) locus of the lawful reverse "
+                "P5 family"
             ),
         },
         "claims": _nodes(),
@@ -4260,6 +4304,8 @@ def build_state() -> dict[str, object]:
             "strict full-Cech invariant representatives",
             "exact lawful universal rank-four cone over P1(Q(omega)) with "
             "affine-origin split locus and no selected extension point",
+            "exact lawful reverse universal rank-four cone over P5(Q(omega)) "
+            "with affine-origin split locus and no selected extension point",
             "every lawful P1 extension stable in the exact source chamber with "
             "genuine SU(4) forced by nonzero cover c3",
             "synchronized mixed constituent transfers derive matter cohomology "

@@ -269,6 +269,17 @@ irreducible rank-four reduction. Hence `P^1 x K^s` is a descended genuine-
 ledger remains mismatched, but that mismatch does not enter this stability
 implication.
 
+The opposite extension orientation is now an exact, non-retired replacement
+family on the same selected constituents. Its six strict invariant classes
+give `e(b)=b0 e0+...+b5 e5` in `RHom(V1,V2)`, so the reverse sequence
+`0 -> V2 -> E_reverse -> V1 -> 0` has non-split parameter space
+`P^5(Q(omega))`. The universal block square, local freeness, descent, rank,
+determinant, and Chern data close exactly without choosing a point. The
+published source proves only the existence of a reverse stable subcone across
+the marginal wall at this stage; the exact stable locus and exclusion of
+accidental proper structure-group reductions remain the next gate. No reverse
+physical spectrum or flavor claim is made before that gate closes.
+
 Direct mixed-complex transfers now derive constituent profiles `(0,9,0,0)`
 and `(0,18,0,0)`. The universal long exact sequence therefore fixes
 `H*(V)=(0,27,0,0)` and eliminates matter jumping over the entire lawful `P1`.

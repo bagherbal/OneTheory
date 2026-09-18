@@ -1,0 +1,94 @@
+{
+  "action_artifact_digest": "7d009de9f408502fda1e05478b5e71033eb718e5e801035f2e2975d37e5b7582",
+  "affine_parameter_space": "A^6(Q(omega))",
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "802941c5bd1618150e7a8a04d284af1747e015ff3437dc19e89b05ad8d9e312b",
+  "basis_term_counts": [
+    30216,
+    37989,
+    43185,
+    51765,
+    39144,
+    32295
+  ],
+  "chern_classes": {
+    "c1": [
+      "0",
+      "0",
+      "0"
+    ],
+    "c2": [
+      "8/3",
+      "5/3",
+      "4"
+    ],
+    "c3": "-6",
+    "parameter_independent": true,
+    "provenance": "published visible constituent topology"
+  },
+  "coefficient_field": "Q(omega)",
+  "descent_locus": "all A^6(Q(omega))",
+  "determinant_c1": [
+    "0",
+    "0",
+    "0"
+  ],
+  "equivariant_descent_exact": true,
+  "exact_reverse_stability_locus_computed": false,
+  "extension_sequence": "0 -> V2 -> E_reverse -> V1 -> 0",
+  "first_missing_input": "exact accidental-reduction and stable loci over P^5(Q(omega))",
+  "generated_complex": {
+    "differential": "D_E(b)=[[D_V2,e(b)],[0,D_V1]]",
+    "extension": "e(b)=b0 e_0+b1 e_1+b2 e_2+b3 e_3+b4 e_4+b5 e_5",
+    "objects": [
+      "V2",
+      "V1"
+    ],
+    "orientation": "RHom(V1,V2)",
+    "parameter_linear": true,
+    "squared_zero": true
+  },
+  "genuine_su4_locus_computed": false,
+  "local_freeness_locus": "all A^6(Q(omega))",
+  "local_freeness_theorem": "an extension of locally free sheaves is locally free because the quotient is projective on every local stalk",
+  "non_split_locus": "A^6(Q(omega)) minus the origin",
+  "parameter_count_derived_from_invariant_basis": true,
+  "parameter_ring": "Q(omega)[b0,b1,b2,b3,b4,b5]",
+  "parameters": [
+    "b0",
+    "b1",
+    "b2",
+    "b3",
+    "b4",
+    "b5"
+  ],
+  "prerequisite_artifact_digests": {
+    "constituent_chart_presentations": "6566277c414062b090d4d212fab55ff79320e06fdcf6aeea34d1c775062c4125",
+    "constituent_deck_atlases": "d2c66b65829d21078f0481003febaec7b4690c5b779e319db1133f679f2c7dba",
+    "mixed_constituent_arrows": "8527e26fa297a58a0139a67123fbf55ab9828da081609cd81615c18482468f81"
+  },
+  "projective_non_split_space": "P^5(Q(omega))",
+  "published_stability_scope": {
+    "arxiv_id": "hep-th/0602073",
+    "result": "a nonempty reverse stable subcone exists across the marginal wall",
+    "source_archive_sha256": "8e38123b9d2de8751deecbf295015497ab2ed891244215455fffe756bebf0aea",
+    "used_as_existence_only": true,
+    "version": "v1"
+  },
+  "rank": 4,
+  "retired_pure_cech_representatives_used": false,
+  "schema": "mixed-schoen-reverse-outer-universal-cone-v1",
+  "split_locus": {
+    "description": "the affine origin only",
+    "ideal_generators": [
+      "b0",
+      "b1",
+      "b2",
+      "b3",
+      "b4",
+      "b5"
+    ]
+  },
+  "status": "exact universal non-split locally free descended rank-four derived cone; genuine SU(4) remains unresolved",
+  "universal_term_count": 100425
+}

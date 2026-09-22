@@ -1,0 +1,54 @@
+{
+  "artifact_digest": "68009a2a29cac6d3dc01569156f199ad3960bedbddc1cf98c072f9a5c66b1253",
+  "computable_one_theory_carrier_state": {
+    "certificate_digests": {
+      "observable_spectrum": "2ed591d1fc44f7acf52ea63833c83f78dc4a04b9cb5ec5e30fb36ca4970ee043",
+      "relative_pushdowns": "e047debedef3af4dace938baefcbab29a4e62dc3fa2102bfb09dac9082152e3e",
+      "stable_su4_locus": "1c6797ecfef7944296fa39591ef0950a91db6c603d8a9474b568603695bda78c",
+      "universal_cone": "802941c5bd1618150e7a8a04d284af1747e015ff3437dc19e89b05ad8d9e312b"
+    },
+    "chern_data": {
+      "cover_c3": -54,
+      "quotient_c3": -6
+    },
+    "coefficient_field": "Q(omega)",
+    "component_id": "lawful-mixed-schoen-reverse-P5",
+    "conditional_on": [
+      "selected heterotic UV framework",
+      "selected published Schoen geometry and Wilson embedding"
+    ],
+    "determinant": "trivial",
+    "epistemic_status": "COMPUTED",
+    "freeze_rule": "the smallest exact unretired replacement after the forward all-sector flavor no-go; no phenomenological ranking among P5 points",
+    "frozen": true,
+    "full_common_dga_representatives_available": false,
+    "kahler_chamber": "K_reverse^s",
+    "next_required_object": "parameter-dependent matter and Higgs lifts in one common Schoen DGA",
+    "parameter_component": "P^5(Q(omega))",
+    "rank": 4,
+    "representative_selected": false,
+    "structural_spectrum": {
+      "anti_families": 0,
+      "exotic_massless_blocks": 0,
+      "families": 3,
+      "higgs_pairs": 1,
+      "massless_color_triplets": 0,
+      "right_handed_neutrinos": 3
+    },
+    "structure_group": "SU(4)"
+  },
+  "forward_p1_flavor_scope_exhausted": true,
+  "forward_p1_remains_lawful": true,
+  "published_reference_carrier_state": {
+    "arxiv_id": "hep-th/0512177",
+    "epistemic_status": "SELECTED",
+    "equated_with_computable_component": false,
+    "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "source_parameter_ledger": "generic nonzero invariant Ext in source P^3 ledger",
+    "version": "v3"
+  },
+  "schema": "computable-one-theory-reverse-carrier-state-v1",
+  "source_p3_to_lawful_reverse_p5_equivalence_claimed": false,
+  "states_are_distinct": true,
+  "status": "lawful reverse physical carrier component frozen for vertical common-DGA computation"
+}

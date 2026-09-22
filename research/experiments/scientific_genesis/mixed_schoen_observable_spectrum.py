@@ -664,22 +664,26 @@ class MixedSchoenObservableSpectrum:
         }
 
 
-@cache
-def mixed_schoen_observable_spectrum() -> MixedSchoenObservableSpectrum:
-    """Construct the exact matter and Higgs spectrum of the lawful family."""
+def _mixed_schoen_spectrum_from_artifacts(
+    universal_artifact: Path,
+    projective_space: str,
+    stability_artifact: Path,
+    stable_locus: str,
+) -> MixedSchoenObservableSpectrum:
+    """Construct synchronized spectrum data for one certified orientation."""
 
     first, second = mixed_schoen_constituents()
     unit = mixed_schoen_unit()
     first_pushdown, second_pushdown = relative_constituent_pushdowns()
     line_unit = schoen_unit_constituent()
     universal_digest = _artifact_digest(
-        UNIVERSAL_ARTIFACT,
+        universal_artifact,
         "projective_non_split_space",
-        "P^1(Q(omega))",
+        projective_space,
     )
     if (
         _artifact_digest(
-            UNIVERSAL_ARTIFACT,
+            universal_artifact,
             "equivariant_descent_exact",
             True,
         )
@@ -689,9 +693,9 @@ def mixed_schoen_observable_spectrum() -> MixedSchoenObservableSpectrum:
     return MixedSchoenObservableSpectrum(
         universal_digest,
         _artifact_digest(
-            STABILITY_ARTIFACT,
+            stability_artifact,
             "certified_stable_locus",
-            "P^1(Q(omega)) x K^s",
+            stable_locus,
         ),
         _artifact_digest(
             PUSHDOWN_ARTIFACT,
@@ -713,6 +717,18 @@ def mixed_schoen_observable_spectrum() -> MixedSchoenObservableSpectrum:
             line_unit,
         ),
         _derived_tensor_terms(first_pushdown, second_pushdown),
+    )
+
+
+@cache
+def mixed_schoen_observable_spectrum() -> MixedSchoenObservableSpectrum:
+    """Construct the exact matter and Higgs spectrum of the lawful family."""
+
+    return _mixed_schoen_spectrum_from_artifacts(
+        UNIVERSAL_ARTIFACT,
+        "P^1(Q(omega))",
+        STABILITY_ARTIFACT,
+        "P^1(Q(omega)) x K^s",
     )
 
 

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "ede0f944b66f8655415333a0c860ff19bd6b2ec604cee13dc2e4734d0800d573",
+  "artifact_digest": "2092443c1d19365ce6dd7e4ec4d8b6322df0336cde1f788d147a8959757a9e1a",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -197,9 +197,19 @@
       "sha256": "f9a64d8ca49f705371949ec2ca998174687689b02f4a310b570d55f7d55301da"
     },
     {
+      "bytes": 11165,
+      "path": "data/generated/scientific_genesis/mixed_schoen_reverse_observable_spectrum.json",
+      "sha256": "ee9811489fa6481b981b3af942d2f13d797701511c0b9d83fbea7b6ffd464e97"
+    },
+    {
       "bytes": 2189,
       "path": "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
       "sha256": "c6efae9482b501926365543056ec76405873db273b9b7d4d15d143ed13386c7c"
+    },
+    {
+      "bytes": 2327,
+      "path": "data/generated/scientific_genesis/computable_one_theory_reverse_carrier_state.json",
+      "sha256": "09a5c079e94f63f8f61102fdff8466c9775feab8852d6bd6020d6a48969ddd6d"
     },
     {
       "bytes": 5326,
@@ -446,8 +456,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 196,
-    "test_python_files": 175
+    "research_python_files": 198,
+    "test_python_files": 177
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1325,6 +1335,37 @@
       "layer": "Computable carrier",
       "missing_prerequisites": [],
       "statement": "The unique currently derived lawful physical connected component P1 is frozen for vertical computation. No extension point is selected, and the source P3 ledger remains a distinct reference.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "published Wilson-line embedding",
+        "three families and one Higgs pair are selection constraints"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_observable_spectrum.json",
+        "research/experiments/scientific_genesis/mixed_schoen_reverse_observable_spectrum.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_reverse_observable_spectrum.py"
+      ],
+      "id": "mixed_schoen_reverse_observable_spectrum",
+      "label": "reverse-family Wilson-projected spectrum",
+      "layer": "Reference realization",
+      "missing_prerequisites": [],
+      "statement": "Pure-H1 constituent cohomology makes reverse matter independent of all P5 parameters. Acyclic determinant endpoints make the exterior-square filtration orientation-independent. Exact deck characters then give three families, three right-handed neutrinos, one Higgs pair, no anti-families, and no massless triplets over the entire reverse stable locus.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/computable_one_theory_reverse_carrier_state.json",
+        "research/experiments/scientific_genesis/computable_one_theory_reverse_carrier_state.py",
+        "tests/integration/test_scientific_genesis_computable_one_theory_reverse_carrier_state.py"
+      ],
+      "id": "computable_reverse_carrier_state",
+      "label": "frozen reverse computable carrier",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "The full lawful reverse P5 physical component is frozen for vertical computation without selecting a point. The forward P1 remains lawful with its flavor no-go preserved, while the source P3 ledger remains a distinct reference.",
       "status": "COMPUTED"
     },
     {
@@ -2940,6 +2981,36 @@
       "target": "computable_carrier_state"
     },
     {
+      "assumptions_required": [
+        "published Wilson-line embedding"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_observable_spectrum.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "full common-DGA representatives are not supplied by dimensions"
+      ],
+      "mathematical_reason": "Pure-H1 constituent cohomology kills every matter connecting-rank dependence, while acyclic determinant endpoints reduce either exterior-square filtration to the same tensor middle term.",
+      "source": "mixed_schoen_reverse_outer_stability_locus",
+      "target": "mixed_schoen_reverse_observable_spectrum"
+    },
+    {
+      "assumptions_required": [
+        "selection constraints are not predictions"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/computable_one_theory_reverse_carrier_state.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the source P3 ledger is not identified with reverse P5"
+      ],
+      "mathematical_reason": "Passing every declared structural selection gate freezes the entire reverse connected component without ranking P5 points.",
+      "source": "mixed_schoen_reverse_observable_spectrum",
+      "target": "computable_reverse_carrier_state"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -3757,6 +3828,8 @@
     "exact lawful universal rank-four cone over P1(Q(omega)) with affine-origin split locus and no selected extension point",
     "exact lawful reverse universal rank-four cone over P5(Q(omega)) with affine-origin split locus and no selected extension point",
     "every lawful reverse P5 extension stable on a rational open Kahler box with genuine SU(4) forced by nonzero cover c3",
+    "orientation-independent exact reverse matter and Higgs cohomology with three-family one-Higgs Wilson projection over all P5",
+    "the lawful reverse P5 physical component frozen without selecting an extension point or identifying the source P3 ledger",
     "every lawful P1 extension stable in the exact source chamber with genuine SU(4) forced by nonzero cover c3",
     "synchronized mixed constituent transfers derive matter cohomology (0,27,0,0), with free-action Lefschetz compression proving three regular deck representations",
     "acyclic determinant filtration and lawful relative pushdowns derive Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and zero massless color triplets throughout the lawful P1",
@@ -3945,7 +4018,7 @@
       "complete_universal_holomorphic_neutrino_matrix_rank": 0,
       "complete_universal_holomorphic_up_matrix_available": true,
       "complete_universal_holomorphic_up_matrix_rank": 0,
-      "computable_carrier_component": "lawful-mixed-schoen-P1",
+      "computable_carrier_component": "lawful-mixed-schoen-reverse-P5",
       "computable_carrier_component_frozen": true,
       "constituent_atlas_over_synchronized_characters": [
         [
@@ -4082,13 +4155,33 @@
       ],
       "lawful_mixed_projective_outer_space": "P^1(Q(omega))",
       "lawful_reverse_all_P5_stable_in_chamber": true,
+      "lawful_reverse_dual_matter_h0_to_h3": [
+        0,
+        0,
+        27,
+        0
+      ],
       "lawful_reverse_equivariant_descent_all_parameters": true,
       "lawful_reverse_exact_stability_locus_computed": true,
       "lawful_reverse_extension_point_selected": false,
       "lawful_reverse_factor_exchange_assumed": false,
       "lawful_reverse_genuine_su4_on_stable_chamber": true,
+      "lawful_reverse_higgs_h0_to_h3": [
+        0,
+        4,
+        4,
+        0
+      ],
       "lawful_reverse_local_freeness_all_parameters": true,
+      "lawful_reverse_massless_color_triplets": 0,
+      "lawful_reverse_matter_h0_to_h3": [
+        0,
+        27,
+        0,
+        0
+      ],
       "lawful_reverse_projective_outer_space": "P^5(Q(omega))",
+      "lawful_reverse_spectrum_source_assertion_used_as_rank_input": false,
       "lawful_reverse_split_locus": "affine origin only",
       "lawful_reverse_stability_anchor": [
         3,
@@ -4096,6 +4189,9 @@
         2
       ],
       "lawful_reverse_stability_box_radius": "1/4",
+      "lawful_reverse_structural_spectrum_all_P5": true,
+      "lawful_reverse_wilson_projected_families": 3,
+      "lawful_reverse_wilson_projected_higgs_pairs": 1,
       "lawful_structural_spectrum_all_P1": true,
       "lawful_wilson_projected_families": 3,
       "lawful_wilson_projected_higgs_pairs": 1,
@@ -4171,6 +4267,8 @@
       "outer_parameter_dimension_mismatch_unresolved": true,
       "physical_higgs_representative_available": true,
       "physical_higgs_representative_term_count": 27,
+      "prior_forward_computable_carrier_component": "lawful-mixed-schoen-P1",
+      "prior_forward_computable_carrier_component_frozen": true,
       "prior_neutrino_matrix_physical_assignment_valid": false,
       "prior_physical_flavor_routing_valid": false,
       "prior_up_matrix_physical_assignment_valid": false,
@@ -4333,8 +4431,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "reverse-family matter and Higgs cohomology derived from the same synchronized chain",
-    "selection_status": "the forward P1 flavor sectors are exhausted at exact rank zero; the reverse P5 replacement is stable and genuinely SU(4), with its same-chain structural spectrum still required"
+    "next_required_object": "full reverse-family matter and Higgs representatives in one synchronized Schoen DGA",
+    "selection_status": "the forward P1 flavor sectors are exhausted at exact rank zero; the full reverse P5 physical component is frozen for same-chain common-DGA construction"
   },
   "research_value_scheduler": [
     {

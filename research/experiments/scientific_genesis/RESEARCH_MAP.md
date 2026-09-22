@@ -286,6 +286,19 @@ excludes proper connected irreducible rank-four reductions. The next gate is
 the reverse structural spectrum from the same synchronized chain; no spectrum
 or flavor result is imported from the source assertion.
 
+That structural spectrum is now exact over the full reverse component. Both
+constituents have cohomology only in degree one, so reversing their short exact
+sequence leaves no nonzero source and target for a connecting map and forces
+`H*(E_reverse)=(0,27,0,0)` without a jumping locus. In the exterior-square
+filtration, reversal only exchanges the two acyclic determinant endpoints;
+the middle `V2 tensor V1` term is canonically the same tensor object. It again
+gives `(0,4,4,0)` with generated characters `(0,1)`, `(0,2)`, `(1,2)`, and
+`(2,1)`. Exact Wilson projection therefore gives three families, three
+right-handed neutrinos, one Higgs pair, no anti-families, and no massless color
+triplets throughout `P5 x K_reverse^s`. The complete reverse component is
+frozen as `lawful-mixed-schoen-reverse-P5` without selecting a point. The
+forward `P1` remains lawful; its scoped all-sector flavor no-go remains intact.
+
 Direct mixed-complex transfers now derive constituent profiles `(0,9,0,0)`
 and `(0,18,0,0)`. The universal long exact sequence therefore fixes
 `H*(V)=(0,27,0,0)` and eliminates matter jumping over the entire lawful `P1`.

@@ -1015,6 +1015,48 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "mixed_schoen_reverse_observable_spectrum",
+            "reverse-family Wilson-projected spectrum",
+            "Reference realization",
+            "COMPUTED",
+            "Pure-H1 constituent cohomology makes reverse matter independent "
+            "of all P5 parameters. Acyclic determinant endpoints make the "
+            "exterior-square filtration orientation-independent. Exact deck "
+            "characters then give three families, three right-handed neutrinos, "
+            "one Higgs pair, no anti-families, and no massless triplets over "
+            "the entire reverse stable locus.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_observable_spectrum.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_reverse_observable_spectrum.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_reverse_observable_spectrum.py",
+            ),
+            assumptions=(
+                "published Wilson-line embedding",
+                "three families and one Higgs pair are selection constraints",
+            ),
+        ),
+        _node(
+            "computable_reverse_carrier_state",
+            "frozen reverse computable carrier",
+            "Computable carrier",
+            "COMPUTED",
+            "The full lawful reverse P5 physical component is frozen for "
+            "vertical computation without selecting a point. The forward P1 "
+            "remains lawful with its flavor no-go preserved, while the source "
+            "P3 ledger remains a distinct reference.",
+            (
+                "data/generated/scientific_genesis/"
+                "computable_one_theory_reverse_carrier_state.json",
+                "research/experiments/scientific_genesis/"
+                "computable_one_theory_reverse_carrier_state.py",
+                "tests/integration/"
+                "test_scientific_genesis_computable_one_theory_reverse_carrier_state.py",
+            ),
+        ),
+        _node(
             "strict_mixed_matter_representatives",
             "strict synchronized constituent matter classes",
             "Computable carrier",
@@ -2767,6 +2809,33 @@ def _edges() -> list[dict[str, object]]:
             ("the source P3 ledger is not identified with the lawful P1",),
         ),
         _edge(
+            "mixed_schoen_reverse_outer_stability_locus",
+            "mixed_schoen_reverse_observable_spectrum",
+            "Pure-H1 constituent cohomology kills every matter connecting-rank "
+            "dependence, while acyclic determinant endpoints reduce either "
+            "exterior-square filtration to the same tensor middle term.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_observable_spectrum.json",
+            ),
+            ("published Wilson-line embedding",),
+            True,
+            ("full common-DGA representatives are not supplied by dimensions",),
+        ),
+        _edge(
+            "mixed_schoen_reverse_observable_spectrum",
+            "computable_reverse_carrier_state",
+            "Passing every declared structural selection gate freezes the "
+            "entire reverse connected component without ranking P5 points.",
+            (
+                "data/generated/scientific_genesis/"
+                "computable_one_theory_reverse_carrier_state.json",
+            ),
+            ("selection constraints are not predictions",),
+            True,
+            ("the source P3 ledger is not identified with reverse P5",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -3925,7 +3994,11 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_reverse_outer_stability_locus.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_stability_locus.json",
         "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_reverse_observable_spectrum.json",
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
+        "data/generated/scientific_genesis/"
+        "computable_one_theory_reverse_carrier_state.json",
         "data/generated/scientific_genesis/mixed_schoen_matter_representatives.json",
         "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
@@ -4027,8 +4100,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "the forward P1 flavor sectors are exhausted at exact rank "
-                "zero; the reverse P5 replacement is stable and genuinely "
-                "SU(4), with its same-chain structural spectrum still required"
+                "zero; the full reverse P5 physical component is frozen for "
+                "same-chain common-DGA construction"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4134,8 +4207,22 @@ def build_state() -> dict[str, object]:
                 "lawful_wilson_projected_higgs_pairs": 1,
                 "lawful_massless_color_triplets": 0,
                 "lawful_structural_spectrum_all_P1": True,
-                "computable_carrier_component": "lawful-mixed-schoen-P1",
+                "prior_forward_computable_carrier_component": (
+                    "lawful-mixed-schoen-P1"
+                ),
+                "prior_forward_computable_carrier_component_frozen": True,
+                "computable_carrier_component": (
+                    "lawful-mixed-schoen-reverse-P5"
+                ),
                 "computable_carrier_component_frozen": True,
+                "lawful_reverse_matter_h0_to_h3": [0, 27, 0, 0],
+                "lawful_reverse_dual_matter_h0_to_h3": [0, 0, 27, 0],
+                "lawful_reverse_higgs_h0_to_h3": [0, 4, 4, 0],
+                "lawful_reverse_wilson_projected_families": 3,
+                "lawful_reverse_wilson_projected_higgs_pairs": 1,
+                "lawful_reverse_massless_color_triplets": 0,
+                "lawful_reverse_structural_spectrum_all_P5": True,
+                "lawful_reverse_spectrum_source_assertion_used_as_rank_input": False,
                 "lawful_chain_diagonal_transfer_seed_count": 4896,
                 "lawful_chain_diagonal_squared_zero": True,
                 "required_higgs_character": [0, 1],
@@ -4313,8 +4400,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "reverse-family matter and Higgs cohomology derived from the "
-                "same synchronized chain"
+                "full reverse-family matter and Higgs representatives in one "
+                "synchronized Schoen DGA"
             ),
         },
         "claims": _nodes(),
@@ -4348,6 +4435,10 @@ def build_state() -> dict[str, object]:
             "with affine-origin split locus and no selected extension point",
             "every lawful reverse P5 extension stable on a rational open "
             "Kahler box with genuine SU(4) forced by nonzero cover c3",
+            "orientation-independent exact reverse matter and Higgs cohomology "
+            "with three-family one-Higgs Wilson projection over all P5",
+            "the lawful reverse P5 physical component frozen without selecting "
+            "an extension point or identifying the source P3 ledger",
             "every lawful P1 extension stable in the exact source chamber with "
             "genuine SU(4) forced by nonzero cover c3",
             "synchronized mixed constituent transfers derive matter cohomology "

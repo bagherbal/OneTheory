@@ -36,16 +36,20 @@ SPECTRUM_ARTIFACT = (
 )
 
 
-def _verified_spectrum() -> tuple[str, dict[str, object]]:
-    """Validate the lawful spectrum artifact and every carrier-selection gate."""
+def _verified_spectrum_artifact(
+    path: Path,
+    schema: str,
+    lawful_locus: str,
+) -> tuple[str, dict[str, object]]:
+    """Validate one lawful spectrum artifact and every selection gate."""
 
-    payload = json.loads(SPECTRUM_ARTIFACT.read_text(encoding="utf-8"))
+    payload = json.loads(path.read_text(encoding="utf-8"))
     digest = payload.pop("artifact_digest", None)
     if not isinstance(digest, str) or digest != _canonical_digest(payload):
         raise ValueError("the lawful spectrum artifact digest does not verify")
-    if payload.get("schema") != "mixed-schoen-observable-spectrum-v1":
+    if payload.get("schema") != schema:
         raise ValueError("the lawful spectrum schema changed")
-    if payload.get("lawful_physical_locus") != "P^1(Q(omega)) x K^s":
+    if payload.get("lawful_physical_locus") != lawful_locus:
         raise ValueError("the lawful physical locus changed")
     if payload.get("entire_stable_family_passes_structural_spectrum") is not True:
         raise ValueError("the lawful family no longer passes the structural spectrum")
@@ -64,6 +68,16 @@ def _verified_spectrum() -> tuple[str, dict[str, object]]:
     if constraints.get("used_as_construction_inputs") is not False:
         raise ValueError("selection constraints leaked into spectrum construction")
     return digest, cast(dict[str, object], payload)
+
+
+def _verified_spectrum() -> tuple[str, dict[str, object]]:
+    """Validate the original lawful P1 spectrum artifact."""
+
+    return _verified_spectrum_artifact(
+        SPECTRUM_ARTIFACT,
+        "mixed-schoen-observable-spectrum-v1",
+        "P^1(Q(omega)) x K^s",
+    )
 
 
 @dataclass(frozen=True, slots=True)
@@ -114,16 +128,29 @@ class ComputableOneTheoryCarrierState:
     cover_c3: int
     quotient_c3: int
     structure_group: str
+    freeze_rule: str
     frozen: bool
     representative_selected: bool
     epistemic_status: str
 
     def __post_init__(self) -> None:
+        valid_components = {
+            (
+                "lawful-mixed-schoen-P1",
+                "P^1(Q(omega))",
+                "K^s",
+            ),
+            (
+                "lawful-mixed-schoen-reverse-P5",
+                "P^5(Q(omega))",
+                "K_reverse^s",
+            ),
+        }
         if (
-            self.component_id != "lawful-mixed-schoen-P1"
-            or self.parameter_component != "P^1(Q(omega))"
-            or self.kahler_chamber != "K^s"
+            (self.component_id, self.parameter_component, self.kahler_chamber)
+            not in valid_components
             or self.coefficient_field != "Q(omega)"
+            or not self.freeze_rule
         ):
             raise ValueError("the frozen computational component changed")
         if (
@@ -174,10 +201,7 @@ class ComputableOneTheoryCarrierState:
                 "massless_color_triplets": 0,
                 "exotic_massless_blocks": 0,
             },
-            "freeze_rule": (
-                "the unique currently derived lawful physical connected component; "
-                "no phenomenological ranking among extension points"
-            ),
+            "freeze_rule": self.freeze_rule,
             "frozen": self.frozen,
             "representative_selected": self.representative_selected,
             "epistemic_status": self.epistemic_status,
@@ -235,6 +259,10 @@ def computable_one_theory_carrier_state() -> tuple[
         -54,
         -6,
         "SU(4)",
+        (
+            "the unique currently derived lawful physical connected component; "
+            "no phenomenological ranking among extension points"
+        ),
         True,
         False,
         "COMPUTED",

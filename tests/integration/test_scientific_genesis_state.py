@@ -92,7 +92,27 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["lawful_wilson_projected_higgs_pairs"] == 1
     assert path["criteria"]["lawful_massless_color_triplets"] == 0
     assert path["criteria"]["lawful_structural_spectrum_all_P1"] is True
+    assert path["criteria"]["prior_forward_computable_carrier_component"] == (
+        "lawful-mixed-schoen-P1"
+    )
+    assert path["criteria"]["prior_forward_computable_carrier_component_frozen"] is True
+    assert path["criteria"]["computable_carrier_component"] == (
+        "lawful-mixed-schoen-reverse-P5"
+    )
     assert path["criteria"]["computable_carrier_component_frozen"] is True
+    assert path["criteria"]["lawful_reverse_matter_h0_to_h3"] == [0, 27, 0, 0]
+    assert path["criteria"]["lawful_reverse_dual_matter_h0_to_h3"] == [0, 0, 27, 0]
+    assert path["criteria"]["lawful_reverse_higgs_h0_to_h3"] == [0, 4, 4, 0]
+    assert path["criteria"]["lawful_reverse_wilson_projected_families"] == 3
+    assert path["criteria"]["lawful_reverse_wilson_projected_higgs_pairs"] == 1
+    assert path["criteria"]["lawful_reverse_massless_color_triplets"] == 0
+    assert path["criteria"]["lawful_reverse_structural_spectrum_all_P5"] is True
+    assert (
+        path["criteria"][
+            "lawful_reverse_spectrum_source_assertion_used_as_rank_input"
+        ]
+        is False
+    )
     assert path["criteria"]["lawful_chain_diagonal_transfer_seed_count"] == 4896
     assert path["criteria"]["lawful_chain_diagonal_squared_zero"] is True
     assert path["criteria"]["required_higgs_character"] == [0, 1]
@@ -396,12 +416,12 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "the forward P1 flavor sectors are exhausted at exact rank zero; the "
-        "reverse P5 replacement is stable and genuinely SU(4), with its "
-        "same-chain structural spectrum still required"
+        "full reverse P5 physical component is frozen for same-chain common-DGA "
+        "construction"
     )
     assert path["next_required_object"] == (
-        "reverse-family matter and Higgs cohomology derived from the same "
-        "synchronized chain"
+        "full reverse-family matter and Higgs representatives in one "
+        "synchronized Schoen DGA"
     )
     assert claims["mixed_schoen_reverse_outer_universal_cone"]["status"] == (
         "COMPUTED"
@@ -409,6 +429,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_schoen_reverse_outer_stability_locus"]["status"] == (
         "PROVED"
     )
+    assert claims["mixed_schoen_reverse_observable_spectrum"]["status"] == (
+        "COMPUTED"
+    )
+    assert claims["computable_reverse_carrier_state"]["status"] == "COMPUTED"
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
     assert claims["mixed_local_determinant_pairings"]["status"] == "COMPUTED"

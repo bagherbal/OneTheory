@@ -1,0 +1,237 @@
+{
+  "all_coefficientwise_cone_identities_exact": true,
+  "all_lifts_strict_in_forward_characters": true,
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "820f186e534aaa2f6e0d0c886f5b6a24c509b1a59cec7958fc224cf35c23b3ac",
+  "carrier_locus": "P^5(Q(omega)) x K_reverse^s",
+  "carrier_parameter_basis": [
+    "b0",
+    "b1",
+    "b2",
+    "b3",
+    "b4",
+    "b5"
+  ],
+  "coefficient_field": "Q(omega)",
+  "exact": true,
+  "extension_sequence": "0 -> V2 -> E_reverse -> V1 -> 0",
+  "next_required_object": "a strict reverse universal H_d lift in forward character (0,1)",
+  "observational_inputs_used": false,
+  "physical_slice": {
+    "forward_higgs_character_exponents": [
+      0,
+      1
+    ],
+    "forward_matter_character_exponents": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "matrix": "down-type holomorphic Yukawa",
+    "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "source_higgs_character_exponents": [
+      0,
+      2
+    ],
+    "source_matter_character_exponents": [
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ]
+  },
+  "prerequisite_artifact_digests": {
+    "character_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241",
+    "reverse_carrier": "68009a2a29cac6d3dc01569156f199ad3960bedbddc1cf98c072f9a5c66b1253",
+    "reverse_universal_cone": "802941c5bd1618150e7a8a04d284af1747e015ff3437dc19e89b05ad8d9e312b",
+    "strict_matter": "7bfa76b80c1ae79eaaecbff6a07c370d792bd99a022ae65d04e9523af56483cf"
+  },
+  "schema": "mixed-schoen-reverse-down-matter-lifts-v1",
+  "source_characters_obtained_only_by_exact_inversion": true,
+  "universal_visible_family_dimension_per_character": 3,
+  "v1_parameter_linear_lifts": [
+    {
+      "correction_identities_exact": true,
+      "exact": true,
+      "forward_character_exponents": [
+        1,
+        2
+      ],
+      "parameter_coefficients": [
+        {
+          "correction_digest": "f15f0dc623966399e9e9863a90f90acd7aed560158e9999aef454d9b2f02f71f",
+          "correction_term_count": 48540,
+          "parameter": "b0",
+          "product_digest": "454066d8c07854facf306fc980fa1a433006c3d272e99adeb53a09025397007a",
+          "product_term_count": 93957
+        },
+        {
+          "correction_digest": "399922fb8fa7c70032b162b888e3d5ea2971c9baac44744ea708335e243e6d2f",
+          "correction_term_count": 56640,
+          "parameter": "b1",
+          "product_digest": "bc87d479976455c21fdff7a8bf874c5eea832a2e053cc0d4dcfc4432067df133",
+          "product_term_count": 110514
+        },
+        {
+          "correction_digest": "edff2249c6764b5caddc9630322dd8e4ed0766f865b473f2bcba4e86706d77f2",
+          "correction_term_count": 60966,
+          "parameter": "b2",
+          "product_digest": "d6194e595c3b8d00ffbc2c614939ce26d1a0b98dce48e18c47223eb54f6eacaa",
+          "product_term_count": 117270
+        },
+        {
+          "correction_digest": "55faa486be7563fe45c5eb64b54ef3cb409afe301ae84f0aa524a5727863e7d7",
+          "correction_term_count": 55197,
+          "parameter": "b3",
+          "product_digest": "b31a4ccdeb6fc0fc086e7669df8485886ec04bff5144dbb2c08acfb3f81688b0",
+          "product_term_count": 100554
+        },
+        {
+          "correction_digest": "6590643d935667e47eb5080eb36da8ff051e920e4e2e3a27cdddfbde8b52a074",
+          "correction_term_count": 46134,
+          "parameter": "b4",
+          "product_digest": "6f6ffc1da969197a1c41468d851389ce0611a79151259e8f3760aedca2dbcf06",
+          "product_term_count": 82011
+        },
+        {
+          "correction_digest": "52fa1b8ec60dfd53c4c3613a3156ddae1fe9efda36663d3aba67ce73a40beea9",
+          "correction_term_count": 49809,
+          "parameter": "b5",
+          "product_digest": "8074004f4df0f2a2597cb7c3734d032661b0663cd6c2a2d8dbbacfc2fc87e382",
+          "product_term_count": 94962
+        }
+      ],
+      "product_cycles_exact": true,
+      "source_character_exponents": [
+        2,
+        1
+      ],
+      "strict_characters_exact": true,
+      "v1_digest": "4e572303b3410fcf6bcf3569b7134d3005b2e1cbe1aa55acf073483bd54162a6",
+      "v1_term_count": 684
+    },
+    {
+      "correction_identities_exact": true,
+      "exact": true,
+      "forward_character_exponents": [
+        2,
+        0
+      ],
+      "parameter_coefficients": [
+        {
+          "correction_digest": "0fe3efd50cb568fec978710c98424d95172fd93997dbed656c0aea6341c82d5d",
+          "correction_term_count": 48717,
+          "parameter": "b0",
+          "product_digest": "f9fce8defd073b63b745fdd1da58a750689eede069031b3af7e2f0726932deb6",
+          "product_term_count": 93777
+        },
+        {
+          "correction_digest": "49773f8f7f20f4b5e119e2ff6f77e67b6be56f731768d38cb04c98007eec9abb",
+          "correction_term_count": 55959,
+          "parameter": "b1",
+          "product_digest": "9517708a28a0c7f4590a8fc20416dda21ae78b22cccb7c5f0e158a3e15c1ec1b",
+          "product_term_count": 108687
+        },
+        {
+          "correction_digest": "7ecbfe30c23ed355ef4a5ee1b02e0d6f5e7519192437ec5d67a9935cfe782163",
+          "correction_term_count": 59838,
+          "parameter": "b2",
+          "product_digest": "3335be4656e6e6bfa0ad9d68430027550fa5fd3d2e26ef278c02f8191c071e42",
+          "product_term_count": 114306
+        },
+        {
+          "correction_digest": "ccba9ea93276741ccc04fba6a5bf75f4f969cc8966e130e293637742a855251b",
+          "correction_term_count": 56238,
+          "parameter": "b3",
+          "product_digest": "40e8e2625868b9746b35e9594252fd38ca6eab351f8d337c7dbbabf096448ac4",
+          "product_term_count": 101958
+        },
+        {
+          "correction_digest": "1902b405a663d78d0b7ac3d599a023b8116a500dfe2d0aa7712c0ba64ceec28a",
+          "correction_term_count": 45783,
+          "parameter": "b4",
+          "product_digest": "9440e610647b76ac929948177e2575baa9d0de811fc897e7731723ae8ed4751a",
+          "product_term_count": 80982
+        },
+        {
+          "correction_digest": "282908115fe1fb02fe3cd01f529222675df44b84821090b2277bb8935601b69d",
+          "correction_term_count": 49917,
+          "parameter": "b5",
+          "product_digest": "aeb7ff5a27e69e134bbd934c961615d067599a0908e109e1b4f730a5124555de",
+          "product_term_count": 94650
+        }
+      ],
+      "product_cycles_exact": true,
+      "source_character_exponents": [
+        1,
+        0
+      ],
+      "strict_characters_exact": true,
+      "v1_digest": "a8e244266cd64fd2dd3df7f0b15d2dca656c7ad1bcb7af3572c7a2e5430361e7",
+      "v1_term_count": 684
+    }
+  ],
+  "v2_constant_classes": [
+    {
+      "digest": "3a22d9125fcca248e47ad88bd504ee2a9baad00cc964a106f63173ed4baeebd2",
+      "forward_character_exponents": [
+        1,
+        2
+      ],
+      "local_family_index": 1,
+      "source_character_exponents": [
+        2,
+        1
+      ],
+      "term_count": 576
+    },
+    {
+      "digest": "919f43e7807b033650832eabe734b57dca2e93bd01cefac971009e435777fe77",
+      "forward_character_exponents": [
+        1,
+        2
+      ],
+      "local_family_index": 2,
+      "source_character_exponents": [
+        2,
+        1
+      ],
+      "term_count": 576
+    },
+    {
+      "digest": "b380d136df35057d43ddab8eaa5898b4b51ea5b10d84f27f732e379e4c7d5d61",
+      "forward_character_exponents": [
+        2,
+        0
+      ],
+      "local_family_index": 1,
+      "source_character_exponents": [
+        1,
+        0
+      ],
+      "term_count": 576
+    },
+    {
+      "digest": "ad4a2ad2a8e912b9066c72877d2b293689688259eea012981e6ca91900afbe46",
+      "forward_character_exponents": [
+        2,
+        0
+      ],
+      "local_family_index": 2,
+      "source_character_exponents": [
+        1,
+        0
+      ],
+      "term_count": 576
+    }
+  ]
+}

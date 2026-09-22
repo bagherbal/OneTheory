@@ -145,6 +145,7 @@ def test_every_created_directory_has_a_readme() -> None:
         ".mixed_schoen_down_lift_cache",
         ".mixed_schoen_neutrino_coefficient_cache",
         ".mixed_schoen_neutrino_lift_cache",
+        ".mixed_schoen_reverse_down_lift_cache",
         "__pycache__",
         "build",
         "dist",

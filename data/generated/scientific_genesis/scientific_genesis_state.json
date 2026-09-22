@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "2092443c1d19365ce6dd7e4ec4d8b6322df0336cde1f788d147a8959757a9e1a",
+  "artifact_digest": "34afcfd8983f7a14ae95182d35fc64020920e920cbcc8eb15a76bcd76fd39c2e",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -210,6 +210,11 @@
       "bytes": 2327,
       "path": "data/generated/scientific_genesis/computable_one_theory_reverse_carrier_state.json",
       "sha256": "09a5c079e94f63f8f61102fdff8466c9775feab8852d6bd6020d6a48969ddd6d"
+    },
+    {
+      "bytes": 7792,
+      "path": "data/generated/scientific_genesis/mixed_schoen_reverse_down_matter_lifts.json",
+      "sha256": "e4dd95641cd6c760414625da4897b0901973995355097eb47f5e0e1a6571a236"
     },
     {
       "bytes": 5326,
@@ -456,8 +461,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 198,
-    "test_python_files": 177
+    "research_python_files": 199,
+    "test_python_files": 178
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1366,6 +1371,24 @@
       "layer": "Computable carrier",
       "missing_prerequisites": [],
       "statement": "The full lawful reverse P5 physical component is frozen for vertical computation without selecting a point. The forward P1 remains lawful with its flavor no-go preserved, while the source P3 ledger remains a distinct reference.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "published Wilson character assignment for the down sector"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_down_matter_lifts.json",
+        "research/experiments/scientific_genesis/mixed_schoen_reverse_down_matter_lifts.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_reverse_down_matter_lifts.py"
+      ],
+      "id": "reverse_universal_down_matter_lifts",
+      "label": "reverse universal down-matter representatives",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "strict reverse universal H_d lift in forward character (0,1)"
+      ],
+      "statement": "Exact source-to-forward character inversion selects two physical matter sectors. Four V2 subobject classes remain constant, while two V1 quotient classes acquire twelve independently certified V2 correction coefficients over the full reverse P5 without selecting an extension point.",
       "status": "COMPUTED"
     },
     {
@@ -3011,6 +3034,32 @@
       "target": "computable_reverse_carrier_state"
     },
     {
+      "assumptions_required": [
+        "physical source characters are routed by exact pullback inversion"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_down_matter_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the reverse universal Higgs class is not yet constructed"
+      ],
+      "mathematical_reason": "The frozen reverse sequence fixes six invariant extension directions, so exact common-DGA contraction determines each parameter-linear quotient-class correction.",
+      "source": "computable_reverse_carrier_state",
+      "target": "reverse_universal_down_matter_lifts"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_down_matter_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "Strict constituent matter cocycles provide the constant V2 classes and the V1 quotient classes corrected in the reverse cone.",
+      "source": "strict_mixed_matter_representatives",
+      "target": "reverse_universal_down_matter_lifts"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -3830,6 +3879,7 @@
     "every lawful reverse P5 extension stable on a rational open Kahler box with genuine SU(4) forced by nonzero cover c3",
     "orientation-independent exact reverse matter and Higgs cohomology with three-family one-Higgs Wilson projection over all P5",
     "the lawful reverse P5 physical component frozen without selecting an extension point or identifying the source P3 ledger",
+    "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "every lawful P1 extension stable in the exact source chamber with genuine SU(4) forced by nonzero cover c3",
     "synchronized mixed constituent transfers derive matter cohomology (0,27,0,0), with free-action Lefschetz compression proving three regular deck representations",
     "acyclic determinant filtration and lawful relative pushdowns derive Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and zero massless color triplets throughout the lawful P1",
@@ -3908,6 +3958,7 @@
       "all_down_matter_lifts_exact": true,
       "all_neutrino_matter_lifts_exact": true,
       "all_published_yukawa_character_products_invariant": true,
+      "all_reverse_down_matter_lifts_exact": true,
       "arbitrary_point_selected": false,
       "atlas_higgs_characters_match_selected_source": false,
       "atlas_induced_higgs_characters": [
@@ -4307,6 +4358,12 @@
         ]
       ],
       "retired_source_scoped_outer_space": "P^3(Q(omega))",
+      "reverse_down_constant_v2_class_count": 4,
+      "reverse_down_extension_point_selected": false,
+      "reverse_down_higgs_lift_available": false,
+      "reverse_down_matter_parameter_correction_count": 12,
+      "reverse_down_universal_matter_character_count": 2,
+      "reverse_down_universal_v1_lift_count": 2,
       "same_constituent_higgs_relinearization_available": false,
       "scalar_higgs_action_repairs_refuted": true,
       "scalar_residue_target_available": true,
@@ -4431,8 +4488,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "full reverse-family matter and Higgs representatives in one synchronized Schoen DGA",
-    "selection_status": "the forward P1 flavor sectors are exhausted at exact rank zero; the full reverse P5 physical component is frozen for same-chain common-DGA construction"
+    "next_required_object": "strict reverse universal H_d lift in forward character (0,1)",
+    "selection_status": "the forward P1 flavor sectors are exhausted at exact rank zero; the reverse down-matter representatives are exact over P5 and the strict reverse H_d lift remains unresolved"
   },
   "research_value_scheduler": [
     {

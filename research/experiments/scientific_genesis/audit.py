@@ -1057,6 +1057,31 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "reverse_universal_down_matter_lifts",
+            "reverse universal down-matter representatives",
+            "Computable carrier",
+            "COMPUTED",
+            "Exact source-to-forward character inversion selects two physical "
+            "matter sectors. Four V2 subobject classes remain constant, while "
+            "two V1 quotient classes acquire twelve independently certified "
+            "V2 correction coefficients over the full reverse P5 without "
+            "selecting an extension point.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_down_matter_lifts.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_reverse_down_matter_lifts.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_reverse_down_matter_lifts.py",
+            ),
+            assumptions=(
+                "published Wilson character assignment for the down sector",
+            ),
+            missing=(
+                "strict reverse universal H_d lift in forward character (0,1)",
+            ),
+        ),
+        _node(
             "strict_mixed_matter_representatives",
             "strict synchronized constituent matter classes",
             "Computable carrier",
@@ -2836,6 +2861,35 @@ def _edges() -> list[dict[str, object]]:
             ("the source P3 ledger is not identified with reverse P5",),
         ),
         _edge(
+            "computable_reverse_carrier_state",
+            "reverse_universal_down_matter_lifts",
+            "The frozen reverse sequence fixes six invariant extension "
+            "directions, so exact common-DGA contraction determines each "
+            "parameter-linear quotient-class correction.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_down_matter_lifts.json",
+            ),
+            (
+                "physical source characters are routed by exact pullback inversion",
+            ),
+            True,
+            ("the reverse universal Higgs class is not yet constructed",),
+        ),
+        _edge(
+            "strict_mixed_matter_representatives",
+            "reverse_universal_down_matter_lifts",
+            "Strict constituent matter cocycles provide the constant V2 "
+            "classes and the V1 quotient classes corrected in the reverse cone.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_down_matter_lifts.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -3999,6 +4053,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
         "data/generated/scientific_genesis/"
         "computable_one_theory_reverse_carrier_state.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_reverse_down_matter_lifts.json",
         "data/generated/scientific_genesis/mixed_schoen_matter_representatives.json",
         "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
@@ -4100,8 +4156,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "the forward P1 flavor sectors are exhausted at exact rank "
-                "zero; the full reverse P5 physical component is frozen for "
-                "same-chain common-DGA construction"
+                "zero; the reverse down-matter representatives are exact over P5 "
+                "and the strict reverse H_d lift remains unresolved"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4223,6 +4279,13 @@ def build_state() -> dict[str, object]:
                 "lawful_reverse_massless_color_triplets": 0,
                 "lawful_reverse_structural_spectrum_all_P5": True,
                 "lawful_reverse_spectrum_source_assertion_used_as_rank_input": False,
+                "reverse_down_universal_matter_character_count": 2,
+                "reverse_down_constant_v2_class_count": 4,
+                "reverse_down_universal_v1_lift_count": 2,
+                "reverse_down_matter_parameter_correction_count": 12,
+                "all_reverse_down_matter_lifts_exact": True,
+                "reverse_down_extension_point_selected": False,
+                "reverse_down_higgs_lift_available": False,
                 "lawful_chain_diagonal_transfer_seed_count": 4896,
                 "lawful_chain_diagonal_squared_zero": True,
                 "required_higgs_character": [0, 1],
@@ -4400,8 +4463,7 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "full reverse-family matter and Higgs representatives in one "
-                "synchronized Schoen DGA"
+                "strict reverse universal H_d lift in forward character (0,1)"
             ),
         },
         "claims": _nodes(),
@@ -4439,6 +4501,8 @@ def build_state() -> dict[str, object]:
             "with three-family one-Higgs Wilson projection over all P5",
             "the lawful reverse P5 physical component frozen without selecting "
             "an extension point or identifying the source P3 ledger",
+            "the two physical reverse down-matter sectors lifted exactly over "
+            "all six P5 directions without selecting an extension point",
             "every lawful P1 extension stable in the exact source chamber with "
             "genuine SU(4) forced by nonzero cover c3",
             "synchronized mixed constituent transfers derive matter cohomology "

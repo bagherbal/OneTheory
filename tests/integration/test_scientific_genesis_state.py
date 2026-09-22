@@ -12,7 +12,7 @@ Must not:
     convert a blocked scientific edge into an implemented bridge.
 
 Phase 0:
-    State-audit tests only; common-DGA carrier representatives remain pending.
+    State-audit tests only; the reverse universal Higgs lift remains pending.
 """
 
 import json
@@ -113,6 +113,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         ]
         is False
     )
+    assert path["criteria"]["reverse_down_universal_matter_character_count"] == 2
+    assert path["criteria"]["reverse_down_constant_v2_class_count"] == 4
+    assert path["criteria"]["reverse_down_universal_v1_lift_count"] == 2
+    assert path["criteria"]["reverse_down_matter_parameter_correction_count"] == 12
+    assert path["criteria"]["all_reverse_down_matter_lifts_exact"] is True
+    assert path["criteria"]["reverse_down_extension_point_selected"] is False
+    assert path["criteria"]["reverse_down_higgs_lift_available"] is False
     assert path["criteria"]["lawful_chain_diagonal_transfer_seed_count"] == 4896
     assert path["criteria"]["lawful_chain_diagonal_squared_zero"] is True
     assert path["criteria"]["required_higgs_character"] == [0, 1]
@@ -416,12 +423,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "the forward P1 flavor sectors are exhausted at exact rank zero; the "
-        "full reverse P5 physical component is frozen for same-chain common-DGA "
-        "construction"
+        "reverse down-matter representatives are exact over P5 and the strict "
+        "reverse H_d lift remains unresolved"
     )
     assert path["next_required_object"] == (
-        "full reverse-family matter and Higgs representatives in one "
-        "synchronized Schoen DGA"
+        "strict reverse universal H_d lift in forward character (0,1)"
     )
     assert claims["mixed_schoen_reverse_outer_universal_cone"]["status"] == (
         "COMPUTED"
@@ -433,6 +439,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "COMPUTED"
     )
     assert claims["computable_reverse_carrier_state"]["status"] == "COMPUTED"
+    assert claims["reverse_universal_down_matter_lifts"]["status"] == "COMPUTED"
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
     assert claims["mixed_scalar_trace_target"]["status"] == "COMPUTED"
     assert claims["mixed_local_determinant_pairings"]["status"] == "COMPUTED"

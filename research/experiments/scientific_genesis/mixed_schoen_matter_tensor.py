@@ -242,11 +242,36 @@ def external_lifted_matter_tensor(
             )
             groups.setdefault(key, []).append((basis.monomials, coefficient))
 
+    right_by_start: dict[
+        tuple[int, int, int, int],
+        list[
+            tuple[
+                MatterGroupKey,
+                list[
+                    tuple[
+                        tuple[Monomial, Monomial, Monomial, Monomial],
+                        Eisenstein,
+                    ]
+                ],
+            ]
+        ],
+    ] = {}
+    for right_key, right_terms in grouped_right.items():
+        start = cast(
+            tuple[int, int, int, int],
+            tuple(simplex[0] for simplex in right_key[3]),
+        )
+        right_by_start.setdefault(start, []).append((right_key, right_terms))
+
     values: dict[ChainDiagonalBasis, Eisenstein] = {}
     for left_key, left_terms in grouped_left.items():
         left_index, left_subset, left_object_degree, left_cell = left_key
         left_cech_degree = sum(len(simplex) - 1 for simplex in left_cell)
-        for right_key, right_terms in grouped_right.items():
+        endpoint = cast(
+            tuple[int, int, int, int],
+            tuple(simplex[-1] for simplex in left_cell),
+        )
+        for right_key, right_terms in right_by_start.get(endpoint, ()):
             right_index, right_subset, right_object_degree, right_cell = right_key
             cell_product = _cell_cup(left_cell, right_cell)
             if cell_product is None:

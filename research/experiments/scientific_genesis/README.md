@@ -383,3 +383,11 @@ and down results, this exhausts the available flavor sectors of the current
 carrier realization. The next exact frontier is therefore a replacement
 constituent or carrier realization that can be independently certified before
 any metric or observable computation begins.
+
+The exact reverse `P5` component now supplies that replacement. Its stable
+physical spectrum is certified throughout the component. The physical down
+slice has four constant `V2` matter classes and two `V1` quotient classes
+with twelve exact parameter corrections. The strict `H_d` middle tensor
+cocycle has six exact determinant-two corrections with forward deck character
+`(0,1)`. The next unresolved edge is the full same-chain determinant
+contraction yielding a complete down-type holomorphic Yukawa matrix.

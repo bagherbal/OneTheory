@@ -1077,8 +1077,30 @@ def _nodes() -> list[dict[str, object]]:
             assumptions=(
                 "published Wilson character assignment for the down sector",
             ),
+        ),
+        _node(
+            "reverse_universal_down_higgs_lift",
+            "reverse universal down-Higgs representative",
+            "Computable carrier",
+            "COMPUTED",
+            "The strict 27-term middle tensor Higgs cocycle has six exact "
+            "parameter-linear determinant-two corrections over the full "
+            "reverse P5. Each extension action is a closed boundary in the "
+            "explicit line complex, and every correction has the exact "
+            "forward (0,1) deck character.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_higgs_lifts.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_reverse_higgs_lifts.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_reverse_higgs_lifts.py",
+            ),
+            assumptions=(
+                "published Wilson character assignment for the down sector",
+            ),
             missing=(
-                "strict reverse universal H_d lift in forward character (0,1)",
+                "reverse same-chain determinant contraction for the down matrix",
             ),
         ),
         _node(
@@ -1168,11 +1190,12 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "strict_mixed_higgs_representative",
-            "strict lawful up-type Higgs representative",
+            "strict lawful tensor Higgs representative",
             "Flavor",
             "COMPUTED",
             "Exact Reynolds projectors reduce the lawful chain diagonal to "
-            "the source-required P/T character (0,1). Its 100-to-243-to-170 "
+            "forward P/T character (0,1), routed to physical H_d source "
+            "character (0,2) by inverse pullback. Its 100-to-243-to-170 "
             "transfer has ranks 100 and 142, exact square zero, and a unique "
             "H1 class lifted to a strict 27-term full Cech--Koszul cocycle.",
             (
@@ -1185,9 +1208,7 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/"
                 "test_scientific_genesis_mixed_schoen_chain_transfer.py",
             ),
-            assumptions=(
-                "published Wilson character assignment for the up-type sector",
-            ),
+            assumptions=("published Wilson character assignment",),
         ),
         _node(
             "mixed_matter_tensor_comparison",
@@ -2890,6 +2911,32 @@ def _edges() -> list[dict[str, object]]:
             (),
         ),
         _edge(
+            "computable_reverse_carrier_state",
+            "reverse_universal_down_higgs_lift",
+            "The six invariant reverse extension directions act on the "
+            "middle tensor Higgs class through the determinant-two filtration.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_higgs_lifts.json",
+            ),
+            (),
+            True,
+            ("the complete down Yukawa contraction remains unresolved",),
+        ),
+        _edge(
+            "strict_mixed_higgs_representative",
+            "reverse_universal_down_higgs_lift",
+            "The exact 27-term middle tensor cocycle supplies the class "
+            "whose six determinant-two boundaries are solved in the reverse cone.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_higgs_lifts.json",
+            ),
+            ("source characters are obtained by inverse pullback",),
+            True,
+            (),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -4055,6 +4102,8 @@ def build_state() -> dict[str, object]:
         "computable_one_theory_reverse_carrier_state.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_reverse_down_matter_lifts.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_reverse_higgs_lifts.json",
         "data/generated/scientific_genesis/mixed_schoen_matter_representatives.json",
         "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
@@ -4156,8 +4205,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "the forward P1 flavor sectors are exhausted at exact rank "
-                "zero; the reverse down-matter representatives are exact over P5 "
-                "and the strict reverse H_d lift remains unresolved"
+                "zero; the reverse down-matter and H_d representatives are exact "
+                "over P5, while their full Yukawa contraction remains unresolved"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4285,7 +4334,9 @@ def build_state() -> dict[str, object]:
                 "reverse_down_matter_parameter_correction_count": 12,
                 "all_reverse_down_matter_lifts_exact": True,
                 "reverse_down_extension_point_selected": False,
-                "reverse_down_higgs_lift_available": False,
+                "reverse_down_higgs_lift_available": True,
+                "reverse_down_higgs_parameter_correction_count": 6,
+                "reverse_down_higgs_character_exact": True,
                 "lawful_chain_diagonal_transfer_seed_count": 4896,
                 "lawful_chain_diagonal_squared_zero": True,
                 "required_higgs_character": [0, 1],
@@ -4463,7 +4514,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "strict reverse universal H_d lift in forward character (0,1)"
+                "reverse same-chain determinant contraction for one complete "
+                "down-type holomorphic Yukawa matrix"
             ),
         },
         "claims": _nodes(),
@@ -4503,6 +4555,8 @@ def build_state() -> dict[str, object]:
             "an extension point or identifying the source P3 ledger",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
+            "the strict physical down-Higgs cocycle lifted over all six "
+            "reverse directions through exact determinant-two corrections",
             "every lawful P1 extension stable in the exact source chamber with "
             "genuine SU(4) forced by nonzero cover c3",
             "synchronized mixed constituent transfers derive matter cohomology "

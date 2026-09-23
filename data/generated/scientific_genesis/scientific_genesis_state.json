@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "34afcfd8983f7a14ae95182d35fc64020920e920cbcc8eb15a76bcd76fd39c2e",
+  "artifact_digest": "ff7564edb7826e00de57e9c3a6bc715f8a660f741b370bd54745a8871fb365c1",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -215,6 +215,11 @@
       "bytes": 7792,
       "path": "data/generated/scientific_genesis/mixed_schoen_reverse_down_matter_lifts.json",
       "sha256": "e4dd95641cd6c760414625da4897b0901973995355097eb47f5e0e1a6571a236"
+    },
+    {
+      "bytes": 4743,
+      "path": "data/generated/scientific_genesis/mixed_schoen_reverse_higgs_lifts.json",
+      "sha256": "75413786b6e7b25699a5c4e3412a472a1c3ef717de347a60db66eaafe52545d2"
     },
     {
       "bytes": 5326,
@@ -461,8 +466,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 199,
-    "test_python_files": 178
+    "research_python_files": 200,
+    "test_python_files": 179
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1385,10 +1390,26 @@
       "id": "reverse_universal_down_matter_lifts",
       "label": "reverse universal down-matter representatives",
       "layer": "Computable carrier",
-      "missing_prerequisites": [
-        "strict reverse universal H_d lift in forward character (0,1)"
-      ],
+      "missing_prerequisites": [],
       "statement": "Exact source-to-forward character inversion selects two physical matter sectors. Four V2 subobject classes remain constant, while two V1 quotient classes acquire twelve independently certified V2 correction coefficients over the full reverse P5 without selecting an extension point.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "published Wilson character assignment for the down sector"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_higgs_lifts.json",
+        "research/experiments/scientific_genesis/mixed_schoen_reverse_higgs_lifts.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_reverse_higgs_lifts.py"
+      ],
+      "id": "reverse_universal_down_higgs_lift",
+      "label": "reverse universal down-Higgs representative",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "reverse same-chain determinant contraction for the down matrix"
+      ],
+      "statement": "The strict 27-term middle tensor Higgs cocycle has six exact parameter-linear determinant-two corrections over the full reverse P5. Each extension action is a closed boundary in the explicit line complex, and every correction has the exact forward (0,1) deck character.",
       "status": "COMPUTED"
     },
     {
@@ -1458,7 +1479,7 @@
     },
     {
       "assumptions": [
-        "published Wilson character assignment for the up-type sector"
+        "published Wilson character assignment"
       ],
       "evidence": [
         "data/generated/scientific_genesis/mixed_schoen_chain_actions.json",
@@ -1467,10 +1488,10 @@
         "tests/integration/test_scientific_genesis_mixed_schoen_chain_transfer.py"
       ],
       "id": "strict_mixed_higgs_representative",
-      "label": "strict lawful up-type Higgs representative",
+      "label": "strict lawful tensor Higgs representative",
       "layer": "Flavor",
       "missing_prerequisites": [],
-      "statement": "Exact Reynolds projectors reduce the lawful chain diagonal to the source-required P/T character (0,1). Its 100-to-243-to-170 transfer has ranks 100 and 142, exact square zero, and a unique H1 class lifted to a strict 27-term full Cech--Koszul cocycle.",
+      "statement": "Exact Reynolds projectors reduce the lawful chain diagonal to forward P/T character (0,1), routed to physical H_d source character (0,2) by inverse pullback. Its 100-to-243-to-170 transfer has ranks 100 and 142, exact square zero, and a unique H1 class lifted to a strict 27-term full Cech--Koszul cocycle.",
       "status": "COMPUTED"
     },
     {
@@ -3062,6 +3083,32 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_higgs_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the complete down Yukawa contraction remains unresolved"
+      ],
+      "mathematical_reason": "The six invariant reverse extension directions act on the middle tensor Higgs class through the determinant-two filtration.",
+      "source": "computable_reverse_carrier_state",
+      "target": "reverse_universal_down_higgs_lift"
+    },
+    {
+      "assumptions_required": [
+        "source characters are obtained by inverse pullback"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_higgs_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The exact 27-term middle tensor cocycle supplies the class whose six determinant-two boundaries are solved in the reverse cone.",
+      "source": "strict_mixed_higgs_representative",
+      "target": "reverse_universal_down_higgs_lift"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
         "src/onetheory/math/homological.py"
       ],
@@ -3880,6 +3927,7 @@
     "orientation-independent exact reverse matter and Higgs cohomology with three-family one-Higgs Wilson projection over all P5",
     "the lawful reverse P5 physical component frozen without selecting an extension point or identifying the source P3 ledger",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
+    "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "every lawful P1 extension stable in the exact source chamber with genuine SU(4) forced by nonzero cover c3",
     "synchronized mixed constituent transfers derive matter cohomology (0,27,0,0), with free-action Lefschetz compression proving three regular deck representations",
     "acyclic determinant filtration and lawful relative pushdowns derive Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and zero massless color triplets throughout the lawful P1",
@@ -4360,7 +4408,9 @@
       "retired_source_scoped_outer_space": "P^3(Q(omega))",
       "reverse_down_constant_v2_class_count": 4,
       "reverse_down_extension_point_selected": false,
-      "reverse_down_higgs_lift_available": false,
+      "reverse_down_higgs_character_exact": true,
+      "reverse_down_higgs_lift_available": true,
+      "reverse_down_higgs_parameter_correction_count": 6,
       "reverse_down_matter_parameter_correction_count": 12,
       "reverse_down_universal_matter_character_count": 2,
       "reverse_down_universal_v1_lift_count": 2,
@@ -4488,8 +4538,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "strict reverse universal H_d lift in forward character (0,1)",
-    "selection_status": "the forward P1 flavor sectors are exhausted at exact rank zero; the reverse down-matter representatives are exact over P5 and the strict reverse H_d lift remains unresolved"
+    "next_required_object": "reverse same-chain determinant contraction for one complete down-type holomorphic Yukawa matrix",
+    "selection_status": "the forward P1 flavor sectors are exhausted at exact rank zero; the reverse down-matter and H_d representatives are exact over P5, while their full Yukawa contraction remains unresolved"
   },
   "research_value_scheduler": [
     {

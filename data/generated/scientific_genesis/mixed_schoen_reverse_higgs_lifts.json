@@ -1,0 +1,139 @@
+{
+  "all_coefficients_exact": true,
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "0a5b527f8308304cfabc8fb42205987baf8cb993a99d181d0d4f7277f3d6cf35",
+  "carrier_locus": "P^5(Q(omega)) x K_reverse^s",
+  "coefficient_field": "Q(omega)",
+  "det_v2_canonical_ambient_degrees": [
+    2,
+    0,
+    -2,
+    0
+  ],
+  "det_v2_frame_character": [
+    1,
+    1
+  ],
+  "det_v2_raw_ambient_degrees": [
+    2,
+    -1,
+    -2,
+    1
+  ],
+  "extension_sequence": "0 -> V2 -> E_reverse -> V1 -> 0",
+  "forward_higgs_character_exponents": [
+    0,
+    1
+  ],
+  "next_required_object": "reverse same-chain determinant contraction for one complete down-type holomorphic Yukawa matrix",
+  "observational_inputs_used": false,
+  "parameter_coefficients": [
+    {
+      "action_character_exact": true,
+      "action_digest": "93dd003a640e68aa7b0f24525f68496bf3ca64cba3ba55f6a0e4f2c67aad9337",
+      "action_is_cycle": true,
+      "action_term_count": 1323,
+      "correction_character_exact": true,
+      "correction_digest": "088211d8e6e09a7f7e495d2b1611be51dab29f9e004decb30642f5a44b7d5203",
+      "correction_identity_exact": true,
+      "correction_term_count": 972,
+      "exact": true,
+      "homotopy_depth": 3,
+      "inclusion_depth": 0,
+      "parameter": "b0",
+      "projection_depth": 3,
+      "source_term_count": 1710
+    },
+    {
+      "action_character_exact": true,
+      "action_digest": "8ab53a36940a750af09b7dce3f576b880843ebfb7dd9524aa0d360ec19f4aab5",
+      "action_is_cycle": true,
+      "action_term_count": 1377,
+      "correction_character_exact": true,
+      "correction_digest": "b806802a40793d11056aacc801817a373b1093c0d1462a1e0386d49124dd52ea",
+      "correction_identity_exact": true,
+      "correction_term_count": 1026,
+      "exact": true,
+      "homotopy_depth": 3,
+      "inclusion_depth": 0,
+      "parameter": "b1",
+      "projection_depth": 3,
+      "source_term_count": 2052
+    },
+    {
+      "action_character_exact": true,
+      "action_digest": "01fe961555165737bf1f9ca6c6ff0d53ae2d9b1bc23c4e7a508f61f1b67d54f5",
+      "action_is_cycle": true,
+      "action_term_count": 1539,
+      "correction_character_exact": true,
+      "correction_digest": "f5ee0b7bf9a5594040bb5de1a6c3cec6a4be7aaac44b2e5d96945277bff3a55d",
+      "correction_identity_exact": true,
+      "correction_term_count": 1323,
+      "exact": true,
+      "homotopy_depth": 3,
+      "inclusion_depth": 0,
+      "parameter": "b2",
+      "projection_depth": 3,
+      "source_term_count": 2538
+    },
+    {
+      "action_character_exact": true,
+      "action_digest": "31971884fb8ea40603f197834a4ce0eea36a9cef8481234cf9ef6df1e1c707da",
+      "action_is_cycle": true,
+      "action_term_count": 1566,
+      "correction_character_exact": true,
+      "correction_digest": "f894b614568c5ff69c513eba5e46bb46c2ca915662ce6c09de476f4950d4d770",
+      "correction_identity_exact": true,
+      "correction_term_count": 1323,
+      "exact": true,
+      "homotopy_depth": 3,
+      "inclusion_depth": 0,
+      "parameter": "b3",
+      "projection_depth": 3,
+      "source_term_count": 2844
+    },
+    {
+      "action_character_exact": true,
+      "action_digest": "af725def9fd70c2d1d0561ebe45646ac1c42de4abcb754d56b80541bda0ffd0c",
+      "action_is_cycle": true,
+      "action_term_count": 1566,
+      "correction_character_exact": true,
+      "correction_digest": "e6904e892b2a828417d975e27a2eeb40e05fd3e2556f4f7d8fd89928ae74bb76",
+      "correction_identity_exact": true,
+      "correction_term_count": 1269,
+      "exact": true,
+      "homotopy_depth": 3,
+      "inclusion_depth": 0,
+      "parameter": "b4",
+      "projection_depth": 3,
+      "source_term_count": 2151
+    },
+    {
+      "action_character_exact": true,
+      "action_digest": "de2f8460c0005c62ff7fcd159bf38d52c033c4c4db09d6da765705ef8325f76d",
+      "action_is_cycle": true,
+      "action_term_count": 1431,
+      "correction_character_exact": true,
+      "correction_digest": "aafbd0b073ac131e2522ae4af24debd275e3f39ae8452fffc3160802ed985cb6",
+      "correction_identity_exact": true,
+      "correction_term_count": 1215,
+      "exact": true,
+      "homotopy_depth": 3,
+      "inclusion_depth": 0,
+      "parameter": "b5",
+      "projection_depth": 3,
+      "source_term_count": 2061
+    }
+  ],
+  "prerequisite_artifact_digests": {
+    "character_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241",
+    "reverse_universal_cone": "802941c5bd1618150e7a8a04d284af1747e015ff3437dc19e89b05ad8d9e312b"
+  },
+  "schema": "mixed-schoen-reverse-higgs-lifts-v1",
+  "source_higgs_character_exponents": [
+    0,
+    2
+  ],
+  "strict_middle_higgs_digest": "89887441ecf145da54b90372e9aa08d8c50072c410c3f715bb24b2e79ef484e3",
+  "strict_middle_higgs_term_count": 27
+}

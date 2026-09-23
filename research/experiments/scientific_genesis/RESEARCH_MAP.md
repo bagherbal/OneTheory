@@ -545,11 +545,20 @@ exception. This is evidence for a theorem, not yet a theorem. The family-level
 action should be derived from characters and endomorphism radicals and attacked
 at singular, factor-exchanged, and exceptional sectors.
 
-The governing queue is therefore: derive the full basis-aware local Pluecker
-chain map for two V2 representatives, assemble the certified matter and Higgs
-legs, then extend only the minimum common-DGA hull required for one complete
-`3 x 3` holomorphic Yukawa matrix. The partial zero residue cannot stand in for
-that higher product. The declared finite monomial replacement category is
-exhausted by scoped stability no-go results. Completing the final 144 large
-automorphism cases stays suspended until it can change a dependency edge or
-independently verify a theorem.
+The forward `P1` component has a scoped all-sector flavor no-go. The exact
+reverse `P5` component is stable and genuinely `SU(4)` throughout its certified
+Kähler chamber, with the required structural spectrum. For the physical down
+slice, the two source matter characters invert to forward chain characters
+`(1,2)` and `(2,0)`. Four `V2` classes are constant; the two `V1` quotient
+classes have twelve exact parameter-linear corrections. The strict forward
+`(0,1)` Higgs cocycle is physical source `H_d`. Acting with each reverse
+extension direction gives a closed determinant-two cochain. Six exact
+determinant-line primitives correct those actions, each with strict forward
+character `(0,1)`. No extension point is chosen.
+
+The immediate calculation is the same-chain determinant contraction of these
+matter and Higgs classes into one complete down-type `3 x 3` holomorphic
+Yukawa matrix. The previous forward rank-zero result remains scoped to the
+forward component. Completing the final 144 large automorphism cases stays
+suspended until it can change a dependency edge or independently verify a
+theorem.

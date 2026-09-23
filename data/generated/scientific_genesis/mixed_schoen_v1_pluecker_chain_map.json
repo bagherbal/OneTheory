@@ -1,0 +1,56 @@
+{
+  "artifact_digest": "a55b9bf4af56a3aa04c59d743a31521fad54e86a8af0415a5e58cef80f8690f8",
+  "coefficient_field": "Q(omega)",
+  "determinant_ambient_degrees": [
+    -2,
+    0,
+    2,
+    0
+  ],
+  "determinant_frame_character_exponents": [
+    1,
+    0
+  ],
+  "equivariant_character_exact": true,
+  "equivariant_pairing_digest": "8f1cb0760b785394fd755b3af0f68757a6e4318d05ec8d327d4dfbab683f8129",
+  "equivariant_pairing_is_cycle": true,
+  "equivariant_pairing_term_count": 13968,
+  "exact": true,
+  "exchange_depth": 2,
+  "exchange_identity_exact": true,
+  "exchange_primitive_digest": "05f98121c20326a17c729d5a9f6582f8b2ad2da07b28e2063f2ddeaaeeddd10e",
+  "exchange_primitive_term_count": 6984,
+  "extension_point_selected": false,
+  "forward_matter_character_exponents": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "holomorphic_yukawa_entry_available": false,
+  "next_required_object": "common-chain comparison of V1-V1 matter pairing against the reverse central Higgs determinant-two correction",
+  "observational_inputs_used": false,
+  "pairing_digest": "6dcc1b0904454d3437370ca93b34e15d897d78d870b157051bf9c174f4f591fb",
+  "pairing_is_cycle": true,
+  "pairing_reduced_coordinate_count": 0,
+  "pairing_term_count": 8892,
+  "prerequisite_artifact_digests": {
+    "reverse_matter": "820f186e534aaa2f6e0d0c886f5b6a24c509b1a59cec7958fc224cf35c23b3ac",
+    "strict_matter": "7bfa76b80c1ae79eaaecbff6a07c370d792bd99a022ae65d04e9523af56483cf"
+  },
+  "projection_depth": 2,
+  "reverse_pairing_digest": "9cf329ca1fc3a55c612dd9b25c42583a2683833c59b91d150066d8cc3ee3ebf8",
+  "reverse_pairing_is_cycle": true,
+  "reverse_pairing_term_count": 8886,
+  "reverse_projection_depth": 2,
+  "reverse_reduced_coordinate_count": 0,
+  "schema": "mixed-schoen-v1-pluecker-chain-map-v1",
+  "target_character_exponents": [
+    0,
+    2
+  ]
+}

@@ -1130,6 +1130,32 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "reverse_physical_v1_pluecker_pairing",
+            "reverse physical V1 determinant pairing",
+            "Computable carrier",
+            "COMPUTED",
+            "The two strict physical-character V1 matter classes pair into "
+            "det(V1) through the certified local Pluecker matrices and an "
+            "explicit hypersurface-overlap homotopy. Both cup orders are "
+            "closed, their exchange difference has an exact primitive, and "
+            "the projected pairing has strict forward character (0,2). Its "
+            "reduced line coordinates vanish; no Yukawa value follows yet.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_v1_pluecker_chain_map.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_v1_pluecker_chain_map.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_v1_pluecker_chain_map.py",
+            ),
+            assumptions=(
+                "published Wilson character assignment for the down sector",
+            ),
+            missing=(
+                "common-chain comparison with the reverse central Higgs correction",
+            ),
+        ),
+        _node(
             "strict_mixed_matter_representatives",
             "strict synchronized constituent matter classes",
             "Computable carrier",
@@ -3002,6 +3028,45 @@ def _edges() -> list[dict[str, object]]:
             (),
         ),
         _edge(
+            "reverse_down_matrix_support",
+            "reverse_physical_v1_pluecker_pairing",
+            "Exterior selection isolates the V1-V1 slot, making its "
+            "determinant pairing a required input to the central trace.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_v1_pluecker_chain_map.json",
+            ),
+            (),
+            True,
+            ("the complete central trace is not yet computed",),
+        ),
+        _edge(
+            "strict_mixed_matter_representatives",
+            "reverse_physical_v1_pluecker_pairing",
+            "The two exact V1 character cocycles supply the ordered matter "
+            "inputs for the determinant pairing.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_v1_pluecker_chain_map.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_local_determinant_pairings",
+            "reverse_physical_v1_pluecker_pairing",
+            "First-constituent local minors and hypersurface overlap "
+            "quotients define the global cochain contraction.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_v1_pluecker_chain_map.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -4171,6 +4236,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_reverse_higgs_lifts.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_reverse_down_support.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_v1_pluecker_chain_map.json",
         "data/generated/scientific_genesis/mixed_schoen_matter_representatives.json",
         "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
@@ -4410,6 +4477,11 @@ def build_state() -> dict[str, object]:
                 "reverse_down_tree_boundary_zero_slot_count": 4,
                 "reverse_down_matrix_rank_upper_bound": 1,
                 "reverse_down_central_coefficient_computed": False,
+                "reverse_down_v1_pairing_available": True,
+                "reverse_down_v1_pairing_term_count": 8892,
+                "reverse_down_v1_pairing_exchange_exact": True,
+                "reverse_down_v1_pairing_character_exact": True,
+                "reverse_down_v1_pairing_reduced_coordinate_count": 0,
                 "lawful_chain_diagonal_transfer_seed_count": 4896,
                 "lawful_chain_diagonal_squared_zero": True,
                 "required_higgs_character": [0, 1],
@@ -4632,6 +4704,8 @@ def build_state() -> dict[str, object]:
             "reverse directions through exact determinant-two corrections",
             "rank-two exterior support and exact tree boundaries restrict the "
             "reverse down matrix to one unresolved parameter-linear entry",
+            "the physical V1-V1 determinant pairing closes in both cup orders, "
+            "has an exact exchange primitive, and descends in character (0,2)",
             "every lawful P1 extension stable in the exact source chamber with "
             "genuine SU(4) forced by nonzero cover c3",
             "synchronized mixed constituent transfers derive matter cohomology "

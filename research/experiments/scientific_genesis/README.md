@@ -398,3 +398,11 @@ exact boundaries. The sole unresolved `V1`-`V1` entry is linear in the six
 reverse extension parameters, so this holomorphic matrix has rank at most
 one. Its value is not yet known. The next exact edge is the common-chain
 determinant contraction and comparison homotopy for those six coefficients.
+
+The required strict `V1`-`V1` determinant pairing is now constructed from the
+first constituent's local Pluecker matrices and hypersurface-overlap
+homotopy. Both cup orders are closed, their exchange difference is an exact
+boundary, and character projection gives the required forward `(0,2)`
+sector. The pairing has zero reduced line coordinates, but that alone does
+not determine the first-order central Yukawa value: its matter corrections
+and canonical Higgs correction must still be compared on the same chain.

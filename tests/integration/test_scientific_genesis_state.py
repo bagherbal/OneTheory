@@ -128,6 +128,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["reverse_down_tree_boundary_zero_slot_count"] == 4
     assert path["criteria"]["reverse_down_matrix_rank_upper_bound"] == 1
     assert path["criteria"]["reverse_down_central_coefficient_computed"] is False
+    assert path["criteria"]["reverse_down_v1_pairing_available"] is True
+    assert path["criteria"]["reverse_down_v1_pairing_term_count"] == 8892
+    assert path["criteria"]["reverse_down_v1_pairing_exchange_exact"] is True
+    assert path["criteria"]["reverse_down_v1_pairing_character_exact"] is True
+    assert path["criteria"]["reverse_down_v1_pairing_reduced_coordinate_count"] == 0
     assert path["criteria"]["lawful_chain_diagonal_transfer_seed_count"] == 4896
     assert path["criteria"]["lawful_chain_diagonal_squared_zero"] is True
     assert path["criteria"]["required_higgs_character"] == [0, 1]

@@ -574,3 +574,13 @@ The previous forward rank-zero result remains scoped to the forward
 component. Completing the final 144 large automorphism cases stays
 suspended until it can change a dependency edge or independently verify a
 theorem.
+
+The first-constituent Pluecker pairing now supplies the bottom matter factor
+for the remaining central slot. The physical `(1,2)` and `(2,0)` strict `V1`
+cocycles yield an 8,892-term closed determinant-one cochain. Reversing the
+cup order gives another closed cochain, and their difference has an exact
+6,984-term primitive. Projection to the required forward `(0,2)` character
+is exact; the reduced determinant-line coordinates vanish. This does not
+imply a zero central Yukawa coefficient because the paired strict matter
+term is accompanied by parameter-linear matter and Higgs corrections. Their
+same-chain comparison is the next indispensable calculation.

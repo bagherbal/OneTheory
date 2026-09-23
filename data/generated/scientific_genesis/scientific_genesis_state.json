@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "cefb75fcaa25de24ad4e2b258b44775b7c1221e18897d817e681438b693c1750",
+  "artifact_digest": "d7bc9d10861a420b0d64ab4f97dd6f630aca8ed64c74aafacad78619f30168a2",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -225,6 +225,11 @@
       "bytes": 2273,
       "path": "data/generated/scientific_genesis/mixed_schoen_reverse_down_support.json",
       "sha256": "57b7f1310fcd012e36fc472c17d7edbacc5bc1a51d72c9db7697911cc3473607"
+    },
+    {
+      "bytes": 1842,
+      "path": "data/generated/scientific_genesis/mixed_schoen_v1_pluecker_chain_map.json",
+      "sha256": "70ea200d85fa76555b8a49e636c628fe0d5b95d342bb6961df55281b5bf2e2a9"
     },
     {
       "bytes": 5326,
@@ -471,8 +476,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 201,
-    "test_python_files": 180
+    "research_python_files": 202,
+    "test_python_files": 181
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1433,6 +1438,24 @@
         "six exact central determinant contractions and comparison homotopies"
       ],
       "statement": "The reverse matter and Higgs lifts have exact rank-two exterior support. Four V2-V2 entries vanish structurally, four mixed entries reuse independent exact tree-boundary zero witnesses, and only the parameter-linear V1-V1 coefficient remains. This bounds the full matrix rank by one without computing its value.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "published Wilson character assignment for the down sector"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_v1_pluecker_chain_map.json",
+        "research/experiments/scientific_genesis/mixed_schoen_v1_pluecker_chain_map.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_v1_pluecker_chain_map.py"
+      ],
+      "id": "reverse_physical_v1_pluecker_pairing",
+      "label": "reverse physical V1 determinant pairing",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "common-chain comparison with the reverse central Higgs correction"
+      ],
+      "statement": "The two strict physical-character V1 matter classes pair into det(V1) through the certified local Pluecker matrices and an explicit hypersurface-overlap homotopy. Both cup orders are closed, their exchange difference has an exact primitive, and the projected pairing has strict forward character (0,2). Its reduced line coordinates vanish; no Yukawa value follows yet.",
       "status": "COMPUTED"
     },
     {
@@ -3167,6 +3190,41 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_v1_pluecker_chain_map.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the complete central trace is not yet computed"
+      ],
+      "mathematical_reason": "Exterior selection isolates the V1-V1 slot, making its determinant pairing a required input to the central trace.",
+      "source": "reverse_down_matrix_support",
+      "target": "reverse_physical_v1_pluecker_pairing"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_v1_pluecker_chain_map.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The two exact V1 character cocycles supply the ordered matter inputs for the determinant pairing.",
+      "source": "strict_mixed_matter_representatives",
+      "target": "reverse_physical_v1_pluecker_pairing"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_v1_pluecker_chain_map.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "First-constituent local minors and hypersurface overlap quotients define the global cochain contraction.",
+      "source": "mixed_local_determinant_pairings",
+      "target": "reverse_physical_v1_pluecker_pairing"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
         "src/onetheory/math/homological.py"
       ],
@@ -3987,6 +4045,7 @@
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
+    "the physical V1-V1 determinant pairing closes in both cup orders, has an exact exchange primitive, and descends in character (0,2)",
     "every lawful P1 extension stable in the exact source chamber with genuine SU(4) forced by nonzero cover c3",
     "synchronized mixed constituent transfers derive matter cohomology (0,27,0,0), with free-action Lefschetz compression proving three regular deck representations",
     "acyclic determinant filtration and lawful relative pushdowns derive Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and zero massless color triplets throughout the lawful P1",
@@ -4479,6 +4538,11 @@
       "reverse_down_tree_boundary_zero_slot_count": 4,
       "reverse_down_universal_matter_character_count": 2,
       "reverse_down_universal_v1_lift_count": 2,
+      "reverse_down_v1_pairing_available": true,
+      "reverse_down_v1_pairing_character_exact": true,
+      "reverse_down_v1_pairing_exchange_exact": true,
+      "reverse_down_v1_pairing_reduced_coordinate_count": 0,
+      "reverse_down_v1_pairing_term_count": 8892,
       "same_constituent_higgs_relinearization_available": false,
       "scalar_higgs_action_repairs_refuted": true,
       "scalar_residue_target_available": true,

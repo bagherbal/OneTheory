@@ -554,7 +554,9 @@ classes have twelve exact parameter-linear corrections. The strict forward
 `(0,1)` Higgs cocycle is physical source `H_d`. Acting with each reverse
 extension direction gives a closed determinant-two cochain. Six exact
 determinant-line primitives correct those actions, each with strict forward
-character `(0,1)`. No extension point is chosen.
+character `(0,1)`. The exact inverse fiber-twist map then places all six
+action/correction pairs in the canonical determinant-two frame, preserving
+their boundary identities and deck characters. No extension point is chosen.
 
 The reverse down-matrix support is now exact before evaluating its remaining
 coefficient. In the universal cone, the sole `V1` family has a linear `V2`

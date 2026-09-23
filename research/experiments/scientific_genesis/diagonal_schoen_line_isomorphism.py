@@ -1,8 +1,8 @@
-"""Canonicalize the diagonal p-minus-q line twist exactly.
+"""Canonicalize both oriented diagonal fiber-line twists exactly.
 
 Owns:
-    The Cech-local map from a line carrying degree (0,1,0,-1) to its
-    canonically normalized diagonal restriction and its Koszul homotopy.
+    The Cech-local maps from lines carrying degree (0,1,0,-1) or (0,-1,0,1)
+    to their canonical diagonal restrictions with explicit Koszul homotopies.
 
 Depends on:
     The exact four-factor diagonal line complex, Alexander--Whitney products,
@@ -34,6 +34,7 @@ from .diagonal_schoen_lines import (
 from .mixed_schoen_matter_tensor import _cell_cup
 
 P_MINUS_Q_TWIST: LineDegree4 = (0, 1, 0, -1)
+Q_MINUS_P_TWIST: LineDegree4 = (0, -1, 0, 1)
 _ZERO3: Monomial = (0, 0, 0)
 
 
@@ -159,8 +160,79 @@ def canonicalize_p_minus_q_twist(
     return _FullCochain(tuple(terms))
 
 
+def canonicalize_q_minus_p_twist(
+    cochain: _FullCochain,
+    source_degrees: LineDegree4,
+    target_degrees: LineDegree4,
+) -> _FullCochain:
+    """Map the inverse diagonal fiber twist with its exact overlap homotopy."""
+
+    if _subtract_line_degrees(source_degrees, target_degrees) != Q_MINUS_P_TWIST:
+        raise ValueError("the declared lines do not differ by the q-minus-p twist")
+    _validate_source(cochain, source_degrees)
+    terms: list[tuple[_FullBasis, Eisenstein]] = []
+    for basis, coefficient in cochain.terms:
+        pivot = basis.cell[3][0]
+        ratio_p: Monomial = (1, 0) if pivot == 0 else (0, 1)
+        ratio_q: Monomial = (-1, 0) if pivot == 0 else (0, -1)
+        ratio_monomials = (_ZERO3, ratio_p, _ZERO3, ratio_q)
+        terms.append(
+            (
+                _FullBasis(
+                    basis.subset,
+                    _subtract_degrees(target_degrees, basis.subset),
+                    cast(
+                        tuple[Monomial, Monomial, Monomial, Monomial],
+                        tuple(
+                            _add_monomials(source, ratio)
+                            for source, ratio in zip(
+                                basis.monomials,
+                                ratio_monomials,
+                                strict=True,
+                            )
+                        ),
+                    ),
+                    basis.cell,
+                ),
+                coefficient,
+            )
+        )
+        if 2 in basis.subset or basis.cell[3] != (1,):
+            continue
+        map_cell: Cell4 = (
+            (basis.cell[0][0],),
+            (basis.cell[1][0],),
+            (basis.cell[2][0],),
+            (0, 1),
+        )
+        product = _cell_cup(map_cell, basis.cell)
+        if product is None:
+            raise ValueError("the inverse diagonal overlap homotopy has no cup")
+        cell_sign, target_cell = product
+        target_subset = tuple(sorted((*basis.subset, 2)))
+        terms.append(
+            (
+                _FullBasis(
+                    target_subset,
+                    _subtract_degrees(target_degrees, target_subset),
+                    (
+                        basis.monomials[0],
+                        basis.monomials[1],
+                        basis.monomials[2],
+                        _add_monomials(basis.monomials[3], (-1, -1)),
+                    ),
+                    target_cell,
+                ),
+                coefficient * cell_sign,
+            )
+        )
+    return _FullCochain(tuple(terms))
+
+
 __all__ = [
     "P_MINUS_Q_TWIST",
+    "Q_MINUS_P_TWIST",
     "canonicalize_p_minus_q_twist",
+    "canonicalize_q_minus_p_twist",
     "diagonal_twist_local_identity_exact",
 ]

@@ -27,7 +27,7 @@ from research.experiments.scientific_genesis.mixed_schoen_reverse_higgs_lifts im
 )
 
 EXPECTED_ARTIFACT_DIGEST = (
-    "0a5b527f8308304cfabc8fb42205987baf8cb993a99d181d0d4f7277f3d6cf35"
+    "4da787cdeea2b8f6aff99677ad8c020257334e36025de389e8815c172038cedf"
 )
 
 
@@ -47,7 +47,7 @@ def test_reverse_higgs_lift_closes_every_parameter_direction() -> None:
     payload = _payload()
     coefficients = payload["parameter_coefficients"]
 
-    assert payload["schema"] == "mixed-schoen-reverse-higgs-lifts-v1"
+    assert payload["schema"] == "mixed-schoen-reverse-higgs-lifts-v2"
     assert payload["extension_sequence"] == "0 -> V2 -> E_reverse -> V1 -> 0"
     assert payload["carrier_locus"] == "P^5(Q(omega)) x K_reverse^s"
     assert payload["forward_higgs_character_exponents"] == [0, 1]
@@ -56,6 +56,7 @@ def test_reverse_higgs_lift_closes_every_parameter_direction() -> None:
     assert payload["det_v2_raw_ambient_degrees"] == [2, -1, -2, 1]
     assert payload["det_v2_canonical_ambient_degrees"] == [2, 0, -2, 0]
     assert payload["det_v2_frame_character"] == [1, 1]
+    assert "q-minus-p twist" in payload["diagonal_line_identification"]
     assert [item["parameter"] for item in coefficients] == [
         f"b{index}" for index in range(6)
     ]
@@ -65,13 +66,25 @@ def test_reverse_higgs_lift_closes_every_parameter_direction() -> None:
     assert [item["correction_term_count"] for item in coefficients] == [
         972, 1026, 1323, 1323, 1269, 1215
     ]
+    assert [item["canonical_action_term_count"] for item in coefficients] == [
+        1323, 1377, 1539, 1566, 1566, 1431
+    ]
+    assert [item["canonical_correction_term_count"] for item in coefficients] == [
+        1116, 1188, 1485, 1485, 1413, 1359
+    ]
     assert len({item["action_digest"] for item in coefficients}) == 6
     assert len({item["correction_digest"] for item in coefficients}) == 6
+    assert len({item["canonical_action_digest"] for item in coefficients}) == 6
+    assert len({item["canonical_correction_digest"] for item in coefficients}) == 6
     assert all(
         item["action_is_cycle"]
         and item["action_character_exact"]
         and item["correction_identity_exact"]
         and item["correction_character_exact"]
+        and item["canonical_action_is_cycle"]
+        and item["canonical_correction_identity_exact"]
+        and item["canonical_action_character_exact"]
+        and item["canonical_correction_character_exact"]
         and item["exact"]
         for item in coefficients
     )

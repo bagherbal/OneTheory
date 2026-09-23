@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "f7a19749e02c27d9c47ee649e7ab8615488a832759e7339388434f14175b3ca2",
+  "artifact_digest": "158050ea7a5b31d843639099c6607a8b38d2a1f0a6fda177e8e38b87eb59f4d1",
   "carrier_locus": "P^5(Q(omega)) x K_reverse^s",
   "central_coefficient_computed": false,
   "coefficient_field": "Q(omega)",
@@ -49,7 +49,7 @@
     "b5"
   ],
   "prerequisite_artifact_digests": {
-    "reverse_higgs": "0a5b527f8308304cfabc8fb42205987baf8cb993a99d181d0d4f7277f3d6cf35",
+    "reverse_higgs": "4da787cdeea2b8f6aff99677ad8c020257334e36025de389e8815c172038cedf",
     "reverse_matter": "820f186e534aaa2f6e0d0c886f5b6a24c509b1a59cec7958fc224cf35c23b3ac",
     "strict_tree": "4c827630ff59bdab5e46ec63d606f1dc16df3cc6299ed04d517dbd78dec8e698"
   },

@@ -2,7 +2,7 @@
 
 Owns:
     Exact determinant-two corrections to the strict middle tensor Higgs class
-    for every reverse outer-extension parameter.
+    for every reverse outer-extension parameter and their canonical fiber frame.
 
 Depends on:
     The certified reverse basis, synchronized strict Higgs cocycle, independent
@@ -38,6 +38,7 @@ from .diagonal_schoen_line_actions import (
     project_line_character,
 )
 from .diagonal_schoen_line_contraction import exact_diagonal_ambient_line_primitive
+from .diagonal_schoen_line_isomorphism import canonicalize_q_minus_p_twist
 from .diagonal_schoen_lines import (
     LineDegree4,
     Monomial,
@@ -180,6 +181,8 @@ class ReverseHiggsLiftCoefficient:
     source_term_count: int
     action: _FullCochain
     correction: _FullCochain
+    canonical_action: _FullCochain
+    canonical_correction: _FullCochain
     projection_depth: int
     inclusion_depth: int
     homotopy_depth: int
@@ -187,6 +190,10 @@ class ReverseHiggsLiftCoefficient:
     action_character_exact: bool
     correction_identity_exact: bool
     correction_character_exact: bool
+    canonical_action_is_cycle: bool
+    canonical_correction_identity_exact: bool
+    canonical_action_character_exact: bool
+    canonical_correction_character_exact: bool
 
     @property
     def exact(self) -> bool:
@@ -200,6 +207,10 @@ class ReverseHiggsLiftCoefficient:
             and self.action_character_exact
             and self.correction_identity_exact
             and self.correction_character_exact
+            and self.canonical_action_is_cycle
+            and self.canonical_correction_identity_exact
+            and self.canonical_action_character_exact
+            and self.canonical_correction_character_exact
         )
 
     def as_record(self) -> dict[str, object]:
@@ -212,6 +223,12 @@ class ReverseHiggsLiftCoefficient:
             "action_digest": _full_cochain_digest(self.action),
             "correction_term_count": len(self.correction.terms),
             "correction_digest": _full_cochain_digest(self.correction),
+            "canonical_action_term_count": len(self.canonical_action.terms),
+            "canonical_action_digest": _full_cochain_digest(self.canonical_action),
+            "canonical_correction_term_count": len(self.canonical_correction.terms),
+            "canonical_correction_digest": _full_cochain_digest(
+                self.canonical_correction
+            ),
             "projection_depth": self.projection_depth,
             "inclusion_depth": self.inclusion_depth,
             "homotopy_depth": self.homotopy_depth,
@@ -219,6 +236,16 @@ class ReverseHiggsLiftCoefficient:
             "action_character_exact": self.action_character_exact,
             "correction_identity_exact": self.correction_identity_exact,
             "correction_character_exact": self.correction_character_exact,
+            "canonical_action_is_cycle": self.canonical_action_is_cycle,
+            "canonical_correction_identity_exact": (
+                self.canonical_correction_identity_exact
+            ),
+            "canonical_action_character_exact": (
+                self.canonical_action_character_exact
+            ),
+            "canonical_correction_character_exact": (
+                self.canonical_correction_character_exact
+            ),
             "exact": self.exact,
         }
 
@@ -247,11 +274,23 @@ def reverse_higgs_lift_coefficient(parameter_index: int) -> ReverseHiggsLiftCoef
         FORWARD_DOWN_HIGGS_CHARACTER,
         frame_character,
     ).scale(-1)
+    canonical_action = canonicalize_q_minus_p_twist(
+        action,
+        DET_V2_RAW_DEGREES,
+        DET_V2_CANONICAL_DEGREES,
+    )
+    canonical_correction = canonicalize_q_minus_p_twist(
+        correction,
+        DET_V2_RAW_DEGREES,
+        DET_V2_CANONICAL_DEGREES,
+    )
     result = ReverseHiggsLiftCoefficient(
         parameters[parameter_index],
         len(source.terms),
         action,
         correction,
+        canonical_action,
+        canonical_correction,
         primitive.projection_depth,
         primitive.inclusion_depth,
         primitive.homotopy_depth,
@@ -260,6 +299,15 @@ def reverse_higgs_lift_coefficient(parameter_index: int) -> ReverseHiggsLiftCoef
         scalar_full_differential(correction) == action.scale(-1),
         line_has_character(
             correction, FORWARD_DOWN_HIGGS_CHARACTER, frame_character
+        ),
+        scalar_full_differential(canonical_action).is_zero(),
+        scalar_full_differential(canonical_correction)
+        == canonical_action.scale(-1),
+        line_has_character(
+            canonical_action, FORWARD_DOWN_HIGGS_CHARACTER, frame_character
+        ),
+        line_has_character(
+            canonical_correction, FORWARD_DOWN_HIGGS_CHARACTER, frame_character
         ),
     )
     if not result.exact:
@@ -273,7 +321,7 @@ def write_reverse_higgs_lifts(path: Path = OUTPUT) -> dict[str, object]:
     higgs = load_certified_higgs_representative()
     coefficients = tuple(reverse_higgs_lift_coefficient(index) for index in range(6))
     payload: dict[str, object] = {
-        "schema": "mixed-schoen-reverse-higgs-lifts-v1",
+        "schema": "mixed-schoen-reverse-higgs-lifts-v2",
         "coefficient_field": "Q(omega)",
         "extension_sequence": "0 -> V2 -> E_reverse -> V1 -> 0",
         "carrier_locus": "P^5(Q(omega)) x K_reverse^s",
@@ -284,6 +332,10 @@ def write_reverse_higgs_lifts(path: Path = OUTPUT) -> dict[str, object]:
         "det_v2_raw_ambient_degrees": list(DET_V2_RAW_DEGREES),
         "det_v2_canonical_ambient_degrees": list(DET_V2_CANONICAL_DEGREES),
         "det_v2_frame_character": list(constituent_determinant_character(2)),
+        "diagonal_line_identification": (
+            "the (0,-1,0,1) q-minus-p twist restricts trivially on the "
+            "fiber diagonal and is retained by an exact overlap homotopy"
+        ),
         "parameter_coefficients": [item.as_record() for item in coefficients],
         "all_coefficients_exact": all(item.exact for item in coefficients),
         "arbitrary_extension_point_selected": False,

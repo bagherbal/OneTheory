@@ -389,7 +389,10 @@ physical spectrum is certified throughout the component. The physical down
 slice has four constant `V2` matter classes and two `V1` quotient classes
 with twelve exact parameter corrections. The strict `H_d` middle tensor
 cocycle has six exact determinant-two corrections with forward deck character
-`(0,1)`. Exterior-degree selection kills the four `V2`-`V2` matrix slots;
+`(0,1)`. The inverse fiber-twist chain map also places all six corrections
+in the canonical determinant-two frame without changing their boundary or
+deck-character gates. Exterior-degree selection kills the four `V2`-`V2`
+matrix slots;
 the four mixed slots retain only strict tree terms, already certified as
 exact boundaries. The sole unresolved `V1`-`V1` entry is linear in the six
 reverse extension parameters, so this holomorphic matrix has rank at most

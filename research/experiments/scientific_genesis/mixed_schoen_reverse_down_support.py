@@ -154,11 +154,12 @@ def reverse_down_support() -> dict[str, object]:
         MATTER_ARTIFACT, "mixed-schoen-reverse-down-matter-lifts-v1"
     )
     higgs, higgs_digest = _verified_payload(
-        HIGGS_ARTIFACT, "mixed-schoen-reverse-higgs-lifts-v1"
+        HIGGS_ARTIFACT, "mixed-schoen-reverse-higgs-lifts-v2"
     )
     tree, tree_digest = _verified_payload(
         TREE_ARTIFACT, "mixed-schoen-holomorphic-down-tree-matrix-v1"
     )
+    higgs_coefficients = higgs.get("parameter_coefficients")
     if (
         matter.get("exact") is not True
         or matter.get("carrier_parameter_basis")
@@ -166,7 +167,16 @@ def reverse_down_support() -> dict[str, object]:
         or matter.get("universal_visible_family_dimension_per_character") != 3
         or matter.get("all_coefficientwise_cone_identities_exact") is not True
         or higgs.get("all_coefficients_exact") is not True
-        or len(higgs.get("parameter_coefficients", [])) != 6
+        or not isinstance(higgs_coefficients, list)
+        or len(higgs_coefficients) != 6
+        or any(
+            not isinstance(item, dict)
+            or item.get("canonical_action_is_cycle") is not True
+            or item.get("canonical_correction_identity_exact") is not True
+            or item.get("canonical_action_character_exact") is not True
+            or item.get("canonical_correction_character_exact") is not True
+            for item in higgs_coefficients
+        )
         or tree.get("exact") is not True
     ):
         raise ValueError("the reverse support inputs are not exact")

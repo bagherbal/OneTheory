@@ -1086,8 +1086,9 @@ def _nodes() -> list[dict[str, object]]:
             "The strict 27-term middle tensor Higgs cocycle has six exact "
             "parameter-linear determinant-two corrections over the full "
             "reverse P5. Each extension action is a closed boundary in the "
-            "explicit line complex, and every correction has the exact "
-            "forward (0,1) deck character.",
+            "explicit line complex, and the inverse fiber-twist chain map "
+            "places every correction in the canonical determinant frame "
+            "with exact forward (0,1) deck character.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_reverse_higgs_lifts.json",
@@ -4403,6 +4404,7 @@ def build_state() -> dict[str, object]:
                 "reverse_down_higgs_lift_available": True,
                 "reverse_down_higgs_parameter_correction_count": 6,
                 "reverse_down_higgs_character_exact": True,
+                "reverse_down_higgs_canonical_frame_exact": True,
                 "reverse_down_support_exact": True,
                 "reverse_down_exterior_zero_slot_count": 4,
                 "reverse_down_tree_boundary_zero_slot_count": 4,

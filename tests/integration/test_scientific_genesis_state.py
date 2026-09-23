@@ -122,6 +122,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["reverse_down_higgs_lift_available"] is True
     assert path["criteria"]["reverse_down_higgs_parameter_correction_count"] == 6
     assert path["criteria"]["reverse_down_higgs_character_exact"] is True
+    assert path["criteria"]["reverse_down_higgs_canonical_frame_exact"] is True
     assert path["criteria"]["reverse_down_support_exact"] is True
     assert path["criteria"]["reverse_down_exterior_zero_slot_count"] == 4
     assert path["criteria"]["reverse_down_tree_boundary_zero_slot_count"] == 4

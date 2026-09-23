@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "6767c5d8d8c619109f487b36116e866a4faea83b15560719e19a5be3f1381d36",
+  "artifact_digest": "cefb75fcaa25de24ad4e2b258b44775b7c1221e18897d817e681438b693c1750",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -217,14 +217,14 @@
       "sha256": "e4dd95641cd6c760414625da4897b0901973995355097eb47f5e0e1a6571a236"
     },
     {
-      "bytes": 4743,
+      "bytes": 7826,
       "path": "data/generated/scientific_genesis/mixed_schoen_reverse_higgs_lifts.json",
-      "sha256": "75413786b6e7b25699a5c4e3412a472a1c3ef717de347a60db66eaafe52545d2"
+      "sha256": "5185ea46413358105eec75010976a99dd2000599243e6cae284521e2e96130b9"
     },
     {
       "bytes": 2273,
       "path": "data/generated/scientific_genesis/mixed_schoen_reverse_down_support.json",
-      "sha256": "d30b63563582d8dad17ab00dd1101909c4eb11b34c0d0148c9ba28c09cf65c83"
+      "sha256": "57b7f1310fcd012e36fc472c17d7edbacc5bc1a51d72c9db7697911cc3473607"
     },
     {
       "bytes": 5326,
@@ -1414,7 +1414,7 @@
       "missing_prerequisites": [
         "reverse same-chain determinant contraction for the down matrix"
       ],
-      "statement": "The strict 27-term middle tensor Higgs cocycle has six exact parameter-linear determinant-two corrections over the full reverse P5. Each extension action is a closed boundary in the explicit line complex, and every correction has the exact forward (0,1) deck character.",
+      "statement": "The strict 27-term middle tensor Higgs cocycle has six exact parameter-linear determinant-two corrections over the full reverse P5. Each extension action is a closed boundary in the explicit line complex, and the inverse fiber-twist chain map places every correction in the canonical determinant frame with exact forward (0,1) deck character.",
       "status": "COMPUTED"
     },
     {
@@ -4469,6 +4469,7 @@
       "reverse_down_constant_v2_class_count": 4,
       "reverse_down_extension_point_selected": false,
       "reverse_down_exterior_zero_slot_count": 4,
+      "reverse_down_higgs_canonical_frame_exact": true,
       "reverse_down_higgs_character_exact": true,
       "reverse_down_higgs_lift_available": true,
       "reverse_down_higgs_parameter_correction_count": 6,

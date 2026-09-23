@@ -25,6 +25,7 @@ from research.experiments.scientific_genesis.mixed_schoen_chain_diagonal import 
     ChainDiagonalCochain,
     _object_indices,
     _target_component,
+    chain_diagonal_objects,
 )
 from research.experiments.scientific_genesis.mixed_schoen_matter_tensor import (
     IndependentMatterBasis,
@@ -53,10 +54,13 @@ def _degree_one_cells() -> tuple[tuple[tuple[int, ...], ...], ...]:
 def _cochain(
     factor: int,
     cell: tuple[tuple[int, ...], ...],
+    object_index: int = 0,
 ) -> IndependentMatterCochain:
     """Build one homogeneous algebraic test cochain with no physical label."""
 
-    basis = IndependentMatterBasis(factor, 0, (), 0, ZERO_MONOMIALS, cell)
+    basis = IndependentMatterBasis(
+        factor, object_index, (), 0, ZERO_MONOMIALS, cell
+    )
     return IndependentMatterCochain(factor, 1, ((basis, Eisenstein(1)),))
 
 
@@ -87,3 +91,40 @@ def test_endpoint_index_agrees_with_direct_cech_cup() -> None:
                     )
                 )
                 assert result == expected
+
+
+def test_object_filter_is_exact_restriction_of_full_tensor() -> None:
+    """A trace-support filter preserves every retained signed product."""
+
+    left_cell = ((0, 1), (0,), (0,), (0,))
+    right_cell = ((1,), (0, 1), (0,), (0,))
+    left = IndependentMatterCochain(
+        1,
+        1,
+        _cochain(1, left_cell, 0).terms + _cochain(1, left_cell, 1).terms,
+    )
+    right = IndependentMatterCochain(
+        2,
+        1,
+        _cochain(2, right_cell, 0).terms + _cochain(2, right_cell, 1).terms,
+    )
+    full = external_lifted_matter_tensor(left, right)
+    selected = external_lifted_matter_tensor(
+        left, right, frozenset({(1, 1)})
+    )
+    objects = chain_diagonal_objects()
+    expected = ChainDiagonalCochain(
+        tuple(
+            (basis, coefficient)
+            for basis, coefficient in full.terms
+            if (
+                objects[basis.component.object_index].first_index,
+                objects[basis.component.object_index].second_index,
+            )
+            == (1, 1)
+        )
+    )
+    assert full.terms
+    assert selected.terms
+    assert selected == expected
+    assert len(selected.terms) < len(full.terms)

@@ -218,8 +218,9 @@ def _cell_cup(left: Cell4, right: Cell4) -> tuple[int, Cell4] | None:
 def external_lifted_matter_tensor(
     left: IndependentMatterCochain,
     right: IndependentMatterCochain,
+    allowed_object_pairs: frozenset[tuple[int, int]] | None = None,
 ) -> ChainDiagonalCochain:
-    """Tensor an ordered pair of already-lifted matter cochains."""
+    """Tensor an ordered pair, optionally retaining declared object pairs."""
 
     if left.factor != 1 or right.factor != 2:
         raise ValueError("the external tensor requires factor one before factor two")
@@ -273,6 +274,11 @@ def external_lifted_matter_tensor(
         )
         for right_key, right_terms in right_by_start.get(endpoint, ()):
             right_index, right_subset, right_object_degree, right_cell = right_key
+            if (
+                allowed_object_pairs is not None
+                and (left_index, right_index) not in allowed_object_pairs
+            ):
+                continue
             cell_product = _cell_cup(left_cell, right_cell)
             if cell_product is None:
                 continue

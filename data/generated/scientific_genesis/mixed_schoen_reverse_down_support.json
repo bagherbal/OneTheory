@@ -1,0 +1,133 @@
+{
+  "artifact_digest": "f7a19749e02c27d9c47ee649e7ab8615488a832759e7339388434f14175b3ca2",
+  "carrier_locus": "P^5(Q(omega)) x K_reverse^s",
+  "central_coefficient_computed": false,
+  "coefficient_field": "Q(omega)",
+  "constituent_ranks": [
+    2,
+    2
+  ],
+  "exact_support": true,
+  "extension_point_selected": false,
+  "exterior_forced_zero_slots": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "family_basis": [
+    "V1 quotient",
+    "V2 subobject:1",
+    "V2 subobject:2"
+  ],
+  "matrix_rank_upper_bound": 1,
+  "next_required_object": "six exact reverse central Yukawa coefficients from the common determinant contraction, including its comparison homotopy",
+  "nontrivial_holomorphic_matrix_available": false,
+  "observational_inputs_used": false,
+  "only_unresolved_slot": [
+    0,
+    0
+  ],
+  "parameter_basis": [
+    "b0",
+    "b1",
+    "b2",
+    "b3",
+    "b4",
+    "b5"
+  ],
+  "prerequisite_artifact_digests": {
+    "reverse_higgs": "0a5b527f8308304cfabc8fb42205987baf8cb993a99d181d0d4f7277f3d6cf35",
+    "reverse_matter": "820f186e534aaa2f6e0d0c886f5b6a24c509b1a59cec7958fc224cf35c23b3ac",
+    "strict_tree": "4c827630ff59bdab5e46ec63d606f1dc16df3cc6299ed04d517dbd78dec8e698"
+  },
+  "schema": "mixed-schoen-reverse-down-support-v1",
+  "surviving_parameter_degrees_by_slot": [
+    {
+      "column": 0,
+      "degrees": [
+        1
+      ],
+      "row": 0
+    },
+    {
+      "column": 1,
+      "degrees": [
+        0
+      ],
+      "row": 0
+    },
+    {
+      "column": 2,
+      "degrees": [
+        0
+      ],
+      "row": 0
+    },
+    {
+      "column": 0,
+      "degrees": [
+        0
+      ],
+      "row": 1
+    },
+    {
+      "column": 1,
+      "degrees": [],
+      "row": 1
+    },
+    {
+      "column": 2,
+      "degrees": [],
+      "row": 1
+    },
+    {
+      "column": 0,
+      "degrees": [
+        0
+      ],
+      "row": 2
+    },
+    {
+      "column": 1,
+      "degrees": [],
+      "row": 2
+    },
+    {
+      "column": 2,
+      "degrees": [],
+      "row": 2
+    }
+  ],
+  "tree_boundary_zero_slots": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "unresolved_slot_parameter_degree": 1
+}

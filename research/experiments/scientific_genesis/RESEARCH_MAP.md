@@ -556,9 +556,19 @@ extension direction gives a closed determinant-two cochain. Six exact
 determinant-line primitives correct those actions, each with strict forward
 character `(0,1)`. No extension point is chosen.
 
-The immediate calculation is the same-chain determinant contraction of these
-matter and Higgs classes into one complete down-type `3 x 3` holomorphic
-Yukawa matrix. The previous forward rank-zero result remains scoped to the
-forward component. Completing the final 144 large automorphism cases stays
+The reverse down-matrix support is now exact before evaluating its remaining
+coefficient. In the universal cone, the sole `V1` family has a linear `V2`
+correction; the two `V2` families are constant. The Higgs has a strict
+`V1 ⊗ V2` term and a linear `det(V2)` correction. Rank-two exterior cutoffs
+kill the four `V2`-`V2` slots, while the four mixed slots have only their
+parameter-independent tree terms. Those terms reuse the same strict
+constituent representatives and four exact tree-boundary witnesses. Thus
+only the `V1`-`V1` entry can survive, and it is linear in the six reverse
+extension parameters. The universal matrix has rank at most one. This is a
+support theorem, not a computed nonzero coefficient or a physical mass
+prediction. The next calculation is the exact common-chain determinant
+contraction and comparison homotopy for those six central coefficients.
+The previous forward rank-zero result remains scoped to the forward
+component. Completing the final 144 large automorphism cases stays
 suspended until it can change a dependency edge or independently verify a
 theorem.

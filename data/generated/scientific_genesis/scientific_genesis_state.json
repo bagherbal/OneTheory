@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "ff7564edb7826e00de57e9c3a6bc715f8a660f741b370bd54745a8871fb365c1",
+  "artifact_digest": "6767c5d8d8c619109f487b36116e866a4faea83b15560719e19a5be3f1381d36",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -220,6 +220,11 @@
       "bytes": 4743,
       "path": "data/generated/scientific_genesis/mixed_schoen_reverse_higgs_lifts.json",
       "sha256": "75413786b6e7b25699a5c4e3412a472a1c3ef717de347a60db66eaafe52545d2"
+    },
+    {
+      "bytes": 2273,
+      "path": "data/generated/scientific_genesis/mixed_schoen_reverse_down_support.json",
+      "sha256": "d30b63563582d8dad17ab00dd1101909c4eb11b34c0d0148c9ba28c09cf65c83"
     },
     {
       "bytes": 5326,
@@ -466,8 +471,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 200,
-    "test_python_files": 179
+    "research_python_files": 201,
+    "test_python_files": 180
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1410,6 +1415,24 @@
         "reverse same-chain determinant contraction for the down matrix"
       ],
       "statement": "The strict 27-term middle tensor Higgs cocycle has six exact parameter-linear determinant-two corrections over the full reverse P5. Each extension action is a closed boundary in the explicit line complex, and every correction has the exact forward (0,1) deck character.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "published Wilson character assignment for the down sector"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_down_support.json",
+        "research/experiments/scientific_genesis/mixed_schoen_reverse_down_support.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_reverse_down_support.py"
+      ],
+      "id": "reverse_down_matrix_support",
+      "label": "reverse down-matrix exterior support",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "six exact central determinant contractions and comparison homotopies"
+      ],
+      "statement": "The reverse matter and Higgs lifts have exact rank-two exterior support. Four V2-V2 entries vanish structurally, four mixed entries reuse independent exact tree-boundary zero witnesses, and only the parameter-linear V1-V1 coefficient remains. This bounds the full matrix rank by one without computing its value.",
       "status": "COMPUTED"
     },
     {
@@ -3109,6 +3132,41 @@
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_down_support.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the central coefficient remains unresolved"
+      ],
+      "mathematical_reason": "The quotient family has one V1 term and a linear V2 correction, whereas both subobject families are constant V2 terms.",
+      "source": "reverse_universal_down_matter_lifts",
+      "target": "reverse_down_matrix_support"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_down_support.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The Higgs has a strict V1-V2 term and a linear determinant-V2 correction, allowing exact exterior-degree selection.",
+      "source": "reverse_universal_down_higgs_lift",
+      "target": "reverse_down_matrix_support"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_reverse_down_support.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [],
+      "mathematical_reason": "The four strict mixed slots have exact zero-boundary witnesses in the same constituent basis independently of extension order.",
+      "source": "mixed_down_tree_matrix",
+      "target": "reverse_down_matrix_support"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
         "src/onetheory/math/homological.py"
       ],
@@ -3928,6 +3986,7 @@
     "the lawful reverse P5 physical component frozen without selecting an extension point or identifying the source P3 ledger",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
+    "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
     "every lawful P1 extension stable in the exact source chamber with genuine SU(4) forced by nonzero cover c3",
     "synchronized mixed constituent transfers derive matter cohomology (0,27,0,0), with free-action Lefschetz compression proving three regular deck representations",
     "acyclic determinant filtration and lawful relative pushdowns derive Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and zero massless color triplets throughout the lawful P1",
@@ -4406,12 +4465,17 @@
         ]
       ],
       "retired_source_scoped_outer_space": "P^3(Q(omega))",
+      "reverse_down_central_coefficient_computed": false,
       "reverse_down_constant_v2_class_count": 4,
       "reverse_down_extension_point_selected": false,
+      "reverse_down_exterior_zero_slot_count": 4,
       "reverse_down_higgs_character_exact": true,
       "reverse_down_higgs_lift_available": true,
       "reverse_down_higgs_parameter_correction_count": 6,
+      "reverse_down_matrix_rank_upper_bound": 1,
       "reverse_down_matter_parameter_correction_count": 12,
+      "reverse_down_support_exact": true,
+      "reverse_down_tree_boundary_zero_slot_count": 4,
       "reverse_down_universal_matter_character_count": 2,
       "reverse_down_universal_v1_lift_count": 2,
       "same_constituent_higgs_relinearization_available": false,
@@ -4538,8 +4602,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "reverse same-chain determinant contraction for one complete down-type holomorphic Yukawa matrix",
-    "selection_status": "the forward P1 flavor sectors are exhausted at exact rank zero; the reverse down-matter and H_d representatives are exact over P5, while their full Yukawa contraction remains unresolved"
+    "next_required_object": "six exact reverse central Yukawa coefficients from the common determinant contraction, including its comparison homotopy",
+    "selection_status": "the forward P1 flavor sectors are exhausted at exact rank zero; the reverse P5 down-matter and H_d lifts are exact, with only one parameter-linear matrix slot unresolved"
   },
   "research_value_scheduler": [
     {

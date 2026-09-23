@@ -1104,6 +1104,31 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "reverse_down_matrix_support",
+            "reverse down-matrix exterior support",
+            "Computable carrier",
+            "COMPUTED",
+            "The reverse matter and Higgs lifts have exact rank-two exterior "
+            "support. Four V2-V2 entries vanish structurally, four mixed "
+            "entries reuse independent exact tree-boundary zero witnesses, "
+            "and only the parameter-linear V1-V1 coefficient remains. This "
+            "bounds the full matrix rank by one without computing its value.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_down_support.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_reverse_down_support.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_reverse_down_support.py",
+            ),
+            assumptions=(
+                "published Wilson character assignment for the down sector",
+            ),
+            missing=(
+                "six exact central determinant contractions and comparison homotopies",
+            ),
+        ),
+        _node(
             "strict_mixed_matter_representatives",
             "strict synchronized constituent matter classes",
             "Computable carrier",
@@ -2937,6 +2962,45 @@ def _edges() -> list[dict[str, object]]:
             (),
         ),
         _edge(
+            "reverse_universal_down_matter_lifts",
+            "reverse_down_matrix_support",
+            "The quotient family has one V1 term and a linear V2 correction, "
+            "whereas both subobject families are constant V2 terms.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_down_support.json",
+            ),
+            (),
+            True,
+            ("the central coefficient remains unresolved",),
+        ),
+        _edge(
+            "reverse_universal_down_higgs_lift",
+            "reverse_down_matrix_support",
+            "The Higgs has a strict V1-V2 term and a linear determinant-V2 "
+            "correction, allowing exact exterior-degree selection.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_down_support.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
+            "mixed_down_tree_matrix",
+            "reverse_down_matrix_support",
+            "The four strict mixed slots have exact zero-boundary witnesses "
+            "in the same constituent basis independently of extension order.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_reverse_down_support.json",
+            ),
+            (),
+            True,
+            (),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -4104,6 +4168,8 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_reverse_down_matter_lifts.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_reverse_higgs_lifts.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_reverse_down_support.json",
         "data/generated/scientific_genesis/mixed_schoen_matter_representatives.json",
         "data/generated/scientific_genesis/mixed_schoen_universal_matter_lifts.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_twist_audit.json",
@@ -4205,8 +4271,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "the forward P1 flavor sectors are exhausted at exact rank "
-                "zero; the reverse down-matter and H_d representatives are exact "
-                "over P5, while their full Yukawa contraction remains unresolved"
+                "zero; the reverse P5 down-matter and H_d lifts are exact, "
+                "with only one parameter-linear matrix slot unresolved"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4337,6 +4403,11 @@ def build_state() -> dict[str, object]:
                 "reverse_down_higgs_lift_available": True,
                 "reverse_down_higgs_parameter_correction_count": 6,
                 "reverse_down_higgs_character_exact": True,
+                "reverse_down_support_exact": True,
+                "reverse_down_exterior_zero_slot_count": 4,
+                "reverse_down_tree_boundary_zero_slot_count": 4,
+                "reverse_down_matrix_rank_upper_bound": 1,
+                "reverse_down_central_coefficient_computed": False,
                 "lawful_chain_diagonal_transfer_seed_count": 4896,
                 "lawful_chain_diagonal_squared_zero": True,
                 "required_higgs_character": [0, 1],
@@ -4514,8 +4585,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "reverse same-chain determinant contraction for one complete "
-                "down-type holomorphic Yukawa matrix"
+                "six exact reverse central Yukawa coefficients from the common "
+                "determinant contraction, including its comparison homotopy"
             ),
         },
         "claims": _nodes(),
@@ -4557,6 +4628,8 @@ def build_state() -> dict[str, object]:
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "
             "reverse directions through exact determinant-two corrections",
+            "rank-two exterior support and exact tree boundaries restrict the "
+            "reverse down matrix to one unresolved parameter-linear entry",
             "every lawful P1 extension stable in the exact source chamber with "
             "genuine SU(4) forced by nonzero cover c3",
             "synchronized mixed constituent transfers derive matter cohomology "

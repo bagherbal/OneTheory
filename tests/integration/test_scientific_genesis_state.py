@@ -122,6 +122,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["reverse_down_higgs_lift_available"] is True
     assert path["criteria"]["reverse_down_higgs_parameter_correction_count"] == 6
     assert path["criteria"]["reverse_down_higgs_character_exact"] is True
+    assert path["criteria"]["reverse_down_support_exact"] is True
+    assert path["criteria"]["reverse_down_exterior_zero_slot_count"] == 4
+    assert path["criteria"]["reverse_down_tree_boundary_zero_slot_count"] == 4
+    assert path["criteria"]["reverse_down_matrix_rank_upper_bound"] == 1
+    assert path["criteria"]["reverse_down_central_coefficient_computed"] is False
     assert path["criteria"]["lawful_chain_diagonal_transfer_seed_count"] == 4896
     assert path["criteria"]["lawful_chain_diagonal_squared_zero"] is True
     assert path["criteria"]["required_higgs_character"] == [0, 1]
@@ -424,13 +429,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "the forward P1 flavor sectors are exhausted at exact rank zero; the "
-        "reverse down-matter and H_d representatives are exact over P5, while "
-        "their full Yukawa contraction remains unresolved"
+        "the forward P1 flavor sectors are exhausted at exact rank zero; "
+        "the reverse P5 down-matter and H_d lifts are exact, with only one "
+        "parameter-linear matrix slot unresolved"
     )
     assert path["next_required_object"] == (
-        "reverse same-chain determinant contraction for one complete "
-        "down-type holomorphic Yukawa matrix"
+        "six exact reverse central Yukawa coefficients from the common "
+        "determinant contraction, including its comparison homotopy"
     )
     assert claims["mixed_schoen_reverse_outer_universal_cone"]["status"] == (
         "COMPUTED"

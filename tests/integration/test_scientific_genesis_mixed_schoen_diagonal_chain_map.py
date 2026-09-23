@@ -90,8 +90,19 @@ def test_common_cochain_comparison_preserves_total_degree_and_covers_poles() -> 
     )
     source = SparseOuterCechCochain(((basis, Eisenstein(1)),))
     result = diagonal_compare_common_matter(source)
+    second_factor = diagonal_compare_common_matter(source, 2)
     assert result.total_degree == -1
     assert result.terms
+    assert second_factor.factor == 2
+    assert tuple(
+        (mapped.object_index, mapped.subset, mapped.object_degree,
+         mapped.monomials, mapped.cell, coefficient)
+        for mapped, coefficient in second_factor.terms
+    ) == tuple(
+        (mapped.object_index, mapped.subset, mapped.object_degree,
+         mapped.monomials, mapped.cell, coefficient)
+        for mapped, coefficient in result.terms
+    )
     assert all(
         exponent >= 0 or index in mapped.cell[3]
         for mapped, _coefficient in result.terms

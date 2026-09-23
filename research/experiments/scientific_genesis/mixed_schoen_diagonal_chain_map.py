@@ -2,7 +2,8 @@
 
 Owns:
     The two-chart Koszul comparison, overlap chain homotopy, and exact sparse
-    application to common-Schoen matter cochains on the first fiber factor.
+    application to common-Schoen matter cochains with an explicit target
+    constituent label on the independent-fiber cover.
 
 Depends on:
     The certified local pencil identities, lawful mixed outer cochain labels,
@@ -151,8 +152,12 @@ def _add_monomials(left: Monomial, right: Monomial) -> Monomial:
 
 def diagonal_compare_common_matter(
     cochain: SparseOuterCechCochain,
+    target_factor: int = 1,
 ) -> IndependentMatterCochain:
-    """Apply the Cech-local comparison to one homogeneous common-Schoen cochain."""
+    """Compare a homogeneous common cochain in either constituent target."""
+
+    if target_factor not in (1, 2):
+        raise ValueError("the diagonal target factor must be one or two")
 
     degrees = {basis.total_degree for basis, _coefficient in cochain.terms}
     if len(degrees) != 1:
@@ -191,7 +196,7 @@ def diagonal_compare_common_matter(
             terms.append(
                 (
                     IndependentMatterBasis(
-                        1,
+                        target_factor,
                         component.left_index,
                         piece.target_subset,
                         component.object_degree,
@@ -201,7 +206,7 @@ def diagonal_compare_common_matter(
                     coefficient * piece.coefficient * totalization_sign,
                 )
             )
-    result = IndependentMatterCochain(1, next(iter(degrees)), tuple(terms))
+    result = IndependentMatterCochain(target_factor, next(iter(degrees)), tuple(terms))
     if any(
         basis.structural_degree + basis.cech_degree != result.total_degree
         for basis, _coefficient in result.terms

@@ -1,0 +1,49 @@
+{
+  "artifact_digest": "2dc147a8c23d0a64f56f97765fe35681409dd421ef11a722205cf276dd8cff0c",
+  "constituent_cover_line_degrees": [
+    [
+      -2,
+      2,
+      0
+    ],
+    [
+      2,
+      -2,
+      0
+    ]
+  ],
+  "constituent_determinant_characters": [
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "equivariantly_trivial_determinant_certified": false,
+  "first_missing_input": "an independently verified determinant trivialization or a lawful replacement equivariant linearization preserving the spectrum",
+  "framed_scalar_h3_character": [
+    2,
+    1
+  ],
+  "geometric_scalar_h3_character": [
+    0,
+    0
+  ],
+  "published_carrier_refuted": false,
+  "quotient_su4_certified_by_this_gate": false,
+  "schema": "mixed-schoen-determinant-descent-audit-v1",
+  "scope": "current selected mixed constituent linearizations",
+  "total_cover_line_degree": [
+    0,
+    0,
+    0
+  ],
+  "total_determinant_character": [
+    2,
+    1
+  ],
+  "trivial_character_scalar_residue_available": false
+}

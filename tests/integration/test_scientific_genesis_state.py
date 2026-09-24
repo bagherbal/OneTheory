@@ -80,7 +80,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert path["criteria"]["outer_parameter_dimension_mismatch_unresolved"] is True
     assert path["criteria"]["lawful_P1_all_nonzero_parameters_stable_in_chamber"] is True
-    assert path["criteria"]["lawful_P1_genuine_su4_on_stable_chamber"] is True
+    assert path["criteria"]["lawful_P1_genuine_su4_on_stable_chamber"] is False
     assert path["criteria"]["retired_P3_embedding_used_for_stability"] is False
     assert path["criteria"]["lawful_matter_h0_to_h3"] == [0, 27, 0, 0]
     assert path["criteria"]["lawful_dual_matter_h0_to_h3"] == [0, 0, 27, 0]
@@ -95,11 +95,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["prior_forward_computable_carrier_component"] == (
         "lawful-mixed-schoen-P1"
     )
-    assert path["criteria"]["prior_forward_computable_carrier_component_frozen"] is True
+    assert path["criteria"]["prior_forward_computable_carrier_component_frozen"] is False
     assert path["criteria"]["computable_carrier_component"] == (
         "lawful-mixed-schoen-reverse-P5"
     )
-    assert path["criteria"]["computable_carrier_component_frozen"] is True
+    assert path["criteria"]["computable_carrier_component_frozen"] is False
+    assert path["criteria"]["selected_quotient_determinant_character"] == [2, 1]
+    assert path["criteria"]["selected_quotient_su4_certified"] is False
     assert path["criteria"]["lawful_reverse_matter_h0_to_h3"] == [0, 27, 0, 0]
     assert path["criteria"]["lawful_reverse_dual_matter_h0_to_h3"] == [0, 0, 27, 0]
     assert path["criteria"]["lawful_reverse_higgs_h0_to_h3"] == [0, 4, 4, 0]
@@ -427,7 +429,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["lawful_reverse_stability_anchor"] == [3, 2, 2]
     assert path["criteria"]["lawful_reverse_stability_box_radius"] == "1/4"
     assert path["criteria"]["lawful_reverse_all_P5_stable_in_chamber"] is True
-    assert path["criteria"]["lawful_reverse_genuine_su4_on_stable_chamber"] is True
+    assert path["criteria"]["lawful_reverse_genuine_su4_on_stable_chamber"] is False
     assert path["criteria"]["lawful_reverse_factor_exchange_assumed"] is False
     assert checkpoint["completed_pairs"] == 1296
     assert checkpoint["suspended"] is True
@@ -435,13 +437,14 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "the forward P1 flavor sectors are exhausted at exact rank zero; "
-        "the reverse P5 down-matter and H_d lifts are exact, with only one "
-        "parameter-linear matrix slot unresolved"
+        "selected P1 and reverse P5 cover computations remain exact, "
+        "but neither is frozen as a physical quotient carrier until "
+        "equivariant determinant descent is certified"
     )
     assert path["next_required_object"] == (
-        "six exact reverse central Yukawa coefficients from the common "
-        "determinant contraction, including its comparison homotopy"
+        "an independently verified equivariant determinant "
+        "trivialization or lawful relinearization preserving the "
+        "Wilson spectrum"
     )
     assert claims["mixed_schoen_reverse_outer_universal_cone"]["status"] == (
         "COMPUTED"
@@ -452,7 +455,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_schoen_reverse_observable_spectrum"]["status"] == (
         "COMPUTED"
     )
-    assert claims["computable_reverse_carrier_state"]["status"] == "COMPUTED"
+    assert claims["computable_carrier_state"]["status"] == "BLOCKED"
+    assert claims["computable_reverse_carrier_state"]["status"] == "BLOCKED"
+    assert claims["selected_mixed_determinant_descent"]["status"] == "REFUTED"
     assert claims["reverse_universal_down_matter_lifts"]["status"] == "COMPUTED"
     assert claims["reverse_universal_down_higgs_lift"]["status"] == "COMPUTED"
     assert claims["mixed_matter_tensor_comparison"]["status"] == "COMPUTED"
@@ -524,8 +529,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_higgs_cohomology"]["status"] == "BLOCKED"
     assert claims["relative_constituent_pushdowns"]["status"] == "COMPUTED"
     assert claims["mixed_schoen_observable_spectrum"]["status"] == "COMPUTED"
-    assert claims["physical_spectrum"]["status"] == "COMPUTED"
-    assert claims["computable_carrier_state"]["status"] == "COMPUTED"
+    assert claims["physical_spectrum"]["status"] == "BLOCKED"
+    assert claims["computable_carrier_state"]["status"] == "BLOCKED"
     assert claims["strict_mixed_matter_representatives"]["status"] == "COMPUTED"
     assert claims["universal_matter_sector_lifts"]["status"] == "COMPUTED"
     assert claims["higgs_determinant_twist_route"]["status"] == "REFUTED"

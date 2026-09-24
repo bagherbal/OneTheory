@@ -417,3 +417,14 @@ entire unprojected comparison. This is a scope error in the former assembly
 order, not a zero or nonzero Yukawa result. The next gate is to cancel the
 raw comparison first, project the resulting closed scalar cochain, then
 verify its character, closure, and residue. No central coefficient is claimed.
+
+A newer determinant-descent audit supersedes that priority. The two selected
+constituent resolutions have cancelling cover line degrees but deck-frame
+characters `(1,0)` and `(1,1)`, hence total character `(2,1)`. Direct action
+on the exact scalar `H3` generator confirms that the `(0,0)` projector in
+this frame has zero residue. The existing stability certificates establish a
+stable, determinant-degree-zero cover bundle; they do not establish trivial
+determinant for the selected quotient linearization. Earlier frozen physical
+carrier and flavor claims are therefore conditional, not disprovals of the
+published construction. Resolve the equivariant determinant and recheck the
+Wilson spectrum before assigning a physical Yukawa coefficient.

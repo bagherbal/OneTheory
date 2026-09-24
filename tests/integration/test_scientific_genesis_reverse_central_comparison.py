@@ -17,6 +17,7 @@ from types import SimpleNamespace
 
 import pytest
 
+from onetheory.core.errors import MissingPhysicalInput
 from onetheory.math.numbers import Eisenstein
 from research.experiments.scientific_genesis import (
     mixed_schoen_reverse_central_comparison as comparison_module,
@@ -43,6 +44,10 @@ def test_comparison_rejects_nonclosed_scalar_before_residue(
     )
     nonzero = _FullCochain(((basis, Eisenstein(1)),))
     zero = _FullCochain()
+    monkeypatch.setattr(
+        comparison_module, "determinant_descent_audit",
+        lambda: {"equivariantly_trivial_determinant_certified": True},
+    )
     trace = SimpleNamespace(
         scalar_residual=nonzero,
         as_record=lambda: {"central_yukawa_coefficient_available": False},
@@ -87,6 +92,10 @@ def test_comparison_projects_the_closed_scalar_not_its_raw_primitive(
     raw = _FullCochain(((basis, Eisenstein(3)),))
     primitive = _FullCochain(((basis, Eisenstein(1)),))
     zero = _FullCochain()
+    monkeypatch.setattr(
+        comparison_module, "determinant_descent_audit",
+        lambda: {"equivariantly_trivial_determinant_certified": True},
+    )
     trace = SimpleNamespace(
         scalar=raw,
         scalar_residual=primitive,
@@ -142,3 +151,15 @@ def test_comparison_projects_the_closed_scalar_not_its_raw_primitive(
     ]
     assert result["residue"] == "7"
     assert result["exact"] is True
+
+
+def test_physical_comparison_stops_before_large_trace_on_determinant_mismatch(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def forbidden_trace(_index: int) -> None:
+        raise AssertionError("an invalid physical trace must not begin")
+
+    monkeypatch.setattr(comparison_module, "reverse_central_direct_trace", forbidden_trace)
+
+    with pytest.raises(MissingPhysicalInput, match="equivariantly trivial determinant"):
+        comparison_module.reverse_central_comparison(0)

@@ -20,6 +20,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
+from onetheory.core.errors import MissingPhysicalInput
 from onetheory.math.numbers import Eisenstein
 
 from .diagonal_schoen_line_actions import (
@@ -29,6 +30,7 @@ from .diagonal_schoen_line_actions import (
 )
 from .diagonal_schoen_line_products import diagonal_line_product
 from .diagonal_schoen_lines import _FullCochain
+from .mixed_schoen_determinant_descent import determinant_descent_audit
 from .mixed_schoen_reverse_central_matter_leg import reverse_central_direct_trace
 from .mixed_schoen_reverse_higgs_lifts import reverse_higgs_lift_coefficient
 from .mixed_schoen_v1_pluecker_chain_map import physical_v1_pluecker_pairing
@@ -61,6 +63,15 @@ def reverse_central_comparison(
 
     if parameter_index not in range(6):
         raise ValueError("the reverse central parameter index is unavailable")
+    determinant = determinant_descent_audit()
+    if determinant["equivariantly_trivial_determinant_certified"] is not True:
+        raise MissingPhysicalInput(
+            "an equivariantly trivial determinant for the selected reverse carrier",
+            (
+                "current determinant character is (2,1), not (0,0)",
+                "physical reverse central Yukawa coefficient",
+            ),
+        )
 
     def emit(stage: str, record: Record) -> None:
         if report is not None:

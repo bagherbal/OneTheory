@@ -584,3 +584,18 @@ is exact; the reduced determinant-line coordinates vanish. This does not
 imply a zero central Yukawa coefficient because the paired strict matter
 term is accompanied by parameter-linear matter and Higgs corrections. Their
 same-chain comparison is the next indispensable calculation.
+
+An exact quotient-determinant audit now takes precedence over that expensive
+comparison. The selected constituent resolutions have alternating line degrees
+`(-2,2,0)` and `(2,-2,0)`, so their cover determinant has degree zero. Their
+independently recomputed deck-frame characters are `(1,0)` and `(1,1)`;
+the total is `(2,1)`, not the trivial character. The scalar top-cohomology
+generator has geometric character `(0,0)` but character `(2,1)` in this
+determinant frame. Thus its trivial-character projection has zero residue.
+This does not refute the published carrier or the stable cover bundle. It
+does contradict the prior claim that the **selected** descended realization
+has a certified trivial determinant and physical `SU(4)` structure group.
+The prior reverse freeze and flavor labels must be treated as conditional
+until an independent equivariant determinant trivialization or lawful
+relinearization is established and the Wilson spectrum rechecked. The
+physical reverse-central Yukawa runner now fails before the dense trace.

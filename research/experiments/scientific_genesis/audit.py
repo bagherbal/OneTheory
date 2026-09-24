@@ -444,7 +444,7 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "mixed_schoen_reverse_outer_stability_locus",
-            "lawful reverse stable genuine-SU(4) locus",
+            "lawful reverse stable cover-bundle locus",
             "Reference realization",
             "PROVED",
             "The extension lower bound preserves all eight proper-subsheaf "
@@ -460,6 +460,24 @@ def _nodes() -> list[dict[str, object]]:
                 "mixed_schoen_reverse_outer_stability_locus.py",
                 "tests/integration/"
                 "test_scientific_genesis_mixed_schoen_reverse_outer_stability_locus.py",
+            ),
+        ),
+        _node(
+            "selected_mixed_determinant_descent",
+            "selected mixed quotient determinant descent",
+            "Computable carrier",
+            "REFUTED",
+            "The selected constituent frames have cancelling cover line degrees "
+            "but total equivariant determinant character (2,1). The scalar "
+            "top class has the same nontrivial framed character. This refutes "
+            "trivial determinant for this selection, not the published carrier.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_determinant_descent.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_determinant_descent.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_determinant_descent.py",
             ),
         ),
         _node(
@@ -538,7 +556,7 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "published_outer_stability_locus",
-            "lawful mixed stable SU(4) outer locus",
+            "lawful mixed stable cover-bundle outer locus",
             "Reference realization",
             "COMPUTED",
             "The published sufficient slope bounds depend only on constituent "
@@ -979,12 +997,12 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "physical_spectrum",
-            "Wilson-projected carrier spectrum",
+            "physical Wilson-projected carrier spectrum",
             "Reference realization",
-            "COMPUTED",
-            "The lawful mixed family has three Wilson-projected families, three "
-            "right-handed neutrinos, one Higgs pair, no anti-families, and no "
-            "massless color-triplet or exotic blocks throughout P1 x K^s.",
+            "BLOCKED",
+            "The selected cover cohomology and Wilson-character arithmetic "
+            "give the target counts throughout P1 x K^s, but a physical "
+            "quotient spectrum needs an equivariantly trivial determinant.",
             (
                 "src/onetheory/physics/compactification.py",
                 "data/generated/scientific_genesis/"
@@ -996,15 +1014,16 @@ def _nodes() -> list[dict[str, object]]:
                 "published Wilson-line embedding",
                 "three families and one Higgs pair are selection constraints",
             ),
+            missing=("trivial quotient determinant with compatible Wilson spectrum",),
         ),
         _node(
             "computable_carrier_state",
-            "first frozen computable carrier",
+            "proposed forward computable carrier",
             "Computable carrier",
-            "COMPUTED",
-            "The unique currently derived lawful physical connected component "
-            "P1 is frozen for vertical computation. No extension point is "
-            "selected, and the source P3 ledger remains a distinct reference.",
+            "BLOCKED",
+            "The selected P1 cover family remains exact, but its proposed "
+            "physical quotient freeze requires a trivial equivariant "
+            "determinant; rational c1 does not certify it.",
             (
                 "data/generated/scientific_genesis/"
                 "computable_one_theory_carrier_state.json",
@@ -1013,6 +1032,7 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/"
                 "test_scientific_genesis_computable_one_theory_carrier_state.py",
             ),
+            missing=("trivial quotient determinant with compatible Wilson spectrum",),
         ),
         _node(
             "mixed_schoen_reverse_observable_spectrum",
@@ -1040,13 +1060,12 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "computable_reverse_carrier_state",
-            "frozen reverse computable carrier",
+            "proposed reverse computable carrier",
             "Computable carrier",
-            "COMPUTED",
-            "The full lawful reverse P5 physical component is frozen for "
-            "vertical computation without selecting a point. The forward P1 "
-            "remains lawful with its flavor no-go preserved, while the source "
-            "P3 ledger remains a distinct reference.",
+            "BLOCKED",
+            "The selected reverse P5 cover family remains exact, but its "
+            "physical quotient freeze fails the current determinant gate. "
+            "The source P3 ledger remains a distinct reference.",
             (
                 "data/generated/scientific_genesis/"
                 "computable_one_theory_reverse_carrier_state.json",
@@ -1055,6 +1074,7 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/"
                 "test_scientific_genesis_computable_one_theory_reverse_carrier_state.py",
             ),
+            missing=("trivial quotient determinant with compatible Wilson spectrum",),
         ),
         _node(
             "reverse_universal_down_matter_lifts",
@@ -2895,16 +2915,54 @@ def _edges() -> list[dict[str, object]]:
         _edge(
             "physical_spectrum",
             "computable_carrier_state",
-            "Passing the declared three-family, one-Higgs, no-exotic "
-            "constraints freezes the unique currently derived lawful physical "
-            "connected component without selecting a point.",
+            "Spectrum selection alone cannot freeze a physical quotient "
+            "component without a trivial equivariant determinant.",
             (
                 "data/generated/scientific_genesis/"
                 "computable_one_theory_carrier_state.json",
             ),
             ("selection constraints are not predictions",),
+            False,
+            ("the selected determinant has character (2,1)",),
+        ),
+        _edge(
+            "published_constituent_deck_actions",
+            "selected_mixed_determinant_descent",
+            "Alternating exact frame determinants and scalar top-cohomology "
+            "actions independently detect the selected quotient character.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_determinant_descent.json",
+            ),
+            (),
             True,
-            ("the source P3 ledger is not identified with the lawful P1",),
+            ("a distinct lawful relinearization has not been audited",),
+        ),
+        _edge(
+            "selected_mixed_determinant_descent",
+            "computable_carrier_state",
+            "A physical SU(4) quotient freeze requires trivial equivariant "
+            "determinant as well as stable cover geometry.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_determinant_descent.json",
+            ),
+            (),
+            False,
+            ("the selected character is (2,1)",),
+        ),
+        _edge(
+            "selected_mixed_determinant_descent",
+            "computable_reverse_carrier_state",
+            "Reversing the extension preserves the constituent determinant "
+            "character, so the same missing quotient trivialization applies.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_determinant_descent.json",
+            ),
+            (),
+            False,
+            ("the selected character is (2,1)",),
         ),
         _edge(
             "mixed_schoen_reverse_outer_stability_locus",
@@ -2923,15 +2981,15 @@ def _edges() -> list[dict[str, object]]:
         _edge(
             "mixed_schoen_reverse_observable_spectrum",
             "computable_reverse_carrier_state",
-            "Passing every declared structural selection gate freezes the "
-            "entire reverse connected component without ranking P5 points.",
+            "Spectrum selection remains conditional on quotient determinant "
+            "descent before the reverse component can be frozen physically.",
             (
                 "data/generated/scientific_genesis/"
                 "computable_one_theory_reverse_carrier_state.json",
             ),
             ("selection constraints are not predictions",),
-            True,
-            ("the source P3 ledger is not identified with reverse P5",),
+            False,
+            ("the selected determinant has character (2,1)",),
         ),
         _edge(
             "computable_reverse_carrier_state",
@@ -4182,6 +4240,17 @@ def build_state() -> dict[str, object]:
         raise ValueError("pair 73 is no longer the exact four-dimensional family")
     if pair_73["automorphism_action"]["nonzero_orbit_space"] != "P^3(Q(omega))":
         raise ValueError("pair 73 no longer has the certified projective quotient")
+    determinant_path = (
+        ROOT / "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json"
+    )
+    determinant = json.loads(determinant_path.read_text(encoding="utf-8"))
+    determinant_digest = determinant.pop("artifact_digest", None)
+    if (
+        determinant_digest != _canonical_digest(determinant)
+        or determinant.get("total_determinant_character") != [2, 1]
+        or determinant.get("equivariantly_trivial_determinant_certified") is not False
+    ):
+        raise ValueError("the selected determinant obstruction is not certified")
 
     artifact_paths = (
         "data/generated/computable_carrier/computable_carrier_artifact.json",
@@ -4223,6 +4292,7 @@ def build_state() -> dict[str, object]:
         "mixed_schoen_reverse_outer_universal_cone.json",
         "data/generated/scientific_genesis/"
         "mixed_schoen_reverse_outer_stability_locus.json",
+        "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_stability_locus.json",
         "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
         "data/generated/scientific_genesis/"
@@ -4338,9 +4408,9 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "the forward P1 flavor sectors are exhausted at exact rank "
-                "zero; the reverse P5 down-matter and H_d lifts are exact, "
-                "with only one parameter-linear matrix slot unresolved"
+                "selected P1 and reverse P5 cover computations remain exact, "
+                "but neither is frozen as a physical quotient carrier until "
+                "equivariant determinant descent is certified"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4431,12 +4501,12 @@ def build_state() -> dict[str, object]:
                 "lawful_reverse_stability_anchor": [3, 2, 2],
                 "lawful_reverse_stability_box_radius": "1/4",
                 "lawful_reverse_all_P5_stable_in_chamber": True,
-                "lawful_reverse_genuine_su4_on_stable_chamber": True,
+                "lawful_reverse_genuine_su4_on_stable_chamber": False,
                 "lawful_reverse_factor_exchange_assumed": False,
                 "retired_source_scoped_outer_space": "P^3(Q(omega))",
                 "outer_parameter_dimension_mismatch_unresolved": True,
                 "lawful_P1_all_nonzero_parameters_stable_in_chamber": True,
-                "lawful_P1_genuine_su4_on_stable_chamber": True,
+                "lawful_P1_genuine_su4_on_stable_chamber": False,
                 "retired_P3_embedding_used_for_stability": False,
                 "lawful_matter_h0_to_h3": [0, 27, 0, 0],
                 "lawful_dual_matter_h0_to_h3": [0, 0, 27, 0],
@@ -4449,11 +4519,13 @@ def build_state() -> dict[str, object]:
                 "prior_forward_computable_carrier_component": (
                     "lawful-mixed-schoen-P1"
                 ),
-                "prior_forward_computable_carrier_component_frozen": True,
+                "prior_forward_computable_carrier_component_frozen": False,
                 "computable_carrier_component": (
                     "lawful-mixed-schoen-reverse-P5"
                 ),
-                "computable_carrier_component_frozen": True,
+                "computable_carrier_component_frozen": False,
+                "selected_quotient_determinant_character": [2, 1],
+                "selected_quotient_su4_certified": False,
                 "lawful_reverse_matter_h0_to_h3": [0, 27, 0, 0],
                 "lawful_reverse_dual_matter_h0_to_h3": [0, 0, 27, 0],
                 "lawful_reverse_higgs_h0_to_h3": [0, 4, 4, 0],
@@ -4659,8 +4731,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "six exact reverse central Yukawa coefficients from the common "
-                "determinant contraction, including its comparison homotopy"
+                "an independently verified equivariant determinant "
+                "trivialization or lawful relinearization preserving the "
+                "Wilson spectrum"
             ),
         },
         "claims": _nodes(),
@@ -4693,11 +4766,11 @@ def build_state() -> dict[str, object]:
             "exact lawful reverse universal rank-four cone over P5(Q(omega)) "
             "with affine-origin split locus and no selected extension point",
             "every lawful reverse P5 extension stable on a rational open "
-            "Kahler box with genuine SU(4) forced by nonzero cover c3",
+            "Kahler box; nonzero cover c3 excludes a proper connected reduction",
             "orientation-independent exact reverse matter and Higgs cohomology "
             "with three-family one-Higgs Wilson projection over all P5",
-            "the lawful reverse P5 physical component frozen without selecting "
-            "an extension point or identifying the source P3 ledger",
+            "the proposed reverse P5 physical freeze is blocked by its "
+            "nontrivial selected quotient determinant character",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "
@@ -4706,16 +4779,16 @@ def build_state() -> dict[str, object]:
             "reverse down matrix to one unresolved parameter-linear entry",
             "the physical V1-V1 determinant pairing closes in both cup orders, "
             "has an exact exchange primitive, and descends in character (0,2)",
-            "every lawful P1 extension stable in the exact source chamber with "
-            "genuine SU(4) forced by nonzero cover c3",
+            "every lawful P1 extension stable in the exact source chamber; "
+            "nonzero cover c3 excludes a proper connected reduction",
             "synchronized mixed constituent transfers derive matter cohomology "
             "(0,27,0,0), with free-action Lefschetz compression proving three "
             "regular deck representations",
             "acyclic determinant filtration and lawful relative pushdowns derive "
             "Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and "
             "zero massless color triplets throughout the lawful P1",
-            "the lawful physical P1 component is frozen as the first computable "
-            "carrier without selecting an extension point or identifying source P3",
+            "the proposed P1 physical freeze is blocked by its nontrivial "
+            "selected quotient determinant character",
             "all 27 synchronized constituent matter classes have strict full "
             "Schoen Cech--Koszul representatives with exact joint deck characters",
             "the two matter sectors for the first up-type matrix have exact "
@@ -4805,6 +4878,9 @@ def build_state() -> dict[str, object]:
             "characters (0,0), (0,1), (2,0), and (2,1)",
         ],
         "scoped_no_go_results": [
+            "the selected mixed constituent frames have total determinant "
+            "character (2,1), so this quotient SU(4) claim is uncertified; "
+            "a distinct published carrier is not refuted",
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
             "current curvilinear rank-four Chern type has the wrong quotient index",
             "declared monomial and transported finite linearization categories "
@@ -4890,6 +4966,7 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
+            "equivariantly trivial quotient determinant with preserved Wilson spectrum",
             "atlas-derived relative-pushdown line characters resolving the "
             "unavailable down-Higgs representation",
             "the first nontrivial deformation or higher-product Yukawa contribution",

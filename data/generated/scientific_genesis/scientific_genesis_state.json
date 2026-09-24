@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "d7bc9d10861a420b0d64ab4f97dd6f630aca8ed64c74aafacad78619f30168a2",
+  "artifact_digest": "199ed21aef69fff777ea2022c8f874d2a7cdceb3037d9f780a259762d47b5c6c",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -185,6 +185,11 @@
       "bytes": 4989,
       "path": "data/generated/scientific_genesis/mixed_schoen_reverse_outer_stability_locus.json",
       "sha256": "baf938ac58be1d55118f4181577e93e4406b6ce2b6d80801d0e347472c8b2582"
+    },
+    {
+      "bytes": 1009,
+      "path": "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json",
+      "sha256": "364a48432cb7b3895816e3ca608cab461a4b8650725ce8b09da25a4efa7e02e2"
     },
     {
       "bytes": 6072,
@@ -476,8 +481,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 202,
-    "test_python_files": 181
+    "research_python_files": 206,
+    "test_python_files": 187
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -493,6 +498,7 @@
     "suspension_reason": "remaining larger Ext spaces cannot improve the simplest already-certified pair-73 family"
   },
   "blocked_physical_calculations": [
+    "equivariantly trivial quotient determinant with preserved Wilson spectrum",
     "atlas-derived relative-pushdown line characters resolving the unavailable down-Higgs representation",
     "the first nontrivial deformation or higher-product Yukawa contribution",
     "carrier-derived nontrivial holomorphic Yukawa matrix",
@@ -839,11 +845,25 @@
         "tests/integration/test_scientific_genesis_mixed_schoen_reverse_outer_stability_locus.py"
       ],
       "id": "mixed_schoen_reverse_outer_stability_locus",
-      "label": "lawful reverse stable genuine-SU(4) locus",
+      "label": "lawful reverse stable cover-bundle locus",
       "layer": "Reference realization",
       "missing_prerequisites": [],
       "statement": "The extension lower bound preserves all eight proper-subsheaf inequalities under reversal and replaces only the forced full subobject V1 by V2. All nine exact slopes are negative on a rational open box around (3,2,2), so every reverse P5 point is stable there; nonzero cover c3 excludes proper connected irreducible rank-four reduction.",
       "status": "PROVED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json",
+        "research/experiments/scientific_genesis/mixed_schoen_determinant_descent.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_determinant_descent.py"
+      ],
+      "id": "selected_mixed_determinant_descent",
+      "label": "selected mixed quotient determinant descent",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "The selected constituent frames have cancelling cover line degrees but total equivariant determinant character (2,1). The scalar top class has the same nontrivial framed character. This refutes trivial determinant for this selection, not the published carrier.",
+      "status": "REFUTED"
     },
     {
       "assumptions": [],
@@ -922,7 +942,7 @@
         "data/published/visible_carrier/source_manifest.json"
       ],
       "id": "published_outer_stability_locus",
-      "label": "lawful mixed stable SU(4) outer locus",
+      "label": "lawful mixed stable cover-bundle outer locus",
       "layer": "Reference realization",
       "missing_prerequisites": [],
       "statement": "The published sufficient slope bounds depend only on constituent subsheaves and nonsplitting. Every lawful P1 point is nonsplit, so all are stable in the exact chamber; nonzero cover c3 excludes proper connected irreducible structure-group reductions.",
@@ -1337,11 +1357,13 @@
         "research/experiments/scientific_genesis/mixed_schoen_observable_spectrum.py"
       ],
       "id": "physical_spectrum",
-      "label": "Wilson-projected carrier spectrum",
+      "label": "physical Wilson-projected carrier spectrum",
       "layer": "Reference realization",
-      "missing_prerequisites": [],
-      "statement": "The lawful mixed family has three Wilson-projected families, three right-handed neutrinos, one Higgs pair, no anti-families, and no massless color-triplet or exotic blocks throughout P1 x K^s.",
-      "status": "COMPUTED"
+      "missing_prerequisites": [
+        "trivial quotient determinant with compatible Wilson spectrum"
+      ],
+      "statement": "The selected cover cohomology and Wilson-character arithmetic give the target counts throughout P1 x K^s, but a physical quotient spectrum needs an equivariantly trivial determinant.",
+      "status": "BLOCKED"
     },
     {
       "assumptions": [],
@@ -1351,11 +1373,13 @@
         "tests/integration/test_scientific_genesis_computable_one_theory_carrier_state.py"
       ],
       "id": "computable_carrier_state",
-      "label": "first frozen computable carrier",
+      "label": "proposed forward computable carrier",
       "layer": "Computable carrier",
-      "missing_prerequisites": [],
-      "statement": "The unique currently derived lawful physical connected component P1 is frozen for vertical computation. No extension point is selected, and the source P3 ledger remains a distinct reference.",
-      "status": "COMPUTED"
+      "missing_prerequisites": [
+        "trivial quotient determinant with compatible Wilson spectrum"
+      ],
+      "statement": "The selected P1 cover family remains exact, but its proposed physical quotient freeze requires a trivial equivariant determinant; rational c1 does not certify it.",
+      "status": "BLOCKED"
     },
     {
       "assumptions": [
@@ -1382,11 +1406,13 @@
         "tests/integration/test_scientific_genesis_computable_one_theory_reverse_carrier_state.py"
       ],
       "id": "computable_reverse_carrier_state",
-      "label": "frozen reverse computable carrier",
+      "label": "proposed reverse computable carrier",
       "layer": "Computable carrier",
-      "missing_prerequisites": [],
-      "statement": "The full lawful reverse P5 physical component is frozen for vertical computation without selecting a point. The forward P1 remains lawful with its flavor no-go preserved, while the source P3 ledger remains a distinct reference.",
-      "status": "COMPUTED"
+      "missing_prerequisites": [
+        "trivial quotient determinant with compatible Wilson spectrum"
+      ],
+      "statement": "The selected reverse P5 cover family remains exact, but its physical quotient freeze fails the current determinant gate. The source P3 ledger remains a distinct reference.",
+      "status": "BLOCKED"
     },
     {
       "assumptions": [
@@ -3062,13 +3088,52 @@
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json"
       ],
-      "implication": "exact",
+      "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the source P3 ledger is not identified with the lawful P1"
+        "the selected determinant has character (2,1)"
       ],
-      "mathematical_reason": "Passing the declared three-family, one-Higgs, no-exotic constraints freezes the unique currently derived lawful physical connected component without selecting a point.",
+      "mathematical_reason": "Spectrum selection alone cannot freeze a physical quotient component without a trivial equivariant determinant.",
       "source": "physical_spectrum",
       "target": "computable_carrier_state"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a distinct lawful relinearization has not been audited"
+      ],
+      "mathematical_reason": "Alternating exact frame determinants and scalar top-cohomology actions independently detect the selected quotient character.",
+      "source": "published_constituent_deck_actions",
+      "target": "selected_mixed_determinant_descent"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "the selected character is (2,1)"
+      ],
+      "mathematical_reason": "A physical SU(4) quotient freeze requires trivial equivariant determinant as well as stable cover geometry.",
+      "source": "selected_mixed_determinant_descent",
+      "target": "computable_carrier_state"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "the selected character is (2,1)"
+      ],
+      "mathematical_reason": "Reversing the extension preserves the constituent determinant character, so the same missing quotient trivialization applies.",
+      "source": "selected_mixed_determinant_descent",
+      "target": "computable_reverse_carrier_state"
     },
     {
       "assumptions_required": [
@@ -3092,11 +3157,11 @@
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_reverse_carrier_state.json"
       ],
-      "implication": "exact",
+      "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the source P3 ledger is not identified with reverse P5"
+        "the selected determinant has character (2,1)"
       ],
-      "mathematical_reason": "Passing every declared structural selection gate freezes the entire reverse connected component without ranking P5 points.",
+      "mathematical_reason": "Spectrum selection remains conditional on quotient determinant descent before the reverse component can be frozen physically.",
       "source": "mixed_schoen_reverse_observable_spectrum",
       "target": "computable_reverse_carrier_state"
     },
@@ -4039,17 +4104,17 @@
     "exact mixed outer P/T transfer deriving fixed dimensions 2/6 and strict full-Cech invariant representatives",
     "exact lawful universal rank-four cone over P1(Q(omega)) with affine-origin split locus and no selected extension point",
     "exact lawful reverse universal rank-four cone over P5(Q(omega)) with affine-origin split locus and no selected extension point",
-    "every lawful reverse P5 extension stable on a rational open Kahler box with genuine SU(4) forced by nonzero cover c3",
+    "every lawful reverse P5 extension stable on a rational open Kahler box; nonzero cover c3 excludes a proper connected reduction",
     "orientation-independent exact reverse matter and Higgs cohomology with three-family one-Higgs Wilson projection over all P5",
-    "the lawful reverse P5 physical component frozen without selecting an extension point or identifying the source P3 ledger",
+    "the proposed reverse P5 physical freeze is blocked by its nontrivial selected quotient determinant character",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
     "the physical V1-V1 determinant pairing closes in both cup orders, has an exact exchange primitive, and descends in character (0,2)",
-    "every lawful P1 extension stable in the exact source chamber with genuine SU(4) forced by nonzero cover c3",
+    "every lawful P1 extension stable in the exact source chamber; nonzero cover c3 excludes a proper connected reduction",
     "synchronized mixed constituent transfers derive matter cohomology (0,27,0,0), with free-action Lefschetz compression proving three regular deck representations",
     "acyclic determinant filtration and lawful relative pushdowns derive Higgs cohomology (0,4,4,0), one Wilson-projected Higgs pair, and zero massless color triplets throughout the lawful P1",
-    "the lawful physical P1 component is frozen as the first computable carrier without selecting an extension point or identifying source P3",
+    "the proposed P1 physical freeze is blocked by its nontrivial selected quotient determinant character",
     "all 27 synchronized constituent matter classes have strict full Schoen Cech--Koszul representatives with exact joint deck characters",
     "the two matter sectors for the first up-type matrix have exact parameter-linear universal-cone lifts over the full frozen P1",
     "both determinant-twist Hom orientations derive Higgs cohomology (0,4,4,0), but neither exact deck action matches the physical tensor characters under a uniform scalar shift",
@@ -4236,7 +4301,7 @@
       "complete_universal_holomorphic_up_matrix_available": true,
       "complete_universal_holomorphic_up_matrix_rank": 0,
       "computable_carrier_component": "lawful-mixed-schoen-reverse-P5",
-      "computable_carrier_component_frozen": true,
+      "computable_carrier_component_frozen": false,
       "constituent_atlas_over_synchronized_characters": [
         [
           2,
@@ -4347,7 +4412,7 @@
       "global_schoen_bundle_no_go": false,
       "isolated_atlas_line_commutator_term_count": 14,
       "lawful_P1_all_nonzero_parameters_stable_in_chamber": true,
-      "lawful_P1_genuine_su4_on_stable_chamber": true,
+      "lawful_P1_genuine_su4_on_stable_chamber": false,
       "lawful_chain_diagonal_squared_zero": true,
       "lawful_chain_diagonal_transfer_seed_count": 4896,
       "lawful_dual_matter_h0_to_h3": [
@@ -4382,7 +4447,7 @@
       "lawful_reverse_exact_stability_locus_computed": true,
       "lawful_reverse_extension_point_selected": false,
       "lawful_reverse_factor_exchange_assumed": false,
-      "lawful_reverse_genuine_su4_on_stable_chamber": true,
+      "lawful_reverse_genuine_su4_on_stable_chamber": false,
       "lawful_reverse_higgs_h0_to_h3": [
         0,
         4,
@@ -4485,7 +4550,7 @@
       "physical_higgs_representative_available": true,
       "physical_higgs_representative_term_count": 27,
       "prior_forward_computable_carrier_component": "lawful-mixed-schoen-P1",
-      "prior_forward_computable_carrier_component_frozen": true,
+      "prior_forward_computable_carrier_component_frozen": false,
       "prior_neutrino_matrix_physical_assignment_valid": false,
       "prior_physical_flavor_routing_valid": false,
       "prior_up_matrix_physical_assignment_valid": false,
@@ -4587,6 +4652,11 @@
         1,
         0
       ],
+      "selected_quotient_determinant_character": [
+        2,
+        1
+      ],
+      "selected_quotient_su4_certified": false,
       "selected_source_higgs_characters": [
         [
           0,
@@ -4667,8 +4737,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "six exact reverse central Yukawa coefficients from the common determinant contraction, including its comparison homotopy",
-    "selection_status": "the forward P1 flavor sectors are exhausted at exact rank zero; the reverse P5 down-matter and H_d lifts are exact, with only one parameter-linear matrix slot unresolved"
+    "next_required_object": "an independently verified equivariant determinant trivialization or lawful relinearization preserving the Wilson spectrum",
+    "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither is frozen as a physical quotient carrier until equivariant determinant descent is certified"
   },
   "research_value_scheduler": [
     {
@@ -4948,6 +5018,7 @@
   ],
   "schema": "scientific-genesis-state-v1",
   "scoped_no_go_results": [
+    "the selected mixed constituent frames have total determinant character (2,1), so this quotient SU(4) claim is uncertified; a distinct published carrier is not refuted",
     "declared projective Tier A ray pairs have zero invariant Ext-one classes",
     "current curvilinear rank-four Chern type has the wrong quotient index",
     "declared monomial and transported finite linearization categories have no complete commuting lift pairs where recorded",

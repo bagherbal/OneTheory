@@ -546,7 +546,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_outer_stability_locus"]["status"] == "COMPUTED"
     assert claims["published_matter_cohomology"]["status"] == "BLOCKED"
     assert claims["published_higgs_cohomology"]["status"] == "BLOCKED"
-    assert claims["relative_constituent_pushdowns"]["status"] == "COMPUTED"
+    assert claims["relative_constituent_pushdowns"]["status"] == "SELECTED"
     assert claims["mixed_schoen_observable_spectrum"]["status"] == "REFUTED"
     assert claims["physical_spectrum"]["status"] == "BLOCKED"
     assert claims["computable_carrier_state"]["status"] == "BLOCKED"

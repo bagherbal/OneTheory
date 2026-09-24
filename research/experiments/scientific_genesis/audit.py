@@ -648,12 +648,13 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "relative_constituent_pushdowns",
-            "lawful mixed constituent relative pushdowns",
+            "source-labelled constituent relative pushdowns",
             "Computable carrier",
-            "COMPUTED",
-            "Selected mixed W1/W2 cocycles determine exact relative "
-            "quasi-isomorphisms. Their derived tensor has cohomology "
-            "(0,4,4,0) with generated equivariant line data.",
+            "SELECTED",
+            "Exact point-support and local-unit checks are conditional on "
+            "source-assigned W1/W2 line degrees and characters. The derived "
+            "tensor has dimension profile (0,4,4,0), but its equivariant "
+            "signature is not independently reconstructed from the atlas.",
             (
                 "data/generated/scientific_genesis/"
                 "relative_constituent_pushdowns.json",
@@ -662,7 +663,12 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/"
                 "test_scientific_genesis_relative_constituent_pushdowns.py",
             ),
-            ("relative duality", "selected mixed constituent local units"),
+            (
+                "relative duality",
+                "selected mixed constituent local units",
+                "published line signatures",
+            ),
+            ("atlas-to-relative equivariant chain map",),
         ),
         _node(
             "selected_constituent_determinant_acyclicity",
@@ -2573,14 +2579,18 @@ def _edges() -> list[dict[str, object]]:
             "published_constituent_deck_atlases",
             "relative_constituent_pushdowns",
             "The selected deck-linearized mixed cocycles and exact local units "
-            "determine both relative W1/W2 quasi-isomorphism classes.",
+            "constrain the source-labelled relative W1/W2 reductions; they "
+            "do not derive the assigned equivariant line signatures.",
             (
                 "data/generated/scientific_genesis/"
                 "relative_constituent_pushdowns.json",
             ),
-            ("relative duality",),
-            True,
-            ("full Schoen lifts are not part of the relative certificate",),
+            ("relative duality", "published line signatures"),
+            False,
+            (
+                "atlas-to-relative equivariant chain map is absent",
+                "full Schoen lifts are not part of the relative record",
+            ),
         ),
         _edge(
             "published_outer_stability_locus",

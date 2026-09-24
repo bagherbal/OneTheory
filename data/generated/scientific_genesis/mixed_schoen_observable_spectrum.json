@@ -1,6 +1,6 @@
 {
   "arbitrary_extension_point_selected": false,
-  "artifact_digest": "6ce8f4d2fc4ef815741d1c7146b038d310c7f626f9f8029851f4f80e9dfc2da3",
+  "artifact_digest": "0dbad741aca944f6d5d59220530f40dc2f962b1ca8a2bcb72d6b8a43caf1901f",
   "coefficient_field": "Q(omega)",
   "computable_carrier_component_frozen": false,
   "entire_stable_family_passes_structural_spectrum": true,
@@ -45,7 +45,9 @@
         0
       ],
       "h1_representative_count": 4,
+      "independent_equivariant_pushdown_derived": false,
       "selected_mixed_constituent_cocycles_used": true,
+      "source_line_degrees_and_characters_used_as_input": true,
       "term_count": 8
     },
     "determinant_filtration": {
@@ -86,6 +88,7 @@
       }
     }
   },
+  "interpretation_status": "REFUTED_FOR_SELECTED_PAIR",
   "lawful_physical_locus": "P^1(Q(omega)) x K^s",
   "matter": {
     "constituent_complexes": [
@@ -515,7 +518,7 @@
       "right_handed_neutrinos": 3
     }
   },
-  "next_required_object": "freeze the lawful physical P1 component, then lift matter and Higgs representatives into one common Schoen DGA",
+  "next_required_object": "a distinct constituent realization or an independent correction of the full-chain Higgs character premise",
   "physical_selection_constraints": {
     "one_higgs_pair": true,
     "three_families": true,
@@ -525,7 +528,7 @@
     "zero_exotic_massless_blocks": true
   },
   "prerequisite_artifact_digests": {
-    "relative_pushdowns": "e047debedef3af4dace938baefcbab29a4e62dc3fa2102bfb09dac9082152e3e",
+    "relative_pushdowns": "73ddfd632ae85ec85ef1a3b6f7dd908bf41434bf90e282c6020bfb73cfa912c8",
     "stable_su4_locus": "2c88036bc3a99c948020fcd99b6acf661994f370f2144d8fc7930b51dfbd19ee",
     "universal_cone": "1c227754a808ca9a45d2859dd1cfbdb9338129f63bfa9ccfde930c4862abc22d"
   },
@@ -549,5 +552,5 @@
       "eq:19"
     ]
   },
-  "status": "exact all-parameter three-family one-Higgs structural spectrum from the lawful mixed family"
+  "status": "historical source-labelled projection; its one-Higgs physical interpretation is refuted for the selected constituent pair"
 }

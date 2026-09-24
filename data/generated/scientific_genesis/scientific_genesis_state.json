@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "de89eba225c804e6b1046d1ab2eb9b57ea92d5008ecb069d4233b93408761168",
+  "artifact_digest": "ac3e1dab6a8ec42d5d62174d436fcade7e1a928bdeef603a7786e2ca948870c9",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -164,7 +164,7 @@
     {
       "bytes": 3748,
       "path": "data/generated/scientific_genesis/mixed_schoen_wilson_shift_no_go.json",
-      "sha256": "df3e731c07f6afce1987b72c739c7086dfb5b462ff3c2db53e81358c4952e1b7"
+      "sha256": "db8294a0d05f328bb48aff33cdec4c9a3cf07e0ea347e92390b2d27f67ff6632"
     },
     {
       "bytes": 1659,
@@ -207,9 +207,9 @@
       "sha256": "2c1bc57f28a8e60df5935fb15a603ac271c859109fc363a492be9152f05c09b6"
     },
     {
-      "bytes": 10238,
+      "bytes": 10440,
       "path": "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
-      "sha256": "f9a64d8ca49f705371949ec2ca998174687689b02f4a310b570d55f7d55301da"
+      "sha256": "5865b22fac8fd7c4f9842f33e5dda133823696c0f58487a0fe21faea2fb31804"
     },
     {
       "bytes": 11165,
@@ -219,7 +219,7 @@
     {
       "bytes": 2189,
       "path": "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
-      "sha256": "c6efae9482b501926365543056ec76405873db273b9b7d4d15d143ed13386c7c"
+      "sha256": "aae781235d83cda9c00b7a2834f450083efe8e4ea622ffaf6fcf3122d3d43f55"
     },
     {
       "bytes": 2327,
@@ -457,9 +457,9 @@
       "sha256": "6da6dbcd553d328c55c901560c50d642356d9abaea333834a32aa8cb2f03550a"
     },
     {
-      "bytes": 10626,
+      "bytes": 10965,
       "path": "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
-      "sha256": "f789b54ac509b2f3e67d4634072ee2476b8009ca366646a7ef2c88c22fbbefa4"
+      "sha256": "6007d5e216f038463726bc7b63a73b874b19e7f2e1d3322a047c15cb160813e1"
     },
     {
       "bytes": 1406,
@@ -1015,7 +1015,8 @@
     {
       "assumptions": [
         "relative duality",
-        "selected mixed constituent local units"
+        "selected mixed constituent local units",
+        "published line signatures"
       ],
       "evidence": [
         "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
@@ -1023,11 +1024,13 @@
         "tests/integration/test_scientific_genesis_relative_constituent_pushdowns.py"
       ],
       "id": "relative_constituent_pushdowns",
-      "label": "lawful mixed constituent relative pushdowns",
+      "label": "source-labelled constituent relative pushdowns",
       "layer": "Computable carrier",
-      "missing_prerequisites": [],
-      "statement": "Selected mixed W1/W2 cocycles determine exact relative quasi-isomorphisms. Their derived tensor has cohomology (0,4,4,0) with generated equivariant line data.",
-      "status": "COMPUTED"
+      "missing_prerequisites": [
+        "atlas-to-relative equivariant chain map"
+      ],
+      "statement": "Exact point-support and local-unit checks are conditional on source-assigned W1/W2 line degrees and characters. The derived tensor has dimension profile (0,4,4,0), but its equivariant signature is not independently reconstructed from the atlas.",
+      "status": "SELECTED"
     },
     {
       "assumptions": [
@@ -2688,16 +2691,18 @@
     },
     {
       "assumptions_required": [
-        "relative duality"
+        "relative duality",
+        "published line signatures"
       ],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/relative_constituent_pushdowns.json"
       ],
-      "implication": "exact",
+      "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "full Schoen lifts are not part of the relative certificate"
+        "atlas-to-relative equivariant chain map is absent",
+        "full Schoen lifts are not part of the relative record"
       ],
-      "mathematical_reason": "The selected deck-linearized mixed cocycles and exact local units determine both relative W1/W2 quasi-isomorphism classes.",
+      "mathematical_reason": "The selected deck-linearized mixed cocycles and exact local units constrain the source-labelled relative W1/W2 reductions; they do not derive the assigned equivariant line signatures.",
       "source": "published_constituent_deck_atlases",
       "target": "relative_constituent_pushdowns"
     },

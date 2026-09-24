@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "394b20d51e5139d592b157927c59f6a700d0f793c43ca22623075d934f7ff8ea",
+  "artifact_digest": "4ece73d1774507df1c2e5d6fd9f5f732345259bb6a16abba4230261ed4c22049",
   "atlas_bound_source_action_higgs_characters": [
     [
       0,
@@ -119,7 +119,7 @@
   ],
   "next_required_object": "a distinct constituent realization or an independent correction of the full-chain Higgs character premise",
   "prerequisite_artifact_digests": {
-    "acyclic_determinants": "6ce8f4d2fc4ef815741d1c7146b038d310c7f626f9f8029851f4f80e9dfc2da3",
+    "acyclic_determinants": "0dbad741aca944f6d5d59220530f40dc2f962b1ca8a2bcb72d6b8a43caf1901f",
     "atlas_frame_comparison": "cfe29b6f1a7fabd43a20a04000ec3a8b34159988003e4ffa5f3d50f9468ce72e",
     "atlas_higgs_characters": "b75c56ddc6335d2d7f44100734646ef365851c470f16debb771005d2cb85af76",
     "constituent_simplicity": "62ede068ba5956c476bd6c279f4778b0abe55f9b5f2a1156783ac903b5a1cf5a",

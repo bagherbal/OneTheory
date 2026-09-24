@@ -1,21 +1,21 @@
-"""Derive the relative pushdowns of the two published Serre constituents.
+"""Reconstruct source-labelled relative pushdowns of two Serre constituents.
 
 Owns:
     Exact projection of the I3/I6 schemes to the common projective line,
     the duality-forced W1 contraction, the W2 elementary transformation,
-    and finite certificates for the resulting derived pushdown objects.
+    and finite checks on the source-assigned derived pushdown objects.
 
 Depends on:
     Frozen cubic pencils, exact monomial point schemes, selected mixed
     constituent Cech classes, local dualizing units, and linearisations.
 
 Must not:
-    Import the published pushdown formulas as construction input, identify the
-    current ambient Cech cone with a constituent before comparison, or infer
-    physical Higgs states from relative sheaf data alone.
+    Present assigned line degrees or characters as independently derived,
+    identify the current ambient Cech cone with a constituent before
+    comparison, or infer physical Higgs states from relative sheaf data alone.
 
 Phase 0:
-    Research-only exact relative-pushdown derivation.
+    Research-only source-bound relative-pushdown reconstruction.
 """
 
 from __future__ import annotations
@@ -412,7 +412,7 @@ class ElementaryTransformation:
 
 @dataclass(frozen=True, slots=True)
 class RelativeConstituentPushdown:
-    """A certified quasi-isomorphism class for one derived constituent pushdown."""
+    """A source-labelled derived pushdown with exact local consistency gates."""
 
     name: str
     support: ProjectedPointScheme
@@ -427,7 +427,7 @@ class RelativeConstituentPushdown:
 
     @property
     def quasi_isomorphism_exact(self) -> bool:
-        """Return whether every reduction step has an exact certificate."""
+        """Check reductions conditional on the assigned line data and map."""
 
         connecting_exact = (
             self.connecting_map is not None
@@ -510,6 +510,7 @@ class RelativeConstituentPushdown:
                 for twist in range(-2, 3)
             ],
             "quasi_isomorphism_exact": self.quasi_isomorphism_exact,
+            "quasi_isomorphism_conditional_on_assigned_lines": True,
         }
 
 
@@ -550,7 +551,7 @@ def _selected_mixed_unit_data(
 
 def relative_constituent_pushdowns(
 ) -> tuple[RelativeConstituentPushdown, RelativeConstituentPushdown]:
-    """Derive W1 and W2 pushdowns without importing their published result."""
+    """Check W1 and W2 reductions using source-assigned line signatures."""
 
     scheme_one, scheme_two = point_schemes()
     support_one = projected_point_scheme(scheme_one, 1)
@@ -656,7 +657,7 @@ def relative_tensor_dimensions(
 
 
 def write_relative_constituent_pushdowns(path: Path = OUTPUT) -> dict[str, object]:
-    """Write the content-addressed relative quasi-isomorphism certificate."""
+    """Write the source-bound relative-pushdown consistency record."""
 
     from research.experiments.computable_carrier.pushdown import (  # noqa: PLC0415
         tier_a_pushdown_constraints,
@@ -672,7 +673,7 @@ def write_relative_constituent_pushdowns(path: Path = OUTPUT) -> dict[str, objec
         for item in source
     )
     payload: dict[str, object] = {
-        "schema": "relative-constituent-pushdowns-v2",
+        "schema": "relative-constituent-pushdowns-v3",
         "selected_source_inputs": [
             "hep-th/0602073 source labels eq:W1def and eq:W2def",
             "hep-th/0602073 source section sec:CB: W1/W2 local freeness",
@@ -683,20 +684,23 @@ def write_relative_constituent_pushdowns(path: Path = OUTPUT) -> dict[str, objec
             "hep-th/0602073 source label eq:W2pushdown",
         ],
         "constituents": [item.as_record() for item in results],
-        "all_quasi_isomorphisms_exact": all(
+        "all_local_reductions_exact_given_assigned_lines": all(
             item.quasi_isomorphism_exact for item in results
         ),
         "selected_mixed_constituent_cocycles_used": True,
         "retired_maximal_minor_cones_used": False,
-        "source_pushdowns_imported_as_construction_input": False,
+        "source_line_degrees_and_characters_used_as_input": True,
+        "independent_equivariant_pushdown_derived": False,
+        "atlas_to_relative_equivariant_chain_map_constructed": False,
+        "source_signature_comparison_is_independent": False,
         "derived_signatures_match_source": (
             tuple(item.signature() for item in results) == source_signatures
         ),
         "derived_tensor_dimensions": list(relative_tensor_dimensions(*results)),
         "full_schoen_cech_representatives_constructed": False,
         "next_required_object": (
-            "chain-level lifts of the four derived P1 Higgs classes through "
-            "the diagonal Schoen Cech-Koszul contraction"
+            "an atlas-to-relative equivariant chain map deriving both line "
+            "signatures before lifting Higgs classes to the full Schoen complex"
         ),
     }
     payload["artifact_digest"] = _canonical_digest(payload)

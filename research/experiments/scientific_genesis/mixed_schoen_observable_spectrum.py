@@ -616,6 +616,8 @@ class MixedSchoenObservableSpectrum:
                 },
                 "derived_pushdown_tensor": {
                     "selected_mixed_constituent_cocycles_used": True,
+                    "source_line_degrees_and_characters_used_as_input": True,
+                    "independent_equivariant_pushdown_derived": False,
                     "term_count": len(self.tensor_terms),
                     "cohomology_h0_to_h3": list(self.higgs_profile),
                     "h1_representative_count": len(self.higgs_representatives()),
@@ -653,13 +655,14 @@ class MixedSchoenObservableSpectrum:
             "full_matter_schoen_representatives_computed": False,
             "full_higgs_schoen_representatives_computed": False,
             "computable_carrier_component_frozen": False,
+            "interpretation_status": "REFUTED_FOR_SELECTED_PAIR",
             "next_required_object": (
-                "freeze the lawful physical P1 component, then lift matter and "
-                "Higgs representatives into one common Schoen DGA"
+                "a distinct constituent realization or an independent "
+                "correction of the full-chain Higgs character premise"
             ),
             "status": (
-                "exact all-parameter three-family one-Higgs structural spectrum "
-                "from the lawful mixed family"
+                "historical source-labelled projection; its one-Higgs physical "
+                "interpretation is refuted for the selected constituent pair"
             ),
         }
 
@@ -690,6 +693,17 @@ def _mixed_schoen_spectrum_from_artifacts(
         != universal_digest
     ):
         raise ValueError("universal-cone prerequisite digests disagree")
+    pushdown_digest = _artifact_digest(
+        PUSHDOWN_ARTIFACT,
+        "all_local_reductions_exact_given_assigned_lines",
+        True,
+    )
+    if _artifact_digest(
+        PUSHDOWN_ARTIFACT,
+        "source_line_degrees_and_characters_used_as_input",
+        True,
+    ) != pushdown_digest:
+        raise ValueError("source-bound pushdown prerequisite digests disagree")
     return MixedSchoenObservableSpectrum(
         universal_digest,
         _artifact_digest(
@@ -697,11 +711,7 @@ def _mixed_schoen_spectrum_from_artifacts(
             "certified_stable_locus",
             stable_locus,
         ),
-        _artifact_digest(
-            PUSHDOWN_ARTIFACT,
-            "all_quasi_isomorphisms_exact",
-            True,
-        ),
+        pushdown_digest,
         _source_digest(SPECTRUM_ARXIV_ID, SPECTRUM_SOURCE_SHA256),
         _source_digest(GEOMETRY_ARXIV_ID, GEOMETRY_SOURCE_SHA256),
         True,
@@ -748,12 +758,11 @@ def write_mixed_schoen_observable_spectrum(path: Path = OUTPUT) -> dict[str, obj
 
 
 def main() -> int:
-    """Regenerate the lawful mixed-family observable spectrum artifact."""
+    """Regenerate the historical source-labelled spectrum calculation."""
 
     payload = write_mixed_schoen_observable_spectrum()
     print(f"artifact_digest: {payload['artifact_digest']}")
-    print(f"physical_selection_constraints: {payload['physical_selection_constraints']}")
-    print(f"lawful_physical_locus: {payload['lawful_physical_locus']}")
+    print(f"interpretation_status: {payload['interpretation_status']}")
     print(f"next_required_object: {payload['next_required_object']}")
     return 0
 

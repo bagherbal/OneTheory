@@ -1,9 +1,9 @@
 {
-  "artifact_digest": "fecf4fdf22b7d71dfdc720956947a72259cb39080573ea0dbc3487f8294cf800",
+  "artifact_digest": "2e36fa160901bac4a540c7654847de2db1e25eb4fa42b1b0352481bfbd055aae",
   "computable_one_theory_carrier_state": {
     "certificate_digests": {
-      "observable_spectrum": "6ce8f4d2fc4ef815741d1c7146b038d310c7f626f9f8029851f4f80e9dfc2da3",
-      "relative_pushdowns": "e047debedef3af4dace938baefcbab29a4e62dc3fa2102bfb09dac9082152e3e",
+      "observable_spectrum": "0dbad741aca944f6d5d59220530f40dc2f962b1ca8a2bcb72d6b8a43caf1901f",
+      "relative_pushdowns": "73ddfd632ae85ec85ef1a3b6f7dd908bf41434bf90e282c6020bfb73cfa912c8",
       "stable_su4_locus": "2c88036bc3a99c948020fcd99b6acf661994f370f2144d8fc7930b51dfbd19ee",
       "universal_cone": "1c227754a808ca9a45d2859dd1cfbdb9338129f63bfa9ccfde930c4862abc22d"
     },

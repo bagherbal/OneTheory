@@ -1,18 +1,18 @@
-"""Test exact relative pushdowns of the published Serre constituents.
+"""Test source-labelled relative pushdowns of the Serre constituents.
 
 Owns:
     Projection support, local point algebras, connecting-map reductions,
-    elementary transformations, and comparison with published P1 signatures.
+    elementary transformations, and provenance of published P1 signatures.
 
 Depends on:
     The research relative-pushdown derivation and source-bound comparison data.
 
 Must not:
-    Import expected pushdowns into the derivation or identify P1 classes with
-    full Schoen Cech representatives.
+    Treat assigned line signatures as independent derivations or identify P1
+    classes with full Schoen Cech representatives.
 
 Phase 0:
-    Relative constituent quasi-isomorphism regression tests only.
+    Source-bound constituent pushdown regression tests only.
 """
 
 import json
@@ -95,8 +95,8 @@ def test_relative_maps_contract_w1_and_elementary_transform_w2() -> None:
     assert w2.elementary_transformation.exact
 
 
-def test_derived_signatures_match_source_only_after_construction() -> None:
-    """Independent relative reductions reproduce both published signatures."""
+def test_assigned_signatures_match_the_source() -> None:
+    """Assigned line data reproduce the source but are not a second proof."""
 
     derived = relative_constituent_pushdowns()
     source = tier_a_pushdown_constraints()
@@ -128,7 +128,7 @@ def test_relative_twists_are_natural_and_recover_higgs_dimensions() -> None:
 
 
 def test_relative_pushdown_artifact_is_content_addressed() -> None:
-    """The frozen artifact records the derived result and remaining lift gate."""
+    """The artifact discloses its source-bound equivariant input."""
 
     stored = json.loads(OUTPUT.read_text(encoding="utf-8"))
     digest = stored.pop("artifact_digest")
@@ -137,7 +137,13 @@ def test_relative_pushdown_artifact_is_content_addressed() -> None:
     assert digest == _canonical_digest(stored)
     assert fresh["artifact_digest"] == digest
     assert stored["derived_tensor_dimensions"] == [0, 4, 4, 0]
+    assert stored["all_local_reductions_exact_given_assigned_lines"] is True
     assert stored["derived_signatures_match_source"] is True
+    assert stored["source_line_degrees_and_characters_used_as_input"] is True
+    assert stored["independent_equivariant_pushdown_derived"] is False
+    assert stored["atlas_to_relative_equivariant_chain_map_constructed"] is False
+    assert stored["source_signature_comparison_is_independent"] is False
+    assert "atlas-to-relative equivariant chain map" in stored["next_required_object"]
     assert stored["selected_mixed_constituent_cocycles_used"] is True
     assert stored["retired_maximal_minor_cones_used"] is False
     assert stored["full_schoen_cech_representatives_constructed"] is False

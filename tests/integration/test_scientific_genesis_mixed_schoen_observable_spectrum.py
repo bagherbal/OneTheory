@@ -102,7 +102,7 @@ def test_entire_lawful_family_passes_without_a_selected_point() -> None:
 
 
 def test_lawful_spectrum_artifact_is_current_and_content_addressed() -> None:
-    """The frozen certificate exactly matches deterministic regeneration."""
+    """The historical projection states its superseded physical status."""
 
     stored = json.loads(OUTPUT.read_text(encoding="utf-8"))
     digest = stored.pop("artifact_digest")
@@ -110,3 +110,7 @@ def test_lawful_spectrum_artifact_is_current_and_content_addressed() -> None:
     assert digest == _canonical_digest(stored)
     assert stored == mixed_schoen_observable_spectrum().as_record()
     assert stored["source"]["source_cohomology_dimensions_used_as_rank_inputs"] is False
+    assert stored["interpretation_status"] == "REFUTED_FOR_SELECTED_PAIR"
+    pushdown = stored["higgs"]["derived_pushdown_tensor"]
+    assert pushdown["source_line_degrees_and_characters_used_as_input"] is True
+    assert pushdown["independent_equivariant_pushdown_derived"] is False

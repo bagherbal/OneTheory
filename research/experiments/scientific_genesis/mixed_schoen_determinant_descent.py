@@ -1,12 +1,12 @@
 """Audit the selected mixed carrier's equivariant determinant descent.
 
 Owns:
-    Alternating line-degree and frame-character calculations for both selected
-    constituent resolutions, plus the induced character of scalar H3.
+    Alternating determinant characters, scalar H3 action, and the exact
+    same-bundle relinearization gate for both nonsplit extension orientations.
 
 Depends on:
     The exact mixed constituent frames, Schoen deck action, and scalar
-    Cech--Koszul residue contraction.
+    Cech--Koszul residue contraction; certified cross-Hom and self-Hom data.
 
 Must not:
     Equate vanishing rational c1 with an equivariantly trivial determinant,
@@ -51,6 +51,24 @@ OUTPUT = ROOT / "data/generated/scientific_genesis/mixed_schoen_determinant_desc
 REVERSE_SPECTRUM = (
     ROOT / "data/generated/scientific_genesis/mixed_schoen_reverse_observable_spectrum.json"
 )
+OUTER_TRANSFER = ROOT / "data/generated/scientific_genesis/mixed_schoen_outer_transfer.json"
+CONSTITUENT_SIMPLICITY = (
+    ROOT / "data/generated/scientific_genesis/mixed_schoen_higgs_linearization_no_go.json"
+)
+FORWARD_CONE = ROOT / "data/generated/scientific_genesis/mixed_schoen_outer_universal_cone.json"
+REVERSE_CONE = (
+    ROOT / "data/generated/scientific_genesis/mixed_schoen_reverse_outer_universal_cone.json"
+)
+
+
+def _verified_record(path: Path, schema: str) -> tuple[dict[str, object], str]:
+    """Read a content-addressed exact prerequisite, rejecting stale schemas."""
+
+    record = json.loads(path.read_text(encoding="utf-8"))
+    digest = record.pop("artifact_digest", None)
+    if record.get("schema") != schema or digest != _canonical_digest(record):
+        raise ValueError(f"the prerequisite artifact is invalid: {path.name}")
+    return record, digest
 
 
 def _exponent(value: Eisenstein) -> int:
@@ -98,10 +116,9 @@ def _sum_characters(left: Character, right: Character) -> Character:
 def _uniform_twist_screen(determinant: Character) -> dict[str, object]:
     """Test only common character twists under the fixed Wilson embedding."""
 
-    spectrum = json.loads(REVERSE_SPECTRUM.read_text(encoding="utf-8"))
-    digest = spectrum.pop("artifact_digest", None)
-    if digest != _canonical_digest(spectrum):
-        raise ValueError("the reverse spectrum artifact digest does not verify")
+    spectrum, _digest = _verified_record(
+        REVERSE_SPECTRUM, "mixed-schoen-reverse-observable-spectrum-v1"
+    )
     higgs = spectrum.get("higgs")
     if not isinstance(higgs, dict):
         raise ValueError("the reverse Higgs character record is absent")
@@ -146,6 +163,86 @@ def _uniform_twist_screen(determinant: Character) -> dict[str, object]:
     }
 
 
+def _same_cover_bundle_gate(uniform_twist: dict[str, object]) -> dict[str, object]:
+    """Prove simplicity of every nonsplit extension from existing Hom data."""
+
+    prerequisites = (
+        ("outer_transfer", OUTER_TRANSFER, "mixed-schoen-outer-transfer-v1"),
+        (
+            "constituent_simplicity",
+            CONSTITUENT_SIMPLICITY,
+            "mixed-schoen-higgs-linearization-no-go-v1",
+        ),
+        ("forward_cone", FORWARD_CONE, "mixed-schoen-outer-universal-cone-v1"),
+        (
+            "reverse_cone",
+            REVERSE_CONE,
+            "mixed-schoen-reverse-outer-universal-cone-v1",
+        ),
+    )
+    records = {
+        name: _verified_record(path, schema)
+        for name, path, schema in prerequisites
+    }
+    outer, _digest = records["outer_transfer"]
+    cross_hom = {
+        f"{item['left']}->{item['right']}": dict(item["cohomology_dimensions"])[0]
+        for item in outer["orientations"]
+    }
+    if cross_hom != {"V1->V2": 0, "V2->V1": 0}:
+        raise ValueError("the cross-Hom H0 vanishing premise failed")
+    constituent, _digest = records["constituent_simplicity"]
+    self_hom = {
+        item["constituent"]: item["h0_endomorphism_dimension"]
+        for item in constituent["constituent_self_hom_audits"]
+        if item["simple_over_q_omega"] is True
+    }
+    if self_hom != {"V1": 1, "V2": 1}:
+        raise ValueError("the constituent simplicity premise failed")
+    for name, projective, affine in (
+        ("forward_cone", "P^1(Q(omega))", "A^2(Q(omega)) minus the origin"),
+        ("reverse_cone", "P^5(Q(omega))", "A^6(Q(omega)) minus the origin"),
+    ):
+        cone, _digest = records[name]
+        if (
+            cone.get("rank") != 4
+            or cone.get("projective_non_split_space") != projective
+            or cone.get("non_split_locus") != affine
+            or cone.get("equivariant_descent_exact") is not True
+        ):
+            raise ValueError(f"the {name} non-split premise failed")
+    if (
+        uniform_twist["rank_four_uniform_twist"] != [1, 2]
+        or uniform_twist["one_higgs_zero_triplet_spectrum_preserved"] is not False
+    ):
+        raise ValueError("the unique determinant twist has not failed selection")
+    return {
+        "coefficient_field": "Q(omega)",
+        "cross_h0_hom_dimensions": cross_hom,
+        "constituent_h0_endomorphism_dimensions": self_hom,
+        "nonsplit_extension_families": ["P^1(Q(omega))", "P^5(Q(omega))"],
+        "all_nonsplit_extensions_simple": True,
+        "same_underlying_bundle_linearizations_are_character_twists": True,
+        "same_underlying_bundle_su4_one_higgs_repair_available": False,
+        "proof_steps": [
+            "vanishing Hom(A,B) forces each extension endomorphism to preserve A",
+            "simple A and B make its induced endomorphisms scalar",
+            "a nonzero extension class forces the two scalars to coincide",
+            "vanishing Hom(B,A) eliminates every residual off-diagonal map",
+            "two linearizations of the simple E differ by a deck character",
+            "the unique determinant-cancelling twist fails fixed Wilson selection",
+        ],
+        "scope": (
+            "the same underlying nonsplit selected P1 or reverse P5 bundle, "
+            "with the fixed published Wilson embedding"
+        ),
+        "distinct_underlying_bundles_excluded": False,
+        "prerequisite_artifact_digests": {
+            name: digest for name, (_record, digest) in records.items()
+        },
+    }
+
+
 @cache
 def determinant_descent_audit() -> dict[str, object]:
     """Return exact evidence for the current selected determinant frame."""
@@ -182,8 +279,9 @@ def determinant_descent_audit() -> dict[str, object]:
     if geometric_top != (0, 0) or framed_top != total_character:
         raise ValueError("the determinant-frame action disagrees with scalar H3")
     uniform_twist = _uniform_twist_screen(total_character)
+    same_bundle = _same_cover_bundle_gate(uniform_twist)
     return {
-        "schema": "mixed-schoen-determinant-descent-audit-v2",
+        "schema": "mixed-schoen-determinant-descent-audit-v3",
         "scope": "current selected mixed constituent linearizations",
         "constituent_cover_line_degrees": [list(degree) for degree in degrees],
         "total_cover_line_degree": list(total_degree),
@@ -204,10 +302,11 @@ def determinant_descent_audit() -> dict[str, object]:
         ),
         "published_carrier_refuted": False,
         "uniform_twist_screen": uniform_twist,
+        "same_cover_bundle_relinearization": same_bundle,
         "first_missing_input": (
-            "an independently verified determinant trivialization or a "
-            "non-uniform lawful equivariant relinearization preserving the "
-            "Wilson spectrum"
+            "an independent correction of the selected determinant frame or "
+            "a distinct underlying bundle with trivial quotient determinant "
+            "and the required Wilson spectrum"
         ),
     }
 

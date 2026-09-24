@@ -444,15 +444,16 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "mixed_schoen_reverse_outer_stability_locus",
-            "lawful reverse stable cover-bundle locus",
+            "lawful reverse equivariant stability locus",
             "Reference realization",
             "PROVED",
             "The extension lower bound preserves all eight proper-subsheaf "
             "inequalities under reversal and replaces only the forced full "
             "subobject V1 by V2. All nine exact slopes are negative on a "
             "rational open box around (3,2,2), so every reverse P5 point is "
-            "stable there; nonzero cover c3 excludes proper connected "
-            "irreducible rank-four reduction.",
+            "equivariantly stable there; nonzero cover c3 excludes proper "
+            "connected irreducible rank-four reduction. Ordinary stability "
+            "of the underlying cover bundle is not inferred.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_reverse_outer_stability_locus.json",
@@ -469,9 +470,11 @@ def _nodes() -> list[dict[str, object]]:
             "REFUTED",
             "The selected constituent frames have cancelling cover line degrees "
             "but total equivariant determinant character (2,1). The scalar "
-            "top class has the same nontrivial framed character. The unique "
-            "common character twist destroys the fixed Wilson Higgs spectrum. "
-            "This does not refute the published carrier.",
+            "top class has the same nontrivial framed character. Exact cross-Hom "
+            "vanishing and constituent simplicity make every nonsplit selected "
+            "extension simple, so the unique determinant-cancelling twist "
+            "exhausts same-bundle relinearizations. It fails the fixed Wilson "
+            "spectrum; a distinct published carrier is not refuted.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_determinant_descent.json",
@@ -557,13 +560,14 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "published_outer_stability_locus",
-            "lawful mixed stable cover-bundle outer locus",
+            "lawful mixed equivariant stability locus",
             "Reference realization",
             "COMPUTED",
             "The published sufficient slope bounds depend only on constituent "
             "subsheaves and nonsplitting. Every lawful P1 point is nonsplit, so "
-            "all are stable in the exact chamber; nonzero cover c3 excludes "
-            "proper connected irreducible structure-group reductions.",
+            "all are equivariantly stable in the exact chamber; nonzero cover "
+            "c3 excludes proper connected irreducible structure-group "
+            "reductions. Cover-bundle simplicity is established separately.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_outer_stability_locus.json",
@@ -4138,24 +4142,44 @@ def _scheduler() -> list[dict[str, object]]:
 
     tasks = [
         (
-            "lawful_carrier_common_dga_lifts",
+            "source_chain_determinant_reconciliation",
+            5,
+            5,
+            5,
+            5,
+            2,
+            1,
+            "Tests whether the selected frame matches the published determinant descent.",
+        ),
+        (
+            "distinct_su4_carrier_screen",
             5,
             4,
             5,
             5,
+            4,
+            2,
+            "Seeks a distinct underlying bundle only if source reconciliation fails.",
+        ),
+        (
+            "lawful_carrier_common_dga_lifts",
+            2,
+            4,
+            2,
             5,
-            3,
-            "Supplies the physical cocycles required by the first Yukawa product.",
+            5,
+            4,
+            "Existing lifts remain conditional until a physical carrier is certified.",
         ),
         (
             "minimal_common_dga_yukawa_slice",
+            2,
+            4,
+            2,
+            5,
             5,
             4,
-            5,
-            5,
-            5,
-            3,
-            "Produces the first exact matrix from the frozen carrier component.",
+            "A physical matrix cannot precede the corrected determinant gate.",
         ),
         (
             "automorphism_trichotomy_theorem",
@@ -4248,11 +4272,14 @@ def build_state() -> dict[str, object]:
     determinant_digest = determinant.pop("artifact_digest", None)
     if (
         determinant_digest != _canonical_digest(determinant)
-        or determinant.get("schema") != "mixed-schoen-determinant-descent-audit-v2"
+        or determinant.get("schema") != "mixed-schoen-determinant-descent-audit-v3"
         or determinant.get("total_determinant_character") != [2, 1]
         or determinant.get("equivariantly_trivial_determinant_certified") is not False
         or determinant.get("uniform_twist_screen", {}).get(
             "one_higgs_zero_triplet_spectrum_preserved"
+        ) is not False
+        or determinant.get("same_cover_bundle_relinearization", {}).get(
+            "same_underlying_bundle_su4_one_higgs_repair_available"
         ) is not False
     ):
         raise ValueError("the selected determinant obstruction is not certified")
@@ -4414,8 +4441,8 @@ def build_state() -> dict[str, object]:
             "candidate_pair": None,
             "selection_status": (
                 "selected P1 and reverse P5 cover computations remain exact, "
-                "but neither is frozen as a physical quotient carrier until "
-                "equivariant determinant descent is certified"
+                "but neither can be frozen as a physical quotient carrier "
+                "under the current determinant frame and fixed Wilson line"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4531,6 +4558,7 @@ def build_state() -> dict[str, object]:
                 "computable_carrier_component_frozen": False,
                 "selected_quotient_determinant_character": [2, 1],
                 "selected_quotient_su4_certified": False,
+                "same_cover_bundle_relinearization_repair_available": False,
                 "lawful_reverse_matter_h0_to_h3": [0, 27, 0, 0],
                 "lawful_reverse_dual_matter_h0_to_h3": [0, 0, 27, 0],
                 "lawful_reverse_higgs_h0_to_h3": [0, 4, 4, 0],
@@ -4736,9 +4764,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "an independently verified equivariant determinant "
-                "trivialization or non-uniform lawful relinearization "
-                "preserving the Wilson spectrum"
+                "an independent correction of the selected determinant frame "
+                "or a distinct underlying bundle with trivial quotient "
+                "determinant and the required Wilson spectrum"
             ),
         },
         "claims": _nodes(),
@@ -4889,6 +4917,9 @@ def build_state() -> dict[str, object]:
             "the unique common rank-four character twist that cancels the "
             "selected determinant removes both Higgs doublet sectors and "
             "introduces a color-antitriplet under the fixed Wilson line",
+            "both cross-Hom H0 spaces vanish and both constituents are simple; "
+            "every nonsplit selected P1/P5 extension is simple, so no other "
+            "same-bundle linearization can repair the fixed Wilson spectrum",
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
             "current curvilinear rank-four Chern type has the wrong quotient index",
             "declared monomial and transported finite linearization categories "

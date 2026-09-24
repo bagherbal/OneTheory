@@ -430,5 +430,11 @@ published construction. Resolve the equivariant determinant and recheck the
 Wilson spectrum before assigning a physical Yukawa coefficient.
 The unique common character twist that cancels `(2,1)` is `(1,2)`; its
 exterior-square shift removes both Higgs doublets and permits a color
-antitriplet under the fixed Wilson embedding. A simple uniform twist is
-therefore not a valid repair. More general lawful relinearization remains open.
+antitriplet under the fixed Wilson embedding. Both mixed cross-Hom `H0`
+spaces vanish, both constituents are simple, and every nonsplit P1/P5
+extension is consequently simple: an endomorphism preserves the subobject,
+acts by equal scalars because the extension is nonzero, and has no residual
+off-diagonal map. Thus every same-bundle deck relinearization is a common
+character twist. No relinearization of this selected underlying bundle
+repairs both determinant and fixed Wilson spectrum. A distinct underlying
+bundle or an independently corrected determinant frame remains open.

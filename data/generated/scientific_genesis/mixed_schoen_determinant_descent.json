@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "77c9c676652801e49cfd1a72831632139b816ee405e5381e677e749729c3e7ae",
+  "artifact_digest": "6c798114251ed4b2ddf6bcf25de1185a889a2b55434a6b719925107f672b9bee",
   "constituent_cover_line_degrees": [
     [
       -2,
@@ -23,7 +23,7 @@
     ]
   ],
   "equivariantly_trivial_determinant_certified": false,
-  "first_missing_input": "an independently verified determinant trivialization or a non-uniform lawful equivariant relinearization preserving the Wilson spectrum",
+  "first_missing_input": "an independent correction of the selected determinant frame or a distinct underlying bundle with trivial quotient determinant and the required Wilson spectrum",
   "framed_scalar_h3_character": [
     2,
     1
@@ -34,7 +34,41 @@
   ],
   "published_carrier_refuted": false,
   "quotient_su4_certified_by_this_gate": false,
-  "schema": "mixed-schoen-determinant-descent-audit-v2",
+  "same_cover_bundle_relinearization": {
+    "all_nonsplit_extensions_simple": true,
+    "coefficient_field": "Q(omega)",
+    "constituent_h0_endomorphism_dimensions": {
+      "V1": 1,
+      "V2": 1
+    },
+    "cross_h0_hom_dimensions": {
+      "V1->V2": 0,
+      "V2->V1": 0
+    },
+    "distinct_underlying_bundles_excluded": false,
+    "nonsplit_extension_families": [
+      "P^1(Q(omega))",
+      "P^5(Q(omega))"
+    ],
+    "prerequisite_artifact_digests": {
+      "constituent_simplicity": "62ede068ba5956c476bd6c279f4778b0abe55f9b5f2a1156783ac903b5a1cf5a",
+      "forward_cone": "1c227754a808ca9a45d2859dd1cfbdb9338129f63bfa9ccfde930c4862abc22d",
+      "outer_transfer": "0e5a43a9175ed2c981913fbc683e40e64f39c28dd69869550c558d70b7db5a42",
+      "reverse_cone": "802941c5bd1618150e7a8a04d284af1747e015ff3437dc19e89b05ad8d9e312b"
+    },
+    "proof_steps": [
+      "vanishing Hom(A,B) forces each extension endomorphism to preserve A",
+      "simple A and B make its induced endomorphisms scalar",
+      "a nonzero extension class forces the two scalars to coincide",
+      "vanishing Hom(B,A) eliminates every residual off-diagonal map",
+      "two linearizations of the simple E differ by a deck character",
+      "the unique determinant-cancelling twist fails fixed Wilson selection"
+    ],
+    "same_underlying_bundle_linearizations_are_character_twists": true,
+    "same_underlying_bundle_su4_one_higgs_repair_available": false,
+    "scope": "the same underlying nonsplit selected P1 or reverse P5 bundle, with the fixed published Wilson embedding"
+  },
+  "schema": "mixed-schoen-determinant-descent-audit-v3",
   "scope": "current selected mixed constituent linearizations",
   "total_cover_line_degree": [
     0,

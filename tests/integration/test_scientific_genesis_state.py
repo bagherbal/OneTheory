@@ -102,6 +102,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["computable_carrier_component_frozen"] is False
     assert path["criteria"]["selected_quotient_determinant_character"] == [2, 1]
     assert path["criteria"]["selected_quotient_su4_certified"] is False
+    assert (
+        path["criteria"]["same_cover_bundle_relinearization_repair_available"]
+        is False
+    )
     assert path["criteria"]["lawful_reverse_matter_h0_to_h3"] == [0, 27, 0, 0]
     assert path["criteria"]["lawful_reverse_dual_matter_h0_to_h3"] == [0, 0, 27, 0]
     assert path["criteria"]["lawful_reverse_higgs_h0_to_h3"] == [0, 4, 4, 0]
@@ -438,13 +442,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "selected P1 and reverse P5 cover computations remain exact, "
-        "but neither is frozen as a physical quotient carrier until "
-        "equivariant determinant descent is certified"
+        "but neither can be frozen as a physical quotient carrier "
+        "under the current determinant frame and fixed Wilson line"
     )
     assert path["next_required_object"] == (
-        "an independently verified equivariant determinant "
-        "trivialization or non-uniform lawful relinearization "
-        "preserving the Wilson spectrum"
+        "an independent correction of the selected determinant frame "
+        "or a distinct underlying bundle with trivial quotient "
+        "determinant and the required Wilson spectrum"
     )
     assert claims["mixed_schoen_reverse_outer_universal_cone"]["status"] == (
         "COMPUTED"
@@ -539,4 +543,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["common_dga_package"]["status"] == "COMPUTED"
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
+    scheduler = state["research_value_scheduler"]
+    assert scheduler[0]["task"] == "source_chain_determinant_reconciliation"
+    assert scheduler[1]["task"] == "distinct_su4_carrier_screen"
     assert state["fitted_inputs"] == []

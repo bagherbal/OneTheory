@@ -603,4 +603,16 @@ The unique uniform rank-four twist restoring trivial determinant is `(1,2)`.
 Its induced exterior-square shift gives Higgs characters `(0,0)`, `(1,2)`,
 `(2,0)`, `(2,2)`; the fixed Wilson projection has no up or down doublet and
 one color antitriplet. Thus this simple repair fails the one-Higgs selection
-gate, without excluding non-uniform lawful linearizations.
+gate; by itself this does not exclude non-uniform lawful linearizations.
+The later exact Hom audit closes that caveat for the **same underlying**
+selected rank-four bundle: `H0 Hom(V1,V2)=H0 Hom(V2,V1)=0`, while each
+constituent has scalar endomorphisms. In either nonsplit extension orientation,
+an endomorphism must preserve the subobject, act by equal scalars on subobject
+and quotient, and have no off-diagonal remainder. Thus every P1/P5 nonsplit
+bundle is simple over `Q(omega)`; any second deck linearization is a character
+twist. The only twist restoring trivial determinant fails the fixed Wilson
+projection. This scoped no-go excludes same-bundle relinearization, not an
+independent source-faithful realization or a different underlying bundle.
+The published lower-bound proposition certifies equivariant stability; this
+simplicity argument deliberately does not infer ordinary cover stability
+from it.

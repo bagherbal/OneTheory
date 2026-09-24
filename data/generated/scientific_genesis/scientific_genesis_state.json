@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "03fcdbe59d66d209777f25db985e35460ef36287d99ed069bdeb30d1a3cf5af5",
+  "artifact_digest": "9800ddd58c70793b4f82dffc8aee07cd9622d41678fdba3971e1d0065e5740bd",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -187,9 +187,9 @@
       "sha256": "baf938ac58be1d55118f4181577e93e4406b6ce2b6d80801d0e347472c8b2582"
     },
     {
-      "bytes": 1614,
+      "bytes": 3198,
       "path": "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json",
-      "sha256": "1b1a0570828e7afc4841071c84c15f71144984fe1e96249854cd46df1f29e1a0"
+      "sha256": "04de8a6ceda90fc2743df91a81fdb52f1a095e7e26094a4917cfb8e945a0b3c4"
     },
     {
       "bytes": 6072,
@@ -845,10 +845,10 @@
         "tests/integration/test_scientific_genesis_mixed_schoen_reverse_outer_stability_locus.py"
       ],
       "id": "mixed_schoen_reverse_outer_stability_locus",
-      "label": "lawful reverse stable cover-bundle locus",
+      "label": "lawful reverse equivariant stability locus",
       "layer": "Reference realization",
       "missing_prerequisites": [],
-      "statement": "The extension lower bound preserves all eight proper-subsheaf inequalities under reversal and replaces only the forced full subobject V1 by V2. All nine exact slopes are negative on a rational open box around (3,2,2), so every reverse P5 point is stable there; nonzero cover c3 excludes proper connected irreducible rank-four reduction.",
+      "statement": "The extension lower bound preserves all eight proper-subsheaf inequalities under reversal and replaces only the forced full subobject V1 by V2. All nine exact slopes are negative on a rational open box around (3,2,2), so every reverse P5 point is equivariantly stable there; nonzero cover c3 excludes proper connected irreducible rank-four reduction. Ordinary stability of the underlying cover bundle is not inferred.",
       "status": "PROVED"
     },
     {
@@ -862,7 +862,7 @@
       "label": "selected mixed quotient determinant descent",
       "layer": "Computable carrier",
       "missing_prerequisites": [],
-      "statement": "The selected constituent frames have cancelling cover line degrees but total equivariant determinant character (2,1). The scalar top class has the same nontrivial framed character. The unique common character twist destroys the fixed Wilson Higgs spectrum. This does not refute the published carrier.",
+      "statement": "The selected constituent frames have cancelling cover line degrees but total equivariant determinant character (2,1). The scalar top class has the same nontrivial framed character. Exact cross-Hom vanishing and constituent simplicity make every nonsplit selected extension simple, so the unique determinant-cancelling twist exhausts same-bundle relinearizations. It fails the fixed Wilson spectrum; a distinct published carrier is not refuted.",
       "status": "REFUTED"
     },
     {
@@ -942,10 +942,10 @@
         "data/published/visible_carrier/source_manifest.json"
       ],
       "id": "published_outer_stability_locus",
-      "label": "lawful mixed stable cover-bundle outer locus",
+      "label": "lawful mixed equivariant stability locus",
       "layer": "Reference realization",
       "missing_prerequisites": [],
-      "statement": "The published sufficient slope bounds depend only on constituent subsheaves and nonsplitting. Every lawful P1 point is nonsplit, so all are stable in the exact chamber; nonzero cover c3 excludes proper connected irreducible structure-group reductions.",
+      "statement": "The published sufficient slope bounds depend only on constituent subsheaves and nonsplitting. Every lawful P1 point is nonsplit, so all are equivariantly stable in the exact chamber; nonzero cover c3 excludes proper connected irreducible structure-group reductions. Cover-bundle simplicity is established separately.",
       "status": "COMPUTED"
     },
     {
@@ -4609,6 +4609,7 @@
       "reverse_down_v1_pairing_reduced_coordinate_count": 0,
       "reverse_down_v1_pairing_term_count": 8892,
       "same_constituent_higgs_relinearization_available": false,
+      "same_cover_bundle_relinearization_repair_available": false,
       "scalar_higgs_action_repairs_refuted": true,
       "scalar_residue_target_available": true,
       "selected_available_flavor_chain_object_count": null,
@@ -4737,10 +4738,36 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "an independently verified equivariant determinant trivialization or non-uniform lawful relinearization preserving the Wilson spectrum",
-    "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither is frozen as a physical quotient carrier until equivariant determinant descent is certified"
+    "next_required_object": "an independent correction of the selected determinant frame or a distinct underlying bundle with trivial quotient determinant and the required Wilson spectrum",
+    "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame and fixed Wilson line"
   },
   "research_value_scheduler": [
+    {
+      "priority_score": 65.0,
+      "rationale": "Tests whether the selected frame matches the published determinant descent.",
+      "scores": {
+        "computational_cost": 2,
+        "distance_to_observable": 5,
+        "foundational_importance": 5,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 1,
+        "structural_reuse": 5
+      },
+      "task": "source_chain_determinant_reconciliation"
+    },
+    {
+      "priority_score": 16.125,
+      "rationale": "Seeks a distinct underlying bundle only if source reconciliation fails.",
+      "scores": {
+        "computational_cost": 4,
+        "distance_to_observable": 5,
+        "foundational_importance": 4,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 2,
+        "structural_reuse": 5
+      },
+      "task": "distinct_su4_carrier_screen"
+    },
     {
       "priority_score": 13.0,
       "rationale": "Determines whether higher products are mathematically required.",
@@ -4768,32 +4795,6 @@
       "task": "automorphism_trichotomy_theorem"
     },
     {
-      "priority_score": 8.6,
-      "rationale": "Supplies the physical cocycles required by the first Yukawa product.",
-      "scores": {
-        "computational_cost": 5,
-        "distance_to_observable": 5,
-        "foundational_importance": 4,
-        "probability_of_discriminating_theory": 5,
-        "risk_of_local_rabbit_hole": 3,
-        "structural_reuse": 5
-      },
-      "task": "lawful_carrier_common_dga_lifts"
-    },
-    {
-      "priority_score": 8.6,
-      "rationale": "Produces the first exact matrix from the frozen carrier component.",
-      "scores": {
-        "computational_cost": 5,
-        "distance_to_observable": 5,
-        "foundational_importance": 4,
-        "probability_of_discriminating_theory": 5,
-        "risk_of_local_rabbit_hole": 3,
-        "structural_reuse": 5
-      },
-      "task": "minimal_common_dga_yukawa_slice"
-    },
-    {
       "priority_score": 4.25,
       "rationale": "Screens the later metric route before expensive numerical geometry.",
       "scores": {
@@ -4818,6 +4819,32 @@
         "structural_reuse": 5
       },
       "task": "genesis_foundational_contract"
+    },
+    {
+      "priority_score": 1.2,
+      "rationale": "Existing lifts remain conditional until a physical carrier is certified.",
+      "scores": {
+        "computational_cost": 5,
+        "distance_to_observable": 2,
+        "foundational_importance": 4,
+        "probability_of_discriminating_theory": 2,
+        "risk_of_local_rabbit_hole": 4,
+        "structural_reuse": 5
+      },
+      "task": "lawful_carrier_common_dga_lifts"
+    },
+    {
+      "priority_score": 1.2,
+      "rationale": "A physical matrix cannot precede the corrected determinant gate.",
+      "scores": {
+        "computational_cost": 5,
+        "distance_to_observable": 2,
+        "foundational_importance": 4,
+        "probability_of_discriminating_theory": 2,
+        "risk_of_local_rabbit_hole": 4,
+        "structural_reuse": 5
+      },
+      "task": "minimal_common_dga_yukawa_slice"
     },
     {
       "priority_score": 0.32,
@@ -5020,6 +5047,7 @@
   "scoped_no_go_results": [
     "the selected mixed constituent frames have total determinant character (2,1), so this quotient SU(4) claim is uncertified; a distinct published carrier is not refuted",
     "the unique common rank-four character twist that cancels the selected determinant removes both Higgs doublet sectors and introduces a color-antitriplet under the fixed Wilson line",
+    "both cross-Hom H0 spaces vanish and both constituents are simple; every nonsplit selected P1/P5 extension is simple, so no other same-bundle linearization can repair the fixed Wilson spectrum",
     "declared projective Tier A ray pairs have zero invariant Ext-one classes",
     "current curvilinear rank-four Chern type has the wrong quotient index",
     "declared monomial and transported finite linearization categories have no complete commuting lift pairs where recorded",

@@ -46,6 +46,7 @@ from .diagonal_schoen_lines import (
 from .mixed_constituent_schoen_arrows import mixed_schoen_constituents
 from .mixed_schoen_chain_actions import load_certified_higgs_representative
 from .mixed_schoen_chain_diagonal import (
+    ChainDiagonalBasis,
     ChainDiagonalCochain,
     chain_diagonal_objects,
 )
@@ -70,6 +71,7 @@ def _sum_monomials(*values: Monomial) -> Monomial:
     return tuple(sum(entries) for entries in zip(*values, strict=True))
 
 
+@cache
 def _complementary_minor_polynomials(factor: int) -> tuple[Polynomial, ...]:
     """Pair each F0 generator with A using signed Hilbert--Burch minors."""
 
@@ -92,6 +94,7 @@ def _complementary_minor_polynomials(factor: int) -> tuple[Polynomial, ...]:
     return tuple(values)
 
 
+@cache
 def _pairing_terms(
     first_index: int,
     second_index: int,
@@ -156,6 +159,18 @@ def contract_with_strict_higgs(
             "the direct global contraction requires the strict A1*A2 Higgs "
             "with only diagonal Koszul corrections"
         )
+    higgs_by_start: dict[
+        tuple[int, int, int, int],
+        list[tuple[ChainDiagonalBasis, Eisenstein]],
+    ] = {}
+    for higgs_basis, higgs_coefficient in higgs.terms:
+        start = cast(
+            tuple[int, int, int, int],
+            tuple(simplex[0] for simplex in higgs_basis.cell),
+        )
+        higgs_by_start.setdefault(start, []).append(
+            (higgs_basis, higgs_coefficient)
+        )
     terms = []
     for matter_basis, matter_coefficient in matter_product.terms:
         matter_object = objects[matter_basis.component.object_index]
@@ -165,7 +180,11 @@ def contract_with_strict_higgs(
         )
         if not pairing:
             continue
-        for higgs_basis, higgs_coefficient in higgs.terms:
+        endpoint = cast(
+            tuple[int, int, int, int],
+            tuple(simplex[-1] for simplex in matter_basis.cell),
+        )
+        for higgs_basis, higgs_coefficient in higgs_by_start.get(endpoint, ()):
             cell_product = _cell_cup(matter_basis.cell, higgs_basis.cell)
             if cell_product is None:
                 continue

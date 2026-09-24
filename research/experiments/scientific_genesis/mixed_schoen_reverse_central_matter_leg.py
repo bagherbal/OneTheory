@@ -35,8 +35,7 @@ from .mixed_schoen_chain_actions import (
     _perturbed_inclusion,
     load_certified_higgs_representative,
 )
-from .mixed_schoen_chain_diagonal import full_chain_diagonal_differential
-from .mixed_schoen_diagonal_chain_map import diagonal_compare_common_matter
+from .mixed_schoen_chain_diagonal import chain_diagonal_objects, full_chain_diagonal_differential
 from .mixed_schoen_matter_comparison import (
     _character_project,
     _cochain_digest,
@@ -48,12 +47,16 @@ from .mixed_schoen_matter_representatives import (
 )
 from .mixed_schoen_matter_representatives import mixed_schoen_matter_representatives
 from .mixed_schoen_matter_tensor import (
+    IndependentMatterCochain,
     external_lifted_matter_tensor,
     lift_matter_cochain,
 )
 from .mixed_schoen_outer_universal_cone import (
     _load_orientation_basis,
     _representative,
+)
+from .mixed_schoen_reverse_diagonal_chain_map import (
+    reverse_diagonal_compare_common_matter,
 )
 from .mixed_schoen_reverse_down_matter_lifts import (
     FORWARD_MATTER_CHARACTERS,
@@ -68,6 +71,7 @@ from .mixed_schoen_reverse_down_matter_lifts import (
 from .mixed_schoen_universal_matter_lifts import _verified_digest
 from .mixed_schoen_yukawa_trace import (
     _full_cochain_digest,
+    _pairing_terms,
     contract_with_strict_higgs,
     scalar_full_differential,
 )
@@ -239,9 +243,16 @@ class ReverseCentralMatterLeg:
         }
 
 
-@cache
-def reverse_central_matter_leg(parameter_index: int) -> ReverseCentralMatterLeg:
-    """Compute one exact first-order matter leg over the reverse P5 basis."""
+def _physical_lifts(
+    parameter_index: int,
+) -> tuple[
+    str,
+    IndependentMatterCochain,
+    IndependentMatterCochain,
+    IndependentMatterCochain,
+    IndependentMatterCochain,
+]:
+    """Load exactly one strict V1 pair and its certified V2 corrections."""
 
     if not 0 <= parameter_index < 6:
         raise ValueError("the reverse central parameter index is unavailable")
@@ -266,13 +277,85 @@ def reverse_central_matter_leg(parameter_index: int) -> ReverseCentralMatterLeg:
     )
     row_v1 = lift_matter_cochain(row_representative, 1)
     column_v1 = lift_matter_cochain(column_representative, 1)
+    return (
+        parameters[parameter_index],
+        row_v1,
+        column_v1,
+        reverse_diagonal_compare_common_matter(row_correction),
+        reverse_diagonal_compare_common_matter(column_correction),
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class ReverseCentralDirectTrace:
+    """Unprojected exact scalar trace with closure explicitly unresolved."""
+
+    parameter: str
+    retained_matter_terms: int
+    scalar: _FullCochain
+    scalar_residual: _FullCochain
+
+    def as_record(self) -> dict[str, object]:
+        """Expose exact direct-trace diagnostics without a Yukawa claim."""
+
+        return {
+            "parameter": self.parameter,
+            "retained_matter_terms": self.retained_matter_terms,
+            "scalar_term_count": len(self.scalar.terms),
+            "scalar_digest": _full_cochain_digest(self.scalar),
+            "scalar_residual_term_count": len(self.scalar_residual.terms),
+            "scalar_residual_digest": _full_cochain_digest(self.scalar_residual),
+            "scalar_is_cycle": self.scalar_residual.is_zero(),
+            "central_yukawa_coefficient_available": False,
+        }
+
+
+def reverse_central_direct_trace(parameter_index: int) -> ReverseCentralDirectTrace:
+    """Trace only object pairs supported by the exact determinant map."""
+
+    parameter, row_v1, column_v1, row_v2, column_v2 = _physical_lifts(
+        parameter_index
+    )
+    allowed_pairs = frozenset(
+        (item.first_index, item.second_index)
+        for item in chain_diagonal_objects()
+        if _pairing_terms(item.first_index, item.second_index)
+    )
+    first = external_lifted_matter_tensor(
+        row_v1, column_v2, allowed_pairs
+    )
+    second = external_lifted_matter_tensor(
+        column_v1, row_v2, allowed_pairs
+    )
+    raw = first + second
+    del first, second
+    retained_matter_terms = len(raw.terms)
+    scalar = contract_with_strict_higgs(
+        raw, load_certified_higgs_representative()
+    )
+    del raw
+    return ReverseCentralDirectTrace(
+        parameter,
+        retained_matter_terms,
+        scalar,
+        scalar_full_differential(scalar),
+    )
+
+
+@cache
+def reverse_central_matter_leg(parameter_index: int) -> ReverseCentralMatterLeg:
+    """Compute one exact first-order matter leg over the reverse P5 basis."""
+
+    parameter, row_v1, column_v1, row_v2, column_v2 = _physical_lifts(
+        parameter_index
+    )
     first = external_lifted_matter_tensor(
         row_v1,
-        diagonal_compare_common_matter(column_correction, 2),
+        column_v2,
     )
     second = external_lifted_matter_tensor(
         column_v1,
-        diagonal_compare_common_matter(row_correction, 2),
+        row_v2,
     )
     raw = first + second
     del first, second
@@ -291,7 +374,7 @@ def reverse_central_matter_leg(parameter_index: int) -> ReverseCentralMatterLeg:
     scalar = contract_with_strict_higgs(equivariant, higgs)
     scalar_residual = scalar_full_differential(scalar)
     result = ReverseCentralMatterLeg(
-        parameters[parameter_index],
+        parameter,
         raw_term_count,
         raw_digest,
         projection_depth,
@@ -320,4 +403,9 @@ if __name__ == "__main__":
     print(f"scalar_residual_term_count: {record['scalar_residual_term_count']}")
 
 
-__all__ = ["ReverseCentralMatterLeg", "reverse_central_matter_leg"]
+__all__ = [
+    "ReverseCentralDirectTrace",
+    "ReverseCentralMatterLeg",
+    "reverse_central_direct_trace",
+    "reverse_central_matter_leg",
+]

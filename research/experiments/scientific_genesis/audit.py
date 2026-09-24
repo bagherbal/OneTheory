@@ -647,6 +647,27 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "distinct_constituent_ray_screen",
+            "unused locally free Serre Ext rays",
+            "Computable carrier",
+            "COMPUTED",
+            "The fixed I3/I6 presentations have seven one-dimensional joint "
+            "Ext-character sectors. Full Cech lifts and exact local residue "
+            "tests leave two unused I6 rays with local dualizing units. Their "
+            "second deck characters cannot alone repair the selected quotient "
+            "determinant. Their relinearized descent and Higgs data are open.",
+            (
+                "data/generated/scientific_genesis/"
+                "distinct_constituent_ray_screen.json",
+                "research/experiments/scientific_genesis/"
+                "distinct_constituent_ray_screen.py",
+                "tests/integration/"
+                "test_scientific_genesis_distinct_constituent_ray_screen.py",
+            ),
+            ("fixed I3/I6 schemes", "source-aligned exact Ext action"),
+            ("alternate common-Schoen deck atlases and quotient determinants",),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2298,6 +2319,19 @@ def _edges() -> list[dict[str, object]]:
             ("published constituent equivariant representations",),
             True,
             ("the common character is source-selected, not fundamentally derived",),
+        ),
+        _edge(
+            "published_constituent_deck_actions",
+            "distinct_constituent_ray_screen",
+            "The complete joint Ext decomposition permits a finite ray screen; "
+            "full Cech lifts and local residue evaluations test each sector.",
+            (
+                "data/generated/scientific_genesis/"
+                "distinct_constituent_ray_screen.json",
+            ),
+            ("fixed I3/I6 presentations", "exact local lci frames"),
+            True,
+            ("local units alone do not certify quotient descent or Higgs data",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -4324,7 +4358,7 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             1,
-            "Test source-faithful constituents outside the refuted same-object class.",
+            "Test the two unused locally free I6 rays for descent and Higgs support.",
         ),
         (
             "distinct_su4_carrier_screen",
@@ -4431,6 +4465,24 @@ def _scheduler() -> list[dict[str, object]]:
 def build_state() -> dict[str, object]:
     """Inspect authoritative artifacts and assemble the deterministic state."""
 
+    ray_path = (
+        ROOT
+        / "data/generated/scientific_genesis/"
+        "distinct_constituent_ray_screen.json"
+    )
+    ray_screen = json.loads(ray_path.read_text(encoding="utf-8"))
+    ray_digest = ray_screen.pop("artifact_digest", None)
+    if (
+        ray_digest != _canonical_digest(ray_screen)
+        or ray_screen.get("schema") != "distinct-constituent-ray-screen-v1"
+        or ray_screen.get("unused_i6_local_unit_rays") != [[0, 1], [1, 1]]
+        or ray_screen.get("ray_only_quotient_determinant_t_characters") != [1, 1]
+        or ray_screen.get("ray_only_trivial_determinant_possible") is not False
+        or ray_screen.get("alternate_deck_atlases_constructed") is not False
+        or ray_screen.get("alternate_quotient_determinants_certified") is not False
+        or ray_screen.get("alternate_higgs_characters_computed") is not False
+    ):
+        raise ValueError("the unused constituent-ray screen is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -4605,6 +4657,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_matter_cohomology.json",
         "data/generated/scientific_genesis/published_higgs_cohomology.json",
         "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
+        "data/generated/scientific_genesis/"
+        "distinct_constituent_ray_screen.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -4986,9 +5040,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "a distinct constituent realization with a certified quotient "
-                "determinant and the fixed one-Higgs zero-triplet spectrum, "
-                "or an independent correction of the full-chain H1 premise"
+                "full common-Schoen relinearization, quotient determinant, and "
+                "Higgs H1 for the two unused I6 local-unit rays"
             ),
         },
         "claims": _nodes(),
@@ -5004,6 +5057,8 @@ def build_state() -> dict[str, object]:
             "intertwiners for both constituent Ext spaces",
             "source-selected W1/W2 rays recovered as mixed Cech/Koszul cocycles "
             "with exact full-standard-cover lifts",
+            "the fixed I3/I6 Ext category has two unused I6 rays passing exact "
+            "full-Cech closure and all local dualizing-unit tests",
             "the atlas/common-frame relation is a uniform (2,0) character "
             "on V1 and the identity on V2 after coordinate-lift normalization",
             "the synchronized tensor H1 source-action support is a 2-by-2 "

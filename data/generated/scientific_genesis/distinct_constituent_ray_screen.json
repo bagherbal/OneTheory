@@ -1,0 +1,400 @@
+{
+  "alternate_deck_atlases_constructed": false,
+  "alternate_higgs_characters_computed": false,
+  "alternate_quotient_determinants_certified": false,
+  "artifact_digest": "aa090ed4fd058c5b1db797d58a9e02c8cd40a10cb9de2753ec797c2cdd3c14f7",
+  "constituents": [
+    {
+      "ext_dimension": 2,
+      "scheme": "I3",
+      "sectors": [
+        {
+          "all_local_units": false,
+          "character_exponents": [
+            0,
+            0
+          ],
+          "full_cech_closed": true,
+          "full_term_count": 9,
+          "inclusion_depth": 1,
+          "local_units_by_pivot": [
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": false,
+              "pivot": 0,
+              "residue_dimension": 1,
+              "unit": false
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": false,
+              "pivot": 1,
+              "residue_dimension": 1,
+              "unit": false
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": false,
+              "pivot": 2,
+              "residue_dimension": 1,
+              "unit": false
+            }
+          ],
+          "native_subline_shift_from_source": [
+            1,
+            0
+          ],
+          "reduced_closed": true,
+          "reduced_coordinates": [
+            "1",
+            "0"
+          ],
+          "source_selected": false,
+          "syzygy_koszul_component_nonzero": false
+        },
+        {
+          "all_local_units": true,
+          "character_exponents": [
+            1,
+            0
+          ],
+          "full_cech_closed": true,
+          "full_term_count": 72,
+          "inclusion_depth": 2,
+          "local_units_by_pivot": [
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 0,
+              "residue_dimension": 1,
+              "unit": true
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 1,
+              "residue_dimension": 1,
+              "unit": true
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 2,
+              "residue_dimension": 1,
+              "unit": true
+            }
+          ],
+          "native_subline_shift_from_source": [
+            0,
+            0
+          ],
+          "reduced_closed": true,
+          "reduced_coordinates": [
+            "-18-18*omega",
+            "1"
+          ],
+          "source_selected": true,
+          "syzygy_koszul_component_nonzero": true
+        }
+      ]
+    },
+    {
+      "ext_dimension": 5,
+      "scheme": "I6",
+      "sectors": [
+        {
+          "all_local_units": false,
+          "character_exponents": [
+            0,
+            0
+          ],
+          "full_cech_closed": true,
+          "full_term_count": 12,
+          "inclusion_depth": 1,
+          "local_units_by_pivot": [
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": false,
+              "pivot": 0,
+              "residue_dimension": 1,
+              "unit": false
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": false,
+              "pivot": 1,
+              "residue_dimension": 1,
+              "unit": false
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": false,
+              "pivot": 2,
+              "residue_dimension": 1,
+              "unit": false
+            }
+          ],
+          "native_subline_shift_from_source": [
+            2,
+            1
+          ],
+          "reduced_closed": true,
+          "reduced_coordinates": [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "source_selected": false,
+          "syzygy_koszul_component_nonzero": false
+        },
+        {
+          "all_local_units": true,
+          "character_exponents": [
+            0,
+            1
+          ],
+          "full_cech_closed": true,
+          "full_term_count": 117,
+          "inclusion_depth": 2,
+          "local_units_by_pivot": [
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 0,
+              "residue_dimension": 1,
+              "unit": true
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 1,
+              "residue_dimension": 1,
+              "unit": true
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 2,
+              "residue_dimension": 1,
+              "unit": true
+            }
+          ],
+          "native_subline_shift_from_source": [
+            2,
+            0
+          ],
+          "reduced_closed": true,
+          "reduced_coordinates": [
+            "0",
+            "-1",
+            "0",
+            "-1",
+            "1"
+          ],
+          "source_selected": false,
+          "syzygy_koszul_component_nonzero": true
+        },
+        {
+          "all_local_units": false,
+          "character_exponents": [
+            1,
+            0
+          ],
+          "full_cech_closed": true,
+          "full_term_count": 78,
+          "inclusion_depth": 2,
+          "local_units_by_pivot": [
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": false,
+              "pivot": 0,
+              "residue_dimension": 1,
+              "unit": false
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": false,
+              "pivot": 1,
+              "residue_dimension": 1,
+              "unit": false
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": false,
+              "pivot": 2,
+              "residue_dimension": 1,
+              "unit": false
+            }
+          ],
+          "native_subline_shift_from_source": [
+            1,
+            1
+          ],
+          "reduced_closed": true,
+          "reduced_coordinates": [
+            "24+12*omega",
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          "source_selected": false,
+          "syzygy_koszul_component_nonzero": true
+        },
+        {
+          "all_local_units": true,
+          "character_exponents": [
+            1,
+            1
+          ],
+          "full_cech_closed": true,
+          "full_term_count": 117,
+          "inclusion_depth": 2,
+          "local_units_by_pivot": [
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 0,
+              "residue_dimension": 1,
+              "unit": true
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 1,
+              "residue_dimension": 1,
+              "unit": true
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 2,
+              "residue_dimension": 1,
+              "unit": true
+            }
+          ],
+          "native_subline_shift_from_source": [
+            1,
+            0
+          ],
+          "reduced_closed": true,
+          "reduced_coordinates": [
+            "0",
+            "1+omega",
+            "0",
+            "-omega",
+            "1"
+          ],
+          "source_selected": false,
+          "syzygy_koszul_component_nonzero": true
+        },
+        {
+          "all_local_units": true,
+          "character_exponents": [
+            2,
+            1
+          ],
+          "full_cech_closed": true,
+          "full_term_count": 117,
+          "inclusion_depth": 2,
+          "local_units_by_pivot": [
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 0,
+              "residue_dimension": 1,
+              "unit": true
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 1,
+              "residue_dimension": 1,
+              "unit": true
+            },
+            {
+              "chart_independent": true,
+              "nonzero_in_cokernel": true,
+              "pivot": 2,
+              "residue_dimension": 1,
+              "unit": true
+            }
+          ],
+          "native_subline_shift_from_source": [
+            0,
+            0
+          ],
+          "reduced_closed": true,
+          "reduced_coordinates": [
+            "0",
+            "-omega",
+            "0",
+            "1+omega",
+            "1"
+          ],
+          "source_selected": true,
+          "syzygy_koszul_component_nonzero": true
+        }
+      ]
+    }
+  ],
+  "local_unit_survivors": [
+    {
+      "character_exponents": [
+        1,
+        0
+      ],
+      "scheme": "I3",
+      "source_selected": true
+    },
+    {
+      "character_exponents": [
+        0,
+        1
+      ],
+      "scheme": "I6",
+      "source_selected": false
+    },
+    {
+      "character_exponents": [
+        1,
+        1
+      ],
+      "scheme": "I6",
+      "source_selected": false
+    },
+    {
+      "character_exponents": [
+        2,
+        1
+      ],
+      "scheme": "I6",
+      "source_selected": true
+    }
+  ],
+  "next_required_object": "full common-Schoen relinearization, quotient determinant, and Higgs H1 for the two unused I6 local-unit rays",
+  "ray_only_quotient_determinant_t_characters": [
+    1,
+    1
+  ],
+  "ray_only_scope": "fixed I3 ray, fixed Serre quotient frames, fixed outer twists; only the I6 extension ray and its required subline character vary",
+  "ray_only_trivial_determinant_possible": false,
+  "schema": "distinct-constituent-ray-screen-v1",
+  "scope": "one-dimensional joint Ext rays of the fixed I3/I6 presentations",
+  "selected_quotient_determinant_character": [
+    2,
+    1
+  ],
+  "unused_i6_local_unit_rays": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ]
+  ]
+}

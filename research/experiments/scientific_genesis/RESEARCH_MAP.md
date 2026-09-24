@@ -635,6 +635,21 @@ fixed-Wilson Higgs doublets, a character shift must be `(0,2)` or `(2,2)`;
 the first retains a color triplet, the second an antitriplet. The atlas-bound
 shift `(2,0)` has no up doublet and one antitriplet. This is a scoped no-go
 for the same selected simple constituent pair under all factorwise character
-relinearizations, not for distinct underlying constituents. The next
-discriminating task is to find a distinct source-faithful realization or to
-independently overturn the full-chain tensor-character premise.
+relinearizations, not for distinct underlying constituents. The relative
+pushdown character labels are assigned from the published formulas, so their
+agreement with those formulas is not an independent correction of this result.
+
+An exact finite screen now tests every one-dimensional joint Ext ray in the
+fixed I3/I6 Serre presentations. The trivial I3 ray has no local unit, leaving
+its source-selected `(1,0)` ray. Of five I6 sectors, `(0,0)` and `(1,0)` fail
+the local-unit gate; `(0,1)`, `(1,1)`, and the source-selected `(2,1)` pass at
+all three support points. The two unused unit rays are distinct Ext rays,
+not character relinearizations of the selected ray. Full Čech
+closure and stalkwise freeness are exact, but no alternate common-Schoen deck
+atlas, quotient determinant, or Higgs character calculation exists yet.
+Both unused rays share the source ray's second deck character. Holding the
+other Serre and outer frames fixed, the subline character adjustment therefore
+has zero second component; the selected quotient determinant's nontrivial
+second character persists. Ray choice alone cannot yield `SU(4)`. A full
+common-Schoen relinearization with determinant and Higgs checks is the next
+discriminating gate; local units alone do not establish a physical carrier.

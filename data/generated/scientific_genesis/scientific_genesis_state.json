@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "ac3e1dab6a8ec42d5d62174d436fcade7e1a928bdeef603a7786e2ca948870c9",
+  "artifact_digest": "75792acb8e8b803eaefaa46cdc74b477f8d66585a085883ad37b3728c6dcba2a",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -462,6 +462,11 @@
       "sha256": "6007d5e216f038463726bc7b63a73b874b19e7f2e1d3322a047c15cb160813e1"
     },
     {
+      "bytes": 10293,
+      "path": "data/generated/scientific_genesis/distinct_constituent_ray_screen.json",
+      "sha256": "5c52bba573a5f48333fce65a74da5819d43b4f861b47c7c410e2288536105a97"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -491,8 +496,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 208,
-    "test_python_files": 189
+    "research_python_files": 209,
+    "test_python_files": 190
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1011,6 +1016,25 @@
       ],
       "statement": "Relative signatures now bind the selected mixed local units and recover the source tuple (0,4,4,0). Four lawful P1 classes still require explicit mixed diagonal Schoen lifts.",
       "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
+        "fixed I3/I6 schemes",
+        "source-aligned exact Ext action"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/distinct_constituent_ray_screen.json",
+        "research/experiments/scientific_genesis/distinct_constituent_ray_screen.py",
+        "tests/integration/test_scientific_genesis_distinct_constituent_ray_screen.py"
+      ],
+      "id": "distinct_constituent_ray_screen",
+      "label": "unused locally free Serre Ext rays",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "alternate common-Schoen deck atlases and quotient determinants"
+      ],
+      "statement": "The fixed I3/I6 presentations have seven one-dimensional joint Ext-character sectors. Full Cech lifts and exact local residue tests leave two unused I6 rays with local dualizing units. Their second deck characters cannot alone repair the selected quotient determinant. Their relinearized descent and Higgs data are open.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [
@@ -2411,6 +2435,22 @@
       "mathematical_reason": "The explicit total complexes support geometric deck pullbacks; published equivariant data fixes their remaining character choice.",
       "source": "published_constituent_ext_spaces",
       "target": "published_constituent_deck_actions"
+    },
+    {
+      "assumptions_required": [
+        "fixed I3/I6 presentations",
+        "exact local lci frames"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/distinct_constituent_ray_screen.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "local units alone do not certify quotient descent or Higgs data"
+      ],
+      "mathematical_reason": "The complete joint Ext decomposition permits a finite ray screen; full Cech lifts and local residue evaluations test each sector.",
+      "source": "published_constituent_deck_actions",
+      "target": "distinct_constituent_ray_screen"
     },
     {
       "assumptions_required": [
@@ -4257,6 +4297,7 @@
     "exact fiber-sensitive dP9 Serre complexes deriving the published constituent Ext-one dimensions 2 and 5",
     "exact natural dP9 deck actions and simultaneous source-representation intertwiners for both constituent Ext spaces",
     "source-selected W1/W2 rays recovered as mixed Cech/Koszul cocycles with exact full-standard-cover lifts",
+    "the fixed I3/I6 Ext category has two unused I6 rays passing exact full-Cech closure and all local dualizing-unit tests",
     "the atlas/common-frame relation is a uniform (2,0) character on V1 and the identity on V2 after coordinate-lift normalization",
     "the synchronized tensor H1 source-action support is a 2-by-2 character rectangle, independent of outer extension parameters",
     "local dualizing-unit proofs at all six I3/I6 support points and twelve locally free affine rank-two pushout presentations",
@@ -4917,13 +4958,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "a distinct constituent realization with a certified quotient determinant and the fixed one-Higgs zero-triplet spectrum, or an independent correction of the full-chain H1 premise",
+    "next_required_object": "full common-Schoen relinearization, quotient determinant, and Higgs H1 for the two unused I6 local-unit rays",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
   },
   "research_value_scheduler": [
     {
       "priority_score": 65.0,
-      "rationale": "Test source-faithful constituents outside the refuted same-object class.",
+      "rationale": "Test the two unused locally free I6 rays for descent and Higgs support.",
       "scores": {
         "computational_cost": 2,
         "distance_to_observable": 5,

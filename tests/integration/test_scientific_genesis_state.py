@@ -457,9 +457,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "fixed-Wilson Higgs gate"
     )
     assert path["next_required_object"] == (
-        "a distinct constituent realization with a certified quotient "
-        "determinant and the fixed one-Higgs zero-triplet spectrum, "
-        "or an independent correction of the full-chain H1 premise"
+        "full common-Schoen relinearization, quotient determinant, and "
+        "Higgs H1 for the two unused I6 local-unit rays"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"
@@ -547,6 +546,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_matter_cohomology"]["status"] == "BLOCKED"
     assert claims["published_higgs_cohomology"]["status"] == "BLOCKED"
     assert claims["relative_constituent_pushdowns"]["status"] == "SELECTED"
+    assert claims["distinct_constituent_ray_screen"]["status"] == "COMPUTED"
     assert claims["mixed_schoen_observable_spectrum"]["status"] == "REFUTED"
     assert claims["physical_spectrum"]["status"] == "BLOCKED"
     assert claims["computable_carrier_state"]["status"] == "BLOCKED"

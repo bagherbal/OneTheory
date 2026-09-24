@@ -27,6 +27,7 @@ from typing import cast
 from onetheory.math.linear import Matrix
 from onetheory.math.numbers import Eisenstein
 from onetheory.models.heterotic_schoen.geometry import schoen_geometry
+from research.experiments.computable_carrier.dp9_serre_ext import DPSurfaceSerreExt
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
 )
@@ -36,6 +37,7 @@ from .local_constituent_frames import (
     published_local_constituent_frames,
 )
 from .published_constituent_full_cech import (
+    ConstituentFullCochain,
     PublishedConstituentFullCech,
     published_constituent_full_cech,
 )
@@ -59,19 +61,19 @@ def _evaluate_monomial(
 
 
 def _projective_value(
-    result: PublishedConstituentFullCech,
+    extension: DPSurfaceSerreExt,
+    representative: ConstituentFullCochain,
     pivot: int,
     fiber_chart: int,
     fiber_parameter: tuple[Eisenstein, Eisenstein],
 ) -> tuple[Eisenstein, ...]:
     """Evaluate the parent-one local extension map on one affine chart."""
 
-    extension = result.alignment.action.derived.extension
     base_point = tuple(Eisenstein(int(index == pivot)) for index in range(3))
     values = []
     for syzygy_index in range(len(extension.syzygy_bundles)):
         value = Eisenstein(0)
-        for basis, coefficient in result.representative.terms:
+        for basis, coefficient in representative.terms:
             if not (
                 basis.component.parent_degree == 1
                 and basis.component.bundle_index == syzygy_index
@@ -106,13 +108,13 @@ def _fiber_parameter(
 
 
 def _residue_image_rows(
-    result: PublishedConstituentFullCech,
+    extension: DPSurfaceSerreExt,
     pivot: int,
 ) -> tuple[tuple[Eisenstein, ...], ...]:
     """Evaluate the transposed Hilbert--Burch image at one support point."""
 
     point = tuple(int(index == pivot) for index in range(3))
-    matrix = result.alignment.action.derived.extension.scheme.resolution.matrix
+    matrix = extension.scheme.resolution.matrix
     return tuple(
         tuple(
             cast(Eisenstein, polynomial.substitute(point).coefficient(()))
@@ -218,18 +220,20 @@ class LocalDualizingUnit:
         }
 
 
-def _local_unit(
-    result: PublishedConstituentFullCech,
+def evaluate_local_unit(
+    extension: DPSurfaceSerreExt,
+    representative: ConstituentFullCochain,
     frame: LocalKoszulSerreFrame,
 ) -> LocalDualizingUnit:
-    """Evaluate one selected ray at one supported local complete intersection."""
+    """Evaluate any exact constituent cocycle without assuming it is a unit."""
 
-    extension = result.alignment.action.derived.extension
     parameter = _fiber_parameter(extension.surface_factor, frame.pivot)
     chart_values = tuple(
         (
             chart,
-            _projective_value(result, frame.pivot, chart, parameter),
+            _projective_value(
+                extension, representative, frame.pivot, chart, parameter
+            ),
         )
         for chart, coordinate in enumerate(parameter)
         if not coordinate.is_zero()
@@ -239,7 +243,21 @@ def _local_unit(
         frame,
         parameter,
         chart_values,
-        _residue_image_rows(result, frame.pivot),
+        _residue_image_rows(extension, frame.pivot),
+    )
+    return unit
+
+
+def _local_unit(
+    result: PublishedConstituentFullCech,
+    frame: LocalKoszulSerreFrame,
+) -> LocalDualizingUnit:
+    """Require the published selected ray to be a local dualizing unit."""
+
+    unit = evaluate_local_unit(
+        result.alignment.action.derived.extension,
+        result.representative,
+        frame,
     )
     if not unit.unit_in_local_dualizing_algebra:
         raise ValueError("a source-selected Serre ray is not a local dualizing unit")
@@ -309,5 +327,6 @@ if __name__ == "__main__":
 
 __all__ = [
     "LocalDualizingUnit",
+    "evaluate_local_unit",
     "published_constituent_local_units",
 ]

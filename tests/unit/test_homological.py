@@ -161,6 +161,60 @@ def test_shift_direct_sum_and_mapping_cone_preserve_exactness() -> None:
     assert cone.cohomology_dimension(1) == 0
 
 
+def test_cochain_mapping_cone_of_identity_is_acyclic_over_eisenstein() -> None:
+    degree_zero = VectorSpace("E^0", ("a",), Eisenstein)
+    degree_one = VectorSpace("E^1", ("b",), Eisenstein)
+    complex_ = CochainComplex(
+        GradedVectorSpace("E", {0: degree_zero, 1: degree_one}),
+        {0: LinearMap(degree_zero, degree_one, ((OMEGA,),))},
+    )
+    cone = mapping_cone(ChainMap.identity(complex_))
+
+    assert isinstance(cone, CochainComplex)
+    assert cone.differential(-1).compose(cone.differential(-2)).is_zero()
+    assert cone.differential(0).compose(cone.differential(-1)).is_zero()
+    assert all(cone.cohomology_dimension(degree) == 0 for degree in cone.degrees)
+    assert all(
+        isinstance(value, Eisenstein)
+        for _, differential in cone.differentials
+        for row in differential.rows
+        for value in row
+    )
+
+
+def test_cochain_homotopy_respects_shifted_degree_and_exact_equation() -> None:
+    degree_zero = VectorSpace("C^0", ("a",))
+    degree_one = VectorSpace("C^1", ("b",))
+    complex_ = CochainComplex(
+        GradedVectorSpace("C", {0: degree_zero, 1: degree_one}),
+        {0: LinearMap(degree_zero, degree_one, ((1,),))},
+    )
+    identity = ChainMap.identity(complex_)
+    zero = ChainMap(complex_, complex_, {})
+    homotopy = ChainHomotopy(
+        identity, zero, {1: LinearMap(degree_one, degree_zero, ((1,),))}
+    )
+
+    assert homotopy.component(1).rows == ((Rational(1),),)
+    with pytest.raises(ValueError, match="shifted codomain"):
+        ChainHomotopy(identity, zero, {1: LinearMap(degree_one, degree_one, ((1,),))})
+
+
+def test_complex_and_chain_map_reject_incompatible_named_bases() -> None:
+    first = VectorSpace("first", ("x",))
+    other = VectorSpace("other", ("x",))
+    target = VectorSpace("target", ("y",))
+    complex_ = ChainComplex(GradedVectorSpace("C", {1: first, 0: target}), {})
+
+    with pytest.raises(ValueError, match="domain"):
+        ChainComplex(
+            complex_.spaces,
+            {1: LinearMap(other, target, ((0,),))},
+        )
+    with pytest.raises(ValueError, match="domain"):
+        ChainMap(complex_, complex_, {1: LinearMap(other, first, ((0,),))})
+
+
 def test_linear_map_direct_sum_keeps_distinct_block_frames() -> None:
     """Block-diagonal maps retain each distinct domain and codomain basis."""
 

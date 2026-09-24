@@ -457,8 +457,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "fixed-Wilson Higgs gate"
     )
     assert path["next_required_object"] == (
-        "full common-Schoen deck transfer, quotient determinant, and "
-        "Wilson-projected Higgs characters for the two unused I6 rays"
+        "atlas-derived common-Schoen outer action, quotient determinant, "
+        "and Wilson-projected Higgs characters for the two unused I6 rays"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"
@@ -548,6 +548,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["relative_constituent_pushdowns"]["status"] == "SELECTED"
     assert claims["distinct_constituent_ray_screen"]["status"] == "COMPUTED"
     assert claims["alternate_constituent_cover_h1"]["status"] == "COMPUTED"
+    assert claims["alternate_constituent_deck_atlases"]["status"] == "COMPUTED"
     assert "alternate quotient determinant" in claims[
         "alternate_constituent_cover_h1"
     ]["missing_prerequisites"]

@@ -1,0 +1,85 @@
+{
+  "alternate_constituent_atlases_exact": true,
+  "alternate_higgs_characters_computed": false,
+  "alternate_outer_extension_equivariance_certified": false,
+  "alternate_quotient_determinants_certified": false,
+  "artifact_digest": "9d7aa54f6faa3edc5b947465262773331b4b2562c54ba227fb9c605e4bc94675",
+  "cases": [
+    {
+      "atlas_alternating_frame_character": [
+        2,
+        1
+      ],
+      "deck_comparison_count": 12,
+      "deck_digest": "11dfc060800d8c4734404ac54bc8dbbda95bd966f44619a11acaffdcfb09b796",
+      "deck_exact": true,
+      "formal_pair_frame_character": [
+        2,
+        1
+      ],
+      "frame_comparisons": [
+        {
+          "atlas_extension_line_character": 1,
+          "generator": "P",
+          "legacy_first_block_ratio": 1,
+          "legacy_frame_uniformly_related": false
+        },
+        {
+          "atlas_extension_line_character": 2,
+          "generator": "T",
+          "legacy_first_block_ratio": 0,
+          "legacy_frame_uniformly_related": true
+        }
+      ],
+      "overlap_digest": "382120cba47cba7566e85ad3a4b450f80533a60598428c2f66e2437419144759",
+      "overlap_exact": true,
+      "overlap_transition_count": 30,
+      "ray_character_exponents": [
+        0,
+        1
+      ]
+    },
+    {
+      "atlas_alternating_frame_character": [
+        0,
+        1
+      ],
+      "deck_comparison_count": 12,
+      "deck_digest": "405df2b82264a65326809696f35a02d8759756a152e434ff37eff622f1aa82e1",
+      "deck_exact": true,
+      "formal_pair_frame_character": [
+        0,
+        1
+      ],
+      "frame_comparisons": [
+        {
+          "atlas_extension_line_character": 0,
+          "generator": "P",
+          "legacy_first_block_ratio": 2,
+          "legacy_frame_uniformly_related": false
+        },
+        {
+          "atlas_extension_line_character": 2,
+          "generator": "T",
+          "legacy_first_block_ratio": 0,
+          "legacy_frame_uniformly_related": true
+        }
+      ],
+      "overlap_digest": "30206c9e1ad4c61b2b58ea0403e1c0632c2360f613a8d103d4f1d639fb7bd47d",
+      "overlap_exact": true,
+      "overlap_transition_count": 30,
+      "ray_character_exponents": [
+        1,
+        1
+      ]
+    }
+  ],
+  "first_constituent_atlas_alternating_frame_character": [
+    0,
+    0
+  ],
+  "next_required_object": "transfer the atlas-derived frames to the common Schoen complex; then test outer equivariance, determinant descent, and H1 characters",
+  "schema": "alternate-constituent-deck-atlases-v1",
+  "scope": "fixed I3 constituent and two alternate I6 local-unit rays",
+  "selected_mixed_p_frame_reusable_for_alternates": false
+}

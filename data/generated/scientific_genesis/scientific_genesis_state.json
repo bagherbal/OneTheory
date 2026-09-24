@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "5b8ef15a4adad1e67b6a2e016ecf4e93d31d038fb7d2b4a6d6185ff8b0880714",
+  "artifact_digest": "273b6b8f2cac73840a99382e728de3f6e9b9fba4803b82ecde66cd5df782ab53",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -472,6 +472,11 @@
       "sha256": "57068875072c49512d5d4d17bce9bc2af8ce70ac202a5334e8423861881b587a"
     },
     {
+      "bytes": 2622,
+      "path": "data/generated/scientific_genesis/alternate_constituent_deck_atlases.json",
+      "sha256": "49be47e54ec3da7512036966a608a889358f523ca9cfccb127afdd744845d6c2"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -501,8 +506,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 210,
-    "test_python_files": 191
+    "research_python_files": 211,
+    "test_python_files": 192
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1036,7 +1041,7 @@
       "label": "unused locally free Serre Ext rays",
       "layer": "Computable carrier",
       "missing_prerequisites": [
-        "alternate common-Schoen deck atlases and quotient determinants"
+        "alternate common-Schoen outer action and quotient determinants"
       ],
       "statement": "The fixed I3/I6 presentations have seven one-dimensional joint Ext-character sectors. Full Cech lifts and exact local residue tests leave two unused I6 rays with local dualizing units. Their second deck characters cannot alone repair the selected quotient determinant. Their relinearized descent and Higgs data are open.",
       "status": "COMPUTED"
@@ -1059,6 +1064,26 @@
         "strict deck action on cover H1"
       ],
       "statement": "Each of the two unused locally free I6 Ext rays has exact cover H1 dimension four after the rank-two determinant twist. This does not supply alternate descent, deck characters, or Wilson projection.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "fixed I3/I6 presentations",
+        "exact homogeneous chart actions"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_deck_atlases.json",
+        "research/experiments/scientific_genesis/alternate_constituent_deck_atlases.py",
+        "tests/integration/test_scientific_genesis_alternate_constituent_deck_atlases.py"
+      ],
+      "id": "alternate_constituent_deck_atlases",
+      "label": "deck atlases for unused I6 rays",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "atlas-derived common-Schoen outer action",
+        "quotient determinant"
+      ],
+      "statement": "Both unused locally free I6 rays have exact overlap cocycles and P/T deck comparisons. Neither selected mixed P-frame formula is uniformly related to its alternate atlas frame; the old P-determinant shortcut is not a quotient certificate.",
       "status": "COMPUTED"
     },
     {
@@ -2492,6 +2517,22 @@
       "mathematical_reason": "The two local-unit rays admit full mixed-complex lifts; the rank-two identity converts the twisted Hom into their tensor.",
       "source": "distinct_constituent_ray_screen",
       "target": "alternate_constituent_cover_h1"
+    },
+    {
+      "assumptions_required": [
+        "fixed I3/I6 presentations",
+        "published chart deck lifts"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_deck_atlases.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "constituent equivariance does not construct an outer extension"
+      ],
+      "mathematical_reason": "The unused local-unit rays have exact full Cech lifts, allowing their overlap and deck comparisons to be tested chartwise.",
+      "source": "distinct_constituent_ray_screen",
+      "target": "alternate_constituent_deck_atlases"
     },
     {
       "assumptions_required": [
@@ -4999,7 +5040,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "full common-Schoen deck transfer, quotient determinant, and Wilson-projected Higgs characters for the two unused I6 rays",
+    "next_required_object": "atlas-derived common-Schoen outer action, quotient determinant, and Wilson-projected Higgs characters for the two unused I6 rays",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
   },
   "research_value_scheduler": [

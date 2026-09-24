@@ -665,7 +665,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_distinct_constituent_ray_screen.py",
             ),
             ("fixed I3/I6 schemes", "source-aligned exact Ext action"),
-            ("alternate common-Schoen deck atlases and quotient determinants",),
+            ("alternate common-Schoen outer action and quotient determinants",),
         ),
         _node(
             "alternate_constituent_cover_h1",
@@ -686,6 +686,26 @@ def _nodes() -> list[dict[str, object]]:
             ),
             ("fixed I3/I6 presentations", "exact mixed Schoen transfer"),
             ("alternate quotient determinant", "strict deck action on cover H1"),
+        ),
+        _node(
+            "alternate_constituent_deck_atlases",
+            "deck atlases for unused I6 rays",
+            "Computable carrier",
+            "COMPUTED",
+            "Both unused locally free I6 rays have exact overlap cocycles "
+            "and P/T deck comparisons. Neither selected mixed P-frame "
+            "formula is uniformly related to its alternate atlas frame; "
+            "the old P-determinant shortcut is not a quotient certificate.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_deck_atlases.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_deck_atlases.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_deck_atlases.py",
+            ),
+            ("fixed I3/I6 presentations", "exact homogeneous chart actions"),
+            ("atlas-derived common-Schoen outer action", "quotient determinant"),
         ),
         _node(
             "relative_constituent_pushdowns",
@@ -2365,6 +2385,19 @@ def _edges() -> list[dict[str, object]]:
             ("fixed constituent line degrees", "exact mixed transfer"),
             True,
             ("cover dimension alone does not determine invariant characters",),
+        ),
+        _edge(
+            "distinct_constituent_ray_screen",
+            "alternate_constituent_deck_atlases",
+            "The unused local-unit rays have exact full Cech lifts, allowing "
+            "their overlap and deck comparisons to be tested chartwise.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_deck_atlases.json",
+            ),
+            ("fixed I3/I6 presentations", "published chart deck lifts"),
+            True,
+            ("constituent equivariance does not construct an outer extension",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -4534,6 +4567,30 @@ def build_state() -> dict[str, object]:
         or cover.get("physical_higgs_spectrum_established") is not False
     ):
         raise ValueError("the alternate cover H1 result is not certified")
+    alternate_atlas_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_deck_atlases.json"
+    )
+    alternate_atlas = json.loads(alternate_atlas_path.read_text(encoding="utf-8"))
+    alternate_atlas_digest = alternate_atlas.pop("artifact_digest", None)
+    atlas_cases = alternate_atlas.get("cases", [])
+    if (
+        alternate_atlas_digest != _canonical_digest(alternate_atlas)
+        or alternate_atlas.get("schema") != "alternate-constituent-deck-atlases-v1"
+        or alternate_atlas.get("alternate_constituent_atlases_exact") is not True
+        or [case.get("ray_character_exponents") for case in atlas_cases]
+        != [[0, 1], [1, 1]]
+        or any(
+            [item.get("legacy_frame_uniformly_related")
+             for item in case.get("frame_comparisons", [])] != [False, True]
+            for case in atlas_cases
+        )
+        or alternate_atlas.get("alternate_outer_extension_equivariance_certified")
+        is not False
+        or alternate_atlas.get("alternate_quotient_determinants_certified")
+        is not False
+    ):
+        raise ValueError("the alternate constituent atlas result is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -4712,6 +4769,8 @@ def build_state() -> dict[str, object]:
         "distinct_constituent_ray_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_higgs_dimensions.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_deck_atlases.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -5093,8 +5152,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "full common-Schoen deck transfer, quotient determinant, and "
-                "Wilson-projected Higgs characters for the two unused I6 rays"
+                "atlas-derived common-Schoen outer action, quotient determinant, "
+                "and Wilson-projected Higgs characters for the two unused I6 rays"
             ),
         },
         "claims": _nodes(),

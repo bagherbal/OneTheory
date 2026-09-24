@@ -81,39 +81,33 @@ def reverse_central_comparison(
 
     primitive, depth = scalar_primitive(comparison)
     emit("primitive", {**_summary(primitive), "depth": depth})
+    correction = diagonal_line_product(bottom, higgs.canonical_correction, ambient)
+    _require(
+        scalar_full_differential(correction) == action.scale(-1),
+        "the reverse Higgs correction lost its Leibniz identity",
+    )
+    raw_complete = _FullCochain(
+        trace.scalar.terms + correction.terms + primitive.scale(-1).terms
+    )
+    del trace
+    raw_cycle = scalar_full_differential(raw_complete).is_zero()
+    emit("raw_complete", {**_summary(raw_complete), "is_cycle": raw_cycle})
+    _require(raw_cycle, "the unprojected reverse central scalar is not a cocycle")
+
     first_frame = constituent_determinant_character(1)
     second_frame = constituent_determinant_character(2)
     scalar_frame = (
         (first_frame[0] + second_frame[0]) % 3,
         (first_frame[1] + second_frame[1]) % 3,
     )
-    strict = project_line_character(primitive, (0, 0), scalar_frame)
-    _require(
-        line_has_character(strict, (0, 0), scalar_frame),
-        "the reverse scalar primitive lost its physical character",
-    )
-    _require(
-        scalar_full_differential(strict) == comparison,
-        "the strict reverse comparison primitive is not exact",
-    )
-    emit("strict_primitive", _summary(strict))
-
-    correction = diagonal_line_product(bottom, higgs.canonical_correction, ambient)
-    _require(
-        scalar_full_differential(correction) == action.scale(-1),
-        "the reverse Higgs correction lost its Leibniz identity",
-    )
-    complete = _FullCochain(
-        trace.scalar.terms + correction.terms + strict.scale(-1).terms
-    )
-    del trace
-    complete_cycle = scalar_full_differential(complete).is_zero()
-    emit("complete", {**_summary(complete), "is_cycle": complete_cycle})
-    _require(complete_cycle, "the reverse central scalar is not a cocycle")
+    complete = project_line_character(raw_complete, (0, 0), scalar_frame)
     _require(
         line_has_character(complete, (0, 0), scalar_frame),
         "the reverse central scalar lost its physical character",
     )
+    complete_cycle = scalar_full_differential(complete).is_zero()
+    emit("strict_complete", {**_summary(complete), "is_cycle": complete_cycle})
+    _require(complete_cycle, "the strict reverse central scalar is not a cocycle")
     residue, residue_depth = scalar_residue(complete)
     _require(isinstance(residue, Eisenstein), "the residue left the exact field")
     result: Record = {
@@ -123,7 +117,8 @@ def reverse_central_comparison(
             else "SCOPED_FIRST_ORDER_ENTRY_VANISHING"
         ),
         "comparison": _summary(comparison),
-        "strict_comparison_primitive": _summary(strict),
+        "comparison_primitive": _summary(primitive),
+        "raw_complete_scalar": _summary(raw_complete),
         "complete_scalar": _summary(complete),
         "residue": str(residue),
         "residue_projection_depth": residue_depth,

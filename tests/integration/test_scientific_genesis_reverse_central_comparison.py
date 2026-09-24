@@ -72,3 +72,73 @@ def test_comparison_rejects_nonclosed_scalar_before_residue(
         )
 
     assert stages == ["direct_trace", "comparison"]
+
+
+def test_comparison_projects_the_closed_scalar_not_its_raw_primitive(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """A non-pure raw trace is projected only after its boundary cancels."""
+
+    basis = _FullBasis(
+        (), (0, 0, 0, 0),
+        ((0, 0, 0), (0, 0), (0, 0, 0), (0, 0)),
+        ((0,), (0,), (0,), (0,)),
+    )
+    raw = _FullCochain(((basis, Eisenstein(3)),))
+    primitive = _FullCochain(((basis, Eisenstein(1)),))
+    zero = _FullCochain()
+    trace = SimpleNamespace(
+        scalar=raw,
+        scalar_residual=primitive,
+        as_record=lambda: {"central_yukawa_coefficient_available": False},
+    )
+    monkeypatch.setattr(
+        comparison_module, "reverse_central_direct_trace", lambda _index: trace
+    )
+    monkeypatch.setattr(
+        comparison_module, "physical_v1_pluecker_pairing",
+        lambda: SimpleNamespace(equivariant_pairing=zero),
+    )
+    monkeypatch.setattr(
+        comparison_module, "reverse_higgs_lift_coefficient",
+        lambda _index: SimpleNamespace(
+            canonical_action=zero, canonical_correction=zero
+        ),
+    )
+    monkeypatch.setattr(
+        comparison_module, "diagonal_line_product", lambda *_args: zero
+    )
+    monkeypatch.setattr(
+        comparison_module, "scalar_full_differential", lambda _cochain: zero
+    )
+    monkeypatch.setattr(
+        comparison_module, "scalar_primitive", lambda _cochain: (primitive, 1)
+    )
+    monkeypatch.setattr(
+        comparison_module, "constituent_determinant_character",
+        lambda factor: (1, 0) if factor == 1 else (1, 1),
+    )
+    projected_inputs: list[_FullCochain] = []
+
+    def project(source: _FullCochain, _character: object, _frame: object) -> _FullCochain:
+        projected_inputs.append(source)
+        return source.scale(3)
+
+    monkeypatch.setattr(comparison_module, "project_line_character", project)
+    monkeypatch.setattr(comparison_module, "line_has_character", lambda *_args: True)
+    monkeypatch.setattr(
+        comparison_module, "scalar_residue", lambda _cochain: (Eisenstein(7), 1)
+    )
+    stages: list[str] = []
+
+    result = comparison_module.reverse_central_comparison(
+        0, lambda stage, _record: stages.append(stage)
+    )
+
+    assert projected_inputs == [_FullCochain(((basis, Eisenstein(2)),))]
+    assert stages == [
+        "direct_trace", "comparison", "primitive", "raw_complete",
+        "strict_complete", "result",
+    ]
+    assert result["residue"] == "7"
+    assert result["exact"] is True

@@ -77,3 +77,26 @@ def test_line_product_intertwines_deck_actions() -> None:
             (3, 1, 3, 1),
         )
         assert diagonal_line_full_action(product, action, (2, 1)) == expected
+
+
+def test_character_projection_commutes_with_scalar_differential() -> None:
+    """A non-pure exact boundary need not equal its projected boundary."""
+
+    source = _FullCochain(
+        ((
+            _FullBasis(
+                (), (0, 0, 0, 0),
+                ((0, 0, 0), (0, 0), (0, 0, 0), (0, 0)),
+                ((0,), (0,), (0,), (0,)),
+            ),
+            Eisenstein(1),
+        ),)
+    )
+    boundary = scalar_full_differential(source)
+    frame = (2, 1)
+    projected_source = project_line_character(source, (0, 0), frame)
+    projected_boundary = project_line_character(boundary, (0, 0), frame)
+
+    assert not boundary.is_zero()
+    assert scalar_full_differential(projected_source) == projected_boundary
+    assert projected_boundary != boundary

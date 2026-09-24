@@ -406,3 +406,14 @@ boundary, and character projection gives the required forward `(0,2)`
 sector. The pairing has zero reduced line coordinates, but that alone does
 not determine the first-order central Yukawa value: its matter corrections
 and canonical Higgs correction must still be compared on the same chain.
+
+For reverse parameter `b0`, the direct ordered-matter contraction now has an
+exact 250,416-term scalar cochain (digest `59bab3f7…a87f560ed45`) with a
+223,210-term nonzero differential. Subtracting the certified Higgs action
+gives a 379,530-term comparison cocycle, and the scalar contraction constructs
+a depth-three, 311,368-term primitive with exact reconstruction. Projecting
+that primitive alone into the physical character does **not** reproduce the
+entire unprojected comparison. This is a scope error in the former assembly
+order, not a zero or nonzero Yukawa result. The next gate is to cancel the
+raw comparison first, project the resulting closed scalar cochain, then
+verify its character, closure, and residue. No central coefficient is claimed.

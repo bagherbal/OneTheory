@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "199ed21aef69fff777ea2022c8f874d2a7cdceb3037d9f780a259762d47b5c6c",
+  "artifact_digest": "03fcdbe59d66d209777f25db985e35460ef36287d99ed069bdeb30d1a3cf5af5",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -187,9 +187,9 @@
       "sha256": "baf938ac58be1d55118f4181577e93e4406b6ce2b6d80801d0e347472c8b2582"
     },
     {
-      "bytes": 1009,
+      "bytes": 1614,
       "path": "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json",
-      "sha256": "364a48432cb7b3895816e3ca608cab461a4b8650725ce8b09da25a4efa7e02e2"
+      "sha256": "1b1a0570828e7afc4841071c84c15f71144984fe1e96249854cd46df1f29e1a0"
     },
     {
       "bytes": 6072,
@@ -862,7 +862,7 @@
       "label": "selected mixed quotient determinant descent",
       "layer": "Computable carrier",
       "missing_prerequisites": [],
-      "statement": "The selected constituent frames have cancelling cover line degrees but total equivariant determinant character (2,1). The scalar top class has the same nontrivial framed character. This refutes trivial determinant for this selection, not the published carrier.",
+      "statement": "The selected constituent frames have cancelling cover line degrees but total equivariant determinant character (2,1). The scalar top class has the same nontrivial framed character. The unique common character twist destroys the fixed Wilson Higgs spectrum. This does not refute the published carrier.",
       "status": "REFUTED"
     },
     {
@@ -4737,7 +4737,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "an independently verified equivariant determinant trivialization or lawful relinearization preserving the Wilson spectrum",
+    "next_required_object": "an independently verified equivariant determinant trivialization or non-uniform lawful relinearization preserving the Wilson spectrum",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither is frozen as a physical quotient carrier until equivariant determinant descent is certified"
   },
   "research_value_scheduler": [
@@ -5019,6 +5019,7 @@
   "schema": "scientific-genesis-state-v1",
   "scoped_no_go_results": [
     "the selected mixed constituent frames have total determinant character (2,1), so this quotient SU(4) claim is uncertified; a distinct published carrier is not refuted",
+    "the unique common rank-four character twist that cancels the selected determinant removes both Higgs doublet sectors and introduces a color-antitriplet under the fixed Wilson line",
     "declared projective Tier A ray pairs have zero invariant Ext-one classes",
     "current curvilinear rank-four Chern type has the wrong quotient index",
     "declared monomial and transported finite linearization categories have no complete commuting lift pairs where recorded",

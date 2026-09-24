@@ -81,6 +81,12 @@ GEOMETRY_SOURCE_SHA256 = (
 )
 CHARACTERS = tuple((first, second) for first in range(3) for second in range(3))
 SOURCE_HIGGS_CHARACTERS = ((0, 1), (0, 2), (1, 2), (2, 1))
+WILSON_HIGGS_CHARACTERS = {
+    "up_higgs_doublet": (0, 2),
+    "color_triplet": (2, 2),
+    "down_higgs_doublet": (0, 1),
+    "color_antitriplet": (1, 1),
+}
 
 Monomial2 = tuple[int, int]
 CharacterExponent = tuple[int, int]
@@ -504,15 +510,9 @@ class MixedSchoenObservableSpectrum:
     def higgs_projection(self) -> dict[str, int]:
         """Project the four Spin(10) ten-weights with the source Wilson line."""
 
-        wilson_characters = {
-            "up_higgs_doublet": (0, 2),
-            "color_triplet": (2, 2),
-            "down_higgs_doublet": (0, 1),
-            "color_antitriplet": (1, 1),
-        }
         return {
             label: self.higgs_characters.count(self._inverse(character))
-            for label, character in wilson_characters.items()
+            for label, character in WILSON_HIGGS_CHARACTERS.items()
         }
 
     def as_record(self) -> dict[str, object]:

@@ -443,8 +443,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert path["next_required_object"] == (
         "an independently verified equivariant determinant "
-        "trivialization or lawful relinearization preserving the "
-        "Wilson spectrum"
+        "trivialization or non-uniform lawful relinearization "
+        "preserving the Wilson spectrum"
     )
     assert claims["mixed_schoen_reverse_outer_universal_cone"]["status"] == (
         "COMPUTED"

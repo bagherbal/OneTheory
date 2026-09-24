@@ -37,6 +37,10 @@ from .diagonal_schoen_line_actions import (
 )
 from .diagonal_schoen_line_contraction import strict_line_inclusion
 from .mixed_constituent_schoen_arrows import mixed_schoen_constituents
+from .mixed_schoen_observable_spectrum import (
+    SOURCE_HIGGS_CHARACTERS,
+    WILSON_HIGGS_CHARACTERS,
+)
 from .mixed_schoen_outer_actions import _constituent_frame
 from .mixed_schoen_yukawa_trace import scalar_full_differential, scalar_residue
 
@@ -44,6 +48,9 @@ Character = tuple[int, int]
 Degree = tuple[int, int, int]
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json"
+REVERSE_SPECTRUM = (
+    ROOT / "data/generated/scientific_genesis/mixed_schoen_reverse_observable_spectrum.json"
+)
 
 
 def _exponent(value: Eisenstein) -> int:
@@ -88,6 +95,57 @@ def _sum_characters(left: Character, right: Character) -> Character:
     return (left[0] + right[0]) % 3, (left[1] + right[1]) % 3
 
 
+def _uniform_twist_screen(determinant: Character) -> dict[str, object]:
+    """Test only common character twists under the fixed Wilson embedding."""
+
+    spectrum = json.loads(REVERSE_SPECTRUM.read_text(encoding="utf-8"))
+    digest = spectrum.pop("artifact_digest", None)
+    if digest != _canonical_digest(spectrum):
+        raise ValueError("the reverse spectrum artifact digest does not verify")
+    higgs = spectrum.get("higgs")
+    if not isinstance(higgs, dict):
+        raise ValueError("the reverse Higgs character record is absent")
+    characters = tuple(
+        tuple(item["character_exponents"])
+        for item in higgs["deck_characters"]
+        for _index in range(item["multiplicity"])
+    )
+    if tuple(sorted(characters)) != SOURCE_HIGGS_CHARACTERS:
+        raise ValueError("the selected Higgs characters changed")
+
+    trivializing = tuple(
+        character for character in ((a, b) for a in range(3) for b in range(3))
+        if _sum_characters(
+            determinant, ((4 * character[0]) % 3, (4 * character[1]) % 3)
+        ) == (0, 0)
+    )
+    if len(trivializing) != 1:
+        raise ValueError("the rank-four uniform determinant twist is not unique")
+    twist = trivializing[0]
+    exterior_shift = ((2 * twist[0]) % 3, (2 * twist[1]) % 3)
+    shifted = tuple(sorted(
+        _sum_characters(character, exterior_shift)
+        for character in characters
+    ))
+    multiplicities = {
+        label: shifted.count(tuple((-value) % 3 for value in wilson))
+        for label, wilson in WILSON_HIGGS_CHARACTERS.items()
+    }
+    return {
+        "common_twists_enumerated": 9,
+        "rank_four_uniform_twist": list(twist),
+        "exterior_square_character_shift": list(exterior_shift),
+        "shifted_higgs_characters": [list(character) for character in shifted],
+        "fixed_wilson_multiplicities": multiplicities,
+        "one_higgs_zero_triplet_spectrum_preserved": (
+            multiplicities["up_higgs_doublet"] == 1
+            and multiplicities["down_higgs_doublet"] == 1
+            and multiplicities["color_triplet"] == 0
+            and multiplicities["color_antitriplet"] == 0
+        ),
+    }
+
+
 @cache
 def determinant_descent_audit() -> dict[str, object]:
     """Return exact evidence for the current selected determinant frame."""
@@ -123,8 +181,9 @@ def determinant_descent_audit() -> dict[str, object]:
     framed_top = top_character(total_character)
     if geometric_top != (0, 0) or framed_top != total_character:
         raise ValueError("the determinant-frame action disagrees with scalar H3")
+    uniform_twist = _uniform_twist_screen(total_character)
     return {
-        "schema": "mixed-schoen-determinant-descent-audit-v1",
+        "schema": "mixed-schoen-determinant-descent-audit-v2",
         "scope": "current selected mixed constituent linearizations",
         "constituent_cover_line_degrees": [list(degree) for degree in degrees],
         "total_cover_line_degree": list(total_degree),
@@ -144,9 +203,11 @@ def determinant_descent_audit() -> dict[str, object]:
             total_character == (0, 0)
         ),
         "published_carrier_refuted": False,
+        "uniform_twist_screen": uniform_twist,
         "first_missing_input": (
-            "an independently verified determinant trivialization or a lawful "
-            "replacement equivariant linearization preserving the spectrum"
+            "an independently verified determinant trivialization or a "
+            "non-uniform lawful equivariant relinearization preserving the "
+            "Wilson spectrum"
         ),
     }
 

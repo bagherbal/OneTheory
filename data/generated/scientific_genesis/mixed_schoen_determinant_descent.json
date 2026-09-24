@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "2dc147a8c23d0a64f56f97765fe35681409dd421ef11a722205cf276dd8cff0c",
+  "artifact_digest": "77c9c676652801e49cfd1a72831632139b816ee405e5381e677e749729c3e7ae",
   "constituent_cover_line_degrees": [
     [
       -2,
@@ -23,7 +23,7 @@
     ]
   ],
   "equivariantly_trivial_determinant_certified": false,
-  "first_missing_input": "an independently verified determinant trivialization or a lawful replacement equivariant linearization preserving the spectrum",
+  "first_missing_input": "an independently verified determinant trivialization or a non-uniform lawful equivariant relinearization preserving the Wilson spectrum",
   "framed_scalar_h3_character": [
     2,
     1
@@ -34,7 +34,7 @@
   ],
   "published_carrier_refuted": false,
   "quotient_su4_certified_by_this_gate": false,
-  "schema": "mixed-schoen-determinant-descent-audit-v1",
+  "schema": "mixed-schoen-determinant-descent-audit-v2",
   "scope": "current selected mixed constituent linearizations",
   "total_cover_line_degree": [
     0,
@@ -45,5 +45,41 @@
     2,
     1
   ],
-  "trivial_character_scalar_residue_available": false
+  "trivial_character_scalar_residue_available": false,
+  "uniform_twist_screen": {
+    "common_twists_enumerated": 9,
+    "exterior_square_character_shift": [
+      2,
+      1
+    ],
+    "fixed_wilson_multiplicities": {
+      "color_antitriplet": 1,
+      "color_triplet": 0,
+      "down_higgs_doublet": 0,
+      "up_higgs_doublet": 0
+    },
+    "one_higgs_zero_triplet_spectrum_preserved": false,
+    "rank_four_uniform_twist": [
+      1,
+      2
+    ],
+    "shifted_higgs_characters": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ]
+    ]
+  }
 }

@@ -428,3 +428,7 @@ determinant for the selected quotient linearization. Earlier frozen physical
 carrier and flavor claims are therefore conditional, not disprovals of the
 published construction. Resolve the equivariant determinant and recheck the
 Wilson spectrum before assigning a physical Yukawa coefficient.
+The unique common character twist that cancels `(2,1)` is `(1,2)`; its
+exterior-square shift removes both Higgs doublets and permits a color
+antitriplet under the fixed Wilson embedding. A simple uniform twist is
+therefore not a valid repair. More general lawful relinearization remains open.

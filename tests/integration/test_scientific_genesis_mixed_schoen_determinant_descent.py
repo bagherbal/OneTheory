@@ -47,6 +47,20 @@ def test_selected_mixed_determinant_has_nontrivial_quotient_character() -> None:
     assert audit["equivariantly_trivial_determinant_certified"] is False
     assert audit["quotient_su4_certified_by_this_gate"] is False
     assert audit["published_carrier_refuted"] is False
+    twist = audit["uniform_twist_screen"]
+    assert twist["common_twists_enumerated"] == 9
+    assert twist["rank_four_uniform_twist"] == [1, 2]
+    assert twist["exterior_square_character_shift"] == [2, 1]
+    assert twist["shifted_higgs_characters"] == [
+        [0, 0], [1, 2], [2, 0], [2, 2],
+    ]
+    assert twist["fixed_wilson_multiplicities"] == {
+        "up_higgs_doublet": 0,
+        "down_higgs_doublet": 0,
+        "color_triplet": 0,
+        "color_antitriplet": 1,
+    }
+    assert twist["one_higgs_zero_triplet_spectrum_preserved"] is False
 
 
 def test_scalar_top_class_detects_the_same_frame_character() -> None:

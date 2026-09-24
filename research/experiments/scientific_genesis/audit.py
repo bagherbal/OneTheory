@@ -469,8 +469,9 @@ def _nodes() -> list[dict[str, object]]:
             "REFUTED",
             "The selected constituent frames have cancelling cover line degrees "
             "but total equivariant determinant character (2,1). The scalar "
-            "top class has the same nontrivial framed character. This refutes "
-            "trivial determinant for this selection, not the published carrier.",
+            "top class has the same nontrivial framed character. The unique "
+            "common character twist destroys the fixed Wilson Higgs spectrum. "
+            "This does not refute the published carrier.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_determinant_descent.json",
@@ -4247,8 +4248,12 @@ def build_state() -> dict[str, object]:
     determinant_digest = determinant.pop("artifact_digest", None)
     if (
         determinant_digest != _canonical_digest(determinant)
+        or determinant.get("schema") != "mixed-schoen-determinant-descent-audit-v2"
         or determinant.get("total_determinant_character") != [2, 1]
         or determinant.get("equivariantly_trivial_determinant_certified") is not False
+        or determinant.get("uniform_twist_screen", {}).get(
+            "one_higgs_zero_triplet_spectrum_preserved"
+        ) is not False
     ):
         raise ValueError("the selected determinant obstruction is not certified")
 
@@ -4732,8 +4737,8 @@ def build_state() -> dict[str, object]:
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
                 "an independently verified equivariant determinant "
-                "trivialization or lawful relinearization preserving the "
-                "Wilson spectrum"
+                "trivialization or non-uniform lawful relinearization "
+                "preserving the Wilson spectrum"
             ),
         },
         "claims": _nodes(),
@@ -4881,6 +4886,9 @@ def build_state() -> dict[str, object]:
             "the selected mixed constituent frames have total determinant "
             "character (2,1), so this quotient SU(4) claim is uncertified; "
             "a distinct published carrier is not refuted",
+            "the unique common rank-four character twist that cancels the "
+            "selected determinant removes both Higgs doublet sectors and "
+            "introduces a color-antitriplet under the fixed Wilson line",
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
             "current curvilinear rank-four Chern type has the wrong quotient index",
             "declared monomial and transported finite linearization categories "

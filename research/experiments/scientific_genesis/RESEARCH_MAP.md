@@ -599,3 +599,8 @@ The prior reverse freeze and flavor labels must be treated as conditional
 until an independent equivariant determinant trivialization or lawful
 relinearization is established and the Wilson spectrum rechecked. The
 physical reverse-central Yukawa runner now fails before the dense trace.
+The unique uniform rank-four twist restoring trivial determinant is `(1,2)`.
+Its induced exterior-square shift gives Higgs characters `(0,0)`, `(1,2)`,
+`(2,0)`, `(2,2)`; the fixed Wilson projection has no up or down doublet and
+one color antitriplet. Thus this simple repair fails the one-Higgs selection
+gate, without excluding non-uniform lawful linearizations.

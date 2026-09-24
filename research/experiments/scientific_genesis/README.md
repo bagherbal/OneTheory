@@ -440,5 +440,18 @@ repairs both determinant and fixed Wilson spectrum. A distinct underlying
 bundle or an independently corrected determinant frame remains open.
 The W1 atlas and common mixed-resolution frame use different `P` scalars
 on the extension line (`1` versus `omega`). A direct scalar swap breaks the
-outer-Hom chain action, so determinant reconciliation requires an exact
-atlas-to-common-resolution comparison rather than a one-entry patch.
+outer-Hom chain action. The exact homogeneous-lift comparison now explains
+the difference: the common fiber lift is `omega^2` times the native W1 lift;
+after its Koszul-degree correction, the mixed W1 action differs from the
+atlas-bound action by one uniform `(2,0)` character. The W2 common action is
+the inverse-generator atlas action without an additional twist. This is a
+constituent-frame result, not a quotient `SU(4)` construction. Correcting the
+homogeneous lift reverses the older atlas-Higgs ratio: atlas over common is
+`(1,0)` on W1, not `(2,0)`. After inverse-pullback conversion, its Higgs
+characters still differ from the selected source representation.
+The full-chain source-action tensor `H1` has support `{0,1} × {0,2}`. Both
+fixed-Wilson doublets require shift `(0,2)` or `(2,2)`, each with one color
+triplet. Since determinant endpoints are acyclic, the obstruction is
+independent of extension parameters in either orientation. This excludes
+the same selected simple constituent pair under factorwise relinearization,
+not a distinct underlying carrier.

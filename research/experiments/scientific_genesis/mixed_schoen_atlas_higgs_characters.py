@@ -1,12 +1,12 @@
 """Derive Higgs characters forced by the certified constituent atlases.
 
 Owns:
-    Exact atlas-to-synchronized character ratios, their tensor product, and
-    the induced character decomposition of Higgs cohomology.
+    Full-summand atlas-to-synchronized character ratios, their tensor
+    product, and the induced character decomposition of Higgs cohomology.
 
 Depends on:
-    Certified constituent deck atlases, exact simplicity, frame comparisons,
-    and the complete synchronized Higgs character audit.
+    Certified constituent deck atlases, exact simplicity, the normalized
+    common-Schoen chain-frame comparison, and full-chain Higgs characters.
 
 Must not:
     Import pushdown character labels as construction input, relabel deck
@@ -44,20 +44,12 @@ PREREQUISITES: tuple[tuple[str, Path, str, str], ...] = (
         "all_constituent_deck_atlases_exact",
     ),
     (
-        "frame_comparison",
+        "chain_frame_comparison",
         ROOT
         / "data/generated/scientific_genesis/"
-        "mixed_schoen_higgs_equivariant_obstruction.json",
-        "mixed-schoen-higgs-equivariant-obstruction-v1",
-        "current_comparison_route_refuted",
-    ),
-    (
-        "scalar_propagation",
-        ROOT
-        / "data/generated/scientific_genesis/"
-        "mixed_schoen_higgs_scalar_action_no_go.json",
-        "mixed-schoen-higgs-scalar-action-no-go-v1",
-        "scalar_action_repairs_refuted",
+        "mixed_schoen_atlas_frame_comparison.json",
+        "mixed-schoen-atlas-frame-comparison-v1",
+        "full_chain_comparison_exact",
     ),
     (
         "complete_character_audit",
@@ -65,6 +57,14 @@ PREREQUISITES: tuple[tuple[str, Path, str, str], ...] = (
         / "data/generated/scientific_genesis/"
         "mixed_schoen_higgs_character_audit.json",
         "mixed-schoen-higgs-character-audit-v1",
+        "exact",
+    ),
+    (
+        "source_action_convention",
+        ROOT
+        / "data/generated/scientific_genesis/"
+        "mixed_schoen_character_convention.json",
+        "mixed-schoen-character-convention-v1",
         "exact",
     ),
     (
@@ -94,15 +94,6 @@ def _verified_artifact(path: Path, schema: str, exact_key: str) -> dict[str, obj
         raise ValueError(f"prerequisite artifact failed: {path.name}")
     payload["artifact_digest"] = digest
     return payload
-
-
-def _root_exponent(value: object) -> int:
-    """Decode one exact third root of unity from canonical artifact text."""
-
-    exponents = {"1": 0, "omega": 1, "-1-omega": 2}
-    if not isinstance(value, str) or value not in exponents:
-        raise ValueError("a frame character is not an exact third root of unity")
-    return exponents[value]
 
 
 def _shift(character: Character, shift: Character) -> Character:
@@ -146,6 +137,12 @@ class AtlasHiggsCharacterAudit:
         return first, second
 
     @property
+    def atlas_source_action_characters(self) -> tuple[Character, ...]:
+        """Invert forward pullback characters to the published section action."""
+
+        return tuple(sorted(((-a) % 3, (-b) % 3) for a, b in self.atlas_characters))
+
+    @property
     def exact(self) -> bool:
         """Return all same-object atlas-representation gates."""
 
@@ -159,7 +156,7 @@ class AtlasHiggsCharacterAudit:
                     for character in self.synchronized_characters
                 )
             )
-            and self.atlas_characters != self.source_characters
+            and self.atlas_source_action_characters != self.source_characters
             and len(self.prerequisite_artifact_digests) == len(PREREQUISITES)
         )
 
@@ -167,7 +164,7 @@ class AtlasHiggsCharacterAudit:
         """Serialize the forced atlas representation and incompatibility."""
 
         return {
-            "schema": "mixed-schoen-atlas-higgs-characters-v1",
+            "schema": "mixed-schoen-atlas-higgs-characters-v2",
             "coefficient_field": "Q(omega)",
             "constituent_linearization_ratios": [
                 item.as_record() for item in self.constituent_ratios
@@ -179,17 +176,24 @@ class AtlasHiggsCharacterAudit:
             "atlas_induced_h1_characters": [
                 list(character) for character in self.atlas_characters
             ],
+            "atlas_source_action_h1_characters": [
+                list(character) for character in self.atlas_source_action_characters
+            ],
             "selected_source_h1_characters": [
                 list(character) for character in self.source_characters
             ],
             "atlas_characters_match_selected_source": (
-                self.atlas_characters == self.source_characters
+                self.atlas_source_action_characters == self.source_characters
             ),
+            "source_action_convention_applied": True,
             "source_and_atlas_character_assignments_compatible": False,
             "derivation": (
-                "exact frame ratio plus constituent simplicity plus the complete "
-                "synchronized cohomology representation"
+                "homogeneous-lift-normalized full-chain ratio plus constituent "
+                "simplicity, the complete synchronized cohomology "
+                "representation, and inverse-pullback section convention"
             ),
+            "homogeneous_lift_normalization_included": True,
+            "raw_extension_line_ratio_used_as_tensor_character": False,
             "source_pushdown_characters_used_as_construction_input": False,
             "deck_generators_relabelled": False,
             "character_twist_fitted": False,
@@ -213,22 +217,19 @@ class AtlasHiggsCharacterAudit:
 def _constituent_ratios(
     frame_artifact: dict[str, object],
 ) -> tuple[ConstituentLinearizationRatio, ...]:
-    """Derive both factor characters from the four exact line-frame ratios."""
+    """Invert the exact common-over-atlas characters on full summands."""
 
-    raw = cast(list[dict[str, object]], frame_artifact["legacy_frame_atlas_comparisons"])
-    by_constituent: dict[str, dict[str, int]] = {}
-    for item in raw:
-        generator = cast(str, item["generator"])
-        legacy = _root_exponent(item["legacy_character"])
-        atlas = _root_exponent(item["synchronized_atlas_character"])
-        by_constituent.setdefault(cast(str, item["constituent"]), {})[generator] = (
-            atlas - legacy
-        ) % 3
-    if any(set(generators) != {"P", "T"} for generators in by_constituent.values()):
-        raise ValueError("each constituent needs exact P and T frame comparisons")
+    if frame_artifact.get("full_chain_comparison_exact") is not True:
+        raise ValueError("the atlas/common full-chain comparison is missing")
     return tuple(
-        ConstituentLinearizationRatio(name, (generators["P"], generators["T"]))
-        for name, generators in sorted(by_constituent.items())
+        ConstituentLinearizationRatio(
+            name,
+            tuple((-value) % 3 for value in cast(list[int], frame_artifact[key])),
+        )
+        for name, key in (
+            ("W1", "first_constituent_uniform_twist"),
+            ("W2", "second_constituent_uniform_twist"),
+        )
     )
 
 
@@ -241,17 +242,11 @@ def atlas_higgs_character_audit() -> AtlasHiggsCharacterAudit:
         for name, path, schema, exact_key in PREREQUISITES
     )
     by_name = dict(prerequisites)
-    frames = by_name["frame_comparison"]
-    scalar = by_name["scalar_propagation"]
+    frames = by_name["chain_frame_comparison"]
     characters = by_name["complete_character_audit"]
     ratios = _constituent_ratios(frames)
-    if (
-        scalar.get("forced_uniform_scalar") != "-1-omega"
-        or scalar.get("w1_resolution_connected") is not True
-        or by_name["simplicity_no_go"].get("all_selected_constituents_simple")
-        is not True
-    ):
-        raise ValueError("the constituent character propagation gate failed")
+    if by_name["simplicity_no_go"].get("all_selected_constituents_simple") is not True:
+        raise ValueError("the constituent simplicity gate failed")
     synchronized = tuple(
         tuple(item)
         for item in cast(list[Character], characters["current_h1_characters"])
@@ -260,6 +255,17 @@ def atlas_higgs_character_audit() -> AtlasHiggsCharacterAudit:
         tuple(item)
         for item in cast(list[Character], characters["selected_source_h1_characters"])
     )
+    convention = by_name["source_action_convention"]
+    if (
+        convention.get("character_conversion")
+        != "source=(-forward) mod 3 factorwise"
+        or convention.get("source_action_h1_characters")
+        != [
+            list(character)
+            for character in sorted(((-a) % 3, (-b) % 3) for a, b in synchronized)
+        ]
+    ):
+        raise ValueError("the source section convention is inconsistent")
     tensor_ratio = (
         sum(item.ratio[0] for item in ratios) % 3,
         sum(item.ratio[1] for item in ratios) % 3,

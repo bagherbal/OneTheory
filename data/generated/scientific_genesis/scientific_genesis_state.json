@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "e12a915711e0f4751f2d263650aa2bca7cc5ccaba1c8398233cd03eee88f90c4",
+  "artifact_digest": "de89eba225c804e6b1046d1ab2eb9b57ea92d5008ecb069d4233b93408761168",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -155,6 +155,16 @@
       "bytes": 69685,
       "path": "data/generated/scientific_genesis/published_constituent_deck_atlases.json",
       "sha256": "a18b4c1f447eb42dcf4ef3837660dd1e2f37d9762e5a39e06338fd28e5eb64ce"
+    },
+    {
+      "bytes": 1976,
+      "path": "data/generated/scientific_genesis/mixed_schoen_atlas_frame_comparison.json",
+      "sha256": "aefc35e32b6149b5b5cf073b93e529086bb6c495137cf5eea4bae92e24f3f55b"
+    },
+    {
+      "bytes": 3748,
+      "path": "data/generated/scientific_genesis/mixed_schoen_wilson_shift_no_go.json",
+      "sha256": "df3e731c07f6afce1987b72c739c7086dfb5b462ff3c2db53e81358c4952e1b7"
     },
     {
       "bytes": 1659,
@@ -357,9 +367,9 @@
       "sha256": "f11af5f275cb2b5e234950a2c9113f2d98e00f650c36e502d3ee193e72e4686f"
     },
     {
-      "bytes": 2254,
+      "bytes": 2652,
       "path": "data/generated/scientific_genesis/mixed_schoen_atlas_higgs_characters.json",
-      "sha256": "a4a3eb373a55efc82801d8f4b05561ce1f58070cd57cfffb3e71189242628e61"
+      "sha256": "440cbac6fed5e643e1e72f56e084d375b0ee013c2e85ae660500403998b64fe7"
     },
     {
       "bytes": 4922,
@@ -481,8 +491,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 206,
-    "test_python_files": 187
+    "research_python_files": 208,
+    "test_python_files": 189
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -854,6 +864,20 @@
     {
       "assumptions": [],
       "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_atlas_frame_comparison.json",
+        "research/experiments/scientific_genesis/mixed_schoen_atlas_frame_comparison.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_atlas_frame_comparison.py"
+      ],
+      "id": "selected_atlas_common_frame_comparison",
+      "label": "selected atlas-to-common chain-frame comparison",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "The first constituent's native fiber lift differs by a uniform homogeneous scalar. After Koszul correction, its mixed action equals the atlas-bound action times character (2,0) on every full summand. The second constituent uses inverse-generator atlas actions with no extra character. This is a constituent frame relation, not a descended rank-four determinant repair.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [],
+      "evidence": [
         "data/generated/scientific_genesis/mixed_schoen_determinant_descent.json",
         "research/experiments/scientific_genesis/mixed_schoen_determinant_descent.py",
         "tests/integration/test_scientific_genesis_mixed_schoen_determinant_descent.py"
@@ -862,7 +886,7 @@
       "label": "selected mixed quotient determinant descent",
       "layer": "Computable carrier",
       "missing_prerequisites": [],
-      "statement": "The selected constituent frames have cancelling cover line degrees but total equivariant determinant character (2,1). The scalar top class has the same nontrivial framed character. Exact cross-Hom vanishing and constituent simplicity make every nonsplit selected extension simple, so the unique determinant-cancelling twist exhausts same-bundle relinearizations. It fails the fixed Wilson spectrum. An atlas-to-common-frame comparison is still missing; a distinct published carrier is not refuted.",
+      "statement": "The selected constituent frames have cancelling cover line degrees but total equivariant determinant character (2,1). The scalar top class has the same nontrivial framed character. Exact cross-Hom vanishing and constituent simplicity make every nonsplit selected extension simple, so the unique determinant-cancelling twist exhausts same-bundle relinearizations. It fails the fixed Wilson spectrum. The atlas/common-frame discrepancy is a uniform constituent character after homogeneous-lift conversion, not a one-entry repair. A distinct published carrier is not refuted.",
       "status": "REFUTED"
     },
     {
@@ -1007,6 +1031,22 @@
     },
     {
       "assumptions": [
+        "same selected underlying V1/V2 pair"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json",
+        "research/experiments/scientific_genesis/mixed_schoen_observable_spectrum.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_observable_spectrum.py"
+      ],
+      "id": "selected_constituent_determinant_acyclicity",
+      "label": "acyclic determinant endpoints for the selected pair",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [],
+      "statement": "Exact full-Cech line transfer gives zero cohomology in every degree for both constituent determinant lines. Character relinearizations preserve this acyclicity, so exterior-square cohomology of either rank-four extension is represented by the middle constituent tensor cohomology, irrespective of its nonsplit parameter.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
         "free ninefold Schoen deck action",
         "published Wilson-line embedding",
         "Calabi--Yau Serre duality"
@@ -1017,11 +1057,11 @@
         "tests/integration/test_scientific_genesis_mixed_schoen_observable_spectrum.py"
       ],
       "id": "mixed_schoen_observable_spectrum",
-      "label": "lawful mixed-family structural spectrum",
+      "label": "superseded mixed-family Wilson spectrum",
       "layer": "Computable carrier",
       "missing_prerequisites": [],
-      "statement": "Synchronized mixed transfers derive pure constituent H1 dimensions 9 and 18. Free-action Lefschetz compression gives three regular matter copies, while the acyclic determinant filtration and lawful pushdowns give four Higgs classes, one Wilson-projected pair, and no color triplets for every stable P1 parameter.",
-      "status": "COMPUTED"
+      "statement": "Pure constituent H1 dimensions 9 and 18, the regular matter multiplicity, and acyclic determinant endpoints remain exact. Its relative-pushdown Higgs characters predicted one Wilson pair, but the later full-chain tensor audit gives only the down doublet under the fixed Wilson embedding. The one-pair claim is superseded.",
+      "status": "REFUTED"
     },
     {
       "assumptions": [],
@@ -1392,11 +1432,11 @@
         "tests/integration/test_scientific_genesis_mixed_schoen_reverse_observable_spectrum.py"
       ],
       "id": "mixed_schoen_reverse_observable_spectrum",
-      "label": "reverse-family Wilson-projected spectrum",
+      "label": "superseded reverse-family Wilson spectrum",
       "layer": "Reference realization",
       "missing_prerequisites": [],
-      "statement": "Pure-H1 constituent cohomology makes reverse matter independent of all P5 parameters. Acyclic determinant endpoints make the exterior-square filtration orientation-independent. Exact deck characters then give three families, three right-handed neutrinos, one Higgs pair, no anti-families, and no massless triplets over the entire reverse stable locus.",
-      "status": "COMPUTED"
+      "statement": "Pure-H1 constituent cohomology makes reverse matter independent of all P5 parameters. Acyclic determinant endpoints make the exterior-square filtration orientation-independent. The older derived-pushdown one-Higgs character assignment is contradicted by the full-chain tensor audit; the fixed-Wilson one-pair claim does not hold for this selected constituent pair.",
+      "status": "REFUTED"
     },
     {
       "assumptions": [],
@@ -1869,7 +1909,26 @@
         "atlas-derived characters for each relative-pushdown line",
         "the first exact source-convention mismatch"
       ],
-      "statement": "The exact constituent atlas ratios are (2,0) for W1 and (0,0) for W2 relative to the synchronized lifts. Simplicity therefore forces atlas Higgs characters (1,0), (1,1), (2,0), and (2,1), which are incompatible with the selected source multiset. The source pushdown labels are used only after this derivation.",
+      "statement": "After homogeneous-lift normalization, the atlas-over-common ratios are (1,0) for W1 and (0,0) for W2. Simplicity therefore forces forward atlas Higgs characters (0,0), (0,1), (1,0), and (1,1). Inverse-pullback section conversion gives (0,0), (0,2), (2,0), and (2,2), incompatible with the selected source multiset. Raw line-entry ratios are not full-chain characters.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [
+        "the same selected simple V1 and V2 cover objects",
+        "the fixed published Wilson embedding"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/mixed_schoen_wilson_shift_no_go.json",
+        "research/experiments/scientific_genesis/mixed_schoen_wilson_shift_no_go.py",
+        "tests/integration/test_scientific_genesis_mixed_schoen_wilson_shift_no_go.py"
+      ],
+      "id": "same_constituent_wilson_shift_no_go",
+      "label": "fixed-Wilson selection for all same-constituent shifts",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "a distinct constituent realization or an independent correction of the full-chain H1 character premise"
+      ],
+      "statement": "The source-action tensor H1 support is {0,1} x {0,2}. Acyclic endpoint determinants identify it with exterior-square H1 for either nonsplit orientation. Simplicity makes every factorwise relinearization a character shift. Both Higgs doublets force shift (0,2) or (2,2); each retains one color triplet under the fixed Wilson embedding. The atlas-bound source-action shift (2,0) has no up doublet, one down doublet, and one antitriplet.",
       "status": "REFUTED"
     },
     {
@@ -2659,18 +2718,18 @@
     },
     {
       "assumptions_required": [
-        "published Wilson-line embedding"
+        "same selected underlying constituent pair"
       ],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json"
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "derived-P1 classes are not yet full Schoen DGA representatives"
+        "derived-P1 Higgs character labels were later superseded"
       ],
-      "mathematical_reason": "Acyclic determinant lines identify exterior-square cohomology with the derived tensor of the two lawful relative pushdowns for every outer parameter.",
+      "mathematical_reason": "Acyclic determinant lines identify exterior-square cohomology with the middle constituent tensor for every outer parameter.",
       "source": "relative_constituent_pushdowns",
-      "target": "mixed_schoen_observable_spectrum"
+      "target": "selected_constituent_determinant_acyclicity"
     },
     {
       "assumptions_required": [
@@ -2679,11 +2738,11 @@
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/mixed_schoen_observable_spectrum.json"
       ],
-      "implication": "exact",
+      "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the result is structural spectrum, not a mass prediction"
+        "the fixed-Wilson one-Higgs gate fails on full-chain H1"
       ],
-      "mathematical_reason": "Exact deck characters tensored with the source Wilson characters determine all matter, Higgs, anti-family, and color-triplet blocks.",
+      "mathematical_reason": "The older derived-pushdown one-Higgs claim cannot establish a physical spectrum because the full-chain Higgs characters disagree.",
       "source": "mixed_schoen_observable_spectrum",
       "target": "physical_spectrum"
     },
@@ -3095,6 +3154,47 @@
       "mathematical_reason": "Spectrum selection alone cannot freeze a physical quotient component without a trivial equivariant determinant.",
       "source": "physical_spectrum",
       "target": "computable_carrier_state"
+    },
+    {
+      "assumptions_required": [
+        "declared common homogeneous lifts"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_atlas_frame_comparison.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a constituent frame relation does not select an outer extension"
+      ],
+      "mathematical_reason": "Native atlas line actions determine the source-bound frames; exact coordinate-lift ratios determine their common-Schoen form.",
+      "source": "published_constituent_deck_atlases",
+      "target": "selected_atlas_common_frame_comparison"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_atlas_frame_comparison.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a different carrier can have a different frame relation"
+      ],
+      "mathematical_reason": "The synchronized object frames identify the exact relative characters after all Koszul-degree corrections.",
+      "source": "mixed_schoen_outer_actions",
+      "target": "selected_atlas_common_frame_comparison"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_atlas_frame_comparison.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the selected rank-four determinant remains nontrivial"
+      ],
+      "mathematical_reason": "The raw first-constituent line scalar is not an independent determinant correction; its full-chain conversion is a uniform character twist.",
+      "source": "selected_atlas_common_frame_comparison",
+      "target": "selected_mixed_determinant_descent"
     },
     {
       "assumptions_required": [],
@@ -3817,9 +3917,65 @@
       ],
       "implication": "exact",
       "known_failure_modes": [],
-      "mathematical_reason": "The exact frame ratios identify the unique atlas characters on both simple factors, so their product acts as a forced shift on the complete synchronized Higgs representation.",
+      "mathematical_reason": "The normalized full-chain frame ratios identify atlas characters on both simple factors, so their product acts as a forced shift on the complete synchronized Higgs representation.",
       "source": "mixed_higgs_linearization_no_go",
       "target": "mixed_atlas_higgs_character_incompatibility"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_atlas_higgs_characters.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the selected source pushdown labels are a separate claim"
+      ],
+      "mathematical_reason": "The homogeneous-lift-normalized constituent ratios, not raw line entries, determine the tensor cohomology character shift.",
+      "source": "selected_atlas_common_frame_comparison",
+      "target": "mixed_atlas_higgs_character_incompatibility"
+    },
+    {
+      "assumptions_required": [
+        "fixed published Wilson embedding"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_wilson_shift_no_go.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "distinct underlying constituents are outside this theorem"
+      ],
+      "mathematical_reason": "Simplicity restricts every factorwise linearization to a character shift of the exact tensor-Higgs representation.",
+      "source": "mixed_higgs_linearization_no_go",
+      "target": "same_constituent_wilson_shift_no_go"
+    },
+    {
+      "assumptions_required": [],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_wilson_shift_no_go.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "changing the underlying pair changes the tensor support"
+      ],
+      "mathematical_reason": "The corrected atlas shift is one of the nine factorwise tensor characters screened by the two-doublet support proof.",
+      "source": "mixed_atlas_higgs_character_incompatibility",
+      "target": "same_constituent_wilson_shift_no_go"
+    },
+    {
+      "assumptions_required": [
+        "same selected underlying constituent pair"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/mixed_schoen_wilson_shift_no_go.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "its older source-derived Higgs characters are not used"
+      ],
+      "mathematical_reason": "Acyclic determinant endpoints make exterior-square H1 equal tensor H1 in either nonsplit extension orientation, independent of extension coordinates.",
+      "source": "selected_constituent_determinant_acyclicity",
+      "target": "same_constituent_wilson_shift_no_go"
     },
     {
       "assumptions_required": [],
@@ -4096,6 +4252,8 @@
     "exact fiber-sensitive dP9 Serre complexes deriving the published constituent Ext-one dimensions 2 and 5",
     "exact natural dP9 deck actions and simultaneous source-representation intertwiners for both constituent Ext spaces",
     "source-selected W1/W2 rays recovered as mixed Cech/Koszul cocycles with exact full-standard-cover lifts",
+    "the atlas/common-frame relation is a uniform (2,0) character on V1 and the identity on V2 after coordinate-lift normalization",
+    "the synchronized tensor H1 source-action support is a 2-by-2 character rectangle, independent of outer extension parameters",
     "local dualizing-unit proofs at all six I3/I6 support points and twelve locally free affine rank-two pushout presentations",
     "sixty exact ordered overlap gauges forming global constituent atlases, including hypersurface homotopies and cocycle laws",
     "twenty-four exact localized P/T constituent comparisons preserving relations and overlaps while satisfying the quotient group laws",
@@ -4191,6 +4349,7 @@
       "all_published_yukawa_character_products_invariant": true,
       "all_reverse_down_matter_lifts_exact": true,
       "arbitrary_point_selected": false,
+      "atlas_frame_comparison_exact": true,
       "atlas_higgs_characters_match_selected_source": false,
       "atlas_induced_higgs_characters": [
         [
@@ -4313,6 +4472,12 @@
         ]
       ],
       "current_carrier_nontrivial_holomorphic_yukawa_available": false,
+      "current_full_chain_wilson_multiplicities": {
+        "color_antitriplet": 0,
+        "color_triplet": 0,
+        "down_higgs_doublet": 1,
+        "up_higgs_doublet": 0
+      },
       "current_h_d_comparison_route_refuted": true,
       "current_minimum_retired_candidate_blocks": [
         8,
@@ -4373,6 +4538,10 @@
       "first_complete_higher_product_cochain_term_count": 268905,
       "first_complete_higher_product_coefficient": "0",
       "first_complete_higher_product_coefficient_available": true,
+      "first_constituent_atlas_to_mixed_character": [
+        2,
+        0
+      ],
       "first_higgs_leg_action_is_cycle": true,
       "first_higgs_leg_action_term_count": 1593,
       "first_higgs_leg_correction_exact": true,
@@ -4471,12 +4640,12 @@
         2
       ],
       "lawful_reverse_stability_box_radius": "1/4",
-      "lawful_reverse_structural_spectrum_all_P5": true,
+      "lawful_reverse_structural_spectrum_all_P5": false,
       "lawful_reverse_wilson_projected_families": 3,
-      "lawful_reverse_wilson_projected_higgs_pairs": 1,
-      "lawful_structural_spectrum_all_P1": true,
+      "lawful_reverse_wilson_projected_higgs_pairs": 0,
+      "lawful_structural_spectrum_all_P1": false,
       "lawful_wilson_projected_families": 3,
-      "lawful_wilson_projected_higgs_pairs": 1,
+      "lawful_wilson_projected_higgs_pairs": 0,
       "legacy_frame_atlas_mismatch_count": 1,
       "legacy_frame_matches_constituent_atlases": false,
       "local_determinant_pairings_available": true,
@@ -4609,9 +4778,14 @@
       "reverse_down_v1_pairing_reduced_coordinate_count": 0,
       "reverse_down_v1_pairing_term_count": 8892,
       "same_constituent_higgs_relinearization_available": false,
+      "same_constituent_wilson_repair_available": false,
       "same_cover_bundle_relinearization_repair_available": false,
       "scalar_higgs_action_repairs_refuted": true,
       "scalar_residue_target_available": true,
+      "second_constituent_atlas_to_mixed_character": [
+        0,
+        0
+      ],
       "selected_available_flavor_chain_object_count": null,
       "selected_available_flavor_sector": "down",
       "selected_available_forward_matter_characters": [
@@ -4738,13 +4912,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "an exact atlas-to-common-resolution chain comparison preserving determinant descent, or a distinct underlying bundle with the required Wilson spectrum",
-    "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame and fixed Wilson line"
+    "next_required_object": "a distinct constituent realization with a certified quotient determinant and the fixed one-Higgs zero-triplet spectrum, or an independent correction of the full-chain H1 premise",
+    "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
   },
   "research_value_scheduler": [
     {
       "priority_score": 65.0,
-      "rationale": "Resolve the atlas/common-frame mismatch without breaking the chain law.",
+      "rationale": "Test source-faithful constituents outside the refuted same-object class.",
       "scores": {
         "computational_cost": 2,
         "distance_to_observable": 5,
@@ -4753,11 +4927,11 @@
         "risk_of_local_rabbit_hole": 1,
         "structural_reuse": 5
       },
-      "task": "source_chain_determinant_reconciliation"
+      "task": "distinct_constituent_realization_screen"
     },
     {
       "priority_score": 16.125,
-      "rationale": "Seeks a distinct underlying bundle only if source reconciliation fails.",
+      "rationale": "Screen a distinct underlying bundle against exact carrier gates.",
       "scores": {
         "computational_cost": 4,
         "distance_to_observable": 5,
@@ -5049,6 +5223,7 @@
     "the unique common rank-four character twist that cancels the selected determinant removes both Higgs doublet sectors and introduces a color-antitriplet under the fixed Wilson line",
     "both cross-Hom H0 spaces vanish and both constituents are simple; every nonsplit selected P1/P5 extension is simple, so no other same-bundle linearization can repair the fixed Wilson spectrum",
     "the W1 atlas P extension-line scalar is 1 but the mixed frame uses omega; replacing only that scalar creates a 72-term outer-Hom chain commutator, so a one-entry repair is invalid",
+    "the same simple constituent pair cannot yield both fixed-Wilson Higgs doublets without a color triplet under any factorwise character shift; the atlas-bound shift leaves one antitriplet",
     "declared projective Tier A ray pairs have zero invariant Ext-one classes",
     "current curvilinear rank-four Chern type has the wrong quotient index",
     "declared monomial and transported finite linearization categories have no complete commuting lift pairs where recorded",

@@ -464,6 +464,26 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "selected_atlas_common_frame_comparison",
+            "selected atlas-to-common chain-frame comparison",
+            "Computable carrier",
+            "COMPUTED",
+            "The first constituent's native fiber lift differs by a uniform "
+            "homogeneous scalar. After Koszul correction, its mixed action "
+            "equals the atlas-bound action times character (2,0) on every "
+            "full summand. The second constituent uses inverse-generator "
+            "atlas actions with no extra character. This is a constituent "
+            "frame relation, not a descended rank-four determinant repair.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_atlas_frame_comparison.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_atlas_frame_comparison.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_atlas_frame_comparison.py",
+            ),
+        ),
+        _node(
             "selected_mixed_determinant_descent",
             "selected mixed quotient determinant descent",
             "Computable carrier",
@@ -474,8 +494,9 @@ def _nodes() -> list[dict[str, object]]:
             "vanishing and constituent simplicity make every nonsplit selected "
             "extension simple, so the unique determinant-cancelling twist "
             "exhausts same-bundle relinearizations. It fails the fixed Wilson "
-            "spectrum. An atlas-to-common-frame comparison is still missing; "
-            "a distinct published carrier is not refuted.",
+            "spectrum. The atlas/common-frame discrepancy is a uniform "
+            "constituent character after homogeneous-lift conversion, not a "
+            "one-entry repair. A distinct published carrier is not refuted.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_determinant_descent.json",
@@ -644,15 +665,36 @@ def _nodes() -> list[dict[str, object]]:
             ("relative duality", "selected mixed constituent local units"),
         ),
         _node(
-            "mixed_schoen_observable_spectrum",
-            "lawful mixed-family structural spectrum",
+            "selected_constituent_determinant_acyclicity",
+            "acyclic determinant endpoints for the selected pair",
             "Computable carrier",
             "COMPUTED",
-            "Synchronized mixed transfers derive pure constituent H1 dimensions "
-            "9 and 18. Free-action Lefschetz compression gives three regular "
-            "matter copies, while the acyclic determinant filtration and lawful "
-            "pushdowns give four Higgs classes, one Wilson-projected pair, and "
-            "no color triplets for every stable P1 parameter.",
+            "Exact full-Cech line transfer gives zero cohomology in every "
+            "degree for both constituent determinant lines. Character "
+            "relinearizations preserve this acyclicity, so exterior-square "
+            "cohomology of either rank-four extension is represented by the "
+            "middle constituent tensor cohomology, irrespective of its "
+            "nonsplit parameter.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_observable_spectrum.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_observable_spectrum.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_observable_spectrum.py",
+            ),
+            assumptions=("same selected underlying V1/V2 pair",),
+        ),
+        _node(
+            "mixed_schoen_observable_spectrum",
+            "superseded mixed-family Wilson spectrum",
+            "Computable carrier",
+            "REFUTED",
+            "Pure constituent H1 dimensions 9 and 18, the regular matter "
+            "multiplicity, and acyclic determinant endpoints remain exact. "
+            "Its relative-pushdown Higgs characters predicted one Wilson pair, "
+            "but the later full-chain tensor audit gives only the down doublet "
+            "under the fixed Wilson embedding. The one-pair claim is superseded.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_observable_spectrum.json",
@@ -1042,15 +1084,15 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "mixed_schoen_reverse_observable_spectrum",
-            "reverse-family Wilson-projected spectrum",
+            "superseded reverse-family Wilson spectrum",
             "Reference realization",
-            "COMPUTED",
+            "REFUTED",
             "Pure-H1 constituent cohomology makes reverse matter independent "
             "of all P5 parameters. Acyclic determinant endpoints make the "
-            "exterior-square filtration orientation-independent. Exact deck "
-            "characters then give three families, three right-handed neutrinos, "
-            "one Higgs pair, no anti-families, and no massless triplets over "
-            "the entire reverse stable locus.",
+            "exterior-square filtration orientation-independent. The older "
+            "derived-pushdown one-Higgs character assignment is contradicted "
+            "by the full-chain tensor audit; the fixed-Wilson one-pair claim "
+            "does not hold for this selected constituent pair.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_reverse_observable_spectrum.json",
@@ -1682,11 +1724,12 @@ def _nodes() -> list[dict[str, object]]:
             "atlas-induced Higgs character representation",
             "Flavor",
             "REFUTED",
-            "The exact constituent atlas ratios are (2,0) for W1 and (0,0) "
-            "for W2 relative to the synchronized lifts. Simplicity therefore "
-            "forces atlas Higgs characters (1,0), (1,1), (2,0), and (2,1), "
-            "which are incompatible with the selected source multiset. The "
-            "source pushdown labels are used only after this derivation.",
+            "After homogeneous-lift normalization, the atlas-over-common "
+            "ratios are (1,0) for W1 and (0,0) for W2. Simplicity therefore "
+            "forces forward atlas Higgs characters (0,0), (0,1), (1,0), "
+            "and (1,1). Inverse-pullback section conversion gives (0,0), "
+            "(0,2), (2,0), and (2,2), incompatible with the selected source "
+            "multiset. Raw line-entry ratios are not full-chain characters.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_atlas_higgs_characters.json",
@@ -1701,6 +1744,35 @@ def _nodes() -> list[dict[str, object]]:
             missing=(
                 "atlas-derived characters for each relative-pushdown line",
                 "the first exact source-convention mismatch",
+            ),
+        ),
+        _node(
+            "same_constituent_wilson_shift_no_go",
+            "fixed-Wilson selection for all same-constituent shifts",
+            "Computable carrier",
+            "REFUTED",
+            "The source-action tensor H1 support is {0,1} x {0,2}. Acyclic endpoint "
+            "determinants identify it with exterior-square H1 for either "
+            "nonsplit orientation. Simplicity makes every factorwise "
+            "relinearization a character shift. Both Higgs doublets force "
+            "shift (0,2) or (2,2); each retains one color triplet under the "
+            "fixed Wilson embedding. The atlas-bound source-action shift "
+            "(2,0) has no up doublet, one down doublet, and one antitriplet.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_wilson_shift_no_go.json",
+                "research/experiments/scientific_genesis/"
+                "mixed_schoen_wilson_shift_no_go.py",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_schoen_wilson_shift_no_go.py",
+            ),
+            assumptions=(
+                "the same selected simple V1 and V2 cover objects",
+                "the fixed published Wilson embedding",
+            ),
+            missing=(
+                "a distinct constituent realization or an independent "
+                "correction of the full-chain H1 character premise",
             ),
         ),
         _node(
@@ -2526,30 +2598,29 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "relative_constituent_pushdowns",
-            "mixed_schoen_observable_spectrum",
-            "Acyclic determinant lines identify exterior-square cohomology with "
-            "the derived tensor of the two lawful relative pushdowns for every "
-            "outer parameter.",
+            "selected_constituent_determinant_acyclicity",
+            "Acyclic determinant lines identify exterior-square cohomology "
+            "with the middle constituent tensor for every outer parameter.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_observable_spectrum.json",
             ),
-            ("published Wilson-line embedding",),
+            ("same selected underlying constituent pair",),
             True,
-            ("derived-P1 classes are not yet full Schoen DGA representatives",),
+            ("derived-P1 Higgs character labels were later superseded",),
         ),
         _edge(
             "mixed_schoen_observable_spectrum",
             "physical_spectrum",
-            "Exact deck characters tensored with the source Wilson characters "
-            "determine all matter, Higgs, anti-family, and color-triplet blocks.",
+            "The older derived-pushdown one-Higgs claim cannot establish a "
+            "physical spectrum because the full-chain Higgs characters disagree.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_observable_spectrum.json",
             ),
             ("three families and one Higgs pair are selection constraints",),
-            True,
-            ("the result is structural spectrum, not a mass prediction",),
+            False,
+            ("the fixed-Wilson one-Higgs gate fails on full-chain H1",),
         ),
         _edge(
             "mixed_schoen_observable_spectrum",
@@ -2930,6 +3001,46 @@ def _edges() -> list[dict[str, object]]:
             ("selection constraints are not predictions",),
             False,
             ("the selected determinant has character (2,1)",),
+        ),
+        _edge(
+            "published_constituent_deck_atlases",
+            "selected_atlas_common_frame_comparison",
+            "Native atlas line actions determine the source-bound frames; "
+            "exact coordinate-lift ratios determine their common-Schoen form.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_atlas_frame_comparison.json",
+            ),
+            ("declared common homogeneous lifts",),
+            True,
+            ("a constituent frame relation does not select an outer extension",),
+        ),
+        _edge(
+            "mixed_schoen_outer_actions",
+            "selected_atlas_common_frame_comparison",
+            "The synchronized object frames identify the exact relative "
+            "characters after all Koszul-degree corrections.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_atlas_frame_comparison.json",
+            ),
+            (),
+            True,
+            ("a different carrier can have a different frame relation",),
+        ),
+        _edge(
+            "selected_atlas_common_frame_comparison",
+            "selected_mixed_determinant_descent",
+            "The raw first-constituent line scalar is not an independent "
+            "determinant correction; its full-chain conversion is a uniform "
+            "character twist.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_atlas_frame_comparison.json",
+            ),
+            (),
+            True,
+            ("the selected rank-four determinant remains nontrivial",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -3755,7 +3866,7 @@ def _edges() -> list[dict[str, object]]:
         _edge(
             "mixed_higgs_linearization_no_go",
             "mixed_atlas_higgs_character_incompatibility",
-            "The exact frame ratios identify the unique atlas characters on "
+            "The normalized full-chain frame ratios identify atlas characters on "
             "both simple factors, so their product acts as a forced shift on "
             "the complete synchronized Higgs representation.",
             (
@@ -3765,6 +3876,59 @@ def _edges() -> list[dict[str, object]]:
             (),
             True,
             (),
+        ),
+        _edge(
+            "selected_atlas_common_frame_comparison",
+            "mixed_atlas_higgs_character_incompatibility",
+            "The homogeneous-lift-normalized constituent ratios, not raw "
+            "line entries, determine the tensor cohomology character shift.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_atlas_higgs_characters.json",
+            ),
+            (),
+            True,
+            ("the selected source pushdown labels are a separate claim",),
+        ),
+        _edge(
+            "mixed_higgs_linearization_no_go",
+            "same_constituent_wilson_shift_no_go",
+            "Simplicity restricts every factorwise linearization to a "
+            "character shift of the exact tensor-Higgs representation.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_wilson_shift_no_go.json",
+            ),
+            ("fixed published Wilson embedding",),
+            True,
+            ("distinct underlying constituents are outside this theorem",),
+        ),
+        _edge(
+            "mixed_atlas_higgs_character_incompatibility",
+            "same_constituent_wilson_shift_no_go",
+            "The corrected atlas shift is one of the nine factorwise tensor "
+            "characters screened by the two-doublet support proof.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_wilson_shift_no_go.json",
+            ),
+            (),
+            True,
+            ("changing the underlying pair changes the tensor support",),
+        ),
+        _edge(
+            "selected_constituent_determinant_acyclicity",
+            "same_constituent_wilson_shift_no_go",
+            "Acyclic determinant endpoints make exterior-square H1 equal "
+            "tensor H1 in either nonsplit extension orientation, independent "
+            "of extension coordinates.",
+            (
+                "data/generated/scientific_genesis/"
+                "mixed_schoen_wilson_shift_no_go.json",
+            ),
+            ("same selected underlying constituent pair",),
+            True,
+            ("its older source-derived Higgs characters are not used",),
         ),
         _edge(
             "mixed_atlas_higgs_character_incompatibility",
@@ -4143,14 +4307,14 @@ def _scheduler() -> list[dict[str, object]]:
 
     tasks = [
         (
-            "source_chain_determinant_reconciliation",
+            "distinct_constituent_realization_screen",
             5,
             5,
             5,
             5,
             2,
             1,
-            "Resolve the atlas/common-frame mismatch without breaking the chain law.",
+            "Test source-faithful constituents outside the refuted same-object class.",
         ),
         (
             "distinct_su4_carrier_screen",
@@ -4160,7 +4324,7 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             4,
             2,
-            "Seeks a distinct underlying bundle only if source reconciliation fails.",
+            "Screen a distinct underlying bundle against exact carrier gates.",
         ),
         (
             "lawful_carrier_common_dga_lifts",
@@ -4284,6 +4448,35 @@ def build_state() -> dict[str, object]:
         ) is not False
     ):
         raise ValueError("the selected determinant obstruction is not certified")
+    frame_path = (
+        ROOT
+        / "data/generated/scientific_genesis/"
+        "mixed_schoen_atlas_frame_comparison.json"
+    )
+    frame = json.loads(frame_path.read_text(encoding="utf-8"))
+    frame_digest = frame.pop("artifact_digest", None)
+    if (
+        frame_digest != _canonical_digest(frame)
+        or frame.get("schema") != "mixed-schoen-atlas-frame-comparison-v1"
+        or frame.get("first_constituent_uniform_twist") != [2, 0]
+        or frame.get("second_constituent_uniform_twist") != [0, 0]
+        or frame.get("source_atlas_total_determinant_certified") is not False
+    ):
+        raise ValueError("the atlas/common-frame comparison is not certified")
+    wilson_path = (
+        ROOT
+        / "data/generated/scientific_genesis/mixed_schoen_wilson_shift_no_go.json"
+    )
+    wilson = json.loads(wilson_path.read_text(encoding="utf-8"))
+    wilson_digest = wilson.pop("artifact_digest", None)
+    if (
+        wilson_digest != _canonical_digest(wilson)
+        or wilson.get("schema") != "mixed-schoen-wilson-shift-no-go-v1"
+        or wilson.get("both_doublets_without_triplets_possible") is not False
+        or wilson.get("source_action_convention_applied") is not True
+        or wilson.get("distinct_underlying_constituents_excluded") is not False
+    ):
+        raise ValueError("the same-constituent Wilson obstruction is not certified")
 
     artifact_paths = (
         "data/generated/computable_carrier/computable_carrier_artifact.json",
@@ -4317,6 +4510,10 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/published_constituent_chart_presentations.json",
         "data/generated/scientific_genesis/published_constituent_overlap_transitions.json",
         "data/generated/scientific_genesis/published_constituent_deck_atlases.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_atlas_frame_comparison.json",
+        "data/generated/scientific_genesis/"
+        "mixed_schoen_wilson_shift_no_go.json",
         "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_transfer.json",
         "data/generated/scientific_genesis/mixed_schoen_outer_actions.json",
@@ -4443,7 +4640,8 @@ def build_state() -> dict[str, object]:
             "selection_status": (
                 "selected P1 and reverse P5 cover computations remain exact, "
                 "but neither can be frozen as a physical quotient carrier "
-                "under the current determinant frame and fixed Wilson line"
+                "under the current determinant frame or the full-chain "
+                "fixed-Wilson Higgs gate"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -4546,9 +4744,9 @@ def build_state() -> dict[str, object]:
                 "lawful_matter_deck_representation": "3 Reg(Z3 x Z3)",
                 "lawful_higgs_h0_to_h3": [0, 4, 4, 0],
                 "lawful_wilson_projected_families": 3,
-                "lawful_wilson_projected_higgs_pairs": 1,
+                "lawful_wilson_projected_higgs_pairs": 0,
                 "lawful_massless_color_triplets": 0,
-                "lawful_structural_spectrum_all_P1": True,
+                "lawful_structural_spectrum_all_P1": False,
                 "prior_forward_computable_carrier_component": (
                     "lawful-mixed-schoen-P1"
                 ),
@@ -4559,14 +4757,27 @@ def build_state() -> dict[str, object]:
                 "computable_carrier_component_frozen": False,
                 "selected_quotient_determinant_character": [2, 1],
                 "selected_quotient_su4_certified": False,
+                "first_constituent_atlas_to_mixed_character": frame[
+                    "first_constituent_uniform_twist"
+                ],
+                "second_constituent_atlas_to_mixed_character": frame[
+                    "second_constituent_uniform_twist"
+                ],
+                "atlas_frame_comparison_exact": True,
+                "same_constituent_wilson_repair_available": wilson[
+                    "both_doublets_without_triplets_possible"
+                ],
+                "current_full_chain_wilson_multiplicities": wilson[
+                    "current_wilson_multiplicities"
+                ],
                 "same_cover_bundle_relinearization_repair_available": False,
                 "lawful_reverse_matter_h0_to_h3": [0, 27, 0, 0],
                 "lawful_reverse_dual_matter_h0_to_h3": [0, 0, 27, 0],
                 "lawful_reverse_higgs_h0_to_h3": [0, 4, 4, 0],
                 "lawful_reverse_wilson_projected_families": 3,
-                "lawful_reverse_wilson_projected_higgs_pairs": 1,
+                "lawful_reverse_wilson_projected_higgs_pairs": 0,
                 "lawful_reverse_massless_color_triplets": 0,
-                "lawful_reverse_structural_spectrum_all_P5": True,
+                "lawful_reverse_structural_spectrum_all_P5": False,
                 "lawful_reverse_spectrum_source_assertion_used_as_rank_input": False,
                 "reverse_down_universal_matter_character_count": 2,
                 "reverse_down_constant_v2_class_count": 4,
@@ -4765,9 +4976,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "an exact atlas-to-common-resolution chain comparison "
-                "preserving determinant descent, or a distinct underlying "
-                "bundle with the required Wilson spectrum"
+                "a distinct constituent realization with a certified quotient "
+                "determinant and the fixed one-Higgs zero-triplet spectrum, "
+                "or an independent correction of the full-chain H1 premise"
             ),
         },
         "claims": _nodes(),
@@ -4783,6 +4994,10 @@ def build_state() -> dict[str, object]:
             "intertwiners for both constituent Ext spaces",
             "source-selected W1/W2 rays recovered as mixed Cech/Koszul cocycles "
             "with exact full-standard-cover lifts",
+            "the atlas/common-frame relation is a uniform (2,0) character "
+            "on V1 and the identity on V2 after coordinate-lift normalization",
+            "the synchronized tensor H1 source-action support is a 2-by-2 "
+            "character rectangle, independent of outer extension parameters",
             "local dualizing-unit proofs at all six I3/I6 support points and "
             "twelve locally free affine rank-two pushout presentations",
             "sixty exact ordered overlap gauges forming global constituent "
@@ -4924,6 +5139,9 @@ def build_state() -> dict[str, object]:
             "the W1 atlas P extension-line scalar is 1 but the mixed frame "
             "uses omega; replacing only that scalar creates a 72-term "
             "outer-Hom chain commutator, so a one-entry repair is invalid",
+            "the same simple constituent pair cannot yield both fixed-Wilson "
+            "Higgs doublets without a color triplet under any factorwise "
+            "character shift; the atlas-bound shift leaves one antitriplet",
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
             "current curvilinear rank-four Chern type has the wrong quotient index",
             "declared monomial and transported finite linearization categories "

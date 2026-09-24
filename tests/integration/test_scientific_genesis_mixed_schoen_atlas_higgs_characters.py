@@ -13,7 +13,7 @@ from research.experiments.scientific_genesis.mixed_schoen_atlas_higgs_characters
 
 
 def test_constituent_atlas_character_ratios_are_derived_exactly() -> None:
-    """The four frame comparisons force one character on each simple factor."""
+    """Full-summand normalization forces one character on each simple factor."""
 
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     digest = payload.pop("artifact_digest")
@@ -22,14 +22,16 @@ def test_constituent_atlas_character_ratios_are_derived_exactly() -> None:
     assert payload["constituent_linearization_ratios"] == [
         {
             "constituent": "W1",
-            "atlas_over_synchronized_character": [2, 0],
+            "atlas_over_synchronized_character": [1, 0],
         },
         {
             "constituent": "W2",
             "atlas_over_synchronized_character": [0, 0],
         },
     ]
-    assert payload["tensor_atlas_over_synchronized_character"] == [2, 0]
+    assert payload["tensor_atlas_over_synchronized_character"] == [1, 0]
+    assert payload["homogeneous_lift_normalization_included"] is True
+    assert payload["raw_extension_line_ratio_used_as_tensor_character"] is False
     assert payload["source_pushdown_characters_used_as_construction_input"] is False
     assert payload["deck_generators_relabelled"] is False
     assert payload["character_twist_fitted"] is False
@@ -42,11 +44,18 @@ def test_atlas_higgs_characters_refute_the_selected_source_assignment() -> None:
 
     assert payload["exact"] is True
     assert payload["atlas_induced_h1_characters"] == [
+        [0, 0],
+        [0, 1],
         [1, 0],
         [1, 1],
-        [2, 0],
-        [2, 1],
     ]
+    assert payload["atlas_source_action_h1_characters"] == [
+        [0, 0],
+        [0, 2],
+        [2, 0],
+        [2, 2],
+    ]
+    assert payload["source_action_convention_applied"] is True
     assert payload["selected_source_h1_characters"] == [
         [0, 1],
         [0, 2],

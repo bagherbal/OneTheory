@@ -89,9 +89,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert path["criteria"]["lawful_higgs_h0_to_h3"] == [0, 4, 4, 0]
     assert path["criteria"]["lawful_wilson_projected_families"] == 3
-    assert path["criteria"]["lawful_wilson_projected_higgs_pairs"] == 1
+    assert path["criteria"]["lawful_wilson_projected_higgs_pairs"] == 0
     assert path["criteria"]["lawful_massless_color_triplets"] == 0
-    assert path["criteria"]["lawful_structural_spectrum_all_P1"] is True
+    assert path["criteria"]["lawful_structural_spectrum_all_P1"] is False
     assert path["criteria"]["prior_forward_computable_carrier_component"] == (
         "lawful-mixed-schoen-P1"
     )
@@ -102,6 +102,16 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["computable_carrier_component_frozen"] is False
     assert path["criteria"]["selected_quotient_determinant_character"] == [2, 1]
     assert path["criteria"]["selected_quotient_su4_certified"] is False
+    assert path["criteria"]["first_constituent_atlas_to_mixed_character"] == [2, 0]
+    assert path["criteria"]["second_constituent_atlas_to_mixed_character"] == [0, 0]
+    assert path["criteria"]["atlas_frame_comparison_exact"] is True
+    assert path["criteria"]["same_constituent_wilson_repair_available"] is False
+    assert path["criteria"]["current_full_chain_wilson_multiplicities"] == {
+        "up_higgs_doublet": 0,
+        "down_higgs_doublet": 1,
+        "color_triplet": 0,
+        "color_antitriplet": 0,
+    }
     assert (
         path["criteria"]["same_cover_bundle_relinearization_repair_available"]
         is False
@@ -110,9 +120,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["lawful_reverse_dual_matter_h0_to_h3"] == [0, 0, 27, 0]
     assert path["criteria"]["lawful_reverse_higgs_h0_to_h3"] == [0, 4, 4, 0]
     assert path["criteria"]["lawful_reverse_wilson_projected_families"] == 3
-    assert path["criteria"]["lawful_reverse_wilson_projected_higgs_pairs"] == 1
+    assert path["criteria"]["lawful_reverse_wilson_projected_higgs_pairs"] == 0
     assert path["criteria"]["lawful_reverse_massless_color_triplets"] == 0
-    assert path["criteria"]["lawful_reverse_structural_spectrum_all_P5"] is True
+    assert path["criteria"]["lawful_reverse_structural_spectrum_all_P5"] is False
     assert (
         path["criteria"][
             "lawful_reverse_spectrum_source_assertion_used_as_rank_input"
@@ -443,13 +453,18 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["selection_status"] == (
         "selected P1 and reverse P5 cover computations remain exact, "
         "but neither can be frozen as a physical quotient carrier "
-        "under the current determinant frame and fixed Wilson line"
+        "under the current determinant frame or the full-chain "
+        "fixed-Wilson Higgs gate"
     )
     assert path["next_required_object"] == (
-        "an exact atlas-to-common-resolution chain comparison "
-        "preserving determinant descent, or a distinct underlying "
-        "bundle with the required Wilson spectrum"
+        "a distinct constituent realization with a certified quotient "
+        "determinant and the fixed one-Higgs zero-triplet spectrum, "
+        "or an independent correction of the full-chain H1 premise"
     )
+    assert claims["selected_atlas_common_frame_comparison"]["status"] == (
+        "COMPUTED"
+    )
+    assert claims["same_constituent_wilson_shift_no_go"]["status"] == "REFUTED"
     assert claims["mixed_schoen_reverse_outer_universal_cone"]["status"] == (
         "COMPUTED"
     )
@@ -457,7 +472,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "PROVED"
     )
     assert claims["mixed_schoen_reverse_observable_spectrum"]["status"] == (
-        "COMPUTED"
+        "REFUTED"
     )
     assert claims["computable_carrier_state"]["status"] == "BLOCKED"
     assert claims["computable_reverse_carrier_state"]["status"] == "BLOCKED"
@@ -532,7 +547,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_matter_cohomology"]["status"] == "BLOCKED"
     assert claims["published_higgs_cohomology"]["status"] == "BLOCKED"
     assert claims["relative_constituent_pushdowns"]["status"] == "COMPUTED"
-    assert claims["mixed_schoen_observable_spectrum"]["status"] == "COMPUTED"
+    assert claims["mixed_schoen_observable_spectrum"]["status"] == "REFUTED"
     assert claims["physical_spectrum"]["status"] == "BLOCKED"
     assert claims["computable_carrier_state"]["status"] == "BLOCKED"
     assert claims["strict_mixed_matter_representatives"]["status"] == "COMPUTED"
@@ -544,6 +559,6 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     scheduler = state["research_value_scheduler"]
-    assert scheduler[0]["task"] == "source_chain_determinant_reconciliation"
+    assert scheduler[0]["task"] == "distinct_constituent_realization_screen"
     assert scheduler[1]["task"] == "distinct_su4_carrier_screen"
     assert state["fitted_inputs"] == []

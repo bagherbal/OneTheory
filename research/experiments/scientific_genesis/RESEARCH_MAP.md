@@ -457,9 +457,8 @@ The complete synchronized representation is now derived from one shared pair
 of ambient maps: its `H1` characters are `(0,0)`, `(0,1)`, `(2,0)`, and
 `(2,1)`. Exhausting the nine group characters proves that no uniform shift maps
 these to source characters `(0,1)`, `(0,2)`, `(1,2)`, and `(2,1)`. The
-remaining exact fork is a genuinely non-scalar atlas action or a proof that the
-selected source equivariant structure cannot be realized on this synchronized
-complex.
+former fork was a genuinely non-scalar atlas action versus a proof that the
+selected source structure cannot be realized on this synchronized complex.
 
 The exact self-Hom calculation resolves that fork for the same selected
 constituents. The synchronized degree-zero self-Hom maps have ranks `53/54`
@@ -470,19 +469,16 @@ tensor cohomology only by one uniform character shift. The exhaustive
 nine-shift mismatch therefore rules out every factorwise relinearization of
 these same V1/V2 objects, including non-scalar matrices introduced only by a
 resolution basis. It does not rule out unrelated constituent realizations.
-The shortest lawful frontier is now a direct atlas-cohomology derivation of the
-Higgs character representation; if that confirms the selected source labels,
-the current synchronized realization must be replaced rather than repaired.
+The later full-summand atlas comparison resolves the raw frame ambiguity;
+the same underlying constituent pair still cannot recover the source labels.
 
-Applying that theorem to the exact frame comparisons derives the atlas Higgs
-representation directly. W1 has atlas-over-synchronized character `(2,0)` and
-W2 has `(0,0)`, so the tensor shifts the complete current support to `(1,0)`,
-`(1,1)`, `(2,0)`, and `(2,1)`. The result is incompatible with source-bound
-characters `(0,1)`, `(0,2)`, `(1,2)`, and `(2,1)`. No source character entered
-the construction, and no generator was relabelled. The next exact object is
-therefore not another Higgs chain action: it is the character of every
-relative-pushdown line derived from the local constituent atlas, sufficient to
-locate the first source-convention mismatch.
+The earlier atlas-Higgs artifact used the ratio of raw line-frame entries as
+though the homogeneous fiber lift were unchanged. The corrected comparison
+shows the atlas-over-common character is `(1,0)` on W1, `(0,0)` on W2. It
+shifts forward full-chain Higgs support to `(0,0)`, `(0,1)`, `(1,0)`, `(1,1)`.
+The source section convention uses inverse pullback, giving `(0,0)`, `(0,2)`,
+`(2,0)`, `(2,2)`, still incompatible with the selected source multiset. No
+source character entered the construction, and no generator was relabelled.
 
 The first divergence is the action convention itself. The synchronized
 complex labels eigenspaces of forward pullback, while source representations
@@ -622,6 +618,23 @@ certified W1 atlas uses extension-line scalar `1` for deck generator `P`,
 whereas the common mixed-resolution frame uses `omega` on its corresponding
 line object. Replacing only that scalar by `1` is **not** a lawful repair:
 the reverse outer-Hom differential acquires a 72-term commutator on an exact
-degree-one seed. The atlas and common frame require a full chain-level
-comparison, including the resolution and line-trivialization conventions;
-neither scalar may be silently substituted for the other.
+degree-one seed. The exact homogeneous-lift comparison resolves this raw
+entry mismatch: the common first-factor fiber lift is `omega^2` times the
+atlas lift. On each Koszul summand, the coordinate and equation-unit scalings
+combine to its line degree, so the mixed W1 action is the atlas-bound action
+times a **uniform `(2,0)` character**. W2 uses the inverse atlas generator
+on its common factor and has no extra twist. Formal full-Čech basis tests
+check all objects and Koszul summands. The comparison does not produce a
+source-bound rank-four extension or trivialize its determinant.
+
+The full-chain tensor `H1`, converted to the source section convention, has
+rectangular character support `{0,1} × {0,2}`. Acyclic constituent
+determinants identify it with exterior-square `H1` for either nonsplit
+extension orientation, regardless of extension parameters. To retain both
+fixed-Wilson Higgs doublets, a character shift must be `(0,2)` or `(2,2)`;
+the first retains a color triplet, the second an antitriplet. The atlas-bound
+shift `(2,0)` has no up doublet and one antitriplet. This is a scoped no-go
+for the same selected simple constituent pair under all factorwise character
+relinearizations, not for distinct underlying constituents. The next
+discriminating task is to find a distinct source-faithful realization or to
+independently overturn the full-chain tensor-character premise.

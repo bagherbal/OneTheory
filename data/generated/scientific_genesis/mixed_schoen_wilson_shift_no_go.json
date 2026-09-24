@@ -1,0 +1,169 @@
+{
+  "artifact_digest": "394b20d51e5139d592b157927c59f6a700d0f793c43ca22623075d934f7ff8ea",
+  "atlas_bound_source_action_higgs_characters": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "atlas_bound_source_action_shift_from_mixed": [
+    2,
+    0
+  ],
+  "atlas_bound_wilson_multiplicities": {
+    "color_antitriplet": 1,
+    "color_triplet": 0,
+    "down_higgs_doublet": 1,
+    "up_higgs_doublet": 0
+  },
+  "both_doublet_shift_cases": [
+    {
+      "characters": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "shift": [
+        0,
+        2
+      ],
+      "wilson_multiplicities": {
+        "color_antitriplet": 0,
+        "color_triplet": 1,
+        "down_higgs_doublet": 1,
+        "up_higgs_doublet": 1
+      }
+    },
+    {
+      "characters": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "shift": [
+        2,
+        2
+      ],
+      "wilson_multiplicities": {
+        "color_antitriplet": 1,
+        "color_triplet": 0,
+        "down_higgs_doublet": 1,
+        "up_higgs_doublet": 1
+      }
+    }
+  ],
+  "both_doublets_without_triplets_possible": false,
+  "current_wilson_multiplicities": {
+    "color_antitriplet": 0,
+    "color_triplet": 0,
+    "down_higgs_doublet": 1,
+    "up_higgs_doublet": 0
+  },
+  "distinct_underlying_constituents_excluded": false,
+  "extension_parameters_can_change_h1_character_support": false,
+  "full_chain_forward_h1_characters": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "next_required_object": "a distinct constituent realization or an independent correction of the full-chain Higgs character premise",
+  "prerequisite_artifact_digests": {
+    "acyclic_determinants": "6ce8f4d2fc4ef815741d1c7146b038d310c7f626f9f8029851f4f80e9dfc2da3",
+    "atlas_frame_comparison": "cfe29b6f1a7fabd43a20a04000ec3a8b34159988003e4ffa5f3d50f9468ce72e",
+    "atlas_higgs_characters": "b75c56ddc6335d2d7f44100734646ef365851c470f16debb771005d2cb85af76",
+    "constituent_simplicity": "62ede068ba5956c476bd6c279f4778b0abe55f9b5f2a1156783ac903b5a1cf5a",
+    "full_chain_higgs_characters": "c478d94c1888bf7f6c44f570a8ac692c226acc2d16fe1976543db27216c431fe",
+    "source_action_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241"
+  },
+  "proof_steps": [
+    "acyclic endpoint determinants identify exterior-square H1 with tensor H1",
+    "simplicity restricts factorwise relinearizations to character shifts",
+    "inverse pullback converts full-chain labels to source section characters",
+    "both Wilson doublets force second-coordinate shift two",
+    "the first-coordinate support leaves only shifts (0,2) and (2,2)",
+    "those shifts respectively retain a triplet and an antitriplet"
+  ],
+  "rectangular_support": {
+    "first_coordinates": [
+      0,
+      1
+    ],
+    "second_coordinates": [
+      0,
+      2
+    ]
+  },
+  "schema": "mixed-schoen-wilson-shift-no-go-v1",
+  "scope": "the same selected simple V1/V2 cover objects, all factorwise character relinearizations, both nonsplit extension orientations, and the fixed published Wilson embedding",
+  "source_action_convention_applied": true,
+  "source_action_h1_characters": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "source_derived_pushdown_characters_used_as_rank_input": false
+}

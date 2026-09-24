@@ -645,11 +645,17 @@ its source-selected `(1,0)` ray. Of five I6 sectors, `(0,0)` and `(1,0)` fail
 the local-unit gate; `(0,1)`, `(1,1)`, and the source-selected `(2,1)` pass at
 all three support points. The two unused unit rays are distinct Ext rays,
 not character relinearizations of the selected ray. Full Čech
-closure and stalkwise freeness are exact, but no alternate common-Schoen deck
-atlas, quotient determinant, or Higgs character calculation exists yet.
+closure and stalkwise freeness are exact. A new full mixed-complex transfer
+computes cover `H1` for each unused ray: both have dimension four, from
+reduced dimensions `(129,464,426,91)` and differential ranks `(129,331)`.
+This uses the rank-two identity
+`Hom(V1,V2 tensor det(V1)) = V1 tensor V2`; the determinant cover degree
+is `(-2,2,0)`. The calculation does not establish an alternate common-Schoen
+deck atlas, quotient determinant, Higgs character, or Wilson-projected count.
 Both unused rays share the source ray's second deck character. Holding the
 other Serre and outer frames fixed, the subline character adjustment therefore
 has zero second component; the selected quotient determinant's nontrivial
 second character persists. Ray choice alone cannot yield `SU(4)`. A full
-common-Schoen relinearization with determinant and Higgs checks is the next
-discriminating gate; local units alone do not establish a physical carrier.
+common-Schoen relinearization with determinant and equivariant Higgs checks
+is the next discriminating gate; cover dimension alone does not establish a
+physical carrier.

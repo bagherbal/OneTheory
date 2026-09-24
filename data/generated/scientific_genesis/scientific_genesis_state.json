@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "75792acb8e8b803eaefaa46cdc74b477f8d66585a085883ad37b3728c6dcba2a",
+  "artifact_digest": "5b8ef15a4adad1e67b6a2e016ecf4e93d31d038fb7d2b4a6d6185ff8b0880714",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -467,6 +467,11 @@
       "sha256": "5c52bba573a5f48333fce65a74da5819d43b4f861b47c7c410e2288536105a97"
     },
     {
+      "bytes": 3194,
+      "path": "data/generated/scientific_genesis/alternate_constituent_higgs_dimensions.json",
+      "sha256": "57068875072c49512d5d4d17bce9bc2af8ce70ac202a5334e8423861881b587a"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -496,8 +501,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 209,
-    "test_python_files": 190
+    "research_python_files": 210,
+    "test_python_files": 191
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1034,6 +1039,26 @@
         "alternate common-Schoen deck atlases and quotient determinants"
       ],
       "statement": "The fixed I3/I6 presentations have seven one-dimensional joint Ext-character sectors. Full Cech lifts and exact local residue tests leave two unused I6 rays with local dualizing units. Their second deck characters cannot alone repair the selected quotient determinant. Their relinearized descent and Higgs data are open.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "fixed I3/I6 presentations",
+        "exact mixed Schoen transfer"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_higgs_dimensions.json",
+        "research/experiments/scientific_genesis/alternate_constituent_higgs_dimensions.py",
+        "tests/integration/test_scientific_genesis_alternate_constituent_higgs_dimensions.py"
+      ],
+      "id": "alternate_constituent_cover_h1",
+      "label": "cover Higgs cohomology for unused I6 rays",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "alternate quotient determinant",
+        "strict deck action on cover H1"
+      ],
+      "statement": "Each of the two unused locally free I6 Ext rays has exact cover H1 dimension four after the rank-two determinant twist. This does not supply alternate descent, deck characters, or Wilson projection.",
       "status": "COMPUTED"
     },
     {
@@ -2451,6 +2476,22 @@
       "mathematical_reason": "The complete joint Ext decomposition permits a finite ray screen; full Cech lifts and local residue evaluations test each sector.",
       "source": "published_constituent_deck_actions",
       "target": "distinct_constituent_ray_screen"
+    },
+    {
+      "assumptions_required": [
+        "fixed constituent line degrees",
+        "exact mixed transfer"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_higgs_dimensions.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "cover dimension alone does not determine invariant characters"
+      ],
+      "mathematical_reason": "The two local-unit rays admit full mixed-complex lifts; the rank-two identity converts the twisted Hom into their tensor.",
+      "source": "distinct_constituent_ray_screen",
+      "target": "alternate_constituent_cover_h1"
     },
     {
       "assumptions_required": [
@@ -4958,7 +4999,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "full common-Schoen relinearization, quotient determinant, and Higgs H1 for the two unused I6 local-unit rays",
+    "next_required_object": "full common-Schoen deck transfer, quotient determinant, and Wilson-projected Higgs characters for the two unused I6 rays",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
   },
   "research_value_scheduler": [

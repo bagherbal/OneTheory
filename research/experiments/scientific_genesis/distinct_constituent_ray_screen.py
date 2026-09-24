@@ -24,7 +24,9 @@ import json
 from pathlib import Path
 from typing import cast
 
+from onetheory.math.linear import Matrix, Vector
 from onetheory.math.numbers import OMEGA, Eisenstein
+from onetheory.models.heterotic_schoen.visible import InvariantSerreRay
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
 )
@@ -32,12 +34,18 @@ from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automo
 from .local_constituent_frames import published_local_constituent_frames
 from .published_constituent_deck_actions import (
     CHARACTERS,
+    PublishedConstituentDeckAction,
     _simultaneous_eigenspace,
     published_constituent_deck_actions,
 )
-from .published_constituent_full_cech import _full_differential, _lift_vector
+from .published_constituent_full_cech import (
+    PublishedConstituentFullCech,
+    _lift_vector,
+    _transferred_matches_reduced,
+)
 from .published_constituent_local_units import evaluate_local_unit
 from .published_constituent_ray_alignment import (
+    PublishedConstituentRayAlignment,
     _combine_representatives,
     _generator_cell_dimension,
     published_constituent_ray_alignments,
@@ -72,6 +80,53 @@ def _selected_determinant_character() -> tuple[int, int]:
     return character[0], character[1]
 
 
+def lift_joint_character_ray(
+    action: PublishedConstituentDeckAction,
+    p_character: Eisenstein,
+    t_character: Eisenstein,
+) -> PublishedConstituentFullCech:
+    """Lift a unique Ext eigenray without borrowing the source-selected ray."""
+
+    eigenspace = _simultaneous_eigenspace(
+        action.p_induced, action.t_induced, p_character, t_character
+    )
+    if len(eigenspace) != 1:
+        raise ValueError("this character must have exactly one Ext ray")
+    coefficients = eigenspace[0].values
+    extension = action.derived.extension
+    reduced = _combine_representatives(
+        extension.ext_one_representatives, coefficients
+    )
+    column = Matrix(
+        tuple((value,) for value in coefficients), scalar_type=Eisenstein
+    )
+    published_column = action.intertwiner @ column
+    ray = InvariantSerreRay(
+        f"candidate {action.published.name}",
+        Vector((row[0] for row in published_column.rows), scalar_type=Eisenstein),
+        action.published.p.inverse().scale(p_character),
+        action.published.t.inverse().scale(t_character),
+    )
+    alignment = PublishedConstituentRayAlignment(
+        action,
+        ray,
+        (p_character, t_character),
+        coefficients,
+        reduced,
+        _generator_cell_dimension(action),
+    )
+    full, depth = _lift_vector(extension, reduced, 1)
+    result = PublishedConstituentFullCech(
+        alignment,
+        full,
+        depth,
+        _transferred_matches_reduced(extension),
+    )
+    if not (alignment.closed and result.transferred_matches_reduced and result.full_closed):
+        raise ValueError("the candidate Ext ray failed its full Čech lift")
+    return result
+
+
 def distinct_constituent_ray_screen() -> dict[str, object]:
     """Test every one-dimensional joint Ext sector of the fixed point schemes."""
 
@@ -98,15 +153,15 @@ def distinct_constituent_ray_screen() -> dict[str, object]:
                     raise ValueError(
                         "a higher-dimensional character sector needs a family screen"
                     )
-                coefficients = eigenspace[0].values
-                reduced = _combine_representatives(
-                    extension.ext_one_representatives, coefficients
+                lifted = lift_joint_character_ray(
+                    action, p_character, t_character
                 )
-                full, depth = _lift_vector(extension, reduced, 1)
-                reduced_closed = extension.total.differential(1)(reduced).is_zero()
-                full_closed = _full_differential(full, extension).is_zero()
-                if not reduced_closed or not full_closed:
-                    raise ValueError("an Ext ray did not lift to a closed cocycle")
+                coefficients = lifted.alignment.derived_coordinates
+                reduced = lifted.alignment.representative
+                full = lifted.representative
+                depth = lifted.inclusion_depth
+                reduced_closed = lifted.alignment.closed
+                full_closed = lifted.full_closed
                 local = tuple(
                     evaluate_local_unit(extension, full, frame)
                     for frame in frames

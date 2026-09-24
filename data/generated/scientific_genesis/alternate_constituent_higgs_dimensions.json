@@ -1,0 +1,185 @@
+{
+  "alternate_deck_atlases_constructed": false,
+  "alternate_higgs_characters_computed": false,
+  "alternate_quotient_determinants_certified": false,
+  "artifact_digest": "6a8fb496bdf58cc8d8d2aac23699d54d9b4fab33e647c08ba838a3cf47c38eff",
+  "cases": [
+    {
+      "differential_ranks": [
+        [
+          0,
+          129
+        ],
+        [
+          1,
+          331
+        ]
+      ],
+      "full_lift_depth": 2,
+      "h1_dimension": 4,
+      "map_digests": [
+        [
+          0,
+          "624e757abebfef684c9cd179ae235b1b04aa4f580a4f1d826677fdfb504cdb78"
+        ],
+        [
+          1,
+          "94e42fbd6d8d4225f0ad0d948de1431763aec514601ec5c021482530bdd5ab43"
+        ]
+      ],
+      "ray_character_exponents": [
+        0,
+        1
+      ],
+      "space_dimensions": [
+        [
+          -3,
+          0
+        ],
+        [
+          -2,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          129
+        ],
+        [
+          1,
+          464
+        ],
+        [
+          2,
+          426
+        ],
+        [
+          3,
+          91
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "squared_zero_through_degree_one": true,
+      "transfer_path_depths": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "differential_ranks": [
+        [
+          0,
+          129
+        ],
+        [
+          1,
+          331
+        ]
+      ],
+      "full_lift_depth": 2,
+      "h1_dimension": 4,
+      "map_digests": [
+        [
+          0,
+          "cbf7349d0f4de31cbbd90781e4794ecaf679186dafb8e1c2ed02c138b1ddf978"
+        ],
+        [
+          1,
+          "10793696287e7083194668be3764ff3e88665653f74cbf7fab2326b824808eec"
+        ]
+      ],
+      "ray_character_exponents": [
+        1,
+        1
+      ],
+      "space_dimensions": [
+        [
+          -3,
+          0
+        ],
+        [
+          -2,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          129
+        ],
+        [
+          1,
+          464
+        ],
+        [
+          2,
+          426
+        ],
+        [
+          3,
+          91
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "squared_zero_through_degree_one": true,
+      "transfer_path_depths": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          7
+        ]
+      ]
+    }
+  ],
+  "identity": "Hom(V1,V2 tensor det(V1)) = V1 tensor V2 for rank-two V1",
+  "next_required_object": "alternate common-Schoen deck transfer and quotient determinant; then invariant cover H1 characters and Wilson projection",
+  "physical_higgs_spectrum_established": false,
+  "schema": "alternate-constituent-higgs-dimensions-v1",
+  "scope": "cover H1 only for two local-unit I6 rays in the fixed presentation",
+  "v1_determinant_cover_degree": [
+    -2,
+    2,
+    0
+  ],
+  "v2_hom_twist_after_identity": [
+    -1,
+    1,
+    0
+  ]
+}

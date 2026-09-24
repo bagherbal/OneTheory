@@ -668,6 +668,26 @@ def _nodes() -> list[dict[str, object]]:
             ("alternate common-Schoen deck atlases and quotient determinants",),
         ),
         _node(
+            "alternate_constituent_cover_h1",
+            "cover Higgs cohomology for unused I6 rays",
+            "Computable carrier",
+            "COMPUTED",
+            "Each of the two unused locally free I6 Ext rays has exact cover "
+            "H1 dimension four after the rank-two determinant twist. This "
+            "does not supply alternate descent, deck characters, or Wilson "
+            "projection.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_higgs_dimensions.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_higgs_dimensions.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_higgs_dimensions.py",
+            ),
+            ("fixed I3/I6 presentations", "exact mixed Schoen transfer"),
+            ("alternate quotient determinant", "strict deck action on cover H1"),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2332,6 +2352,19 @@ def _edges() -> list[dict[str, object]]:
             ("fixed I3/I6 presentations", "exact local lci frames"),
             True,
             ("local units alone do not certify quotient descent or Higgs data",),
+        ),
+        _edge(
+            "distinct_constituent_ray_screen",
+            "alternate_constituent_cover_h1",
+            "The two local-unit rays admit full mixed-complex lifts; the "
+            "rank-two identity converts the twisted Hom into their tensor.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_higgs_dimensions.json",
+            ),
+            ("fixed constituent line degrees", "exact mixed transfer"),
+            True,
+            ("cover dimension alone does not determine invariant characters",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -4483,6 +4516,24 @@ def build_state() -> dict[str, object]:
         or ray_screen.get("alternate_higgs_characters_computed") is not False
     ):
         raise ValueError("the unused constituent-ray screen is not certified")
+    cover_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_higgs_dimensions.json"
+    )
+    cover = json.loads(cover_path.read_text(encoding="utf-8"))
+    cover_digest = cover.pop("artifact_digest", None)
+    cases = cover.get("cases", [])
+    if (
+        cover_digest != _canonical_digest(cover)
+        or cover.get("schema") != "alternate-constituent-higgs-dimensions-v1"
+        or [case.get("ray_character_exponents") for case in cases]
+        != [[0, 1], [1, 1]]
+        or any(case.get("h1_dimension") != 4 for case in cases)
+        or cover.get("alternate_quotient_determinants_certified") is not False
+        or cover.get("alternate_higgs_characters_computed") is not False
+        or cover.get("physical_higgs_spectrum_established") is not False
+    ):
+        raise ValueError("the alternate cover H1 result is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -4659,6 +4710,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/relative_constituent_pushdowns.json",
         "data/generated/scientific_genesis/"
         "distinct_constituent_ray_screen.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_higgs_dimensions.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -5040,8 +5093,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "full common-Schoen relinearization, quotient determinant, and "
-                "Higgs H1 for the two unused I6 local-unit rays"
+                "full common-Schoen deck transfer, quotient determinant, and "
+                "Wilson-projected Higgs characters for the two unused I6 rays"
             ),
         },
         "claims": _nodes(),

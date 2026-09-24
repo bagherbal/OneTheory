@@ -438,3 +438,7 @@ off-diagonal map. Thus every same-bundle deck relinearization is a common
 character twist. No relinearization of this selected underlying bundle
 repairs both determinant and fixed Wilson spectrum. A distinct underlying
 bundle or an independently corrected determinant frame remains open.
+The W1 atlas and common mixed-resolution frame use different `P` scalars
+on the extension line (`1` versus `omega`). A direct scalar swap breaks the
+outer-Hom chain action, so determinant reconciliation requires an exact
+atlas-to-common-resolution comparison rather than a one-entry patch.

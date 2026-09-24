@@ -474,7 +474,8 @@ def _nodes() -> list[dict[str, object]]:
             "vanishing and constituent simplicity make every nonsplit selected "
             "extension simple, so the unique determinant-cancelling twist "
             "exhausts same-bundle relinearizations. It fails the fixed Wilson "
-            "spectrum; a distinct published carrier is not refuted.",
+            "spectrum. An atlas-to-common-frame comparison is still missing; "
+            "a distinct published carrier is not refuted.",
             (
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_determinant_descent.json",
@@ -4149,7 +4150,7 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             1,
-            "Tests whether the selected frame matches the published determinant descent.",
+            "Resolve the atlas/common-frame mismatch without breaking the chain law.",
         ),
         (
             "distinct_su4_carrier_screen",
@@ -4764,9 +4765,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "an independent correction of the selected determinant frame "
-                "or a distinct underlying bundle with trivial quotient "
-                "determinant and the required Wilson spectrum"
+                "an exact atlas-to-common-resolution chain comparison "
+                "preserving determinant descent, or a distinct underlying "
+                "bundle with the required Wilson spectrum"
             ),
         },
         "claims": _nodes(),
@@ -4920,6 +4921,9 @@ def build_state() -> dict[str, object]:
             "both cross-Hom H0 spaces vanish and both constituents are simple; "
             "every nonsplit selected P1/P5 extension is simple, so no other "
             "same-bundle linearization can repair the fixed Wilson spectrum",
+            "the W1 atlas P extension-line scalar is 1 but the mixed frame "
+            "uses omega; replacing only that scalar creates a 72-term "
+            "outer-Hom chain commutator, so a one-entry repair is invalid",
             "declared projective Tier A ray pairs have zero invariant Ext-one classes",
             "current curvilinear rank-four Chern type has the wrong quotient index",
             "declared monomial and transported finite linearization categories "

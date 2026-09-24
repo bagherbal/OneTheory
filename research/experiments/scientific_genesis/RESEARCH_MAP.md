@@ -616,3 +616,12 @@ independent source-faithful realization or a different underlying bundle.
 The published lower-bound proposition certifies equivariant stability; this
 simplicity argument deliberately does not infer ordinary cover stability
 from it.
+
+The immediate source-frame reconciliation has an exact local diagnostic. The
+certified W1 atlas uses extension-line scalar `1` for deck generator `P`,
+whereas the common mixed-resolution frame uses `omega` on its corresponding
+line object. Replacing only that scalar by `1` is **not** a lawful repair:
+the reverse outer-Hom differential acquires a 72-term commutator on an exact
+degree-one seed. The atlas and common frame require a full chain-level
+comparison, including the resolution and line-trivialization conventions;
+neither scalar may be silently substituted for the other.

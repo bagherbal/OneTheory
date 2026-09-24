@@ -446,9 +446,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "under the current determinant frame and fixed Wilson line"
     )
     assert path["next_required_object"] == (
-        "an independent correction of the selected determinant frame "
-        "or a distinct underlying bundle with trivial quotient "
-        "determinant and the required Wilson spectrum"
+        "an exact atlas-to-common-resolution chain comparison "
+        "preserving determinant descent, or a distinct underlying "
+        "bundle with the required Wilson spectrum"
     )
     assert claims["mixed_schoen_reverse_outer_universal_cone"]["status"] == (
         "COMPUTED"

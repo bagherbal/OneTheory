@@ -18,15 +18,24 @@ from pathlib import Path
 
 import pytest
 
-from onetheory.math.numbers import Eisenstein
+from onetheory.math.linear import Matrix
+from onetheory.math.numbers import OMEGA, Eisenstein
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
+)
+from research.experiments.computable_carrier.schoen_serre_outer_transfer import (
+    SparseOuterCechCochain,
+    _include,
+    _reduced_basis,
 )
 from research.experiments.computable_carrier.schoen_sparse_actions import (
     schoen_sparse_deck_actions,
 )
 from research.experiments.scientific_genesis import (
     mixed_schoen_determinant_descent as descent_module,
+)
+from research.experiments.scientific_genesis import (
+    mixed_schoen_outer_actions as outer_actions_module,
 )
 from research.experiments.scientific_genesis.diagonal_schoen_line_actions import (
     diagonal_line_full_action,
@@ -107,6 +116,62 @@ def test_same_bundle_gate_rejects_nonzero_cross_hom(
             "rank_four_uniform_twist": [1, 2],
             "one_higgs_zero_triplet_spectrum_preserved": False,
         })
+
+
+def test_atlas_extension_line_scalar_is_not_a_standalone_chain_repair(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    atlas_path = (
+        Path(__file__).resolve().parents[2]
+        / "data/generated/scientific_genesis/published_constituent_deck_atlases.json"
+    )
+    atlas = json.loads(atlas_path.read_text(encoding="utf-8"))
+    assert atlas.pop("artifact_digest") == _canonical_digest(atlas)
+    w1 = next(item for item in atlas["atlases"] if item["constituent"] == "W1")
+    assert {
+        item["extension_line_character"]
+        for item in w1["comparisons"] if item["generator"] == "P"
+    } == {"1"}
+
+    original_frame = outer_actions_module._constituent_frame
+    assert original_frame(1, "P")[0][0] == OMEGA
+    contraction = outer_actions_module._orientation_contraction(1)
+    entries = _reduced_basis(
+        contraction.left_skeleton, contraction.right_skeleton, 1
+    )
+    seed = _include(next(
+        entry for entry in entries if entry.component.right_index == 0
+    ))
+    p_action = next(
+        action for action in schoen_sparse_deck_actions() if action.name == "P"
+    )
+
+    def commutator() -> SparseOuterCechCochain:
+        acted = outer_actions_module._full_action(
+            seed, contraction.left, contraction.right, p_action
+        )
+        acted_boundary = outer_actions_module._full_action(
+            contraction.differential(seed),
+            contraction.left,
+            contraction.right,
+            p_action,
+        )
+        return contraction.differential(acted) + acted_boundary.scale(-1)
+
+    assert commutator().is_zero()
+
+    def naive_atlas_line_frame(factor: int, generator: str) -> Matrix:
+        frame = original_frame(factor, generator)
+        if (factor, generator) != (1, "P"):
+            return frame
+        rows = [list(row) for row in frame.rows]
+        rows[0][0] = Eisenstein(1)
+        return Matrix(rows, scalar_type=Eisenstein)
+
+    monkeypatch.setattr(
+        outer_actions_module, "_constituent_frame", naive_atlas_line_frame
+    )
+    assert len(commutator().terms) == 72
 
 
 def test_scalar_top_class_detects_the_same_frame_character() -> None:

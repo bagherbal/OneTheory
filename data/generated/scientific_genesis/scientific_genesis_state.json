@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "9800ddd58c70793b4f82dffc8aee07cd9622d41678fdba3971e1d0065e5740bd",
+  "artifact_digest": "e12a915711e0f4751f2d263650aa2bca7cc5ccaba1c8398233cd03eee88f90c4",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -862,7 +862,7 @@
       "label": "selected mixed quotient determinant descent",
       "layer": "Computable carrier",
       "missing_prerequisites": [],
-      "statement": "The selected constituent frames have cancelling cover line degrees but total equivariant determinant character (2,1). The scalar top class has the same nontrivial framed character. Exact cross-Hom vanishing and constituent simplicity make every nonsplit selected extension simple, so the unique determinant-cancelling twist exhausts same-bundle relinearizations. It fails the fixed Wilson spectrum; a distinct published carrier is not refuted.",
+      "statement": "The selected constituent frames have cancelling cover line degrees but total equivariant determinant character (2,1). The scalar top class has the same nontrivial framed character. Exact cross-Hom vanishing and constituent simplicity make every nonsplit selected extension simple, so the unique determinant-cancelling twist exhausts same-bundle relinearizations. It fails the fixed Wilson spectrum. An atlas-to-common-frame comparison is still missing; a distinct published carrier is not refuted.",
       "status": "REFUTED"
     },
     {
@@ -4738,13 +4738,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "an independent correction of the selected determinant frame or a distinct underlying bundle with trivial quotient determinant and the required Wilson spectrum",
+    "next_required_object": "an exact atlas-to-common-resolution chain comparison preserving determinant descent, or a distinct underlying bundle with the required Wilson spectrum",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame and fixed Wilson line"
   },
   "research_value_scheduler": [
     {
       "priority_score": 65.0,
-      "rationale": "Tests whether the selected frame matches the published determinant descent.",
+      "rationale": "Resolve the atlas/common-frame mismatch without breaking the chain law.",
       "scores": {
         "computational_cost": 2,
         "distance_to_observable": 5,
@@ -5048,6 +5048,7 @@
     "the selected mixed constituent frames have total determinant character (2,1), so this quotient SU(4) claim is uncertified; a distinct published carrier is not refuted",
     "the unique common rank-four character twist that cancels the selected determinant removes both Higgs doublet sectors and introduces a color-antitriplet under the fixed Wilson line",
     "both cross-Hom H0 spaces vanish and both constituents are simple; every nonsplit selected P1/P5 extension is simple, so no other same-bundle linearization can repair the fixed Wilson spectrum",
+    "the W1 atlas P extension-line scalar is 1 but the mixed frame uses omega; replacing only that scalar creates a 72-term outer-Hom chain commutator, so a one-entry repair is invalid",
     "declared projective Tier A ray pairs have zero invariant Ext-one classes",
     "current curvilinear rank-four Chern type has the wrong quotient index",
     "declared monomial and transported finite linearization categories have no complete commuting lift pairs where recorded",

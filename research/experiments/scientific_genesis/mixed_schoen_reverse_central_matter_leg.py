@@ -291,7 +291,7 @@ class ReverseCentralDirectTrace:
     """Unprojected exact scalar trace with closure explicitly unresolved."""
 
     parameter: str
-    retained_matter_terms: int
+    ordered_matter_terms: int
     scalar: _FullCochain
     scalar_residual: _FullCochain
 
@@ -300,7 +300,9 @@ class ReverseCentralDirectTrace:
 
         return {
             "parameter": self.parameter,
-            "retained_matter_terms": self.retained_matter_terms,
+            "ordered_matter_terms_before_cross_order_cancellation": (
+                self.ordered_matter_terms
+            ),
             "scalar_term_count": len(self.scalar.terms),
             "scalar_digest": _full_cochain_digest(self.scalar),
             "scalar_residual_term_count": len(self.scalar_residual.terms),
@@ -311,7 +313,7 @@ class ReverseCentralDirectTrace:
 
 
 def reverse_central_direct_trace(parameter_index: int) -> ReverseCentralDirectTrace:
-    """Trace only object pairs supported by the exact determinant map."""
+    """Trace supported ordered products separately, then add their scalars."""
 
     parameter, row_v1, column_v1, row_v2, column_v2 = _physical_lifts(
         parameter_index
@@ -321,22 +323,20 @@ def reverse_central_direct_trace(parameter_index: int) -> ReverseCentralDirectTr
         for item in chain_diagonal_objects()
         if _pairing_terms(item.first_index, item.second_index)
     )
-    first = external_lifted_matter_tensor(
-        row_v1, column_v2, allowed_pairs
-    )
-    second = external_lifted_matter_tensor(
-        column_v1, row_v2, allowed_pairs
-    )
-    raw = first + second
-    del first, second
-    retained_matter_terms = len(raw.terms)
-    scalar = contract_with_strict_higgs(
-        raw, load_certified_higgs_representative()
-    )
-    del raw
+    higgs = load_certified_higgs_representative()
+    first = external_lifted_matter_tensor(row_v1, column_v2, allowed_pairs)
+    first_count = len(first.terms)
+    first_scalar = contract_with_strict_higgs(first, higgs)
+    del first
+    second = external_lifted_matter_tensor(column_v1, row_v2, allowed_pairs)
+    second_count = len(second.terms)
+    second_scalar = contract_with_strict_higgs(second, higgs)
+    del second
+    scalar = _FullCochain(first_scalar.terms + second_scalar.terms)
+    del first_scalar, second_scalar
     return ReverseCentralDirectTrace(
         parameter,
-        retained_matter_terms,
+        first_count + second_count,
         scalar,
         scalar_full_differential(scalar),
     )

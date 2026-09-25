@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "1ecb506d5b162529e21b1f8c5150af500ffa6fb6526e4f15df0c10231e9e4f7b",
+  "artifact_digest": "7dbd9d8b46952b989b76bf8eb6f44a10329759203f2b5c2ca6b678722dac3044",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -492,6 +492,11 @@
       "sha256": "239f333b4a543149dd60d2020ea54455d78eafde6b43d33dddb37dad037a3a8b"
     },
     {
+      "bytes": 962,
+      "path": "data/generated/scientific_genesis/alternate_constituent_outer_ext.json",
+      "sha256": "0cfb3319c1aeb598821514207805f0d41b1e565f0b2c063b008c03b9ec61dc7c"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -521,8 +526,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 214,
-    "test_python_files": 195
+    "research_python_files": 215,
+    "test_python_files": 196
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1162,6 +1167,26 @@
         "Higgs cocycles"
       ],
       "statement": "The rank-two equivariant Hom identity and acyclic determinant filtration show that, if an equivariant outer extension exists, the unique common determinant repair gives ray (0,1) one Higgs pair without triplets. Ray (1,1) retains both triplet sectors. No outer cone or physical Higgs cocycle is constructed.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "ray (0,1) exact constituent",
+        "mixed Schoen outer transfer"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_outer_ext.json",
+        "research/experiments/scientific_genesis/alternate_constituent_outer_ext.py",
+        "tests/integration/test_scientific_genesis_alternate_constituent_outer_ext.py"
+      ],
+      "id": "alternate_constituent_outer_cover_ext",
+      "label": "cover outer Ext for the surviving I6 ray",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "deck-invariant Ext basis",
+        "equivariant universal cone"
+      ],
+      "statement": "For ray (0,1), the exact outer Hom(V2,V1) transfer has reduced dimensions (1512,4536,4824), differential ranks (1512,3006), square-zero differential, H0 dimension zero, and cover Ext1 dimension 18. No invariant Ext class or cone is claimed.",
       "status": "COMPUTED"
     },
     {
@@ -2690,6 +2715,22 @@
       "mathematical_reason": "The unique common rank-four character twist cancels each exact total determinant. Acyclic determinant endpoints then identify H1 of a hypothetical exterior-square extension with tensor H1; the fixed Wilson weights distinguish the two rays.",
       "source": "alternate_constituent_determinant_obstruction",
       "target": "alternate_constituent_character_screen"
+    },
+    {
+      "assumptions_required": [
+        "fixed ray (0,1) atlas",
+        "exact reduced Schoen transfer"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_outer_ext.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "positive cover Ext does not imply invariant Ext"
+      ],
+      "mathematical_reason": "The only ray surviving the determinant-repaired conditional Higgs screen selects a concrete pair of exact mixed constituents. The existing outer-Hom transfer then computes cover Ext1(V2,V1).",
+      "source": "alternate_constituent_character_screen",
+      "target": "alternate_constituent_outer_cover_ext"
     },
     {
       "assumptions_required": [
@@ -4552,6 +4593,7 @@
     "the proposed reverse P5 physical freeze is blocked by its nontrivial selected quotient determinant character",
     "both unused I6 atlas rays have exact common-coordinate total determinant characters (2,1) and (0,1), confirmed on scalar H3",
     "the unique common determinant repairs have conditional Higgs characters: ray (0,1) passes the fixed Wilson doublet/triplet screen, while ray (1,1) retains both triplet sectors",
+    "the surviving alternate ray (0,1) has exact cover Ext1(V2,V1) dimension 18 from square-zero mixed outer differentials; deck invariance remains uncomputed",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -4647,6 +4689,8 @@
       ],
       "alternate_fixed_atlas_su4_excluded": true,
       "alternate_other_linearisations_excluded": false,
+      "alternate_ray_0_1_cover_ext1_dimension": 18,
+      "alternate_ray_0_1_invariant_ext_unresolved": true,
       "alternate_repaired_higgs_outer_extension_constructed": false,
       "alternate_repaired_higgs_screen_conditional": true,
       "alternate_repaired_higgs_screen_survivor": [
@@ -5217,7 +5261,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "construct invariant outer Ext and a determinant-repaired universal extension for ray (0,1) before stability and full spectrum",
+    "next_required_object": "derive invariant outer Ext for ray (0,1), then construct its determinant-repaired universal extension",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
   },
   "research_value_scheduler": [

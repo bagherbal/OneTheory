@@ -1,0 +1,31 @@
+{
+  "artifact_digest": "c0828c66a7bc63b51b152f4d954b3daace5e042755be1b73b37d7be4ab2858b7",
+  "cover_ext1_dimension": 18,
+  "cover_h0_dimension": 0,
+  "d_squared_zero": true,
+  "determinant_repaired_universal_cone_constructed": false,
+  "differential_ranks_degree_0_to_1": [
+    1512,
+    3006
+  ],
+  "invariant_ext1_dimension_computed": false,
+  "next_required_object": "transfer the exact atlas P/T action to outer Ext1, determine its invariant locus, then construct the universal cone",
+  "outer_extension_constructed": false,
+  "outer_orientation": "Hom(V2,V1)",
+  "ray_character_exponents": [
+    0,
+    1
+  ],
+  "reduced_dimensions_degree_0_to_2": [
+    1512,
+    4536,
+    4824
+  ],
+  "schema": "alternate-constituent-outer-ext-v1",
+  "scope": "cover Ext of V2 into V1 for the unused I6 ray (0,1)",
+  "screen_artifact_digest": "cdc850d9e75dbbe17de37b3537db78bd5a3fa8ed22dd09395fbe671fc64782d1",
+  "transfer_path_depths_degree_0_to_1": [
+    4,
+    4
+  ]
+}

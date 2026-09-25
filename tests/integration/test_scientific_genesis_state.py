@@ -112,6 +112,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         path["criteria"]["alternate_repaired_higgs_outer_extension_constructed"]
         is False
     )
+    assert path["criteria"]["alternate_ray_0_1_cover_ext1_dimension"] == 18
+    assert path["criteria"]["alternate_ray_0_1_invariant_ext_unresolved"] is True
     assert path["criteria"]["selected_quotient_su4_certified"] is False
     assert path["criteria"]["first_constituent_atlas_to_mixed_character"] == [2, 0]
     assert path["criteria"]["second_constituent_atlas_to_mixed_character"] == [0, 0]
@@ -468,8 +470,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "fixed-Wilson Higgs gate"
     )
     assert path["next_required_object"] == (
-        "construct invariant outer Ext and a determinant-repaired "
-        "universal extension for ray (0,1) before stability and full spectrum"
+        "derive invariant outer Ext for ray (0,1), then construct its "
+        "determinant-repaired universal extension"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"
@@ -564,6 +566,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "COMPUTED"
     )
     assert claims["alternate_constituent_character_screen"]["status"] == "COMPUTED"
+    assert claims["alternate_constituent_outer_cover_ext"]["status"] == "COMPUTED"
     assert claims["alternate_constituent_hom_cycle_actions"]["status"] == "COMPUTED"
     assert "determinant-trivial carrier" in claims[
         "alternate_constituent_cover_h1"

@@ -707,3 +707,15 @@ determinant-repaired universal cone, stability, and explicit Higgs cocycles
 are still absent. Ray `(0,1)` is the preferred next carrier test because it
 alone survives this selected structural spectrum gate; no extension point is
 chosen.
+
+The first direct outer-extension test for ray `(0,1)` uses the existing
+synchronized mixed Schoen transfer in the actual `Hom(V2,V1)` orientation.
+Its reduced dimensions in degrees zero through two are `(1512,4536,4824)`;
+the first two differential ranks are `(1512,3006)`, with exact square-zero
+composition. Thus `H0=0` and cover `Ext1(V2,V1)` has dimension `18`. These
+ranks match the previously selected constituent pair, suggesting a
+family-level constancy question but not proving one. The atlas-derived deck
+action on this Ext space has not yet been transferred, so invariant Ext,
+equivariant outer extension, and determinant-repaired universal cone remain
+unavailable. A strict full-cocycle invariant construction is the next gate;
+it can avoid brute-force action checks on all 1,512 boundaries.

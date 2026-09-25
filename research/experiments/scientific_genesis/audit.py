@@ -769,6 +769,26 @@ def _nodes() -> list[dict[str, object]]:
             ("invariant outer Ext", "universal cone", "stability", "Higgs cocycles"),
         ),
         _node(
+            "alternate_constituent_outer_cover_ext",
+            "cover outer Ext for the surviving I6 ray",
+            "Computable carrier",
+            "COMPUTED",
+            "For ray (0,1), the exact outer Hom(V2,V1) transfer has reduced "
+            "dimensions (1512,4536,4824), differential ranks (1512,3006), "
+            "square-zero differential, H0 dimension zero, and cover Ext1 "
+            "dimension 18. No invariant Ext class or cone is claimed.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_outer_ext.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_outer_ext.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_outer_ext.py",
+            ),
+            ("ray (0,1) exact constituent", "mixed Schoen outer transfer"),
+            ("deck-invariant Ext basis", "equivariant universal cone"),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2531,6 +2551,20 @@ def _edges() -> list[dict[str, object]]:
             ("an equivariant outer extension must exist", "published Wilson embedding"),
             True,
             ("conditional character selection does not construct a carrier",),
+        ),
+        _edge(
+            "alternate_constituent_character_screen",
+            "alternate_constituent_outer_cover_ext",
+            "The only ray surviving the determinant-repaired conditional Higgs "
+            "screen selects a concrete pair of exact mixed constituents. "
+            "The existing outer-Hom transfer then computes cover Ext1(V2,V1).",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_outer_ext.json",
+            ),
+            ("fixed ray (0,1) atlas", "exact reduced Schoen transfer"),
+            True,
+            ("positive cover Ext does not imply invariant Ext",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -4814,6 +4848,31 @@ def build_state() -> dict[str, object]:
         or screen.get("physical_carrier_frozen") is not False
     ):
         raise ValueError("the conditional alternate character screen is invalid")
+    alternate_outer_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_outer_ext.json"
+    )
+    alternate_outer = json.loads(alternate_outer_path.read_text(encoding="utf-8"))
+    alternate_outer_digest = alternate_outer.pop("artifact_digest", None)
+    if (
+        alternate_outer_digest != _canonical_digest(alternate_outer)
+        or alternate_outer.get("schema") != "alternate-constituent-outer-ext-v1"
+        or alternate_outer.get("screen_artifact_digest") != screen_digest
+        or alternate_outer.get("ray_character_exponents") != [0, 1]
+        or alternate_outer.get("outer_orientation") != "Hom(V2,V1)"
+        or alternate_outer.get("reduced_dimensions_degree_0_to_2")
+        != [1512, 4536, 4824]
+        or alternate_outer.get("differential_ranks_degree_0_to_1")
+        != [1512, 3006]
+        or alternate_outer.get("d_squared_zero") is not True
+        or alternate_outer.get("cover_h0_dimension") != 0
+        or alternate_outer.get("cover_ext1_dimension") != 18
+        or alternate_outer.get("invariant_ext1_dimension_computed") is not False
+        or alternate_outer.get("outer_extension_constructed") is not False
+        or alternate_outer.get("determinant_repaired_universal_cone_constructed")
+        is not False
+    ):
+        raise ValueError("the alternate outer cover Ext is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5000,6 +5059,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_hom_actions.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_character_screen.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_outer_ext.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -5171,6 +5232,8 @@ def build_state() -> dict[str, object]:
                 "alternate_repaired_higgs_screen_survivor": [0, 1],
                 "alternate_repaired_higgs_screen_conditional": True,
                 "alternate_repaired_higgs_outer_extension_constructed": False,
+                "alternate_ray_0_1_cover_ext1_dimension": 18,
+                "alternate_ray_0_1_invariant_ext_unresolved": True,
                 "first_constituent_atlas_to_mixed_character": frame[
                     "first_constituent_uniform_twist"
                 ],
@@ -5390,8 +5453,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "construct invariant outer Ext and a determinant-repaired "
-                "universal extension for ray (0,1) before stability and full spectrum"
+                "derive invariant outer Ext for ray (0,1), then construct its "
+                "determinant-repaired universal extension"
             ),
         },
         "claims": _nodes(),
@@ -5440,6 +5503,9 @@ def build_state() -> dict[str, object]:
             "the unique common determinant repairs have conditional Higgs "
             "characters: ray (0,1) passes the fixed Wilson doublet/triplet "
             "screen, while ray (1,1) retains both triplet sectors",
+            "the surviving alternate ray (0,1) has exact cover Ext1(V2,V1) "
+            "dimension 18 from square-zero mixed outer differentials; "
+            "deck invariance remains uncomputed",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

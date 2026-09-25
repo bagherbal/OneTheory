@@ -766,7 +766,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_alternate_constituent_character_screen.py",
             ),
             ("exact alternate Hom action", "fixed Wilson weights", "acyclic determinant lines"),
-            ("invariant outer Ext", "universal cone", "stability", "Higgs cocycles"),
+            ("universal cone", "stability", "Higgs cocycles"),
         ),
         _node(
             "alternate_constituent_outer_cover_ext",
@@ -787,6 +787,27 @@ def _nodes() -> list[dict[str, object]]:
             ),
             ("ray (0,1) exact constituent", "mixed Schoen outer transfer"),
             ("deck-invariant Ext basis", "equivariant universal cone"),
+        ),
+        _node(
+            "alternate_constituent_outer_invariants",
+            "strict invariant outer Ext for the surviving I6 ray",
+            "Computable carrier",
+            "COMPUTED",
+            "Exact full-Cech Reynolds averaging of all 18 cover classes "
+            "gives a two-dimensional invariant Ext1(V2,V1) space for ray "
+            "(0,1). Two independent full representatives are closed and "
+            "strictly P/T fixed. No extension point, universal cone, or "
+            "stability chamber is claimed.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_outer_invariants.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_outer_invariants.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_outer_invariants.py",
+            ),
+            ("exact cover Ext basis", "fixed ray (0,1) deck atlas"),
+            ("universal equivariant outer cone", "lawful stable locus"),
         ),
         _node(
             "relative_constituent_pushdowns",
@@ -2565,6 +2586,20 @@ def _edges() -> list[dict[str, object]]:
             ("fixed ray (0,1) atlas", "exact reduced Schoen transfer"),
             True,
             ("positive cover Ext does not imply invariant Ext",),
+        ),
+        _edge(
+            "alternate_constituent_outer_cover_ext",
+            "alternate_constituent_outer_invariants",
+            "The exact ray (0,1) deck atlas acts on full outer-Hom Cech "
+            "cochains. Reynolds averaging all cover Ext1 classes yields two "
+            "independent strictly fixed full cocycles.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_outer_invariants.json",
+            ),
+            ("exact cover Ext representatives", "certified P/T constituent frames"),
+            True,
+            ("invariant Ext alone does not construct the outer cone",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -4873,6 +4908,48 @@ def build_state() -> dict[str, object]:
         is not False
     ):
         raise ValueError("the alternate outer cover Ext is not certified")
+    alternate_invariants_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_outer_invariants.json"
+    )
+    alternate_invariants = json.loads(
+        alternate_invariants_path.read_text(encoding="utf-8")
+    )
+    alternate_invariants_digest = alternate_invariants.pop("artifact_digest", None)
+    invariant_representatives = alternate_invariants.get(
+        "strict_full_cech_representatives", []
+    )
+    invariant_coordinates = alternate_invariants.get(
+        "reduced_invariant_coordinates", []
+    )
+    if (
+        alternate_invariants_digest != _canonical_digest(alternate_invariants)
+        or alternate_invariants.get("schema")
+        != "alternate-constituent-outer-invariants-v1"
+        or alternate_invariants.get("cover_artifact_digest") != alternate_outer_digest
+        or alternate_invariants.get("ray_character_exponents") != [0, 1]
+        or alternate_invariants.get("cover_ext1_dimension") != 18
+        or alternate_invariants.get("cover_basis_averaged") != 18
+        or alternate_invariants.get("invariant_ext1_dimension") != 2
+        or alternate_invariants.get("strict_full_cech_representative_count") != 2
+        or len(invariant_representatives) != 2
+        or len(invariant_coordinates) != 2
+        or any(item.get("term_count") != len(item.get("terms", []))
+               for item in invariant_representatives)
+        or any(not item.get("terms") for item in invariant_representatives)
+        or any(not column for column in invariant_coordinates)
+        or alternate_invariants.get("all_representatives_closed") is not True
+        or alternate_invariants.get("all_representatives_strictly_deck_fixed")
+        is not True
+        or alternate_invariants.get("all_representatives_nonboundary_and_independent")
+        is not True
+        or alternate_invariants.get("common_character_twist_preserves_outer_hom_action")
+        is not True
+        or alternate_invariants.get("extension_point_selected") is not False
+        or alternate_invariants.get("universal_rank_four_cone_constructed") is not False
+        or alternate_invariants.get("stability_chamber_certified") is not False
+    ):
+        raise ValueError("the alternate outer invariants are not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5061,6 +5138,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_character_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_outer_ext.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_outer_invariants.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -5233,7 +5312,10 @@ def build_state() -> dict[str, object]:
                 "alternate_repaired_higgs_screen_conditional": True,
                 "alternate_repaired_higgs_outer_extension_constructed": False,
                 "alternate_ray_0_1_cover_ext1_dimension": 18,
-                "alternate_ray_0_1_invariant_ext_unresolved": True,
+                "alternate_ray_0_1_invariant_ext1_dimension": 2,
+                "alternate_ray_0_1_strict_invariant_representatives": 2,
+                "alternate_ray_0_1_invariant_ext_unresolved": False,
+                "alternate_ray_0_1_universal_cone_constructed": False,
                 "first_constituent_atlas_to_mixed_character": frame[
                     "first_constituent_uniform_twist"
                 ],
@@ -5453,8 +5535,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "derive invariant outer Ext for ray (0,1), then construct its "
-                "determinant-repaired universal extension"
+                "construct the universal equivariant outer cone for ray (0,1) "
+                "over the full two-dimensional invariant Ext space, then "
+                "certify its determinant repair and lawful stable locus"
             ),
         },
         "claims": _nodes(),
@@ -5504,8 +5587,8 @@ def build_state() -> dict[str, object]:
             "characters: ray (0,1) passes the fixed Wilson doublet/triplet "
             "screen, while ray (1,1) retains both triplet sectors",
             "the surviving alternate ray (0,1) has exact cover Ext1(V2,V1) "
-            "dimension 18 from square-zero mixed outer differentials; "
-            "deck invariance remains uncomputed",
+            "dimension 18 and a two-dimensional strictly deck-invariant "
+            "subspace with two closed full-Cech representatives",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

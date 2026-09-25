@@ -714,8 +714,15 @@ Its reduced dimensions in degrees zero through two are `(1512,4536,4824)`;
 the first two differential ranks are `(1512,3006)`, with exact square-zero
 composition. Thus `H0=0` and cover `Ext1(V2,V1)` has dimension `18`. These
 ranks match the previously selected constituent pair, suggesting a
-family-level constancy question but not proving one. The atlas-derived deck
-action on this Ext space has not yet been transferred, so invariant Ext,
-equivariant outer extension, and determinant-repaired universal cone remain
-unavailable. A strict full-cocycle invariant construction is the next gate;
-it can avoid brute-force action checks on all 1,512 boundaries.
+family-level constancy question but not proving one. Exact Reynolds averaging
+of all 18 cover classes through the ray's certified full Čech deck atlas
+gives a two-dimensional invariant `Ext1(V2,V1)` subspace. Both independent
+representatives are explicit full Čech cocycles, strictly fixed by `P` and
+`T`, closed under the full differential, and non-boundaries after exact
+projection. This bypasses brute-force action checks on all 1,512 boundaries.
+The unique common determinant-cancelling twist `(1,2)` does not change this
+outer-Hom action. An invariant space is not yet a rank-four bundle: no
+extension point or universal cone has been constructed, and local freeness,
+descent, stability, determinant trivialization, and physical Higgs cocycles
+remain open. The next gate is the universal equivariant outer cone over the
+full invariant space, followed by its lawful stable locus.

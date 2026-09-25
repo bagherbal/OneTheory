@@ -518,6 +518,7 @@ def _average_full_invariant(
     contraction: _MixedContraction,
     p: SchoenSparseDeckAction,
     t: SchoenSparseDeckAction,
+    frames: dict[str, tuple[Matrix, Matrix]] | None = None,
 ) -> SparseOuterCechCochain:
     """Apply the exact order-nine Reynolds projector on full cochains."""
 
@@ -527,12 +528,19 @@ def _average_full_invariant(
         term = p_power
         for _ in range(3):
             total = total + term
-            term = _full_action(term, contraction.left, contraction.right, t)
+            term = _full_action(
+                term,
+                contraction.left,
+                contraction.right,
+                t,
+                frames.get("T") if frames is not None else None,
+            )
         p_power = _full_action(
             p_power,
             contraction.left,
             contraction.right,
             p,
+            frames.get("P") if frames is not None else None,
         )
     return total.scale(Eisenstein(1) / 9)
 

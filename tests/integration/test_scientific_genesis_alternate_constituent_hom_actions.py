@@ -40,8 +40,10 @@ from research.experiments.scientific_genesis.mixed_constituent_schoen_arrows imp
     mixed_schoen_constituents,
 )
 from research.experiments.scientific_genesis.mixed_schoen_outer_actions import (
+    _average_full_invariant,
     _constituent_frame,
     _full_action,
+    _MixedContraction,
 )
 from research.experiments.scientific_genesis.mixed_schoen_outer_transfer import (
     _skeleton,
@@ -100,4 +102,26 @@ def test_explicit_frames_preserve_selected_default_action() -> None:
     )
     assert _full_action(cochain, first, second, action) == _full_action(
         cochain, first, second, action, frames
+    )
+
+
+def test_explicit_frames_preserve_selected_default_reynolds_average() -> None:
+    """The optional atlas frames do not change selected default averaging."""
+
+    first, second = mixed_schoen_constituents()
+    actions = {item.name: item for item in schoen_sparse_deck_actions()}
+    entry = _reduced_basis(_skeleton(first), _skeleton(second), 1)[0]
+    cochain = _include(entry)
+    contraction = _MixedContraction(first, second)
+    frames = {
+        name: (
+            _constituent_frame(first.factor, name),
+            _constituent_frame(second.factor, name),
+        )
+        for name in ("P", "T")
+    }
+    assert _average_full_invariant(
+        cochain, contraction, actions["P"], actions["T"]
+    ) == _average_full_invariant(
+        cochain, contraction, actions["P"], actions["T"], frames
     )

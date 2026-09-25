@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "018a60fed348a70761089a5ffd3e09aaf60b53712b3357333fdc15e3f98afbbf",
+  "artifact_digest": "b72aa878323cc9dd2e4fc503b51191742ade124ef67a74de18b0efff88172d14",
   "cases": [
     {
       "P": [
@@ -54,8 +54,12 @@
           "-1-omega"
         ]
       ],
-      "boundary_preservation_certified": false,
-      "chosen_cycle_character_candidates": [
+      "boundary_basis_checked": {
+        "P": 129,
+        "T": 129
+      },
+      "boundary_preservation_certified": true,
+      "cover_hom_characters": [
         [
           0,
           0
@@ -73,15 +77,15 @@
           2
         ]
       ],
-      "chosen_cycle_group_relations": true,
-      "chosen_cycle_images_closed": true,
+      "cohomology_group_relations": true,
+      "representative_images_closed": true,
       "formal_pair_frame_character": [
         2,
         1
       ],
       "h1_dimension": 4,
       "incoming_rank": 129,
-      "maximum_transfer_depth": 2,
+      "maximum_transfer_depth": 5,
       "outgoing_rank": 331,
       "ray_character_exponents": [
         0,
@@ -151,8 +155,12 @@
           "-1-omega"
         ]
       ],
-      "boundary_preservation_certified": false,
-      "chosen_cycle_character_candidates": [
+      "boundary_basis_checked": {
+        "P": 129,
+        "T": 129
+      },
+      "boundary_preservation_certified": true,
+      "cover_hom_characters": [
         [
           0,
           0
@@ -170,15 +178,15 @@
           0
         ]
       ],
-      "chosen_cycle_group_relations": true,
-      "chosen_cycle_images_closed": true,
+      "cohomology_group_relations": true,
+      "representative_images_closed": true,
       "formal_pair_frame_character": [
         0,
         1
       ],
       "h1_dimension": 4,
       "incoming_rank": 129,
-      "maximum_transfer_depth": 2,
+      "maximum_transfer_depth": 5,
       "outgoing_rank": 331,
       "ray_character_exponents": [
         1,
@@ -196,12 +204,12 @@
       ]
     }
   ],
-  "cohomology_action_certified": false,
+  "cohomology_action_certified": true,
   "equivariant_tensor_identification_available": false,
-  "next_required_object": "prove boundary preservation for the atlas-derived Hom action; then compare equivariantly with V1 tensor V2",
+  "next_required_object": "compare the certified Hom action equivariantly with V1 tensor V2; separately certify quotient determinant",
   "outer_rank_four_extension_constructed": false,
   "quotient_determinant_certified": false,
-  "schema": "alternate-constituent-hom-actions-v1",
+  "schema": "alternate-constituent-hom-actions-v2",
   "scope": "atlas-derived cover H1 of Hom(V2 tensor det(V1), V1)",
   "wilson_projection_performed": false
 }

@@ -1,8 +1,8 @@
-"""Transfer atlas-derived deck actions to alternate cover Hom cohomology.
+"""Certify atlas-derived deck actions on alternate cover Hom cohomology.
 
 Owns:
-    Candidate P/T matrices on chosen representatives of four cover H1
-    classes of a determinant-twisted Hom realization for each unused I6 ray.
+    Exact P/T matrices on four cover H1 classes of a determinant-twisted
+    Hom realization for each unused I6 ray, including boundary descent.
 
 Depends on:
     Exact alternate constituent atlases, synchronized mixed Čech transfer,
@@ -13,7 +13,7 @@ Must not:
     spectrum, or claim a descended rank-four carrier.
 
 Phase 0:
-    Research-only test; boundary preservation and tensor comparison remain open.
+    Research-only exact cohomology action; physical tensor comparison is open.
 """
 
 from __future__ import annotations
@@ -133,13 +133,25 @@ def _cycle(map_: SparseMap, vector: dict[int, Eisenstein]) -> bool:
     )
 
 
+def _require_boundary_image(
+    image: dict[int, Eisenstein],
+    solver: _SparseSpanSolver,
+    boundary_dimension: int,
+) -> None:
+    """Reject a transferred boundary with any cohomology component."""
+
+    coordinates = solver.coordinates(image)
+    if any(index >= boundary_dimension for index in coordinates):
+        raise ValueError("an alternate Hom action does not preserve boundaries")
+
+
 def _candidate_h1(
     first: MixedSchoenConstituent,
     second: MixedSchoenConstituent,
     incoming: SparseMap,
     outgoing: SparseMap,
 ) -> dict[str, object]:
-    """Compute exact matrices on chosen cycles without assuming boundary descent."""
+    """Certify exact matrices after checking every independent boundary."""
 
     if not outgoing.compose(incoming).is_zero():
         raise ValueError("the alternate cover differential is not square zero")
@@ -150,12 +162,24 @@ def _candidate_h1(
     if len(columns) != 4:
         raise ValueError("the alternate cover H1 dimension changed")
     boundaries = _independent_columns(incoming)
+    if len(boundaries) != incoming.rank():
+        raise ValueError("the alternate boundary basis is incomplete")
     solver = _SparseSpanSolver(boundaries + columns)
     contraction = _MixedContraction(first, second)
     induced: dict[str, Matrix] = {}
     depths = []
+    boundary_counts: dict[str, int] = {}
     for action in schoen_sparse_deck_actions():
         frames = (_common_frame(first, action), _common_frame(second, action))
+        for boundary in boundaries:
+            image, depth = _apply_transferred_action(
+                boundary, contraction, 1, action, frames
+            )
+            _require_boundary_image(image, solver, len(boundaries))
+            depths.append((action.name, *depth))
+        # Cycles split as these boundaries plus the selected H1 representatives.
+        # Linearity therefore reduces cycle preservation to the next four tests.
+        boundary_counts[action.name] = len(boundaries)
         images = []
         for column in columns:
             image, depth = _apply_transferred_action(
@@ -187,12 +211,13 @@ def _candidate_h1(
         raise ValueError("joint characters do not exhaust alternate cover H1")
     return {
         "h1_dimension": len(columns),
-        "chosen_cycle_character_candidates": [list(item) for item in characters],
+        "cover_hom_characters": [list(item) for item in characters],
         "P": [[str(value) for value in row] for row in p.rows],
         "T": [[str(value) for value in row] for row in t.rows],
-        "chosen_cycle_group_relations": True,
-        "chosen_cycle_images_closed": True,
-        "boundary_preservation_certified": False,
+        "cohomology_group_relations": True,
+        "representative_images_closed": True,
+        "boundary_preservation_certified": True,
+        "boundary_basis_checked": boundary_counts,
         "maximum_transfer_depth": max(max(left, right) for _g, left, right in depths),
     }
 
@@ -236,17 +261,17 @@ def alternate_constituent_hom_actions() -> dict[str, object]:
                 ],
             })
     return {
-        "schema": "alternate-constituent-hom-actions-v1",
+        "schema": "alternate-constituent-hom-actions-v2",
         "scope": "atlas-derived cover H1 of Hom(V2 tensor det(V1), V1)",
         "cases": records,
         "outer_rank_four_extension_constructed": False,
         "quotient_determinant_certified": False,
-        "cohomology_action_certified": False,
+        "cohomology_action_certified": True,
         "equivariant_tensor_identification_available": False,
         "wilson_projection_performed": False,
         "next_required_object": (
-            "prove boundary preservation for the atlas-derived Hom action; "
-            "then compare equivariantly with V1 tensor V2"
+            "compare the certified Hom action equivariantly with "
+            "V1 tensor V2; separately certify quotient determinant"
         ),
     }
 
@@ -271,4 +296,4 @@ if __name__ == "__main__":
     report = write_alternate_constituent_hom_actions()
     print(f"artifact_digest: {report['artifact_digest']}")
     for item in cast(list[dict[str, object]], report["cases"]):
-        print(item["ray_character_exponents"], item["chosen_cycle_character_candidates"])
+        print(item["ray_character_exponents"], item["cover_hom_characters"])

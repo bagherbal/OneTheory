@@ -709,13 +709,13 @@ def _nodes() -> list[dict[str, object]]:
         ),
         _node(
             "alternate_constituent_hom_cycle_actions",
-            "chosen-cycle Hom actions for unused I6 rays",
+            "cover Hom cohomology actions for unused I6 rays",
             "Computable carrier",
             "COMPUTED",
-            "Atlas-derived frames send four chosen cover Hom cycles to cycles. "
-            "Their quotient-coordinate matrices satisfy the P/T group laws, "
-            "but boundary preservation has not been certified, so these are "
-            "not yet established actions on cohomology or physical Higgs data.",
+            "Atlas-derived frames preserve all 129 independent cover Hom "
+            "boundaries for each generator and ray. The resulting H1 matrices "
+            "satisfy the P/T group laws. Their characters are not physical "
+            "Higgs data without equivariant tensor identification.",
             (
                 "data/generated/scientific_genesis/"
                 "alternate_constituent_hom_actions.json",
@@ -725,7 +725,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_alternate_constituent_hom_actions.py",
             ),
             ("fixed alternate ray atlases", "declared determinant-twist line action"),
-            ("boundary preservation", "equivariant tensor comparison"),
+            ("equivariant tensor comparison", "quotient determinant"),
         ),
         _node(
             "relative_constituent_pushdowns",
@@ -2423,27 +2423,28 @@ def _edges() -> list[dict[str, object]]:
             "alternate_constituent_deck_atlases",
             "alternate_constituent_hom_cycle_actions",
             "Exact native atlas frames transport to the common Schoen coordinates "
-            "and act on chosen cycles of the determinant-twisted outer Hom.",
+            "and preserve the full boundary basis of the determinant-twisted "
+            "outer Hom complex.",
             (
                 "data/generated/scientific_genesis/"
                 "alternate_constituent_hom_actions.json",
             ),
             ("declared common-coordinate lifts", "rank-two determinant degree"),
             True,
-            ("boundary preservation and tensor identification remain open",),
+            ("equivariant physical tensor identification remains open",),
         ),
         _edge(
             "alternate_constituent_cover_h1",
             "alternate_constituent_hom_cycle_actions",
-            "The exact rank-four cover Hom H1 selects four independent cycles "
-            "for the atlas-derived action probe.",
+            "The exact rank-four cover Hom H1 selects four independent classes "
+            "for the atlas-derived cohomology action.",
             (
                 "data/generated/scientific_genesis/"
                 "alternate_constituent_hom_actions.json",
             ),
             ("exact transferred degree-zero and degree-one maps",),
             True,
-            ("a chosen-cycle probe alone does not define an H1 representation",),
+            ("the cover Hom representation is not the physical Higgs sector",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -4648,17 +4649,19 @@ def build_state() -> dict[str, object]:
     hom_cases = hom.get("cases", [])
     if (
         hom_digest != _canonical_digest(hom)
-        or hom.get("schema") != "alternate-constituent-hom-actions-v1"
+        or hom.get("schema") != "alternate-constituent-hom-actions-v2"
         or [case.get("ray_character_exponents") for case in hom_cases]
         != [[0, 1], [1, 1]]
         or any(case.get("h1_dimension") != 4 for case in hom_cases)
-        or any(case.get("boundary_preservation_certified") is not False
+        or any(case.get("boundary_basis_checked") != {"P": 129, "T": 129}
                for case in hom_cases)
-        or hom.get("cohomology_action_certified") is not False
+        or any(case.get("boundary_preservation_certified") is not True
+               for case in hom_cases)
+        or hom.get("cohomology_action_certified") is not True
         or hom.get("equivariant_tensor_identification_available") is not False
         or hom.get("wilson_projection_performed") is not False
     ):
-        raise ValueError("the alternate chosen-cycle action record is invalid")
+        raise ValueError("the alternate cover Hom action record is invalid")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5222,8 +5225,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "boundary-preserving common-Schoen Hom action and equivariant "
-                "tensor comparison before quotient determinant or Wilson projection"
+                "equivariant Hom-to-tensor comparison and quotient determinant "
+                "certification before Wilson projection"
             ),
         },
         "claims": _nodes(),

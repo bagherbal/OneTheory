@@ -457,8 +457,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "fixed-Wilson Higgs gate"
     )
     assert path["next_required_object"] == (
-        "boundary-preserving common-Schoen Hom action and equivariant "
-        "tensor comparison before quotient determinant or Wilson projection"
+        "equivariant Hom-to-tensor comparison and quotient determinant "
+        "certification before Wilson projection"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"

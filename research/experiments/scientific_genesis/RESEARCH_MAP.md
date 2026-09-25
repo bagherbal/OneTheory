@@ -659,21 +659,23 @@ earlier source-character substitution into the selected mixed P-frame is not
 a determinant certificate. The atlas alternating-frame characters of the
 fixed I3 constituent and two I6 alternatives are `(0,0)`, `(2,1)`, and
 `(0,1)` respectively; these are frame-level necessary data, not certified
-quotient determinants. No certified alternate common-Schoen outer deck action,
-Higgs character, or Wilson-projected count has been established.
-An atlas-derived transfer on four chosen cycles of
-`Hom(V2 tensor det(V1),V1)` gives candidate P/T character multisets
+quotient determinants. No certified alternate physical Higgs character or
+Wilson-projected count has been established. An atlas-derived transfer on
+`H1` of `Hom(V2 tensor det(V1),V1)` gives exact cover Hom characters
 `{(0,0),(1,2),(2,0),(2,2)}` and
-`{(0,0),(0,2),(1,2),(2,0)}` for the two rays. Their coordinate matrices
-satisfy the order-three and commutator laws, and the chosen images remain
-closed. Boundary preservation has not been certified, so these are not yet
-established cohomology actions. The determinant-twisted Hom has not been
+`{(0,0),(0,2),(1,2),(2,0)}` for the two rays. Their matrices satisfy the
+order-three and commutator laws. Exact transfer preserves all 129 independent
+boundaries for each ray and generator, so these are genuine actions on the
+declared cover Hom cohomology. This finite certificate is complete because
+each cycle is a linear combination of those boundaries and the four chosen
+cohomology representatives; the latter's images are also closed. The
+determinant-twisted Hom has not been
 identified equivariantly with the physical tensor. In particular, no Wilson
-projection or one-Higgs conclusion follows from these character candidates.
+projection or one-Higgs conclusion follows from these cover characters.
 Both unused rays share the source ray's second deck character. Holding the
 other Serre and outer frames fixed, the subline character adjustment therefore
 has zero second component; the selected quotient determinant's nontrivial
 second character persists. Ray choice alone cannot yield `SU(4)`. A full
-boundary preservation and equivariant Hom-to-tensor comparison are the next
-discriminating gates before determinant descent or Wilson projection; cover
-dimension alone does not establish a physical carrier.
+equivariant Hom-to-tensor comparison and quotient determinant certification
+are the next discriminating gates before Wilson projection; cover dimension
+alone does not establish a physical carrier.

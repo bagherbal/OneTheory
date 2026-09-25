@@ -171,11 +171,17 @@ def _full_action(
     left: MixedSchoenComplex,
     right: MixedSchoenComplex,
     action: SchoenSparseDeckAction,
+    frames: tuple[Matrix, Matrix] | None = None,
 ) -> SparseOuterCechCochain:
-    """Apply exact pullback and selected-frame conjugation on full cochains."""
+    """Apply exact pullback and declared frame conjugation on full cochains."""
 
-    left_frame = _constituent_frame(left.factor, action.name)
-    right_inverse = _constituent_frame(right.factor, action.name).inverse()
+    if frames is None:
+        frames = (
+            _constituent_frame(left.factor, action.name),
+            _constituent_frame(right.factor, action.name),
+        )
+    left_frame, right_frame = frames
+    right_inverse = right_frame.inverse()
     left_skeleton = _skeleton(left)
     right_skeleton = _skeleton(right)
     lookup = {
@@ -365,6 +371,7 @@ def _apply_transferred_action(
     contraction: _MixedContraction,
     degree: int,
     action: SchoenSparseDeckAction,
+    frames: tuple[Matrix, Matrix] | None = None,
 ) -> tuple[dict[int, Eisenstein], tuple[int, int]]:
     """Evaluate exact ``p' g i'`` on one sparse reduced cochain."""
 
@@ -382,6 +389,7 @@ def _apply_transferred_action(
         contraction.left,
         contraction.right,
         action,
+        frames,
     )
     projected, projection_depth = _perturbed_projection(
         acted,

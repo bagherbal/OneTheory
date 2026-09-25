@@ -649,20 +649,31 @@ closure and stalkwise freeness are exact. A new full mixed-complex transfer
 computes cover `H1` for each unused ray: both have dimension four, from
 reduced dimensions `(129,464,426,91)` and differential ranks `(129,331)`.
 This uses the rank-two identity
-`Hom(V1,V2 tensor det(V1)) = V1 tensor V2`; the determinant cover degree
-is `(-2,2,0)`. Both alternate lifts now also have exact six-chart overlap
+`Hom(V2 tensor det(V1),V1) = V1 tensor V2` for rank-two V2 with
+`det(V2)=det(V1)^-1`; the determinant cover degree is `(-2,2,0)`.
+The outer transfer takes `left minus right` line degrees, so this is its
+actual Hom orientation. Both alternate lifts have exact six-chart overlap
 cocycles and P/T deck atlases. Their atlas P-frames are not uniformly related
 to the selected mixed P-frame formula, although their T-frames are. Thus the
 earlier source-character substitution into the selected mixed P-frame is not
 a determinant certificate. The atlas alternating-frame characters of the
 fixed I3 constituent and two I6 alternatives are `(0,0)`, `(2,1)`, and
 `(0,1)` respectively; these are frame-level necessary data, not certified
-quotient determinants. No alternate common-Schoen outer deck action, Higgs
-character, or Wilson-projected count has been established.
+quotient determinants. No certified alternate common-Schoen outer deck action,
+Higgs character, or Wilson-projected count has been established.
+An atlas-derived transfer on four chosen cycles of
+`Hom(V2 tensor det(V1),V1)` gives candidate P/T character multisets
+`{(0,0),(1,2),(2,0),(2,2)}` and
+`{(0,0),(0,2),(1,2),(2,0)}` for the two rays. Their coordinate matrices
+satisfy the order-three and commutator laws, and the chosen images remain
+closed. Boundary preservation has not been certified, so these are not yet
+established cohomology actions. The determinant-twisted Hom has not been
+identified equivariantly with the physical tensor. In particular, no Wilson
+projection or one-Higgs conclusion follows from these character candidates.
 Both unused rays share the source ray's second deck character. Holding the
 other Serre and outer frames fixed, the subline character adjustment therefore
 has zero second component; the selected quotient determinant's nontrivial
 second character persists. Ray choice alone cannot yield `SU(4)`. A full
-atlas-derived common-Schoen outer action with determinant and equivariant
-Higgs checks is the next discriminating gate; cover dimension alone does not
-establish a physical carrier.
+boundary preservation and equivariant Hom-to-tensor comparison are the next
+discriminating gates before determinant descent or Wilson projection; cover
+dimension alone does not establish a physical carrier.

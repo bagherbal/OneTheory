@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "273b6b8f2cac73840a99382e728de3f6e9b9fba4803b82ecde66cd5df782ab53",
+  "artifact_digest": "684b440482a7f82f753a2c3096a2f501ca1152f04cb3affef9bf3c73953883ff",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -467,14 +467,19 @@
       "sha256": "5c52bba573a5f48333fce65a74da5819d43b4f861b47c7c410e2288536105a97"
     },
     {
-      "bytes": 3194,
+      "bytes": 3283,
       "path": "data/generated/scientific_genesis/alternate_constituent_higgs_dimensions.json",
-      "sha256": "57068875072c49512d5d4d17bce9bc2af8ce70ac202a5334e8423861881b587a"
+      "sha256": "6749f807c0dccdda2251ce4767d85988ee2c8dd96ed0a81f5714907d824a6d53"
     },
     {
       "bytes": 2622,
       "path": "data/generated/scientific_genesis/alternate_constituent_deck_atlases.json",
       "sha256": "49be47e54ec3da7512036966a608a889358f523ca9cfccb127afdd744845d6c2"
+    },
+    {
+      "bytes": 3583,
+      "path": "data/generated/scientific_genesis/alternate_constituent_hom_actions.json",
+      "sha256": "a003c6f4a76f73eada3456afd6877a962303a59b013f6c940139b2d7860cd01e"
     },
     {
       "bytes": 1406,
@@ -506,8 +511,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 211,
-    "test_python_files": 192
+    "research_python_files": 212,
+    "test_python_files": 193
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1063,7 +1068,7 @@
         "alternate quotient determinant",
         "strict deck action on cover H1"
       ],
-      "statement": "Each of the two unused locally free I6 Ext rays has exact cover H1 dimension four after the rank-two determinant twist. This does not supply alternate descent, deck characters, or Wilson projection.",
+      "statement": "Each of the two unused locally free I6 Ext rays has exact cover H1 dimension four in Hom(V2 tensor det(V1), V1). This does not supply alternate descent, deck characters, or Wilson projection.",
       "status": "COMPUTED"
     },
     {
@@ -1084,6 +1089,26 @@
         "quotient determinant"
       ],
       "statement": "Both unused locally free I6 rays have exact overlap cocycles and P/T deck comparisons. Neither selected mixed P-frame formula is uniformly related to its alternate atlas frame; the old P-determinant shortcut is not a quotient certificate.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "fixed alternate ray atlases",
+        "declared determinant-twist line action"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_hom_actions.json",
+        "research/experiments/scientific_genesis/alternate_constituent_hom_actions.py",
+        "tests/integration/test_scientific_genesis_alternate_constituent_hom_actions.py"
+      ],
+      "id": "alternate_constituent_hom_cycle_actions",
+      "label": "chosen-cycle Hom actions for unused I6 rays",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "boundary preservation",
+        "equivariant tensor comparison"
+      ],
+      "statement": "Atlas-derived frames send four chosen cover Hom cycles to cycles. Their quotient-coordinate matrices satisfy the P/T group laws, but boundary preservation has not been certified, so these are not yet established actions on cohomology or physical Higgs data.",
       "status": "COMPUTED"
     },
     {
@@ -2533,6 +2558,37 @@
       "mathematical_reason": "The unused local-unit rays have exact full Cech lifts, allowing their overlap and deck comparisons to be tested chartwise.",
       "source": "distinct_constituent_ray_screen",
       "target": "alternate_constituent_deck_atlases"
+    },
+    {
+      "assumptions_required": [
+        "declared common-coordinate lifts",
+        "rank-two determinant degree"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_hom_actions.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "boundary preservation and tensor identification remain open"
+      ],
+      "mathematical_reason": "Exact native atlas frames transport to the common Schoen coordinates and act on chosen cycles of the determinant-twisted outer Hom.",
+      "source": "alternate_constituent_deck_atlases",
+      "target": "alternate_constituent_hom_cycle_actions"
+    },
+    {
+      "assumptions_required": [
+        "exact transferred degree-zero and degree-one maps"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_hom_actions.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a chosen-cycle probe alone does not define an H1 representation"
+      ],
+      "mathematical_reason": "The exact rank-four cover Hom H1 selects four independent cycles for the atlas-derived action probe.",
+      "source": "alternate_constituent_cover_h1",
+      "target": "alternate_constituent_hom_cycle_actions"
     },
     {
       "assumptions_required": [
@@ -5040,7 +5096,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "atlas-derived common-Schoen outer action, quotient determinant, and Wilson-projected Higgs characters for the two unused I6 rays",
+    "next_required_object": "boundary-preserving common-Schoen Hom action and equivariant tensor comparison before quotient determinant or Wilson projection",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
   },
   "research_value_scheduler": [

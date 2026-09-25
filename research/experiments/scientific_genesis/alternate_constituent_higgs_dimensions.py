@@ -73,9 +73,10 @@ def alternate_constituent_higgs_dimensions() -> dict[str, object]:
             and lifted.alignment.selected_chain_eigenvector
         ):
             raise ValueError("an alternate ray lacks its exact joint deck action")
-        # For rank-two V1, V1* tensor det(V1) is canonically V1.
-        # Its cover determinant degree is (-2, 2, 0), so this is the
-        # required twist for Hom(V1, V2 tensor det(V1)).
+        # The transfer computes Hom(right, left). Since both constituents
+        # have rank two and det(V2) = det(V1)^-1, its relevant orientation is
+        # Hom(V2 tensor det(V1), V1) = V1 tensor V2. The determinant cover
+        # degree (-2, 2, 0) fixes the required V2 twist.
         second = _constituent(
             lifted, f"I6-ray-{p_exponent}-{t_exponent}", 2, (-1, 1, 0)
         )
@@ -112,9 +113,13 @@ def alternate_constituent_higgs_dimensions() -> dict[str, object]:
                 "map_digests": [[0, _map_digest(map0)], [1, _map_digest(map1)]],
             })
     return {
-        "schema": "alternate-constituent-higgs-dimensions-v1",
+        "schema": "alternate-constituent-higgs-dimensions-v2",
         "scope": "cover H1 only for two local-unit I6 rays in the fixed presentation",
-        "identity": "Hom(V1,V2 tensor det(V1)) = V1 tensor V2 for rank-two V1",
+        "identity": (
+            "Hom(V2 tensor det(V1), V1) = V1 tensor V2 for rank-two "
+            "V2 with det(V2) = det(V1)^-1"
+        ),
+        "hom_orientation": "Hom(right=V2 tensor det(V1), left=V1)",
         "v1_determinant_cover_degree": [-2, 2, 0],
         "v2_hom_twist_after_identity": [-1, 1, 0],
         "cases": records,

@@ -1,0 +1,207 @@
+{
+  "artifact_digest": "018a60fed348a70761089a5ffd3e09aaf60b53712b3357333fdc15e3f98afbbf",
+  "cases": [
+    {
+      "P": [
+        [
+          "1",
+          "0",
+          "-18-36*omega",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0",
+          "-1-omega"
+        ],
+        [
+          "0",
+          "0",
+          "-1-omega",
+          "0"
+        ],
+        [
+          "0",
+          "-omega",
+          "0",
+          "0"
+        ]
+      ],
+      "T": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1-omega",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-1-omega"
+        ]
+      ],
+      "boundary_preservation_certified": false,
+      "chosen_cycle_character_candidates": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "chosen_cycle_group_relations": true,
+      "chosen_cycle_images_closed": true,
+      "formal_pair_frame_character": [
+        2,
+        1
+      ],
+      "h1_dimension": 4,
+      "incoming_rank": 129,
+      "maximum_transfer_depth": 2,
+      "outgoing_rank": 331,
+      "ray_character_exponents": [
+        0,
+        1
+      ],
+      "transfer_path_depths": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "P": [
+        [
+          "1",
+          "0",
+          "-18-36*omega",
+          "0"
+        ],
+        [
+          "0",
+          "1+omega",
+          "0",
+          "-1-omega"
+        ],
+        [
+          "0",
+          "0",
+          "-1-omega",
+          "0"
+        ],
+        [
+          "0",
+          "1+omega",
+          "0",
+          "0"
+        ]
+      ],
+      "T": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1-omega",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-1-omega"
+        ]
+      ],
+      "boundary_preservation_certified": false,
+      "chosen_cycle_character_candidates": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "chosen_cycle_group_relations": true,
+      "chosen_cycle_images_closed": true,
+      "formal_pair_frame_character": [
+        0,
+        1
+      ],
+      "h1_dimension": 4,
+      "incoming_rank": 129,
+      "maximum_transfer_depth": 2,
+      "outgoing_rank": 331,
+      "ray_character_exponents": [
+        1,
+        1
+      ],
+      "transfer_path_depths": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          7
+        ]
+      ]
+    }
+  ],
+  "cohomology_action_certified": false,
+  "equivariant_tensor_identification_available": false,
+  "next_required_object": "prove boundary preservation for the atlas-derived Hom action; then compare equivariantly with V1 tensor V2",
+  "outer_rank_four_extension_constructed": false,
+  "quotient_determinant_certified": false,
+  "schema": "alternate-constituent-hom-actions-v1",
+  "scope": "atlas-derived cover H1 of Hom(V2 tensor det(V1), V1)",
+  "wilson_projection_performed": false
+}

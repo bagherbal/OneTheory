@@ -2,7 +2,7 @@
   "alternate_deck_atlases_constructed": false,
   "alternate_higgs_characters_computed": false,
   "alternate_quotient_determinants_certified": false,
-  "artifact_digest": "6a8fb496bdf58cc8d8d2aac23699d54d9b4fab33e647c08ba838a3cf47c38eff",
+  "artifact_digest": "4ddb494b21675985c421305e4af89a67ce4badc78371f9676bb15a9e49cdf9c0",
   "cases": [
     {
       "differential_ranks": [
@@ -167,10 +167,11 @@
       ]
     }
   ],
-  "identity": "Hom(V1,V2 tensor det(V1)) = V1 tensor V2 for rank-two V1",
+  "hom_orientation": "Hom(right=V2 tensor det(V1), left=V1)",
+  "identity": "Hom(V2 tensor det(V1), V1) = V1 tensor V2 for rank-two V2 with det(V2) = det(V1)^-1",
   "next_required_object": "alternate common-Schoen deck transfer and quotient determinant; then invariant cover H1 characters and Wilson projection",
   "physical_higgs_spectrum_established": false,
-  "schema": "alternate-constituent-higgs-dimensions-v1",
+  "schema": "alternate-constituent-higgs-dimensions-v2",
   "scope": "cover H1 only for two local-unit I6 rays in the fixed presentation",
   "v1_determinant_cover_degree": [
     -2,

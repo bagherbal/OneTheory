@@ -106,6 +106,12 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     ]
     assert path["criteria"]["alternate_fixed_atlas_su4_excluded"] is True
     assert path["criteria"]["alternate_other_linearisations_excluded"] is False
+    assert path["criteria"]["alternate_repaired_higgs_screen_survivor"] == [0, 1]
+    assert path["criteria"]["alternate_repaired_higgs_screen_conditional"] is True
+    assert (
+        path["criteria"]["alternate_repaired_higgs_outer_extension_constructed"]
+        is False
+    )
     assert path["criteria"]["selected_quotient_su4_certified"] is False
     assert path["criteria"]["first_constituent_atlas_to_mixed_character"] == [2, 0]
     assert path["criteria"]["second_constituent_atlas_to_mixed_character"] == [0, 0]
@@ -462,8 +468,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "fixed-Wilson Higgs gate"
     )
     assert path["next_required_object"] == (
-        "find a determinant-trivial constituent linearization or "
-        "distinct underlying bundle before alternate Wilson projection"
+        "construct invariant outer Ext and a determinant-repaired "
+        "universal extension for ray (0,1) before stability and full spectrum"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"
@@ -557,6 +563,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_constituent_determinant_obstruction"]["status"] == (
         "COMPUTED"
     )
+    assert claims["alternate_constituent_character_screen"]["status"] == "COMPUTED"
     assert claims["alternate_constituent_hom_cycle_actions"]["status"] == "COMPUTED"
     assert "determinant-trivial carrier" in claims[
         "alternate_constituent_cover_h1"

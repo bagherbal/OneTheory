@@ -734,8 +734,8 @@ def _nodes() -> list[dict[str, object]]:
             "COMPUTED",
             "Atlas-derived frames preserve all 129 independent cover Hom "
             "boundaries for each generator and ray. The resulting H1 matrices "
-            "satisfy the P/T group laws. Their characters are not physical "
-            "Higgs data without equivariant tensor identification.",
+            "satisfy the P/T group laws. Raw characters still require the "
+            "total determinant shift and do not supply Higgs cocycles.",
             (
                 "data/generated/scientific_genesis/"
                 "alternate_constituent_hom_actions.json",
@@ -745,7 +745,28 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_alternate_constituent_hom_actions.py",
             ),
             ("fixed alternate ray atlases", "declared determinant-twist line action"),
-            ("equivariant tensor comparison", "determinant-trivial carrier"),
+            ("explicit tensor cocycle map", "determinant-trivial carrier"),
+        ),
+        _node(
+            "alternate_constituent_character_screen",
+            "conditional determinant-repaired Higgs character screen",
+            "Computable carrier",
+            "COMPUTED",
+            "The rank-two equivariant Hom identity and acyclic determinant "
+            "filtration show that, if an equivariant outer extension exists, "
+            "the unique common determinant repair gives ray (0,1) one Higgs "
+            "pair without triplets. Ray (1,1) retains both triplet sectors. "
+            "No outer cone or physical Higgs cocycle is constructed.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_character_screen.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_character_screen.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_character_screen.py",
+            ),
+            ("exact alternate Hom action", "fixed Wilson weights", "acyclic determinant lines"),
+            ("invariant outer Ext", "universal cone", "stability", "Higgs cocycles"),
         ),
         _node(
             "relative_constituent_pushdowns",
@@ -2466,7 +2487,7 @@ def _edges() -> list[dict[str, object]]:
             ),
             ("declared common-coordinate lifts", "rank-two determinant degree"),
             True,
-            ("equivariant physical tensor identification remains open",),
+            ("an explicit tensor cocycle map remains open",),
         ),
         _edge(
             "alternate_constituent_cover_h1",
@@ -2480,6 +2501,36 @@ def _edges() -> list[dict[str, object]]:
             ("exact transferred degree-zero and degree-one maps",),
             True,
             ("the cover Hom representation is not the physical Higgs sector",),
+        ),
+        _edge(
+            "alternate_constituent_hom_cycle_actions",
+            "alternate_constituent_character_screen",
+            "For rank-two F, exterior contraction identifies F* tensor det(F) "
+            "with F equivariantly. Hence the certified determinant-twisted "
+            "Hom characters differ from constituent-tensor characters by "
+            "the total determinant character.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_character_screen.json",
+            ),
+            ("first determinant has trivial atlas character", "canonical homogeneous line action"),
+            True,
+            ("an explicit tensor chain map is still needed for Higgs cocycles",),
+        ),
+        _edge(
+            "alternate_constituent_determinant_obstruction",
+            "alternate_constituent_character_screen",
+            "The unique common rank-four character twist cancels each exact "
+            "total determinant. Acyclic determinant endpoints then identify "
+            "H1 of a hypothetical exterior-square extension with tensor H1; "
+            "the fixed Wilson weights distinguish the two rays.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_character_screen.json",
+            ),
+            ("an equivariant outer extension must exist", "published Wilson embedding"),
+            True,
+            ("conditional character selection does not construct a carrier",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -4730,6 +4781,39 @@ def build_state() -> dict[str, object]:
         or hom.get("wilson_projection_performed") is not False
     ):
         raise ValueError("the alternate cover Hom action record is invalid")
+    screen_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_character_screen.json"
+    )
+    screen = json.loads(screen_path.read_text(encoding="utf-8"))
+    screen_digest = screen.pop("artifact_digest", None)
+    screen_cases = screen.get("cases", [])
+    screen_prerequisites = screen.get("prerequisite_artifact_digests", {})
+    if (
+        screen_digest != _canonical_digest(screen)
+        or screen.get("schema") != "alternate-constituent-character-screen-v1"
+        or screen_prerequisites.get("hom_actions") != hom_digest
+        or screen_prerequisites.get("determinant") != alternate_det_digest
+        or [case.get("ray_character_exponents") for case in screen_cases]
+        != [[0, 1], [1, 1]]
+        or [case.get("passes_conditional_one_higgs_zero_triplet_screen")
+            for case in screen_cases] != [True, False]
+        or any(case.get("hom_twist_uses_canonical_frame") is not True
+               for case in screen_cases)
+        or screen.get("determinant_line_cohomology_h0_to_h3") != {
+            "det_v1": [0, 0, 0, 0],
+            "det_v2": [0, 0, 0, 0],
+        }
+        or screen.get("ray_0_1_passes_conditional_higgs_screen") is not True
+        or screen.get("ray_1_1_fails_conditional_triplet_screen") is not True
+        or screen.get("outer_extension_constructed") is not False
+        or screen.get("outer_extension_equivariance_certified") is not False
+        or screen.get("stability_chamber_certified") is not False
+        or screen.get("equivariant_chain_map_to_tensor_constructed") is not False
+        or screen.get("physical_higgs_cocycles_available") is not False
+        or screen.get("physical_carrier_frozen") is not False
+    ):
+        raise ValueError("the conditional alternate character screen is invalid")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -4914,6 +4998,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_determinant_descent.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_hom_actions.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_character_screen.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -5082,6 +5168,9 @@ def build_state() -> dict[str, object]:
                 ],
                 "alternate_fixed_atlas_su4_excluded": True,
                 "alternate_other_linearisations_excluded": False,
+                "alternate_repaired_higgs_screen_survivor": [0, 1],
+                "alternate_repaired_higgs_screen_conditional": True,
+                "alternate_repaired_higgs_outer_extension_constructed": False,
                 "first_constituent_atlas_to_mixed_character": frame[
                     "first_constituent_uniform_twist"
                 ],
@@ -5301,8 +5390,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "find a determinant-trivial constituent linearization or "
-                "distinct underlying bundle before alternate Wilson projection"
+                "construct invariant outer Ext and a determinant-repaired "
+                "universal extension for ray (0,1) before stability and full spectrum"
             ),
         },
         "claims": _nodes(),
@@ -5348,6 +5437,9 @@ def build_state() -> dict[str, object]:
             "nontrivial selected quotient determinant character",
             "both unused I6 atlas rays have exact common-coordinate total "
             "determinant characters (2,1) and (0,1), confirmed on scalar H3",
+            "the unique common determinant repairs have conditional Higgs "
+            "characters: ray (0,1) passes the fixed Wilson doublet/triplet "
+            "screen, while ray (1,1) retains both triplet sectors",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "
@@ -5455,6 +5547,9 @@ def build_state() -> dict[str, object]:
             "characters (0,0), (0,1), (2,0), and (2,1)",
         ],
         "scoped_no_go_results": [
+            "conditional on an equivariant outer extension and the certified "
+            "rank-two character identity, the determinant-repaired ray (1,1) "
+            "cannot meet the fixed-Wilson zero-triplet requirement",
             "any equivariant outer extension preserving either unused I6 "
             "atlas pair fails quotient SU(4); other linearisations and "
             "underlying bundles remain untested",

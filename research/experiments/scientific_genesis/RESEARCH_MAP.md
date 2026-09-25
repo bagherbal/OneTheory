@@ -674,12 +674,36 @@ order-three and commutator laws. Exact transfer preserves all 129 independent
 boundaries for each ray and generator, so these are genuine actions on the
 declared cover Hom cohomology. This finite certificate is complete because
 each cycle is a linear combination of those boundaries and the four chosen
-cohomology representatives; the latter's images are also closed. The
-determinant-twisted Hom has not been identified equivariantly with the
-physical tensor. In particular, no Wilson projection or one-Higgs conclusion
-follows from these cover characters. Both unused rays retain a nontrivial
+cohomology representatives; the latter's images are also closed. No explicit
+equivariant chain map yet transports these Hom cocycles to physical tensor
+cocycles. In particular, no Wilson projection or one-Higgs conclusion follows
+from the raw Hom characters alone. Both unused rays retain a nontrivial
 second determinant character, so changing only the Ext ray cannot repair the
 fixed atlas pair. The next discriminating search must find a
 determinant-trivial linearisation compatible with an outer extension, or a
 different underlying constituent pair; completing a tensor comparison for
 these already-excluded fixed pairs would not produce an SU(4) carrier.
+
+A rank-two naturality argument sharpens this search without constructing a
+new chain complex: for equivariant rank-two `E,F`, exterior contraction gives
+`Hom(F tensor det(E), E) = E tensor F tensor det(E+F)^-1` as equivariant
+bundles. The fixed first atlas has determinant character zero, so the
+declared alternate Hom twist uses its canonical line action; an exact
+common-frame comparison checks that shifting the second constituent by
+`(-2,2,0)` changes only its object degrees, not its deck frame. The determinant
+characters above therefore convert the certified Hom representations into
+conditional constituent-tensor characters. Both determinant lines of degrees
+`(-2,2,0)` and `(2,-2,0)` are acyclic by direct exact line transfer. Thus,
+if an equivariant outer extension exists, the exterior-square filtration
+identifies its Higgs `H1` with that tensor `H1`, independently of extension
+parameters. A common character twist of the hypothetical rank-four bundle
+is uniquely fixed by determinant cancellation: `(1,2)` for ray `(0,1)` and
+`(0,2)` for ray `(1,1)`. Under the established inverse source-action
+convention and fixed published Wilson weights, the first ray then has one
+of each Higgs doublet character and no color-triplet character; the second
+has both doublets but also a triplet and antitriplet. This is a **conditional
+character screen**, not a physical spectrum: invariant outer Ext, a
+determinant-repaired universal cone, stability, and explicit Higgs cocycles
+are still absent. Ray `(0,1)` is the preferred next carrier test because it
+alone survives this selected structural spectrum gate; no extension point is
+chosen.

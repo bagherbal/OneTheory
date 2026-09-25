@@ -1,0 +1,206 @@
+{
+  "artifact_digest": "cdc850d9e75dbbe17de37b3537db78bd5a3fa8ed22dd09395fbe671fc64782d1",
+  "cases": [
+    {
+      "conditional_fixed_wilson_multiplicities": {
+        "color_antitriplet": 0,
+        "color_triplet": 0,
+        "down_higgs_doublet": 1,
+        "up_higgs_doublet": 1
+      },
+      "hom_twist_uses_canonical_frame": true,
+      "original_tensor_forward_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "original_total_determinant_character": [
+        2,
+        1
+      ],
+      "passes_conditional_one_higgs_zero_triplet_screen": true,
+      "ray_character_exponents": [
+        0,
+        1
+      ],
+      "repaired_source_characters": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "repaired_tensor_forward_characters": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "repaired_total_determinant_character": [
+        0,
+        0
+      ],
+      "unique_common_determinant_cancelling_twist": [
+        1,
+        2
+      ]
+    },
+    {
+      "conditional_fixed_wilson_multiplicities": {
+        "color_antitriplet": 1,
+        "color_triplet": 1,
+        "down_higgs_doublet": 1,
+        "up_higgs_doublet": 1
+      },
+      "hom_twist_uses_canonical_frame": true,
+      "original_tensor_forward_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "original_total_determinant_character": [
+        0,
+        1
+      ],
+      "passes_conditional_one_higgs_zero_triplet_screen": false,
+      "ray_character_exponents": [
+        1,
+        1
+      ],
+      "repaired_source_characters": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "repaired_tensor_forward_characters": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "repaired_total_determinant_character": [
+        0,
+        0
+      ],
+      "unique_common_determinant_cancelling_twist": [
+        0,
+        2
+      ]
+    }
+  ],
+  "determinant_filtration_identifies_h1_if_extension_exists": true,
+  "determinant_line_cohomology_h0_to_h3": {
+    "det_v1": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "det_v2": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "equivariant_chain_map_to_tensor_constructed": false,
+  "next_required_object": "construct invariant outer Ext and a determinant-repaired universal extension for ray (0,1), then certify stability and full spectrum",
+  "outer_extension_constructed": false,
+  "outer_extension_equivariance_certified": false,
+  "physical_carrier_frozen": false,
+  "physical_higgs_cocycles_available": false,
+  "prerequisite_artifact_digests": {
+    "determinant": "8ac8f504c9f39b1180f9880196cab25737310573706110cef5006a7017a2ffab",
+    "hom_actions": "b72aa878323cc9dd2e4fc503b51191742ade124ef67a74de18b0efff88172d14",
+    "source_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241"
+  },
+  "proof_steps": [
+    "For rank-two F, exterior contraction gives F* tensor det(F) = F naturally",
+    "The fixed first atlas has determinant character zero, so its declared Hom twist uses the canonical determinant line action",
+    "The product determinant character converts cover Hom to tensor characters",
+    "A common rank-four character twist cancels the determinant uniquely",
+    "Acyclic determinant endpoints identify H1 of any equivariant outer extension exterior square with H1 of the constituent tensor",
+    "The source section convention inverts forward characters before the fixed Wilson projection"
+  ],
+  "published_spectrum_source_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+  "rank_two_character_identity": "Hom(F tensor det(E), E) is equivariantly E tensor F tensor (det(E) tensor det(F))^-1",
+  "ray_0_1_passes_conditional_higgs_screen": true,
+  "ray_1_1_fails_conditional_triplet_screen": true,
+  "schema": "alternate-constituent-character-screen-v1",
+  "scope": "two alternate atlas rays with a common determinant-cancelling character twist",
+  "stability_chamber_certified": false
+}

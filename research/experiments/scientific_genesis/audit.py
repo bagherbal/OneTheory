@@ -685,7 +685,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_alternate_constituent_higgs_dimensions.py",
             ),
             ("fixed I3/I6 presentations", "exact mixed Schoen transfer"),
-            ("alternate quotient determinant", "strict deck action on cover H1"),
+            ("determinant-trivial carrier", "physical tensor comparison"),
         ),
         _node(
             "alternate_constituent_deck_atlases",
@@ -705,7 +705,27 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_alternate_constituent_deck_atlases.py",
             ),
             ("fixed I3/I6 presentations", "exact homogeneous chart actions"),
-            ("atlas-derived common-Schoen outer action", "quotient determinant"),
+            ("outer extension equivariance", "other constituent linearisations"),
+        ),
+        _node(
+            "alternate_constituent_determinant_obstruction",
+            "fixed-atlas determinant obstruction for unused I6 rays",
+            "Computable carrier",
+            "COMPUTED",
+            "Both unused I6 rays have cover-trivial total determinant degree, "
+            "but the exact common-frame and scalar-H3 characters are (2,1) "
+            "and (0,1). Any equivariant outer extension preserving either "
+            "fixed atlas pair therefore fails quotient SU(4).",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_determinant_descent.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_determinant_descent.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_determinant_descent.py",
+            ),
+            ("fixed exact atlas linearisations", "equivariant determinant multiplicativity"),
+            ("other linearisations", "distinct underlying constituent bundles"),
         ),
         _node(
             "alternate_constituent_hom_cycle_actions",
@@ -725,7 +745,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_alternate_constituent_hom_actions.py",
             ),
             ("fixed alternate ray atlases", "declared determinant-twist line action"),
-            ("equivariant tensor comparison", "quotient determinant"),
+            ("equivariant tensor comparison", "determinant-trivial carrier"),
         ),
         _node(
             "relative_constituent_pushdowns",
@@ -2418,6 +2438,21 @@ def _edges() -> list[dict[str, object]]:
             ("fixed I3/I6 presentations", "published chart deck lifts"),
             True,
             ("constituent equivariance does not construct an outer extension",),
+        ),
+        _edge(
+            "alternate_constituent_deck_atlases",
+            "alternate_constituent_determinant_obstruction",
+            "The graded determinant of each exact common-coordinate deck frame "
+            "acts on the cover-trivial product determinant line; scalar H3 "
+            "reads the same nontrivial character. Determinants multiply in "
+            "every equivariant short exact sequence.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_determinant_descent.json",
+            ),
+            ("fixed atlas linearisations", "equivariant outer extension if any"),
+            True,
+            ("another linearisation or underlying bundle is not excluded",),
         ),
         _edge(
             "alternate_constituent_deck_atlases",
@@ -4640,6 +4675,39 @@ def build_state() -> dict[str, object]:
         is not False
     ):
         raise ValueError("the alternate constituent atlas result is not certified")
+    alternate_det_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_determinant_descent.json"
+    )
+    alternate_det = json.loads(alternate_det_path.read_text(encoding="utf-8"))
+    alternate_det_digest = alternate_det.pop("artifact_digest", None)
+    alternate_det_cases = alternate_det.get("cases", [])
+    if (
+        alternate_det_digest != _canonical_digest(alternate_det)
+        or alternate_det.get("schema")
+        != "alternate-constituent-determinant-descent-v1"
+        or alternate_det.get("atlas_artifact_digest") != alternate_atlas_digest
+        or [case.get("total_determinant_character")
+            for case in alternate_det_cases] != [[2, 1], [0, 1]]
+        or any(case.get("total_cover_line_degree") != [0, 0, 0]
+               for case in alternate_det_cases)
+        or any(case.get("geometric_scalar_h3_character") != [0, 0]
+               for case in alternate_det_cases)
+        or any(case.get("scalar_h3_character")
+               != case.get("total_determinant_character")
+               for case in alternate_det_cases)
+        or any(case.get("equivariantly_trivial_determinant") is not False
+               for case in alternate_det_cases)
+        or alternate_det.get("fixed_linearization_su4_excluded_for_both_rays")
+        is not True
+        or alternate_det.get("conditional_on_equivariant_outer_extension")
+        is not True
+        or alternate_det.get("outer_extension_constructed") is not False
+        or alternate_det.get("other_linearizations_or_bundles_excluded")
+        is not False
+        or alternate_det.get("physical_higgs_spectrum_computed") is not False
+    ):
+        raise ValueError("the alternate determinant obstruction is not certified")
     hom_path = (
         ROOT / "data/generated/scientific_genesis/"
         "alternate_constituent_hom_actions.json"
@@ -4843,6 +4911,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/"
         "alternate_constituent_deck_atlases.json",
         "data/generated/scientific_genesis/"
+        "alternate_constituent_determinant_descent.json",
+        "data/generated/scientific_genesis/"
         "alternate_constituent_hom_actions.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
@@ -5006,6 +5076,12 @@ def build_state() -> dict[str, object]:
                 "computable_carrier_component_frozen": False,
                 "selected_quotient_determinant_character": [2, 1],
                 "selected_quotient_su4_certified": False,
+                "alternate_fixed_atlas_determinant_characters": [
+                    case["total_determinant_character"]
+                    for case in alternate_det_cases
+                ],
+                "alternate_fixed_atlas_su4_excluded": True,
+                "alternate_other_linearisations_excluded": False,
                 "first_constituent_atlas_to_mixed_character": frame[
                     "first_constituent_uniform_twist"
                 ],
@@ -5225,8 +5301,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "equivariant Hom-to-tensor comparison and quotient determinant "
-                "certification before Wilson projection"
+                "find a determinant-trivial constituent linearization or "
+                "distinct underlying bundle before alternate Wilson projection"
             ),
         },
         "claims": _nodes(),
@@ -5270,6 +5346,8 @@ def build_state() -> dict[str, object]:
             "with three-family one-Higgs Wilson projection over all P5",
             "the proposed reverse P5 physical freeze is blocked by its "
             "nontrivial selected quotient determinant character",
+            "both unused I6 atlas rays have exact common-coordinate total "
+            "determinant characters (2,1) and (0,1), confirmed on scalar H3",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "
@@ -5377,6 +5455,9 @@ def build_state() -> dict[str, object]:
             "characters (0,0), (0,1), (2,0), and (2,1)",
         ],
         "scoped_no_go_results": [
+            "any equivariant outer extension preserving either unused I6 "
+            "atlas pair fails quotient SU(4); other linearisations and "
+            "underlying bundles remain untested",
             "the selected mixed constituent frames have total determinant "
             "character (2,1), so this quotient SU(4) claim is uncertified; "
             "a distinct published carrier is not refuted",

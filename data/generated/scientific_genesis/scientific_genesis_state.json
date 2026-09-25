@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "e4dbd2f72639316f0ff710c5c2e44145971e571616582d0bdf65f233804b4972",
+  "artifact_digest": "170e8592e37314b5947d1847b2528bc1692d308186a2315df889eaa623e1d1de",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -477,6 +477,11 @@
       "sha256": "49be47e54ec3da7512036966a608a889358f523ca9cfccb127afdd744845d6c2"
     },
     {
+      "bytes": 2375,
+      "path": "data/generated/scientific_genesis/alternate_constituent_determinant_descent.json",
+      "sha256": "a1434ebb0d851c18941228dbd7d2cb5c1f3b5858762927f1b78ce0919fbf6723"
+    },
+    {
       "bytes": 3709,
       "path": "data/generated/scientific_genesis/alternate_constituent_hom_actions.json",
       "sha256": "cc5a2d5c70c65e6849d5a39e9fbb81227ffc7fa9238c5ed1520768af76161ac8"
@@ -511,8 +516,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 212,
-    "test_python_files": 193
+    "research_python_files": 213,
+    "test_python_files": 194
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1065,8 +1070,8 @@
       "label": "cover Higgs cohomology for unused I6 rays",
       "layer": "Computable carrier",
       "missing_prerequisites": [
-        "alternate quotient determinant",
-        "strict deck action on cover H1"
+        "determinant-trivial carrier",
+        "physical tensor comparison"
       ],
       "statement": "Each of the two unused locally free I6 Ext rays has exact cover H1 dimension four in Hom(V2 tensor det(V1), V1). This does not supply alternate descent, deck characters, or Wilson projection.",
       "status": "COMPUTED"
@@ -1085,10 +1090,30 @@
       "label": "deck atlases for unused I6 rays",
       "layer": "Computable carrier",
       "missing_prerequisites": [
-        "atlas-derived common-Schoen outer action",
-        "quotient determinant"
+        "outer extension equivariance",
+        "other constituent linearisations"
       ],
       "statement": "Both unused locally free I6 rays have exact overlap cocycles and P/T deck comparisons. Neither selected mixed P-frame formula is uniformly related to its alternate atlas frame; the old P-determinant shortcut is not a quotient certificate.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "fixed exact atlas linearisations",
+        "equivariant determinant multiplicativity"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_determinant_descent.json",
+        "research/experiments/scientific_genesis/alternate_constituent_determinant_descent.py",
+        "tests/integration/test_scientific_genesis_alternate_constituent_determinant_descent.py"
+      ],
+      "id": "alternate_constituent_determinant_obstruction",
+      "label": "fixed-atlas determinant obstruction for unused I6 rays",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "other linearisations",
+        "distinct underlying constituent bundles"
+      ],
+      "statement": "Both unused I6 rays have cover-trivial total determinant degree, but the exact common-frame and scalar-H3 characters are (2,1) and (0,1). Any equivariant outer extension preserving either fixed atlas pair therefore fails quotient SU(4).",
       "status": "COMPUTED"
     },
     {
@@ -1106,7 +1131,7 @@
       "layer": "Computable carrier",
       "missing_prerequisites": [
         "equivariant tensor comparison",
-        "quotient determinant"
+        "determinant-trivial carrier"
       ],
       "statement": "Atlas-derived frames preserve all 129 independent cover Hom boundaries for each generator and ray. The resulting H1 matrices satisfy the P/T group laws. Their characters are not physical Higgs data without equivariant tensor identification.",
       "status": "COMPUTED"
@@ -2558,6 +2583,22 @@
       "mathematical_reason": "The unused local-unit rays have exact full Cech lifts, allowing their overlap and deck comparisons to be tested chartwise.",
       "source": "distinct_constituent_ray_screen",
       "target": "alternate_constituent_deck_atlases"
+    },
+    {
+      "assumptions_required": [
+        "fixed atlas linearisations",
+        "equivariant outer extension if any"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_determinant_descent.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "another linearisation or underlying bundle is not excluded"
+      ],
+      "mathematical_reason": "The graded determinant of each exact common-coordinate deck frame acts on the cover-trivial product determinant line; scalar H3 reads the same nontrivial character. Determinants multiply in every equivariant short exact sequence.",
+      "source": "alternate_constituent_deck_atlases",
+      "target": "alternate_constituent_determinant_obstruction"
     },
     {
       "assumptions_required": [
@@ -4449,6 +4490,7 @@
     "every lawful reverse P5 extension stable on a rational open Kahler box; nonzero cover c3 excludes a proper connected reduction",
     "orientation-independent exact reverse matter and Higgs cohomology with three-family one-Higgs Wilson projection over all P5",
     "the proposed reverse P5 physical freeze is blocked by its nontrivial selected quotient determinant character",
+    "both unused I6 atlas rays have exact common-coordinate total determinant characters (2,1) and (0,1), confirmed on scalar H3",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -4532,6 +4574,18 @@
       "all_neutrino_matter_lifts_exact": true,
       "all_published_yukawa_character_products_invariant": true,
       "all_reverse_down_matter_lifts_exact": true,
+      "alternate_fixed_atlas_determinant_characters": [
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "alternate_fixed_atlas_su4_excluded": true,
+      "alternate_other_linearisations_excluded": false,
       "arbitrary_point_selected": false,
       "atlas_frame_comparison_exact": true,
       "atlas_higgs_characters_match_selected_source": false,
@@ -5096,7 +5150,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "equivariant Hom-to-tensor comparison and quotient determinant certification before Wilson projection",
+    "next_required_object": "find a determinant-trivial constituent linearization or distinct underlying bundle before alternate Wilson projection",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
   },
   "research_value_scheduler": [
@@ -5403,6 +5457,7 @@
   ],
   "schema": "scientific-genesis-state-v1",
   "scoped_no_go_results": [
+    "any equivariant outer extension preserving either unused I6 atlas pair fails quotient SU(4); other linearisations and underlying bundles remain untested",
     "the selected mixed constituent frames have total determinant character (2,1), so this quotient SU(4) claim is uncertified; a distinct published carrier is not refuted",
     "the unique common rank-four character twist that cancels the selected determinant removes both Higgs doublet sectors and introduces a color-antitriplet under the fixed Wilson line",
     "both cross-Hom H0 spaces vanish and both constituents are simple; every nonsplit selected P1/P5 extension is simple, so no other same-bundle linearization can repair the fixed Wilson spectrum",

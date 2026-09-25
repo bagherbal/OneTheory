@@ -1,0 +1,107 @@
+{
+  "artifact_digest": "8ac8f504c9f39b1180f9880196cab25737310573706110cef5006a7017a2ffab",
+  "atlas_artifact_digest": "9d7aa54f6faa3edc5b947465262773331b4b2562c54ba227fb9c605e4bc94675",
+  "cases": [
+    {
+      "constituent_cover_line_degrees": [
+        [
+          -2,
+          2,
+          0
+        ],
+        [
+          2,
+          -2,
+          0
+        ]
+      ],
+      "constituent_determinant_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "equivariantly_trivial_determinant": false,
+      "geometric_scalar_h3_character": [
+        0,
+        0
+      ],
+      "ray_character_exponents": [
+        0,
+        1
+      ],
+      "scalar_h3_character": [
+        2,
+        1
+      ],
+      "total_cover_line_degree": [
+        0,
+        0,
+        0
+      ],
+      "total_determinant_character": [
+        2,
+        1
+      ]
+    },
+    {
+      "constituent_cover_line_degrees": [
+        [
+          -2,
+          2,
+          0
+        ],
+        [
+          2,
+          -2,
+          0
+        ]
+      ],
+      "constituent_determinant_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "equivariantly_trivial_determinant": false,
+      "geometric_scalar_h3_character": [
+        0,
+        0
+      ],
+      "ray_character_exponents": [
+        1,
+        1
+      ],
+      "scalar_h3_character": [
+        0,
+        1
+      ],
+      "total_cover_line_degree": [
+        0,
+        0,
+        0
+      ],
+      "total_determinant_character": [
+        0,
+        1
+      ]
+    }
+  ],
+  "conditional_on_equivariant_outer_extension": true,
+  "fixed_linearization_su4_excluded_for_both_rays": true,
+  "next_required_object": "find a determinant-trivial constituent linearization or distinct underlying bundle before an alternate physical spectrum",
+  "other_linearizations_or_bundles_excluded": false,
+  "outer_extension_constructed": false,
+  "physical_higgs_spectrum_computed": false,
+  "proof": "determinant of any equivariant extension equals the tensor product of constituent determinants; both fixed products have a nontrivial T character on the cover-trivial determinant line",
+  "schema": "alternate-constituent-determinant-descent-v1",
+  "scope": "fixed I3 atlas plus the two unused I6 atlas linearizations"
+}

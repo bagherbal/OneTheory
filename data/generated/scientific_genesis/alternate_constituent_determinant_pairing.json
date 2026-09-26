@@ -1,0 +1,34 @@
+{
+  "alternating_exact": true,
+  "artifact_digest": "ad568ef46c692212df1a7a3832efb32278e03910cddf906ddad1a629111f747b",
+  "chart_count": 6,
+  "chart_pairing_digests": {
+    "U_0_mu": "defddb0b8a5f650617d0c8eeedc8759d00e310106647737885f4b9a92619fc88",
+    "U_0_nu": "83447e98fc178bf4b4fbed370b33f8c7199a2291a7e4fde92ea18e15d00e48cf",
+    "U_1_mu": "defddb0b8a5f650617d0c8eeedc8759d00e310106647737885f4b9a92619fc88",
+    "U_1_nu": "83447e98fc178bf4b4fbed370b33f8c7199a2291a7e4fde92ea18e15d00e48cf",
+    "U_2_mu": "defddb0b8a5f650617d0c8eeedc8759d00e310106647737885f4b9a92619fc88",
+    "U_2_nu": "83447e98fc178bf4b4fbed370b33f8c7199a2291a7e4fde92ea18e15d00e48cf"
+  },
+  "charts_different_from_selected_ray": 6,
+  "coefficient_field": "Q(omega)",
+  "corrected_overlap_covariance_exact": true,
+  "exterior_cone_higgs_cocycle_constructed": false,
+  "hom_to_tensor_chain_map_constructed": false,
+  "hypersurface_factorization_exact": true,
+  "middle_rank": 5,
+  "next_required_object": "an Alexander-Whitney-compatible rank-two Hom-to-tensor chain map using this alternate determinant pairing",
+  "overlap_count": 30,
+  "prerequisite_artifact_digests": {
+    "alternate_atlas": "9d7aa54f6faa3edc5b947465262773331b4b2562c54ba227fb9c605e4bc94675",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "universal_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+  },
+  "ray_character_exponents": [
+    0,
+    1
+  ],
+  "relation_annihilation_exact": true,
+  "relation_rank": 3,
+  "schema": "alternate-constituent-determinant-pairing-v1"
+}

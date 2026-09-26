@@ -991,6 +991,27 @@ def _nodes() -> list[dict[str, object]]:
             ("rank-two determinant chain map", "exterior-cone Higgs lift"),
         ),
         _node(
+            "alternate_constituent_determinant_pairing",
+            "local pairing for the frozen alternate I6 ray",
+            "Computable carrier",
+            "COMPUTED",
+            "Complementary minors of the actual alternate rank-two quotient "
+            "annihilate its relations on all six charts. Hypersurface "
+            "factorization gives thirty corrected overlap identities; all "
+            "six chart pairings differ from the selected I6 ray. The "
+            "Hom-to-tensor chain map remains unavailable.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_determinant_pairing.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_determinant_pairing.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_determinant_pairing.py",
+            ),
+            ("frozen alternate ray", "certified six-chart atlas"),
+            ("rank-two Hom-to-tensor chain map", "exterior-cone Higgs lift"),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2905,6 +2926,20 @@ def _edges() -> list[dict[str, object]]:
             ("certified alternate Hom action", "fixed Wilson assignment"),
             True,
             ("character matching alone is not a Higgs chain cocycle",),
+        ),
+        _edge(
+            "alternate_constituent_carrier_state",
+            "alternate_constituent_determinant_pairing",
+            "The frozen ray fixes a distinct affine Serre presentation. "
+            "Its complementary minors satisfy exact relation and "
+            "hypersurface-corrected overlap identities on the certified atlas.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_determinant_pairing.json",
+            ),
+            ("certified alternate atlas",),
+            True,
+            ("local pairings are not yet a grouped Hom-to-tensor map",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -5567,6 +5602,35 @@ def build_state() -> dict[str, object]:
         or up_hom.get("yukawa_matrix_computed") is not False
     ):
         raise ValueError("the alternate up-Higgs Hom input is not certified")
+    alternate_pairing_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_determinant_pairing.json"
+    )
+    alternate_pairing = json.loads(
+        alternate_pairing_path.read_text(encoding="utf-8")
+    )
+    alternate_pairing_digest = alternate_pairing.pop("artifact_digest", None)
+    pairing_inputs = alternate_pairing.get("prerequisite_artifact_digests", {})
+    if (
+        alternate_pairing_digest != _canonical_digest(alternate_pairing)
+        or alternate_pairing.get("schema")
+        != "alternate-constituent-determinant-pairing-v1"
+        or pairing_inputs.get("frozen_carrier") != alternate_carrier_digest
+        or pairing_inputs.get("universal_cone") != alternate_cone_digest
+        or pairing_inputs.get("alternate_atlas") != alternate_atlas_digest
+        or alternate_pairing.get("ray_character_exponents") != [0, 1]
+        or alternate_pairing.get("chart_count") != 6
+        or alternate_pairing.get("overlap_count") != 30
+        or alternate_pairing.get("charts_different_from_selected_ray") != 6
+        or len(alternate_pairing.get("chart_pairing_digests", {})) != 6
+        or alternate_pairing.get("relation_annihilation_exact") is not True
+        or alternate_pairing.get("alternating_exact") is not True
+        or alternate_pairing.get("hypersurface_factorization_exact") is not True
+        or alternate_pairing.get("corrected_overlap_covariance_exact") is not True
+        or alternate_pairing.get("hom_to_tensor_chain_map_constructed") is not False
+        or alternate_pairing.get("exterior_cone_higgs_cocycle_constructed") is not False
+    ):
+        raise ValueError("the alternate local pairing is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5773,6 +5837,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_up_cone_matter_lifts.json",
         "data/generated/scientific_genesis/"
         "alternate_up_higgs_hom_representative.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_determinant_pairing.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -6247,6 +6313,9 @@ def build_state() -> dict[str, object]:
             "the alternate Hom H1 has a strict full-Cech character-(2,0) "
             "representative required by the up-Higgs Wilson sector; its "
             "tensor and exterior-cone chain maps remain unavailable",
+            "the frozen alternate I6 quotient has six distinct local "
+            "determinant pairings satisfying all thirty corrected overlap "
+            "identities; no Hom-to-tensor chain map follows yet",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "e7f435a2bd1a4f4e534964f4f0089c2b70477a60e42f66be482fc0003fc923bd",
+  "artifact_digest": "114a9b8e58effdeaecefd4bc083922ce2c640dbd26693963ef0979970282094d",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -542,6 +542,11 @@
       "sha256": "5592516ed57b659596e82f047f03f431d35f5f35a1fb22a5b7baf6d9af64b823"
     },
     {
+      "bytes": 1594,
+      "path": "data/generated/scientific_genesis/alternate_constituent_determinant_pairing.json",
+      "sha256": "4e7f2111ee7f708fddbea89bc1f7a3d8863875936a1b5a9259063eeebbf539bf"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -571,8 +576,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 224,
-    "test_python_files": 205
+    "research_python_files": 225,
+    "test_python_files": 206
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1415,6 +1420,26 @@
         "exterior-cone Higgs lift"
       ],
       "statement": "A 324-term exact full-Cech Hom cycle has nonzero H1 class and strict atlas character (2,0). The certified determinant and common flat frames send this character to the selected up-Higgs forward sector (0,2). No tensor chain map or exterior-cone Higgs cocycle is asserted.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "frozen alternate ray",
+        "certified six-chart atlas"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_determinant_pairing.json",
+        "research/experiments/scientific_genesis/alternate_constituent_determinant_pairing.py",
+        "tests/integration/test_scientific_genesis_alternate_determinant_pairing.py"
+      ],
+      "id": "alternate_constituent_determinant_pairing",
+      "label": "local pairing for the frozen alternate I6 ray",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "rank-two Hom-to-tensor chain map",
+        "exterior-cone Higgs lift"
+      ],
+      "statement": "Complementary minors of the actual alternate rank-two quotient annihilate its relations on all six charts. Hypersurface factorization gives thirty corrected overlap identities; all six chart pairings differ from the selected I6 ray. The Hom-to-tensor chain map remains unavailable.",
       "status": "COMPUTED"
     },
     {
@@ -3108,6 +3133,21 @@
       "mathematical_reason": "The alternate atlas Hom transfer has a one-dimensional character-(2,0) H1 summand. Exact full-Cech projection gives a strict nonboundary representative; determinant-frame arithmetic identifies its required Higgs sector without constructing a tensor chain map.",
       "source": "alternate_constituent_carrier_state",
       "target": "alternate_up_higgs_hom_representative"
+    },
+    {
+      "assumptions_required": [
+        "certified alternate atlas"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_determinant_pairing.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "local pairings are not yet a grouped Hom-to-tensor map"
+      ],
+      "mathematical_reason": "The frozen ray fixes a distinct affine Serre presentation. Its complementary minors satisfy exact relation and hypersurface-corrected overlap identities on the certified atlas.",
+      "source": "alternate_constituent_carrier_state",
+      "target": "alternate_constituent_determinant_pairing"
     },
     {
       "assumptions_required": [
@@ -4977,6 +5017,7 @@
     "the alternate P1 determinant filtration and exact Hom action give Higgs H1 characters leaving one pair and no triplets under the selected Wilson line, so the whole structural component is frozen",
     "the frozen alternate P1 cone has six strict up-sector matter classes from two exact I3 constants and eight coefficientwise I6-to-I3 corrections, without a selected extension point",
     "the alternate Hom H1 has a strict full-Cech character-(2,0) representative required by the up-Higgs Wilson sector; its tensor and exterior-cone chain maps remain unavailable",
+    "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",

@@ -778,3 +778,11 @@ freeze for vertical chain-level work, not a completed heterotic vacuum.
 Strict matter and Higgs cocycles on its universal cone, bundle-moduli
 cohomology, Yukawa matrices, hidden-sector compatibility, and moduli
 stabilization remain open.
+
+The frozen alternate I6 rank-two quotient now has its own exact local
+determinant pairing. Complementary minors annihilate the three relations
+on each of six charts; hypersurface quotients certify all thirty corrected
+overlap identities. All six pairings differ from those of the previously
+selected I6 ray. This is a local ingredient for the rank-two determinant
+identity, not an Alexander–Whitney-compatible Hom-to-tensor chain map.
+The exterior-cone Higgs lift and Yukawa matrix therefore remain open.

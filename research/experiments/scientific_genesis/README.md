@@ -486,3 +486,9 @@ required Hom input, not a Higgs state: the rank-two determinant identity
 must still be realized as a chain map, then the class must be lifted through
 the exterior square of the same universal cone. No Yukawa entry follows
 from the character match alone.
+
+The frozen alternate I6 quotient now also has six exact local Plücker
+pairings and thirty hypersurface-corrected overlap identities. Each chart
+pairing differs from the earlier selected I6 ray, so that ray's determinant
+map cannot be reused. These local forms are research inputs to the missing
+Hom-to-tensor chain map; they do not supply a physical Higgs cocycle.

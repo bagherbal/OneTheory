@@ -466,3 +466,14 @@ coordinates and full-cochain digests. These are constituent classes, not
 classes of the rank-four outer cone. Parameter-linear cone corrections and
 the physical up-Higgs cocycle remain necessary before any Yukawa entry can
 be evaluated.
+
+The up-type matter slice is now lifted through the full alternate universal
+outer cone. The unchanged `I3` constituent contributes one strict full-Čech
+class in each of the two required pre-twist characters; the alternate `I6`
+constituent contributes two per character. For each of the four `I6` classes,
+both invariant extension-basis products are exact `I3` degree-two cycles.
+Their eight parameter-linear corrections satisfy the full block-cone
+differential identity and the alternate atlas deck characters. This gives
+three strict matter classes per sector throughout the frozen non-split `P1`,
+without selecting a coordinate. The physical up-Higgs cocycle and all nine
+holomorphic Yukawa entries remain uncomputed.

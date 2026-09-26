@@ -93,24 +93,29 @@ def _project(
     actions: dict[str, SchoenSparseDeckAction],
     frames: dict[str, tuple[Matrix, Matrix]],
 ) -> SparseOuterCechCochain:
-    """Average a full cochain in the certified alternate atlas frames."""
+    """Factor the exact nine-term projector into two order-three averages."""
 
-    total = SparseOuterCechCochain()
-    p_power = cochain
-    for p_exponent in range(3):
-        term = p_power
-        for t_exponent in range(3):
-            weight = OMEGA ** (-character[0] * p_exponent - character[1] * t_exponent)
-            total = total + term.scale(weight)
-            term = _full_action(
-                term, contraction.left, contraction.right,
-                actions["T"], frames["T"],
-            )
-        p_power = _full_action(
-            p_power, contraction.left, contraction.right,
-            actions["P"], frames["P"],
+    def average_generator(
+        current: SparseOuterCechCochain,
+        name: str,
+        exponent: int,
+    ) -> SparseOuterCechCochain:
+        first = _full_action(
+            current, contraction.left, contraction.right,
+            actions[name], frames[name],
         )
-    return total.scale(Eisenstein(1) / 9)
+        second = _full_action(
+            first, contraction.left, contraction.right,
+            actions[name], frames[name],
+        )
+        return (
+            current
+            + first.scale(OMEGA ** -exponent)
+            + second.scale(OMEGA ** (-2 * exponent))
+        )
+
+    p_average = average_generator(cochain, "P", character[0])
+    return average_generator(p_average, "T", character[1]).scale(Eisenstein(1) / 9)
 
 
 def _strict(

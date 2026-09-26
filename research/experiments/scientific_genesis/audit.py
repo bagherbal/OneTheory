@@ -948,6 +948,28 @@ def _nodes() -> list[dict[str, object]]:
             ("outer-cone correction cocycles", "physical Higgs class"),
         ),
         _node(
+            "alternate_constituent_up_cone_matter_lifts",
+            "universal up-sector matter classes on the alternate cone",
+            "Computable carrier",
+            "COMPUTED",
+            "The alternate atlas yields one strict I3 class in each needed "
+            "sector. Eight exact parameter-linear I3 corrections lift the "
+            "four strict I6 classes through both invariant outer basis "
+            "directions, giving three up-sector matter classes per "
+            "character throughout the frozen non-split P1. The physical "
+            "Higgs chain class and Yukawa pairing remain uncomputed.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_up_cone_matter_lifts.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_up_cone_matter_lifts.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_cone_matter_lifts.py",
+            ),
+            ("certified alternate atlas", "fixed published Wilson sectors"),
+            ("same-cone Higgs cocycle", "holomorphic Yukawa matrix"),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2831,6 +2853,21 @@ def _edges() -> list[dict[str, object]]:
             ("exact atlas deck actions", "published Wilson weights"),
             True,
             ("cone lifting and Higgs cocycles are separate prerequisites",),
+        ),
+        _edge(
+            "alternate_constituent_up_matter_representatives",
+            "alternate_constituent_up_cone_matter_lifts",
+            "The fixed I3 constituent has no H2 matter obstruction. Each "
+            "outer-matter cup therefore admits an exact I3 primitive; "
+            "eight explicit Reynolds-projected corrections satisfy the "
+            "full block-cone differential identity coefficientwise.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_up_cone_matter_lifts.json",
+            ),
+            ("strict invariant outer basis", "certified atlas deck actions"),
+            True,
+            ("a Higgs lift is still needed for any physical Yukawa entry",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -5417,6 +5454,55 @@ def build_state() -> dict[str, object]:
         or up_matter.get("yukawa_matrix_computed") is not False
     ):
         raise ValueError("the alternate up-matter constituent slice is not certified")
+    cone_matter_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_up_cone_matter_lifts.json"
+    )
+    cone_matter = json.loads(cone_matter_path.read_text(encoding="utf-8"))
+    cone_matter_digest = cone_matter.pop("artifact_digest", None)
+    cone_matter_inputs = cone_matter.get("prerequisite_artifact_digests", {})
+    first_classes = cone_matter.get("first_constituent_constant_classes", [])
+    second_lifts = cone_matter.get("second_constituent_parameter_linear_lifts", [])
+    if (
+        cone_matter_digest != _canonical_digest(cone_matter)
+        or cone_matter.get("schema")
+        != "alternate-constituent-up-cone-matter-lifts-v1"
+        or cone_matter_inputs.get("frozen_carrier") != alternate_carrier_digest
+        or cone_matter_inputs.get("strict_i6_matter") != up_matter_digest
+        or cone_matter_inputs.get("universal_cone") != alternate_cone_digest
+        or cone_matter_inputs.get("invariant_outer_basis")
+        != alternate_cone.get("invariant_artifact_digest")
+        or cone_matter.get("carrier_parameter_basis") != ["a0", "a1"]
+        or cone_matter.get("common_flat_twist") != [1, 2]
+        or [item.get("character") for item in first_classes]
+        != [[0, 0], [1, 0]]
+        or any(
+            item.get("full_cycle_exact") is not True
+            or item.get("strict_alternate_character_exact") is not True
+            for item in first_classes
+        )
+        or [item.get("character") for item in second_lifts]
+        != [[0, 0], [0, 0], [1, 0], [1, 0]]
+        or any(
+            [coefficient.get("parameter") for coefficient in item.get(
+                "parameter_coefficients", []
+            )] != ["a0", "a1"]
+            for item in second_lifts
+        )
+        or any(
+            coefficient.get("product_cycle_exact") is not True
+            or coefficient.get("coefficientwise_cone_identity_exact") is not True
+            or coefficient.get("strict_alternate_character_exact") is not True
+            for item in second_lifts
+            for coefficient in item.get("parameter_coefficients", [])
+        )
+        or cone_matter.get("all_coefficientwise_cone_identities_exact") is not True
+        or cone_matter.get("all_lifts_strict_in_declared_characters") is not True
+        or cone_matter.get("arbitrary_extension_point_selected") is not False
+        or cone_matter.get("higgs_cocycle_computed") is not False
+        or cone_matter.get("holomorphic_yukawa_matrix_computed") is not False
+    ):
+        raise ValueError("the alternate universal up-matter lifts are not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5619,6 +5705,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_carrier_state.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_up_matter_representatives.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_up_cone_matter_lifts.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -6021,9 +6109,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "derive strict matter and Higgs cocycles on the frozen "
+                "construct the strict up-Higgs cocycle on the frozen "
                 "alternate P1 cone, then compute one complete exact "
-                "holomorphic 3x3 Yukawa matrix"
+                "holomorphic 3x3 up-type Yukawa matrix"
             ),
         },
         "claims": _nodes(),
@@ -6087,6 +6175,9 @@ def build_state() -> dict[str, object]:
             "the alternate P1 determinant filtration and exact Hom action give "
             "Higgs H1 characters leaving one pair and no triplets under the "
             "selected Wilson line, so the whole structural component is frozen",
+            "the frozen alternate P1 cone has six strict up-sector matter "
+            "classes from two exact I3 constants and eight coefficientwise "
+            "I6-to-I3 corrections, without a selected extension point",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

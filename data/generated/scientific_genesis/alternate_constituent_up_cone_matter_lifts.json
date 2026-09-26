@@ -1,0 +1,233 @@
+{
+  "all_coefficientwise_cone_identities_exact": true,
+  "all_lifts_strict_in_declared_characters": true,
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "b821725103b3d341032e15d2335b2916fd82bcd211ec2611b9c0d41d2700d677",
+  "carrier_locus": "P^1(Q(omega)) x K^s",
+  "carrier_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "coefficient_field": "Q(omega)",
+  "common_flat_twist": [
+    1,
+    2
+  ],
+  "first_constituent_constant_classes": [
+    {
+      "character": [
+        0,
+        0
+      ],
+      "cohomology_coordinates": [
+        "0",
+        "0",
+        "1/3",
+        "-1/3-1/3*omega",
+        "0",
+        "0",
+        "0",
+        "1/3*omega",
+        "0"
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "b6bb7e0fc2820fceeb3fcd31dde61c59bdadaa49e6b01ff94ebeeb11681aedd1",
+      "full_term_count": 360,
+      "seed_index": 2,
+      "strict_alternate_character_exact": true
+    },
+    {
+      "character": [
+        1,
+        0
+      ],
+      "cohomology_coordinates": [
+        "0",
+        "0",
+        "1/3",
+        "1/3*omega",
+        "0",
+        "0",
+        "0",
+        "-1/3-1/3*omega",
+        "0"
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "7f5006685abcc99d4333e84574c8f57af77dfd7a006c565dbed9f4a22123d386",
+      "full_term_count": 360,
+      "seed_index": 2,
+      "strict_alternate_character_exact": true
+    }
+  ],
+  "higgs_cocycle_computed": false,
+  "holomorphic_yukawa_matrix_computed": false,
+  "next_required_object": "construct the physical up-Higgs cocycle in the same cone and evaluate all nine common-DGA Yukawa entries",
+  "pre_twist_character_sectors": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "prerequisite_artifact_digests": {
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "invariant_outer_basis": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+    "strict_i6_matter": "f90026450eb9c2d4a0b84085bb64518ec3e9def5ebc5af65aa2aae30a7d94976",
+    "universal_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+  },
+  "schema": "alternate-constituent-up-cone-matter-lifts-v1",
+  "second_constituent_parameter_linear_lifts": [
+    {
+      "character": [
+        0,
+        0
+      ],
+      "i6_digest": "ccf4019dee9e17cb439891bce51630d0e1170b33e5a60c7b0493a48ce95ec243",
+      "local_family_index": 1,
+      "parameter_coefficients": [
+        {
+          "coefficientwise_cone_identity_exact": true,
+          "correction_digest": "cfaff00c955eba154eb49bfffec25f473fb93101b369f7ece6e08161cb2e45bb",
+          "correction_term_count": 27640,
+          "parameter": "a0",
+          "primitive_homotopy_depth": 4,
+          "primitive_inclusion_depth": 3,
+          "primitive_projection_depth": 4,
+          "product_cycle_exact": true,
+          "product_digest": "0fb3aaad007d06ec9db1ebeef5b278339afebc7e7e89eaf00a24f6ce969c2cc4",
+          "product_term_count": 46604,
+          "strict_alternate_character_exact": true
+        },
+        {
+          "coefficientwise_cone_identity_exact": true,
+          "correction_digest": "bb919f1697e001f938a476889ad07d785fc4959029eca48c0f3c70d43dc82ddc",
+          "correction_term_count": 25244,
+          "parameter": "a1",
+          "primitive_homotopy_depth": 4,
+          "primitive_inclusion_depth": 3,
+          "primitive_projection_depth": 4,
+          "product_cycle_exact": true,
+          "product_digest": "6a01af6771d7d8e436f62615f24b85bfb03a55bbdfbe50633952504ee2ae53e5",
+          "product_term_count": 40939,
+          "strict_alternate_character_exact": true
+        }
+      ],
+      "seed_index": 0
+    },
+    {
+      "character": [
+        0,
+        0
+      ],
+      "i6_digest": "562d76a6bdfdb5526cbd2482ba99245d39b32e52d5991bd9df1b40b9ecc833fa",
+      "local_family_index": 2,
+      "parameter_coefficients": [
+        {
+          "coefficientwise_cone_identity_exact": true,
+          "correction_digest": "b8f7131ca37dfeebb90575b2e247fb62a56e8f1837256e6761571394abc8c18e",
+          "correction_term_count": 26779,
+          "parameter": "a0",
+          "primitive_homotopy_depth": 4,
+          "primitive_inclusion_depth": 3,
+          "primitive_projection_depth": 4,
+          "product_cycle_exact": true,
+          "product_digest": "44efc2e5681fc3d788cca86ae13cf7c6760b7e2b213f8f2f8b81d826e85cfa35",
+          "product_term_count": 44872,
+          "strict_alternate_character_exact": true
+        },
+        {
+          "coefficientwise_cone_identity_exact": true,
+          "correction_digest": "c83f45996de9a496f7cf137d9315b1ab448aee4c74646aa7ceb532a16c90d413",
+          "correction_term_count": 23868,
+          "parameter": "a1",
+          "primitive_homotopy_depth": 4,
+          "primitive_inclusion_depth": 3,
+          "primitive_projection_depth": 4,
+          "product_cycle_exact": true,
+          "product_digest": "6871d0efe365f5adef7121260d6e095be247042cf9db80b6b0e08ad7a5fbbd3f",
+          "product_term_count": 39131,
+          "strict_alternate_character_exact": true
+        }
+      ],
+      "seed_index": 5
+    },
+    {
+      "character": [
+        1,
+        0
+      ],
+      "i6_digest": "b180cae1bac8158b49777bafccaf8ce888c8b4c3e0f3b9e18bcee5e4d658bed0",
+      "local_family_index": 1,
+      "parameter_coefficients": [
+        {
+          "coefficientwise_cone_identity_exact": true,
+          "correction_digest": "3b28f52ab64ca9b2bd5e9d9a4de726ac8696e118d292118257dc96caf5519204",
+          "correction_term_count": 27564,
+          "parameter": "a0",
+          "primitive_homotopy_depth": 4,
+          "primitive_inclusion_depth": 3,
+          "primitive_projection_depth": 4,
+          "product_cycle_exact": true,
+          "product_digest": "802ab178604514c97bfcaf2cac3142dda03ed360b01bd71b1163e78d9b465882",
+          "product_term_count": 46592,
+          "strict_alternate_character_exact": true
+        },
+        {
+          "coefficientwise_cone_identity_exact": true,
+          "correction_digest": "1cc8b083730dca24d018a6bc3bcb35939aa4ca508885326b195be16013966dad",
+          "correction_term_count": 25220,
+          "parameter": "a1",
+          "primitive_homotopy_depth": 4,
+          "primitive_inclusion_depth": 3,
+          "primitive_projection_depth": 4,
+          "product_cycle_exact": true,
+          "product_digest": "c8102f8d97538834198c587088a2431a0ea4546861a9ccba3222cc55e28d475d",
+          "product_term_count": 40903,
+          "strict_alternate_character_exact": true
+        }
+      ],
+      "seed_index": 0
+    },
+    {
+      "character": [
+        1,
+        0
+      ],
+      "i6_digest": "dee7e680189f9daf88541e78aa25c16bdbf5c43859e4931eea8e02872adc58de",
+      "local_family_index": 2,
+      "parameter_coefficients": [
+        {
+          "coefficientwise_cone_identity_exact": true,
+          "correction_digest": "d13d0c4b2933b8b3572b6a2b64d0905e20635f2861b267b9622c4764fcf741e5",
+          "correction_term_count": 26779,
+          "parameter": "a0",
+          "primitive_homotopy_depth": 4,
+          "primitive_inclusion_depth": 3,
+          "primitive_projection_depth": 4,
+          "product_cycle_exact": true,
+          "product_digest": "7dfdcc49f187ac076c86de2818431271ba65e5532b35a07ee2cdb7b20e00d37a",
+          "product_term_count": 44872,
+          "strict_alternate_character_exact": true
+        },
+        {
+          "coefficientwise_cone_identity_exact": true,
+          "correction_digest": "be293f8576aafe497716f5a1c6f240292037802d46ee02cceef5c18603f37850",
+          "correction_term_count": 23868,
+          "parameter": "a1",
+          "primitive_homotopy_depth": 4,
+          "primitive_inclusion_depth": 3,
+          "primitive_projection_depth": 4,
+          "product_cycle_exact": true,
+          "product_digest": "b0f81c3873c6c6f79436457b2c2a2c2888c5339a06cd584651958ac7134f4695",
+          "product_term_count": 39131,
+          "strict_alternate_character_exact": true
+        }
+      ],
+      "seed_index": 5
+    }
+  ],
+  "universal_visible_family_dimension_per_character": 3
+}

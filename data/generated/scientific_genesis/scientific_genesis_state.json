@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "e0119f1da9ad2ee6d9414e4dad783f8449e5ffb3975176ae7d1313071079d251",
+  "artifact_digest": "07b6efde0a25b816d327236760abf81d8644829bb52ec70088bf5376577d380a",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -532,6 +532,11 @@
       "sha256": "f041ed586d7be8ad2442a38ca14927583ba801c7f7f297833aae6e6cfcb6e90a"
     },
     {
+      "bytes": 8054,
+      "path": "data/generated/scientific_genesis/alternate_constituent_up_cone_matter_lifts.json",
+      "sha256": "c9e27a49495067e41a8a5945fa8a1188424bd41e202f7a7885c82d0e793fabcf"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -561,8 +566,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 222,
-    "test_python_files": 203
+    "research_python_files": 223,
+    "test_python_files": 204
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1365,6 +1370,26 @@
         "physical Higgs class"
       ],
       "statement": "Exact full Cech cycles in the alternate I6 atlas give two independent H1 classes in each constituent character (0,0) and (1,0). The common flat twist maps these to the fixed Wilson up-spinor sectors (1,2) and (2,2). These are not yet classes of the outer rank-four cone.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "certified alternate atlas",
+        "fixed published Wilson sectors"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_up_cone_matter_lifts.json",
+        "research/experiments/scientific_genesis/alternate_constituent_up_cone_matter_lifts.py",
+        "tests/integration/test_scientific_genesis_alternate_up_cone_matter_lifts.py"
+      ],
+      "id": "alternate_constituent_up_cone_matter_lifts",
+      "label": "universal up-sector matter classes on the alternate cone",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "same-cone Higgs cocycle",
+        "holomorphic Yukawa matrix"
+      ],
+      "statement": "The alternate atlas yields one strict I3 class in each needed sector. Eight exact parameter-linear I3 corrections lift the four strict I6 classes through both invariant outer basis directions, giving three up-sector matter classes per character throughout the frozen non-split P1. The physical Higgs chain class and Yukawa pairing remain uncomputed.",
       "status": "COMPUTED"
     },
     {
@@ -3026,6 +3051,22 @@
       "mathematical_reason": "The frozen carrier fixes the alternate I6 atlas and its unique determinant-repair twist. Exact mixed transfer, full-cycle Reynolds projection, and independent reduced H1 rank recover the two required up-type constituent sectors.",
       "source": "alternate_constituent_carrier_state",
       "target": "alternate_constituent_up_matter_representatives"
+    },
+    {
+      "assumptions_required": [
+        "strict invariant outer basis",
+        "certified atlas deck actions"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_up_cone_matter_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a Higgs lift is still needed for any physical Yukawa entry"
+      ],
+      "mathematical_reason": "The fixed I3 constituent has no H2 matter obstruction. Each outer-matter cup therefore admits an exact I3 primitive; eight explicit Reynolds-projected corrections satisfy the full block-cone differential identity coefficientwise.",
+      "source": "alternate_constituent_up_matter_representatives",
+      "target": "alternate_constituent_up_cone_matter_lifts"
     },
     {
       "assumptions_required": [
@@ -4893,6 +4934,7 @@
     "the published Serre-sequence stability bound applies to every nonzero alternate P1 extension; exact nine-slope arithmetic gives a nonempty sufficient chamber with genuine SU(4)",
     "the alternate I6 mixed transfer gives pure H1 of dimension 18; the unchanged I3 constituent gives 9, so every nonzero P1 outer class has cover matter H1=27 and three regular deck modules",
     "the alternate P1 determinant filtration and exact Hom action give Higgs H1 characters leaving one pair and no triplets under the selected Wilson line, so the whole structural component is frozen",
+    "the frozen alternate P1 cone has six strict up-sector matter classes from two exact I3 constants and eight coefficientwise I6-to-I3 corrections, without a selected extension point",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -5577,7 +5619,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "derive strict matter and Higgs cocycles on the frozen alternate P1 cone, then compute one complete exact holomorphic 3x3 Yukawa matrix",
+    "next_required_object": "construct the strict up-Higgs cocycle on the frozen alternate P1 cone, then compute one complete exact holomorphic 3x3 up-type Yukawa matrix",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

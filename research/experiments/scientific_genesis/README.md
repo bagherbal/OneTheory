@@ -455,3 +455,14 @@ triplet. Since determinant endpoints are acyclic, the obstruction is
 independent of extension parameters in either orientation. This excludes
 the same selected simple constituent pair under factorwise relinearization,
 not a distinct underlying carrier.
+
+The frozen alternate `I6` ray now has four exact full-Čech matter
+representatives for the up-type slice: two independent classes in each
+constituent character `(0,0)` and `(1,0)`. Their full differentials vanish,
+their alternate-atlas deck actions have the stated strict characters, and
+the determinant-repair twist moves them to the two fixed Wilson spinor
+sectors. The content-addressed certificate records the complete reduced
+coordinates and full-cochain digests. These are constituent classes, not
+classes of the rank-four outer cone. Parameter-linear cone corrections and
+the physical up-Higgs cocycle remain necessary before any Yukawa entry can
+be evaluated.

@@ -927,6 +927,27 @@ def _nodes() -> list[dict[str, object]]:
             ("strict same-cone cocycles", "holomorphic Yukawa matrix"),
         ),
         _node(
+            "alternate_constituent_up_matter_representatives",
+            "strict I6 matter representatives for the alternate up-type slice",
+            "Computable carrier",
+            "COMPUTED",
+            "Exact full Cech cycles in the alternate I6 atlas give two "
+            "independent H1 classes in each constituent character (0,0) "
+            "and (1,0). The common flat twist maps these to the fixed "
+            "Wilson up-spinor sectors (1,2) and (2,2). These are not yet "
+            "classes of the outer rank-four cone.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_up_matter_representatives.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_up_matter_representatives.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_up_matter_representatives.py",
+            ),
+            ("published Wilson weights", "certified alternate atlas frames"),
+            ("outer-cone correction cocycles", "physical Higgs class"),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2795,6 +2816,21 @@ def _edges() -> list[dict[str, object]]:
             ("certified alternate cone", "sufficient stable chamber"),
             True,
             ("chain cocycles and Yukawas remain unavailable after the freeze",),
+        ),
+        _edge(
+            "alternate_constituent_carrier_state",
+            "alternate_constituent_up_matter_representatives",
+            "The frozen carrier fixes the alternate I6 atlas and its unique "
+            "determinant-repair twist. Exact mixed transfer, full-cycle "
+            "Reynolds projection, and independent reduced H1 rank recover "
+            "the two required up-type constituent sectors.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_up_matter_representatives.json",
+            ),
+            ("exact atlas deck actions", "published Wilson weights"),
+            True,
+            ("cone lifting and Higgs cocycles are separate prerequisites",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -5342,6 +5378,45 @@ def build_state() -> dict[str, object]:
         or alternate_carrier.get("physical_yukawas_available") is not False
     ):
         raise ValueError("the alternate component freeze is not certified")
+    up_matter_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_up_matter_representatives.json"
+    )
+    up_matter = json.loads(up_matter_path.read_text(encoding="utf-8"))
+    up_matter_digest = up_matter.pop("artifact_digest", None)
+    up_inputs = up_matter.get("prerequisite_artifact_digests", {})
+    up_classes = up_matter.get("classes", [])
+    if (
+        up_matter_digest != _canonical_digest(up_matter)
+        or up_matter.get("schema")
+        != "alternate-constituent-up-matter-representatives-v1"
+        or up_inputs.get("frozen_carrier") != alternate_carrier_digest
+        or up_inputs.get("structural_spectrum") != alternate_spectrum_digest
+        or up_inputs.get("cover_matter_profile") != alternate_matter_digest
+        or up_inputs.get("published_wilson_source")
+        != spectrum_inputs.get("published_wilson_source")
+        or up_matter.get("common_flat_twist") != alternate_spectrum.get(
+            "common_flat_twist"
+        )
+        or up_matter.get("up_spinor_wilson_weights") != [[1, 2], [2, 2]]
+        or up_matter.get("up_higgs_wilson_weight") != [0, 2]
+        or up_matter.get("constituent_character_sectors") != [[0, 0], [1, 0]]
+        or up_matter.get("reduced_h1_dimension") != 18
+        or up_matter.get("independent_boundary_dimension") != 189
+        or [item.get("constituent_character") for item in up_classes]
+        != [[0, 0], [0, 0], [1, 0], [1, 0]]
+        or [item.get("repaired_carrier_character") for item in up_classes]
+        != [[1, 2], [1, 2], [2, 2], [2, 2]]
+        or any(item.get("full_cycle_exact") is not True for item in up_classes)
+        or any(
+            item.get("strict_alternate_character_exact") is not True
+            for item in up_classes
+        )
+        or up_matter.get("outer_cone_lifts_computed") is not False
+        or up_matter.get("higgs_cocycles_computed") is not False
+        or up_matter.get("yukawa_matrix_computed") is not False
+    ):
+        raise ValueError("the alternate up-matter constituent slice is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5542,6 +5617,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_structural_spectrum.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_carrier_state.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_up_matter_representatives.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",

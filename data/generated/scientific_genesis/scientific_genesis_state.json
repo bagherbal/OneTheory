@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "7ddf8b53202838e034b271204f6abe7a7e3c182169be562d0727d1270339fb7b",
+  "artifact_digest": "e0119f1da9ad2ee6d9414e4dad783f8449e5ffb3975176ae7d1313071079d251",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -527,6 +527,11 @@
       "sha256": "e59d52e2af186f41cc863b4c0e4eed48ead0a4cb77a0552be739ccad136579e9"
     },
     {
+      "bytes": 4251,
+      "path": "data/generated/scientific_genesis/alternate_constituent_up_matter_representatives.json",
+      "sha256": "f041ed586d7be8ad2442a38ca14927583ba801c7f7f297833aae6e6cfcb6e90a"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -556,8 +561,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 221,
-    "test_python_files": 202
+    "research_python_files": 222,
+    "test_python_files": 203
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1340,6 +1345,26 @@
         "holomorphic Yukawa matrix"
       ],
       "statement": "The entire nonzero alternate P1 component is bound to exact cone, stable-chamber, Hom-action, and charged-spectrum certificates. No projective coordinate is selected and the published P3 reference is kept distinct. The freeze is for chain-level physics, not a completed vacuum.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "published Wilson weights",
+        "certified alternate atlas frames"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_up_matter_representatives.json",
+        "research/experiments/scientific_genesis/alternate_constituent_up_matter_representatives.py",
+        "tests/integration/test_scientific_genesis_alternate_constituent_up_matter_representatives.py"
+      ],
+      "id": "alternate_constituent_up_matter_representatives",
+      "label": "strict I6 matter representatives for the alternate up-type slice",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "outer-cone correction cocycles",
+        "physical Higgs class"
+      ],
+      "statement": "Exact full Cech cycles in the alternate I6 atlas give two independent H1 classes in each constituent character (0,0) and (1,0). The common flat twist maps these to the fixed Wilson up-spinor sectors (1,2) and (2,2). These are not yet classes of the outer rank-four cone.",
       "status": "COMPUTED"
     },
     {
@@ -2985,6 +3010,22 @@
       "mathematical_reason": "The only currently certified stable determinant-trivial component passing the charged structural selection constraints is frozen as a whole rather than by a fitted extension coordinate.",
       "source": "alternate_constituent_structural_spectrum",
       "target": "alternate_constituent_carrier_state"
+    },
+    {
+      "assumptions_required": [
+        "exact atlas deck actions",
+        "published Wilson weights"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_up_matter_representatives.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "cone lifting and Higgs cocycles are separate prerequisites"
+      ],
+      "mathematical_reason": "The frozen carrier fixes the alternate I6 atlas and its unique determinant-repair twist. Exact mixed transfer, full-cycle Reynolds projection, and independent reduced H1 rank recover the two required up-type constituent sectors.",
+      "source": "alternate_constituent_carrier_state",
+      "target": "alternate_constituent_up_matter_representatives"
     },
     {
       "assumptions_required": [

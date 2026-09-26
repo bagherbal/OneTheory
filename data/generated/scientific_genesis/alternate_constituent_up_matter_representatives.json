@@ -1,0 +1,200 @@
+{
+  "artifact_digest": "f90026450eb9c2d4a0b84085bb64518ec3e9def5ebc5af65aa2aae30a7d94976",
+  "classes": [
+    {
+      "cohomology_coordinates": [
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3+1/3*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/3*omega"
+      ],
+      "constituent_character": [
+        0,
+        0
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "ccf4019dee9e17cb439891bce51630d0e1170b33e5a60c7b0493a48ce95ec243",
+      "full_term_count": 378,
+      "inclusion_depth": 3,
+      "projection_depth": 1,
+      "repaired_carrier_character": [
+        1,
+        2
+      ],
+      "seed_index": 0,
+      "strict_alternate_character_exact": true
+    },
+    {
+      "cohomology_coordinates": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "-2/21+1/21*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/7+2/21*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/3-1/3*omega"
+      ],
+      "constituent_character": [
+        0,
+        0
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "562d76a6bdfdb5526cbd2482ba99245d39b32e52d5991bd9df1b40b9ecc833fa",
+      "full_term_count": 378,
+      "inclusion_depth": 3,
+      "projection_depth": 1,
+      "repaired_carrier_character": [
+        1,
+        2
+      ],
+      "seed_index": 5,
+      "strict_alternate_character_exact": true
+    },
+    {
+      "cohomology_coordinates": [
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/3"
+      ],
+      "constituent_character": [
+        1,
+        0
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "b180cae1bac8158b49777bafccaf8ce888c8b4c3e0f3b9e18bcee5e4d658bed0",
+      "full_term_count": 378,
+      "inclusion_depth": 3,
+      "projection_depth": 1,
+      "repaired_carrier_character": [
+        2,
+        2
+      ],
+      "seed_index": 0,
+      "strict_alternate_character_exact": true
+    },
+    {
+      "cohomology_coordinates": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "-1/21-1/7*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/21-1/7*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3"
+      ],
+      "constituent_character": [
+        1,
+        0
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "dee7e680189f9daf88541e78aa25c16bdbf5c43859e4931eea8e02872adc58de",
+      "full_term_count": 378,
+      "inclusion_depth": 3,
+      "projection_depth": 1,
+      "repaired_carrier_character": [
+        2,
+        2
+      ],
+      "seed_index": 5,
+      "strict_alternate_character_exact": true
+    }
+  ],
+  "coefficient_field": "Q(omega)",
+  "common_flat_twist": [
+    1,
+    2
+  ],
+  "constituent_character_sectors": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "higgs_cocycles_computed": false,
+  "independent_boundary_dimension": 189,
+  "next_required_object": "lift these four I6 classes through the two-parameter outer cone and construct the physical up-Higgs chain class",
+  "outer_cone_lifts_computed": false,
+  "prerequisite_artifact_digests": {
+    "cover_matter_profile": "8dd454cfdac3d851a3674b49234bc9c3db04af989393a87348b0c8dadcc41984",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "published_wilson_source": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "structural_spectrum": "cbf2f4c78e15d140bbfd1cc11e98e0eeba473b59ca48f7090096807ad2aee1bd"
+  },
+  "ray_character_exponents": [
+    0,
+    1
+  ],
+  "reduced_h1_dimension": 18,
+  "schema": "alternate-constituent-up-matter-representatives-v1",
+  "target_character_multiplicities_complete": true,
+  "up_higgs_wilson_weight": [
+    0,
+    2
+  ],
+  "up_spinor_wilson_weights": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "yukawa_matrix_computed": false
+}

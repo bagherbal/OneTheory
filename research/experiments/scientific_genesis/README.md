@@ -493,6 +493,13 @@ pairing differs from the earlier selected I6 ray, so that ray's determinant
 map cannot be reused. These local forms are research inputs to the missing
 Hom-to-tensor chain map; they do not supply a physical Higgs cocycle.
 
+An exact sparse inverse of the alternate quotient duality map is now
+available on every minor principal open. The identity `J S J = Δ J`
+passes on all sixty opens, with local freeness supplying the quotient
+rank argument. Exact adjugate contractions remove the right syzygy-dual
+terms locally. The 324-term Hom class has not yet been restricted and
+transported through the common Čech–Koszul complex.
+
 The universal up-matrix filtration also fixes its parameter support:
 first/first vanishes, mixed entries are constant, and second/second
 entries are linear in the two outer parameters. The determinant is linear

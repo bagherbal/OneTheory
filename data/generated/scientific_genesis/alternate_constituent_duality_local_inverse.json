@@ -1,0 +1,293 @@
+{
+  "all_principal_opens_nonempty_at_witness": true,
+  "artifact_digest": "8a46f18738393ae8fe530f0e5284d362572832734912b3cf242d6ef9064c5156",
+  "coefficient_field": "Q(omega)",
+  "combined_local_hom_to_quotient_identity_exact": true,
+  "common_hypersurface_witness_base": [
+    "1",
+    "2",
+    "3"
+  ],
+  "common_hypersurface_witness_fiber": [
+    "42+156*omega",
+    "-108+108*omega"
+  ],
+  "corrected_overlap_covariance_prerequisite_verified": true,
+  "dual_syzygy_contraction_count": 60,
+  "dual_syzygy_contraction_exact": true,
+  "exterior_cone_higgs_cocycle_constructed": false,
+  "hom_to_tensor_cech_koszul_map_constructed": false,
+  "inverse_identity_exact": true,
+  "local_inverse": "S_uv / J_uv on D(J_uv)",
+  "map_direction": "F -> F^dual tensor det(F)",
+  "next_required_object": "restrict the strict Hom cocycle to the minor-open cover, apply these local inverses, and solve the Cech--Koszul gluing homotopies",
+  "prerequisite_artifact_digests": {
+    "alternate_pairing": "ad568ef46c692212df1a7a3832efb32278e03910cddf906ddad1a629111f747b",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "local_unit_screen": "aa090ed4fd058c5b1db797d58a9e02c8cd40a10cb9de2753ec797c2cdd3c14f7",
+    "strict_up_higgs_hom_class": "5dd66dc3cb8e71d281532267c2970dacf2f29852b80362dcbe9cfa14d4ba9ece"
+  },
+  "principal_open_count": 60,
+  "principal_open_row_pairs": {
+    "U_0_mu": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "U_0_nu": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "U_1_mu": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "U_1_nu": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "U_2_mu": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "U_2_nu": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  "quotient_local_freeness_prerequisite_verified": true,
+  "ray_character_exponents": [
+    0,
+    1
+  ],
+  "schema": "alternate-constituent-duality-local-inverse-v1",
+  "two_term_chain_map_exact": true,
+  "yukawa_matrix_computed": false
+}

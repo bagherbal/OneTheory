@@ -1012,6 +1012,30 @@ def _nodes() -> list[dict[str, object]]:
             ("rank-two Hom-to-tensor chain map", "exterior-cone Higgs lift"),
         ),
         _node(
+            "alternate_constituent_duality_local_inverse",
+            "minor-open inverse of alternate rank-two duality",
+            "Computable carrier",
+            "COMPUTED",
+            "On each of six alternate charts, ten nonzero determinant minors "
+            "define principal opens. Sparse numerators satisfy J S J = "
+            "Delta J, while adjugate syzygy contractions satisfy A^t T = "
+            "D id and J S P = Delta P on all sixty opens. Certified local "
+            "freeness makes the combined map a quotient inverse. Full "
+            "Cech--Koszul Hom transport remains unavailable.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_duality_local_inverse.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_duality_local_inverse.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_DUALITY_LOCAL_INVERSE_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_duality_local_inverse.py",
+            ),
+            ("frozen alternate local-freeness", "exact alternate Pluecker form"),
+            ("full Hom-to-tensor Cech--Koszul map", "exterior-cone Higgs lift"),
+        ),
+        _node(
             "alternate_up_yukawa_support",
             "universal up-matrix filtration support",
             "Flavor",
@@ -2964,6 +2988,23 @@ def _edges() -> list[dict[str, object]]:
             ("certified alternate atlas",),
             True,
             ("local pairings are not yet a grouped Hom-to-tensor map",),
+        ),
+        _edge(
+            "alternate_constituent_determinant_pairing",
+            "alternate_constituent_duality_local_inverse",
+            "The complementary-minor form J annihilates the relations. "
+            "On each minor open, J S J = Delta J and the adjugate dual "
+            "retract satisfies A^t T = D id and J S P = Delta P. Certified "
+            "rank-three relations make this a local quotient inverse.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_duality_local_inverse.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_DUALITY_LOCAL_INVERSE_NOTE.md",
+            ),
+            ("rank-two local freeness", "minor principal-open localization"),
+            True,
+            ("the 324-term Hom cocycle has not been transported",),
         ),
         _edge(
             "alternate_constituent_up_cone_matter_lifts",
@@ -5672,6 +5713,45 @@ def build_state() -> dict[str, object]:
         or alternate_pairing.get("exterior_cone_higgs_cocycle_constructed") is not False
     ):
         raise ValueError("the alternate local pairing is not certified")
+    local_inverse_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_duality_local_inverse.json"
+    )
+    local_inverse = json.loads(local_inverse_path.read_text(encoding="utf-8"))
+    local_inverse_digest = local_inverse.pop("artifact_digest", None)
+    inverse_inputs = local_inverse.get("prerequisite_artifact_digests", {})
+    principal_opens = local_inverse.get("principal_open_row_pairs", {})
+    if (
+        local_inverse_digest != _canonical_digest(local_inverse)
+        or local_inverse.get("schema")
+        != "alternate-constituent-duality-local-inverse-v1"
+        or inverse_inputs.get("frozen_carrier") != alternate_carrier_digest
+        or inverse_inputs.get("alternate_pairing") != alternate_pairing_digest
+        or inverse_inputs.get("local_unit_screen") != ray_digest
+        or inverse_inputs.get("strict_up_higgs_hom_class") != up_hom_digest
+        or local_inverse.get("ray_character_exponents") != [0, 1]
+        or local_inverse.get("principal_open_count") != 60
+        or local_inverse.get("dual_syzygy_contraction_count") != 60
+        or len(principal_opens) != 6
+        or any(len(pairs) != 10 for pairs in principal_opens.values())
+        or local_inverse.get("inverse_identity_exact") is not True
+        or local_inverse.get("two_term_chain_map_exact") is not True
+        or local_inverse.get("dual_syzygy_contraction_exact") is not True
+        or local_inverse.get("combined_local_hom_to_quotient_identity_exact")
+        is not True
+        or local_inverse.get("common_hypersurface_witness_base") != ["1", "2", "3"]
+        or local_inverse.get("all_principal_opens_nonempty_at_witness") is not True
+        or local_inverse.get("quotient_local_freeness_prerequisite_verified")
+        is not True
+        or local_inverse.get("corrected_overlap_covariance_prerequisite_verified")
+        is not True
+        or local_inverse.get("hom_to_tensor_cech_koszul_map_constructed")
+        is not False
+        or local_inverse.get("exterior_cone_higgs_cocycle_constructed")
+        is not False
+        or local_inverse.get("yukawa_matrix_computed") is not False
+    ):
+        raise ValueError("the alternate local duality inverse is not certified")
     up_support_path = (
         ROOT / "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json"
@@ -5904,6 +5984,8 @@ def build_state() -> dict[str, object]:
         "alternate_up_higgs_hom_representative.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_determinant_pairing.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_duality_local_inverse.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
@@ -6383,6 +6465,9 @@ def build_state() -> dict[str, object]:
             "the frozen alternate I6 quotient has six distinct local "
             "determinant pairings satisfying all thirty corrected overlap "
             "identities; no Hom-to-tensor chain map follows yet",
+            "all sixty minor opens of the alternate I6 quotient carry exact "
+            "rank-two duality inverses and syzygy-dual contractions, but "
+            "the strict Hom class has not reached a common Higgs complex",
             "the alternate universal up matrix has an exterior-forced zero "
             "E-E slot, constant mixed slots, and a parameter-linear F-F "
             "block; its determinant coefficients are uncomputed",

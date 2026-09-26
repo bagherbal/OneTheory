@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "e5b0b7a021de2c30d475918e7bc94dcf13ebc554643b0a6b5f9f10df18a81e70",
+  "artifact_digest": "b3b8f3fb835a4ebaa67c083b8c5c5b836bab102e6dcd24b491384a8893fc1e8e",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -547,6 +547,11 @@
       "sha256": "4e7f2111ee7f708fddbea89bc1f7a3d8863875936a1b5a9259063eeebbf539bf"
     },
     {
+      "bytes": 4062,
+      "path": "data/generated/scientific_genesis/alternate_constituent_duality_local_inverse.json",
+      "sha256": "f772c44c42a2c35a2f2806604326e499c2f56b4524b075095e45320b8628bdc1"
+    },
+    {
       "bytes": 1322,
       "path": "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
       "sha256": "88ae38c3a0de4e90dc41dfc4a585989e0314a08e4c2a162239c78808e2b90051"
@@ -581,8 +586,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 226,
-    "test_python_files": 207
+    "research_python_files": 227,
+    "test_python_files": 208
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1445,6 +1450,27 @@
         "exterior-cone Higgs lift"
       ],
       "statement": "Complementary minors of the actual alternate rank-two quotient annihilate its relations on all six charts. Hypersurface factorization gives thirty corrected overlap identities; all six chart pairings differ from the selected I6 ray. The Hom-to-tensor chain map remains unavailable.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "frozen alternate local-freeness",
+        "exact alternate Pluecker form"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_duality_local_inverse.json",
+        "research/experiments/scientific_genesis/alternate_constituent_duality_local_inverse.py",
+        "research/experiments/scientific_genesis/ALTERNATE_DUALITY_LOCAL_INVERSE_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_duality_local_inverse.py"
+      ],
+      "id": "alternate_constituent_duality_local_inverse",
+      "label": "minor-open inverse of alternate rank-two duality",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "full Hom-to-tensor Cech--Koszul map",
+        "exterior-cone Higgs lift"
+      ],
+      "statement": "On each of six alternate charts, ten nonzero determinant minors define principal opens. Sparse numerators satisfy J S J = Delta J, while adjugate syzygy contractions satisfy A^t T = D id and J S P = Delta P on all sixty opens. Certified local freeness makes the combined map a quotient inverse. Full Cech--Koszul Hom transport remains unavailable.",
       "status": "COMPUTED"
     },
     {
@@ -3174,6 +3200,23 @@
       "mathematical_reason": "The frozen ray fixes a distinct affine Serre presentation. Its complementary minors satisfy exact relation and hypersurface-corrected overlap identities on the certified atlas.",
       "source": "alternate_constituent_carrier_state",
       "target": "alternate_constituent_determinant_pairing"
+    },
+    {
+      "assumptions_required": [
+        "rank-two local freeness",
+        "minor principal-open localization"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_duality_local_inverse.json",
+        "research/experiments/scientific_genesis/ALTERNATE_DUALITY_LOCAL_INVERSE_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the 324-term Hom cocycle has not been transported"
+      ],
+      "mathematical_reason": "The complementary-minor form J annihilates the relations. On each minor open, J S J = Delta J and the adjugate dual retract satisfies A^t T = D id and J S P = Delta P. Certified rank-three relations make this a local quotient inverse.",
+      "source": "alternate_constituent_determinant_pairing",
+      "target": "alternate_constituent_duality_local_inverse"
     },
     {
       "assumptions_required": [
@@ -5061,6 +5104,7 @@
     "the frozen alternate P1 cone has six strict up-sector matter classes from two exact I3 constants and eight coefficientwise I6-to-I3 corrections, without a selected extension point",
     "the alternate Hom H1 has a strict full-Cech character-(2,0) representative required by the up-Higgs Wilson sector; its tensor and exterior-cone chain maps remain unavailable",
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
+    "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
     "the alternate universal up matrix has an exterior-forced zero E-E slot, constant mixed slots, and a parameter-linear F-F block; its determinant coefficients are uncomputed",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",

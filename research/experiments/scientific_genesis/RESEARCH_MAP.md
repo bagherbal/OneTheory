@@ -787,6 +787,18 @@ selected I6 ray. This is a local ingredient for the rank-two determinant
 identity, not an Alexander–Whitney-compatible Hom-to-tensor chain map.
 The exterior-cone Higgs lift and Yukawa matrix therefore remain open.
 
+The rank-two quotient pairing now has an explicit exact inverse on each
+minor principal open of the frozen alternate I6 atlas. With `J` the
+complementary-minor form, `Δ=J[u,v]`, and the sparse skew numerator `S`,
+all sixty available opens satisfy `J S J = Δ J` over `Q(omega)`.
+An adjugate contraction also splits the right syzygy-dual differential;
+the combined map satisfies `J S P = Δ P` on every open. Certified
+local freeness makes it an inverse on the quotient. This identifies the
+local operation needed to transport the strict 324-term Hom
+representative. Its restriction, Čech–Koszul gluing, and
+exterior-cone lift have **not** been carried out; see
+`ALTERNATE_DUALITY_LOCAL_INVERSE_NOTE.md`.
+
 The universal up-type matrix has a structural support theorem independent
 of an individual extension point. Each physical matter sector has one
 constant first-constituent class and two parameter-linearly lifted

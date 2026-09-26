@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "11a50a80847b1f70cca3a70006acad6a1850e9e36f5302deaca675097f07f6a7",
+  "artifact_digest": "cd03a6007cd42de90d6871286ef36a9d53511a88ef723697450f40951a8ded9d",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -507,6 +507,11 @@
       "sha256": "5b886289acb089cc45a3e623412151de42403d90c7fc46377ebcf535c61d4bc2"
     },
     {
+      "bytes": 7012,
+      "path": "data/generated/scientific_genesis/alternate_constituent_outer_stability_locus.json",
+      "sha256": "22dcd5e956b869dbb32786422d9aab9a428778d110a01e51e20e143a8d2a155d"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -536,8 +541,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 217,
-    "test_python_files": 198
+    "research_python_files": 218,
+    "test_python_files": 199
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1238,6 +1243,28 @@
         "physical Higgs cocycles"
       ],
       "statement": "The two strict invariant cocycles assemble parameter-linearly over A2 with split origin and non-split P1. Exact local units give local freeness; the fixed atlas gives descent; the unique common flat-character twist cancels the quotient determinant. The alternate graded K-class matches the selected constituent pair, so rational Chern data agree. Stability, genuine SU(4), and physical Higgs cocycles remain unresolved.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "non-split alternate P1",
+        "fixed Serre ideals",
+        "published sufficient bound"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_outer_stability_locus.json",
+        "research/experiments/scientific_genesis/alternate_constituent_outer_stability_locus.py",
+        "research/experiments/scientific_genesis/ALTERNATE_STABILITY_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_constituent_outer_stability_locus.py"
+      ],
+      "id": "alternate_constituent_outer_stability_locus",
+      "label": "source-scoped stable SU(4) chamber for the alternate P1",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "matter/Higgs cocycles",
+        "Wilson-projected physical spectrum"
+      ],
+      "statement": "The alternate Serre ray has the same subline and I3/I6 ideal quotients as the published presentation. The published non-split extension bound therefore supplies the same nine sufficient slope inequalities for every nonzero P1 class. An exact rational open box satisfies them; nonzero cover c3 excludes proper connected irreducible reductions. The complete Kahler stable cone and physical spectrum remain unresolved.",
       "status": "COMPUTED"
     },
     {
@@ -2815,6 +2842,24 @@
       "mathematical_reason": "The two independent strict cocycles define one universal linear outer arrow. The alternate local-unit and atlas certificates give a descended locally free extension; a common character twist repairs its determinant without changing outer Hom.",
       "source": "alternate_constituent_outer_invariants",
       "target": "alternate_constituent_outer_universal_cone"
+    },
+    {
+      "assumptions_required": [
+        "published stability theorem",
+        "same Serre sequence type",
+        "non-split P1"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_outer_stability_locus.json",
+        "research/experiments/scientific_genesis/ALTERNATE_STABILITY_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "different ideal supports or a split ray would defeat the transfer"
+      ],
+      "mathematical_reason": "The source's destabilizing-line bound depends on Serre sublines, fixed I3/I6 ideals, and outer nonsplitting; these premises survive the alternate ray and common flat twist. Exact slope arithmetic gives a nonempty sufficient chamber.",
+      "source": "alternate_constituent_outer_universal_cone",
+      "target": "alternate_constituent_outer_stability_locus"
     },
     {
       "assumptions_required": [
@@ -4679,6 +4724,7 @@
     "the unique common determinant repairs have conditional Higgs characters: ray (0,1) passes the fixed Wilson doublet/triplet screen, while ray (1,1) retains both triplet sectors",
     "the surviving alternate ray (0,1) has exact cover Ext1(V2,V1) dimension 18 and a two-dimensional strictly deck-invariant subspace with two closed full-Cech representatives",
     "the ray (0,1) invariant basis assembles an exact non-split P1 universal rank-four derived cone; the common flat-character twist cancels its quotient determinant while preserving outer Hom",
+    "the published Serre-sequence stability bound applies to every nonzero alternate P1 extension; exact nine-slope arithmetic gives a nonempty sufficient chamber with genuine SU(4)",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -4774,11 +4820,14 @@
       ],
       "alternate_fixed_atlas_su4_excluded": true,
       "alternate_other_linearisations_excluded": false,
+      "alternate_ray_0_1_all_nonzero_p1_stable_in_sufficient_chamber": true,
       "alternate_ray_0_1_cover_ext1_dimension": 18,
       "alternate_ray_0_1_determinant_repaired": true,
+      "alternate_ray_0_1_genuine_su4_on_sufficient_chamber": true,
       "alternate_ray_0_1_invariant_ext1_dimension": 2,
       "alternate_ray_0_1_invariant_ext_unresolved": false,
-      "alternate_ray_0_1_stability_unresolved": true,
+      "alternate_ray_0_1_physical_spectrum_unresolved": true,
+      "alternate_ray_0_1_stability_unresolved": false,
       "alternate_ray_0_1_strict_invariant_representatives": 2,
       "alternate_ray_0_1_universal_cone_constructed": true,
       "alternate_repaired_higgs_outer_extension_constructed": true,
@@ -5351,7 +5400,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "certify the parameterwise stable genuine-SU(4) locus of the determinant-repaired ray (0,1) universal P1 cone, then generate its matter and Higgs cocycles",
+    "next_required_object": "derive parameter-dependent matter and explicit Higgs cocycles for the stable determinant-repaired ray (0,1) P1 family, then test the Wilson-projected spectrum",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
   },
   "research_value_scheduler": [

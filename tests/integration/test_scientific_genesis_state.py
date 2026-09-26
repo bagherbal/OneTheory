@@ -118,7 +118,14 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_ray_0_1_invariant_ext_unresolved"] is False
     assert path["criteria"]["alternate_ray_0_1_universal_cone_constructed"] is True
     assert path["criteria"]["alternate_ray_0_1_determinant_repaired"] is True
-    assert path["criteria"]["alternate_ray_0_1_stability_unresolved"] is True
+    assert path["criteria"]["alternate_ray_0_1_stability_unresolved"] is False
+    assert path["criteria"][
+        "alternate_ray_0_1_all_nonzero_p1_stable_in_sufficient_chamber"
+    ] is True
+    assert path["criteria"][
+        "alternate_ray_0_1_genuine_su4_on_sufficient_chamber"
+    ] is True
+    assert path["criteria"]["alternate_ray_0_1_physical_spectrum_unresolved"] is True
     assert path["criteria"]["selected_quotient_su4_certified"] is False
     assert path["criteria"]["first_constituent_atlas_to_mixed_character"] == [2, 0]
     assert path["criteria"]["second_constituent_atlas_to_mixed_character"] == [0, 0]
@@ -475,9 +482,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "fixed-Wilson Higgs gate"
     )
     assert path["next_required_object"] == (
-        "certify the parameterwise stable genuine-SU(4) locus of the "
-        "determinant-repaired ray (0,1) universal P1 cone, then "
-        "generate its matter and Higgs cocycles"
+        "derive parameter-dependent matter and explicit Higgs "
+        "cocycles for the stable determinant-repaired ray (0,1) P1 "
+        "family, then test the Wilson-projected spectrum"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"
@@ -575,6 +582,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_constituent_outer_cover_ext"]["status"] == "COMPUTED"
     assert claims["alternate_constituent_outer_invariants"]["status"] == "COMPUTED"
     assert claims["alternate_constituent_outer_universal_cone"]["status"] == (
+        "COMPUTED"
+    )
+    assert claims["alternate_constituent_outer_stability_locus"]["status"] == (
         "COMPUTED"
     )
     assert claims["alternate_constituent_hom_cycle_actions"]["status"] == "COMPUTED"

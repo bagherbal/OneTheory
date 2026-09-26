@@ -833,6 +833,31 @@ def _nodes() -> list[dict[str, object]]:
             ("parameterwise stable locus", "genuine SU(4)", "physical Higgs cocycles"),
         ),
         _node(
+            "alternate_constituent_outer_stability_locus",
+            "source-scoped stable SU(4) chamber for the alternate P1",
+            "Computable carrier",
+            "COMPUTED",
+            "The alternate Serre ray has the same subline and I3/I6 ideal "
+            "quotients as the published presentation. The published "
+            "non-split extension bound therefore supplies the same nine "
+            "sufficient slope inequalities for every nonzero P1 class. "
+            "An exact rational open box satisfies them; nonzero cover c3 "
+            "excludes proper connected irreducible reductions. The complete "
+            "Kahler stable cone and physical spectrum remain unresolved.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_outer_stability_locus.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_outer_stability_locus.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_STABILITY_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_outer_stability_locus.py",
+            ),
+            ("non-split alternate P1", "fixed Serre ideals", "published sufficient bound"),
+            ("matter/Higgs cocycles", "Wilson-projected physical spectrum"),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2638,6 +2663,23 @@ def _edges() -> list[dict[str, object]]:
             ("exact invariant basis", "fixed ray (0,1) atlas", "flat character twist"),
             True,
             ("local freeness and determinant repair do not imply stability",),
+        ),
+        _edge(
+            "alternate_constituent_outer_universal_cone",
+            "alternate_constituent_outer_stability_locus",
+            "The source's destabilizing-line bound depends on Serre sublines, "
+            "fixed I3/I6 ideals, and outer nonsplitting; these premises "
+            "survive the alternate ray and common flat twist. Exact slope "
+            "arithmetic gives a nonempty sufficient chamber.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_outer_stability_locus.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_STABILITY_NOTE.md",
+            ),
+            ("published stability theorem", "same Serre sequence type", "non-split P1"),
+            True,
+            ("different ideal supports or a split ray would defeat the transfer",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -5043,6 +5085,61 @@ def build_state() -> dict[str, object]:
         or alternate_cone.get("physical_higgs_cocycles_available") is not False
     ):
         raise ValueError("the alternate universal cone is not certified")
+    alternate_stability_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_outer_stability_locus.json"
+    )
+    alternate_stability = json.loads(
+        alternate_stability_path.read_text(encoding="utf-8")
+    )
+    alternate_stability_digest = alternate_stability.pop("artifact_digest", None)
+    stable_chamber = alternate_stability.get("kahler_chamber", {})
+    stable_box = stable_chamber.get("rational_open_box", {})
+    stable_group = alternate_stability.get("structure_group", {})
+    stable_quantifier = alternate_stability.get("parameter_quantifier", {})
+    if (
+        alternate_stability_digest != _canonical_digest(alternate_stability)
+        or alternate_stability.get("schema")
+        != "alternate-constituent-outer-stability-locus-v1"
+        or alternate_stability.get("universal_cone_digest") != alternate_cone_digest
+        or alternate_stability.get("serre_ray_artifact_digest") != ray_digest
+        or alternate_stability.get("ray_character_exponents") != [0, 1]
+        or alternate_stability.get("alternate_invariant_ext_dimension") != 2
+        or alternate_stability.get("serre_quotient_ideals_unchanged")
+        != ["I3", "I6"]
+        or alternate_stability.get("serre_line_and_ideal_presentation_type_unchanged")
+        is not True
+        or alternate_stability.get("alternate_serre_ray_nontrivial_and_locally_free")
+        is not True
+        or alternate_stability.get("common_flat_twist_preserves_slopes")
+        is not True
+        or alternate_stability.get(
+            "source_stability_bound_uses_serre_sequences_not_ray_coordinates"
+        ) is not True
+        or alternate_stability.get("extension_parameter_space")
+        != "P^1(Q(omega))"
+        or stable_quantifier.get("every_nonzero_parameter") is not True
+        or stable_quantifier.get("genericity_assumed") is not False
+        or alternate_stability.get("all_nonzero_parameters_stable_in_chamber")
+        is not True
+        or alternate_stability.get("certified_stable_locus")
+        != "P^1(Q(omega)) x K^s"
+        or len(stable_chamber.get("inequalities", [])) != 9
+        or stable_chamber.get("anchor") != ["6", "9", "3"]
+        or stable_box.get("all_slopes_negative") is not True
+        or stable_box.get("inside_positive_cone") is not True
+        or stable_group.get("cover_c3") != "-54"
+        or stable_group.get("determinant_trivial") is not True
+        or stable_group.get("proper_connected_irreducible_reduction_excluded")
+        is not True
+        or stable_group.get("genuine_su4_on_certified_locus") is not True
+        or alternate_stability.get("full_kahler_stability_chamber_computed")
+        is not False
+        or alternate_stability.get("physical_spectrum_computed") is not False
+        or alternate_stability.get("arbitrary_extension_point_selected")
+        is not False
+    ):
+        raise ValueError("the alternate stable locus is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5235,6 +5332,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_outer_invariants.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_outer_universal_cone.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_outer_stability_locus.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -5412,7 +5511,10 @@ def build_state() -> dict[str, object]:
                 "alternate_ray_0_1_invariant_ext_unresolved": False,
                 "alternate_ray_0_1_universal_cone_constructed": True,
                 "alternate_ray_0_1_determinant_repaired": True,
-                "alternate_ray_0_1_stability_unresolved": True,
+                "alternate_ray_0_1_stability_unresolved": False,
+                "alternate_ray_0_1_all_nonzero_p1_stable_in_sufficient_chamber": True,
+                "alternate_ray_0_1_genuine_su4_on_sufficient_chamber": True,
+                "alternate_ray_0_1_physical_spectrum_unresolved": True,
                 "first_constituent_atlas_to_mixed_character": frame[
                     "first_constituent_uniform_twist"
                 ],
@@ -5632,9 +5734,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "certify the parameterwise stable genuine-SU(4) locus of the "
-                "determinant-repaired ray (0,1) universal P1 cone, then "
-                "generate its matter and Higgs cocycles"
+                "derive parameter-dependent matter and explicit Higgs "
+                "cocycles for the stable determinant-repaired ray (0,1) P1 "
+                "family, then test the Wilson-projected spectrum"
             ),
         },
         "claims": _nodes(),
@@ -5689,6 +5791,9 @@ def build_state() -> dict[str, object]:
             "the ray (0,1) invariant basis assembles an exact non-split "
             "P1 universal rank-four derived cone; the common flat-character "
             "twist cancels its quotient determinant while preserving outer Hom",
+            "the published Serre-sequence stability bound applies to every "
+            "nonzero alternate P1 extension; exact nine-slope arithmetic "
+            "gives a nonempty sufficient chamber with genuine SU(4)",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

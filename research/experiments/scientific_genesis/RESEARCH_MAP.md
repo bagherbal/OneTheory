@@ -728,7 +728,14 @@ give local freeness; the atlas action gives descent; a common flat character
 twist cancels the quotient determinant without changing the outer arrow.
 The alternate and selected perfect complexes have identical graded line
 objects, so their rational Chern data agree. No extension point has been
-chosen. This is a rank-four descended determinant-trivial derived cone, not
-yet a stable genuine `SU(4)` physical carrier: the parameterwise stable
-locus, proper-reduction exclusion, and explicit matter/Higgs cocycles remain
-open. The next gate is the stable locus over the full `P¹` family.
+chosen. The source-scoped stability argument transfers because its possible
+destabilizing-line bounds use the unchanged Serre sublines and I3/I6 ideal
+quotients, while outer nonsplitting excludes the same exceptional lift. The
+nine exact slope inequalities hold throughout a rational open Kähler box
+around `(6,9,3)`, for every nonzero `P¹` parameter. The nonzero cover
+`c₃=-54` then excludes proper connected irreducible reductions on this
+stable determinant-trivial family. The full Kähler stable cone is not
+classified. More importantly, this is not yet a frozen physical carrier:
+parameter-dependent matter and explicit Higgs cocycles, the complete Wilson
+spectrum, and a derived Yukawa matrix remain open. The theorem-scope check
+is recorded in `ALTERNATE_STABILITY_NOTE.md`.

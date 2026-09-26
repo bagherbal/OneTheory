@@ -970,6 +970,27 @@ def _nodes() -> list[dict[str, object]]:
             ("same-cone Higgs cocycle", "holomorphic Yukawa matrix"),
         ),
         _node(
+            "alternate_up_higgs_hom_representative",
+            "strict alternate Hom class for the up-Higgs sector",
+            "Computable carrier",
+            "COMPUTED",
+            "A 324-term exact full-Cech Hom cycle has nonzero H1 class and "
+            "strict atlas character (2,0). The certified determinant and "
+            "common flat frames send this character to the selected "
+            "up-Higgs forward sector (0,2). No tensor chain map or "
+            "exterior-cone Higgs cocycle is asserted.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_hom_representative.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_up_higgs_hom_representative.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_higgs_hom_representative.py",
+            ),
+            ("certified Hom action", "selected published Wilson sector"),
+            ("rank-two determinant chain map", "exterior-cone Higgs lift"),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2868,6 +2889,22 @@ def _edges() -> list[dict[str, object]]:
             ("strict invariant outer basis", "certified atlas deck actions"),
             True,
             ("a Higgs lift is still needed for any physical Yukawa entry",),
+        ),
+        _edge(
+            "alternate_constituent_carrier_state",
+            "alternate_up_higgs_hom_representative",
+            "The alternate atlas Hom transfer has a one-dimensional "
+            "character-(2,0) H1 summand. Exact full-Cech projection gives "
+            "a strict nonboundary representative; determinant-frame "
+            "arithmetic identifies its required Higgs sector without "
+            "constructing a tensor chain map.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_hom_representative.json",
+            ),
+            ("certified alternate Hom action", "fixed Wilson assignment"),
+            True,
+            ("character matching alone is not a Higgs chain cocycle",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -5503,6 +5540,33 @@ def build_state() -> dict[str, object]:
         or cone_matter.get("holomorphic_yukawa_matrix_computed") is not False
     ):
         raise ValueError("the alternate universal up-matter lifts are not certified")
+    up_hom_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_up_higgs_hom_representative.json"
+    )
+    up_hom = json.loads(up_hom_path.read_text(encoding="utf-8"))
+    up_hom_digest = up_hom.pop("artifact_digest", None)
+    up_hom_inputs = up_hom.get("prerequisite_artifact_digests", {})
+    if (
+        up_hom_digest != _canonical_digest(up_hom)
+        or up_hom.get("schema") != "alternate-up-higgs-hom-representative-v1"
+        or up_hom_inputs.get("frozen_carrier") != alternate_carrier_digest
+        or up_hom_inputs.get("universal_cone") != alternate_cone_digest
+        or up_hom_inputs.get("structural_spectrum") != alternate_spectrum_digest
+        or up_hom_inputs.get("alternate_hom_action")
+        != spectrum_inputs.get("alternate_hom_actions")
+        or up_hom.get("hom_character") != [2, 0]
+        or up_hom.get("repaired_higgs_forward_character") != [0, 2]
+        or up_hom.get("repaired_higgs_source_character") != [0, 1]
+        or up_hom.get("full_term_count") != 324
+        or up_hom.get("full_cycle_exact") is not True
+        or up_hom.get("strict_hom_character_exact") is not True
+        or up_hom.get("nonboundary_exact") is not True
+        or up_hom.get("higgs_tensor_chain_map_constructed") is not False
+        or up_hom.get("exterior_cone_higgs_cocycle_constructed") is not False
+        or up_hom.get("yukawa_matrix_computed") is not False
+    ):
+        raise ValueError("the alternate up-Higgs Hom input is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5707,6 +5771,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_up_matter_representatives.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_up_cone_matter_lifts.json",
+        "data/generated/scientific_genesis/"
+        "alternate_up_higgs_hom_representative.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -6178,6 +6244,9 @@ def build_state() -> dict[str, object]:
             "the frozen alternate P1 cone has six strict up-sector matter "
             "classes from two exact I3 constants and eight coefficientwise "
             "I6-to-I3 corrections, without a selected extension point",
+            "the alternate Hom H1 has a strict full-Cech character-(2,0) "
+            "representative required by the up-Higgs Wilson sector; its "
+            "tensor and exterior-cone chain maps remain unavailable",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

@@ -1,0 +1,46 @@
+{
+  "artifact_digest": "5dd66dc3cb8e71d281532267c2970dacf2f29852b80362dcbe9cfa14d4ba9ece",
+  "coefficient_field": "Q(omega)",
+  "cohomology_coordinates": [
+    "18+18*omega",
+    "0",
+    "1",
+    "0"
+  ],
+  "exterior_cone_higgs_cocycle_constructed": false,
+  "full_cycle_exact": true,
+  "full_digest": "08c2300b7636c76caa50a817d0f8593117a44d9326ffdbb7c2535285fa9c60f4",
+  "full_term_count": 324,
+  "higgs_tensor_chain_map_constructed": false,
+  "hom_character": [
+    2,
+    0
+  ],
+  "hom_orientation": "Hom(V2 tensor det(V1), V1)",
+  "inclusion_depth": 2,
+  "next_required_object": "realize the rank-two determinant identity as a certified chain map, then lift this class through the exterior cone",
+  "nonboundary_exact": true,
+  "prerequisite_artifact_digests": {
+    "alternate_hom_action": "b72aa878323cc9dd2e4fc503b51191742ade124ef67a74de18b0efff88172d14",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "structural_spectrum": "cbf2f4c78e15d140bbfd1cc11e98e0eeba473b59ca48f7090096807ad2aee1bd",
+    "universal_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+  },
+  "projection_depth": 1,
+  "ray_character_exponents": [
+    0,
+    1
+  ],
+  "repaired_higgs_forward_character": [
+    0,
+    2
+  ],
+  "repaired_higgs_source_character": [
+    0,
+    1
+  ],
+  "schema": "alternate-up-higgs-hom-representative-v1",
+  "seed_index": 2,
+  "strict_hom_character_exact": true,
+  "yukawa_matrix_computed": false
+}

@@ -488,6 +488,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_constituent_up_cone_matter_lifts"]["status"] == (
         "COMPUTED"
     )
+    assert claims["alternate_up_higgs_hom_representative"]["status"] == (
+        "COMPUTED"
+    )
     assert path["selection_status"] == (
         "the selected P1 and reverse P5 physical quotient freezes are "
         "refuted; the distinct determinant-repaired alternate P1 "

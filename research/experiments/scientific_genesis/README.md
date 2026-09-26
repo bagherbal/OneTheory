@@ -477,3 +477,12 @@ differential identity and the alternate atlas deck characters. This gives
 three strict matter classes per sector throughout the frozen non-split `P1`,
 without selecting a coordinate. The physical up-Higgs cocycle and all nine
 holomorphic Yukawa entries remain uncomputed.
+
+The up-Higgs route now has one strict full-Čech representative in the
+alternate `Hom(V2 tensor det(V1), V1)` group. Its exact H¹ character is
+`(2,0)`, which the certified determinant frame and common flat twist send
+to the up-Higgs forward Wilson character `(0,2)`. This establishes the
+required Hom input, not a Higgs state: the rank-two determinant identity
+must still be realized as a chain map, then the class must be lifted through
+the exterior square of the same universal cone. No Yukawa entry follows
+from the character match alone.

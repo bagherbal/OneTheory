@@ -786,3 +786,17 @@ overlap identities. All six pairings differ from those of the previously
 selected I6 ray. This is a local ingredient for the rank-two determinant
 identity, not an Alexander–Whitney-compatible Hom-to-tensor chain map.
 The exterior-cone Higgs lift and Yukawa matrix therefore remain open.
+
+The universal up-type matrix has a structural support theorem independent
+of an individual extension point. Each physical matter sector has one
+constant first-constituent class and two parameter-linearly lifted
+second-constituent classes. The Higgs middle class admits a correction
+linear in the outer parameters because the determinant endpoint is
+acyclic. Exterior degree forces the first/first entry to zero, mixed
+entries to be constant, and the second/second block to be linear. Thus
+the full determinant is either identically zero or a nonzero linear form
+in `(a0,a1)`; in the latter case it vanishes at one point of the frozen
+projective line. The actual coefficients and rank remain unresolved.
+The proof and its exact support regression are in
+`ALTERNATE_UP_YUKAWA_SUPPORT_NOTE.md` and
+`alternate_up_yukawa_support.json`.

@@ -1,0 +1,61 @@
+{
+  "artifact_digest": "68dd440f3d74ea4d081121c8e6d2604033dd549c2bd3430d43d0ac9e135bd296",
+  "carrier_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "determinant_form": "a0*lambda0 + a1*lambda1",
+  "determinant_parameter_degrees_if_nonzero": [
+    1
+  ],
+  "entry_parameter_degrees": [
+    [
+      [],
+      [
+        0
+      ],
+      [
+        0
+      ]
+    ],
+    [
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    [
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ]
+    ]
+  ],
+  "exact_exterior_support": true,
+  "higgs_chain_cocycle_constructed": false,
+  "lambda_coefficients_computed": false,
+  "next_required_object": "construct the same-cone Higgs chain class and evaluate the two determinant coefficients, then all allowed matrix entries",
+  "prerequisite_artifact_digests": {
+    "strict_matter_lifts": "b821725103b3d341032e15d2335b2916fd82bcd211ec2611b9c0d41d2700d677",
+    "structural_spectrum": "cbf2f4c78e15d140bbfd1cc11e98e0eeba473b59ca48f7090096807ad2aee1bd",
+    "universal_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+  },
+  "rank_three_established": false,
+  "row_and_column_filtration": [
+    "E",
+    "F",
+    "F"
+  ],
+  "schema": "alternate-up-yukawa-support-v1",
+  "yukawa_matrix_computed": false
+}

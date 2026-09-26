@@ -492,3 +492,9 @@ pairings and thirty hypersurface-corrected overlap identities. Each chart
 pairing differs from the earlier selected I6 ray, so that ray's determinant
 map cannot be reused. These local forms are research inputs to the missing
 Hom-to-tensor chain map; they do not supply a physical Higgs cocycle.
+
+The universal up-matrix filtration also fixes its parameter support:
+first/first vanishes, mixed entries are constant, and second/second
+entries are linear in the two outer parameters. The determinant is linear
+if nonzero. Its coefficients still require the same-cone Higgs class and
+exact contraction; the support theorem does not assign coupling values.

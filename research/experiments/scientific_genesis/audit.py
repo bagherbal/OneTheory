@@ -1012,6 +1012,30 @@ def _nodes() -> list[dict[str, object]]:
             ("rank-two Hom-to-tensor chain map", "exterior-cone Higgs lift"),
         ),
         _node(
+            "alternate_up_yukawa_support",
+            "universal up-matrix filtration support",
+            "Flavor",
+            "DERIVED",
+            "The one-plus-two constituent matter bases and acyclic "
+            "determinant filtration force the E-E slot to vanish, the "
+            "E-F slots to be parameter-independent, and the F-F block "
+            "to be linear in the two outer parameters. Consequently the "
+            "three-by-three determinant is linear if nonzero; its two "
+            "coefficients remain uncomputed.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_yukawa_support.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_up_yukawa_support.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_YUKAWA_SUPPORT_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_yukawa_support.py",
+            ),
+            ("frozen alternate P1", "acyclic determinant endpoints"),
+            ("same-cone Higgs chain class", "two determinant coefficients"),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2940,6 +2964,23 @@ def _edges() -> list[dict[str, object]]:
             ("certified alternate atlas",),
             True,
             ("local pairings are not yet a grouped Hom-to-tensor map",),
+        ),
+        _edge(
+            "alternate_constituent_up_cone_matter_lifts",
+            "alternate_up_yukawa_support",
+            "Constant E classes, parameter-linear F corrections, and the "
+            "acyclic determinant filtration leave only exterior degree "
+            "E2 F2. All nonzero determinant permutations have outer "
+            "parameter degree one.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_yukawa_support.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_YUKAWA_SUPPORT_NOTE.md",
+            ),
+            ("rank-two exterior algebra", "acyclic determinant endpoints"),
+            True,
+            ("support does not establish a nonzero Yukawa coefficient",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -5631,6 +5672,30 @@ def build_state() -> dict[str, object]:
         or alternate_pairing.get("exterior_cone_higgs_cocycle_constructed") is not False
     ):
         raise ValueError("the alternate local pairing is not certified")
+    up_support_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_up_yukawa_support.json"
+    )
+    up_support = json.loads(up_support_path.read_text(encoding="utf-8"))
+    up_support_digest = up_support.pop("artifact_digest", None)
+    support_inputs = up_support.get("prerequisite_artifact_digests", {})
+    if (
+        up_support_digest != _canonical_digest(up_support)
+        or up_support.get("schema") != "alternate-up-yukawa-support-v1"
+        or support_inputs.get("universal_cone") != alternate_cone_digest
+        or support_inputs.get("strict_matter_lifts") != cone_matter_digest
+        or support_inputs.get("structural_spectrum") != alternate_spectrum_digest
+        or up_support.get("carrier_parameter_basis") != ["a0", "a1"]
+        or up_support.get("entry_parameter_degrees")
+        != [[[], [0], [0]], [[0], [1], [1]], [[0], [1], [1]]]
+        or up_support.get("determinant_parameter_degrees_if_nonzero") != [1]
+        or up_support.get("exact_exterior_support") is not True
+        or up_support.get("lambda_coefficients_computed") is not False
+        or up_support.get("rank_three_established") is not False
+        or up_support.get("higgs_chain_cocycle_constructed") is not False
+        or up_support.get("yukawa_matrix_computed") is not False
+    ):
+        raise ValueError("the alternate universal up support is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5839,6 +5904,8 @@ def build_state() -> dict[str, object]:
         "alternate_up_higgs_hom_representative.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_determinant_pairing.json",
+        "data/generated/scientific_genesis/"
+        "alternate_up_yukawa_support.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -6316,6 +6383,9 @@ def build_state() -> dict[str, object]:
             "the frozen alternate I6 quotient has six distinct local "
             "determinant pairings satisfying all thirty corrected overlap "
             "identities; no Hom-to-tensor chain map follows yet",
+            "the alternate universal up matrix has an exterior-forced zero "
+            "E-E slot, constant mixed slots, and a parameter-linear F-F "
+            "block; its determinant coefficients are uncomputed",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

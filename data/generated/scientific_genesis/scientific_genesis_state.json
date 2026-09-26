@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "114a9b8e58effdeaecefd4bc083922ce2c640dbd26693963ef0979970282094d",
+  "artifact_digest": "e5b0b7a021de2c30d475918e7bc94dcf13ebc554643b0a6b5f9f10df18a81e70",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -547,6 +547,11 @@
       "sha256": "4e7f2111ee7f708fddbea89bc1f7a3d8863875936a1b5a9259063eeebbf539bf"
     },
     {
+      "bytes": 1322,
+      "path": "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
+      "sha256": "88ae38c3a0de4e90dc41dfc4a585989e0314a08e4c2a162239c78808e2b90051"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -576,8 +581,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 225,
-    "test_python_files": 206
+    "research_python_files": 226,
+    "test_python_files": 207
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1441,6 +1446,27 @@
       ],
       "statement": "Complementary minors of the actual alternate rank-two quotient annihilate its relations on all six charts. Hypersurface factorization gives thirty corrected overlap identities; all six chart pairings differ from the selected I6 ray. The Hom-to-tensor chain map remains unavailable.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "frozen alternate P1",
+        "acyclic determinant endpoints"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
+        "research/experiments/scientific_genesis/alternate_up_yukawa_support.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_YUKAWA_SUPPORT_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_yukawa_support.py"
+      ],
+      "id": "alternate_up_yukawa_support",
+      "label": "universal up-matrix filtration support",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "same-cone Higgs chain class",
+        "two determinant coefficients"
+      ],
+      "statement": "The one-plus-two constituent matter bases and acyclic determinant filtration force the E-E slot to vanish, the E-F slots to be parameter-independent, and the F-F block to be linear in the two outer parameters. Consequently the three-by-three determinant is linear if nonzero; its two coefficients remain uncomputed.",
+      "status": "DERIVED"
     },
     {
       "assumptions": [
@@ -3148,6 +3174,23 @@
       "mathematical_reason": "The frozen ray fixes a distinct affine Serre presentation. Its complementary minors satisfy exact relation and hypersurface-corrected overlap identities on the certified atlas.",
       "source": "alternate_constituent_carrier_state",
       "target": "alternate_constituent_determinant_pairing"
+    },
+    {
+      "assumptions_required": [
+        "rank-two exterior algebra",
+        "acyclic determinant endpoints"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_YUKAWA_SUPPORT_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "support does not establish a nonzero Yukawa coefficient"
+      ],
+      "mathematical_reason": "Constant E classes, parameter-linear F corrections, and the acyclic determinant filtration leave only exterior degree E2 F2. All nonzero determinant permutations have outer parameter degree one.",
+      "source": "alternate_constituent_up_cone_matter_lifts",
+      "target": "alternate_up_yukawa_support"
     },
     {
       "assumptions_required": [
@@ -5018,6 +5061,7 @@
     "the frozen alternate P1 cone has six strict up-sector matter classes from two exact I3 constants and eight coefficientwise I6-to-I3 corrections, without a selected extension point",
     "the alternate Hom H1 has a strict full-Cech character-(2,0) representative required by the up-Higgs Wilson sector; its tensor and exterior-cone chain maps remain unavailable",
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
+    "the alternate universal up matrix has an exterior-forced zero E-E slot, constant mixed slots, and a parameter-linear F-F block; its determinant coefficients are uncomputed",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",

@@ -97,9 +97,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert path["criteria"]["prior_forward_computable_carrier_component_frozen"] is False
     assert path["criteria"]["computable_carrier_component"] == (
-        "lawful-mixed-schoen-reverse-P5"
+        "alternate-i6-ray-0-1-P1"
     )
-    assert path["criteria"]["computable_carrier_component_frozen"] is False
+    assert path["criteria"]["computable_carrier_component_frozen"] is True
     assert path["criteria"]["selected_quotient_determinant_character"] == [2, 1]
     assert path["criteria"]["alternate_fixed_atlas_determinant_characters"] == [
         [2, 1], [0, 1]
@@ -126,6 +126,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "alternate_ray_0_1_genuine_su4_on_sufficient_chamber"
     ] is True
     assert path["criteria"]["alternate_ray_0_1_physical_spectrum_unresolved"] is True
+    assert path["criteria"]["alternate_ray_0_1_charged_structural_spectrum_passes"] is True
+    assert path["criteria"]["alternate_ray_0_1_higgs_h0_to_h3"] == [0, 4, 4, 0]
+    assert path["criteria"]["alternate_ray_0_1_wilson_higgs_pairs"] == 1
+    assert path["criteria"]["alternate_ray_0_1_explicit_cocycles_available"] is False
     assert path["criteria"]["selected_quotient_su4_certified"] is False
     assert path["criteria"]["first_constituent_atlas_to_mixed_character"] == [2, 0]
     assert path["criteria"]["second_constituent_atlas_to_mixed_character"] == [0, 0]
@@ -476,16 +480,18 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
     assert claims["alternate_constituent_matter_profile"]["status"] == "COMPUTED"
+    assert claims["alternate_constituent_structural_spectrum"]["status"] == "COMPUTED"
+    assert claims["alternate_constituent_carrier_state"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
-        "selected P1 and reverse P5 cover computations remain exact, "
-        "but neither can be frozen as a physical quotient carrier "
-        "under the current determinant frame or the full-chain "
-        "fixed-Wilson Higgs gate"
+        "the selected P1 and reverse P5 physical quotient freezes are "
+        "refuted; the distinct determinant-repaired alternate P1 "
+        "component passes the charged structural spectrum and is "
+        "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "derive strict matter and Higgs cocycles for the stable "
-        "determinant-repaired ray (0,1) P1 family, then test the "
-        "complete Wilson-projected spectrum"
+        "derive strict matter and Higgs cocycles on the frozen "
+        "alternate P1 cone, then compute one complete exact "
+        "holomorphic 3x3 Yukawa matrix"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"

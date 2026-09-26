@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "84b3fae13cb072a42f1183c5b1d0a6c6dd9e1ad143868796969c945aa2e1887d",
+  "artifact_digest": "7ddf8b53202838e034b271204f6abe7a7e3c182169be562d0727d1270339fb7b",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -517,6 +517,16 @@
       "sha256": "cd12e3edaa723bbc2b0e8238d08d1064d5728f0f116544ead4d5fed8d59605c6"
     },
     {
+      "bytes": 3365,
+      "path": "data/generated/scientific_genesis/alternate_constituent_structural_spectrum.json",
+      "sha256": "eff531c70167c6626d093e9cdcdb2971be7beee947c66c34e96f6288f0bb9b2d"
+    },
+    {
+      "bytes": 2362,
+      "path": "data/generated/scientific_genesis/alternate_constituent_carrier_state.json",
+      "sha256": "e59d52e2af186f41cc863b4c0e4eed48ead0a4cb77a0552be739ccad136579e9"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -546,8 +556,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 219,
-    "test_python_files": 200
+    "research_python_files": 221,
+    "test_python_files": 202
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1266,10 +1276,9 @@
       "label": "source-scoped stable SU(4) chamber for the alternate P1",
       "layer": "Computable carrier",
       "missing_prerequisites": [
-        "matter/Higgs cocycles",
-        "Wilson-projected physical spectrum"
+        "matter/Higgs cocycles"
       ],
-      "statement": "The alternate Serre ray has the same subline and I3/I6 ideal quotients as the published presentation. The published non-split extension bound therefore supplies the same nine sufficient slope inequalities for every nonzero P1 class. An exact rational open box satisfies them; nonzero cover c3 excludes proper connected irreducible reductions. The complete Kahler stable cone and physical spectrum remain unresolved.",
+      "statement": "The alternate Serre ray has the same subline and I3/I6 ideal quotients as the published presentation. The published non-split extension bound therefore supplies the same nine sufficient slope inequalities for every nonzero P1 class. An exact rational open box satisfies them; nonzero cover c3 excludes proper connected irreducible reductions. The complete Kahler stable cone remains unresolved; spectrum is a separate gate.",
       "status": "COMPUTED"
     },
     {
@@ -1286,10 +1295,51 @@
       "label": "exact cover matter profile of the stable alternate P1",
       "layer": "Computable carrier",
       "missing_prerequisites": [
-        "explicit matter/Higgs cocycles",
-        "full Wilson spectrum"
+        "explicit matter/Higgs cocycles"
       ],
       "statement": "The alternate I6 mixed transfer has exact differential ranks 189 and 81, giving pure H1 of dimension 18. The unchanged first constituent contributes pure H1 of dimension 9, so every nonzero outer class has cover profile (0,27,0,0). Free-action Lefschetz then gives three regular deck modules, independently of the common flat determinant repair. Explicit cone matter and Higgs cocycles remain absent.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "published Wilson embedding",
+        "selected heterotic realization"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_structural_spectrum.json",
+        "research/experiments/scientific_genesis/alternate_constituent_structural_spectrum.py",
+        "research/experiments/scientific_genesis/ALTERNATE_SPECTRUM_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_constituent_structural_spectrum.py"
+      ],
+      "id": "alternate_constituent_structural_spectrum",
+      "label": "all-parameter charged spectrum of the alternate carrier",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "strict matter/Higgs cocycles",
+        "Yukawa matrix",
+        "bundle moduli"
+      ],
+      "statement": "The natural rank-two Hom-to-tensor identity plus the acyclic determinant filtration transports the exact four-character Hom action to Higgs H1 for every alternate P1 class. After the unique flat determinant repair, the fixed published Wilson line retains one Higgs pair and no color triplets. Three regular matter modules give three families and no anti-families. Explicit chain cocycles remain uncomputed.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "source-scoped stability chamber",
+        "published Wilson embedding"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_carrier_state.json",
+        "research/experiments/scientific_genesis/alternate_constituent_carrier_state.py",
+        "tests/integration/test_scientific_genesis_alternate_constituent_carrier_state.py"
+      ],
+      "id": "alternate_constituent_carrier_state",
+      "label": "frozen alternate computable carrier component",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "strict same-cone cocycles",
+        "holomorphic Yukawa matrix"
+      ],
+      "statement": "The entire nonzero alternate P1 component is bound to exact cone, stable-chamber, Hom-action, and charged-spectrum certificates. No projective coordinate is selected and the published P3 reference is kept distinct. The freeze is for chain-level physics, not a completed vacuum.",
       "status": "COMPUTED"
     },
     {
@@ -2901,6 +2951,40 @@
       "mathematical_reason": "Exact mixed transfer gives pure H1 for both constituents. The outer long exact sequence therefore collapses for every extension parameter; free-action Lefschetz fixes its deck character multiplicities without enumerating actions.",
       "source": "alternate_constituent_outer_stability_locus",
       "target": "alternate_constituent_matter_profile"
+    },
+    {
+      "assumptions_required": [
+        "published Wilson weights",
+        "exact Hom deck action",
+        "acyclic endpoints"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_structural_spectrum.json",
+        "research/experiments/scientific_genesis/ALTERNATE_SPECTRUM_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a noncanonical determinant frame would change the characters"
+      ],
+      "mathematical_reason": "Pure H1 gives three regular matter modules. Equivariant exterior contraction and acyclic determinant endpoints identify Higgs H1 with the certified alternate Hom H1; the fixed Wilson weights then count surviving charged states.",
+      "source": "alternate_constituent_matter_profile",
+      "target": "alternate_constituent_structural_spectrum"
+    },
+    {
+      "assumptions_required": [
+        "certified alternate cone",
+        "sufficient stable chamber"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_carrier_state.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "chain cocycles and Yukawas remain unavailable after the freeze"
+      ],
+      "mathematical_reason": "The only currently certified stable determinant-trivial component passing the charged structural selection constraints is frozen as a whole rather than by a fitted extension coordinate.",
+      "source": "alternate_constituent_structural_spectrum",
+      "target": "alternate_constituent_carrier_state"
     },
     {
       "assumptions_required": [
@@ -4767,6 +4851,7 @@
     "the ray (0,1) invariant basis assembles an exact non-split P1 universal rank-four derived cone; the common flat-character twist cancels its quotient determinant while preserving outer Hom",
     "the published Serre-sequence stability bound applies to every nonzero alternate P1 extension; exact nine-slope arithmetic gives a nonempty sufficient chamber with genuine SU(4)",
     "the alternate I6 mixed transfer gives pure H1 of dimension 18; the unchanged I3 constituent gives 9, so every nonzero P1 outer class has cover matter H1=27 and three regular deck modules",
+    "the alternate P1 determinant filtration and exact Hom action give Higgs H1 characters leaving one pair and no triplets under the selected Wilson line, so the whole structural component is frozen",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -4863,15 +4948,24 @@
       "alternate_fixed_atlas_su4_excluded": true,
       "alternate_other_linearisations_excluded": false,
       "alternate_ray_0_1_all_nonzero_p1_stable_in_sufficient_chamber": true,
+      "alternate_ray_0_1_charged_structural_spectrum_passes": true,
       "alternate_ray_0_1_cover_ext1_dimension": 18,
       "alternate_ray_0_1_determinant_repaired": true,
+      "alternate_ray_0_1_explicit_cocycles_available": false,
       "alternate_ray_0_1_genuine_su4_on_sufficient_chamber": true,
+      "alternate_ray_0_1_higgs_h0_to_h3": [
+        0,
+        4,
+        4,
+        0
+      ],
       "alternate_ray_0_1_invariant_ext1_dimension": 2,
       "alternate_ray_0_1_invariant_ext_unresolved": false,
       "alternate_ray_0_1_physical_spectrum_unresolved": true,
       "alternate_ray_0_1_stability_unresolved": false,
       "alternate_ray_0_1_strict_invariant_representatives": 2,
       "alternate_ray_0_1_universal_cone_constructed": true,
+      "alternate_ray_0_1_wilson_higgs_pairs": 1,
       "alternate_repaired_higgs_outer_extension_constructed": true,
       "alternate_repaired_higgs_screen_conditional": true,
       "alternate_repaired_higgs_screen_survivor": [
@@ -4989,8 +5083,8 @@
       "complete_universal_holomorphic_neutrino_matrix_rank": 0,
       "complete_universal_holomorphic_up_matrix_available": true,
       "complete_universal_holomorphic_up_matrix_rank": 0,
-      "computable_carrier_component": "lawful-mixed-schoen-reverse-P5",
-      "computable_carrier_component_frozen": false,
+      "computable_carrier_component": "alternate-i6-ray-0-1-P1",
+      "computable_carrier_component_frozen": true,
       "constituent_atlas_over_synchronized_characters": [
         [
           2,
@@ -5442,8 +5536,8 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "derive strict matter and Higgs cocycles for the stable determinant-repaired ray (0,1) P1 family, then test the complete Wilson-projected spectrum",
-    "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
+    "next_required_object": "derive strict matter and Higgs cocycles on the frozen alternate P1 cone, then compute one complete exact holomorphic 3x3 Yukawa matrix",
+    "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {

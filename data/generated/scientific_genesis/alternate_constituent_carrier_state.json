@@ -1,0 +1,55 @@
+{
+  "artifact_digest": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+  "computable_one_theory_carrier_state": {
+    "certificate_digests": {
+      "higgs_hom_actions": "b72aa878323cc9dd2e4fc503b51191742ade124ef67a74de18b0efff88172d14",
+      "observable_spectrum": "cbf2f4c78e15d140bbfd1cc11e98e0eeba473b59ca48f7090096807ad2aee1bd",
+      "stable_su4_locus": "570132144ddccead002f9e5957de29bce23d0f73fb94d0e97230e34ba706346f",
+      "universal_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+    },
+    "chern_data": {
+      "cover_c3": -54,
+      "quotient_c3": -6
+    },
+    "coefficient_field": "Q(omega)",
+    "component_id": "alternate-i6-ray-0-1-P1",
+    "conditional_on": [
+      "selected heterotic UV framework",
+      "selected published Schoen geometry and Wilson embedding"
+    ],
+    "determinant": "trivial",
+    "epistemic_status": "COMPUTED",
+    "freeze_rule": "the only current stable determinant-trivial component passing the fixed structural-spectrum gates; retain its whole P1 without ranking extension coordinates",
+    "frozen": true,
+    "full_common_dga_representatives_available": false,
+    "kahler_chamber": "K^s",
+    "next_required_object": "parameter-dependent matter and Higgs lifts in one common Schoen DGA",
+    "parameter_component": "P^1(Q(omega))",
+    "rank": 4,
+    "representative_selected": false,
+    "structural_spectrum": {
+      "anti_families": 0,
+      "exotic_massless_blocks": 0,
+      "families": 3,
+      "higgs_pairs": 1,
+      "massless_color_triplets": 0,
+      "right_handed_neutrinos": 3
+    },
+    "structure_group": "SU(4)"
+  },
+  "full_vacuum_consistency_established": false,
+  "physical_yukawas_available": false,
+  "published_reference_carrier_state": {
+    "arxiv_id": "hep-th/0512177",
+    "epistemic_status": "SELECTED",
+    "equated_with_computable_component": false,
+    "source_archive_sha256": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "source_parameter_ledger": "generic nonzero invariant Ext in source P^3 ledger",
+    "version": "v3"
+  },
+  "schema": "alternate-constituent-carrier-state-v1",
+  "selected_constraints_not_predictions": true,
+  "source_p3_to_alternate_p1_equivalence_claimed": false,
+  "states_are_distinct": true,
+  "status": "alternate structural carrier component frozen for chain-level work"
+}

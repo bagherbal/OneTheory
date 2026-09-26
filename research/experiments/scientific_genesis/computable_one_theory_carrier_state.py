@@ -132,6 +132,7 @@ class ComputableOneTheoryCarrierState:
     frozen: bool
     representative_selected: bool
     epistemic_status: str
+    hom_action_artifact_digest: str = ""
 
     def __post_init__(self) -> None:
         valid_components = {
@@ -144,6 +145,11 @@ class ComputableOneTheoryCarrierState:
                 "lawful-mixed-schoen-reverse-P5",
                 "P^5(Q(omega))",
                 "K_reverse^s",
+            ),
+            (
+                "alternate-i6-ray-0-1-P1",
+                "P^1(Q(omega))",
+                "K^s",
             ),
         }
         if (
@@ -170,25 +176,33 @@ class ComputableOneTheoryCarrierState:
                 self.spectrum_artifact_digest,
                 self.universal_cone_artifact_digest,
                 self.stability_artifact_digest,
-                self.pushdown_artifact_digest,
             )
         ):
             raise ValueError("the computable carrier requires all certificate digests")
+        if self.component_id == "alternate-i6-ray-0-1-P1":
+            if self.pushdown_artifact_digest or not self.hom_action_artifact_digest:
+                raise ValueError("the alternate component requires its Hom-action certificate")
+        elif not self.pushdown_artifact_digest or self.hom_action_artifact_digest:
+            raise ValueError("the earlier components require their pushdown certificate")
 
     def as_record(self) -> dict[str, object]:
         """Serialize the frozen component and its remaining computational boundary."""
 
+        certificates = {
+            "observable_spectrum": self.spectrum_artifact_digest,
+            "universal_cone": self.universal_cone_artifact_digest,
+            "stable_su4_locus": self.stability_artifact_digest,
+        }
+        if self.pushdown_artifact_digest:
+            certificates["relative_pushdowns"] = self.pushdown_artifact_digest
+        if self.hom_action_artifact_digest:
+            certificates["higgs_hom_actions"] = self.hom_action_artifact_digest
         return {
             "component_id": self.component_id,
             "parameter_component": self.parameter_component,
             "kahler_chamber": self.kahler_chamber,
             "coefficient_field": self.coefficient_field,
-            "certificate_digests": {
-                "observable_spectrum": self.spectrum_artifact_digest,
-                "universal_cone": self.universal_cone_artifact_digest,
-                "stable_su4_locus": self.stability_artifact_digest,
-                "relative_pushdowns": self.pushdown_artifact_digest,
-            },
+            "certificate_digests": certificates,
             "rank": self.rank,
             "determinant": self.determinant,
             "chern_data": {"cover_c3": self.cover_c3, "quotient_c3": self.quotient_c3},

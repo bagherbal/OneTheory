@@ -1,0 +1,131 @@
+{
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "cbf2f4c78e15d140bbfd1cc11e98e0eeba473b59ca48f7090096807ad2aee1bd",
+  "bundle_moduli_h_end_computed": false,
+  "coefficient_field": "Q(omega)",
+  "common_flat_twist": [
+    1,
+    2
+  ],
+  "cover_higgs_h0_to_h3": [
+    0,
+    4,
+    4,
+    0
+  ],
+  "cover_higgs_h2_h3_by_serre_duality": true,
+  "determinant_endpoints_acyclic": true,
+  "every_nonzero_extension_parameter": true,
+  "explicit_cone_higgs_cocycles_computed": false,
+  "explicit_cone_matter_cocycles_computed": false,
+  "exterior_square_filtration": [
+    "det(E)",
+    "E tensor F",
+    "det(F)"
+  ],
+  "fixed_wilson_higgs_multiplicities": {
+    "color_antitriplet": 0,
+    "color_triplet": 0,
+    "down_higgs_doublet": 1,
+    "up_higgs_doublet": 1
+  },
+  "genesis_to_heterotic_implication_derived": false,
+  "hidden_sector_consistency_computed": false,
+  "higgs_forward_characters": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "higgs_h1_equivariantly_identified_with_constituent_tensor": true,
+  "higgs_source_characters": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "holomorphic_yukawa_matrix_computed": false,
+  "hom_characters_independently_recovered_by_fourier_traces": true,
+  "hom_fourier_characters": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "matter_cover_h0_to_h3": [
+    0,
+    27,
+    0,
+    0
+  ],
+  "matter_deck_regular_multiplicity": 3,
+  "next_required_object": "freeze the structurally viable component without selecting a point, then generate same-cone matter/Higgs cocycles for Yukawas",
+  "observable_charged_structural_spectrum_passes": true,
+  "observable_wilson_projection": {
+    "anti_families": 0,
+    "charged_exotic_blocks_from_16_and_10": 0,
+    "families": 3,
+    "higgs_pairs": 1,
+    "massless_color_triplets": 0,
+    "right_handed_neutrinos": 3
+  },
+  "parameter_locus": "P^1(Q(omega)) x K^s",
+  "prerequisite_artifact_digests": {
+    "alternate_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+    "alternate_determinant": "8ac8f504c9f39b1180f9880196cab25737310573706110cef5006a7017a2ffab",
+    "alternate_higgs_dimensions": "4ddb494b21675985c421305e4af89a67ce4badc78371f9676bb15a9e49cdf9c0",
+    "alternate_hom_actions": "b72aa878323cc9dd2e4fc503b51191742ade124ef67a74de18b0efff88172d14",
+    "alternate_matter": "8dd454cfdac3d851a3674b49234bc9c3db04af989393a87348b0c8dadcc41984",
+    "alternate_stability": "570132144ddccead002f9e5957de29bce23d0f73fb94d0e97230e34ba706346f",
+    "prior_conditional_screen": "cdc850d9e75dbbe17de37b3537db78bd5a3fa8ed22dd09395fbe671fc64782d1",
+    "published_wilson_source": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "source_character_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241"
+  },
+  "rank_two_equivariant_identity": "Hom(F tensor det(E),E) = E tensor F tensor det(E+F)^-1",
+  "ray_character_exponents": [
+    0,
+    1
+  ],
+  "schema": "alternate-constituent-structural-spectrum-v1",
+  "selected_constraints_not_predictions": [
+    "three families",
+    "one Higgs pair",
+    "fixed published Wilson embedding"
+  ]
+}

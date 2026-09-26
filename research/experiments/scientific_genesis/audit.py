@@ -843,7 +843,7 @@ def _nodes() -> list[dict[str, object]]:
             "sufficient slope inequalities for every nonzero P1 class. "
             "An exact rational open box satisfies them; nonzero cover c3 "
             "excludes proper connected irreducible reductions. The complete "
-            "Kahler stable cone and physical spectrum remain unresolved.",
+            "Kahler stable cone remains unresolved; spectrum is a separate gate.",
             (
                 "data/generated/scientific_genesis/"
                 "alternate_constituent_outer_stability_locus.json",
@@ -855,7 +855,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_alternate_constituent_outer_stability_locus.py",
             ),
             ("non-split alternate P1", "fixed Serre ideals", "published sufficient bound"),
-            ("matter/Higgs cocycles", "Wilson-projected physical spectrum"),
+            ("matter/Higgs cocycles",),
         ),
         _node(
             "alternate_constituent_matter_profile",
@@ -878,7 +878,53 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_alternate_constituent_matter_profile.py",
             ),
             ("exact alternate cone", "free Schoen quotient"),
-            ("explicit matter/Higgs cocycles", "full Wilson spectrum"),
+            ("explicit matter/Higgs cocycles",),
+        ),
+        _node(
+            "alternate_constituent_structural_spectrum",
+            "all-parameter charged spectrum of the alternate carrier",
+            "Computable carrier",
+            "COMPUTED",
+            "The natural rank-two Hom-to-tensor identity plus the acyclic "
+            "determinant filtration transports the exact four-character "
+            "Hom action to Higgs H1 for every alternate P1 class. After "
+            "the unique flat determinant repair, the fixed published "
+            "Wilson line retains one Higgs pair and no color triplets. "
+            "Three regular matter modules give three families and no "
+            "anti-families. Explicit chain cocycles remain uncomputed.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_structural_spectrum.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_structural_spectrum.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_SPECTRUM_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_structural_spectrum.py",
+            ),
+            ("published Wilson embedding", "selected heterotic realization"),
+            ("strict matter/Higgs cocycles", "Yukawa matrix", "bundle moduli"),
+        ),
+        _node(
+            "alternate_constituent_carrier_state",
+            "frozen alternate computable carrier component",
+            "Computable carrier",
+            "COMPUTED",
+            "The entire nonzero alternate P1 component is bound to exact "
+            "cone, stable-chamber, Hom-action, and charged-spectrum "
+            "certificates. No projective coordinate is selected and the "
+            "published P3 reference is kept distinct. The freeze is for "
+            "chain-level physics, not a completed vacuum.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_carrier_state.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_carrier_state.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_carrier_state.py",
+            ),
+            ("source-scoped stability chamber", "published Wilson embedding"),
+            ("strict same-cone cocycles", "holomorphic Yukawa matrix"),
         ),
         _node(
             "relative_constituent_pushdowns",
@@ -2718,6 +2764,37 @@ def _edges() -> list[dict[str, object]]:
             ("unchanged first constituent", "free quotient action"),
             True,
             ("non-pure constituent cohomology would permit jumping",),
+        ),
+        _edge(
+            "alternate_constituent_matter_profile",
+            "alternate_constituent_structural_spectrum",
+            "Pure H1 gives three regular matter modules. Equivariant "
+            "exterior contraction and acyclic determinant endpoints "
+            "identify Higgs H1 with the certified alternate Hom H1; "
+            "the fixed Wilson weights then count surviving charged states.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_structural_spectrum.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_SPECTRUM_NOTE.md",
+            ),
+            ("published Wilson weights", "exact Hom deck action", "acyclic endpoints"),
+            True,
+            ("a noncanonical determinant frame would change the characters",),
+        ),
+        _edge(
+            "alternate_constituent_structural_spectrum",
+            "alternate_constituent_carrier_state",
+            "The only currently certified stable determinant-trivial component "
+            "passing the charged structural selection constraints is frozen "
+            "as a whole rather than by a fitted extension coordinate.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_carrier_state.json",
+            ),
+            ("certified alternate cone", "sufficient stable chamber"),
+            True,
+            ("chain cocycles and Yukawas remain unavailable after the freeze",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -5204,6 +5281,67 @@ def build_state() -> dict[str, object]:
         or alternate_matter.get("physical_spectrum_established") is not False
     ):
         raise ValueError("the alternate matter profile is not certified")
+    alternate_spectrum_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_structural_spectrum.json"
+    )
+    alternate_spectrum = json.loads(
+        alternate_spectrum_path.read_text(encoding="utf-8")
+    )
+    alternate_spectrum_digest = alternate_spectrum.pop("artifact_digest", None)
+    spectrum_inputs = alternate_spectrum.get("prerequisite_artifact_digests", {})
+    alternate_projection = alternate_spectrum.get("observable_wilson_projection", {})
+    if (
+        alternate_spectrum_digest != _canonical_digest(alternate_spectrum)
+        or alternate_spectrum.get("schema")
+        != "alternate-constituent-structural-spectrum-v1"
+        or spectrum_inputs.get("alternate_cone") != alternate_cone_digest
+        or spectrum_inputs.get("alternate_stability") != alternate_stability_digest
+        or spectrum_inputs.get("alternate_matter") != alternate_matter_digest
+        or alternate_spectrum.get("parameter_locus") != "P^1(Q(omega)) x K^s"
+        or alternate_spectrum.get("cover_higgs_h0_to_h3") != [0, 4, 4, 0]
+        or alternate_spectrum.get("higgs_source_characters")
+        != [[0, 1], [0, 2], [1, 2], [2, 1]]
+        or alternate_spectrum.get(
+            "hom_characters_independently_recovered_by_fourier_traces"
+        ) is not True
+        or alternate_spectrum.get("hom_fourier_characters")
+        != [[0, 0], [1, 2], [2, 0], [2, 2]]
+        or alternate_projection.get("families") != 3
+        or alternate_projection.get("right_handed_neutrinos") != 3
+        or alternate_projection.get("anti_families") != 0
+        or alternate_projection.get("higgs_pairs") != 1
+        or alternate_projection.get("massless_color_triplets") != 0
+        or alternate_spectrum.get("observable_charged_structural_spectrum_passes")
+        is not True
+        or alternate_spectrum.get("explicit_cone_higgs_cocycles_computed")
+        is not False
+    ):
+        raise ValueError("the alternate charged spectrum is not certified")
+    alternate_carrier_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_carrier_state.json"
+    )
+    alternate_carrier = json.loads(
+        alternate_carrier_path.read_text(encoding="utf-8")
+    )
+    alternate_carrier_digest = alternate_carrier.pop("artifact_digest", None)
+    alternate_carrier_state = alternate_carrier.get("computable_one_theory_carrier_state", {})
+    carrier_digests = alternate_carrier_state.get("certificate_digests", {})
+    if (
+        alternate_carrier_digest != _canonical_digest(alternate_carrier)
+        or alternate_carrier.get("schema") != "alternate-constituent-carrier-state-v1"
+        or carrier_digests.get("observable_spectrum") != alternate_spectrum_digest
+        or carrier_digests.get("universal_cone") != alternate_cone_digest
+        or carrier_digests.get("stable_su4_locus") != alternate_stability_digest
+        or "relative_pushdowns" in carrier_digests
+        or alternate_carrier_state.get("component_id") != "alternate-i6-ray-0-1-P1"
+        or alternate_carrier_state.get("frozen") is not True
+        or alternate_carrier_state.get("representative_selected") is not False
+        or alternate_carrier.get("states_are_distinct") is not True
+        or alternate_carrier.get("physical_yukawas_available") is not False
+    ):
+        raise ValueError("the alternate component freeze is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5400,6 +5538,10 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_outer_stability_locus.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_matter_profile.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_structural_spectrum.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_carrier_state.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -5443,10 +5585,10 @@ def build_state() -> dict[str, object]:
         "recommended_vertical_path": {
             "candidate_pair": None,
             "selection_status": (
-                "selected P1 and reverse P5 cover computations remain exact, "
-                "but neither can be frozen as a physical quotient carrier "
-                "under the current determinant frame or the full-chain "
-                "fixed-Wilson Higgs gate"
+                "the selected P1 and reverse P5 physical quotient freezes are "
+                "refuted; the distinct determinant-repaired alternate P1 "
+                "component passes the charged structural spectrum and is "
+                "frozen only for chain-level physics"
             ),
             "criteria": {
                 "retired_invariant_ext_dimension": 4,
@@ -5556,10 +5698,8 @@ def build_state() -> dict[str, object]:
                     "lawful-mixed-schoen-P1"
                 ),
                 "prior_forward_computable_carrier_component_frozen": False,
-                "computable_carrier_component": (
-                    "lawful-mixed-schoen-reverse-P5"
-                ),
-                "computable_carrier_component_frozen": False,
+                "computable_carrier_component": "alternate-i6-ray-0-1-P1",
+                "computable_carrier_component_frozen": True,
                 "selected_quotient_determinant_character": [2, 1],
                 "selected_quotient_su4_certified": False,
                 "alternate_fixed_atlas_determinant_characters": [
@@ -5581,6 +5721,10 @@ def build_state() -> dict[str, object]:
                 "alternate_ray_0_1_all_nonzero_p1_stable_in_sufficient_chamber": True,
                 "alternate_ray_0_1_genuine_su4_on_sufficient_chamber": True,
                 "alternate_ray_0_1_physical_spectrum_unresolved": True,
+                "alternate_ray_0_1_charged_structural_spectrum_passes": True,
+                "alternate_ray_0_1_higgs_h0_to_h3": [0, 4, 4, 0],
+                "alternate_ray_0_1_wilson_higgs_pairs": 1,
+                "alternate_ray_0_1_explicit_cocycles_available": False,
                 "first_constituent_atlas_to_mixed_character": frame[
                     "first_constituent_uniform_twist"
                 ],
@@ -5800,9 +5944,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "derive strict matter and Higgs cocycles for the stable "
-                "determinant-repaired ray (0,1) P1 family, then test the "
-                "complete Wilson-projected spectrum"
+                "derive strict matter and Higgs cocycles on the frozen "
+                "alternate P1 cone, then compute one complete exact "
+                "holomorphic 3x3 Yukawa matrix"
             ),
         },
         "claims": _nodes(),
@@ -5863,6 +6007,9 @@ def build_state() -> dict[str, object]:
             "the alternate I6 mixed transfer gives pure H1 of dimension 18; "
             "the unchanged I3 constituent gives 9, so every nonzero P1 "
             "outer class has cover matter H1=27 and three regular deck modules",
+            "the alternate P1 determinant filtration and exact Hom action give "
+            "Higgs H1 characters leaving one pair and no triplets under the "
+            "selected Wilson line, so the whole structural component is frozen",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

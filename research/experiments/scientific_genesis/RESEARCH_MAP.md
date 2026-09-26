@@ -735,9 +735,9 @@ nine exact slope inequalities hold throughout a rational open Kähler box
 around `(6,9,3)`, for every nonzero `P¹` parameter. The nonzero cover
 `c₃=-54` then excludes proper connected irreducible reductions on this
 stable determinant-trivial family. The full Kähler stable cone is not
-classified. More importantly, this is not yet a frozen physical carrier:
-explicit matter and Higgs cocycles, the complete Wilson spectrum, and a
-derived Yukawa matrix remain open. The theorem-scope check is recorded in
+classified. At this stage it was not yet a frozen structural carrier:
+explicit matter and Higgs cocycles, the Wilson spectrum, and a derived
+Yukawa matrix still had to be addressed. The theorem-scope check is recorded in
 `ALTERNATE_STABILITY_NOTE.md`.
 
 The next same-family matter gate is now exact. In the ray `(0,1)` common
@@ -754,5 +754,27 @@ Consequently pure `H¹(V)` is exactly three regular deck modules, even after
 the common flat determinant repair. This establishes the cover matter count
 and its character multiplicities, not strict cone-level matter cocycles or
 the full Wilson-projected physical spectrum. The certificate is
-`alternate_constituent_matter_profile.json`; the next vertical gate is the
-explicit matter/Higgs chain representatives on this same cone.
+`alternate_constituent_matter_profile.json`.
+
+The charged structural spectrum now closes over the same nonzero `P¹`.
+For rank-two constituents, equivariant exterior contraction identifies
+`Hom(F tensor det(E),E)` with `E tensor F tensor det(E+F)^-1`. The two
+determinant endpoints of the `wedge² V` filtration are acyclic, so Higgs
+`H¹` is equivariantly the constituent tensor `H¹` for every outer class.
+The exact Hom action has four characters. Adding the product determinant
+character `(2,1)` and twice the unique common flat twist `(1,2)` gives
+repaired Higgs characters `(0,1),(0,2),(1,2),(2,1)`. The fixed published
+Wilson weights retain one doublet pair and no color triplets. Together
+with the three regular matter modules, there are three families including
+three right-handed neutrinos and no anti-families. These are selected
+structural constraints, not Genesis predictions. The proof scope is in
+`ALTERNATE_SPECTRUM_NOTE.md`.
+
+The whole component is now frozen as `alternate-i6-ray-0-1-P1`, distinct
+from the published source `P³` ledger, with no extension coordinate chosen.
+Its certificate uses the actual alternate Hom action, not the refuted
+selected-pair relative-pushdown signature. This is a structural carrier
+freeze for vertical chain-level work, not a completed heterotic vacuum.
+Strict matter and Higgs cocycles on its universal cone, bundle-moduli
+cohomology, Yukawa matrices, hidden-sector compatibility, and moduli
+stabilization remain open.

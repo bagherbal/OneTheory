@@ -497,8 +497,14 @@ An exact sparse inverse of the alternate quotient duality map is now
 available on every minor principal open. The identity `J S J = Δ J`
 passes on all sixty opens, with local freeness supplying the quotient
 rank argument. Exact adjugate contractions remove the right syzygy-dual
-terms locally. The 324-term Hom class has not yet been restricted and
-transported through the common Čech–Koszul complex.
+terms locally. The complete 324-term strict Hom cochain is now persisted
+with its exact coefficient and Čech–Koszul basis data. Restricting its
+right factor to each of the six affine chart vertices gives exact local
+cycles of sizes 27, 36, 27, 36, 27, and 36, all supported in the three
+syzygy-dual objects. The other 135 terms lie on right fiber overlaps:
+81 in middle objects and 54 in syzygy-dual objects. This locates the
+actual correction required for gluing; the local inverse has not yet
+been applied to this cochain, and no tensor or cone Higgs class is claimed.
 
 The universal up-matrix filtration also fixes its parameter support:
 first/first vanishes, mixed entries are constant, and second/second

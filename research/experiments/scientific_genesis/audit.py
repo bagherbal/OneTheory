@@ -975,17 +975,30 @@ def _nodes() -> list[dict[str, object]]:
             "Computable carrier",
             "COMPUTED",
             "A 324-term exact full-Cech Hom cycle has nonzero H1 class and "
-            "strict atlas character (2,0). The certified determinant and "
+            "strict atlas character (2,0). Its complete terms are saved "
+            "with a checked round trip. All six right singleton restrictions "
+            "are closed and supported only in syzygy-dual objects; middle "
+            "terms occur on overlaps. The certified determinant and "
             "common flat frames send this character to the selected "
             "up-Higgs forward sector (0,2). No tensor chain map or "
             "exterior-cone Higgs cocycle is asserted.",
             (
                 "data/generated/scientific_genesis/"
                 "alternate_up_higgs_hom_representative.json",
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_hom_full_cochain.json",
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_chart_restriction.json",
                 "research/experiments/scientific_genesis/"
                 "alternate_up_higgs_hom_representative.py",
+                "research/experiments/scientific_genesis/"
+                "alternate_up_higgs_chart_restriction.py",
                 "tests/integration/"
                 "test_scientific_genesis_alternate_up_higgs_hom_representative.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_higgs_hom_full_cochain.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_higgs_chart_restriction.py",
             ),
             ("certified Hom action", "selected published Wilson sector"),
             ("rank-two determinant chain map", "exterior-cone Higgs lift"),
@@ -5684,6 +5697,51 @@ def build_state() -> dict[str, object]:
         or up_hom.get("yukawa_matrix_computed") is not False
     ):
         raise ValueError("the alternate up-Higgs Hom input is not certified")
+    full_hom_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_up_higgs_hom_full_cochain.json"
+    )
+    full_hom = json.loads(full_hom_path.read_text(encoding="utf-8"))
+    full_hom_digest = full_hom.pop("artifact_digest", None)
+    if (
+        full_hom_digest != _canonical_digest(full_hom)
+        or full_hom.get("schema") != "alternate-up-higgs-hom-full-cochain-v1"
+        or full_hom.get("hom_summary_digest") != up_hom_digest
+        or full_hom.get("term_count") != up_hom.get("full_term_count")
+        or len(full_hom.get("terms", [])) != up_hom.get("full_term_count")
+        or full_hom.get("full_digest") != up_hom.get("full_digest")
+        or full_hom.get("higgs_tensor_chain_map_constructed") is not False
+        or full_hom.get("exterior_cone_higgs_cocycle_constructed") is not False
+    ):
+        raise ValueError("the persisted alternate Hom cochain is not certified")
+    chart_restriction_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_up_higgs_chart_restriction.json"
+    )
+    chart_restriction = json.loads(chart_restriction_path.read_text(encoding="utf-8"))
+    chart_restriction_digest = chart_restriction.pop("artifact_digest", None)
+    chart_records = chart_restriction.get("right_chart_records", [])
+    if (
+        chart_restriction_digest != _canonical_digest(chart_restriction)
+        or chart_restriction.get("schema") != "alternate-up-higgs-chart-restriction-v1"
+        or chart_restriction.get("full_hom_cochain_artifact_digest") != full_hom_digest
+        or chart_restriction.get("full_hom_term_digest") != full_hom.get("full_digest")
+        or len(chart_records) != 6
+        or [record.get("term_count") for record in chart_records]
+        != [27, 36, 27, 36, 27, 36]
+        or any(record.get("middle_term_count") != 0 for record in chart_records)
+        or any(
+            record.get("syzygy_dual_term_count") != record.get("term_count")
+            for record in chart_records
+        )
+        or chart_restriction.get("right_fiber_overlap_term_count") != 135
+        or chart_restriction.get("right_fiber_overlap_middle_term_count") != 81
+        or chart_restriction.get("right_fiber_overlap_syzygy_term_count") != 54
+        or chart_restriction.get("all_right_restrictions_closed") is not True
+        or chart_restriction.get("hom_to_tensor_transport_constructed") is not False
+        or chart_restriction.get("exterior_cone_higgs_cocycle_constructed") is not False
+    ):
+        raise ValueError("the alternate Hom chart restrictions are not certified")
     alternate_pairing_path = (
         ROOT / "data/generated/scientific_genesis/"
         "alternate_constituent_determinant_pairing.json"
@@ -5982,6 +6040,10 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_up_cone_matter_lifts.json",
         "data/generated/scientific_genesis/"
         "alternate_up_higgs_hom_representative.json",
+        "data/generated/scientific_genesis/"
+        "alternate_up_higgs_hom_full_cochain.json",
+        "data/generated/scientific_genesis/"
+        "alternate_up_higgs_chart_restriction.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_determinant_pairing.json",
         "data/generated/scientific_genesis/"

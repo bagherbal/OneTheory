@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b3b8f3fb835a4ebaa67c083b8c5c5b836bab102e6dcd24b491384a8893fc1e8e",
+  "artifact_digest": "264069096ceace7ed9141d58d1b9df4dce166d61f6577c0a04b958ebb43e23a9",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -542,6 +542,16 @@
       "sha256": "5592516ed57b659596e82f047f03f431d35f5f35a1fb22a5b7baf6d9af64b823"
     },
     {
+      "bytes": 200979,
+      "path": "data/generated/scientific_genesis/alternate_up_higgs_hom_full_cochain.json",
+      "sha256": "d5d2e77bf82774aa76a23309f3fbb28443962838bfb5751cad7252e65ccd75b8"
+    },
+    {
+      "bytes": 3002,
+      "path": "data/generated/scientific_genesis/alternate_up_higgs_chart_restriction.json",
+      "sha256": "e42bb7b98ab2606ea7261acb919a8146fabc95de1a521ad3049071465ee75442"
+    },
+    {
       "bytes": 1594,
       "path": "data/generated/scientific_genesis/alternate_constituent_determinant_pairing.json",
       "sha256": "4e7f2111ee7f708fddbea89bc1f7a3d8863875936a1b5a9259063eeebbf539bf"
@@ -586,8 +596,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 227,
-    "test_python_files": 208
+    "research_python_files": 228,
+    "test_python_files": 210
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1419,8 +1429,13 @@
       ],
       "evidence": [
         "data/generated/scientific_genesis/alternate_up_higgs_hom_representative.json",
+        "data/generated/scientific_genesis/alternate_up_higgs_hom_full_cochain.json",
+        "data/generated/scientific_genesis/alternate_up_higgs_chart_restriction.json",
         "research/experiments/scientific_genesis/alternate_up_higgs_hom_representative.py",
-        "tests/integration/test_scientific_genesis_alternate_up_higgs_hom_representative.py"
+        "research/experiments/scientific_genesis/alternate_up_higgs_chart_restriction.py",
+        "tests/integration/test_scientific_genesis_alternate_up_higgs_hom_representative.py",
+        "tests/integration/test_scientific_genesis_alternate_up_higgs_hom_full_cochain.py",
+        "tests/integration/test_scientific_genesis_alternate_up_higgs_chart_restriction.py"
       ],
       "id": "alternate_up_higgs_hom_representative",
       "label": "strict alternate Hom class for the up-Higgs sector",
@@ -1429,7 +1444,7 @@
         "rank-two determinant chain map",
         "exterior-cone Higgs lift"
       ],
-      "statement": "A 324-term exact full-Cech Hom cycle has nonzero H1 class and strict atlas character (2,0). The certified determinant and common flat frames send this character to the selected up-Higgs forward sector (0,2). No tensor chain map or exterior-cone Higgs cocycle is asserted.",
+      "statement": "A 324-term exact full-Cech Hom cycle has nonzero H1 class and strict atlas character (2,0). Its complete terms are saved with a checked round trip. All six right singleton restrictions are closed and supported only in syzygy-dual objects; middle terms occur on overlaps. The certified determinant and common flat frames send this character to the selected up-Higgs forward sector (0,2). No tensor chain map or exterior-cone Higgs cocycle is asserted.",
       "status": "COMPUTED"
     },
     {

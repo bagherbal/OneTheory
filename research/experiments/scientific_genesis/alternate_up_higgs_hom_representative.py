@@ -61,17 +61,19 @@ from .distinct_constituent_ray_screen import lift_joint_character_ray
 from .mixed_constituent_schoen_arrows import _constituent, mixed_schoen_constituents
 from .mixed_schoen_matter_representatives import _cochain_digest
 from .mixed_schoen_outer_actions import (
+    _basis_record,
     _MixedContraction,
     _perturbed_inclusion,
     _perturbed_projection,
     _reduced_cochain,
 )
 from .mixed_schoen_outer_transfer import mixed_transferred_outer_hom
-from .mixed_schoen_outer_universal_cone import _verified_payload
+from .mixed_schoen_outer_universal_cone import _representative, _verified_payload
 from .published_constituent_deck_actions import published_constituent_deck_actions
 
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / "data/generated/scientific_genesis/alternate_up_higgs_hom_representative.json"
+FULL_OUTPUT = ROOT / "data/generated/scientific_genesis/alternate_up_higgs_hom_full_cochain.json"
 HOM_CHARACTER: Character = (2, 0)
 UP_HIGGS_FORWARD_CHARACTER: Character = (0, 2)
 
@@ -267,6 +269,61 @@ def write_alternate_up_higgs_hom_representative(path: Path = OUTPUT) -> dict[str
     temporary.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     temporary.replace(path)
     return payload
+
+
+def write_alternate_up_higgs_hom_full_cochain(
+    path: Path = FULL_OUTPUT,
+) -> dict[str, object]:
+    """Persist the existing strict cochain without recomputing its mathematics."""
+
+    summary_digest, summary = _verified_payload(OUTPUT)
+    representative = alternate_up_higgs_hom_representative().full_cochain
+    full_digest = _cochain_digest((representative,))
+    if (
+        summary.get("schema") != "alternate-up-higgs-hom-representative-v1"
+        or summary.get("full_term_count") != len(representative.terms)
+        or summary.get("full_digest") != full_digest
+    ):
+        raise ValueError("the strict Hom terms disagree with their prior certificate")
+    payload: dict[str, object] = {
+        "schema": "alternate-up-higgs-hom-full-cochain-v1",
+        "coefficient_field": "Q(omega)",
+        "hom_summary_digest": summary_digest,
+        "term_count": len(representative.terms),
+        "full_digest": full_digest,
+        "terms": [
+            {"basis": _basis_record(basis), "coefficient": str(coefficient)}
+            for basis, coefficient in representative.terms
+        ],
+        "higgs_tensor_chain_map_constructed": False,
+        "exterior_cone_higgs_cocycle_constructed": False,
+    }
+    payload["artifact_digest"] = _canonical_digest(payload)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_name(f".{path.name}.tmp")
+    temporary.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    temporary.replace(path)
+    return payload
+
+
+def load_alternate_up_higgs_hom_full_cochain() -> SparseOuterCechCochain:
+    """Load and recheck the content-addressed strict Hom representative."""
+
+    summary_digest, summary = _verified_payload(OUTPUT)
+    _full_digest, payload = _verified_payload(FULL_OUTPUT)
+    if (
+        payload.get("schema") != "alternate-up-higgs-hom-full-cochain-v1"
+        or payload.get("hom_summary_digest") != summary_digest
+        or payload.get("term_count") != summary.get("full_term_count")
+        or payload.get("full_digest") != summary.get("full_digest")
+        or payload.get("higgs_tensor_chain_map_constructed") is not False
+        or payload.get("exterior_cone_higgs_cocycle_constructed") is not False
+    ):
+        raise ValueError("the persisted strict Hom cochain has changed")
+    cochain = _representative(payload)
+    if _cochain_digest((cochain,)) != payload["full_digest"]:
+        raise ValueError("the persisted Hom term digest changed")
+    return cochain
 
 
 if __name__ == "__main__":

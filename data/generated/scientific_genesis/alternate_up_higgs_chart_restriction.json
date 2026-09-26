@@ -1,0 +1,95 @@
+{
+  "all_right_restrictions_closed": true,
+  "artifact_digest": "08ef490ff3aec840485c7b820fdcda9ff0e2274d5712b4a2565f5c91b8bbd48b",
+  "coefficient_field": "Q(omega)",
+  "exterior_cone_higgs_cocycle_constructed": false,
+  "full_hom_cochain_artifact_digest": "373de106d1ef9683dd97a70cb58234d51d3e689fe9eb0a922ade4051e111bcd4",
+  "full_hom_term_digest": "08c2300b7636c76caa50a817d0f8593117a44d9326ffdbb7c2535285fa9c60f4",
+  "hom_to_tensor_transport_constructed": false,
+  "next_required_object": "apply the minor-open dual syzygy contraction to each actual right-chart Hom restriction, then glue the quotient images",
+  "right_chart_records": [
+    {
+      "chart": "U_0_mu",
+      "digest": "e9ec9a8279be17f94a2d82901f6e321b3a09b11e20be649ccdc02d01eaf4c0e6",
+      "middle_term_count": 0,
+      "right_chart_restricted_cycle_exact": true,
+      "right_object_term_counts": {
+        "5": 9,
+        "6": 9,
+        "7": 9
+      },
+      "syzygy_dual_term_count": 27,
+      "term_count": 27
+    },
+    {
+      "chart": "U_0_nu",
+      "digest": "eedfde7b442d5171d8d340d1c4141f5e31cd2ff43b3ae6be17aaae6124c5c28d",
+      "middle_term_count": 0,
+      "right_chart_restricted_cycle_exact": true,
+      "right_object_term_counts": {
+        "5": 12,
+        "6": 12,
+        "7": 12
+      },
+      "syzygy_dual_term_count": 36,
+      "term_count": 36
+    },
+    {
+      "chart": "U_1_mu",
+      "digest": "937c59b5f065faf2655cc52b598d2fa09691f9209b92d8e3892f0eb80cd88032",
+      "middle_term_count": 0,
+      "right_chart_restricted_cycle_exact": true,
+      "right_object_term_counts": {
+        "5": 9,
+        "6": 9,
+        "7": 9
+      },
+      "syzygy_dual_term_count": 27,
+      "term_count": 27
+    },
+    {
+      "chart": "U_1_nu",
+      "digest": "f3549e48ab2d64042154b610901d9fd484983ef3d34dd92452158c01e7ab5c2f",
+      "middle_term_count": 0,
+      "right_chart_restricted_cycle_exact": true,
+      "right_object_term_counts": {
+        "5": 12,
+        "6": 12,
+        "7": 12
+      },
+      "syzygy_dual_term_count": 36,
+      "term_count": 36
+    },
+    {
+      "chart": "U_2_mu",
+      "digest": "a64cedb808c0274fa7b591d112450724422e1d8339116a2a33f1d6dd7c44a7a6",
+      "middle_term_count": 0,
+      "right_chart_restricted_cycle_exact": true,
+      "right_object_term_counts": {
+        "5": 9,
+        "6": 9,
+        "7": 9
+      },
+      "syzygy_dual_term_count": 27,
+      "term_count": 27
+    },
+    {
+      "chart": "U_2_nu",
+      "digest": "61ffb7486b302ade40d8f2473b38ac29eac46e0911babd432f22a3ddc36c11ac",
+      "middle_term_count": 0,
+      "right_chart_restricted_cycle_exact": true,
+      "right_object_term_counts": {
+        "5": 12,
+        "6": 12,
+        "7": 12
+      },
+      "syzygy_dual_term_count": 36,
+      "term_count": 36
+    }
+  ],
+  "right_fiber_overlap_middle_term_count": 81,
+  "right_fiber_overlap_syzygy_term_count": 54,
+  "right_fiber_overlap_term_count": 135,
+  "schema": "alternate-up-higgs-chart-restriction-v1",
+  "syzygy_dual_terms_retained": true
+}

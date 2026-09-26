@@ -1,0 +1,101 @@
+{
+  "action_artifact_digest": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+  "affine_parameter_space": "A^2(Q(omega))",
+  "arbitrary_extension_point_selected": false,
+  "artifact_digest": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+  "basis_term_counts": [
+    38703,
+    32448
+  ],
+  "chern_classes": {
+    "c1": [
+      "0",
+      "0",
+      "0"
+    ],
+    "c2": [
+      "8/3",
+      "5/3",
+      "4"
+    ],
+    "c3": "-6",
+    "parameter_independent": true,
+    "provenance": "alternate and selected perfect complexes have identical graded line objects; a flat character twist preserves rational Chern data"
+  },
+  "coefficient_field": "Q(omega)",
+  "common_flat_character_twist": [
+    1,
+    2
+  ],
+  "common_twist_cancels_in_outer_hom": true,
+  "conditional_one_higgs_character_screen": true,
+  "constituent_graded_line_objects_match_published_selected_ray": true,
+  "cover_ext1_dimension": 18,
+  "descent_locus": "all A^2(Q(omega))",
+  "determinant_c1": [
+    "0",
+    "0",
+    "0"
+  ],
+  "determinant_character_after_common_twist": [
+    0,
+    0
+  ],
+  "determinant_character_before_common_twist": [
+    2,
+    1
+  ],
+  "equivariant_descent_exact": true,
+  "first_missing_input": "certify the parameterwise stable locus and exclude accidental proper structure-group reductions on P^1(Q(omega))",
+  "generated_complex": {
+    "differential": "D_E(a)=[[D_V1,e(a)],[0,D_V2]]",
+    "extension": "e(a)=a0 e_0+a1 e_1",
+    "objects": [
+      "V1",
+      "V2"
+    ],
+    "orientation": "RHom(V2,V1)",
+    "parameter_linear": true,
+    "squared_zero": true
+  },
+  "genuine_su4_locus_computed": false,
+  "invariant_artifact_digest": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+  "invariant_ext1_dimension": 2,
+  "local_freeness_locus": "all A^2(Q(omega))",
+  "local_freeness_theorem": "an extension of locally free sheaves is locally free because the quotient is projective on every local stalk",
+  "non_split_locus": "A^2(Q(omega)) minus the origin",
+  "parameter_count_derived_from_invariant_basis": true,
+  "parameter_ring": "Q(omega)[a0,a1]",
+  "parameters": [
+    "a0",
+    "a1"
+  ],
+  "physical_higgs_cocycles_available": false,
+  "prerequisite_artifact_digests": {
+    "alternate_constituent_character_screen": "cdc850d9e75dbbe17de37b3537db78bd5a3fa8ed22dd09395fbe671fc64782d1",
+    "alternate_constituent_deck_atlases": "9d7aa54f6faa3edc5b947465262773331b4b2562c54ba227fb9c605e4bc94675",
+    "alternate_constituent_determinant_descent": "8ac8f504c9f39b1180f9880196cab25737310573706110cef5006a7017a2ffab",
+    "distinct_constituent_ray_screen": "aa090ed4fd058c5b1db797d58a9e02c8cd40a10cb9de2753ec797c2cdd3c14f7"
+  },
+  "projective_non_split_space": "P^1(Q(omega))",
+  "quotient_determinant_trivial_exact": true,
+  "rank": 4,
+  "rational_chern_data_only": true,
+  "ray_character_exponents": [
+    0,
+    1
+  ],
+  "retired_pure_cech_representatives_used": false,
+  "schema": "alternate-constituent-outer-universal-cone-v1",
+  "split_locus": {
+    "description": "the affine origin only",
+    "ideal_generators": [
+      "a0",
+      "a1"
+    ]
+  },
+  "stability_chamber_certified": false,
+  "status": "exact determinant-repaired non-split locally free descended rank-four universal cone; stability and genuine SU(4) unresolved",
+  "strict_basis_rechecked_from_saved_terms": true,
+  "universal_term_count": 59022
+}

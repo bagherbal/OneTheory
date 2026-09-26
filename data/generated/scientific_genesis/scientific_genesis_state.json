@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "ef77853c188d25f0cc738366e0ed37a7f7b739776aec8c084cf274586956b0a9",
+  "artifact_digest": "11a50a80847b1f70cca3a70006acad6a1850e9e36f5302deaca675097f07f6a7",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -502,6 +502,11 @@
       "sha256": "47fde895eecdefd0d6f66396dced7fc608e3867a6f58992e518e9facff9ab023"
     },
     {
+      "bytes": 3389,
+      "path": "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json",
+      "sha256": "5b886289acb089cc45a3e623412151de42403d90c7fc46377ebcf535c61d4bc2"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -531,8 +536,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 216,
-    "test_python_files": 197
+    "research_python_files": 217,
+    "test_python_files": 198
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1211,6 +1216,28 @@
         "lawful stable locus"
       ],
       "statement": "Exact full-Cech Reynolds averaging of all 18 cover classes gives a two-dimensional invariant Ext1(V2,V1) space for ray (0,1). Two independent full representatives are closed and strictly P/T fixed. No extension point, universal cone, or stability chamber is claimed.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "strict invariant Ext basis",
+        "alternate local units",
+        "fixed deck atlas"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json",
+        "research/experiments/scientific_genesis/alternate_constituent_outer_universal_cone.py",
+        "tests/integration/test_scientific_genesis_alternate_constituent_outer_universal_cone.py"
+      ],
+      "id": "alternate_constituent_outer_universal_cone",
+      "label": "determinant-repaired universal outer cone for ray (0,1)",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "parameterwise stable locus",
+        "genuine SU(4)",
+        "physical Higgs cocycles"
+      ],
+      "statement": "The two strict invariant cocycles assemble parameter-linearly over A2 with split origin and non-split P1. Exact local units give local freeness; the fixed atlas gives descent; the unique common flat-character twist cancels the quotient determinant. The alternate graded K-class matches the selected constituent pair, so rational Chern data agree. Stability, genuine SU(4), and physical Higgs cocycles remain unresolved.",
       "status": "COMPUTED"
     },
     {
@@ -2771,6 +2798,23 @@
       "mathematical_reason": "The exact ray (0,1) deck atlas acts on full outer-Hom Cech cochains. Reynolds averaging all cover Ext1 classes yields two independent strictly fixed full cocycles.",
       "source": "alternate_constituent_outer_cover_ext",
       "target": "alternate_constituent_outer_invariants"
+    },
+    {
+      "assumptions_required": [
+        "exact invariant basis",
+        "fixed ray (0,1) atlas",
+        "flat character twist"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "local freeness and determinant repair do not imply stability"
+      ],
+      "mathematical_reason": "The two independent strict cocycles define one universal linear outer arrow. The alternate local-unit and atlas certificates give a descended locally free extension; a common character twist repairs its determinant without changing outer Hom.",
+      "source": "alternate_constituent_outer_invariants",
+      "target": "alternate_constituent_outer_universal_cone"
     },
     {
       "assumptions_required": [
@@ -4634,6 +4678,7 @@
     "both unused I6 atlas rays have exact common-coordinate total determinant characters (2,1) and (0,1), confirmed on scalar H3",
     "the unique common determinant repairs have conditional Higgs characters: ray (0,1) passes the fixed Wilson doublet/triplet screen, while ray (1,1) retains both triplet sectors",
     "the surviving alternate ray (0,1) has exact cover Ext1(V2,V1) dimension 18 and a two-dimensional strictly deck-invariant subspace with two closed full-Cech representatives",
+    "the ray (0,1) invariant basis assembles an exact non-split P1 universal rank-four derived cone; the common flat-character twist cancels its quotient determinant while preserving outer Hom",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -4730,11 +4775,13 @@
       "alternate_fixed_atlas_su4_excluded": true,
       "alternate_other_linearisations_excluded": false,
       "alternate_ray_0_1_cover_ext1_dimension": 18,
+      "alternate_ray_0_1_determinant_repaired": true,
       "alternate_ray_0_1_invariant_ext1_dimension": 2,
       "alternate_ray_0_1_invariant_ext_unresolved": false,
+      "alternate_ray_0_1_stability_unresolved": true,
       "alternate_ray_0_1_strict_invariant_representatives": 2,
-      "alternate_ray_0_1_universal_cone_constructed": false,
-      "alternate_repaired_higgs_outer_extension_constructed": false,
+      "alternate_ray_0_1_universal_cone_constructed": true,
+      "alternate_repaired_higgs_outer_extension_constructed": true,
       "alternate_repaired_higgs_screen_conditional": true,
       "alternate_repaired_higgs_screen_survivor": [
         0,
@@ -5304,7 +5351,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "construct the universal equivariant outer cone for ray (0,1) over the full two-dimensional invariant Ext space, then certify its determinant repair and lawful stable locus",
+    "next_required_object": "certify the parameterwise stable genuine-SU(4) locus of the determinant-repaired ray (0,1) universal P1 cone, then generate its matter and Higgs cocycles",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
   },
   "research_value_scheduler": [

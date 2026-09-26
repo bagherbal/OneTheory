@@ -810,6 +810,29 @@ def _nodes() -> list[dict[str, object]]:
             ("universal equivariant outer cone", "lawful stable locus"),
         ),
         _node(
+            "alternate_constituent_outer_universal_cone",
+            "determinant-repaired universal outer cone for ray (0,1)",
+            "Computable carrier",
+            "COMPUTED",
+            "The two strict invariant cocycles assemble parameter-linearly "
+            "over A2 with split origin and non-split P1. Exact local units "
+            "give local freeness; the fixed atlas gives descent; the unique "
+            "common flat-character twist cancels the quotient determinant. "
+            "The alternate graded K-class matches the selected constituent "
+            "pair, so rational Chern data agree. Stability, genuine SU(4), "
+            "and physical Higgs cocycles remain unresolved.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_outer_universal_cone.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_outer_universal_cone.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_outer_universal_cone.py",
+            ),
+            ("strict invariant Ext basis", "alternate local units", "fixed deck atlas"),
+            ("parameterwise stable locus", "genuine SU(4)", "physical Higgs cocycles"),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2600,6 +2623,21 @@ def _edges() -> list[dict[str, object]]:
             ("exact cover Ext representatives", "certified P/T constituent frames"),
             True,
             ("invariant Ext alone does not construct the outer cone",),
+        ),
+        _edge(
+            "alternate_constituent_outer_invariants",
+            "alternate_constituent_outer_universal_cone",
+            "The two independent strict cocycles define one universal linear "
+            "outer arrow. The alternate local-unit and atlas certificates "
+            "give a descended locally free extension; a common character "
+            "twist repairs its determinant without changing outer Hom.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_outer_universal_cone.json",
+            ),
+            ("exact invariant basis", "fixed ray (0,1) atlas", "flat character twist"),
+            True,
+            ("local freeness and determinant repair do not imply stability",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -4950,6 +4988,61 @@ def build_state() -> dict[str, object]:
         or alternate_invariants.get("stability_chamber_certified") is not False
     ):
         raise ValueError("the alternate outer invariants are not certified")
+    alternate_cone_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_outer_universal_cone.json"
+    )
+    alternate_cone = json.loads(alternate_cone_path.read_text(encoding="utf-8"))
+    alternate_cone_digest = alternate_cone.pop("artifact_digest", None)
+    cone_prerequisites = alternate_cone.get("prerequisite_artifact_digests", {})
+    cone_complex = alternate_cone.get("generated_complex", {})
+    cone_chern = alternate_cone.get("chern_classes", {})
+    if (
+        alternate_cone_digest != _canonical_digest(alternate_cone)
+        or alternate_cone.get("schema")
+        != "alternate-constituent-outer-universal-cone-v1"
+        or alternate_cone.get("invariant_artifact_digest")
+        != alternate_invariants_digest
+        or cone_prerequisites.get("alternate_constituent_deck_atlases")
+        != alternate_atlas_digest
+        or cone_prerequisites.get("alternate_constituent_determinant_descent")
+        != alternate_det_digest
+        or cone_prerequisites.get("alternate_constituent_character_screen")
+        != screen_digest
+        or cone_prerequisites.get("distinct_constituent_ray_screen")
+        != ray_digest
+        or alternate_cone.get("ray_character_exponents") != [0, 1]
+        or alternate_cone.get("cover_ext1_dimension") != 18
+        or alternate_cone.get("invariant_ext1_dimension") != 2
+        or alternate_cone.get("projective_non_split_space") != "P^1(Q(omega))"
+        or alternate_cone.get("split_locus", {}).get("ideal_generators")
+        != ["a0", "a1"]
+        or cone_complex.get("orientation") != "RHom(V2,V1)"
+        or cone_complex.get("squared_zero") is not True
+        or alternate_cone.get("strict_basis_rechecked_from_saved_terms")
+        is not True
+        or alternate_cone.get("constituent_graded_line_objects_match_published_selected_ray")
+        is not True
+        or alternate_cone.get("rank") != 4
+        or cone_chern.get("c1") != ["0", "0", "0"]
+        or cone_chern.get("c2") != ["8/3", "5/3", "4"]
+        or cone_chern.get("c3") != "-6"
+        or alternate_cone.get("rational_chern_data_only") is not True
+        or alternate_cone.get("equivariant_descent_exact") is not True
+        or alternate_cone.get("determinant_character_before_common_twist")
+        != [2, 1]
+        or alternate_cone.get("common_flat_character_twist") != [1, 2]
+        or alternate_cone.get("determinant_character_after_common_twist")
+        != [0, 0]
+        or alternate_cone.get("common_twist_cancels_in_outer_hom") is not True
+        or alternate_cone.get("quotient_determinant_trivial_exact") is not True
+        or alternate_cone.get("local_freeness_locus") != "all A^2(Q(omega))"
+        or alternate_cone.get("arbitrary_extension_point_selected") is not False
+        or alternate_cone.get("stability_chamber_certified") is not False
+        or alternate_cone.get("genuine_su4_locus_computed") is not False
+        or alternate_cone.get("physical_higgs_cocycles_available") is not False
+    ):
+        raise ValueError("the alternate universal cone is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5140,6 +5233,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_outer_ext.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_outer_invariants.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_outer_universal_cone.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -5310,12 +5405,14 @@ def build_state() -> dict[str, object]:
                 "alternate_other_linearisations_excluded": False,
                 "alternate_repaired_higgs_screen_survivor": [0, 1],
                 "alternate_repaired_higgs_screen_conditional": True,
-                "alternate_repaired_higgs_outer_extension_constructed": False,
+                "alternate_repaired_higgs_outer_extension_constructed": True,
                 "alternate_ray_0_1_cover_ext1_dimension": 18,
                 "alternate_ray_0_1_invariant_ext1_dimension": 2,
                 "alternate_ray_0_1_strict_invariant_representatives": 2,
                 "alternate_ray_0_1_invariant_ext_unresolved": False,
-                "alternate_ray_0_1_universal_cone_constructed": False,
+                "alternate_ray_0_1_universal_cone_constructed": True,
+                "alternate_ray_0_1_determinant_repaired": True,
+                "alternate_ray_0_1_stability_unresolved": True,
                 "first_constituent_atlas_to_mixed_character": frame[
                     "first_constituent_uniform_twist"
                 ],
@@ -5535,9 +5632,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "construct the universal equivariant outer cone for ray (0,1) "
-                "over the full two-dimensional invariant Ext space, then "
-                "certify its determinant repair and lawful stable locus"
+                "certify the parameterwise stable genuine-SU(4) locus of the "
+                "determinant-repaired ray (0,1) universal P1 cone, then "
+                "generate its matter and Higgs cocycles"
             ),
         },
         "claims": _nodes(),
@@ -5589,6 +5686,9 @@ def build_state() -> dict[str, object]:
             "the surviving alternate ray (0,1) has exact cover Ext1(V2,V1) "
             "dimension 18 and a two-dimensional strictly deck-invariant "
             "subspace with two closed full-Cech representatives",
+            "the ray (0,1) invariant basis assembles an exact non-split "
+            "P1 universal rank-four derived cone; the common flat-character "
+            "twist cancels its quotient determinant while preserving outer Hom",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

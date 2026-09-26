@@ -721,8 +721,14 @@ representatives are explicit full Čech cocycles, strictly fixed by `P` and
 `T`, closed under the full differential, and non-boundaries after exact
 projection. This bypasses brute-force action checks on all 1,512 boundaries.
 The unique common determinant-cancelling twist `(1,2)` does not change this
-outer-Hom action. An invariant space is not yet a rank-four bundle: no
-extension point or universal cone has been constructed, and local freeness,
-descent, stability, determinant trivialization, and physical Higgs cocycles
-remain open. The next gate is the universal equivariant outer cone over the
-full invariant space, followed by its lawful stable locus.
+outer-Hom action. The two cocycles now define the exact universal linear
+outer arrow over `A²(Q(omega))`. Its split ideal is `(a0,a1)`, so the
+non-split parameter space is `P¹(Q(omega))`. The constituent local units
+give local freeness; the atlas action gives descent; a common flat character
+twist cancels the quotient determinant without changing the outer arrow.
+The alternate and selected perfect complexes have identical graded line
+objects, so their rational Chern data agree. No extension point has been
+chosen. This is a rank-four descended determinant-trivial derived cone, not
+yet a stable genuine `SU(4)` physical carrier: the parameterwise stable
+locus, proper-reduction exclusion, and explicit matter/Higgs cocycles remain
+open. The next gate is the stable locus over the full `P¹` family.

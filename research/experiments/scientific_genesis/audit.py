@@ -858,6 +858,29 @@ def _nodes() -> list[dict[str, object]]:
             ("matter/Higgs cocycles", "Wilson-projected physical spectrum"),
         ),
         _node(
+            "alternate_constituent_matter_profile",
+            "exact cover matter profile of the stable alternate P1",
+            "Computable carrier",
+            "COMPUTED",
+            "The alternate I6 mixed transfer has exact differential ranks "
+            "189 and 81, giving pure H1 of dimension 18. The unchanged first "
+            "constituent contributes pure H1 of dimension 9, so every "
+            "nonzero outer class has cover profile (0,27,0,0). Free-action "
+            "Lefschetz then gives three regular deck modules, independently "
+            "of the common flat determinant repair. Explicit cone matter "
+            "and Higgs cocycles remain absent.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_matter_profile.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_matter_profile.py",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_constituent_matter_profile.py",
+            ),
+            ("exact alternate cone", "free Schoen quotient"),
+            ("explicit matter/Higgs cocycles", "full Wilson spectrum"),
+        ),
+        _node(
             "relative_constituent_pushdowns",
             "source-labelled constituent relative pushdowns",
             "Computable carrier",
@@ -2680,6 +2703,21 @@ def _edges() -> list[dict[str, object]]:
             ("published stability theorem", "same Serre sequence type", "non-split P1"),
             True,
             ("different ideal supports or a split ray would defeat the transfer",),
+        ),
+        _edge(
+            "alternate_constituent_outer_stability_locus",
+            "alternate_constituent_matter_profile",
+            "Exact mixed transfer gives pure H1 for both constituents. The "
+            "outer long exact sequence therefore collapses for every "
+            "extension parameter; free-action Lefschetz fixes its deck "
+            "character multiplicities without enumerating actions.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_constituent_matter_profile.json",
+            ),
+            ("unchanged first constituent", "free quotient action"),
+            True,
+            ("non-pure constituent cohomology would permit jumping",),
         ),
         _edge(
             "published_constituent_deck_actions",
@@ -5140,6 +5178,32 @@ def build_state() -> dict[str, object]:
         is not False
     ):
         raise ValueError("the alternate stable locus is not certified")
+    alternate_matter_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_constituent_matter_profile.json"
+    )
+    alternate_matter = json.loads(alternate_matter_path.read_text(encoding="utf-8"))
+    alternate_matter_digest = alternate_matter.pop("artifact_digest", None)
+    matter_prerequisites = alternate_matter.get("prerequisite_artifact_digests", {})
+    second_matter = alternate_matter.get("second_constituent", {})
+    deck_matter = alternate_matter.get("deck_representation", {})
+    if (
+        alternate_matter_digest != _canonical_digest(alternate_matter)
+        or alternate_matter.get("schema") != "alternate-constituent-matter-profile-v1"
+        or matter_prerequisites.get("alternate_cone") != alternate_cone_digest
+        or matter_prerequisites.get("alternate_stability") != alternate_stability_digest
+        or alternate_matter.get("ray_character_exponents") != [0, 1]
+        or second_matter.get("differential_ranks") != [[0, 189], [1, 81]]
+        or second_matter.get("squared_zero") is not True
+        or second_matter.get("cover_h0_to_h3") != [0, 18, 0, 0]
+        or alternate_matter.get("visible_cover_h0_to_h3") != [0, 27, 0, 0]
+        or deck_matter.get("regular_multiplicity") != 3
+        or len(deck_matter.get("joint_character_multiplicities", [])) != 9
+        or alternate_matter.get("published_matter_dimensions_used_as_rank_inputs")
+        is not False
+        or alternate_matter.get("physical_spectrum_established") is not False
+    ):
+        raise ValueError("the alternate matter profile is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -5334,6 +5398,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_outer_universal_cone.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_outer_stability_locus.json",
+        "data/generated/scientific_genesis/"
+        "alternate_constituent_matter_profile.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
         "data/generated/visible_carrier/visible_carrier_artifact.json",
         "data/published/visible_carrier/source_manifest.json",
@@ -5734,9 +5800,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "derive parameter-dependent matter and explicit Higgs "
-                "cocycles for the stable determinant-repaired ray (0,1) P1 "
-                "family, then test the Wilson-projected spectrum"
+                "derive strict matter and Higgs cocycles for the stable "
+                "determinant-repaired ray (0,1) P1 family, then test the "
+                "complete Wilson-projected spectrum"
             ),
         },
         "claims": _nodes(),
@@ -5794,6 +5860,9 @@ def build_state() -> dict[str, object]:
             "the published Serre-sequence stability bound applies to every "
             "nonzero alternate P1 extension; exact nine-slope arithmetic "
             "gives a nonempty sufficient chamber with genuine SU(4)",
+            "the alternate I6 mixed transfer gives pure H1 of dimension 18; "
+            "the unchanged I3 constituent gives 9, so every nonzero P1 "
+            "outer class has cover matter H1=27 and three regular deck modules",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

@@ -475,6 +475,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["universal_rank_four_family"]["status"] == "COMPUTED"
     assert claims["algebraic_lawful_locus"]["status"] == "COMPUTED"
     assert claims["necessary_stability_walls"]["status"] == "COMPUTED"
+    assert claims["alternate_constituent_matter_profile"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "selected P1 and reverse P5 cover computations remain exact, "
         "but neither can be frozen as a physical quotient carrier "
@@ -482,9 +483,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "fixed-Wilson Higgs gate"
     )
     assert path["next_required_object"] == (
-        "derive parameter-dependent matter and explicit Higgs "
-        "cocycles for the stable determinant-repaired ray (0,1) P1 "
-        "family, then test the Wilson-projected spectrum"
+        "derive strict matter and Higgs cocycles for the stable "
+        "determinant-repaired ray (0,1) P1 family, then test the "
+        "complete Wilson-projected spectrum"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"

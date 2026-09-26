@@ -736,6 +736,23 @@ around `(6,9,3)`, for every nonzero `P¹` parameter. The nonzero cover
 `c₃=-54` then excludes proper connected irreducible reductions on this
 stable determinant-trivial family. The full Kähler stable cone is not
 classified. More importantly, this is not yet a frozen physical carrier:
-parameter-dependent matter and explicit Higgs cocycles, the complete Wilson
-spectrum, and a derived Yukawa matrix remain open. The theorem-scope check
-is recorded in `ALTERNATE_STABILITY_NOTE.md`.
+explicit matter and Higgs cocycles, the complete Wilson spectrum, and a
+derived Yukawa matrix remain open. The theorem-scope check is recorded in
+`ALTERNATE_STABILITY_NOTE.md`.
+
+The next same-family matter gate is now exact. In the ray `(0,1)` common
+Schoen complex, the second constituent has reduced degree-zero-through-two
+dimensions `(189,288,81)` and transferred differential ranks `(189,81)`.
+The maps compose to zero, so its cover cohomology is `(0,18,0,0)`. This is
+recomputed from the alternate full mixed arrow, not imported from the
+published spectrum. The first constituent is literally unchanged and has
+independently recorded exact profile `(0,9,0,0)`. The extension long exact
+sequence therefore collapses for every nonzero `P¹` parameter, giving
+`H*(V)=(0,27,0,0)`; there is no matter jumping locus in this family. The
+free `Z₃×Z₃` quotient has vanishing nonidentity holomorphic Lefschetz traces.
+Consequently pure `H¹(V)` is exactly three regular deck modules, even after
+the common flat determinant repair. This establishes the cover matter count
+and its character multiplicities, not strict cone-level matter cocycles or
+the full Wilson-projected physical spectrum. The certificate is
+`alternate_constituent_matter_profile.json`; the next vertical gate is the
+explicit matter/Higgs chain representatives on this same cone.

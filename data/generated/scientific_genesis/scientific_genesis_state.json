@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "cd03a6007cd42de90d6871286ef36a9d53511a88ef723697450f40951a8ded9d",
+  "artifact_digest": "84b3fae13cb072a42f1183c5b1d0a6c6dd9e1ad143868796969c945aa2e1887d",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -512,6 +512,11 @@
       "sha256": "22dcd5e956b869dbb32786422d9aab9a428778d110a01e51e20e143a8d2a155d"
     },
     {
+      "bytes": 3709,
+      "path": "data/generated/scientific_genesis/alternate_constituent_matter_profile.json",
+      "sha256": "cd12e3edaa723bbc2b0e8238d08d1064d5728f0f116544ead4d5fed8d59605c6"
+    },
+    {
       "bytes": 1406,
       "path": "data/generated/scientific_genesis/diagonal_higgs_actions.json",
       "sha256": "c2d02a7363ebdbf775d91d728e963f34b3a74c856a5c2ff82604ec592b661e13"
@@ -541,8 +546,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 218,
-    "test_python_files": 199
+    "research_python_files": 219,
+    "test_python_files": 200
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1265,6 +1270,26 @@
         "Wilson-projected physical spectrum"
       ],
       "statement": "The alternate Serre ray has the same subline and I3/I6 ideal quotients as the published presentation. The published non-split extension bound therefore supplies the same nine sufficient slope inequalities for every nonzero P1 class. An exact rational open box satisfies them; nonzero cover c3 excludes proper connected irreducible reductions. The complete Kahler stable cone and physical spectrum remain unresolved.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "exact alternate cone",
+        "free Schoen quotient"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_constituent_matter_profile.json",
+        "research/experiments/scientific_genesis/alternate_constituent_matter_profile.py",
+        "tests/integration/test_scientific_genesis_alternate_constituent_matter_profile.py"
+      ],
+      "id": "alternate_constituent_matter_profile",
+      "label": "exact cover matter profile of the stable alternate P1",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "explicit matter/Higgs cocycles",
+        "full Wilson spectrum"
+      ],
+      "statement": "The alternate I6 mixed transfer has exact differential ranks 189 and 81, giving pure H1 of dimension 18. The unchanged first constituent contributes pure H1 of dimension 9, so every nonzero outer class has cover profile (0,27,0,0). Free-action Lefschetz then gives three regular deck modules, independently of the common flat determinant repair. Explicit cone matter and Higgs cocycles remain absent.",
       "status": "COMPUTED"
     },
     {
@@ -2860,6 +2885,22 @@
       "mathematical_reason": "The source's destabilizing-line bound depends on Serre sublines, fixed I3/I6 ideals, and outer nonsplitting; these premises survive the alternate ray and common flat twist. Exact slope arithmetic gives a nonempty sufficient chamber.",
       "source": "alternate_constituent_outer_universal_cone",
       "target": "alternate_constituent_outer_stability_locus"
+    },
+    {
+      "assumptions_required": [
+        "unchanged first constituent",
+        "free quotient action"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_matter_profile.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "non-pure constituent cohomology would permit jumping"
+      ],
+      "mathematical_reason": "Exact mixed transfer gives pure H1 for both constituents. The outer long exact sequence therefore collapses for every extension parameter; free-action Lefschetz fixes its deck character multiplicities without enumerating actions.",
+      "source": "alternate_constituent_outer_stability_locus",
+      "target": "alternate_constituent_matter_profile"
     },
     {
       "assumptions_required": [
@@ -4725,6 +4766,7 @@
     "the surviving alternate ray (0,1) has exact cover Ext1(V2,V1) dimension 18 and a two-dimensional strictly deck-invariant subspace with two closed full-Cech representatives",
     "the ray (0,1) invariant basis assembles an exact non-split P1 universal rank-four derived cone; the common flat-character twist cancels its quotient determinant while preserving outer Hom",
     "the published Serre-sequence stability bound applies to every nonzero alternate P1 extension; exact nine-slope arithmetic gives a nonempty sufficient chamber with genuine SU(4)",
+    "the alternate I6 mixed transfer gives pure H1 of dimension 18; the unchanged I3 constituent gives 9, so every nonzero P1 outer class has cover matter H1=27 and three regular deck modules",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -5400,7 +5442,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "derive parameter-dependent matter and explicit Higgs cocycles for the stable determinant-repaired ray (0,1) P1 family, then test the Wilson-projected spectrum",
+    "next_required_object": "derive strict matter and Higgs cocycles for the stable determinant-repaired ray (0,1) P1 family, then test the complete Wilson-projected spectrum",
     "selection_status": "selected P1 and reverse P5 cover computations remain exact, but neither can be frozen as a physical quotient carrier under the current determinant frame or the full-chain fixed-Wilson Higgs gate"
   },
   "research_value_scheduler": [

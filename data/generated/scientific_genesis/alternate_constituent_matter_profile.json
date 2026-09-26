@@ -1,0 +1,163 @@
+{
+  "all_nonzero_outer_parameters": true,
+  "artifact_digest": "8dd454cfdac3d851a3674b49234bc9c3db04af989393a87348b0c8dadcc41984",
+  "coefficient_field": "Q(omega)",
+  "deck_representation": {
+    "common_flat_twist_preserves_regular_multiplicity": true,
+    "equivariant_bundle_certified_by_alternate_cone": true,
+    "free_action_selected_from_published_geometry": true,
+    "joint_character_multiplicities": [
+      {
+        "character_exponents": [
+          0,
+          0
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          0,
+          1
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          0,
+          2
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          1,
+          0
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          1,
+          1
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          1,
+          2
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          2,
+          0
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          2,
+          1
+        ],
+        "multiplicity": 3
+      },
+      {
+        "character_exponents": [
+          2,
+          2
+        ],
+        "multiplicity": 3
+      }
+    ],
+    "regular_multiplicity": 3,
+    "theorem": "The free Z3 x Z3 action has zero holomorphic Lefschetz number for every nonidentity element. Pure H1 therefore has trace zero away from the identity and is a sum of regular modules."
+  },
+  "explicit_alternate_higgs_cocycles_computed": false,
+  "explicit_alternate_matter_cocycles_computed": false,
+  "first_constituent_cover_h0_to_h3": [
+    0,
+    9,
+    0,
+    0
+  ],
+  "first_constituent_reused_only_because_identical_object": true,
+  "long_exact_sequence_collapses_if_constituents_pure_h1": true,
+  "next_required_object": "derive strict alternate matter/Higgs representatives and their deck actions on the same determinant-repaired cone",
+  "physical_spectrum_established": false,
+  "prerequisite_artifact_digests": {
+    "alternate_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+    "alternate_stability": "570132144ddccead002f9e5957de29bce23d0f73fb94d0e97230e34ba706346f",
+    "free_quotient_geometry_source": "ad75668ca40b14972f1e52d5232fee08b3b6130b27accff1217440fc1d65536a",
+    "unchanged_first_arrows": "8527e26fa297a58a0139a67123fbf55ab9828da081609cd81615c18482468f81",
+    "unchanged_first_exact_spectrum": "0dbad741aca944f6d5d59220530f40dc2f962b1ca8a2bcb72d6b8a43caf1901f"
+  },
+  "published_matter_dimensions_used_as_rank_inputs": false,
+  "ray_character_exponents": [
+    0,
+    1
+  ],
+  "schema": "alternate-constituent-matter-profile-v1",
+  "second_constituent": {
+    "cover_h0_to_h3": [
+      0,
+      18,
+      0,
+      0
+    ],
+    "differential_ranks": [
+      [
+        0,
+        189
+      ],
+      [
+        1,
+        81
+      ]
+    ],
+    "full_mixed_arrow_exact": true,
+    "map_digests": [
+      [
+        0,
+        "c4ce04b1a68789d52839f8a223112be40dc1922750640a8ed69f1999448b0deb"
+      ],
+      [
+        1,
+        "70fb032fad8fb6c452554fb65bad47e4ebfd16ca81287f350aa525a57413050f"
+      ]
+    ],
+    "name": "I6-ray-0-1",
+    "path_depths": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "space_dimensions": [
+      [
+        0,
+        189
+      ],
+      [
+        1,
+        288
+      ],
+      [
+        2,
+        81
+      ]
+    ],
+    "squared_zero": true
+  },
+  "visible_cover_h0_to_h3": [
+    0,
+    27,
+    0,
+    0
+  ]
+}

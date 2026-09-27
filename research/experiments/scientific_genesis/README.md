@@ -528,6 +528,16 @@ global tensor cocycle: base-cover and
 minor-open comparisons, the exterior-cone lift, and all Yukawa entries
 remain open.
 
+The first local tensor-conversion input is also exact. Reordering the
+corrected middle numerator into relation rows and applying the alternate
+Plücker inverse gives a nonzero quotient numerator supported in two
+rows. On all three target charts, the cross-multiplied difference between
+its paired image and the original Hom overlap is the Schoen equation
+times an explicit Laurent correction. This justifies the quotient image
+only on the declared minor open of the hypersurface. Gluing between
+minor opens and base charts remains required before any global Higgs
+class or Yukawa calculation.
+
 The universal up-matrix filtration also fixes its parameter support:
 first/first vanishes, mixed entries are constant, and second/second
 entries are linear in the two outer parameters. The determinant is linear

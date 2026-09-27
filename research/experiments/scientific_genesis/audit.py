@@ -1097,6 +1097,29 @@ def _nodes() -> list[dict[str, object]]:
             ("base-cover gluing", "global Hom-to-tensor map", "exterior-cone Higgs lift"),
         ),
         _node(
+            "alternate_up_higgs_quotient_overlap_image",
+            "minor-open quotient image of the alternate Hom overlap",
+            "Computable carrier",
+            "COMPUTED",
+            "The corrected actual Hom overlap maps through the alternate "
+            "rank-two Pluecker inverse on the selected principal open. "
+            "Its two-coordinate quotient numerator obeys an exact "
+            "cross-multiplied hypersurface identity on three target "
+            "charts. Minor-open and base-cover gluing are not established.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_quotient_overlap_image.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_up_higgs_quotient_overlap_image.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_HIGGS_QUOTIENT_OVERLAP_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_higgs_quotient_overlap_image.py",
+            ),
+            ("actual corrected Hom overlap", "certified rank-two duality inverse"),
+            ("minor-open gluing", "global tensor chain map", "exterior-cone Higgs lift"),
+        ),
+        _node(
             "alternate_up_yukawa_support",
             "universal up-matrix filtration support",
             "Flavor",
@@ -3113,6 +3136,38 @@ def _edges() -> list[dict[str, object]]:
             ("certified alternate overlap gauge", "minor-open localization"),
             True,
             ("base overlaps and minor overlaps remain unglued",),
+        ),
+        _edge(
+            "alternate_up_higgs_fiber_overlap_transport",
+            "alternate_up_higgs_quotient_overlap_image",
+            "The actual corrected middle numerator has R^t v=F K. "
+            "The sparse Pluecker inverse q=S v satisfies "
+            "D(J q-Delta v)=F(J S T K-Delta T K) on the selected minor "
+            "open, providing a local quotient image on the hypersurface.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_quotient_overlap_image.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_HIGGS_QUOTIENT_OVERLAP_NOTE.md",
+            ),
+            ("certified alternate local inverse", "nonzero minor localization"),
+            True,
+            ("local quotient images do not imply global tensor gluing",),
+        ),
+        _edge(
+            "alternate_constituent_duality_local_inverse",
+            "alternate_up_higgs_quotient_overlap_image",
+            "The certified identities J S J=Delta J and J S P=Delta P "
+            "supply the exact principal-open inverse used on the actual "
+            "corrected Hom overlap, without assuming the ambient residual "
+            "vanishes off the Schoen hypersurface.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_quotient_overlap_image.json",
+            ),
+            ("rank-two quotient local freeness", "selected nonzero minor"),
+            True,
+            ("minor-open transition compatibility is still unresolved",),
         ),
         _edge(
             "alternate_constituent_up_cone_matter_lifts",
@@ -5960,6 +6015,32 @@ def build_state() -> dict[str, object]:
         or fiber_transport.get("exterior_cone_higgs_cocycle_constructed") is not False
     ):
         raise ValueError("the alternate Hom fiber-overlap transport is not certified")
+    quotient_image_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_up_higgs_quotient_overlap_image.json"
+    )
+    quotient_image = json.loads(quotient_image_path.read_text(encoding="utf-8"))
+    quotient_image_digest = quotient_image.pop("artifact_digest", None)
+    quotient_inputs = quotient_image.get("prerequisite_artifact_digests", {})
+    quotient_rows = quotient_image.get("quotient_numerator_relation_order", [])
+    if (
+        quotient_image_digest != _canonical_digest(quotient_image)
+        or quotient_image.get("schema") != "alternate-up-higgs-quotient-overlap-image-v1"
+        or quotient_inputs.get("fiber_overlap_transport") != fiber_transport_digest
+        or quotient_inputs.get("minor_open_inverse") != local_inverse_digest
+        or quotient_image.get("target_charts_checked")
+        != ["U_0_nu", "U_1_nu", "U_2_nu"]
+        or quotient_image.get("minor_rows") != [0, 1]
+        or [len(row) for row in quotient_rows] != [24, 24, 0, 0, 0]
+        or quotient_image.get("quotient_nonzero_exact") is not True
+        or quotient_image.get("three_chart_formula_independence_exact") is not True
+        or quotient_image.get("cross_multiplied_quotient_identity_exact") is not True
+        or quotient_image.get("minor_open_gluing_constructed") is not False
+        or quotient_image.get("global_hom_to_tensor_chain_map_constructed")
+        is not False
+        or quotient_image.get("exterior_cone_higgs_cocycle_constructed") is not False
+    ):
+        raise ValueError("the alternate Hom quotient overlap is not certified")
     up_support_path = (
         ROOT / "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json"
@@ -6202,6 +6283,8 @@ def build_state() -> dict[str, object]:
         "alternate_up_higgs_local_syzygy_section.json",
         "data/generated/scientific_genesis/"
         "alternate_up_higgs_fiber_overlap_transport.json",
+        "data/generated/scientific_genesis/"
+        "alternate_up_higgs_quotient_overlap_image.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",

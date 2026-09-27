@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "09b07e737195e67739eaf2c6384cd9b1eb005c9b25b5d6b348603c9b663ed9bc",
+  "artifact_digest": "f45d52c91c4fb67629910f701019cbced3d14dbc1e2d173a9bb83a70017deded",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -572,6 +572,11 @@
       "sha256": "ae418229b735c00cfaaf11f4ce37e050e04fbf579ba81f1eb054e4ac2064d930"
     },
     {
+      "bytes": 59764,
+      "path": "data/generated/scientific_genesis/alternate_up_higgs_quotient_overlap_image.json",
+      "sha256": "7234865ab359decaf7b2f4d10ca9ac966d2abea67755feec03b78a0bbf008e1b"
+    },
+    {
       "bytes": 1322,
       "path": "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
       "sha256": "88ae38c3a0de4e90dc41dfc4a585989e0314a08e4c2a162239c78808e2b90051"
@@ -606,8 +611,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 230,
-    "test_python_files": 212
+    "research_python_files": 231,
+    "test_python_files": 213
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1540,6 +1545,28 @@
         "exterior-cone Higgs lift"
       ],
       "statement": "The actual vertex syzygies, fiber-overlap middle terms, and k1_u syzygies satisfy an exact three-part closure identity. After the certified unipotent gauge transports the local minor-open sections, one exact homogeneous formula satisfies B N = F K across all nine cover blocks. Base-cover and minor-open gluing remain unresolved.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "actual corrected Hom overlap",
+        "certified rank-two duality inverse"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_higgs_quotient_overlap_image.json",
+        "research/experiments/scientific_genesis/alternate_up_higgs_quotient_overlap_image.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_HIGGS_QUOTIENT_OVERLAP_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_higgs_quotient_overlap_image.py"
+      ],
+      "id": "alternate_up_higgs_quotient_overlap_image",
+      "label": "minor-open quotient image of the alternate Hom overlap",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "minor-open gluing",
+        "global tensor chain map",
+        "exterior-cone Higgs lift"
+      ],
+      "statement": "The corrected actual Hom overlap maps through the alternate rank-two Pluecker inverse on the selected principal open. Its two-coordinate quotient numerator obeys an exact cross-multiplied hypersurface identity on three target charts. Minor-open and base-cover gluing are not established.",
       "status": "COMPUTED"
     },
     {
@@ -3334,6 +3361,39 @@
       "mathematical_reason": "The strict Hom fiber-edge terms obey s_mu-s_nu+B g-F h=0. Transporting each actual local primitive by the alternate unipotent gauge and clearing both minor denominators gives B N=F K with an explicit Koszul numerator on every block.",
       "source": "alternate_up_higgs_local_syzygy_section",
       "target": "alternate_up_higgs_fiber_overlap_transport"
+    },
+    {
+      "assumptions_required": [
+        "certified alternate local inverse",
+        "nonzero minor localization"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_higgs_quotient_overlap_image.json",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_HIGGS_QUOTIENT_OVERLAP_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "local quotient images do not imply global tensor gluing"
+      ],
+      "mathematical_reason": "The actual corrected middle numerator has R^t v=F K. The sparse Pluecker inverse q=S v satisfies D(J q-Delta v)=F(J S T K-Delta T K) on the selected minor open, providing a local quotient image on the hypersurface.",
+      "source": "alternate_up_higgs_fiber_overlap_transport",
+      "target": "alternate_up_higgs_quotient_overlap_image"
+    },
+    {
+      "assumptions_required": [
+        "rank-two quotient local freeness",
+        "selected nonzero minor"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_higgs_quotient_overlap_image.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "minor-open transition compatibility is still unresolved"
+      ],
+      "mathematical_reason": "The certified identities J S J=Delta J and J S P=Delta P supply the exact principal-open inverse used on the actual corrected Hom overlap, without assuming the ambient residual vanishes off the Schoen hypersurface.",
+      "source": "alternate_constituent_duality_local_inverse",
+      "target": "alternate_up_higgs_quotient_overlap_image"
     },
     {
       "assumptions_required": [

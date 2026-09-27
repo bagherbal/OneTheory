@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "44ba48788b071732c71a10e472acd7729b29c937c54606ee4466b1ac4f359768",
+  "artifact_digest": "fe6edd39d8b4a52471d598acea8589a0fcaf86e02a5a2393c5b731e7f6caa39e",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -587,6 +587,11 @@
       "sha256": "a96315935e08d61455be31aab4effa843a723b69a26b1d6b5090cd8992b0c63c"
     },
     {
+      "bytes": 3719,
+      "path": "data/generated/scientific_genesis/alternate_up_mixed_scalar_trace.json",
+      "sha256": "7947d70e55d4bb4347c1a648d6c36cd83fd782bb0e8c9a563f4366d66c4aa274"
+    },
+    {
       "bytes": 1322,
       "path": "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
       "sha256": "88ae38c3a0de4e90dc41dfc4a585989e0314a08e4c2a162239c78808e2b90051"
@@ -621,8 +626,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 234,
-    "test_python_files": 215
+    "research_python_files": 235,
+    "test_python_files": 216
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1494,6 +1499,29 @@
         "same-cone Higgs representative for the F-F block"
       ],
       "statement": "The actual strict 324-term Hom class composes with each of four strict I6 classes to a 207-term full degree-two cycle. Exact reduced projections are nonboundaries. Within each fixed matter character, the two images are exactly proportional with basis-dependent ratios (2-omega)/7 and (-3-2omega)/7. No scalar Yukawa entry or exterior-cone Higgs cocycle is claimed.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "frozen alternate carrier",
+        "saved unnormalized cochain bases",
+        "ordered cover Laurent residue generator has trace one"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_mixed_scalar_trace.json",
+        "research/experiments/scientific_genesis/alternate_up_mixed_scalar_trace.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_MIXED_TRACE_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_mixed_scalar_trace.py"
+      ],
+      "id": "alternate_up_mixed_scalar_trace",
+      "label": "exact alternate mixed up-sector cover residues",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "same-cone F-F block",
+        "quotient trace normalization",
+        "complete holomorphic up matrix"
+      ],
+      "statement": "The actual first-constituent Pluecker form contracts four strict I3/degree-two Yoneda pairs to 2,257-term full scalar cycles. Their ordered cover residues are 3omega/2, (3+9omega)/14, 3/2, and (-9-6omega)/14. Reverse cup order gives the negative residue and both Yoneda ratios agree. The F-F block, quotient trace, and full matrix remain open.",
       "status": "COMPUTED"
     },
     {
@@ -3367,6 +3395,38 @@
       "mathematical_reason": "The four exact I6 classes are the right factors in the common-cover Hom composition; each evaluated degree-two class lies outside the transferred boundary span.",
       "source": "alternate_constituent_up_matter_representatives",
       "target": "alternate_up_yoneda_evaluation"
+    },
+    {
+      "assumptions_required": [
+        "certified first-constituent determinant form"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_mixed_scalar_trace.json",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_MIXED_TRACE_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the cover trace is not yet a quotient-normalized full matrix"
+      ],
+      "mathematical_reason": "The evaluated Hom classes occupy only the A-line object. Their alternating product with strict first-constituent matter therefore uses exactly the F0-A Pluecker entries; full scalar closure and the ordered residue are checked.",
+      "source": "alternate_up_yoneda_evaluation",
+      "target": "alternate_up_mixed_scalar_trace"
+    },
+    {
+      "assumptions_required": [
+        "acyclic determinant filtration",
+        "strict first-constituent classes"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_mixed_scalar_trace.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the parameter-linear second/second block remains unknown"
+      ],
+      "mathematical_reason": "The two strict I3 classes are the first factors in the mixed scalar cups. Their unchanged cone lifts make the constant slots independent of the outer parameters.",
+      "source": "alternate_constituent_up_cone_matter_lifts",
+      "target": "alternate_up_mixed_scalar_trace"
     },
     {
       "assumptions_required": [
@@ -5383,7 +5443,8 @@
     "the alternate P1 determinant filtration and exact Hom action give Higgs H1 characters leaving one pair and no triplets under the selected Wilson line, so the whole structural component is frozen",
     "the frozen alternate P1 cone has six strict up-sector matter classes from two exact I3 constants and eight coefficientwise I6-to-I3 corrections, without a selected extension point",
     "the alternate Hom H1 has a strict full-Cech character-(2,0) representative required by the up-Higgs Wilson sector; its tensor and exterior-cone chain maps remain unavailable",
-    "four exact strict-Hom/I6 Yoneda evaluations survive in H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios are (2-omega)/7 and (-3-2omega)/7, while scalar entries and the same-cone Higgs cocycle remain uncomputed",
+    "four exact strict-Hom/I6 Yoneda evaluations survive in H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios are (2-omega)/7 and (-3-2omega)/7, while scalar entries are computed separately and the same-cone Higgs remains open",
+    "the four constant mixed up-sector entries have exact nonzero cover Laurent residues 3omega/2, (3+9omega)/14, 3/2, and (-9-6omega)/14 in declared bases; the parameter-linear F-F block and quotient normalization remain unresolved",
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
     "the alternate universal up matrix has an exterior-forced zero E-E slot, constant mixed slots, and a parameter-linear F-F block; its determinant coefficients are uncomputed",
@@ -6071,7 +6132,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "contract the nonboundary alternate Yoneda images with strict first-constituent classes to obtain exact mixed scalar entries; then close the same-cone F-F block for one complete holomorphic 3x3 up-type Yukawa matrix",
+    "next_required_object": "construct the same-cone exterior Higgs class and parameter-linear F-F block, then complete the quotient-normalized holomorphic 3x3 up-type matrix",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

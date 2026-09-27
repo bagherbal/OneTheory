@@ -492,6 +492,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "COMPUTED"
     )
     assert claims["alternate_up_yoneda_evaluation"]["status"] == "COMPUTED"
+    assert claims["alternate_up_mixed_scalar_trace"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "the selected P1 and reverse P5 physical quotient freezes are "
         "refuted; the distinct determinant-repaired alternate P1 "
@@ -499,10 +500,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "contract the nonboundary alternate Yoneda images with "
-        "strict first-constituent classes to obtain exact mixed "
-        "scalar entries; then close the same-cone F-F block for "
-        "one complete holomorphic 3x3 up-type Yukawa matrix"
+        "construct the same-cone exterior Higgs class and "
+        "parameter-linear F-F block, then complete the "
+        "quotient-normalized holomorphic 3x3 up-type matrix"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"

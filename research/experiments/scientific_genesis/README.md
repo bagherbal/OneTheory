@@ -556,10 +556,21 @@ tensor inverse for the constant mixed-family block. The two I6 images in
 each fixed character are exactly proportional, with ratios
 `(2-omega)/7` and `(-3-2omega)/7` in the saved unnormalized bases.
 These are basis-dependent holomorphic ratios, not physical observables.
-The alternating determinant contraction and scalar residue are still
-needed for absolute entries; the same-cone Higgs lift remains needed for
+The alternating determinant contraction and scalar residue are computed
+for the mixed entries below; the same-cone Higgs lift remains needed for
 the parameter-linear second/second block. See
 `ALTERNATE_UP_YONEDA_ROUTE_NOTE.md`.
+
+The exact first-constituent Plücker contraction now closes the constant
+mixed block on the cover. All four actual scalar products are full
+degree-three cycles and have nonzero ordered residues: `3 omega/2`,
+`(3+9 omega)/14`, `3/2`, and `(-9-6 omega)/14` in the saved matter
+bases. Reverse cup order gives the required negative residue, and the
+two ratios match the independent Yoneda reduction. These are cover
+holomorphic values in a declared residue convention, not physical
+Yukawas or a complete quotient matrix. The same-cone second/second
+block and quotient normalization remain open. See
+`ALTERNATE_UP_MIXED_TRACE_NOTE.md`.
 
 The universal up-matrix filtration also fixes its parameter support:
 first/first vanishes, mixed entries are constant, and second/second

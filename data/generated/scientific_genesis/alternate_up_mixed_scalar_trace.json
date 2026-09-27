@@ -1,0 +1,108 @@
+{
+  "all_four_cover_residues_nonzero": true,
+  "all_four_cover_scalar_cycles_exact": true,
+  "artifact_digest": "f38ab4076005208b6df3169cb27fa7217ed78e0e1410a50ce7f72801488e6ce6",
+  "coefficient_field": "Q(omega)",
+  "complete_holomorphic_up_matrix_available": false,
+  "determinant_orientation": "signed complementary minors in F0,F0,F0,A order",
+  "mixed_entries": [
+    {
+      "first_matter_character": [
+        1,
+        0
+      ],
+      "first_matter_seed_index": 2,
+      "full_scalar_cycle_exact": true,
+      "ordered_cover_residue": "3/2*omega",
+      "projection_depth": 3,
+      "reverse_exchange_exact": true,
+      "reverse_order_residue": "-3/2*omega",
+      "reverse_projection_depth": 3,
+      "scalar_cochain_digest": "dba9c2c6b5ea67ddd81471d244cb531e0712b0f69ff2677d9c76ddfcd4f941e6",
+      "scalar_cochain_term_count": 2257,
+      "second_matter_character": [
+        0,
+        0
+      ],
+      "second_matter_seed_index": 0
+    },
+    {
+      "first_matter_character": [
+        1,
+        0
+      ],
+      "first_matter_seed_index": 2,
+      "full_scalar_cycle_exact": true,
+      "ordered_cover_residue": "3/14+9/14*omega",
+      "projection_depth": 3,
+      "reverse_exchange_exact": true,
+      "reverse_order_residue": "-3/14-9/14*omega",
+      "reverse_projection_depth": 3,
+      "scalar_cochain_digest": "c7aee57736cbf1e6c136635d0bb46e7d6c4259b3c91ca92475e616a57aabc677",
+      "scalar_cochain_term_count": 2257,
+      "second_matter_character": [
+        0,
+        0
+      ],
+      "second_matter_seed_index": 5
+    },
+    {
+      "first_matter_character": [
+        0,
+        0
+      ],
+      "first_matter_seed_index": 2,
+      "full_scalar_cycle_exact": true,
+      "ordered_cover_residue": "3/2",
+      "projection_depth": 3,
+      "reverse_exchange_exact": true,
+      "reverse_order_residue": "-3/2",
+      "reverse_projection_depth": 3,
+      "scalar_cochain_digest": "4c19569025555609591a1920dff0cfc37a22505e9d354172999b2324803eb76e",
+      "scalar_cochain_term_count": 2257,
+      "second_matter_character": [
+        1,
+        0
+      ],
+      "second_matter_seed_index": 0
+    },
+    {
+      "first_matter_character": [
+        0,
+        0
+      ],
+      "first_matter_seed_index": 2,
+      "full_scalar_cycle_exact": true,
+      "ordered_cover_residue": "-9/14-3/7*omega",
+      "projection_depth": 3,
+      "reverse_exchange_exact": true,
+      "reverse_order_residue": "9/14+3/7*omega",
+      "reverse_projection_depth": 3,
+      "scalar_cochain_digest": "44867b96dda3ab2d834d0d34eeb151069e59dcf390b733af6a24b258d6153316",
+      "scalar_cochain_term_count": 2257,
+      "second_matter_character": [
+        1,
+        0
+      ],
+      "second_matter_seed_index": 5
+    }
+  ],
+  "next_required_object": "construct the same-cone exterior Higgs class and parameter-linear F-F block, then complete the quotient-normalized 3x3 matrix",
+  "observational_inputs_used": false,
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "first_constituent_pluecker_pairing": "ff50d281cbc2eef2ee8115889fc96e1a4cd9fd3380258276a8468932c69e0695",
+    "nonboundary_yoneda_images": "a20a3093fc3edb16ce8a0a5dbfe909117a77a21c19972e0a8ebd0fbc3eef079b",
+    "same_cone_matter_lifts": "b821725103b3d341032e15d2335b2916fd82bcd211ec2611b9c0d41d2700d677"
+  },
+  "quotient_trace_normalization_constructed": false,
+  "ray_character_exponents": [
+    0,
+    1
+  ],
+  "residue_normalization": "ordered k2 Laurent generator x^(-1,-1,-1) u^(-1,-1,-1) p^(-1,-1) has trace one on the cover",
+  "reverse_exchange_sign_exact": true,
+  "same_cone_higgs_cocycle_constructed": false,
+  "schema": "alternate-up-mixed-scalar-trace-v1",
+  "yoneda_ratios_reproduced_exact": true
+}

@@ -1039,6 +1039,38 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "alternate_up_mixed_scalar_trace",
+            "exact alternate mixed up-sector cover residues",
+            "Flavor",
+            "COMPUTED",
+            "The actual first-constituent Pluecker form contracts four "
+            "strict I3/degree-two Yoneda pairs to 2,257-term full scalar "
+            "cycles. Their ordered cover residues are 3omega/2, "
+            "(3+9omega)/14, 3/2, and (-9-6omega)/14. Reverse cup order "
+            "gives the negative residue and both Yoneda ratios agree. "
+            "The F-F block, quotient trace, and full matrix remain open.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_mixed_scalar_trace.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_up_mixed_scalar_trace.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_MIXED_TRACE_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_mixed_scalar_trace.py",
+            ),
+            (
+                "frozen alternate carrier",
+                "saved unnormalized cochain bases",
+                "ordered cover Laurent residue generator has trace one",
+            ),
+            (
+                "same-cone F-F block",
+                "quotient trace normalization",
+                "complete holomorphic up matrix",
+            ),
+        ),
+        _node(
             "alternate_constituent_determinant_pairing",
             "local pairing for the frozen alternate I6 ray",
             "Computable carrier",
@@ -3151,6 +3183,37 @@ def _edges() -> list[dict[str, object]]:
             ("certified determinant twist", "exact transferred differential"),
             True,
             ("cohomological nonvanishing does not fix scalar normalization",),
+        ),
+        _edge(
+            "alternate_up_yoneda_evaluation",
+            "alternate_up_mixed_scalar_trace",
+            "The evaluated Hom classes occupy only the A-line object. "
+            "Their alternating product with strict first-constituent "
+            "matter therefore uses exactly the F0-A Pluecker entries; "
+            "full scalar closure and the ordered residue are checked.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_mixed_scalar_trace.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_MIXED_TRACE_NOTE.md",
+            ),
+            ("certified first-constituent determinant form",),
+            True,
+            ("the cover trace is not yet a quotient-normalized full matrix",),
+        ),
+        _edge(
+            "alternate_constituent_up_cone_matter_lifts",
+            "alternate_up_mixed_scalar_trace",
+            "The two strict I3 classes are the first factors in the "
+            "mixed scalar cups. Their unchanged cone lifts make the "
+            "constant slots independent of the outer parameters.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_mixed_scalar_trace.json",
+            ),
+            ("acyclic determinant filtration", "strict first-constituent classes"),
+            True,
+            ("the parameter-linear second/second block remains unknown",),
         ),
         _edge(
             "alternate_constituent_carrier_state",
@@ -6242,6 +6305,60 @@ def build_state() -> dict[str, object]:
         or yoneda.get("holomorphic_yukawa_entries_computed") is not False
     ):
         raise ValueError("the alternate direct Yoneda evaluation is not certified")
+    first_pairing_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "mixed_schoen_determinant_pairing.json"
+    )
+    first_pairing = json.loads(first_pairing_path.read_text(encoding="utf-8"))
+    first_pairing_digest = first_pairing.pop("artifact_digest", None)
+    if (
+        first_pairing_digest != _canonical_digest(first_pairing)
+        or first_pairing.get("schema") != "mixed-schoen-determinant-pairing-v1"
+        or first_pairing.get("pairing", {}).get("corrected_overlap_covariance_exact")
+        is not True
+    ):
+        raise ValueError("the first constituent Pluecker input is not certified")
+    mixed_trace_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_up_mixed_scalar_trace.json"
+    )
+    mixed_trace = json.loads(mixed_trace_path.read_text(encoding="utf-8"))
+    mixed_trace_digest = mixed_trace.pop("artifact_digest", None)
+    mixed_trace_inputs = mixed_trace.get("prerequisite_artifact_digests", {})
+    mixed_trace_entries = mixed_trace.get("mixed_entries", [])
+    if (
+        mixed_trace_digest != _canonical_digest(mixed_trace)
+        or mixed_trace.get("schema") != "alternate-up-mixed-scalar-trace-v1"
+        or mixed_trace_inputs.get("nonboundary_yoneda_images") != yoneda_digest
+        or mixed_trace_inputs.get("same_cone_matter_lifts") != cone_matter_digest
+        or mixed_trace_inputs.get("first_constituent_pluecker_pairing")
+        != first_pairing_digest
+        or mixed_trace.get("ray_character_exponents") != [0, 1]
+        or [item.get("first_matter_character") for item in mixed_trace_entries]
+        != [[1, 0], [1, 0], [0, 0], [0, 0]]
+        or [item.get("second_matter_character") for item in mixed_trace_entries]
+        != [[0, 0], [0, 0], [1, 0], [1, 0]]
+        or [item.get("ordered_cover_residue") for item in mixed_trace_entries]
+        != ["3/2*omega", "3/14+9/14*omega", "3/2", "-9/14-3/7*omega"]
+        or any(
+            item.get("scalar_cochain_term_count") != 2257
+            or item.get("projection_depth") != 3
+            or item.get("reverse_projection_depth") != 3
+            or item.get("full_scalar_cycle_exact") is not True
+            or item.get("reverse_exchange_exact") is not True
+            for item in mixed_trace_entries
+        )
+        or mixed_trace.get("all_four_cover_scalar_cycles_exact") is not True
+        or mixed_trace.get("all_four_cover_residues_nonzero") is not True
+        or mixed_trace.get("reverse_exchange_sign_exact") is not True
+        or mixed_trace.get("yoneda_ratios_reproduced_exact") is not True
+        or mixed_trace.get("quotient_trace_normalization_constructed") is not False
+        or mixed_trace.get("same_cone_higgs_cocycle_constructed") is not False
+        or mixed_trace.get("complete_holomorphic_up_matrix_available") is not False
+        or mixed_trace.get("physical_yukawa_matrix_available") is not False
+        or mixed_trace.get("observational_inputs_used") is not False
+    ):
+        raise ValueError("the alternate mixed cover scalar trace is not certified")
     up_support_path = (
         ROOT / "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json"
@@ -6490,6 +6607,8 @@ def build_state() -> dict[str, object]:
         "alternate_up_higgs_minor_overlap_gluing.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yoneda_evaluation.json",
+        "data/generated/scientific_genesis/"
+        "alternate_up_mixed_scalar_trace.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
@@ -6894,10 +7013,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "contract the nonboundary alternate Yoneda images with "
-                "strict first-constituent classes to obtain exact mixed "
-                "scalar entries; then close the same-cone F-F block for "
-                "one complete holomorphic 3x3 up-type Yukawa matrix"
+                "construct the same-cone exterior Higgs class and "
+                "parameter-linear F-F block, then complete the "
+                "quotient-normalized holomorphic 3x3 up-type matrix"
             ),
         },
         "claims": _nodes(),
@@ -6970,7 +7088,11 @@ def build_state() -> dict[str, object]:
             "four exact strict-Hom/I6 Yoneda evaluations survive in "
             "H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios "
             "are (2-omega)/7 and (-3-2omega)/7, while scalar entries "
-            "and the same-cone Higgs cocycle remain uncomputed",
+            "are computed separately and the same-cone Higgs remains open",
+            "the four constant mixed up-sector entries have exact nonzero "
+            "cover Laurent residues 3omega/2, (3+9omega)/14, 3/2, and "
+            "(-9-6omega)/14 in declared bases; the parameter-linear "
+            "F-F block and quotient normalization remain unresolved",
             "the frozen alternate I6 quotient has six distinct local "
             "determinant pairings satisfying all thirty corrected overlap "
             "identities; no Hom-to-tensor chain map follows yet",

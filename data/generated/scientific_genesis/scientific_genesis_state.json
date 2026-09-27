@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "264069096ceace7ed9141d58d1b9df4dce166d61f6577c0a04b958ebb43e23a9",
+  "artifact_digest": "3fb4f600efed1bd3cca9ad3ea9b53e4e606b501de1a3899c3ecf1bc5fd95feae",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -562,6 +562,11 @@
       "sha256": "f772c44c42a2c35a2f2806604326e499c2f56b4524b075095e45320b8628bdc1"
     },
     {
+      "bytes": 209501,
+      "path": "data/generated/scientific_genesis/alternate_up_higgs_local_syzygy_section.json",
+      "sha256": "76bf5037eb4f0d72bd2d089eb488aebe27b0ba4c8caac481e0ce14e340626bfb"
+    },
+    {
       "bytes": 1322,
       "path": "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
       "sha256": "88ae38c3a0de4e90dc41dfc4a585989e0314a08e4c2a162239c78808e2b90051"
@@ -596,8 +601,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 228,
-    "test_python_files": 210
+    "research_python_files": 229,
+    "test_python_files": 211
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1486,6 +1491,27 @@
         "exterior-cone Higgs lift"
       ],
       "statement": "On each of six alternate charts, ten nonzero determinant minors define principal opens. Sparse numerators satisfy J S J = Delta J, while adjugate syzygy contractions satisfy A^t T = D id and J S P = Delta P on all sixty opens. Certified local freeness makes the combined map a quotient inverse. Full Cech--Koszul Hom transport remains unavailable.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "strict alternate Hom cochain",
+        "minor-open inverse"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_higgs_local_syzygy_section.json",
+        "research/experiments/scientific_genesis/alternate_up_higgs_local_syzygy_section.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_HIGGS_LOCAL_SECTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_higgs_local_syzygy_section.py"
+      ],
+      "id": "alternate_up_higgs_local_syzygy_section",
+      "label": "localized actual up-Higgs Hom syzygy sections",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "fiber-overlap gluing",
+        "exterior-cone Higgs lift"
+      ],
+      "statement": "The saved strict Hom class has eighteen nonzero right-chart syzygy blocks. On the selected minor principal open, exact adjugate middle numerators map to denominator times each block under the independently assembled right mixed arrows. Fiber-overlap gluing and full Cech--Koszul tensor transport remain unresolved.",
       "status": "COMPUTED"
     },
     {
@@ -3227,11 +3253,42 @@
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "the 324-term Hom cocycle has not been transported"
+        "the 324-term Hom cocycle has not been transported globally"
       ],
       "mathematical_reason": "The complementary-minor form J annihilates the relations. On each minor open, J S J = Delta J and the adjugate dual retract satisfies A^t T = D id and J S P = Delta P. Certified rank-three relations make this a local quotient inverse.",
       "source": "alternate_constituent_determinant_pairing",
       "target": "alternate_constituent_duality_local_inverse"
+    },
+    {
+      "assumptions_required": [
+        "certified full Hom representative",
+        "minor principal-open localization"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_higgs_local_syzygy_section.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "fiber-overlap terms are not glued"
+      ],
+      "mathematical_reason": "The persisted strict Hom cochain supplies eighteen nonzero syzygy blocks on the six right chart vertices. The actual mixed-resolution arrows map the localized middle numerators back to those blocks after multiplication by the minor.",
+      "source": "alternate_up_higgs_hom_representative",
+      "target": "alternate_up_higgs_local_syzygy_section"
+    },
+    {
+      "assumptions_required": [
+        "certified minor-open dual contraction"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_higgs_local_syzygy_section.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a local section is not a global tensor chain map"
+      ],
+      "mathematical_reason": "The exact adjugate section of the alternate rank-three relation is applied to each actual syzygy vector; the right-arrow matrix independently fixes its object ordering and sign.",
+      "source": "alternate_constituent_duality_local_inverse",
+      "target": "alternate_up_higgs_local_syzygy_section"
     },
     {
       "assumptions_required": [

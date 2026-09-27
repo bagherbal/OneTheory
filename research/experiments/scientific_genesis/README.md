@@ -503,8 +503,17 @@ right factor to each of the six affine chart vertices gives exact local
 cycles of sizes 27, 36, 27, 36, 27, and 36, all supported in the three
 syzygy-dual objects. The other 135 terms lie on right fiber overlaps:
 81 in middle objects and 54 in syzygy-dual objects. This locates the
-actual correction required for gluing; the local inverse has not yet
-been applied to this cochain, and no tensor or cone Higgs class is claimed.
+actual correction required for gluing; no tensor or cone Higgs class is
+claimed from chart restriction alone.
+
+The first application is now exact on the declared minor principal opens.
+Grouping the saved chart restrictions by first-factor Čech cell produces
+eighteen nonzero syzygy vectors. Adjugate sections give explicit
+middle-object Laurent numerators; an independently assembled right
+mixed-arrow matrix sends each numerator to the selected minor times its
+actual source vector. This is local homotopy data with denominators, not
+a global cochain. The 135 fiber-overlap terms, Čech–Koszul gluing, and
+exterior-cone Higgs lift remain open.
 
 The universal up-matrix filtration also fixes its parameter support:
 first/first vanishes, mixed entries are constant, and second/second

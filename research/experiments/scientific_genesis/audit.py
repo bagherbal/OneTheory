@@ -1049,6 +1049,30 @@ def _nodes() -> list[dict[str, object]]:
             ("full Hom-to-tensor Cech--Koszul map", "exterior-cone Higgs lift"),
         ),
         _node(
+            "alternate_up_higgs_local_syzygy_section",
+            "localized actual up-Higgs Hom syzygy sections",
+            "Computable carrier",
+            "COMPUTED",
+            "The saved strict Hom class has eighteen nonzero right-chart "
+            "syzygy blocks. On the selected minor principal open, exact "
+            "adjugate middle numerators map to denominator times each "
+            "block under the independently assembled right mixed arrows. "
+            "Fiber-overlap gluing and full Cech--Koszul tensor transport "
+            "remain unresolved.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_local_syzygy_section.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_up_higgs_local_syzygy_section.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_HIGGS_LOCAL_SECTION_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_higgs_local_syzygy_section.py",
+            ),
+            ("strict alternate Hom cochain", "minor-open inverse"),
+            ("fiber-overlap gluing", "exterior-cone Higgs lift"),
+        ),
+        _node(
             "alternate_up_yukawa_support",
             "universal up-matrix filtration support",
             "Flavor",
@@ -3017,7 +3041,37 @@ def _edges() -> list[dict[str, object]]:
             ),
             ("rank-two local freeness", "minor principal-open localization"),
             True,
-            ("the 324-term Hom cocycle has not been transported",),
+            ("the 324-term Hom cocycle has not been transported globally",),
+        ),
+        _edge(
+            "alternate_up_higgs_hom_representative",
+            "alternate_up_higgs_local_syzygy_section",
+            "The persisted strict Hom cochain supplies eighteen nonzero "
+            "syzygy blocks on the six right chart vertices. The actual "
+            "mixed-resolution arrows map the localized middle numerators "
+            "back to those blocks after multiplication by the minor.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_local_syzygy_section.json",
+            ),
+            ("certified full Hom representative", "minor principal-open localization"),
+            True,
+            ("fiber-overlap terms are not glued",),
+        ),
+        _edge(
+            "alternate_constituent_duality_local_inverse",
+            "alternate_up_higgs_local_syzygy_section",
+            "The exact adjugate section of the alternate rank-three "
+            "relation is applied to each actual syzygy vector; the "
+            "right-arrow matrix independently fixes its object ordering "
+            "and sign.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_local_syzygy_section.json",
+            ),
+            ("certified minor-open dual contraction",),
+            True,
+            ("a local section is not a global tensor chain map",),
         ),
         _edge(
             "alternate_constituent_up_cone_matter_lifts",
@@ -5810,6 +5864,32 @@ def build_state() -> dict[str, object]:
         or local_inverse.get("yukawa_matrix_computed") is not False
     ):
         raise ValueError("the alternate local duality inverse is not certified")
+    local_section_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_up_higgs_local_syzygy_section.json"
+    )
+    local_section = json.loads(local_section_path.read_text(encoding="utf-8"))
+    local_section_digest = local_section.pop("artifact_digest", None)
+    local_section_inputs = local_section.get("prerequisite_artifact_digests", {})
+    section_charts = local_section.get("charts", [])
+    if (
+        local_section_digest != _canonical_digest(local_section)
+        or local_section.get("schema") != "alternate-up-higgs-local-syzygy-section-v1"
+        or local_section_inputs.get("full_hom_cochain") != full_hom_digest
+        or local_section_inputs.get("right_chart_restriction")
+        != chart_restriction_digest
+        or local_section_inputs.get("minor_open_inverse") != local_inverse_digest
+        or len(section_charts) != 6
+        or any(chart.get("block_count") != 3 for chart in section_charts)
+        or any(len(chart.get("blocks", [])) != 3 for chart in section_charts)
+        or local_section.get("all_actual_syzygy_blocks_contracted_exactly") is not True
+        or local_section.get("minor_denominators_inverted_only_on_principal_opens")
+        is not True
+        or local_section.get("fiber_overlap_gluing_constructed") is not False
+        or local_section.get("hom_to_tensor_chain_map_constructed") is not False
+        or local_section.get("exterior_cone_higgs_cocycle_constructed") is not False
+    ):
+        raise ValueError("the actual alternate Hom syzygy sections are not certified")
     up_support_path = (
         ROOT / "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json"
@@ -6048,6 +6128,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_determinant_pairing.json",
         "data/generated/scientific_genesis/"
         "alternate_constituent_duality_local_inverse.json",
+        "data/generated/scientific_genesis/"
+        "alternate_up_higgs_local_syzygy_section.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",

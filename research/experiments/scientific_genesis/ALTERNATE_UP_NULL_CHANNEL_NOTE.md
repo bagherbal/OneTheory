@@ -35,3 +35,13 @@ primitive digests and their exact identities. These homotopies make
 the next null-to-null same-cone calculation concrete; they do **not**
 by themselves supply the exterior Higgs correction or an F–F Yukawa
 coefficient. All scalar values here are unnormalized cover values.
+
+The direct-primitive shortcut fails an exact closure test. For `a0`, the
+cup of the outer extension with the left null matter class is a full
+degree-two cycle with 49,504 terms. Its 2,560 syzygy terms lie outside
+the existing A/F0-only determinant contraction. Discarding them leaves
+a scalar cochain whose full differential is nonzero. Thus neither the
+null primitive nor the truncated contraction defines a first-order
+F–F coefficient. The reproducible screen is
+`alternate_up_null_shortcut_screen.py`; a full same-cone exterior Higgs
+chain map and syzygy-compatible contraction remain necessary.

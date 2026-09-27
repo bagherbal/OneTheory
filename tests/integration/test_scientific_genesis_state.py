@@ -491,6 +491,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_up_higgs_hom_representative"]["status"] == (
         "COMPUTED"
     )
+    assert claims["alternate_up_yoneda_evaluation"]["status"] == "COMPUTED"
     assert path["selection_status"] == (
         "the selected P1 and reverse P5 physical quotient freezes are "
         "refuted; the distinct determinant-repaired alternate P1 "
@@ -498,9 +499,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "construct the strict up-Higgs cocycle on the frozen "
-        "alternate P1 cone, then compute one complete exact "
-        "holomorphic 3x3 up-type Yukawa matrix"
+        "contract the nonboundary alternate Yoneda images with "
+        "strict first-constituent classes to obtain exact mixed "
+        "scalar entries; then close the same-cone F-F block for "
+        "one complete holomorphic 3x3 up-type Yukawa matrix"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"

@@ -1005,6 +1005,40 @@ def _nodes() -> list[dict[str, object]]:
             ("rank-two determinant chain map", "exterior-cone Higgs lift"),
         ),
         _node(
+            "alternate_up_yoneda_evaluation",
+            "nonzero alternate mixed-family Yoneda evaluations",
+            "Flavor",
+            "COMPUTED",
+            "The actual strict 324-term Hom class composes with each of four "
+            "strict I6 classes to a 207-term full degree-two cycle. Exact "
+            "reduced projections are nonboundaries. Within each fixed "
+            "matter character, the two images are exactly proportional "
+            "with basis-dependent ratios (2-omega)/7 and (-3-2omega)/7. "
+            "No scalar Yukawa entry or exterior-cone Higgs cocycle is claimed.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_yoneda_evaluation.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_up_yoneda_evaluation.py",
+                "research/experiments/scientific_genesis/"
+                "mixed_outer_yoneda.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_YONEDA_ROUTE_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_mixed_outer_yoneda.py",
+            ),
+            (
+                "strict alternate Hom and I6 matter cochains",
+                "acyclic determinant endpoints",
+                "declared common flat frame",
+            ),
+            (
+                "determinant contraction with strict I3 matter",
+                "exact scalar residue",
+                "same-cone Higgs representative for the F-F block",
+            ),
+        ),
+        _node(
             "alternate_constituent_determinant_pairing",
             "local pairing for the frozen alternate I6 ray",
             "Computable carrier",
@@ -3086,6 +3120,37 @@ def _edges() -> list[dict[str, object]]:
             ("certified alternate Hom action", "fixed Wilson assignment"),
             True,
             ("character matching alone is not a Higgs chain cocycle",),
+        ),
+        _edge(
+            "alternate_up_higgs_hom_representative",
+            "alternate_up_yoneda_evaluation",
+            "Acyclic determinant endpoints identify Higgs cohomology with "
+            "H1(Hom(F tensor det E,E)). The exact signed Yoneda product "
+            "with each strict F class survives in H2(Hom(det E,E)); the "
+            "two same-character images have checked exact ratios.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_yoneda_evaluation.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_YONEDA_ROUTE_NOTE.md",
+            ),
+            ("frozen alternate carrier", "strict matter cocycles"),
+            True,
+            ("the final determinant trace is not yet an exact scalar entry",),
+        ),
+        _edge(
+            "alternate_constituent_up_matter_representatives",
+            "alternate_up_yoneda_evaluation",
+            "The four exact I6 classes are the right factors in the "
+            "common-cover Hom composition; each evaluated degree-two "
+            "class lies outside the transferred boundary span.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_yoneda_evaluation.json",
+            ),
+            ("certified determinant twist", "exact transferred differential"),
+            True,
+            ("cohomological nonvanishing does not fix scalar normalization",),
         ),
         _edge(
             "alternate_constituent_carrier_state",
@@ -6140,6 +6205,43 @@ def build_state() -> dict[str, object]:
         or minor_gluing.get("exterior_cone_higgs_cocycle_constructed") is not False
     ):
         raise ValueError("the actual alternate Hom minor overlaps are not certified")
+    yoneda_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_up_yoneda_evaluation.json"
+    )
+    yoneda = json.loads(yoneda_path.read_text(encoding="utf-8"))
+    yoneda_digest = yoneda.pop("artifact_digest", None)
+    yoneda_inputs = yoneda.get("prerequisite_artifact_digests", {})
+    yoneda_records = yoneda.get("evaluations", [])
+    yoneda_ratios = yoneda.get("basis_dependent_mixed_entry_ratios", [])
+    if (
+        yoneda_digest != _canonical_digest(yoneda)
+        or yoneda.get("schema") != "alternate-up-yoneda-evaluation-v1"
+        or yoneda_inputs.get("strict_hom_full_cochain") != full_hom_digest
+        or yoneda_inputs.get("strict_i6_matter") != up_matter_digest
+        or yoneda_inputs.get("determinant_line") != alternate_det_digest
+        or yoneda.get("source_hom_orientation")
+        != "Hom(V2 tensor det(V1), V1)"
+        or yoneda.get("target_hom_orientation") != "Hom(det(V1), V1)"
+        or [item.get("matter_character") for item in yoneda_records]
+        != [[0, 0], [0, 0], [1, 0], [1, 0]]
+        or [item.get("matter_seed_index") for item in yoneda_records]
+        != [0, 5, 0, 5]
+        or any(
+            item.get("evaluated_term_count") != 207
+            or len(item.get("reduced_coordinates", [])) != 3
+            or item.get("reduced_nonboundary_exact") is not True
+            for item in yoneda_records
+        )
+        or [item.get("candidate_over_reference") for item in yoneda_ratios]
+        != ["2/7-1/7*omega", "-3/7-2/7*omega"]
+        or yoneda.get("all_full_cycles_exact") is not True
+        or yoneda.get("all_nonboundary_exact") is not True
+        or yoneda.get("cohomological_ratios_exact") is not True
+        or yoneda.get("same_cone_higgs_cocycle_constructed") is not False
+        or yoneda.get("holomorphic_yukawa_entries_computed") is not False
+    ):
+        raise ValueError("the alternate direct Yoneda evaluation is not certified")
     up_support_path = (
         ROOT / "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json"
@@ -6386,6 +6488,8 @@ def build_state() -> dict[str, object]:
         "alternate_up_higgs_quotient_overlap_image.json",
         "data/generated/scientific_genesis/"
         "alternate_up_higgs_minor_overlap_gluing.json",
+        "data/generated/scientific_genesis/"
+        "alternate_up_yoneda_evaluation.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
@@ -6790,9 +6894,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "construct the strict up-Higgs cocycle on the frozen "
-                "alternate P1 cone, then compute one complete exact "
-                "holomorphic 3x3 up-type Yukawa matrix"
+                "contract the nonboundary alternate Yoneda images with "
+                "strict first-constituent classes to obtain exact mixed "
+                "scalar entries; then close the same-cone F-F block for "
+                "one complete holomorphic 3x3 up-type Yukawa matrix"
             ),
         },
         "claims": _nodes(),
@@ -6862,6 +6967,10 @@ def build_state() -> dict[str, object]:
             "the alternate Hom H1 has a strict full-Cech character-(2,0) "
             "representative required by the up-Higgs Wilson sector; its "
             "tensor and exterior-cone chain maps remain unavailable",
+            "four exact strict-Hom/I6 Yoneda evaluations survive in "
+            "H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios "
+            "are (2-omega)/7 and (-3-2omega)/7, while scalar entries "
+            "and the same-cone Higgs cocycle remain uncomputed",
             "the frozen alternate I6 quotient has six distinct local "
             "determinant pairings satisfying all thirty corrected overlap "
             "identities; no Hom-to-tensor chain map follows yet",

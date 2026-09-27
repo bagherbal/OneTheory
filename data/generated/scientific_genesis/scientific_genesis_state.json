@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "002b09145cc24947dff66d2e1d9bd8908f267d2d7bbd5a0ba88c4688e2284071",
+  "artifact_digest": "44ba48788b071732c71a10e472acd7729b29c937c54606ee4466b1ac4f359768",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -582,6 +582,11 @@
       "sha256": "e2f8a57db0ab2e56998538cb4bfc2c710d9b725815b1f616776da60b2100e008"
     },
     {
+      "bytes": 3521,
+      "path": "data/generated/scientific_genesis/alternate_up_yoneda_evaluation.json",
+      "sha256": "a96315935e08d61455be31aab4effa843a723b69a26b1d6b5090cd8992b0c63c"
+    },
+    {
       "bytes": 1322,
       "path": "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
       "sha256": "88ae38c3a0de4e90dc41dfc4a585989e0314a08e4c2a162239c78808e2b90051"
@@ -616,8 +621,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 232,
-    "test_python_files": 214
+    "research_python_files": 234,
+    "test_python_files": 215
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1465,6 +1470,30 @@
         "exterior-cone Higgs lift"
       ],
       "statement": "A 324-term exact full-Cech Hom cycle has nonzero H1 class and strict atlas character (2,0). Its complete terms are saved with a checked round trip. All six right singleton restrictions are closed and supported only in syzygy-dual objects; middle terms occur on overlaps. The certified determinant and common flat frames send this character to the selected up-Higgs forward sector (0,2). No tensor chain map or exterior-cone Higgs cocycle is asserted.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "strict alternate Hom and I6 matter cochains",
+        "acyclic determinant endpoints",
+        "declared common flat frame"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_yoneda_evaluation.json",
+        "research/experiments/scientific_genesis/alternate_up_yoneda_evaluation.py",
+        "research/experiments/scientific_genesis/mixed_outer_yoneda.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_YONEDA_ROUTE_NOTE.md",
+        "tests/integration/test_scientific_genesis_mixed_outer_yoneda.py"
+      ],
+      "id": "alternate_up_yoneda_evaluation",
+      "label": "nonzero alternate mixed-family Yoneda evaluations",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "determinant contraction with strict I3 matter",
+        "exact scalar residue",
+        "same-cone Higgs representative for the F-F block"
+      ],
+      "statement": "The actual strict 324-term Hom class composes with each of four strict I6 classes to a 207-term full degree-two cycle. Exact reduced projections are nonboundaries. Within each fixed matter character, the two images are exactly proportional with basis-dependent ratios (2-omega)/7 and (-3-2omega)/7. No scalar Yukawa entry or exterior-cone Higgs cocycle is claimed.",
       "status": "COMPUTED"
     },
     {
@@ -3305,6 +3334,39 @@
       "mathematical_reason": "The alternate atlas Hom transfer has a one-dimensional character-(2,0) H1 summand. Exact full-Cech projection gives a strict nonboundary representative; determinant-frame arithmetic identifies its required Higgs sector without constructing a tensor chain map.",
       "source": "alternate_constituent_carrier_state",
       "target": "alternate_up_higgs_hom_representative"
+    },
+    {
+      "assumptions_required": [
+        "frozen alternate carrier",
+        "strict matter cocycles"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_yoneda_evaluation.json",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_YONEDA_ROUTE_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the final determinant trace is not yet an exact scalar entry"
+      ],
+      "mathematical_reason": "Acyclic determinant endpoints identify Higgs cohomology with H1(Hom(F tensor det E,E)). The exact signed Yoneda product with each strict F class survives in H2(Hom(det E,E)); the two same-character images have checked exact ratios.",
+      "source": "alternate_up_higgs_hom_representative",
+      "target": "alternate_up_yoneda_evaluation"
+    },
+    {
+      "assumptions_required": [
+        "certified determinant twist",
+        "exact transferred differential"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_yoneda_evaluation.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "cohomological nonvanishing does not fix scalar normalization"
+      ],
+      "mathematical_reason": "The four exact I6 classes are the right factors in the common-cover Hom composition; each evaluated degree-two class lies outside the transferred boundary span.",
+      "source": "alternate_constituent_up_matter_representatives",
+      "target": "alternate_up_yoneda_evaluation"
     },
     {
       "assumptions_required": [
@@ -5321,6 +5383,7 @@
     "the alternate P1 determinant filtration and exact Hom action give Higgs H1 characters leaving one pair and no triplets under the selected Wilson line, so the whole structural component is frozen",
     "the frozen alternate P1 cone has six strict up-sector matter classes from two exact I3 constants and eight coefficientwise I6-to-I3 corrections, without a selected extension point",
     "the alternate Hom H1 has a strict full-Cech character-(2,0) representative required by the up-Higgs Wilson sector; its tensor and exterior-cone chain maps remain unavailable",
+    "four exact strict-Hom/I6 Yoneda evaluations survive in H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios are (2-omega)/7 and (-3-2omega)/7, while scalar entries and the same-cone Higgs cocycle remain uncomputed",
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
     "the alternate universal up matrix has an exterior-forced zero E-E slot, constant mixed slots, and a parameter-linear F-F block; its determinant coefficients are uncomputed",
@@ -6008,7 +6071,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "construct the strict up-Higgs cocycle on the frozen alternate P1 cone, then compute one complete exact holomorphic 3x3 up-type Yukawa matrix",
+    "next_required_object": "contract the nonboundary alternate Yoneda images with strict first-constituent classes to obtain exact mixed scalar entries; then close the same-cone F-F block for one complete holomorphic 3x3 up-type Yukawa matrix",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

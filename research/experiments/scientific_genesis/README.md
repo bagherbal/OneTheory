@@ -482,10 +482,10 @@ The up-Higgs route now has one strict full-Čech representative in the
 alternate `Hom(V2 tensor det(V1), V1)` group. Its exact H¹ character is
 `(2,0)`, which the certified determinant frame and common flat twist send
 to the up-Higgs forward Wilson character `(0,2)`. This establishes the
-required Hom input, not a Higgs state: the rank-two determinant identity
-must still be realized as a chain map, then the class must be lifted through
-the exterior square of the same universal cone. No Yukawa entry follows
-from the character match alone.
+required Hom input, not a Higgs state. The full rank-two tensor chain map
+and exterior-cone lift remain open. The mixed-family coefficients can use
+the direct Yoneda evaluation below; character matching alone still gives
+no Yukawa entry.
 
 The frozen alternate I6 quotient now also has six exact local Plücker
 pairings and thirty hypersurface-corrected overlap identities. Each chart
@@ -546,6 +546,20 @@ projector identity explains all nine comparisons without treating them
 as unrelated coincidences. The fiber-edge formula also agrees through
 all twelve identity base-only atlas transitions. These scoped cover
 comparisons still do not construct the full Čech–Koszul Hom-to-tensor map.
+
+The direct Yoneda route now applies the saved strict Hom class to all four
+strict I6 matter classes in the common Čech–Koszul complex. Each actual
+degree-two product has 207 terms, is a full cycle, and survives exact
+boundary-span reduction. Acyclic determinant endpoints identify the mixed
+Higgs cohomology with the Hom class, so this route bypasses the global
+tensor inverse for the constant mixed-family block. The two I6 images in
+each fixed character are exactly proportional, with ratios
+`(2-omega)/7` and `(-3-2omega)/7` in the saved unnormalized bases.
+These are basis-dependent holomorphic ratios, not physical observables.
+The alternating determinant contraction and scalar residue are still
+needed for absolute entries; the same-cone Higgs lift remains needed for
+the parameter-linear second/second block. See
+`ALTERNATE_UP_YONEDA_ROUTE_NOTE.md`.
 
 The universal up-matrix filtration also fixes its parameter support:
 first/first vanishes, mixed entries are constant, and second/second

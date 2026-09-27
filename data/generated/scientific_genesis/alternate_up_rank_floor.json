@@ -1,0 +1,49 @@
+{
+  "all_four_minors_nonzero_exact": true,
+  "artifact_digest": "04bd005300d2924dca90edc5f132494167ed1b08f8d5b7675524d10c87a2f29d",
+  "basis_order": {
+    "columns": [
+      "E(1,0)",
+      "F(1,0):seed0",
+      "F(1,0):seed5"
+    ],
+    "rows": [
+      "E(0,0)",
+      "F(0,0):seed0",
+      "F(0,0):seed5"
+    ]
+  },
+  "carrier_locus": "frozen nonsplit alternate P1 family",
+  "coefficient_field": "Q(omega)",
+  "complete_holomorphic_up_matrix_available": false,
+  "holomorphic_rank_lower_bound": 2,
+  "mixed_column_reverse_cover_residues": [
+    "-3/2*omega",
+    "-3/14-9/14*omega"
+  ],
+  "mixed_row_cover_residues": [
+    "3/2",
+    "-9/14-3/7*omega"
+  ],
+  "next_required_object": "derive the same-cone Higgs correction and the parameter-linear F-F block to decide the two determinant coefficients",
+  "observational_inputs_used": false,
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "exterior_filtration_support": "68dd440f3d74ea4d081121c8e6d2604033dd549c2bd3430d43d0ac9e135bd296",
+    "mixed_cover_traces": "f38ab4076005208b6df3169cb27fa7217ed78e0e1410a50ce7f72801488e6ce6"
+  },
+  "rank_floor_valid_for_every_nonsplit_extension": true,
+  "rank_three_established": false,
+  "schema": "alternate-up-rank-floor-v1",
+  "two_by_two_minors_rows_F_columns_F": [
+    [
+      "9/4*omega",
+      "9/28+27/28*omega"
+    ],
+    [
+      "9/14-9/28*omega",
+      "27/196-45/196*omega"
+    ]
+  ],
+  "zero_first_first_entry": true
+}

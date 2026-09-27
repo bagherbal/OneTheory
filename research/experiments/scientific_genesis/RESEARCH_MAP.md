@@ -808,7 +808,17 @@ acyclic. Exterior degree forces the first/first entry to zero, mixed
 entries to be constant, and the second/second block to be linear. Thus
 the full determinant is either identically zero or a nonzero linear form
 in `(a0,a1)`; in the latter case it vanishes at one point of the frozen
-projective line. The actual coefficients and rank remain unresolved.
+projective line. Its determinant coefficients and possible rank three
+remain unresolved.
 The proof and its exact support regression are in
 `ALTERNATE_UP_YUKAWA_SUPPORT_NOTE.md` and
 `alternate_up_yukawa_support.json`.
+
+The four exact mixed cover residues now sharpen that support theorem.
+In the fixed ordered `E,F,F` bases they give four nonzero `2×2` minors,
+each independent of the unknown `F–F` block. Hence every nonsplit
+member has holomorphic up-sector rank **at least two**; rank zero and
+rank one are excluded on this frozen family. The determinant is still
+an uncomputed linear form, so rank three is not established. The
+content-pinned calculation and its convention boundaries are in
+`alternate_up_rank_floor.json` and `ALTERNATE_UP_RANK_FLOOR_NOTE.md`.

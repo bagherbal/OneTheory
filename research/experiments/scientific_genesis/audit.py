@@ -1071,6 +1071,30 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "alternate_up_rank_floor",
+            "rank-two floor of the alternate holomorphic up matrix",
+            "Flavor",
+            "DERIVED",
+            "Exterior degree forces the E-E slot to zero. The four exact "
+            "mixed cover residues give four nonzero two-by-two minors "
+            "independent of the unknown F-F block and outer coordinates. "
+            "Every nonsplit point has holomorphic up rank at least two; "
+            "rank three and the complete matrix remain unresolved.",
+            (
+                "data/generated/scientific_genesis/alternate_up_rank_floor.json",
+                "research/experiments/scientific_genesis/alternate_up_rank_floor.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_RANK_FLOOR_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_rank_floor.py",
+            ),
+            (
+                "frozen nonsplit alternate P1 family",
+                "ordered unnormalized cover bases",
+                "acyclic determinant filtration",
+            ),
+            ("same-cone F-F block", "quotient-normalized full matrix"),
+        ),
+        _node(
             "alternate_constituent_determinant_pairing",
             "local pairing for the frozen alternate I6 ray",
             "Computable carrier",
@@ -3214,6 +3238,31 @@ def _edges() -> list[dict[str, object]]:
             ("acyclic determinant filtration", "strict first-constituent classes"),
             True,
             ("the parameter-linear second/second block remains unknown",),
+        ),
+        _edge(
+            "alternate_up_mixed_scalar_trace",
+            "alternate_up_rank_floor",
+            "Nonzero mixed rows and columns give nonzero E/F two-by-two "
+            "minors because the E-E entry vanishes. No F-F entry can "
+            "alter these minors.",
+            (
+                "data/generated/scientific_genesis/alternate_up_rank_floor.json",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_RANK_FLOOR_NOTE.md",
+            ),
+            ("same ordered cover trace", "nonsplit frozen carrier"),
+            True,
+            ("rank three still depends on the unknown F-F block",),
+        ),
+        _edge(
+            "alternate_up_yukawa_support",
+            "alternate_up_rank_floor",
+            "The exterior filtration fixes the E-E zero and the "
+            "parameter independence of both mixed blocks, so their "
+            "nonzero minors hold over the entire nonsplit P1 family.",
+            ("data/generated/scientific_genesis/alternate_up_rank_floor.json",),
+            ("acyclic determinant endpoints",),
+            True,
+            ("the full same-cone Higgs representative is still open",),
         ),
         _edge(
             "alternate_constituent_carrier_state",
@@ -6383,6 +6432,36 @@ def build_state() -> dict[str, object]:
         or up_support.get("yukawa_matrix_computed") is not False
     ):
         raise ValueError("the alternate universal up support is not certified")
+    rank_floor_path = (
+        ROOT / "data/generated/scientific_genesis/alternate_up_rank_floor.json"
+    )
+    rank_floor = json.loads(rank_floor_path.read_text(encoding="utf-8"))
+    rank_floor_digest = rank_floor.pop("artifact_digest", None)
+    rank_inputs = rank_floor.get("prerequisite_artifact_digests", {})
+    if (
+        rank_floor_digest != _canonical_digest(rank_floor)
+        or rank_floor.get("schema") != "alternate-up-rank-floor-v1"
+        or rank_inputs.get("mixed_cover_traces") != mixed_trace_digest
+        or rank_inputs.get("exterior_filtration_support") != up_support_digest
+        or rank_floor.get("zero_first_first_entry") is not True
+        or rank_floor.get("mixed_row_cover_residues")
+        != ["3/2", "-9/14-3/7*omega"]
+        or rank_floor.get("mixed_column_reverse_cover_residues")
+        != ["-3/2*omega", "-3/14-9/14*omega"]
+        or rank_floor.get("two_by_two_minors_rows_F_columns_F")
+        != [
+            ["9/4*omega", "9/28+27/28*omega"],
+            ["9/14-9/28*omega", "27/196-45/196*omega"],
+        ]
+        or rank_floor.get("holomorphic_rank_lower_bound") != 2
+        or rank_floor.get("all_four_minors_nonzero_exact") is not True
+        or rank_floor.get("rank_floor_valid_for_every_nonsplit_extension") is not True
+        or rank_floor.get("rank_three_established") is not False
+        or rank_floor.get("complete_holomorphic_up_matrix_available") is not False
+        or rank_floor.get("physical_yukawa_matrix_available") is not False
+        or rank_floor.get("observational_inputs_used") is not False
+    ):
+        raise ValueError("the alternate up rank floor is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -6609,6 +6688,7 @@ def build_state() -> dict[str, object]:
         "alternate_up_yoneda_evaluation.json",
         "data/generated/scientific_genesis/"
         "alternate_up_mixed_scalar_trace.json",
+        "data/generated/scientific_genesis/alternate_up_rank_floor.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
@@ -7093,6 +7173,9 @@ def build_state() -> dict[str, object]:
             "cover Laurent residues 3omega/2, (3+9omega)/14, 3/2, and "
             "(-9-6omega)/14 in declared bases; the parameter-linear "
             "F-F block and quotient normalization remain unresolved",
+            "four exact mixed up-sector minors force holomorphic rank at "
+            "least two for every nonsplit alternate P1 point; the F-F "
+            "block and rank-three determinant test remain unresolved",
             "the frozen alternate I6 quotient has six distinct local "
             "determinant pairings satisfying all thirty corrected overlap "
             "identities; no Hom-to-tensor chain map follows yet",

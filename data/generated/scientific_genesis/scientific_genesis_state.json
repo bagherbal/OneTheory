@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "fe6edd39d8b4a52471d598acea8589a0fcaf86e02a5a2393c5b731e7f6caa39e",
+  "artifact_digest": "b9ea544a8f11cf081976584a0626b99048ccef756d07ed6300cb5e41516c0b4a",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -592,6 +592,11 @@
       "sha256": "7947d70e55d4bb4347c1a648d6c36cd83fd782bb0e8c9a563f4366d66c4aa274"
     },
     {
+      "bytes": 1464,
+      "path": "data/generated/scientific_genesis/alternate_up_rank_floor.json",
+      "sha256": "f40f06cb430d94fcf49e0a4486ce6a68ee7f77ade1ff1e91cbfc121a5c29ce9a"
+    },
+    {
       "bytes": 1322,
       "path": "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
       "sha256": "88ae38c3a0de4e90dc41dfc4a585989e0314a08e4c2a162239c78808e2b90051"
@@ -626,8 +631,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 235,
-    "test_python_files": 216
+    "research_python_files": 236,
+    "test_python_files": 217
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1523,6 +1528,28 @@
       ],
       "statement": "The actual first-constituent Pluecker form contracts four strict I3/degree-two Yoneda pairs to 2,257-term full scalar cycles. Their ordered cover residues are 3omega/2, (3+9omega)/14, 3/2, and (-9-6omega)/14. Reverse cup order gives the negative residue and both Yoneda ratios agree. The F-F block, quotient trace, and full matrix remain open.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "frozen nonsplit alternate P1 family",
+        "ordered unnormalized cover bases",
+        "acyclic determinant filtration"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_rank_floor.json",
+        "research/experiments/scientific_genesis/alternate_up_rank_floor.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_RANK_FLOOR_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_rank_floor.py"
+      ],
+      "id": "alternate_up_rank_floor",
+      "label": "rank-two floor of the alternate holomorphic up matrix",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "same-cone F-F block",
+        "quotient-normalized full matrix"
+      ],
+      "statement": "Exterior degree forces the E-E slot to zero. The four exact mixed cover residues give four nonzero two-by-two minors independent of the unknown F-F block and outer coordinates. Every nonsplit point has holomorphic up rank at least two; rank three and the complete matrix remain unresolved.",
+      "status": "DERIVED"
     },
     {
       "assumptions": [
@@ -3427,6 +3454,38 @@
       "mathematical_reason": "The two strict I3 classes are the first factors in the mixed scalar cups. Their unchanged cone lifts make the constant slots independent of the outer parameters.",
       "source": "alternate_constituent_up_cone_matter_lifts",
       "target": "alternate_up_mixed_scalar_trace"
+    },
+    {
+      "assumptions_required": [
+        "same ordered cover trace",
+        "nonsplit frozen carrier"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_rank_floor.json",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_RANK_FLOOR_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "rank three still depends on the unknown F-F block"
+      ],
+      "mathematical_reason": "Nonzero mixed rows and columns give nonzero E/F two-by-two minors because the E-E entry vanishes. No F-F entry can alter these minors.",
+      "source": "alternate_up_mixed_scalar_trace",
+      "target": "alternate_up_rank_floor"
+    },
+    {
+      "assumptions_required": [
+        "acyclic determinant endpoints"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_rank_floor.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the full same-cone Higgs representative is still open"
+      ],
+      "mathematical_reason": "The exterior filtration fixes the E-E zero and the parameter independence of both mixed blocks, so their nonzero minors hold over the entire nonsplit P1 family.",
+      "source": "alternate_up_yukawa_support",
+      "target": "alternate_up_rank_floor"
     },
     {
       "assumptions_required": [
@@ -5445,6 +5504,7 @@
     "the alternate Hom H1 has a strict full-Cech character-(2,0) representative required by the up-Higgs Wilson sector; its tensor and exterior-cone chain maps remain unavailable",
     "four exact strict-Hom/I6 Yoneda evaluations survive in H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios are (2-omega)/7 and (-3-2omega)/7, while scalar entries are computed separately and the same-cone Higgs remains open",
     "the four constant mixed up-sector entries have exact nonzero cover Laurent residues 3omega/2, (3+9omega)/14, 3/2, and (-9-6omega)/14 in declared bases; the parameter-linear F-F block and quotient normalization remain unresolved",
+    "four exact mixed up-sector minors force holomorphic rank at least two for every nonsplit alternate P1 point; the F-F block and rank-three determinant test remain unresolved",
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
     "the alternate universal up matrix has an exterior-forced zero E-E slot, constant mixed slots, and a parameter-linear F-F block; its determinant coefficients are uncomputed",

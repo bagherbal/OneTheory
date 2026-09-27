@@ -512,9 +512,8 @@ eighteen nonzero syzygy vectors. Adjugate sections give explicit
 middle-object Laurent numerators; an independently assembled right
 mixed-arrow matrix sends each numerator to the selected minor times its
 actual source vector. This is local homotopy data with denominators, not
-a global cochain. The 135 fiber-overlap terms must enter the next
-transport step; base-cover Čech–Koszul gluing and the exterior-cone
-Higgs lift remain open.
+a global cochain. The 135 fiber-overlap terms enter the transport below;
+the full tensor differential and exterior-cone Higgs lift remain open.
 
 The fiber-overlap step now uses those terms directly. On each of the
 three alternate base charts, the vertex syzygies, middle overlap terms,
@@ -524,9 +523,9 @@ unipotent gauge and clearing both minor denominators produces an exact
 middle numerator whose right differential is the Schoen equation times
 an explicit Koszul numerator. All nine cover blocks close with one
 identical homogeneous formula. This is localized overlap data, not a
-global tensor cocycle: base-cover and
-minor-open comparisons, the exterior-cone lift, and all Yukawa entries
-remain open.
+global tensor cocycle. Its minor and base transition comparisons are
+checked below; the full tensor differential, cone lift, and Yukawa
+entries remain open.
 
 The first local tensor-conversion input is also exact. Reordering the
 corrected middle numerator into relation rows and applying the alternate
@@ -534,9 +533,19 @@ Plücker inverse gives a nonzero quotient numerator supported in two
 rows. On all three target charts, the cross-multiplied difference between
 its paired image and the original Hom overlap is the Schoen equation
 times an explicit Laurent correction. This justifies the quotient image
-only on the declared minor open of the hypersurface. Gluing between
-minor opens and base charts remains required before any global Higgs
-class or Yukawa calculation.
+only on the declared minor open of the hypersurface. Its compatibility
+with the other minor opens and base-chart transitions is checked below;
+that compatibility alone does not make a global Higgs class.
+
+The actual quotient image now agrees across all ten complementary-minor
+principal opens on each checked target chart. Comparing every other
+inverse to the reference produces an exact rank-three relation witness;
+the remaining ambient discrepancy is the Schoen equation times a saved
+Koszul correction after clearing the reference minor. A common-kernel
+projector identity explains all nine comparisons without treating them
+as unrelated coincidences. The fiber-edge formula also agrees through
+all twelve identity base-only atlas transitions. These scoped cover
+comparisons still do not construct the full Čech–Koszul Hom-to-tensor map.
 
 The universal up-matrix filtration also fixes its parameter support:
 first/first vanishes, mixed entries are constant, and second/second

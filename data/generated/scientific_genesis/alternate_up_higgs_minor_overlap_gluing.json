@@ -1,0 +1,317 @@
+{
+  "all_ten_minor_images_compatible_on_common_opens": true,
+  "artifact_digest": "6de5274344b7fef3fc07ffcd69e1769baadde06a63a6259b36e617a50a56a202",
+  "base_chart_transitions_checked": 12,
+  "base_chart_transitions_identity_exact": true,
+  "coefficient_field": "Q(omega)",
+  "exterior_cone_higgs_cocycle_constructed": false,
+  "fiber_overlap_base_cover_compatibility_exact": true,
+  "global_hom_to_tensor_chain_map_constructed": false,
+  "homogeneous_relation_equal_on_target_charts": true,
+  "next_required_object": "construct the full Cech-Koszul Hom-to-tensor chain map from these compatible local images, then lift into the exterior cone",
+  "other_minor_records": [
+    {
+      "common_kernel_inverse_identity_exact": true,
+      "cross_multiplied_gluing_exact": true,
+      "hypersurface_correction_digest": "e3e52e7d01c4bd450790e6e5de44a03342826d90f6b2d462abf9b1a96bdb04d5",
+      "hypersurface_correction_term_counts": [
+        202,
+        0,
+        0,
+        0,
+        0
+      ],
+      "other_minor_digest": "9416eff28093a203597c73fd1da5cdb4f04a1294aa2d8d7b3a444c6882d04732",
+      "other_minor_rows": [
+        0,
+        2
+      ],
+      "other_quotient_digest": "76aafc2afd6e412294d958a3f556af89fc3bd1ed11b615a8c4f60d73d9427c13",
+      "other_quotient_term_counts": [
+        95,
+        0,
+        24,
+        0,
+        0
+      ],
+      "projector_identity_exact": true,
+      "relation_witness_digest": "e14eea6bbfe9a31c10b3c5b5ee2810d029e5a00af1d08b0d937dff0d509f8b4a",
+      "relation_witness_term_counts": [
+        65,
+        65,
+        0
+      ]
+    },
+    {
+      "common_kernel_inverse_identity_exact": true,
+      "cross_multiplied_gluing_exact": true,
+      "hypersurface_correction_digest": "31fc08ca667b1cf50d89f284cd7814794708902c77500de075b3c780c417f3fe",
+      "hypersurface_correction_term_counts": [
+        222,
+        0,
+        0,
+        0,
+        0
+      ],
+      "other_minor_digest": "92864285f1f4933bc4ccbbce0e82008dedce071bf0da14ce0b4f446abea52aab",
+      "other_minor_rows": [
+        0,
+        3
+      ],
+      "other_quotient_digest": "f45b17e050ef0af1b512e75dc523840d5c2584ff84f77fc9d4172bc6f3391b7a",
+      "other_quotient_term_counts": [
+        104,
+        0,
+        0,
+        24,
+        0
+      ],
+      "projector_identity_exact": true,
+      "relation_witness_digest": "d4429165f370a4f50009e8b75acf08372026600ee6ce1c0f9c4bfd3f563afaf0",
+      "relation_witness_term_counts": [
+        77,
+        78,
+        75
+      ]
+    },
+    {
+      "common_kernel_inverse_identity_exact": true,
+      "cross_multiplied_gluing_exact": true,
+      "hypersurface_correction_digest": "80683c3add1fa555efd1f69a2391a148ce241da0697ca9cfb8dde8e4c6dc8155",
+      "hypersurface_correction_term_counts": [
+        58,
+        0,
+        0,
+        0,
+        0
+      ],
+      "other_minor_digest": "158bbb3cfd016367e3fc4044967b841d4fb15971421941614eca41d0c588e95c",
+      "other_minor_rows": [
+        0,
+        4
+      ],
+      "other_quotient_digest": "ab0a850da4e10092a3f3cbec6c34100fded09ca01f304e3a43503968e78609a6",
+      "other_quotient_term_counts": [
+        9,
+        0,
+        0,
+        0,
+        24
+      ],
+      "projector_identity_exact": true,
+      "relation_witness_digest": "34dec3d3ac4e0a06067ef285ecce5d7fa12bf42ae1c61a4040ba6be482dbcc7a",
+      "relation_witness_term_counts": [
+        46,
+        46,
+        0
+      ]
+    },
+    {
+      "common_kernel_inverse_identity_exact": true,
+      "cross_multiplied_gluing_exact": true,
+      "hypersurface_correction_digest": "c7e4d229bfdf70c04a2150259a10324c23123e0102bde9a23c90553391fa6c91",
+      "hypersurface_correction_term_counts": [
+        0,
+        202,
+        0,
+        0,
+        0
+      ],
+      "other_minor_digest": "ac977443b4a6c8a97e462823cadd7890511de4afbf296050abda098e0d679b4a",
+      "other_minor_rows": [
+        1,
+        2
+      ],
+      "other_quotient_digest": "1023f5111abb5d6b48f8c90dfe7d82b04179bb5fde4b98a953b096adf2c3955a",
+      "other_quotient_term_counts": [
+        0,
+        95,
+        24,
+        0,
+        0
+      ],
+      "projector_identity_exact": true,
+      "relation_witness_digest": "d1fc22bcfe1f85de10fff76bff5ab20c14efb7b61a5f9e1feaeb85758c8f3681",
+      "relation_witness_term_counts": [
+        65,
+        65,
+        0
+      ]
+    },
+    {
+      "common_kernel_inverse_identity_exact": true,
+      "cross_multiplied_gluing_exact": true,
+      "hypersurface_correction_digest": "b71791c1aae2178456992f30795a24a5ba4cf78834d6a7505234eb0b3959b215",
+      "hypersurface_correction_term_counts": [
+        0,
+        222,
+        0,
+        0,
+        0
+      ],
+      "other_minor_digest": "07a9b497032b1c3e62186d90e29c6ea04a15af1f663602448f1e009faedecfc7",
+      "other_minor_rows": [
+        1,
+        3
+      ],
+      "other_quotient_digest": "41f2642f1e2cc610797a8998708dc238633febeb8d167aa61c5d82665ba3b3ac",
+      "other_quotient_term_counts": [
+        0,
+        104,
+        0,
+        24,
+        0
+      ],
+      "projector_identity_exact": true,
+      "relation_witness_digest": "7ff33296383bb20f32e9eb1579c4e00f33ea22436f86539df49afe02d9389614",
+      "relation_witness_term_counts": [
+        78,
+        77,
+        75
+      ]
+    },
+    {
+      "common_kernel_inverse_identity_exact": true,
+      "cross_multiplied_gluing_exact": true,
+      "hypersurface_correction_digest": "e8ebf660d9f418ee6c559e8dce37e3e226e6ff2852a3b5459236e77194a1ada7",
+      "hypersurface_correction_term_counts": [
+        0,
+        58,
+        0,
+        0,
+        0
+      ],
+      "other_minor_digest": "4fd40ef6543b5b6b9694488fe8283dbba81f96ef949df4554b2bd263d7cbca4c",
+      "other_minor_rows": [
+        1,
+        4
+      ],
+      "other_quotient_digest": "5351f50ba00fd60da5ef9bc0fe1c3b122ddab4a418317b3a98ea1f244b7a6b34",
+      "other_quotient_term_counts": [
+        0,
+        9,
+        0,
+        0,
+        24
+      ],
+      "projector_identity_exact": true,
+      "relation_witness_digest": "98129900fb53ddbd1a6a2a1870b90ab583157a3db10fea720e987cb81a2ff0e9",
+      "relation_witness_term_counts": [
+        46,
+        46,
+        0
+      ]
+    },
+    {
+      "common_kernel_inverse_identity_exact": true,
+      "cross_multiplied_gluing_exact": true,
+      "hypersurface_correction_digest": "9eef33d0b5957241df4f6f0f8f2f923a4fbff9b29b0eb6f51edbab6c40604eb7",
+      "hypersurface_correction_term_counts": [
+        210,
+        210,
+        0,
+        0,
+        0
+      ],
+      "other_minor_digest": "e1cdadae8f80015906afa9fbbca6ce2e67095fe92b78dd1c99ae6569cf681445",
+      "other_minor_rows": [
+        2,
+        3
+      ],
+      "other_quotient_digest": "2dc85f45d2573676f5754c9c6f1dedf92b2b8c683f4afa587270bfff71eeff0d",
+      "other_quotient_term_counts": [
+        0,
+        0,
+        104,
+        95,
+        0
+      ],
+      "projector_identity_exact": true,
+      "relation_witness_digest": "4bf2fb0dd57160dcb042476e83fc56f89a90910f175d164632fd0e91081ce868",
+      "relation_witness_term_counts": [
+        279,
+        279,
+        268
+      ]
+    },
+    {
+      "common_kernel_inverse_identity_exact": true,
+      "cross_multiplied_gluing_exact": true,
+      "hypersurface_correction_digest": "7d73b73e790a52b9a1f31d89202d14a95678e70aaf67c656fa9dae28b12d5cc3",
+      "hypersurface_correction_term_counts": [
+        134,
+        134,
+        0,
+        0,
+        0
+      ],
+      "other_minor_digest": "4325479ec5448f893e5f4ebf507f7529da699593e536cc4da6f0da2d53658318",
+      "other_minor_rows": [
+        2,
+        4
+      ],
+      "other_quotient_digest": "3296f5edc4dafb23b9633ec78d34e4eafed73632f1e2524c971b016c84ca0627",
+      "other_quotient_term_counts": [
+        0,
+        0,
+        9,
+        0,
+        95
+      ],
+      "projector_identity_exact": true,
+      "relation_witness_digest": "5e15e2d9cd59bed312b372b44a65d78d08cb73830391e48aeb4fae5acf300c25",
+      "relation_witness_term_counts": [
+        170,
+        172,
+        0
+      ]
+    },
+    {
+      "common_kernel_inverse_identity_exact": true,
+      "cross_multiplied_gluing_exact": true,
+      "hypersurface_correction_digest": "a1ac08e283edb630a50f9ee23e65755d94a19eb2394cf315c5f72bc6dfccfaa2",
+      "hypersurface_correction_term_counts": [
+        148,
+        149,
+        0,
+        0,
+        0
+      ],
+      "other_minor_digest": "4e9bc298eda2fc36aa70662e0b475a635b69d69d7a514baa2780363374d95897",
+      "other_minor_rows": [
+        3,
+        4
+      ],
+      "other_quotient_digest": "4eb9e9b3deee63a7c5930586684e61c8cb4b2380ecead67580967eac9467de51",
+      "other_quotient_term_counts": [
+        0,
+        0,
+        0,
+        9,
+        104
+      ],
+      "projector_identity_exact": true,
+      "relation_witness_digest": "486e00fa268f0e41b18da9a4cce7450e6f0f369b678c6ff5e25030e0dec0434f",
+      "relation_witness_term_counts": [
+        184,
+        184,
+        49
+      ]
+    }
+  ],
+  "prerequisite_artifact_digests": {
+    "fiber_overlap_transport": "2e66ce6755ac205e4db4c6a9f8ff54d4eb2559f88ae75d1f16af58caf84970b3",
+    "minor_open_inverse": "8a46f18738393ae8fe530f0e5284d362572832734912b3cf242d6ef9064c5156",
+    "reference_quotient_image": "71751d5ef9e8a4321b00997b1fe2991df322d640beb15051eaf8540ad6263e34"
+  },
+  "reference_minor_rows": [
+    0,
+    1
+  ],
+  "schema": "alternate-up-higgs-minor-overlap-gluing-v1",
+  "target_charts_checked": [
+    "U_0_nu",
+    "U_1_nu",
+    "U_2_nu"
+  ]
+}

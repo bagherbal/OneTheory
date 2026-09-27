@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b9ea544a8f11cf081976584a0626b99048ccef756d07ed6300cb5e41516c0b4a",
+  "artifact_digest": "38d38ef6d2695be21e1d9792db5065c5163cf330541cbe526ec4a8ff3175c5ae",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -597,6 +597,11 @@
       "sha256": "f40f06cb430d94fcf49e0a4486ce6a68ee7f77ade1ff1e91cbfc121a5c29ce9a"
     },
     {
+      "bytes": 2548,
+      "path": "data/generated/scientific_genesis/alternate_up_null_channel.json",
+      "sha256": "57408c25314cb10263016de6cbb5e2bdea2466e70f93f40715c74022602e3392"
+    },
+    {
       "bytes": 1322,
       "path": "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
       "sha256": "88ae38c3a0de4e90dc41dfc4a585989e0314a08e4c2a162239c78808e2b90051"
@@ -631,8 +636,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 236,
-    "test_python_files": 217
+    "research_python_files": 237,
+    "test_python_files": 218
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1550,6 +1555,27 @@
       ],
       "statement": "Exterior degree forces the E-E slot to zero. The four exact mixed cover residues give four nonzero two-by-two minors independent of the unknown F-F block and outer coordinates. Every nonsplit point has holomorphic up rank at least two; rank three and the complete matrix remain unresolved.",
       "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "declared ordered cover convention",
+        "frozen nonsplit P1"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_null_channel.json",
+        "research/experiments/scientific_genesis/alternate_up_null_channel.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_NULL_CHANNEL_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_null_channel.py"
+      ],
+      "id": "alternate_up_null_channel",
+      "label": "exact alternate up null-channel homotopies",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "same-cone Higgs correction",
+        "two null-to-null F-F couplings"
+      ],
+      "statement": "The two exact mixed blocks select one null F combination per Wilson sector. Their 144-term full Yoneda evaluations are boundaries with 90-term exact primitives. A formal determinant identity reduces the rank-three decision to two extension-linear null-to-null F-F coefficients, which remain uncomputed.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [
@@ -3486,6 +3512,37 @@
       "mathematical_reason": "The exterior filtration fixes the E-E zero and the parameter independence of both mixed blocks, so their nonzero minors hold over the entire nonsplit P1 family.",
       "source": "alternate_up_yukawa_support",
       "target": "alternate_up_rank_floor"
+    },
+    {
+      "assumptions_required": [
+        "ordered mixed cover residues"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_null_channel.json",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_NULL_CHANNEL_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the projected F-F coefficient is not yet evaluated"
+      ],
+      "mathematical_reason": "Nonzero mixed reference pivots define exact left and right kernel vectors. Expanding the three-by-three determinant over four formal F-F entries leaves only their null pairing.",
+      "source": "alternate_up_rank_floor",
+      "target": "alternate_up_null_channel"
+    },
+    {
+      "assumptions_required": [
+        "certified full Hom cochains"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_null_channel.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a null Yoneda homotopy is not an F-F Yukawa value"
+      ],
+      "mathematical_reason": "The two exact within-character Yoneda ratios cancel the reduced classes. The full 144-term combinations admit exact 90-term primitives under the synchronized differential.",
+      "source": "alternate_up_yoneda_evaluation",
+      "target": "alternate_up_null_channel"
     },
     {
       "assumptions_required": [
@@ -5505,6 +5562,7 @@
     "four exact strict-Hom/I6 Yoneda evaluations survive in H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios are (2-omega)/7 and (-3-2omega)/7, while scalar entries are computed separately and the same-cone Higgs remains open",
     "the four constant mixed up-sector entries have exact nonzero cover Laurent residues 3omega/2, (3+9omega)/14, 3/2, and (-9-6omega)/14 in declared bases; the parameter-linear F-F block and quotient normalization remain unresolved",
     "four exact mixed up-sector minors force holomorphic rank at least two for every nonsplit alternate P1 point; the F-F block and rank-three determinant test remain unresolved",
+    "two strict null Yoneda combinations are full boundaries with 90-term primitives; the formal determinant now needs only two unknown extension-linear null-to-null coefficients",
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
     "the alternate universal up matrix has an exterior-forced zero E-E slot, constant mixed slots, and a parameter-linear F-F block; its determinant coefficients are uncomputed",
@@ -6192,7 +6250,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "construct the same-cone exterior Higgs class and parameter-linear F-F block, then complete the quotient-normalized holomorphic 3x3 up-type matrix",
+    "next_required_object": "use the exact null Yoneda primitives to evaluate two same-cone null-to-null F-F coefficients, then finish the full quotient-normalized holomorphic up matrix",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

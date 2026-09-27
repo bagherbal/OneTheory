@@ -822,3 +822,14 @@ rank one are excluded on this frozen family. The determinant is still
 an uncomputed linear form, so rank three is not established. The
 content-pinned calculation and its convention boundaries are in
 `alternate_up_rank_floor.json` and `ALTERNATE_UP_RANK_FLOOR_NOTE.md`.
+
+The determinant-sensitive channel can now be compressed further. The
+two exact within-character mixed ratios define strict `F` combinations
+whose 144-term full Yoneda evaluations are boundaries, each with a
+90-term exact primitive. A four-indeterminate identity reduces the
+rank-three test to the two unknown coefficients of the null-to-null
+`F–F` pairing along `(a0,a1)`. This is a shorter next calculation than
+enumerating all eight `F–F` coefficients, but the same-cone Higgs
+correction and complete matrix remain open. The exact homotopies and
+sign convention are in `alternate_up_null_channel.json` and
+`ALTERNATE_UP_NULL_CHANNEL_NOTE.md`.

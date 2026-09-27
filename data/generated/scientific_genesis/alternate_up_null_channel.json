@@ -1,0 +1,73 @@
+{
+  "artifact_digest": "47fe175edaf16fe011ce23966a55307736620d6df2d35b880e3f58e4e4c96594",
+  "carrier_locus": "frozen nonsplit alternate P1 family",
+  "coefficient_field": "Q(omega)",
+  "complete_holomorphic_up_matrix_available": false,
+  "declared_cover_orientation": {
+    "columns": [
+      "E(1,0)",
+      "F(1,0):seed0",
+      "F(1,0):seed5"
+    ],
+    "rows": [
+      "E(0,0)",
+      "F(0,0):seed0",
+      "F(0,0):seed5"
+    ]
+  },
+  "determinant_formula": "det Y(a) = -B0*C0 * L^T*D(a)*R; L=(-C1/C0,1), R=(-B1/B0,1)",
+  "determinant_prefactor": "9/4*omega",
+  "determinant_sensitive_unknown_coefficients": 2,
+  "formal_four_entry_identity_exact": true,
+  "next_required_object": "compute the two same-cone extension-linear null-to-null F-F couplings using the certified Yoneda primitives",
+  "null_channels": [
+    {
+      "evaluated_character": [
+        2,
+        0
+      ],
+      "full_yoneda_boundary_identity_exact": true,
+      "matter_character": [
+        0,
+        0
+      ],
+      "null_evaluation_digest": "b5d2d0e836403fe4e97b34e1ad0c5123dd6f9a5c2bcf4cfc40ddd8a40353880e",
+      "null_evaluation_term_count": 144,
+      "null_matter_combination": "seed5 - ratio * seed0",
+      "primitive_digest": "3406d7825dd64b787ee78399b8bf8c997a02fd7411b6988951a2977f3cba6f4b",
+      "primitive_homotopy_depth": 2,
+      "primitive_inclusion_depth": 0,
+      "primitive_projection_depth": 2,
+      "primitive_term_count": 90,
+      "seed5_over_seed0": "2/7-1/7*omega"
+    },
+    {
+      "evaluated_character": [
+        0,
+        0
+      ],
+      "full_yoneda_boundary_identity_exact": true,
+      "matter_character": [
+        1,
+        0
+      ],
+      "null_evaluation_digest": "d7cbabbee2aef6d5ce465ab3b9ac470e4842f088f1eadb84f8fb2e9242c7a1d5",
+      "null_evaluation_term_count": 144,
+      "null_matter_combination": "seed5 - ratio * seed0",
+      "primitive_digest": "cd6c77c771258896848ae9774d3013f417a52c3a6bfe33c82e1a9ff47affd536",
+      "primitive_homotopy_depth": 2,
+      "primitive_inclusion_depth": 0,
+      "primitive_projection_depth": 2,
+      "primitive_term_count": 90,
+      "seed5_over_seed0": "-3/7-2/7*omega"
+    }
+  ],
+  "null_to_null_coefficients_computed": false,
+  "observational_inputs_used": false,
+  "prerequisite_artifact_digests": {
+    "rank_floor": "04bd005300d2924dca90edc5f132494167ed1b08f8d5b7675524d10c87a2f29d",
+    "strict_yoneda_evaluations": "a20a3093fc3edb16ce8a0a5dbfe909117a77a21c19972e0a8ebd0fbc3eef079b"
+  },
+  "rank_three_established": false,
+  "schema": "alternate-up-null-channel-v1"
+}

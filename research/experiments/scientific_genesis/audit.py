@@ -1095,6 +1095,26 @@ def _nodes() -> list[dict[str, object]]:
             ("same-cone F-F block", "quotient-normalized full matrix"),
         ),
         _node(
+            "alternate_up_null_channel",
+            "exact alternate up null-channel homotopies",
+            "Flavor",
+            "COMPUTED",
+            "The two exact mixed blocks select one null F combination per "
+            "Wilson sector. Their 144-term full Yoneda evaluations are "
+            "boundaries with 90-term exact primitives. A formal determinant "
+            "identity reduces the rank-three decision to two extension-linear "
+            "null-to-null F-F coefficients, which remain uncomputed.",
+            (
+                "data/generated/scientific_genesis/alternate_up_null_channel.json",
+                "research/experiments/scientific_genesis/alternate_up_null_channel.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_NULL_CHANNEL_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_null_channel.py",
+            ),
+            ("declared ordered cover convention", "frozen nonsplit P1"),
+            ("same-cone Higgs correction", "two null-to-null F-F couplings"),
+        ),
+        _node(
             "alternate_constituent_determinant_pairing",
             "local pairing for the frozen alternate I6 ray",
             "Computable carrier",
@@ -3263,6 +3283,31 @@ def _edges() -> list[dict[str, object]]:
             ("acyclic determinant endpoints",),
             True,
             ("the full same-cone Higgs representative is still open",),
+        ),
+        _edge(
+            "alternate_up_rank_floor",
+            "alternate_up_null_channel",
+            "Nonzero mixed reference pivots define exact left and right "
+            "kernel vectors. Expanding the three-by-three determinant "
+            "over four formal F-F entries leaves only their null pairing.",
+            (
+                "data/generated/scientific_genesis/alternate_up_null_channel.json",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_NULL_CHANNEL_NOTE.md",
+            ),
+            ("ordered mixed cover residues",),
+            True,
+            ("the projected F-F coefficient is not yet evaluated",),
+        ),
+        _edge(
+            "alternate_up_yoneda_evaluation",
+            "alternate_up_null_channel",
+            "The two exact within-character Yoneda ratios cancel the "
+            "reduced classes. The full 144-term combinations admit exact "
+            "90-term primitives under the synchronized differential.",
+            ("data/generated/scientific_genesis/alternate_up_null_channel.json",),
+            ("certified full Hom cochains",),
+            True,
+            ("a null Yoneda homotopy is not an F-F Yukawa value",),
         ),
         _edge(
             "alternate_constituent_carrier_state",
@@ -6462,6 +6507,37 @@ def build_state() -> dict[str, object]:
         or rank_floor.get("observational_inputs_used") is not False
     ):
         raise ValueError("the alternate up rank floor is not certified")
+    null_path = (
+        ROOT / "data/generated/scientific_genesis/alternate_up_null_channel.json"
+    )
+    null_channel = json.loads(null_path.read_text(encoding="utf-8"))
+    null_digest = null_channel.pop("artifact_digest", None)
+    null_inputs = null_channel.get("prerequisite_artifact_digests", {})
+    channels = null_channel.get("null_channels", [])
+    if (
+        null_digest != _canonical_digest(null_channel)
+        or null_channel.get("schema") != "alternate-up-null-channel-v1"
+        or null_inputs.get("rank_floor") != rank_floor_digest
+        or null_inputs.get("strict_yoneda_evaluations") != yoneda_digest
+        or null_channel.get("determinant_prefactor") != "9/4*omega"
+        or null_channel.get("formal_four_entry_identity_exact") is not True
+        or null_channel.get("determinant_sensitive_unknown_coefficients") != 2
+        or [item.get("matter_character") for item in channels]
+        != [[0, 0], [1, 0]]
+        or [item.get("seed5_over_seed0") for item in channels]
+        != ["2/7-1/7*omega", "-3/7-2/7*omega"]
+        or any(
+            item.get("null_evaluation_term_count") != 144
+            or item.get("primitive_term_count") != 90
+            or item.get("full_yoneda_boundary_identity_exact") is not True
+            for item in channels
+        )
+        or null_channel.get("null_to_null_coefficients_computed") is not False
+        or null_channel.get("rank_three_established") is not False
+        or null_channel.get("complete_holomorphic_up_matrix_available") is not False
+        or null_channel.get("observational_inputs_used") is not False
+    ):
+        raise ValueError("the alternate up null-channel homotopies are not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -6689,6 +6765,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/"
         "alternate_up_mixed_scalar_trace.json",
         "data/generated/scientific_genesis/alternate_up_rank_floor.json",
+        "data/generated/scientific_genesis/alternate_up_null_channel.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
@@ -7093,9 +7170,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "construct the same-cone exterior Higgs class and "
-                "parameter-linear F-F block, then complete the "
-                "quotient-normalized holomorphic 3x3 up-type matrix"
+                "use the exact null Yoneda primitives to evaluate two "
+                "same-cone null-to-null F-F coefficients, then finish "
+                "the full quotient-normalized holomorphic up matrix"
             ),
         },
         "claims": _nodes(),
@@ -7176,6 +7253,9 @@ def build_state() -> dict[str, object]:
             "four exact mixed up-sector minors force holomorphic rank at "
             "least two for every nonsplit alternate P1 point; the F-F "
             "block and rank-three determinant test remain unresolved",
+            "two strict null Yoneda combinations are full boundaries "
+            "with 90-term primitives; the formal determinant now needs "
+            "only two unknown extension-linear null-to-null coefficients",
             "the frozen alternate I6 quotient has six distinct local "
             "determinant pairings satisfying all thirty corrected overlap "
             "identities; no Hom-to-tensor chain map follows yet",

@@ -1,0 +1,4103 @@
+{
+  "all_corrected_koszul_divisibility_exact": true,
+  "all_original_overlap_equations_exact": true,
+  "artifact_digest": "2e66ce6755ac205e4db4c6a9f8ff54d4eb2559f88ae75d1f16af58caf84970b3",
+  "base_chart_formula_independence_exact": true,
+  "base_overlap_gluing_constructed": false,
+  "coefficient_field": "Q(omega)",
+  "exterior_cone_higgs_cocycle_constructed": false,
+  "fiber_overlap_blocks_checked": 9,
+  "fiber_overlap_representative": {
+    "base_pivots_checked": [
+      0,
+      1,
+      2
+    ],
+    "corrected_koszul_divisibility_exact": true,
+    "corrected_middle_numerator_object_order": [
+      [
+        {
+          "coefficient": "-54-54*omega",
+          "exponents": [
+            7,
+            2,
+            3,
+            -2,
+            -2
+          ]
+        },
+        {
+          "coefficient": "324",
+          "exponents": [
+            5,
+            3,
+            4,
+            -2,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-54*omega",
+          "exponents": [
+            4,
+            5,
+            3,
+            -2,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-54",
+          "exponents": [
+            4,
+            2,
+            6,
+            -2,
+            -2
+          ]
+        },
+        {
+          "coefficient": "324*omega",
+          "exponents": [
+            2,
+            6,
+            4,
+            -2,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-324-324*omega",
+          "exponents": [
+            2,
+            3,
+            7,
+            -2,
+            -2
+          ]
+        },
+        {
+          "coefficient": "54",
+          "exponents": [
+            1,
+            8,
+            3,
+            -2,
+            -2
+          ]
+        },
+        {
+          "coefficient": "54+54*omega",
+          "exponents": [
+            1,
+            5,
+            6,
+            -2,
+            -2
+          ]
+        },
+        {
+          "coefficient": "54*omega",
+          "exponents": [
+            1,
+            2,
+            9,
+            -2,
+            -2
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "-324*omega",
+          "exponents": [
+            10,
+            3,
+            2,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "324*omega",
+          "exponents": [
+            9,
+            2,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "2592+2268*omega",
+          "exponents": [
+            8,
+            4,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "324",
+          "exponents": [
+            7,
+            6,
+            2,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-2592-2592*omega",
+          "exponents": [
+            7,
+            3,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-2268+1944*omega",
+          "exponents": [
+            6,
+            5,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "324*omega",
+          "exponents": [
+            6,
+            2,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1620+648*omega",
+          "exponents": [
+            5,
+            7,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "2268-2268*omega",
+          "exponents": [
+            5,
+            4,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "324+324*omega",
+          "exponents": [
+            4,
+            9,
+            2,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "1944",
+          "exponents": [
+            4,
+            6,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-648",
+          "exponents": [
+            4,
+            3,
+            8,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-2268-4212*omega",
+          "exponents": [
+            3,
+            8,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "3564+1296*omega",
+          "exponents": [
+            3,
+            5,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "324+324*omega",
+          "exponents": [
+            3,
+            2,
+            10,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-324+324*omega",
+          "exponents": [
+            2,
+            10,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-648+1620*omega",
+          "exponents": [
+            2,
+            7,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-2268-2592*omega",
+          "exponents": [
+            2,
+            4,
+            9,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "324",
+          "exponents": [
+            1,
+            9,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "2268+2268*omega",
+          "exponents": [
+            1,
+            6,
+            8,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1944+324*omega",
+          "exponents": [
+            1,
+            3,
+            11,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-324*omega",
+          "exponents": [
+            0,
+            8,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "324",
+          "exponents": [
+            0,
+            5,
+            10,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "324+324*omega",
+          "exponents": [
+            0,
+            2,
+            13,
+            -3,
+            -3
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "648+324*omega",
+          "exponents": [
+            9,
+            2,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-324-324*omega",
+          "exponents": [
+            8,
+            4,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-324*omega",
+          "exponents": [
+            8,
+            1,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1620+2268*omega",
+          "exponents": [
+            7,
+            3,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-648",
+          "exponents": [
+            7,
+            0,
+            8,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "2268+648*omega",
+          "exponents": [
+            6,
+            5,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "2268+1620*omega",
+          "exponents": [
+            6,
+            2,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-324*omega",
+          "exponents": [
+            5,
+            7,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1944",
+          "exponents": [
+            5,
+            4,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-324-4212*omega",
+          "exponents": [
+            5,
+            1,
+            9,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1944-3564*omega",
+          "exponents": [
+            4,
+            6,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "3564+1296*omega",
+          "exponents": [
+            4,
+            3,
+            8,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "648*omega",
+          "exponents": [
+            4,
+            0,
+            11,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-324+2268*omega",
+          "exponents": [
+            3,
+            8,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-4536-2268*omega",
+          "exponents": [
+            3,
+            5,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-324-2592*omega",
+          "exponents": [
+            3,
+            2,
+            10,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "324",
+          "exponents": [
+            2,
+            10,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "648-1296*omega",
+          "exponents": [
+            2,
+            7,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "5832+6480*omega",
+          "exponents": [
+            2,
+            4,
+            9,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-4212",
+          "exponents": [
+            2,
+            1,
+            12,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-324",
+          "exponents": [
+            1,
+            9,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-324-972*omega",
+          "exponents": [
+            1,
+            6,
+            8,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "648-324*omega",
+          "exponents": [
+            1,
+            3,
+            11,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "648+648*omega",
+          "exponents": [
+            1,
+            0,
+            14,
+            -3,
+            -3
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "-54+54*omega",
+          "exponents": [
+            11,
+            2,
+            2,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-108*omega",
+          "exponents": [
+            11,
+            2,
+            2,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "72+144*omega",
+          "exponents": [
+            11,
+            2,
+            2,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-54+54*omega",
+          "exponents": [
+            10,
+            1,
+            4,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "108+108*omega",
+          "exponents": [
+            10,
+            1,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "72-72*omega",
+          "exponents": [
+            10,
+            1,
+            4,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-648-1296*omega",
+          "exponents": [
+            9,
+            3,
+            3,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "648+324*omega",
+          "exponents": [
+            9,
+            3,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-864-432*omega",
+          "exponents": [
+            9,
+            3,
+            3,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-54+54*omega",
+          "exponents": [
+            9,
+            0,
+            6,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-108",
+          "exponents": [
+            9,
+            0,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-144-72*omega",
+          "exponents": [
+            9,
+            0,
+            6,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-162",
+          "exponents": [
+            8,
+            5,
+            2,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-216",
+          "exponents": [
+            8,
+            5,
+            2,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-648-1134*omega",
+          "exponents": [
+            8,
+            2,
+            5,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-972+324*omega",
+          "exponents": [
+            8,
+            2,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "648+864*omega",
+          "exponents": [
+            8,
+            2,
+            5,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "3726+1944*omega",
+          "exponents": [
+            7,
+            4,
+            4,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "2268+2268*omega",
+          "exponents": [
+            7,
+            4,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216+216*omega",
+          "exponents": [
+            7,
+            4,
+            4,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-648-1134*omega",
+          "exponents": [
+            7,
+            1,
+            7,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "324-648*omega",
+          "exponents": [
+            7,
+            1,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216-648*omega",
+          "exponents": [
+            7,
+            1,
+            7,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "648-648*omega",
+          "exponents": [
+            6,
+            6,
+            3,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-324-648*omega",
+          "exponents": [
+            6,
+            6,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "864-864*omega",
+          "exponents": [
+            6,
+            6,
+            3,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "2430+1296*omega",
+          "exponents": [
+            6,
+            3,
+            6,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-3240-5184*omega",
+          "exponents": [
+            6,
+            3,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "864+1512*omega",
+          "exponents": [
+            6,
+            3,
+            6,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "162*omega",
+          "exponents": [
+            6,
+            0,
+            9,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "216*omega",
+          "exponents": [
+            6,
+            0,
+            9,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-162-162*omega",
+          "exponents": [
+            5,
+            8,
+            2,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-216-216*omega",
+          "exponents": [
+            5,
+            8,
+            2,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "648-648*omega",
+          "exponents": [
+            5,
+            5,
+            5,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-1944",
+          "exponents": [
+            5,
+            5,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1728-864*omega",
+          "exponents": [
+            5,
+            5,
+            5,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "2754+1458*omega",
+          "exponents": [
+            5,
+            2,
+            8,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "972+2592*omega",
+          "exponents": [
+            5,
+            2,
+            8,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "864-1080*omega",
+          "exponents": [
+            5,
+            2,
+            8,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-2106+1782*omega",
+          "exponents": [
+            4,
+            7,
+            4,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-1944+324*omega",
+          "exponents": [
+            4,
+            7,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216*omega",
+          "exponents": [
+            4,
+            7,
+            4,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-1296-4536*omega",
+          "exponents": [
+            4,
+            4,
+            7,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "2268-1296*omega",
+          "exponents": [
+            4,
+            4,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "864+1728*omega",
+          "exponents": [
+            4,
+            4,
+            7,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-1134-486*omega",
+          "exponents": [
+            4,
+            1,
+            10,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "324*omega",
+          "exponents": [
+            4,
+            1,
+            10,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1944-864*omega",
+          "exponents": [
+            4,
+            1,
+            10,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "1296+648*omega",
+          "exponents": [
+            3,
+            9,
+            3,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "972+972*omega",
+          "exponents": [
+            3,
+            9,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "432+864*omega",
+          "exponents": [
+            3,
+            9,
+            3,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-1458+3078*omega",
+          "exponents": [
+            3,
+            6,
+            6,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "3240+1296*omega",
+          "exponents": [
+            3,
+            6,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1512-864*omega",
+          "exponents": [
+            3,
+            6,
+            6,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-2592-3240*omega",
+          "exponents": [
+            3,
+            3,
+            9,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-1620+2592*omega",
+          "exponents": [
+            3,
+            3,
+            9,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "432-432*omega",
+          "exponents": [
+            3,
+            3,
+            9,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "162+162*omega",
+          "exponents": [
+            3,
+            0,
+            12,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "216+216*omega",
+          "exponents": [
+            3,
+            0,
+            12,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-54-108*omega",
+          "exponents": [
+            2,
+            11,
+            2,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-108*omega",
+          "exponents": [
+            2,
+            11,
+            2,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "72-72*omega",
+          "exponents": [
+            2,
+            11,
+            2,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "1296+486*omega",
+          "exponents": [
+            2,
+            8,
+            5,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-972-2592*omega",
+          "exponents": [
+            2,
+            8,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "648-216*omega",
+          "exponents": [
+            2,
+            8,
+            5,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-1134+3240*omega",
+          "exponents": [
+            2,
+            5,
+            8,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "972-324*omega",
+          "exponents": [
+            2,
+            5,
+            8,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "864+1944*omega",
+          "exponents": [
+            2,
+            5,
+            8,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-2484-3186*omega",
+          "exponents": [
+            2,
+            2,
+            11,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "1944+216*omega",
+          "exponents": [
+            2,
+            2,
+            11,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1008-504*omega",
+          "exponents": [
+            2,
+            2,
+            11,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-54-108*omega",
+          "exponents": [
+            1,
+            10,
+            4,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-216+108*omega",
+          "exponents": [
+            1,
+            10,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-144-72*omega",
+          "exponents": [
+            1,
+            10,
+            4,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "1296+486*omega",
+          "exponents": [
+            1,
+            7,
+            7,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-324+1296*omega",
+          "exponents": [
+            1,
+            7,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-864-648*omega",
+          "exponents": [
+            1,
+            7,
+            7,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "810+1296*omega",
+          "exponents": [
+            1,
+            4,
+            10,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-2268-1620*omega",
+          "exponents": [
+            1,
+            4,
+            10,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "1080-864*omega",
+          "exponents": [
+            1,
+            4,
+            10,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-540+702*omega",
+          "exponents": [
+            1,
+            1,
+            13,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-216-864*omega",
+          "exponents": [
+            1,
+            1,
+            13,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "504+1008*omega",
+          "exponents": [
+            1,
+            1,
+            13,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-54-108*omega",
+          "exponents": [
+            0,
+            9,
+            6,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "216",
+          "exponents": [
+            0,
+            9,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "72+144*omega",
+          "exponents": [
+            0,
+            9,
+            6,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-162*omega",
+          "exponents": [
+            0,
+            6,
+            9,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "324+324*omega",
+          "exponents": [
+            0,
+            6,
+            9,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-216",
+          "exponents": [
+            0,
+            6,
+            9,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "162",
+          "exponents": [
+            0,
+            3,
+            12,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "324*omega",
+          "exponents": [
+            0,
+            3,
+            12,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-216-216*omega",
+          "exponents": [
+            0,
+            3,
+            12,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "108+54*omega",
+          "exponents": [
+            0,
+            0,
+            15,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-108",
+          "exponents": [
+            0,
+            0,
+            15,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "72-72*omega",
+          "exponents": [
+            0,
+            0,
+            15,
+            -4,
+            -2
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "-162",
+          "exponents": [
+            12,
+            2,
+            1,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "216+216*omega",
+          "exponents": [
+            12,
+            2,
+            1,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-2106*omega",
+          "exponents": [
+            10,
+            3,
+            2,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-648",
+          "exponents": [
+            10,
+            3,
+            2,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1080+216*omega",
+          "exponents": [
+            10,
+            3,
+            2,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "162*omega",
+          "exponents": [
+            10,
+            0,
+            5,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-216-216*omega",
+          "exponents": [
+            10,
+            0,
+            5,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-324-162*omega",
+          "exponents": [
+            9,
+            5,
+            1,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-216+216*omega",
+          "exponents": [
+            9,
+            5,
+            1,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "162*omega",
+          "exponents": [
+            9,
+            2,
+            4,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-324*omega",
+          "exponents": [
+            9,
+            2,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-432*omega",
+          "exponents": [
+            9,
+            2,
+            4,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "7776+7776*omega",
+          "exponents": [
+            8,
+            4,
+            3,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-972-4212*omega",
+          "exponents": [
+            8,
+            4,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-1296",
+          "exponents": [
+            8,
+            4,
+            3,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-1944-1944*omega",
+          "exponents": [
+            8,
+            1,
+            6,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "648+648*omega",
+          "exponents": [
+            8,
+            1,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "1296",
+          "exponents": [
+            8,
+            1,
+            6,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "2106-162*omega",
+          "exponents": [
+            7,
+            6,
+            2,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-648-648*omega",
+          "exponents": [
+            7,
+            6,
+            2,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-216-2376*omega",
+          "exponents": [
+            7,
+            6,
+            2,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-2268-162*omega",
+          "exponents": [
+            7,
+            3,
+            5,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "3240+3240*omega",
+          "exponents": [
+            7,
+            3,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "4320+2160*omega",
+          "exponents": [
+            7,
+            3,
+            5,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "162+324*omega",
+          "exponents": [
+            7,
+            0,
+            8,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-324*omega",
+          "exponents": [
+            7,
+            0,
+            8,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-216+216*omega",
+          "exponents": [
+            7,
+            0,
+            8,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-162-324*omega",
+          "exponents": [
+            6,
+            8,
+            1,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-432-216*omega",
+          "exponents": [
+            6,
+            8,
+            1,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-5508+162*omega",
+          "exponents": [
+            6,
+            5,
+            4,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "2268-3888*omega",
+          "exponents": [
+            6,
+            5,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216-216*omega",
+          "exponents": [
+            6,
+            5,
+            4,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "6156+162*omega",
+          "exponents": [
+            6,
+            2,
+            7,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-4536-648*omega",
+          "exponents": [
+            6,
+            2,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-432-216*omega",
+          "exponents": [
+            6,
+            2,
+            7,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-5832+1944*omega",
+          "exponents": [
+            5,
+            7,
+            3,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "3240+2916*omega",
+          "exponents": [
+            5,
+            7,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-2592*omega",
+          "exponents": [
+            5,
+            7,
+            3,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-3888-13608*omega",
+          "exponents": [
+            5,
+            4,
+            6,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-8100+5184*omega",
+          "exponents": [
+            5,
+            4,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "2592+5184*omega",
+          "exponents": [
+            5,
+            4,
+            6,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-1944",
+          "exponents": [
+            5,
+            1,
+            9,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "2592+1944*omega",
+          "exponents": [
+            5,
+            1,
+            9,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-2592-2592*omega",
+          "exponents": [
+            5,
+            1,
+            9,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "2268+2106*omega",
+          "exponents": [
+            4,
+            9,
+            2,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-648*omega",
+          "exponents": [
+            4,
+            9,
+            2,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "864+1080*omega",
+          "exponents": [
+            4,
+            9,
+            2,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-2268+1782*omega",
+          "exponents": [
+            4,
+            6,
+            5,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-648+1296*omega",
+          "exponents": [
+            4,
+            6,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-2160+2808*omega",
+          "exponents": [
+            4,
+            6,
+            5,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-324+1782*omega",
+          "exponents": [
+            4,
+            3,
+            8,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "3564-1944*omega",
+          "exponents": [
+            4,
+            3,
+            8,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-2808-4320*omega",
+          "exponents": [
+            4,
+            3,
+            8,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "324+162*omega",
+          "exponents": [
+            4,
+            0,
+            11,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-324-324*omega",
+          "exponents": [
+            4,
+            0,
+            11,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216+432*omega",
+          "exponents": [
+            4,
+            0,
+            11,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-162*omega",
+          "exponents": [
+            3,
+            11,
+            1,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-216*omega",
+          "exponents": [
+            3,
+            11,
+            1,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "324-5670*omega",
+          "exponents": [
+            3,
+            8,
+            4,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "4212+6156*omega",
+          "exponents": [
+            3,
+            8,
+            4,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "864+432*omega",
+          "exponents": [
+            3,
+            8,
+            4,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "6156+11826*omega",
+          "exponents": [
+            3,
+            5,
+            7,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-5832-5832*omega",
+          "exponents": [
+            3,
+            5,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216+432*omega",
+          "exponents": [
+            3,
+            5,
+            7,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-5832-5994*omega",
+          "exponents": [
+            3,
+            2,
+            10,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "3240+3888*omega",
+          "exponents": [
+            3,
+            2,
+            10,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "432*omega",
+          "exponents": [
+            3,
+            2,
+            10,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-1944",
+          "exponents": [
+            2,
+            10,
+            3,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "324-648*omega",
+          "exponents": [
+            2,
+            10,
+            3,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "1296+1296*omega",
+          "exponents": [
+            2,
+            10,
+            3,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "5832-1944*omega",
+          "exponents": [
+            2,
+            7,
+            6,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-3564-7452*omega",
+          "exponents": [
+            2,
+            7,
+            6,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-3888-1296*omega",
+          "exponents": [
+            2,
+            7,
+            6,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "1944+5832*omega",
+          "exponents": [
+            2,
+            4,
+            9,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "5832+4212*omega",
+          "exponents": [
+            2,
+            4,
+            9,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "2592-1296*omega",
+          "exponents": [
+            2,
+            4,
+            9,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "1944*omega",
+          "exponents": [
+            2,
+            1,
+            12,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-2592*omega",
+          "exponents": [
+            2,
+            1,
+            12,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "1296*omega",
+          "exponents": [
+            2,
+            1,
+            12,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "162+162*omega",
+          "exponents": [
+            1,
+            12,
+            2,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-216*omega",
+          "exponents": [
+            1,
+            12,
+            2,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-1944-1782*omega",
+          "exponents": [
+            1,
+            9,
+            5,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-648+648*omega",
+          "exponents": [
+            1,
+            9,
+            5,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-864-864*omega",
+          "exponents": [
+            1,
+            9,
+            5,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-324-2106*omega",
+          "exponents": [
+            1,
+            6,
+            8,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-972+1620*omega",
+          "exponents": [
+            1,
+            6,
+            8,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "2376+216*omega",
+          "exponents": [
+            1,
+            6,
+            8,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "1944-162*omega",
+          "exponents": [
+            1,
+            3,
+            11,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-2592-2916*omega",
+          "exponents": [
+            1,
+            3,
+            11,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-432+864*omega",
+          "exponents": [
+            1,
+            3,
+            11,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "162",
+          "exponents": [
+            1,
+            0,
+            14,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-324",
+          "exponents": [
+            1,
+            0,
+            14,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216",
+          "exponents": [
+            1,
+            0,
+            14,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "162*omega",
+          "exponents": [
+            0,
+            11,
+            4,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "216*omega",
+          "exponents": [
+            0,
+            11,
+            4,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-162+162*omega",
+          "exponents": [
+            0,
+            8,
+            7,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "324",
+          "exponents": [
+            0,
+            8,
+            7,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-432-216*omega",
+          "exponents": [
+            0,
+            8,
+            7,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-324-162*omega",
+          "exponents": [
+            0,
+            5,
+            10,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "324+324*omega",
+          "exponents": [
+            0,
+            5,
+            10,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-216-432*omega",
+          "exponents": [
+            0,
+            5,
+            10,
+            -4,
+            -2
+          ]
+        },
+        {
+          "coefficient": "-162-162*omega",
+          "exponents": [
+            0,
+            2,
+            13,
+            -2,
+            -4
+          ]
+        },
+        {
+          "coefficient": "324*omega",
+          "exponents": [
+            0,
+            2,
+            13,
+            -3,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216",
+          "exponents": [
+            0,
+            2,
+            13,
+            -4,
+            -2
+          ]
+        }
+      ]
+    ],
+    "first_factor_x_cells_checked": [
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        2
+      ]
+    ],
+    "koszul_residual_numerator": [
+      [
+        {
+          "coefficient": "-18-18*omega",
+          "exponents": [
+            8,
+            3,
+            2,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-24-12*omega",
+          "exponents": [
+            8,
+            3,
+            2,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "36+36*omega",
+          "exponents": [
+            7,
+            2,
+            4,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "12+24*omega",
+          "exponents": [
+            7,
+            2,
+            4,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "108",
+          "exponents": [
+            6,
+            4,
+            3,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "72-72*omega",
+          "exponents": [
+            6,
+            4,
+            3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18-18*omega",
+          "exponents": [
+            6,
+            1,
+            6,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "12-12*omega",
+          "exponents": [
+            6,
+            1,
+            6,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18*omega",
+          "exponents": [
+            5,
+            6,
+            2,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12-24*omega",
+          "exponents": [
+            5,
+            6,
+            2,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-234",
+          "exponents": [
+            5,
+            3,
+            5,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-156-60*omega",
+          "exponents": [
+            5,
+            3,
+            5,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "36*omega",
+          "exponents": [
+            4,
+            5,
+            4,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12+12*omega",
+          "exponents": [
+            4,
+            5,
+            4,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "144",
+          "exponents": [
+            4,
+            2,
+            7,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "96+156*omega",
+          "exponents": [
+            4,
+            2,
+            7,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "108*omega",
+          "exponents": [
+            3,
+            7,
+            3,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "72+144*omega",
+          "exponents": [
+            3,
+            7,
+            3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-108-126*omega",
+          "exponents": [
+            3,
+            4,
+            6,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-120-60*omega",
+          "exponents": [
+            3,
+            4,
+            6,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18",
+          "exponents": [
+            3,
+            1,
+            9,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12-24*omega",
+          "exponents": [
+            3,
+            1,
+            9,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18",
+          "exponents": [
+            2,
+            9,
+            2,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "12-12*omega",
+          "exponents": [
+            2,
+            9,
+            2,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18-198*omega",
+          "exponents": [
+            2,
+            6,
+            5,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "96-60*omega",
+          "exponents": [
+            2,
+            6,
+            5,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216+234*omega",
+          "exponents": [
+            2,
+            3,
+            8,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "84+168*omega",
+          "exponents": [
+            2,
+            3,
+            8,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-36",
+          "exponents": [
+            1,
+            8,
+            4,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-24-12*omega",
+          "exponents": [
+            1,
+            8,
+            4,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-36+72*omega",
+          "exponents": [
+            1,
+            5,
+            7,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-156-96*omega",
+          "exponents": [
+            1,
+            5,
+            7,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-108-144*omega",
+          "exponents": [
+            1,
+            2,
+            10,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "84-84*omega",
+          "exponents": [
+            1,
+            2,
+            10,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18",
+          "exponents": [
+            0,
+            7,
+            6,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "12+24*omega",
+          "exponents": [
+            0,
+            7,
+            6,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18+18*omega",
+          "exponents": [
+            0,
+            4,
+            9,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12+12*omega",
+          "exponents": [
+            0,
+            4,
+            9,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18*omega",
+          "exponents": [
+            0,
+            1,
+            12,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-24-12*omega",
+          "exponents": [
+            0,
+            1,
+            12,
+            -4,
+            -3
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "36+36*omega",
+          "exponents": [
+            8,
+            2,
+            3,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-24-12*omega",
+          "exponents": [
+            8,
+            2,
+            3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18-18*omega",
+          "exponents": [
+            7,
+            1,
+            5,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "12+24*omega",
+          "exponents": [
+            7,
+            1,
+            5,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-216",
+          "exponents": [
+            6,
+            3,
+            4,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "72-72*omega",
+          "exponents": [
+            6,
+            3,
+            4,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18-18*omega",
+          "exponents": [
+            6,
+            0,
+            7,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "12-12*omega",
+          "exponents": [
+            6,
+            0,
+            7,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "36*omega",
+          "exponents": [
+            5,
+            5,
+            3,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12-24*omega",
+          "exponents": [
+            5,
+            5,
+            3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "144",
+          "exponents": [
+            5,
+            2,
+            6,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-156-60*omega",
+          "exponents": [
+            5,
+            2,
+            6,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18*omega",
+          "exponents": [
+            4,
+            4,
+            5,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12+12*omega",
+          "exponents": [
+            4,
+            4,
+            5,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "90",
+          "exponents": [
+            4,
+            1,
+            8,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "96+156*omega",
+          "exponents": [
+            4,
+            1,
+            8,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-216*omega",
+          "exponents": [
+            3,
+            6,
+            4,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "72+144*omega",
+          "exponents": [
+            3,
+            6,
+            4,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216+198*omega",
+          "exponents": [
+            3,
+            3,
+            7,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-120-60*omega",
+          "exponents": [
+            3,
+            3,
+            7,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18",
+          "exponents": [
+            3,
+            0,
+            10,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12-24*omega",
+          "exponents": [
+            3,
+            0,
+            10,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-36",
+          "exponents": [
+            2,
+            8,
+            3,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "12-12*omega",
+          "exponents": [
+            2,
+            8,
+            3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-36+72*omega",
+          "exponents": [
+            2,
+            5,
+            6,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "96-60*omega",
+          "exponents": [
+            2,
+            5,
+            6,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-108-144*omega",
+          "exponents": [
+            2,
+            2,
+            9,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "84+168*omega",
+          "exponents": [
+            2,
+            2,
+            9,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18",
+          "exponents": [
+            1,
+            7,
+            5,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-24-12*omega",
+          "exponents": [
+            1,
+            7,
+            5,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18+126*omega",
+          "exponents": [
+            1,
+            4,
+            8,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-156-96*omega",
+          "exponents": [
+            1,
+            4,
+            8,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-108-90*omega",
+          "exponents": [
+            1,
+            1,
+            11,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "84-84*omega",
+          "exponents": [
+            1,
+            1,
+            11,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18",
+          "exponents": [
+            0,
+            6,
+            7,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "12+24*omega",
+          "exponents": [
+            0,
+            6,
+            7,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18+18*omega",
+          "exponents": [
+            0,
+            3,
+            10,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12+12*omega",
+          "exponents": [
+            0,
+            3,
+            10,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18*omega",
+          "exponents": [
+            0,
+            0,
+            13,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-24-12*omega",
+          "exponents": [
+            0,
+            0,
+            13,
+            -4,
+            -3
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "-18*omega",
+          "exponents": [
+            9,
+            2,
+            2,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12+12*omega",
+          "exponents": [
+            9,
+            2,
+            2,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18+18*omega",
+          "exponents": [
+            8,
+            1,
+            4,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12-24*omega",
+          "exponents": [
+            8,
+            1,
+            4,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "90+72*omega",
+          "exponents": [
+            7,
+            3,
+            3,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-108-144*omega",
+          "exponents": [
+            7,
+            3,
+            3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18",
+          "exponents": [
+            7,
+            0,
+            6,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "24+12*omega",
+          "exponents": [
+            7,
+            0,
+            6,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18",
+          "exponents": [
+            6,
+            5,
+            2,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-24-12*omega",
+          "exponents": [
+            6,
+            5,
+            2,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-108+18*omega",
+          "exponents": [
+            6,
+            2,
+            5,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "192+96*omega",
+          "exponents": [
+            6,
+            2,
+            5,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "216+126*omega",
+          "exponents": [
+            5,
+            4,
+            4,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "12-228*omega",
+          "exponents": [
+            5,
+            4,
+            4,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18-108*omega",
+          "exponents": [
+            5,
+            1,
+            7,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-96+60*omega",
+          "exponents": [
+            5,
+            1,
+            7,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-90-18*omega",
+          "exponents": [
+            4,
+            6,
+            3,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "108+36*omega",
+          "exponents": [
+            4,
+            6,
+            3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-270-252*omega",
+          "exponents": [
+            4,
+            3,
+            6,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-60+348*omega",
+          "exponents": [
+            4,
+            3,
+            6,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18*omega",
+          "exponents": [
+            4,
+            0,
+            9,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "12-12*omega",
+          "exponents": [
+            4,
+            0,
+            9,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18+18*omega",
+          "exponents": [
+            3,
+            8,
+            2,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12-24*omega",
+          "exponents": [
+            3,
+            8,
+            2,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18-72*omega",
+          "exponents": [
+            3,
+            5,
+            5,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-24+96*omega",
+          "exponents": [
+            3,
+            5,
+            5,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "126+126*omega",
+          "exponents": [
+            3,
+            2,
+            8,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-48-168*omega",
+          "exponents": [
+            3,
+            2,
+            8,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-126+108*omega",
+          "exponents": [
+            2,
+            7,
+            4,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "240+228*omega",
+          "exponents": [
+            2,
+            7,
+            4,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18-126*omega",
+          "exponents": [
+            2,
+            4,
+            7,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-276-120*omega",
+          "exponents": [
+            2,
+            4,
+            7,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-108-18*omega",
+          "exponents": [
+            2,
+            1,
+            10,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "132+84*omega",
+          "exponents": [
+            2,
+            1,
+            10,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "36+18*omega",
+          "exponents": [
+            1,
+            9,
+            3,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-36*omega",
+          "exponents": [
+            1,
+            9,
+            3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "126-90*omega",
+          "exponents": [
+            1,
+            6,
+            6,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-192-204*omega",
+          "exponents": [
+            1,
+            6,
+            6,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "108+234*omega",
+          "exponents": [
+            1,
+            3,
+            9,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "228+24*omega",
+          "exponents": [
+            1,
+            3,
+            9,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18+18*omega",
+          "exponents": [
+            1,
+            0,
+            12,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-12-24*omega",
+          "exponents": [
+            1,
+            0,
+            12,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-36-18*omega",
+          "exponents": [
+            0,
+            8,
+            5,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "36*omega",
+          "exponents": [
+            0,
+            8,
+            5,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "-18-36*omega",
+          "exponents": [
+            0,
+            5,
+            8,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-36",
+          "exponents": [
+            0,
+            5,
+            8,
+            -4,
+            -3
+          ]
+        },
+        {
+          "coefficient": "18-18*omega",
+          "exponents": [
+            0,
+            2,
+            11,
+            -3,
+            -4
+          ]
+        },
+        {
+          "coefficient": "-36-36*omega",
+          "exponents": [
+            0,
+            2,
+            11,
+            -4,
+            -3
+          ]
+        }
+      ]
+    ],
+    "koszul_source_term_count_per_x_cell": 6,
+    "koszul_term_necessary_exact": true,
+    "middle_source_term_count_per_x_cell": 9,
+    "minor_product_denominator": [
+      {
+        "coefficient": "36*omega",
+        "exponents": [
+          8,
+          2,
+          2,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-36-36*omega",
+        "exponents": [
+          7,
+          1,
+          4,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-216-216*omega",
+        "exponents": [
+          6,
+          3,
+          3,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "36",
+        "exponents": [
+          6,
+          0,
+          6,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-36",
+        "exponents": [
+          5,
+          5,
+          2,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "252+36*omega",
+        "exponents": [
+          5,
+          2,
+          5,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-36*omega",
+        "exponents": [
+          4,
+          4,
+          4,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-36+216*omega",
+        "exponents": [
+          4,
+          1,
+          7,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "216",
+        "exponents": [
+          3,
+          6,
+          3,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "36+252*omega",
+        "exponents": [
+          3,
+          3,
+          6,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-36*omega",
+        "exponents": [
+          3,
+          0,
+          9,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-36-36*omega",
+        "exponents": [
+          2,
+          8,
+          2,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "180*omega",
+        "exponents": [
+          2,
+          5,
+          5,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-180-216*omega",
+        "exponents": [
+          2,
+          2,
+          8,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "36",
+        "exponents": [
+          1,
+          7,
+          4,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-180-180*omega",
+        "exponents": [
+          1,
+          4,
+          7,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "216+36*omega",
+        "exponents": [
+          1,
+          1,
+          10,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "36*omega",
+        "exponents": [
+          0,
+          6,
+          6,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-36",
+        "exponents": [
+          0,
+          3,
+          9,
+          -2,
+          -2
+        ]
+      },
+      {
+        "coefficient": "-36-36*omega",
+        "exponents": [
+          0,
+          0,
+          12,
+          -2,
+          -2
+        ]
+      }
+    ],
+    "original_overlap_equation_exact": true
+  },
+  "first_factor_x_cell_independence_exact": true,
+  "global_hom_to_tensor_chain_map_constructed": false,
+  "next_required_object": "use the explicit nine corrected overlap blocks to solve the remaining base-cover and minor-open Cech-Koszul gluing",
+  "prerequisite_artifact_digests": {
+    "full_hom_cochain": "373de106d1ef9683dd97a70cb58234d51d3e689fe9eb0a922ade4051e111bcd4",
+    "local_syzygy_section": "b2902999bfbc9cc5e6eb2d0d11caad83934ac819e233424fa02d7227e8f81697"
+  },
+  "schema": "alternate-up-higgs-fiber-overlap-transport-v1"
+}

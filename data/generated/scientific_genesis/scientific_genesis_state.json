@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "3fb4f600efed1bd3cca9ad3ea9b53e4e606b501de1a3899c3ecf1bc5fd95feae",
+  "artifact_digest": "09b07e737195e67739eaf2c6384cd9b1eb005c9b25b5d6b348603c9b663ed9bc",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -567,6 +567,11 @@
       "sha256": "76bf5037eb4f0d72bd2d089eb488aebe27b0ba4c8caac481e0ce14e340626bfb"
     },
     {
+      "bytes": 71899,
+      "path": "data/generated/scientific_genesis/alternate_up_higgs_fiber_overlap_transport.json",
+      "sha256": "ae418229b735c00cfaaf11f4ce37e050e04fbf579ba81f1eb054e4ac2064d930"
+    },
+    {
       "bytes": 1322,
       "path": "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
       "sha256": "88ae38c3a0de4e90dc41dfc4a585989e0314a08e4c2a162239c78808e2b90051"
@@ -601,8 +606,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 229,
-    "test_python_files": 211
+    "research_python_files": 230,
+    "test_python_files": 212
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1512,6 +1517,29 @@
         "exterior-cone Higgs lift"
       ],
       "statement": "The saved strict Hom class has eighteen nonzero right-chart syzygy blocks. On the selected minor principal open, exact adjugate middle numerators map to denominator times each block under the independently assembled right mixed arrows. Fiber-overlap gluing and full Cech--Koszul tensor transport remain unresolved.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "strict Hom cochain",
+        "localized syzygy sections",
+        "alternate atlas"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_higgs_fiber_overlap_transport.json",
+        "research/experiments/scientific_genesis/alternate_up_higgs_fiber_overlap_transport.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_HIGGS_FIBER_OVERLAP_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_higgs_fiber_overlap_transport.py"
+      ],
+      "id": "alternate_up_higgs_fiber_overlap_transport",
+      "label": "Koszul-corrected fiber transport of the strict alternate Hom class",
+      "layer": "Computable carrier",
+      "missing_prerequisites": [
+        "base-cover gluing",
+        "global Hom-to-tensor map",
+        "exterior-cone Higgs lift"
+      ],
+      "statement": "The actual vertex syzygies, fiber-overlap middle terms, and k1_u syzygies satisfy an exact three-part closure identity. After the certified unipotent gauge transports the local minor-open sections, one exact homogeneous formula satisfies B N = F K across all nine cover blocks. Base-cover and minor-open gluing remain unresolved.",
       "status": "COMPUTED"
     },
     {
@@ -3289,6 +3317,23 @@
       "mathematical_reason": "The exact adjugate section of the alternate rank-three relation is applied to each actual syzygy vector; the right-arrow matrix independently fixes its object ordering and sign.",
       "source": "alternate_constituent_duality_local_inverse",
       "target": "alternate_up_higgs_local_syzygy_section"
+    },
+    {
+      "assumptions_required": [
+        "certified alternate overlap gauge",
+        "minor-open localization"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_higgs_fiber_overlap_transport.json",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_HIGGS_FIBER_OVERLAP_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "base overlaps and minor overlaps remain unglued"
+      ],
+      "mathematical_reason": "The strict Hom fiber-edge terms obey s_mu-s_nu+B g-F h=0. Transporting each actual local primitive by the alternate unipotent gauge and clearing both minor denominators gives B N=F K with an explicit Koszul numerator on every block.",
+      "source": "alternate_up_higgs_local_syzygy_section",
+      "target": "alternate_up_higgs_fiber_overlap_transport"
     },
     {
       "assumptions_required": [

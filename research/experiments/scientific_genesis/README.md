@@ -512,8 +512,21 @@ eighteen nonzero syzygy vectors. Adjugate sections give explicit
 middle-object Laurent numerators; an independently assembled right
 mixed-arrow matrix sends each numerator to the selected minor times its
 actual source vector. This is local homotopy data with denominators, not
-a global cochain. The 135 fiber-overlap terms, Čech–Koszul gluing, and
-exterior-cone Higgs lift remain open.
+a global cochain. The 135 fiber-overlap terms must enter the next
+transport step; base-cover Čech–Koszul gluing and the exterior-cone
+Higgs lift remain open.
+
+The fiber-overlap step now uses those terms directly. On each of the
+three alternate base charts, the vertex syzygies, middle overlap terms,
+and `k1_u` syzygies satisfy an exact closure identity; omitting the
+Koszul term fails. Transporting the local sections through the certified
+unipotent gauge and clearing both minor denominators produces an exact
+middle numerator whose right differential is the Schoen equation times
+an explicit Koszul numerator. All nine cover blocks close with one
+identical homogeneous formula. This is localized overlap data, not a
+global tensor cocycle: base-cover and
+minor-open comparisons, the exterior-cone lift, and all Yukawa entries
+remain open.
 
 The universal up-matrix filtration also fixes its parameter support:
 first/first vanishes, mixed entries are constant, and second/second

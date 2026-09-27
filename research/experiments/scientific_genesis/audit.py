@@ -1073,6 +1073,30 @@ def _nodes() -> list[dict[str, object]]:
             ("fiber-overlap gluing", "exterior-cone Higgs lift"),
         ),
         _node(
+            "alternate_up_higgs_fiber_overlap_transport",
+            "Koszul-corrected fiber transport of the strict alternate Hom class",
+            "Computable carrier",
+            "COMPUTED",
+            "The actual vertex syzygies, fiber-overlap middle terms, and "
+            "k1_u syzygies satisfy an exact three-part closure identity. "
+            "After the certified unipotent gauge transports the local "
+            "minor-open sections, one exact homogeneous formula "
+            "satisfies B N = F K across all nine cover blocks. "
+            "Base-cover and minor-open gluing remain unresolved.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_fiber_overlap_transport.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_up_higgs_fiber_overlap_transport.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_HIGGS_FIBER_OVERLAP_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_up_higgs_fiber_overlap_transport.py",
+            ),
+            ("strict Hom cochain", "localized syzygy sections", "alternate atlas"),
+            ("base-cover gluing", "global Hom-to-tensor map", "exterior-cone Higgs lift"),
+        ),
+        _node(
             "alternate_up_yukawa_support",
             "universal up-matrix filtration support",
             "Flavor",
@@ -3072,6 +3096,23 @@ def _edges() -> list[dict[str, object]]:
             ("certified minor-open dual contraction",),
             True,
             ("a local section is not a global tensor chain map",),
+        ),
+        _edge(
+            "alternate_up_higgs_local_syzygy_section",
+            "alternate_up_higgs_fiber_overlap_transport",
+            "The strict Hom fiber-edge terms obey s_mu-s_nu+B g-F h=0. "
+            "Transporting each actual local primitive by the alternate "
+            "unipotent gauge and clearing both minor denominators gives "
+            "B N=F K with an explicit Koszul numerator on every block.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_up_higgs_fiber_overlap_transport.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_UP_HIGGS_FIBER_OVERLAP_NOTE.md",
+            ),
+            ("certified alternate overlap gauge", "minor-open localization"),
+            True,
+            ("base overlaps and minor overlaps remain unglued",),
         ),
         _edge(
             "alternate_constituent_up_cone_matter_lifts",
@@ -5890,6 +5931,35 @@ def build_state() -> dict[str, object]:
         or local_section.get("exterior_cone_higgs_cocycle_constructed") is not False
     ):
         raise ValueError("the actual alternate Hom syzygy sections are not certified")
+    fiber_transport_path = (
+        ROOT / "data/generated/scientific_genesis/"
+        "alternate_up_higgs_fiber_overlap_transport.json"
+    )
+    fiber_transport = json.loads(fiber_transport_path.read_text(encoding="utf-8"))
+    fiber_transport_digest = fiber_transport.pop("artifact_digest", None)
+    fiber_inputs = fiber_transport.get("prerequisite_artifact_digests", {})
+    fiber_record = fiber_transport.get("fiber_overlap_representative", {})
+    if (
+        fiber_transport_digest != _canonical_digest(fiber_transport)
+        or fiber_transport.get("schema") != "alternate-up-higgs-fiber-overlap-transport-v1"
+        or fiber_inputs.get("full_hom_cochain") != full_hom_digest
+        or fiber_inputs.get("local_syzygy_section") != local_section_digest
+        or fiber_transport.get("fiber_overlap_blocks_checked") != 9
+        or fiber_record.get("base_pivots_checked") != [0, 1, 2]
+        or fiber_record.get("first_factor_x_cells_checked") != [[0], [1], [2]]
+        or fiber_record.get("middle_source_term_count_per_x_cell") != 9
+        or fiber_record.get("koszul_source_term_count_per_x_cell") != 6
+        or fiber_record.get("koszul_term_necessary_exact") is not True
+        or fiber_record.get("corrected_koszul_divisibility_exact") is not True
+        or fiber_transport.get("all_original_overlap_equations_exact") is not True
+        or fiber_transport.get("all_corrected_koszul_divisibility_exact") is not True
+        or fiber_transport.get("first_factor_x_cell_independence_exact") is not True
+        or fiber_transport.get("base_chart_formula_independence_exact") is not True
+        or fiber_transport.get("base_overlap_gluing_constructed") is not False
+        or fiber_transport.get("global_hom_to_tensor_chain_map_constructed") is not False
+        or fiber_transport.get("exterior_cone_higgs_cocycle_constructed") is not False
+    ):
+        raise ValueError("the alternate Hom fiber-overlap transport is not certified")
     up_support_path = (
         ROOT / "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json"
@@ -6130,6 +6200,8 @@ def build_state() -> dict[str, object]:
         "alternate_constituent_duality_local_inverse.json",
         "data/generated/scientific_genesis/"
         "alternate_up_higgs_local_syzygy_section.json",
+        "data/generated/scientific_genesis/"
+        "alternate_up_higgs_fiber_overlap_transport.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",

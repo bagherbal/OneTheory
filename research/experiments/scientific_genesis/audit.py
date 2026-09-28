@@ -1318,6 +1318,49 @@ def _nodes() -> list[dict[str, object]]:
             ("syzygy comparison", "outer-cone comparison", "natural exterior-V-to-Q product"),
         ),
         _node(
+            "mixed_graded_rank_one_tensor_comparison",
+            "full graded tensor identity for an isolated even rank-one mixed image",
+            "Flavor",
+            "DERIVED",
+            "The structural-first differential requires coefficient-before-second-object "
+            "braiding. The derived cover homotopy then cancels mixed commutators "
+            "in every internal degree. Full Hom-row closure cancels syzygy terms; "
+            "quadratic corrections land in A wedge A. The actual strict odd-object "
+            "boundary produces a corrected 294-term wedge equal to the differential "
+            "of a 47-term primitive, rather than the raw 489-term closure defect. "
+            "The original null wedge is unchanged. The coupled outer cone is not certified.",
+            (
+                "data/generated/scientific_genesis/alternate_up_syzygy_tensor_comparison.json",
+                "research/experiments/scientific_genesis/mixed_schoen_rank_one_tensor.py",
+                "research/experiments/scientific_genesis/alternate_up_syzygy_tensor_comparison.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+                "tests/integration/test_scientific_genesis_rank_one_tensor.py",
+                "tests/integration/test_scientific_genesis_syzygy_tensor_comparison.py",
+            ),
+            (
+                "two-term polynomial skeleton", "closed full mixed Hom row",
+                "one isolated even nilpotent target", "explicit ordered cover homotopy",
+            ),
+            ("coupled outer-cone comparison", "physical pairing identification"),
+        ),
+        _node(
+            "product_cover_homotopy_strict_hirsch",
+            "strict first-slot Hirsch rule for the product-cover coefficient homotopy",
+            "Flavor",
+            "REFUTED",
+            "Three explicit scalar degree-one edge cochains give a one-term "
+            "defect in H(ab,c)-(-1)^|a| a H(b,c)-(-1)^(|b||c|) H(a,c)b. "
+            "The telescoping product-cover homotopy is therefore not a strict "
+            "first-slot derivation, although its commutator chain identity remains exact. "
+            "Coupled outer rows need a compatible higher homotopy or a scoped quotient proof.",
+            (
+                "tests/integration/test_scientific_genesis_cup_homotopy.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+            ),
+            ("fixed product-cover ordering", "scalar degree-one mathematical cochains"),
+            ("actual outer defect not evaluated", "no carrier or Yukawa refutation"),
+        ),
+        _node(
             "alternate_constituent_determinant_pairing",
             "local pairing for the frozen alternate I6 ray",
             "Computable carrier",
@@ -3618,6 +3661,49 @@ def _edges() -> list[dict[str, object]]:
             ("equivariance alone does not identify a matter-product map",),
         ),
         _edge(
+            "mixed_even_rank_one_tensor_homotopy",
+            "mixed_graded_rank_one_tensor_comparison",
+            "Correct internal braiding and the complete mixed Hom row extend "
+            "the coefficient homotopy to odd syzygies without fitting a scalar.",
+            ("data/generated/scientific_genesis/alternate_up_syzygy_tensor_comparison.json",),
+            ("isolated even image", "global polynomial arrows", "full row closure"),
+            True,
+            ("odd coefficients are not individually closed",),
+        ),
+        _edge(
+            "mixed_graded_rank_one_tensor_comparison",
+            "first_exact_yukawa",
+            "The F tensor comparison must be extended through the coupled "
+            "outer arrows and the legitimate B tensor A quotient before "
+            "identifying the physical pairing and declaring its trace.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",),
+            ("natural outer-cone product", "determinant and quotient trace conventions"),
+            False,
+            ("the outer coefficient acts nontrivially on the inner target",),
+        ),
+        _edge(
+            "mixed_graded_rank_one_tensor_comparison",
+            "product_cover_homotopy_strict_hirsch",
+            "A coupled outer-row extension would need a product compatibility "
+            "not supplied by the rank-one homotopy identity; an exact edge-cell "
+            "counterexample disproves the proposed strict Hirsch shortcut.",
+            ("tests/integration/test_scientific_genesis_cup_homotopy.py",),
+            ("full product-cover homotopy", "three degree-one scalar cochains"),
+            True,
+            ("a strict rule on one simplex does not imply it on a product cover",),
+        ),
+        _edge(
+            "product_cover_homotopy_strict_hirsch",
+            "first_exact_yukawa",
+            "Use a derived higher coefficient compatibility or prove that "
+            "the actual outer comparison defect vanishes in the legitimate "
+            "quotient; the failed strict rule cannot identify the physical product.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",),
+            ("actual coupled cochain comparison", "unchanged carrier inputs"),
+            False,
+            ("the generic defect is not a computed physical coupling",),
+        ),
+        _edge(
             "alternate_up_first_order_scalar",
             "alternate_up_pairing_exchange",
             "Exchange the full actual inputs without changing the primitive "
@@ -3714,8 +3800,8 @@ def _edges() -> list[dict[str, object]]:
             "mixed_even_rank_one_tensor_homotopy",
             "first_exact_yukawa",
             "The even-sector correction restores the actual boundary identity. "
-            "It must extend through syzygies and the outer quotient cone "
-            "before identifying the natural physical matter product.",
+            "Its graded extension is derived under rank-one hypotheses; "
+            "the coupled outer quotient comparison is still required.",
             ("research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",),
             ("complete natural tensor comparison", "declared trace normalization"),
             False,
@@ -5857,12 +5943,14 @@ def _engines() -> list[dict[str, object]]:
         ),
         (
             "mixed graded exterior squares and reciprocal covector products",
-            "research-only; raw vector cup fails a boundary test, even-sector homotopy derived",
+            "research-only; graded rank-one comparison derived, coupled outer cone unresolved",
             (
                 "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
                 "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py",
                 "research/experiments/scientific_genesis/mixed_schoen_cup_homotopy.py",
                 "research/experiments/scientific_genesis/alternate_up_exterior_boundary_attack.py",
+                "research/experiments/scientific_genesis/mixed_schoen_rank_one_tensor.py",
+                "research/experiments/scientific_genesis/alternate_up_syzygy_tensor_comparison.py",
             ),
         ),
         (
@@ -5926,8 +6014,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             1,
-            "The raw exterior cup fails an actual boundary test. Extend the "
-            "derived even-sector correction through syzygies and the outer cone before pairing.",
+            "The full graded rank-one F comparison is derived. The outer coefficient "
+            "acts on the inner target, so derive the coupled outer comparison before pairing.",
         ),
         (
             "alternate_complete_up_matrix",
@@ -7328,6 +7416,53 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the scoped exterior boundary counterexample and repair are not certified")
+    syzygy_tensor = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_syzygy_tensor_comparison.json"
+    ).read_text(encoding="utf-8"))
+    syzygy_tensor_digest = syzygy_tensor.pop("artifact_digest", None)
+    syzygy_witness = syzygy_tensor.get("comparison", {})
+    if (
+        syzygy_tensor_digest != _canonical_digest(syzygy_tensor)
+        or syzygy_tensor.get("schema") != "alternate-up-syzygy-tensor-comparison-v1"
+        or syzygy_tensor.get("prerequisite_artifact_digests") != {
+            "actual_matter": up_matter_digest, "null_channels": null_digest,
+            "even_boundary_attack": boundary_attack_digest,
+        }
+        or syzygy_witness.get("matter_character") != [0, 0]
+        or syzygy_witness.get("other_matter_character") != [1, 0]
+        or syzygy_witness.get("primitive_internal_support") != [-1]
+        or any(syzygy_witness.get(name, {}).get("term_count") != count for name, count in (
+            ("primitive", 3), ("boundary", 27), ("raw_boundary_wedge", 289),
+            ("raw_closure_defect", 489), ("corrected_primitive_wedge", 47),
+            ("corrected_boundary_wedge", 294),
+        ))
+        or syzygy_witness.get("raw_closure_defect", {}).get("cochain_digest") != (
+            "c5c42dca8e6e36c6865a69b58c28882e12c9a0049d5bc593a86db3bffd50d916"
+        )
+        or syzygy_witness.get("corrected_boundary_wedge", {}).get("cochain_digest") != (
+            "c6438a448029c367075e6ce298c9167eb8b0859edf6c50b81581e11fa2978999"
+        )
+        or syzygy_witness.get("original_null_wedge_digest") != ordered_coefficients[0][
+            "null_wedge_digest"
+        ]
+        or any(syzygy_witness.get(field) is not True for field in (
+            "full_rank_one_row_closed_exact", "primitive_and_boundary_strict_character_exact",
+            "boundary_is_nonzero_exact_cycle",
+            "corrected_boundary_wedge_is_full_primitive_differential",
+            "corrected_boundary_wedge_closed_exact", "original_null_wedge_unchanged_exact",
+            "all_input_F_tensor_identity_derived_under_rank_one_hypotheses",
+        ))
+        or any(syzygy_witness.get(field) is not False for field in (
+            "raw_boundary_wedge_closed_exact", "outer_cone_comparison_certified",
+            "natural_physical_pairing_certified",
+        ))
+        or any(syzygy_tensor.get(field) is not False for field in (
+            "complete_tensor_comparison_certified", "complete_holomorphic_up_matrix_available",
+            "physical_yukawa_matrix_available", "extension_point_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual syzygy tensor comparison and scope are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -7580,6 +7715,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_pairing_exchange.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_null_line_homotopies.json",
         "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",
+        "data/generated/scientific_genesis/alternate_up_syzygy_tensor_comparison.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -7604,7 +7740,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 932,
+            "collected_tests_at_audit": 1131,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -7787,6 +7923,10 @@ def build_state() -> dict[str, object]:
                 "alternate_up_raw_exterior_boundary_closure_defect_term_count": 124,
                 "alternate_up_even_tensor_boundary_repair_verified": True,
                 "alternate_up_null_wedge_unchanged_by_even_tensor_repair": True,
+                "alternate_up_graded_rank_one_F_tensor_identity_derived": True,
+                "alternate_up_actual_syzygy_boundary_comparison_verified": True,
+                "alternate_up_raw_syzygy_boundary_closure_defect_term_count": 489,
+                "alternate_up_coupled_outer_tensor_comparison_available": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
                 "alternate_up_ordered_exchange_consistent": all(
@@ -8019,8 +8159,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "extend the verified even-sector tensor homotopy through the syzygy "
-                "and outer-cone comparisons, then identify the natural exterior-V-to-Q "
+                "extend the verified graded rank-one F tensor comparison through "
+                "the coupled inner and outer arrows, then identify the natural exterior-V-to-Q "
                 "product and declare determinant/quotient trace conventions before "
                 "deriving the complete up matrix without selecting an extension point"
             ),

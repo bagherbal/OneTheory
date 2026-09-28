@@ -67,6 +67,10 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "alternate-up-exterior-boundary-attack-v1", "natural_product_comparison_certified",
             "scoped exterior boundary counterexample and repair are not certified",
         ),
+        (
+            "alternate-up-syzygy-tensor-comparison-v1", "complete_tensor_comparison_certified",
+            "actual syzygy tensor comparison and scope are not certified",
+        ),
     ),
 )
 def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
@@ -576,6 +580,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_even_rank_one_tensor_homotopy"]["status"] == "DERIVED"
     assert path["criteria"]["alternate_up_raw_exterior_cup_all_input_chain_map_refuted"] is True
     assert path["criteria"]["alternate_up_even_tensor_boundary_repair_verified"] is True
+    assert claims["mixed_graded_rank_one_tensor_comparison"]["status"] == "DERIVED"
+    assert claims["product_cover_homotopy_strict_hirsch"]["status"] == "REFUTED"
+    assert path["criteria"]["alternate_up_graded_rank_one_F_tensor_identity_derived"] is True
+    assert path["criteria"]["alternate_up_actual_syzygy_boundary_comparison_verified"] is True
+    assert path["criteria"]["alternate_up_coupled_outer_tensor_comparison_available"] is False
     assert path["criteria"]["alternate_up_complete_tensor_comparison_available"] is False
     assert path["criteria"]["alternate_up_complete_comparison_indeterminacy_eliminated"] is False
     exchange = json.loads((STATE.parent / "alternate_up_pairing_exchange.json").read_text())
@@ -595,8 +604,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "extend the verified even-sector tensor homotopy through the syzygy "
-        "and outer-cone comparisons, then identify the natural exterior-V-to-Q "
+        "extend the verified graded rank-one F tensor comparison through "
+        "the coupled inner and outer arrows, then identify the natural exterior-V-to-Q "
         "product and declare determinant/quotient trace conventions before "
         "deriving the complete up matrix without selecting an extension point"
     )

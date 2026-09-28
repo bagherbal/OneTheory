@@ -154,3 +154,27 @@ def test_scalar_homotopy_refuses_matrix_components() -> None:
 def test_cell_homotopy_refuses_unordered_cells() -> None:
     with pytest.raises(ValueError, match="ordered cells"):
         cell_cup_homotopy(((1, 0), (0,), (0,)), ((0,), (0,), (0,)))
+
+
+def test_product_cover_homotopy_is_not_a_strict_first_slot_hirsch_derivation() -> None:
+    """The coupled outer row needs more than repeating the rank-one proof."""
+
+    component = OuterCechComponent(0, 0, 0, (0, 0, 0), "k0")
+
+    def entry(cell: tuple) -> SparseOuterCechCochain:
+        return SparseOuterCechCochain(((OuterCechBasis(
+            component, (0, 0, 0), (0, 0, 0), (0, 0), cell,
+        ), Eisenstein(1)),))
+
+    a = entry(((0,), (0, 1), (0,)))
+    b = entry(((0,), (1,), (0, 1)))
+    c = entry(((0,), (0,), (0, 1)))
+    assert {x.total_degree for v in (a, b, c) for x, _ in v.terms} == {1}
+    # The proposed rule is H(ab,c)=(-1)^|a| a H(b,c)
+    # +(-1)^(|b||c|) H(a,c)b. All three degrees are one.
+    defect = (
+        mixed_scalar_cup_homotopy(mixed_outer_cup(a, b), c)
+        + mixed_outer_cup(a, mixed_scalar_cup_homotopy(b, c))
+        + mixed_outer_cup(mixed_scalar_cup_homotopy(a, c), b)
+    )
+    assert defect == entry(((0,), (0, 1), (0, 1)))

@@ -956,8 +956,35 @@ commutator; quadratic terms land in A wedge A. The actual corrected
 original null wedge is unchanged. Mathematical full-differential tests
 include noncycles; the operation rejects unsupported odd objects.
 
-The scheduler therefore requires syzygy and outer-cone compatibility
-before identifying the natural exterior-V-to-Q product or computing a
-physical coefficient. Even-sector success alone does not remove H²(K)
-indeterminacy. See `alternate_up_exterior_boundary_attack.json` and the
-derivation in `ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md`.
+The graded extension is now derived under the complete rank-one
+hypotheses. An independent split-complex attack identifies the raw
+internal braiding error: the structural-first differential requires
+moving the first coefficient past the second object. The coefficient
+homotopy then extends to syzygies using the full mixed Hom row rather
+than incorrectly requiring each odd scalar coefficient to be closed.
+Its row identity cancels the polynomial comparison terms; quadratic
+corrections vanish in A wedge A. Full noncycle tests include all Koszul
+subset pairs, odd diagonals, nonconstant polynomial arrows, and
+Koszul-dependent gauge coefficients.
+
+The actual F's full row passes this closure gate. A three-term strict
+native `(0,0)` primitive supported on an odd object gives a 27-term
+boundary. The raw boundary wedge has a 489-term closure defect, while
+the corrected 294-term wedge is the differential of its 47-term
+corrected primitive. The original null wedge remains unchanged. No
+scalar primitive solver or physical coupling assignment is involved.
+See `alternate_up_syzygy_tensor_comparison.json` and the human derivation
+in `ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md`.
+
+The next gate is specifically the coupled outer-cone comparison. Both
+actual outer maps have nonzero support on the inner A target, so the
+isolated-target proof cannot simply be applied twice. Derive the
+iterated coefficient-homotopy compatibility through the legitimate
+B tensor A quotient before identifying the natural exterior-V-to-Q
+product. H²(K) indeterminacy, determinant/quotient trace conventions,
+the complete up matrix, and physical observables remain unresolved.
+An explicit triple of scalar degree-one edge cochains also refutes the
+strict first-slot Hirsch rule for this product-cover homotopy. The
+commutator homotopy remains valid; an iterated twisting proof requires
+the next compatibility or actual quotient cancellation, not a strict
+derivation assumption. This is not an actual outer-coupling evaluation.

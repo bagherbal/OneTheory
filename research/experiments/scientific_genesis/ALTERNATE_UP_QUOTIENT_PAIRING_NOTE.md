@@ -288,11 +288,127 @@ actual original null wedge receives zero correction and remains the same
 without changing its original scalar inputs. The corrected cochains and
 their scoped flags are recorded in `alternate_up_exterior_boundary_attack.json`.
 
-This is not yet the complete tensor comparison. Syzygy representatives
-and the outer cone require their own compatible correction. In particular
+The even-sector result alone is not the complete tensor comparison. In particular
 the natural map Φ and all-input physical pairing remain unresolved, and
 the five-dimensional H²(K) ambiguity has not been removed. No rank-three
 conclusion, full matrix, or physical observable is assigned here.
+
+## The full graded rank-one comparison
+
+A second attack separates internal braiding from cover commutativity.
+Already in a split polynomial complex, the historical vector wedge fails
+the signed Leibniz identity if one input lies in an odd object and the
+other has positive cover degree. The full differential uses the
+structural-first total convention: its scalar differential on object i
+is `(-1)^p_i d_scalar`. Therefore the raw tensor sign must move the
+**first coefficient past the second object**, giving
+`(-1)^((|u|-p_i)p_j)`. The old sign moved the first object past the
+second coefficient instead. The new operation preserves the historical
+function and its witnesses rather than rewriting their evidence.
+
+Let F be a two-term polynomial resolution plus a mixed row into an
+isolated even line A. Structural arrows have global polynomial
+coefficients; no polynomial or mixed arrow leaves A. Normalize the
+mixed row to its actual left-action coefficients alpha_j: minus the
+stored coefficient for even sources, unchanged for odd sources. Treat
+this row as a degree-one Hom map against the complete polynomial
+skeleton and verify its full differential is zero. Then
+
+```text
+d alpha_even = 0
+d alpha_odd = -sum_k alpha_even,k m_k,odd.
+```
+
+In particular, odd scalar coefficients need not be closed individually.
+Rejecting them on that ground would discard the syzygy comparison.
+
+Write `a=|u|-p_i` and `t_j=1+p_j`. Differentiating the properly braided
+raw wedge gives, in `e_i wedge A`, precisely
+
+```text
+(-1)^(p_i+a p_j)
+    (alpha_j cup u_i - (-1)^(a t_j) u_i cup alpha_j) cup v_j.
+```
+
+The first-slot twisting term already has its correct order. Define
+
+```text
+P(u,v) = W_structural(u,v)
+    - sum_(i,j) (-1)^(a p_j) H(alpha_j,u_i) cup v_j · (e_i wedge A).
+```
+
+Here scalar components have their internal object degrees removed
+explicitly, not silently discarded. The correction is then retargeted
+to the actual exterior object, with its degree and line checked.
+
+The scalar homotopy identity cancels the displayed commutator. On
+differentiating the first input coefficient, `a` increases by one;
+the correction sign changes by `(-1)^p_j`, exactly as required by
+`t_j=1+p_j`. On the second input its ambient differential contributes
+`(-1)^p_j`; the product rule gives the same sign. Polynomial arrows in
+the first slot preserve a. In the second slot, the extra
+`H(d alpha_odd,u_i)` terms cancel those from the polynomial differential
+by the row identity above. Global polynomials commute strictly with H
+because their restrictions agree on every vertex. Finally, all quadratic
+mixed terms land in `A wedge A=0`. Thus
+
+```text
+D_ext P(u,v) = P(D_F u,v) + (-1)^|u| P(u,D_F v)
+```
+
+for arbitrary homogeneous inputs under the stated hypotheses, not merely
+closed representatives. Ordinary local degree-zero products are unchanged.
+This is one structural theorem replacing a search over representatives.
+Regression attacks include noncycles, both polynomial slots, odd
+diagonals, all Koszul-subset pairs, a nonconstant global polynomial, and
+a gauge with Koszul-dependent coefficients. Deleting a required odd row
+term fails the full closure gate; multiple targets are rejected.
+
+The actual frozen F satisfies these hypotheses. Project the explicit
+degree-zero local cochain `x1 u0^-5 p0` on the u-edge `(0,1)` in the
+first odd Hilbert--Burch object to native character `(0,0)`. The result
+has three terms; its full boundary has 27. The historical raw boundary
+wedge with b_R has a 489-term full closure defect. In contrast, the
+corrected 294-term product is exactly the full differential of its
+47-term corrected primitive product. The original 2,997-term null
+wedge is unchanged. Complete small witnesses are saved in
+`alternate_up_syzygy_tensor_comparison.json`; no scalar solve is used.
+
+This closes the rank-one F tensor identity, **not the outer carrier
+comparison**. A read-only check of each actual outer coefficient
+`q_E(e_nu)` finds 846 terms acting on the inner A object. The outer
+target B is therefore not independent of the inner target A. The
+isolated-target proof cannot simply be applied twice: an iterated
+coefficient-homotopy compatibility is required, with the legitimate
+`B tensor A` quotient and the complete outer differential. No existing
+scalar is changed, and the H²(K) indeterminacy remains unresolved.
+
+There is also a precise obstruction to simply treating H as a strict
+derivation in its first slot. Let a, b, c have coefficient one, line zero,
+Koszul subset k0, and respective product cells
+
+```text
+a: ((0), (0,1), (0))
+b: ((0), (1),   (0,1))
+c: ((0), (0),   (0,1)).
+```
+
+All have total degree one. Directly evaluating the declared kernel gives
+
+```text
+H(a cup b,c) + a cup H(b,c) + H(a,c) cup b
+    = 1 on ((0), (0,1), (0,1)).
+```
+
+Thus the proposed strict Hirsch rule
+`H(ab,c)=(-1)^|a| a H(b,c)+(-1)^(|b||c|) H(a,c)b` fails already on
+these mathematical edge cells. This does not invalidate the proven
+commutator homotopy or the rank-one tensor identity: their proofs do not
+use that rule. It does invalidate a shortcut for an iterated twisting
+row. Derive the next coefficient compatibility or prove its actual
+defect vanishes after the legitimate quotient; do not silently set it
+to zero. This generic counterexample is not a computed actual outer
+defect and is not a physical no-go result.
 
 For a ninefold finite étale map π, a quotient trace is cover trace divided
 by nine **if** the holomorphic volume form and descended sections are

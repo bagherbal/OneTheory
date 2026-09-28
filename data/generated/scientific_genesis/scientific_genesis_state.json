@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "1e5f3c7c9e4516ce885fa940351ea44ba22b026f4487af167eb8b6ed668903ea",
+  "artifact_digest": "99900feffd50e7861029b384320e1f436ac6fd4aaa084a164aa59eb93c77e8eb",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -647,6 +647,11 @@
       "sha256": "7f7e696a3b2b1d7c1f1a0c130569e95bd62d0bf028549e348280c5f820d47def"
     },
     {
+      "bytes": 953173,
+      "path": "data/generated/scientific_genesis/alternate_up_syzygy_tensor_comparison.json",
+      "sha256": "6700f4ae95b1ecc11974d793b3a40c09a2f912b98fbcd448b938c08511da442b"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -683,11 +688,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 932,
+    "collected_tests_at_audit": 1131,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 249,
-    "test_python_files": 232
+    "research_python_files": 251,
+    "test_python_files": 234
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1830,6 +1835,50 @@
       ],
       "statement": "The product-cover diagonal homotopy satisfies its chain identity on all 147 cells. With closed scalar arrows into one nilpotent even target, subtracting the coefficient homotopy cancels the raw wedge Leibniz defect; quadratic terms land in A wedge A. The actual corrected 302-term boundary wedge is the full primitive differential and the original null wedge is unchanged.",
       "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "two-term polynomial skeleton",
+        "closed full mixed Hom row",
+        "one isolated even nilpotent target",
+        "explicit ordered cover homotopy"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_syzygy_tensor_comparison.json",
+        "research/experiments/scientific_genesis/mixed_schoen_rank_one_tensor.py",
+        "research/experiments/scientific_genesis/alternate_up_syzygy_tensor_comparison.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+        "tests/integration/test_scientific_genesis_rank_one_tensor.py",
+        "tests/integration/test_scientific_genesis_syzygy_tensor_comparison.py"
+      ],
+      "id": "mixed_graded_rank_one_tensor_comparison",
+      "label": "full graded tensor identity for an isolated even rank-one mixed image",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "coupled outer-cone comparison",
+        "physical pairing identification"
+      ],
+      "statement": "The structural-first differential requires coefficient-before-second-object braiding. The derived cover homotopy then cancels mixed commutators in every internal degree. Full Hom-row closure cancels syzygy terms; quadratic corrections land in A wedge A. The actual strict odd-object boundary produces a corrected 294-term wedge equal to the differential of a 47-term primitive, rather than the raw 489-term closure defect. The original null wedge is unchanged. The coupled outer cone is not certified.",
+      "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "fixed product-cover ordering",
+        "scalar degree-one mathematical cochains"
+      ],
+      "evidence": [
+        "tests/integration/test_scientific_genesis_cup_homotopy.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md"
+      ],
+      "id": "product_cover_homotopy_strict_hirsch",
+      "label": "strict first-slot Hirsch rule for the product-cover coefficient homotopy",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "actual outer defect not evaluated",
+        "no carrier or Yukawa refutation"
+      ],
+      "statement": "Three explicit scalar degree-one edge cochains give a one-term defect in H(ab,c)-(-1)^|a| a H(b,c)-(-1)^(|b||c|) H(a,c)b. The telescoping product-cover homotopy is therefore not a strict first-slot derivation, although its commutator chain identity remains exact. Coupled outer rows need a compatible higher homotopy or a scoped quotient proof.",
+      "status": "REFUTED"
     },
     {
       "assumptions": [
@@ -3941,6 +3990,71 @@
     },
     {
       "assumptions_required": [
+        "isolated even image",
+        "global polynomial arrows",
+        "full row closure"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_syzygy_tensor_comparison.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "odd coefficients are not individually closed"
+      ],
+      "mathematical_reason": "Correct internal braiding and the complete mixed Hom row extend the coefficient homotopy to odd syzygies without fitting a scalar.",
+      "source": "mixed_even_rank_one_tensor_homotopy",
+      "target": "mixed_graded_rank_one_tensor_comparison"
+    },
+    {
+      "assumptions_required": [
+        "natural outer-cone product",
+        "determinant and quotient trace conventions"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "the outer coefficient acts nontrivially on the inner target"
+      ],
+      "mathematical_reason": "The F tensor comparison must be extended through the coupled outer arrows and the legitimate B tensor A quotient before identifying the physical pairing and declaring its trace.",
+      "source": "mixed_graded_rank_one_tensor_comparison",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [
+        "full product-cover homotopy",
+        "three degree-one scalar cochains"
+      ],
+      "implementation_or_artifact": [
+        "tests/integration/test_scientific_genesis_cup_homotopy.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a strict rule on one simplex does not imply it on a product cover"
+      ],
+      "mathematical_reason": "A coupled outer-row extension would need a product compatibility not supplied by the rank-one homotopy identity; an exact edge-cell counterexample disproves the proposed strict Hirsch shortcut.",
+      "source": "mixed_graded_rank_one_tensor_comparison",
+      "target": "product_cover_homotopy_strict_hirsch"
+    },
+    {
+      "assumptions_required": [
+        "actual coupled cochain comparison",
+        "unchanged carrier inputs"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "the generic defect is not a computed physical coupling"
+      ],
+      "mathematical_reason": "Use a derived higher coefficient compatibility or prove that the actual outer comparison defect vanishes in the legitimate quotient; the failed strict rule cannot identify the physical product.",
+      "source": "product_cover_homotopy_strict_hirsch",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [
         "both actual matter legs",
         "unchanged ordered cup convention"
       ],
@@ -4093,7 +4207,7 @@
       "known_failure_modes": [
         "a scoped even-sector chain map is not the full physical product"
       ],
-      "mathematical_reason": "The even-sector correction restores the actual boundary identity. It must extend through syzygies and the outer quotient cone before identifying the natural physical matter product.",
+      "mathematical_reason": "The even-sector correction restores the actual boundary identity. Its graded extension is derived under rank-one hypotheses; the coupled outer quotient comparison is still required.",
       "source": "mixed_even_rank_one_tensor_homotopy",
       "target": "first_exact_yukawa"
     },
@@ -6257,11 +6371,14 @@
         0,
         1
       ],
+      "alternate_up_actual_syzygy_boundary_comparison_verified": true,
       "alternate_up_complete_comparison_indeterminacy_eliminated": false,
       "alternate_up_complete_ordered_null_screens_computed": true,
       "alternate_up_complete_tensor_comparison_available": false,
+      "alternate_up_coupled_outer_tensor_comparison_available": false,
       "alternate_up_even_tensor_boundary_repair_verified": true,
       "alternate_up_full_higgs_cone_comparison_available": false,
+      "alternate_up_graded_rank_one_F_tensor_identity_derived": true,
       "alternate_up_inherited_quotient_equivariance_certified": true,
       "alternate_up_natural_quotient_cone_available": true,
       "alternate_up_null_line_h0_to_h3": [
@@ -6297,6 +6414,7 @@
       "alternate_up_quotient_matter_product_ambiguity_dimension": 5,
       "alternate_up_raw_exterior_boundary_closure_defect_term_count": 124,
       "alternate_up_raw_exterior_cup_all_input_chain_map_refuted": true,
+      "alternate_up_raw_syzygy_boundary_closure_defect_term_count": 489,
       "alternate_up_reciprocal_exterior_primitives_verified": true,
       "alternate_up_repaired_quotient_higgs_character": [
         0,
@@ -6866,13 +6984,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "extend the verified even-sector tensor homotopy through the syzygy and outer-cone comparisons, then identify the natural exterior-V-to-Q product and declare determinant/quotient trace conventions before deriving the complete up matrix without selecting an extension point",
+    "next_required_object": "extend the verified graded rank-one F tensor comparison through the coupled inner and outer arrows, then identify the natural exterior-V-to-Q product and declare determinant/quotient trace conventions before deriving the complete up matrix without selecting an extension point",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 65.0,
-      "rationale": "The raw exterior cup fails an actual boundary test. Extend the derived even-sector correction through syzygies and the outer cone before pairing.",
+      "rationale": "The full graded rank-one F comparison is derived. The outer coefficient acts on the inner target, so derive the coupled outer comparison before pairing.",
       "scores": {
         "computational_cost": 2,
         "distance_to_observable": 5,
@@ -7144,9 +7262,11 @@
         "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
         "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py",
         "research/experiments/scientific_genesis/mixed_schoen_cup_homotopy.py",
-        "research/experiments/scientific_genesis/alternate_up_exterior_boundary_attack.py"
+        "research/experiments/scientific_genesis/alternate_up_exterior_boundary_attack.py",
+        "research/experiments/scientific_genesis/mixed_schoen_rank_one_tensor.py",
+        "research/experiments/scientific_genesis/alternate_up_syzygy_tensor_comparison.py"
       ],
-      "maturity": "research-only; raw vector cup fails a boundary test, even-sector homotopy derived"
+      "maturity": "research-only; graded rank-one comparison derived, coupled outer cone unresolved"
     },
     {
       "capability": "alternate coherent Higgs quotient cone and ordered null scalars",

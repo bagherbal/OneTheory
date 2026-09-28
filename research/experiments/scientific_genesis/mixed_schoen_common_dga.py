@@ -20,6 +20,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import dataclass
+from functools import cache
 from typing import cast
 
 from onetheory.math.numbers import Eisenstein
@@ -85,7 +86,45 @@ def mixed_outer_cup(
     ] = defaultdict(list)
     for basis, coefficient in right.terms:
         right_by_object[basis.component.left_index].append((basis, coefficient))
-    result: list[tuple[OuterCechBasis, Eisenstein]] = []
+
+    @cache
+    def compatible(
+        left_component: OuterCechComponent,
+        left_cell: Cell,
+        right_component: OuterCechComponent,
+        right_cell: Cell,
+    ) -> tuple[int, OuterCechComponent, Cell] | None:
+        """Reuse grading and cover checks, never coefficients or monomials."""
+
+        cell_product = _cell_cup(left_cell, right_cell, "left")
+        koszul_product = _koszul_cup(
+            left_component.koszul_summand,
+            right_component.koszul_summand,
+        )
+        if cell_product is None or koszul_product is None:
+            return None
+        cell_sign, target_cell = cell_product
+        koszul_sign, target_koszul = koszul_product
+        crossing_degree = (
+            KOSZUL_DEGREES[left_component.koszul_summand] * right_component.object_degree
+            + sum(len(simplex) - 1 for simplex in left_cell) * right_component.structural_degree
+        )
+        sign = cell_sign * koszul_sign
+        if crossing_degree % 2:
+            sign *= -1
+        target_component = OuterCechComponent(
+            left_component.left_index,
+            right_component.right_index,
+            left_component.object_degree + right_component.object_degree,
+            cast(tuple[int, int, int], _sum_tuple(
+                left_component.line_degree, right_component.line_degree,
+            )),
+            target_koszul,
+        )
+        return sign, target_component, target_cell
+
+    result: dict[OuterCechBasis, Eisenstein] = {}
+    zero = Eisenstein(0)
     for left_basis, left_coefficient in left.terms:
         left_component = left_basis.component
         for right_basis, right_coefficient in right_by_object.get(
@@ -93,67 +132,31 @@ def mixed_outer_cup(
             (),
         ):
             right_component = right_basis.component
-            cell_product = _cell_cup(left_basis.cell, right_basis.cell, "left")
-            koszul_product = _koszul_cup(
-                left_component.koszul_summand,
-                right_component.koszul_summand,
+            target = compatible(
+                left_component, left_basis.cell, right_component, right_basis.cell,
             )
-            if cell_product is None or koszul_product is None:
+            if target is None:
                 continue
-            cell_sign, target_cell = cell_product
-            koszul_sign, target_koszul = koszul_product
-            crossing_degree = (
-                KOSZUL_DEGREES[left_component.koszul_summand]
-                * right_component.object_degree
-                + left_basis.cech_degree * right_component.structural_degree
+            sign, target_component, target_cell = target
+            basis = OuterCechBasis(
+                target_component,
+                cast(tuple[int, int, int], _sum_tuple(
+                    left_basis.x_monomial, right_basis.x_monomial,
+                )),
+                cast(tuple[int, int, int], _sum_tuple(
+                    left_basis.u_monomial, right_basis.u_monomial,
+                )),
+                cast(tuple[int, int], _sum_tuple(
+                    left_basis.p_monomial, right_basis.p_monomial,
+                )),
+                target_cell,
             )
-            sign = cell_sign * koszul_sign
-            if crossing_degree % 2:
-                sign *= -1
-            target_component = OuterCechComponent(
-                left_component.left_index,
-                right_component.right_index,
-                left_component.object_degree + right_component.object_degree,
-                cast(
-                    tuple[int, int, int],
-                    _sum_tuple(
-                        left_component.line_degree,
-                        right_component.line_degree,
-                    ),
-                ),
-                target_koszul,
+            result[basis] = result.get(basis, zero) + (
+                left_coefficient * right_coefficient * sign
             )
-            result.append(
-                (
-                    OuterCechBasis(
-                        target_component,
-                        cast(
-                            tuple[int, int, int],
-                            _sum_tuple(
-                                left_basis.x_monomial,
-                                right_basis.x_monomial,
-                            ),
-                        ),
-                        cast(
-                            tuple[int, int, int],
-                            _sum_tuple(
-                                left_basis.u_monomial,
-                                right_basis.u_monomial,
-                            ),
-                        ),
-                        cast(
-                            tuple[int, int],
-                            _sum_tuple(
-                                left_basis.p_monomial,
-                                right_basis.p_monomial,
-                            ),
-                        ),
-                        cast(Cell, target_cell),
-                    ),
-                    left_coefficient * right_coefficient * sign,
-                )
-            )
-    return SparseOuterCechCochain(tuple(result))
+    return SparseOuterCechCochain(tuple(
+        (basis, value) for basis, value in result.items() if not value.is_zero()
+    ))
 
 
 def perturbed_homotopy(
@@ -177,7 +180,7 @@ def perturbed_homotopy(
 def _columns(map_: SparseMap) -> tuple[dict[int, Eisenstein], ...]:
     """Return sparse columns of one exact map."""
 
-    columns = [dict() for _ in range(map_.domain.dimension)]
+    columns: list[dict[int, Eisenstein]] = [dict() for _ in range(map_.domain.dimension)]
     for row_index, row in enumerate(map_.rows):
         for column, value in row:
             columns[column][row_index] = value

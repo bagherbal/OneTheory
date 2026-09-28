@@ -2,7 +2,8 @@
 
 Owns:
     The exact first-constituent alternating contraction of strict I3
-    matter classes with nonboundary Hom-evaluated I6 classes.
+    matter classes with nonboundary Hom-evaluated I6 classes, and the
+    global Hilbert--Burch pairing with an actual A-line cochain.
 
 Depends on:
     The frozen carrier's first Pluecker form, exact common-cover
@@ -25,6 +26,7 @@ from pathlib import Path
 from typing import cast
 
 from onetheory.math.numbers import Eisenstein
+from onetheory.math.sheaves import LaurentPolynomial
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
 )
@@ -39,7 +41,10 @@ from .alternate_constituent_up_cone_matter_lifts import OUTPUT as CONE_MATTER
 from .alternate_constituent_up_cone_matter_lifts import _first_representatives
 from .alternate_up_yoneda_evaluation import OUTPUT as YONEDA
 from .alternate_up_yoneda_evaluation import _ratio, alternate_up_yoneda_evaluation
-from .mixed_constituent_schoen_arrows import MixedConstituentObject
+from .mixed_constituent_schoen_arrows import (
+    MixedConstituentObject,
+    mixed_schoen_constituents,
+)
 from .mixed_outer_yoneda import _cup_cells
 from .mixed_schoen_determinant_pairing import OUTPUT as PAIRING
 from .mixed_schoen_matter_representatives import _cochain_digest
@@ -52,9 +57,41 @@ from .mixed_schoen_outer_transfer import (
 )
 from .mixed_schoen_outer_universal_cone import _verified_payload
 from .mixed_schoen_v1_pluecker_chain_map import _local_pairings
+from .mixed_schoen_yukawa_trace import _complementary_minor_polynomials
+from .published_constituent_overlap_transitions import _embed_polynomial
 
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / "data/generated/scientific_genesis/alternate_up_mixed_scalar_trace.json"
+
+
+@cache
+def _a_line_pairing() -> tuple[LaurentPolynomial, ...]:
+    """Certify the global quotient map paired with the first A-line.
+
+    The signed maximal-minor row annihilates the Hilbert--Burch matrix.
+    The constituent extension arrows land in A, whose A--A pairing is
+    zero. Hence the degree-zero map kills both A and the syzygy objects,
+    commutes with the full differential, and needs no minor inversion.
+    """
+
+    first = mixed_schoen_constituents()[0]
+    matrix = first.full.alignment.action.derived.extension.scheme.resolution.matrix
+    minors = _complementary_minor_polynomials(1)
+    if len(minors) != 3 or len(matrix) != 3 or len(matrix[0]) != 2:
+        raise ValueError("the first A-line quotient resolution changed")
+    for column in range(2):
+        value = minors[0] * matrix[0][column]
+        for row in range(1, 3):
+            value += minors[row] * matrix[row][column]
+        if not value.is_zero():
+            raise ValueError("the A-line maximal-minor row does not kill syzygies")
+    if any(term.target != 0 for term in first.extension_terms):
+        raise ValueError("the first constituent extension no longer lands in A")
+    result = tuple(_embed_polynomial(minor) for minor in minors)
+    for pairing in _local_pairings().values():
+        if any(pairing.rows[row][3] != result[row] for row in range(3)):
+            raise ValueError("the global A-line orientation differs from local Pluecker data")
+    return result
 
 
 @cache
@@ -87,22 +124,41 @@ def _contract(
     *,
     reverse: bool = False,
 ) -> SparseOuterCechCochain:
-    """Cup the two inputs in the declared order through the actual V1 form."""
+    """Pair a full V1-resolution cochain with an A-line cochain.
 
-    components = _scalar_context().components
-    pairings = _local_pairings()
+    A and syzygy inputs map to zero by the certified degree-zero quotient
+    chain map, not by a truncation of an unconstructed physical pairing.
+    """
+
+    scalar_context = _scalar_context()
+    components = scalar_context.components
+    first = mixed_schoen_constituents()[0]
+    expected_a_degree = tuple(
+        left - right for left, right in zip(
+            first.objects[0].line_degree, scalar_context.right.twist, strict=True
+        )
+    )
+    pairings = _a_line_pairing()
     result: list[tuple[OuterCechBasis, Eisenstein]] = []
     if any(
-        basis.component.left_index != 0 or basis.component.right_index != 0
+        basis.component.left_index != 0
+        or basis.component.right_index != 0
+        or basis.component.object_degree != 0
+        or basis.component.line_degree != expected_a_degree
         for basis, _ in evaluated.terms
     ):
         raise ValueError("the direct mixed trace needs the actual A-line support")
     for matter_basis, matter_coefficient in matter.terms:
         row = matter_basis.component.left_index
-        if row == 0:
+        if row not in range(6) or matter_basis.component.right_index != 0:
+            raise ValueError("the A-line pairing needs the actual first constituent resolution")
+        if (
+            matter_basis.component.object_degree != first.objects[row].position
+            or matter_basis.component.line_degree != first.objects[row].line_degree
+        ):
+            raise ValueError("the A-line pairing received an incompatible first-object grading")
+        if row in (0, 4, 5):
             continue
-        if row not in (1, 2, 3) or matter_basis.component.right_index != 0:
-            raise ValueError("the first matter class left its A/F0 support")
         for evaluated_basis, evaluated_coefficient in evaluated.terms:
             left_basis, right_basis = (
                 (evaluated_basis, matter_basis)
@@ -124,11 +180,7 @@ def _contract(
             )
             inversions = sum(first > second for first in left_subset for second in right_subset)
             sign = -1 if (crossing + inversions) % 2 else 1
-            pivot = (left_basis.cell[0][-1], left_basis.cell[2][-1])
-            pairing = (
-                pairings[pivot].rows[3][row - 1]
-                if reverse else pairings[pivot].rows[row - 1][3]
-            )
+            pairing = -pairings[row - 1] if reverse else pairings[row - 1]
             for exponents, scalar in pairing.terms:
                 x_monomial = cast(tuple[int, int, int], tuple(
                     matter_basis.x_monomial[index]

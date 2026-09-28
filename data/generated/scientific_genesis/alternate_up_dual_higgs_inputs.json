@@ -1,0 +1,372 @@
+{
+  "artifact_digest": "465c9bc16c55b7de3fe59e0f4beddbf08b754faf26921e15af64c5655f7ddae1",
+  "coefficient_field": "Q(omega)",
+  "determinant_line_higgs_action_computed": false,
+  "determinant_line_higgs_primitive_computed": false,
+  "first_a_line_degree": [
+    -1,
+    1,
+    -1
+  ],
+  "first_determinant_degree": [
+    -2,
+    2,
+    0
+  ],
+  "higgs_covector": {
+    "digest": "08c2300b7636c76caa50a817d0f8593117a44d9326ffdbb7c2535285fa9c60f4",
+    "full_cycle_exact": true,
+    "nonboundary_exact": true,
+    "projection_depth": 1,
+    "reduced_coordinates": [
+      [
+        2,
+        "-18*omega"
+      ],
+      [
+        8,
+        "-9"
+      ],
+      [
+        15,
+        "9+9*omega"
+      ],
+      [
+        17,
+        "-18"
+      ],
+      [
+        26,
+        "-3*omega"
+      ],
+      [
+        29,
+        "3+3*omega"
+      ],
+      [
+        35,
+        "-3"
+      ],
+      [
+        43,
+        "-9*omega"
+      ],
+      [
+        47,
+        "18+18*omega"
+      ],
+      [
+        54,
+        "1/3+2/3*omega"
+      ],
+      [
+        55,
+        "1/2*omega"
+      ],
+      [
+        58,
+        "1/3-1/3*omega"
+      ],
+      [
+        59,
+        "-1/2-1/2*omega"
+      ],
+      [
+        68,
+        "2/3+1/3*omega"
+      ],
+      [
+        69,
+        "-1/2"
+      ]
+    ],
+    "term_count": 324
+  },
+  "higgs_target_line_degree": [
+    1,
+    -1,
+    -1
+  ],
+  "hom_to_tensor_inverse_used": false,
+  "minor_inversion_used": false,
+  "next_required_object": "form the signed derived exterior product of reciprocal F-dual covectors and solve its determinant-line primitive",
+  "null_to_null_yukawa_computed": false,
+  "outer_covectors": [
+    {
+      "digest": "41a5be677c30ac7c6f52b7534b922bff0b8d84165386ca78b06755e1dded08b7",
+      "full_cycle_exact": true,
+      "nonboundary_exact": true,
+      "parameter": "a0",
+      "projection_depth": 3,
+      "reduced_coordinates": [
+        [
+          4,
+          "1/3"
+        ],
+        [
+          5,
+          "-1/6-1/3*omega"
+        ],
+        [
+          12,
+          "-1/6"
+        ],
+        [
+          13,
+          "1/12-1/12*omega"
+        ],
+        [
+          34,
+          "-1/6*omega"
+        ],
+        [
+          35,
+          "1/12-1/12*omega"
+        ],
+        [
+          46,
+          "-1/3-1/3*omega"
+        ],
+        [
+          47,
+          "-1/6-1/3*omega"
+        ],
+        [
+          52,
+          "1/6+1/6*omega"
+        ],
+        [
+          53,
+          "1/12-1/12*omega"
+        ],
+        [
+          60,
+          "1/3*omega"
+        ],
+        [
+          61,
+          "-1/6-1/3*omega"
+        ],
+        [
+          79,
+          "1/6-1/6*omega"
+        ],
+        [
+          86,
+          "1/6+1/3*omega"
+        ],
+        [
+          87,
+          "1/6-1/6*omega"
+        ],
+        [
+          92,
+          "2/3+1/3*omega"
+        ],
+        [
+          93,
+          "-1/3-2/3*omega"
+        ],
+        [
+          103,
+          "-1/3-2/3*omega"
+        ],
+        [
+          108,
+          "-1/3+1/3*omega"
+        ],
+        [
+          112,
+          "2/3+1/3*omega"
+        ],
+        [
+          123,
+          "1/6+1/3*omega"
+        ],
+        [
+          129,
+          "2/3+1/3*omega"
+        ],
+        [
+          132,
+          "-1/3-1/6*omega"
+        ],
+        [
+          136,
+          "1/6+1/3*omega"
+        ],
+        [
+          145,
+          "-1/3+1/3*omega"
+        ],
+        [
+          153,
+          "1/6-1/6*omega"
+        ],
+        [
+          160,
+          "1/6+1/3*omega"
+        ],
+        [
+          166,
+          "2/3+1/3*omega"
+        ],
+        [
+          169,
+          "-1/3-1/6*omega"
+        ],
+        [
+          177,
+          "-1/3-2/3*omega"
+        ],
+        [
+          184,
+          "-1/3+1/3*omega"
+        ],
+        [
+          187,
+          "-1/3-1/6*omega"
+        ],
+        [
+          191,
+          "1/6-1/6*omega"
+        ],
+        [
+          208,
+          "-1/3-1/6*omega"
+        ],
+        [
+          211,
+          "-1/3+1/3*omega"
+        ],
+        [
+          215,
+          "-1/3-2/3*omega"
+        ]
+      ],
+      "term_count": 16515
+    },
+    {
+      "digest": "34490e8d61ef93d64b839d8b5157f0757a1cab43af3915a2e489166345103107",
+      "full_cycle_exact": true,
+      "nonboundary_exact": true,
+      "parameter": "a1",
+      "projection_depth": 3,
+      "reduced_coordinates": [
+        [
+          6,
+          "1/3"
+        ],
+        [
+          7,
+          "1/3+1/6*omega"
+        ],
+        [
+          20,
+          "-1/6"
+        ],
+        [
+          21,
+          "1/12+1/6*omega"
+        ],
+        [
+          26,
+          "-1/6*omega"
+        ],
+        [
+          27,
+          "1/12+1/6*omega"
+        ],
+        [
+          38,
+          "-1/3-1/3*omega"
+        ],
+        [
+          39,
+          "1/3+1/6*omega"
+        ],
+        [
+          54,
+          "1/6+1/6*omega"
+        ],
+        [
+          55,
+          "1/12+1/6*omega"
+        ],
+        [
+          68,
+          "1/3*omega"
+        ],
+        [
+          69,
+          "1/3+1/6*omega"
+        ],
+        [
+          72,
+          "2/3+1/3*omega"
+        ],
+        [
+          79,
+          "-1/6+1/6*omega"
+        ],
+        [
+          96,
+          "1/6+1/3*omega"
+        ],
+        [
+          103,
+          "1/3+2/3*omega"
+        ],
+        [
+          119,
+          "-1/3-1/6*omega"
+        ],
+        [
+          123,
+          "-1/6-1/3*omega"
+        ],
+        [
+          129,
+          "-2/3-1/3*omega"
+        ],
+        [
+          143,
+          "-1/3+1/3*omega"
+        ],
+        [
+          184,
+          "1/3-1/3*omega"
+        ],
+        [
+          194,
+          "1/6-1/6*omega"
+        ],
+        [
+          200,
+          "-1/3-2/3*omega"
+        ],
+        [
+          208,
+          "1/3+1/6*omega"
+        ]
+      ],
+      "term_count": 13779
+    }
+  ],
+  "outer_images_independent_mod_boundaries": true,
+  "outer_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "prerequisite_artifact_digests": {
+    "outer_invariants": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+    "strict_higgs_hom": "373de106d1ef9683dd97a70cb58234d51d3e689fe9eb0a922ade4051e111bcd4"
+  },
+  "quotient_b_line_degree": [
+    -1,
+    1,
+    1
+  ],
+  "schema": "alternate-up-dual-higgs-inputs-v1",
+  "target_lines_reciprocal_exact": true
+}

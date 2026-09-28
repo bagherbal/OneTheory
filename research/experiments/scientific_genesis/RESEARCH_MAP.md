@@ -833,3 +833,19 @@ enumerating all eight `F–F` coefficients, but the same-cone Higgs
 correction and complete matrix remain open. The exact homotopies and
 sign convention are in `alternate_up_null_channel.json` and
 `ALTERNATE_UP_NULL_CHANNEL_NOTE.md`.
+
+The null-primitive closure screen has been sharpened: its entire
+9,692-term scalar defect is exactly the expected Leibniz term from
+the nonclosed primitive. The global A-line Hilbert–Burch pairing
+annihilates syzygies legitimately; their presence is not the cause of
+this defect. The v2 screen supersedes the earlier restricted-helper
+diagnostic. A single primitive term is still not a Yukawa coefficient.
+
+The actual Higgs-action inputs now admit a smaller reciprocal-Hom
+description. The global quotient `E→B₁` maps the two outer basis
+classes to independent nonboundary covectors `F→B₁`; the saved
+A-supported Higgs is already a covector `F→B₁⁻¹` with unchanged
+grading and differential. Their derived exterior product targets
+the acyclic determinant line. This bypasses minor-open inversion
+for input preparation; the signed product and determinant-line
+primitive remain open. See `ALTERNATE_UP_DUAL_HIGGS_INPUTS_NOTE.md`.

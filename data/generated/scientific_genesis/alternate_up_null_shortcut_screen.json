@@ -1,6 +1,8 @@
 {
   "a_f0_restriction_term_count": 28971,
-  "artifact_digest": "0a9b48059fae7bc2ea5f62dbdda75c34a09b27354bc0797fcb9f1a58f1569e2d",
+  "a_line_syzygy_annihilation_exact": true,
+  "actual_full_leibniz_identity_exact": true,
+  "artifact_digest": "2b8c5bac6ec2185a1dfe0a0967d2749c479a597c3b1cc8493b8dcc4093cb9976",
   "extension_cup_digest": "542747c4ea10e97bc50208879bfb276933bd94b266af6fa7248dc29d44b1be0e",
   "extension_cup_exact_cycle": true,
   "extension_cup_term_count": 49504,
@@ -8,8 +10,9 @@
     0,
     0
   ],
-  "full_cup_rejected_by_scoped_contraction": true,
-  "next_required_object": "construct the full same-cone exterior Higgs chain map and its syzygy-compatible scalar contraction",
+  "full_cup_evaluated_by_exact_a_line_chain_map": true,
+  "leibniz_defect_digest": "5a9b3e52a47779c3ed795b3dfb9a92138f8177a926fc846144722e77c0f77273",
+  "next_required_object": "construct the determinant-line Higgs correction and combine all first-order matter and Higgs terms before tracing",
   "null_matter_term_count": 522,
   "null_to_null_coefficient_computed": false,
   "opposite_primitive_character": [
@@ -21,11 +24,12 @@
     "null_channels": "47fe175edaf16fe011ce23966a55307736620d6df2d35b880e3f58e4e4c96594",
     "outer_invariants": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53"
   },
+  "primitive_differential_accounts_for_entire_defect": true,
+  "primitive_only_scalar_closed": false,
+  "primitive_only_scalar_differential_term_count": 9692,
+  "primitive_only_scalar_digest": "ddfe7a1fca3b214547ccd6881e70286cf5edc909e6bf8b94c2216f54f0fa7135",
+  "primitive_only_scalar_term_count": 25780,
   "rank_three_established": false,
-  "schema": "alternate-up-null-shortcut-screen-v1",
-  "syzygy_term_count": 2560,
-  "truncated_scalar_closed": false,
-  "truncated_scalar_differential_term_count": 9692,
-  "truncated_scalar_digest": "ddfe7a1fca3b214547ccd6881e70286cf5edc909e6bf8b94c2216f54f0fa7135",
-  "truncated_scalar_term_count": 25780
+  "schema": "alternate-up-null-shortcut-screen-v2",
+  "syzygy_term_count": 2560
 }

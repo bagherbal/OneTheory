@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "38d38ef6d2695be21e1d9792db5065c5163cf330541cbe526ec4a8ff3175c5ae",
+  "artifact_digest": "b735587ea5f0ce6004a9764e2094ea123c9e23bc10f0196cd162bfcd72d2e851",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -602,6 +602,16 @@
       "sha256": "57408c25314cb10263016de6cbb5e2bdea2466e70f93f40715c74022602e3392"
     },
     {
+      "bytes": 6365,
+      "path": "data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json",
+      "sha256": "0fce8c6f426899a1e4103b90e7571fc14a903cc398bf9954788059d2827d0103"
+    },
+    {
+      "bytes": 1534,
+      "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
+      "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
+    },
+    {
       "bytes": 1322,
       "path": "data/generated/scientific_genesis/alternate_up_yukawa_support.json",
       "sha256": "88ae38c3a0de4e90dc41dfc4a585989e0314a08e4c2a162239c78808e2b90051"
@@ -636,8 +646,8 @@
     "collected_tests_at_audit": 653,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 237,
-    "test_python_files": 218
+    "research_python_files": 239,
+    "test_python_files": 220
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1575,6 +1585,29 @@
         "two null-to-null F-F couplings"
       ],
       "statement": "The two exact mixed blocks select one null F combination per Wilson sector. Their 144-term full Yoneda evaluations are boundaries with 90-term exact primitives. A formal determinant identity reduces the rank-three decision to two extension-linear null-to-null F-F coefficients, which remain uncomputed.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "actual frozen alternate resolutions",
+        "declared determinant orientation"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json",
+        "research/experiments/scientific_genesis/alternate_up_dual_higgs_inputs.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_DUAL_HIGGS_INPUTS_NOTE.md",
+        "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
+        "tests/integration/test_scientific_genesis_alternate_up_dual_higgs_inputs.py"
+      ],
+      "id": "alternate_up_dual_higgs_inputs",
+      "label": "reciprocal covectors for the first-order alternate Higgs action",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "signed dual exterior product",
+        "Higgs primitive",
+        "complete F-F scalar"
+      ],
+      "statement": "The global Hilbert-Burch A-line pairing kills syzygies exactly. Its quotient sends both outer basis classes to independent nonboundary covectors F to B1. The saved A-supported Higgs retargets to F to B1 inverse with unchanged full grading. Their signed derived exterior product and determinant-line primitive remain uncomputed.",
       "status": "COMPUTED"
     },
     {
@@ -3543,6 +3576,52 @@
       "mathematical_reason": "The two exact within-character Yoneda ratios cancel the reduced classes. The full 144-term combinations admit exact 90-term primitives under the synchronized differential.",
       "source": "alternate_up_yoneda_evaluation",
       "target": "alternate_up_null_channel"
+    },
+    {
+      "assumptions_required": [
+        "fixed first-constituent quotient orientation"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the images are not themselves Higgs corrections"
+      ],
+      "mathematical_reason": "The global quotient row annihilates the Hilbert-Burch columns and all A-targeted extension arrows. It therefore maps both actual outer cochains to closed reciprocal-Hom inputs without inverting a local minor.",
+      "source": "alternate_constituent_outer_invariants",
+      "target": "alternate_up_dual_higgs_inputs"
+    },
+    {
+      "assumptions_required": [
+        "saved strict A-supported Hom class"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the derived exterior product still needs totalization signs"
+      ],
+      "mathematical_reason": "Pure A output retargets Hom(F tensor det E,E) to Hom(F,A tensor det E inverse)=Hom(F,B1 inverse) with identical object, ambient, and full differential data.",
+      "source": "alternate_up_higgs_hom_representative",
+      "target": "alternate_up_dual_higgs_inputs"
+    },
+    {
+      "assumptions_required": [
+        "exact derived exterior product and primitive"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_DUAL_HIGGS_INPUTS_NOTE.md",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_NULL_CHANNEL_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "neither null-to-null determinant coefficient is computed"
+      ],
+      "mathematical_reason": "The reciprocal F-dual exterior product targets the acyclic determinant line. Its primitive must be combined with the known matter corrections to form a closed first-order scalar.",
+      "source": "alternate_up_dual_higgs_inputs",
+      "target": "first_exact_yukawa"
     },
     {
       "assumptions_required": [
@@ -6250,7 +6329,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "use the exact null Yoneda primitives to evaluate two same-cone null-to-null F-F coefficients, then finish the full quotient-normalized holomorphic up matrix",
+    "next_required_object": "form the signed exterior product of reciprocal F-dual covectors, solve the determinant-line Higgs correction, and combine all first-order terms for the two null-to-null coefficients before finishing the full up matrix",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

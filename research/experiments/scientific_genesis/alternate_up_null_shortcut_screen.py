@@ -1,16 +1,16 @@
 """Test whether null homotopies alone close a same-cone up scalar.
 
 Owns:
-    An exact countercheck of the A/F0-only contraction of one outer
-    extension cup with the opposite null-channel primitive.
+    An exact Leibniz countercheck of one outer-extension cup paired
+    with the opposite null-channel primitive through the A-line map.
 
 Depends on:
     Frozen alternate extension representatives, strict matter classes,
     certified null homotopies, and the common-cover differential.
 
 Must not:
-    Treat a nonclosed projection as a Yukawa coefficient, discard
-    syzygy terms from a physical calculation, or infer rank three.
+    Treat a nonclosed term as a Yukawa coefficient, attribute the
+    primitive's differential to syzygy truncation, or infer rank three.
 
 Phase 0:
     Research-only screen of a proposed shortcut to the F--F block.
@@ -47,7 +47,7 @@ OUTPUT = ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_sc
 
 
 def alternate_up_null_shortcut_screen() -> dict[str, object]:
-    """Falsify direct A/F0 truncation for the first outer parameter."""
+    """Identify the exact missing Leibniz term for the first parameter."""
 
     null_digest, null_record = _verified_payload(NULL_CHANNELS)
     invariant_digest, invariant_record = _verified_payload(INVARIANTS)
@@ -88,31 +88,22 @@ def alternate_up_null_shortcut_screen() -> dict[str, object]:
     )
     if syzygy_count == 0:
         raise ValueError("the extension cup no longer tests syzygy truncation")
-    syzygy_witness = next(
-        (basis, value) for basis, value in product.terms
-        if basis.component.left_index in (4, 5)
-    )
-    try:
-        _contract(SparseOuterCechCochain((syzygy_witness,)), right_null.primitive)
-    except ValueError as error:
-        if str(error) != "the first matter class left its A/F0 support":
-            raise
-    else:
-        raise ValueError("the scoped scalar contraction accepted syzygy support")
-
     restricted = SparseOuterCechCochain(tuple(
         (basis, value) for basis, value in product.terms
         if basis.component.left_index in (1, 2, 3)
     ))
-    candidate = _contract(restricted, right_null.primitive)
+    candidate = _contract(product, right_null.primitive)
     if candidate.is_zero():
-        raise ValueError("the truncated candidate unexpectedly vanished")
+        raise ValueError("the primitive-only candidate unexpectedly vanished")
     defect = _scalar_context().differential(candidate)
     if defect.is_zero():
-        raise ValueError("the truncated candidate unexpectedly became a cycle")
+        raise ValueError("the primitive-only candidate unexpectedly became a cycle")
+    leibniz = _contract(product, right_null.null_evaluation)
+    if defect != leibniz:
+        raise ValueError("the full A-line pairing failed the actual Leibniz identity")
 
     return {
-        "schema": "alternate-up-null-shortcut-screen-v1",
+        "schema": "alternate-up-null-shortcut-screen-v2",
         "outer_parameter": "a0",
         "first_null_character": [0, 0],
         "opposite_primitive_character": [1, 0],
@@ -121,12 +112,16 @@ def alternate_up_null_shortcut_screen() -> dict[str, object]:
         "extension_cup_digest": _cochain_digest((product,)),
         "extension_cup_exact_cycle": True,
         "syzygy_term_count": syzygy_count,
-        "full_cup_rejected_by_scoped_contraction": True,
+        "full_cup_evaluated_by_exact_a_line_chain_map": True,
+        "a_line_syzygy_annihilation_exact": True,
         "a_f0_restriction_term_count": len(restricted.terms),
-        "truncated_scalar_term_count": len(candidate.terms),
-        "truncated_scalar_digest": _cochain_digest((candidate,)),
-        "truncated_scalar_differential_term_count": len(defect.terms),
-        "truncated_scalar_closed": False,
+        "primitive_only_scalar_term_count": len(candidate.terms),
+        "primitive_only_scalar_digest": _cochain_digest((candidate,)),
+        "primitive_only_scalar_differential_term_count": len(defect.terms),
+        "primitive_only_scalar_closed": False,
+        "primitive_differential_accounts_for_entire_defect": True,
+        "actual_full_leibniz_identity_exact": True,
+        "leibniz_defect_digest": _cochain_digest((leibniz,)),
         "null_to_null_coefficient_computed": False,
         "rank_three_established": False,
         "prerequisite_artifact_digests": {
@@ -134,8 +129,8 @@ def alternate_up_null_shortcut_screen() -> dict[str, object]:
             "outer_invariants": invariant_digest,
         },
         "next_required_object": (
-            "construct the full same-cone exterior Higgs chain map and its "
-            "syzygy-compatible scalar contraction"
+            "construct the determinant-line Higgs correction and combine "
+            "all first-order matter and Higgs terms before tracing"
         ),
     }
 
@@ -155,4 +150,4 @@ def write_alternate_up_null_shortcut_screen(path: Path = OUTPUT) -> dict[str, ob
 if __name__ == "__main__":
     record = write_alternate_up_null_shortcut_screen()
     print(f"artifact_digest: {record['artifact_digest']}")
-    print(f"truncated_scalar_closed: {record['truncated_scalar_closed']}")
+    print(f"primitive_only_scalar_closed: {record['primitive_only_scalar_closed']}")

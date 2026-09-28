@@ -1115,6 +1115,27 @@ def _nodes() -> list[dict[str, object]]:
             ("same-cone Higgs correction", "two null-to-null F-F couplings"),
         ),
         _node(
+            "alternate_up_dual_higgs_inputs",
+            "reciprocal covectors for the first-order alternate Higgs action",
+            "Flavor",
+            "COMPUTED",
+            "The global Hilbert-Burch A-line pairing kills syzygies exactly. "
+            "Its quotient sends both outer basis classes to independent "
+            "nonboundary covectors F to B1. The saved A-supported Higgs "
+            "retargets to F to B1 inverse with unchanged full grading. "
+            "Their signed derived exterior product and determinant-line "
+            "primitive remain uncomputed.",
+            (
+                "data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json",
+                "research/experiments/scientific_genesis/alternate_up_dual_higgs_inputs.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_DUAL_HIGGS_INPUTS_NOTE.md",
+                "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
+                "tests/integration/test_scientific_genesis_alternate_up_dual_higgs_inputs.py",
+            ),
+            ("actual frozen alternate resolutions", "declared determinant orientation"),
+            ("signed dual exterior product", "Higgs primitive", "complete F-F scalar"),
+        ),
+        _node(
             "alternate_constituent_determinant_pairing",
             "local pairing for the frozen alternate I6 ray",
             "Computable carrier",
@@ -3308,6 +3329,43 @@ def _edges() -> list[dict[str, object]]:
             ("certified full Hom cochains",),
             True,
             ("a null Yoneda homotopy is not an F-F Yukawa value",),
+        ),
+        _edge(
+            "alternate_constituent_outer_invariants",
+            "alternate_up_dual_higgs_inputs",
+            "The global quotient row annihilates the Hilbert-Burch columns "
+            "and all A-targeted extension arrows. It therefore maps both "
+            "actual outer cochains to closed reciprocal-Hom inputs without "
+            "inverting a local minor.",
+            ("data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json",),
+            ("fixed first-constituent quotient orientation",),
+            True,
+            ("the images are not themselves Higgs corrections",),
+        ),
+        _edge(
+            "alternate_up_higgs_hom_representative",
+            "alternate_up_dual_higgs_inputs",
+            "Pure A output retargets Hom(F tensor det E,E) to "
+            "Hom(F,A tensor det E inverse)=Hom(F,B1 inverse) with "
+            "identical object, ambient, and full differential data.",
+            ("data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json",),
+            ("saved strict A-supported Hom class",),
+            True,
+            ("the derived exterior product still needs totalization signs",),
+        ),
+        _edge(
+            "alternate_up_dual_higgs_inputs",
+            "first_exact_yukawa",
+            "The reciprocal F-dual exterior product targets the acyclic "
+            "determinant line. Its primitive must be combined with the "
+            "known matter corrections to form a closed first-order scalar.",
+            (
+                "research/experiments/scientific_genesis/ALTERNATE_UP_DUAL_HIGGS_INPUTS_NOTE.md",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_NULL_CHANNEL_NOTE.md",
+            ),
+            ("exact derived exterior product and primitive",),
+            False,
+            ("neither null-to-null determinant coefficient is computed",),
         ),
         _edge(
             "alternate_constituent_carrier_state",
@@ -6538,6 +6596,41 @@ def build_state() -> dict[str, object]:
         or null_channel.get("observational_inputs_used") is not False
     ):
         raise ValueError("the alternate up null-channel homotopies are not certified")
+    dual_inputs = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json"
+    ).read_text(encoding="utf-8"))
+    dual_digest = dual_inputs.pop("artifact_digest", None)
+    dual_prerequisites = dual_inputs.get("prerequisite_artifact_digests", {})
+    if (
+        dual_digest != _canonical_digest(dual_inputs)
+        or dual_inputs.get("schema") != "alternate-up-dual-higgs-inputs-v1"
+        or dual_prerequisites.get("outer_invariants") != alternate_invariants_digest
+        or dual_prerequisites.get("strict_higgs_hom") != full_hom_digest
+        or dual_inputs.get("outer_parameter_basis") != ["a0", "a1"]
+        or dual_inputs.get("quotient_b_line_degree") != [-1, 1, 1]
+        or dual_inputs.get("higgs_target_line_degree") != [1, -1, -1]
+        or dual_inputs.get("outer_images_independent_mod_boundaries") is not True
+        or dual_inputs.get("hom_to_tensor_inverse_used") is not False
+        or dual_inputs.get("determinant_line_higgs_action_computed") is not False
+        or dual_inputs.get("determinant_line_higgs_primitive_computed") is not False
+        or dual_inputs.get("null_to_null_yukawa_computed") is not False
+    ):
+        raise ValueError("the reciprocal alternate Higgs-action inputs are not certified")
+    shortcut = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
+    ).read_text(encoding="utf-8"))
+    shortcut_digest = shortcut.pop("artifact_digest", None)
+    if (
+        shortcut_digest != _canonical_digest(shortcut)
+        or shortcut.get("schema") != "alternate-up-null-shortcut-screen-v2"
+        or shortcut.get("prerequisite_artifact_digests", {}).get("null_channels")
+        != null_digest
+        or shortcut.get("actual_full_leibniz_identity_exact") is not True
+        or shortcut.get("primitive_differential_accounts_for_entire_defect") is not True
+        or shortcut.get("primitive_only_scalar_closed") is not False
+        or shortcut.get("null_to_null_coefficient_computed") is not False
+    ):
+        raise ValueError("the actual null-primitive Leibniz defect is not certified")
     action_path = (
         ROOT / "data/generated/computable_carrier/tier_b_schoen_outer_automorphisms.partial.json"
     )
@@ -6766,6 +6859,8 @@ def build_state() -> dict[str, object]:
         "alternate_up_mixed_scalar_trace.json",
         "data/generated/scientific_genesis/alternate_up_rank_floor.json",
         "data/generated/scientific_genesis/alternate_up_null_channel.json",
+        "data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json",
+        "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
         "data/generated/scientific_genesis/diagonal_higgs_actions.json",
@@ -7170,9 +7265,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "use the exact null Yoneda primitives to evaluate two "
-                "same-cone null-to-null F-F coefficients, then finish "
-                "the full quotient-normalized holomorphic up matrix"
+                "form the signed exterior product of reciprocal F-dual "
+                "covectors, solve the determinant-line Higgs correction, "
+                "and combine all first-order terms for the two null-to-null "
+                "coefficients before finishing the full up matrix"
             ),
         },
         "claims": _nodes(),

@@ -606,3 +606,14 @@ of a fixed-endpoint sheaf-extension map if it exists. Neither statement
 eliminates the matter-product ambiguity: the actual K resolution has
 cover cohomology `(0,5,5,0)`. Its five-dimensional H² must not be silently
 discarded. The natural product comparison remains unresolved.
+
+An actual representative-independence attack now refutes the raw exterior
+cup as an all-input cohomological product: a strict-character exact boundary
+preserves the matter class but gives a 124-term wedge closure defect.
+A derived cover coefficient homotopy repairs the even-object sector;
+the corrected boundary wedge is the full primitive differential. The
+original null wedge is unchanged. The next product gate is extension
+through syzygies and the outer cone, not repetition of the scalar screens.
+The carrier and original closed screens are not refuted by this operation
+failure. See `alternate_up_exterior_boundary_attack.json` and
+`ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md`.

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "391b595aa3574c0fdb8127cf02350e7181b225bcb7f8faeee1582648ed2a5cdb",
+  "artifact_digest": "1e5f3c7c9e4516ce885fa940351ea44ba22b026f4487af167eb8b6ed668903ea",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -642,6 +642,11 @@
       "sha256": "d1d5a711a24ffdbf127aee76d38caeb73012bc54d41a7466fc0543ffd5f0875b"
     },
     {
+      "bytes": 699958,
+      "path": "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",
+      "sha256": "7f7e696a3b2b1d7c1f1a0c130569e95bd62d0bf028549e348280c5f820d47def"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -678,11 +683,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 858,
+    "collected_tests_at_audit": 932,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 247,
-    "test_python_files": 229
+    "research_python_files": 249,
+    "test_python_files": 232
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1780,6 +1785,51 @@
       ],
       "statement": "Both saved 90-term null Yoneda primitives have only line support. Their full B1-inverse differentials equal the actual h cup b-null products. The line has complete cohomology (0,0,9,0), so its primitive is unique modulo boundaries. Hom(det F,K) is zero before and after exact transfer, making a fixed-endpoint sheaf-extension morphism unique if it exists. The matter-product H2(K) ambiguity is five-dimensional on the cover, so it is not thereby eliminated.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "actual strict null classes",
+        "full constituent differential",
+        "unchanged exterior basis"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",
+        "research/experiments/scientific_genesis/alternate_up_exterior_boundary_attack.py",
+        "tests/integration/test_scientific_genesis_exterior_boundary_attack.py"
+      ],
+      "id": "alternate_up_exterior_boundary_attack",
+      "label": "raw ordered exterior cup as an all-input cohomological product",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "natural product requires a cover tensor comparison"
+      ],
+      "statement": "A three-term strict native (0,0) primitive gives a 15-term exact boundary. Adding it to the actual left null matter class preserves the class and character but the raw exterior cup develops a 124-term full closure defect. Its 48-term Leibniz defect is explicit. This refutes the raw operation, not the carrier or the original closed scalar screens.",
+      "status": "REFUTED"
+    },
+    {
+      "assumptions": [
+        "even-object inputs",
+        "closed scalar twisting arrows",
+        "one nilpotent even target"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",
+        "research/experiments/scientific_genesis/mixed_schoen_cup_homotopy.py",
+        "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+        "tests/integration/test_scientific_genesis_cup_homotopy.py",
+        "tests/integration/test_scientific_genesis_even_tensor_homotopy.py"
+      ],
+      "id": "mixed_even_rank_one_tensor_homotopy",
+      "label": "derived coefficient homotopy for the even-object rank-one tensor sector",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "syzygy comparison",
+        "outer-cone comparison",
+        "natural exterior-V-to-Q product"
+      ],
+      "statement": "The product-cover diagonal homotopy satisfies its chain identity on all 147 cells. With closed scalar arrows into one nilpotent even target, subtracting the coefficient homotopy cancels the raw wedge Leibniz defect; quadratic terms land in A wedge A. The actual corrected 302-term boundary wedge is the full primitive differential and the original null wedge is unchanged.",
+      "status": "DERIVED"
     },
     {
       "assumptions": [
@@ -4001,6 +4051,54 @@
     },
     {
       "assumptions_required": [
+        "unchanged actual null classes",
+        "full strict-character boundary"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "raw scalar-screen closure does not imply a cohomological product"
+      ],
+      "mathematical_reason": "The same actual exterior differential and raw vector cup test an exact boundary in a physical native character sector.",
+      "source": "alternate_up_exterior_higgs_action",
+      "target": "alternate_up_exterior_boundary_attack"
+    },
+    {
+      "assumptions_required": [
+        "even-object sector",
+        "rank-one nilpotent twisting target"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the correction rejects odd objects and is not an outer-cone comparison"
+      ],
+      "mathematical_reason": "An explicit cover coefficient homotopy cancels the exhibited Leibniz defect, with its actual source differential sign.",
+      "source": "alternate_up_exterior_boundary_attack",
+      "target": "mixed_even_rank_one_tensor_homotopy"
+    },
+    {
+      "assumptions_required": [
+        "complete natural tensor comparison",
+        "declared trace normalization"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "a scoped even-sector chain map is not the full physical product"
+      ],
+      "mathematical_reason": "The even-sector correction restores the actual boundary identity. It must extend through syzygies and the outer quotient cone before identifying the natural physical matter product.",
+      "source": "mixed_even_rank_one_tensor_homotopy",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [
         "physical cochain comparison",
         "equivariant Higgs and trace normalization"
       ],
@@ -6161,6 +6259,8 @@
       ],
       "alternate_up_complete_comparison_indeterminacy_eliminated": false,
       "alternate_up_complete_ordered_null_screens_computed": true,
+      "alternate_up_complete_tensor_comparison_available": false,
+      "alternate_up_even_tensor_boundary_repair_verified": true,
       "alternate_up_full_higgs_cone_comparison_available": false,
       "alternate_up_inherited_quotient_equivariance_certified": true,
       "alternate_up_natural_quotient_cone_available": true,
@@ -6172,6 +6272,7 @@
       ],
       "alternate_up_null_tensor_projection_exact": true,
       "alternate_up_null_to_null_coefficients_computed": false,
+      "alternate_up_null_wedge_unchanged_by_even_tensor_repair": true,
       "alternate_up_null_yoneda_line_homotopies_verified": true,
       "alternate_up_ordered_exchange_consistent": true,
       "alternate_up_ordered_exchange_screen_computed": true,
@@ -6194,6 +6295,8 @@
       ],
       "alternate_up_quotient_fixed_endpoint_map_ambiguity_dimension": 0,
       "alternate_up_quotient_matter_product_ambiguity_dimension": 5,
+      "alternate_up_raw_exterior_boundary_closure_defect_term_count": 124,
+      "alternate_up_raw_exterior_cup_all_input_chain_map_refuted": true,
       "alternate_up_reciprocal_exterior_primitives_verified": true,
       "alternate_up_repaired_quotient_higgs_character": [
         0,
@@ -6763,13 +6866,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "resolve the natural exterior-V-to-Q matter-product comparison before assigning an ordered null residue to the physical Higgs pairing, then declare determinant/quotient trace conventions and derive the complete up matrix without selecting an extension point",
+    "next_required_object": "extend the verified even-sector tensor homotopy through the syzygy and outer-cone comparisons, then identify the natural exterior-V-to-Q product and declare determinant/quotient trace conventions before deriving the complete up matrix without selecting an extension point",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 65.0,
-      "rationale": "Actual covariance fixes the Higgs character. Use the short line homotopies to resolve the natural product before assigning an ordered null residue.",
+      "rationale": "The raw exterior cup fails an actual boundary test. Extend the derived even-sector correction through syzygies and the outer cone before pairing.",
       "scores": {
         "computational_cost": 2,
         "distance_to_observable": 5,
@@ -7039,9 +7142,11 @@
       "capability": "mixed graded exterior squares and reciprocal covector products",
       "locations": [
         "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
-        "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py"
+        "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py",
+        "research/experiments/scientific_genesis/mixed_schoen_cup_homotopy.py",
+        "research/experiments/scientific_genesis/alternate_up_exterior_boundary_attack.py"
       ],
-      "maturity": "research-only; full alternate products and primitives checked, not arbitrary twists"
+      "maturity": "research-only; raw vector cup fails a boundary test, even-sector homotopy derived"
     },
     {
       "capability": "alternate coherent Higgs quotient cone and ordered null scalars",

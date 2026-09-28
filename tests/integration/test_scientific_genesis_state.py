@@ -63,6 +63,10 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "alternate-up-null-line-homotopies-v1", "complete_comparison_indeterminacy_eliminated",
             "actual null line homotopies and ambiguity groups are not certified",
         ),
+        (
+            "alternate-up-exterior-boundary-attack-v1", "natural_product_comparison_certified",
+            "scoped exterior boundary counterexample and repair are not certified",
+        ),
     ),
 )
 def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
@@ -568,6 +572,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_up_quotient_fixed_endpoint_map_ambiguity_dimension"] == 0
     assert path["criteria"]["alternate_up_quotient_K_h0_to_h3"] == [0, 5, 5, 0]
     assert path["criteria"]["alternate_up_quotient_matter_product_ambiguity_dimension"] == 5
+    assert claims["alternate_up_exterior_boundary_attack"]["status"] == "REFUTED"
+    assert claims["mixed_even_rank_one_tensor_homotopy"]["status"] == "DERIVED"
+    assert path["criteria"]["alternate_up_raw_exterior_cup_all_input_chain_map_refuted"] is True
+    assert path["criteria"]["alternate_up_even_tensor_boundary_repair_verified"] is True
+    assert path["criteria"]["alternate_up_complete_tensor_comparison_available"] is False
     assert path["criteria"]["alternate_up_complete_comparison_indeterminacy_eliminated"] is False
     exchange = json.loads((STATE.parent / "alternate_up_pairing_exchange.json").read_text())
     assert path["criteria"]["alternate_up_ordered_exchange_consistent"] == all(
@@ -586,10 +595,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "resolve the natural exterior-V-to-Q matter-product comparison "
-        "before assigning an ordered null residue to the physical Higgs "
-        "pairing, then declare determinant/quotient trace conventions "
-        "and derive the complete up matrix without selecting an extension point"
+        "extend the verified even-sector tensor homotopy through the syzygy "
+        "and outer-cone comparisons, then identify the natural exterior-V-to-Q "
+        "product and declare determinant/quotient trace conventions before "
+        "deriving the complete up matrix without selecting an extension point"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"

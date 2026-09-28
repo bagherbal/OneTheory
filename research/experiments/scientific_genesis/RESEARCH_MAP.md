@@ -938,3 +938,26 @@ This does not identify an arbitrary closed matter-product lift or assert
 that all five classes occur as reachable comparison corrections.
 Use these facts to shorten the natural comparison rather than repeat
 large scalar solves. See `alternate_up_null_line_homotopies.json`.
+
+The raw product has now failed an actual necessary test. A three-term
+strict native `(0,0)` degree-zero cochain gives a 15-term exact boundary.
+Adding that boundary to b_L preserves the matter class and character,
+but the raw wedge with b_R has a 124-term closure defect. The full
+48-term Leibniz defect is retained. This refutes the raw exterior cup
+as an all-input cohomological operation, not the actual carrier or the
+original closed scalar screens.
+
+The first repair is derived rather than a choice of closed lift. A signed
+cover diagonal homotopy obeys its chain identity on all 147 cells, with
+independent scalar Koszul checks. For closed scalar arrows into one
+nilpotent even A, its coefficient correction cancels the raw Leibniz
+commutator; quadratic terms land in A wedge A. The actual corrected
+302-term boundary wedge is the full primitive differential, and the
+original null wedge is unchanged. Mathematical full-differential tests
+include noncycles; the operation rejects unsupported odd objects.
+
+The scheduler therefore requires syzygy and outer-cone compatibility
+before identifying the natural exterior-V-to-Q product or computing a
+physical coefficient. Even-sector success alone does not remove H²(K)
+indeterminacy. See `alternate_up_exterior_boundary_attack.json` and the
+derivation in `ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md`.

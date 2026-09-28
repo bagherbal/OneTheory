@@ -2,7 +2,8 @@
 
 Owns:
     The graded exterior monomial basis, induced resolution arrows, and
-    ordered products of reciprocal line-valued covectors in that basis.
+    ordered reciprocal covector products, and the derived even-object
+    rank-one tensor correction in that basis.
 
 Depends on:
     The existing synchronized mixed differential, Alexander--Whitney cup,
@@ -38,9 +39,15 @@ from .mixed_constituent_schoen_arrows import (
     MixedExtensionTerm,
     MixedResolutionArrow,
 )
-from .mixed_schoen_common_dga import _koszul_cup, _sum_tuple
+from .mixed_schoen_common_dga import _koszul_cup, _sum_tuple, mixed_outer_cup
+from .mixed_schoen_cup_homotopy import mixed_scalar_cup_homotopy
 from .mixed_schoen_outer_actions import _MixedContraction
-from .mixed_schoen_outer_transfer import MixedSchoenComplex, _cell_cup
+from .mixed_schoen_outer_transfer import (
+    MixedSchoenComplex,
+    MixedSchoenUnit,
+    _cell_cup,
+    mixed_schoen_unit,
+)
 
 
 def _ordered_pair(
@@ -385,3 +392,120 @@ def resolution_vector_wedge(
                 raise ValueError("the exterior vector product changed its total degree")
             result.append((basis, first_coefficient * second_coefficient * sign))
     return SparseOuterCechCochain(tuple(result))
+
+
+def _even_twisting_coefficients(
+    source: MixedSchoenComplex,
+) -> tuple[int, tuple[tuple[int, SparseOuterCechCochain], ...]]:
+    """Require a single even target and closed scalar even-source arrows."""
+
+    targets = {term.target for term in source.extension_terms}
+    if len(targets) != 1:
+        raise ValueError("the even tensor correction requires one actual mixed-arrow target")
+    target = next(iter(targets))
+    if source.objects[target].position != 0:
+        raise ValueError("the even tensor correction requires an even rank-one target")
+    if any(term.source == target for term in source.extension_terms):
+        raise ValueError(
+            "the even tensor correction requires a nilpotent target with no self-arrow"
+        )
+    result = []
+    for index, obj in enumerate(source.objects):
+        if obj.position != 0:
+            continue
+        terms = []
+        degree = cast(tuple[int, int, int], tuple(
+            a - b for a, b in zip(source.objects[target].line_degree, obj.line_degree, strict=True)
+        ))
+        for term in source.extension_terms:
+            if term.source != index:
+                continue
+            if term.parent_degree != 0 or term.koszul_equation not in (None, 1, 2):
+                raise ValueError("an even twisting coefficient has an unsupported grading")
+            koszul = "k0" if term.koszul_equation is None else (
+                "k1_x" if term.koszul_equation == 1 else "k1_u"
+            )
+            # The mixed differential stores parent-zero terms with a
+            # minus sign in its left action. Alpha here is the actual
+            # action coefficient, not the stored extension coefficient.
+            terms.append((OuterCechBasis(
+                OuterCechComponent(0, 0, 0, degree, koszul),
+                term.x_monomial, term.u_monomial, term.p_monomial, term.cell,
+            ), term.coefficient * -1))
+        if not terms:
+            continue
+        coefficient = SparseOuterCechCochain(tuple(terms))
+        line = MixedSchoenUnit(
+            "declared twisting-coefficient line", 0, degree,
+            (MixedConstituentObject("twisting-coefficient line", 0, degree),),
+        )
+        if (
+            any(basis.total_degree != 1 for basis, _ in coefficient.terms)
+            or not _MixedContraction(line, mixed_schoen_unit()).differential(coefficient).is_zero()
+        ):
+            raise ValueError("an even twisting coefficient is not a full scalar degree-one cycle")
+        result.append((index, coefficient))
+    return target, tuple(result)
+
+
+def even_rank_one_vector_wedge(
+    left: SparseOuterCechCochain,
+    right: SparseOuterCechCochain,
+    source: MixedSchoenComplex,
+    exterior: MixedExteriorSquare,
+    context: _MixedContraction,
+    left_degree: int,
+    right_degree: int,
+) -> SparseOuterCechCochain:
+    """Correct the raw wedge on the even-object rank-one reachable sector.
+
+    With closed scalar arrows alpha_j into one even A, the raw Leibniz
+    defect is (alpha_j cup u_i - (-1)^|u| u_i cup alpha_j) cup v_j,
+    in e_i wedge A. Subtract H(alpha_j,u_i) cup v_j in that slot.
+    The scalar homotopy cancels this defect; terms quadratic in alpha
+    land in A wedge A and vanish. Ordinary local degree-zero products
+    are unchanged. Odd-object inputs are rejected: no syzygy comparison,
+    outer-cone product, or physical Yukawa is certified by this function.
+    """
+
+    if exterior != mixed_exterior_square(source):
+        raise ValueError("the even tensor correction needs the actual source exterior basis")
+    raw = resolution_vector_wedge(left, right, exterior, context, left_degree, right_degree)
+    if any(
+        basis.component.object_degree != 0
+        for cochain in (left, right) for basis, _ in cochain.terms
+    ):
+        raise ValueError("the even tensor correction cannot omit odd-object comparison terms")
+    target, coefficients = _even_twisting_coefficients(source)
+
+    def scalar_components(cochain: SparseOuterCechCochain) -> dict[int, SparseOuterCechCochain]:
+        groups: dict[int, list[tuple[OuterCechBasis, Eisenstein]]] = {}
+        for basis, value in cochain.terms:
+            index = basis.component.left_index
+            groups.setdefault(index, []).append((OuterCechBasis(
+                replace(basis.component, left_index=0),
+                basis.x_monomial, basis.u_monomial, basis.p_monomial, basis.cell,
+            ), value))
+        return {index: SparseOuterCechCochain(tuple(terms)) for index, terms in groups.items()}
+
+    a = scalar_components(left)
+    b = scalar_components(right)
+    indices = {pair: index for index, pair in enumerate(exterior.pairs)}
+    correction = []
+    for second, alpha in coefficients:
+        if second not in b:
+            continue
+        for first, u in a.items():
+            ordered = _ordered_pair(exterior.source_positions, first, target)
+            if ordered is None:
+                continue
+            pair, sign = ordered
+            value = mixed_outer_cup(mixed_scalar_cup_homotopy(alpha, u), b[second])
+            for basis, coefficient in value.terms:
+                component = context.components[(indices[pair], 0, basis.component.koszul_summand)]
+                if component.line_degree != basis.component.line_degree:
+                    raise ValueError("the tensor homotopy changed its actual exterior line")
+                correction.append((OuterCechBasis(
+                    component, basis.x_monomial, basis.u_monomial, basis.p_monomial, basis.cell,
+                ), coefficient * sign))
+    return raw + SparseOuterCechCochain(tuple(correction)).scale(-1)

@@ -1274,6 +1274,50 @@ def _nodes() -> list[dict[str, object]]:
             ("natural matter-product comparison", "complete comparison indeterminacy"),
         ),
         _node(
+            "alternate_up_exterior_boundary_attack",
+            "raw ordered exterior cup as an all-input cohomological product",
+            "Flavor",
+            "REFUTED",
+            "A three-term strict native (0,0) primitive gives a 15-term exact "
+            "boundary. Adding it to the actual left null matter class "
+            "preserves the class and character but the raw exterior cup "
+            "develops a 124-term full closure defect. Its 48-term Leibniz "
+            "defect is explicit. This refutes the raw operation, not the "
+            "carrier or the original closed scalar screens.",
+            (
+                "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",
+                "research/experiments/scientific_genesis/alternate_up_exterior_boundary_attack.py",
+                "tests/integration/test_scientific_genesis_exterior_boundary_attack.py",
+            ),
+            (
+                "actual strict null classes", "full constituent differential",
+                "unchanged exterior basis",
+            ),
+            ("natural product requires a cover tensor comparison",),
+        ),
+        _node(
+            "mixed_even_rank_one_tensor_homotopy",
+            "derived coefficient homotopy for the even-object rank-one tensor sector",
+            "Flavor",
+            "DERIVED",
+            "The product-cover diagonal homotopy satisfies its chain identity "
+            "on all 147 cells. With closed scalar arrows into one nilpotent "
+            "even target, subtracting the coefficient homotopy cancels the "
+            "raw wedge Leibniz defect; quadratic terms land in A wedge A. "
+            "The actual corrected 302-term boundary wedge is the full "
+            "primitive differential and the original null wedge is unchanged.",
+            (
+                "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",
+                "research/experiments/scientific_genesis/mixed_schoen_cup_homotopy.py",
+                "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+                "tests/integration/test_scientific_genesis_cup_homotopy.py",
+                "tests/integration/test_scientific_genesis_even_tensor_homotopy.py",
+            ),
+            ("even-object inputs", "closed scalar twisting arrows", "one nilpotent even target"),
+            ("syzygy comparison", "outer-cone comparison", "natural exterior-V-to-Q product"),
+        ),
+        _node(
             "alternate_constituent_determinant_pairing",
             "local pairing for the frozen alternate I6 ray",
             "Computable carrier",
@@ -3647,6 +3691,37 @@ def _edges() -> list[dict[str, object]]:
             ("a closed partial product can still differ by an H2(K) class",),
         ),
         _edge(
+            "alternate_up_exterior_higgs_action",
+            "alternate_up_exterior_boundary_attack",
+            "The same actual exterior differential and raw vector cup test "
+            "an exact boundary in a physical native character sector.",
+            ("data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",),
+            ("unchanged actual null classes", "full strict-character boundary"),
+            True,
+            ("raw scalar-screen closure does not imply a cohomological product",),
+        ),
+        _edge(
+            "alternate_up_exterior_boundary_attack",
+            "mixed_even_rank_one_tensor_homotopy",
+            "An explicit cover coefficient homotopy cancels the exhibited "
+            "Leibniz defect, with its actual source differential sign.",
+            ("data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",),
+            ("even-object sector", "rank-one nilpotent twisting target"),
+            True,
+            ("the correction rejects odd objects and is not an outer-cone comparison",),
+        ),
+        _edge(
+            "mixed_even_rank_one_tensor_homotopy",
+            "first_exact_yukawa",
+            "The even-sector correction restores the actual boundary identity. "
+            "It must extend through syzygies and the outer quotient cone "
+            "before identifying the natural physical matter product.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",),
+            ("complete natural tensor comparison", "declared trace normalization"),
+            False,
+            ("a scoped even-sector chain map is not the full physical product",),
+        ),
+        _edge(
             "alternate_up_first_order_scalar",
             "first_exact_yukawa",
             "A natural sheaf quotient and closed ordered scalars must be "
@@ -5782,10 +5857,12 @@ def _engines() -> list[dict[str, object]]:
         ),
         (
             "mixed graded exterior squares and reciprocal covector products",
-            "research-only; full alternate products and primitives checked, not arbitrary twists",
+            "research-only; raw vector cup fails a boundary test, even-sector homotopy derived",
             (
                 "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
                 "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py",
+                "research/experiments/scientific_genesis/mixed_schoen_cup_homotopy.py",
+                "research/experiments/scientific_genesis/alternate_up_exterior_boundary_attack.py",
             ),
         ),
         (
@@ -5849,8 +5926,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             1,
-            "Actual covariance fixes the Higgs character. Use the short line "
-            "homotopies to resolve the natural product before assigning an ordered null residue.",
+            "The raw exterior cup fails an actual boundary test. Extend the "
+            "derived even-sector correction through syzygies and the outer cone before pairing.",
         ),
         (
             "alternate_complete_up_matrix",
@@ -7200,6 +7277,57 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the actual null line homotopies and ambiguity groups are not certified")
+    boundary_attack = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json"
+    ).read_text(encoding="utf-8"))
+    boundary_attack_digest = boundary_attack.pop("artifact_digest", None)
+    boundary_witness = boundary_attack.get("attack", {})
+    if (
+        boundary_attack_digest != _canonical_digest(boundary_attack)
+        or boundary_attack.get("schema") != "alternate-up-exterior-boundary-attack-v1"
+        or boundary_attack.get("prerequisite_artifact_digests") != {
+            "actual_matter": up_matter_digest, "null_channels": null_digest,
+            "exterior_construction": exterior_digest,
+        }
+        or boundary_witness.get("matter_character") != [0, 0]
+        or boundary_witness.get("other_matter_character") != [1, 0]
+        or any(boundary_witness.get(name, {}).get("term_count") != count for name, count in (
+            ("boundary_primitive", 3), ("exact_boundary", 15), ("boundary_wedge", 284),
+            ("closure_defect", 124), ("primitive_wedge", 78), ("leibniz_defect", 48),
+            ("corrected_boundary_wedge", 302),
+        ))
+        or boundary_witness.get("closure_defect", {}).get("cochain_digest") != (
+            "4782ee9be7cb90ee6c6b370f3d6b22ae6b8bc3550bfa7cbfa0666de4454224e4"
+        )
+        or boundary_witness.get("original_null_wedge_digest") != ordered_coefficients[0][
+            "null_wedge_digest"
+        ]
+        or boundary_witness.get("corrected_null_wedge_digest") != ordered_coefficients[0][
+            "null_wedge_digest"
+        ]
+        or boundary_witness.get("closure_defect_exterior_pairs") != [[0, 1], [0, 2]]
+        or any(boundary_witness.get(field) is not True for field in (
+            "strict_boundary_primitive_character_exact", "strict_boundary_character_exact",
+            "full_boundary_cycle_exact", "original_null_wedge_closed_exact",
+            "modified_matter_class_unchanged_exact", "modified_matter_representative_closed_exact",
+            "modified_matter_character_exact",
+            "full_leibniz_defect_differential_is_negative_closure_defect",
+            "corrected_even_boundary_wedge_is_full_primitive_differential",
+            "corrected_even_boundary_wedge_closed_exact",
+            "original_null_wedge_unchanged_by_even_correction",
+        ))
+        or any(boundary_witness.get(field) is not False for field in (
+            "modified_exterior_wedge_closed_exact", "raw_exterior_cup_is_all_input_chain_map",
+            "complete_tensor_comparison_certified", "original_ordered_scalar_screens_refuted",
+            "carrier_refuted", "physical_null_coefficient_assigned",
+        ))
+        or any(boundary_attack.get(field) is not False for field in (
+            "natural_product_comparison_certified", "complete_holomorphic_up_matrix_available",
+            "physical_yukawa_matrix_available", "extension_point_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the scoped exterior boundary counterexample and repair are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -7451,6 +7579,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_pairing_exchange.json",
         "data/generated/scientific_genesis/alternate_up_pairing_exchange.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_null_line_homotopies.json",
+        "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -7475,7 +7604,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 858,
+            "collected_tests_at_audit": 932,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -7654,6 +7783,11 @@ def build_state() -> dict[str, object]:
                 "alternate_up_quotient_fixed_endpoint_map_ambiguity_dimension": 0,
                 "alternate_up_quotient_K_h0_to_h3": [0, 5, 5, 0],
                 "alternate_up_quotient_matter_product_ambiguity_dimension": 5,
+                "alternate_up_raw_exterior_cup_all_input_chain_map_refuted": True,
+                "alternate_up_raw_exterior_boundary_closure_defect_term_count": 124,
+                "alternate_up_even_tensor_boundary_repair_verified": True,
+                "alternate_up_null_wedge_unchanged_by_even_tensor_repair": True,
+                "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
                 "alternate_up_ordered_exchange_consistent": all(
                     item["reverse_scalar_closed_exact"]
@@ -7885,10 +8019,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "resolve the natural exterior-V-to-Q matter-product comparison "
-                "before assigning an ordered null residue to the physical Higgs "
-                "pairing, then declare determinant/quotient trace conventions "
-                "and derive the complete up matrix without selecting an extension point"
+                "extend the verified even-sector tensor homotopy through the syzygy "
+                "and outer-cone comparisons, then identify the natural exterior-V-to-Q "
+                "product and declare determinant/quotient trace conventions before "
+                "deriving the complete up matrix without selecting an extension point"
             ),
         },
         "claims": _nodes(),

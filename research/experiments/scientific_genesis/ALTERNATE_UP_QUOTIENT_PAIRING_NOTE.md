@@ -207,6 +207,93 @@ statement about the full cover group, not a claim that such a change is
 reachable by a legitimate natural-product comparison. It rules out
 discarding that remaining gate solely from the null line homotopies.
 
+## The raw product fails a representative-independence attack
+
+There is now an actual failure, not just a possible ambiguity. Project the
+local section `x₁ u₀⁻⁴ p₀` in F's first even Hilbert--Burch generator
+onto native character `(0,0)`, using the fixed exact deck frames. This
+gives a three-term degree-zero cochain c. Its full differential has 15
+terms and is strictly in that same character. Replacing the left null
+matter representative b_L by `b_L+D_F c` preserves its cohomology class,
+closure, and character. No new physical input or extension point is chosen.
+
+The original raw null wedge is closed. Its boundary variation
+`W(D_F c,b_R)` has 284 terms and a 124-term full differential. Hence the
+raw ordered wedge does not even preserve cycles under this exact change
+of representative. The 48-term Leibniz defect
+
+```text
+L = D_ext W(c,b_R) - W(D_F c,b_R)
+D_ext L = -D_ext W(D_F c,b_R)
+```
+
+is saved in full, along with c, its boundary, and the closure defect.
+This refutes the raw wedge as an all-input cohomological product on the
+actual F model. It does not refute the carrier, the original closed scalar
+screens, or the existence of the natural physical product.
+
+## A derived repair on the even-object sector
+
+The missing coefficient-order homotopy can be constructed in the fixed
+ordered cover. On simplex chains use
+
+```text
+H[i,j] = -[i,j] ⊗ [i,j]
+H[i,j,k] = [i,j,k] ⊗ ([i,j]+[j,k]) - [i,k] ⊗ [i,j,k].
+```
+
+Contraction to the first ordered vertex derives these formulas. Direct
+chain boundaries give `∂H+H∂=AW-τAW`. On the three-factor cover, telescope
+with `Hx⊗AWu⊗AWp + τAWx⊗Hu⊗AWp + τAWx⊗τAWu⊗Hp`, retaining the
+tensor-operator and output-braiding signs. Independent chain enumeration
+verifies this identity on all 147 cells, not just selected matter inputs.
+
+For scalar Koszul cochains the totalization sign is
+`(-1)^(s_left+s_right+Cech_degree(left)*s_right)`, in addition to the
+Koszul coefficient-product sign. Here s is the structural Koszul degree.
+The resulting H has total degree -1 and satisfies
+
+```text
+dH(a,b) + H(da,b) + (-1)^|a| H(a,db)
+    = a∪b - (-1)^(|a||b|) b∪a.
+```
+
+Full scalar tests include the hypersurface-equation differential. This
+operation refuses matrix components; it cannot interchange their order.
+
+In the even-object sector of F, let α_j be the actual scalar arrow from
+the j-th generator into the single even A target. These arrows are full
+degree-one cycles. The mixed differential's stored parent-zero term has
+the opposite sign to its left action, so α is **minus** that stored
+coefficient. This follows directly from the existing differential, not a
+choice made to repair a scalar residue; h and κ are unchanged.
+
+For even-object inputs the raw wedge defect is the coefficient commutator
+`(α_j∪u_i-(-1)^|u|u_i∪α_j)∪v_j` in `e_i∧A`. Therefore define
+
+```text
+P(u,v) = W(u,v) - Σ_(i,j) H(α_j,u_i)∪v_j · (e_i∧A).
+```
+
+The scalar homotopy cancels the commutator. Additional twisting terms land
+in `A∧A=0`, because the target has no self-arrow. This proves the signed
+Leibniz identity on this even sector. Full Cech--Koszul regression tests
+include noncycles and every Koszul subset pair; unsupported odd objects
+and a non-nilpotent target are explicitly rejected.
+
+For the actual attack, `P(D_F c,b_R)=D_ext W(c,b_R)` exactly. The
+corrected boundary wedge has 302 terms and zero full differential. The
+actual original null wedge receives zero correction and remains the same
+2,997-term cochain. Thus this repair passes the exhibited boundary attack
+without changing its original scalar inputs. The corrected cochains and
+their scoped flags are recorded in `alternate_up_exterior_boundary_attack.json`.
+
+This is not yet the complete tensor comparison. Syzygy representatives
+and the outer cone require their own compatible correction. In particular
+the natural map Φ and all-input physical pairing remain unresolved, and
+the five-dimensional H²(K) ambiguity has not been removed. No rank-three
+conclusion, full matrix, or physical observable is assigned here.
+
 For a ninefold finite étale map π, a quotient trace is cover trace divided
 by nine **if** the holomorphic volume form and descended sections are
 declared to obey the corresponding pullback conventions. No such factor

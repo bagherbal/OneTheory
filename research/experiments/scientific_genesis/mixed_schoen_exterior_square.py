@@ -22,6 +22,7 @@ from dataclasses import dataclass, replace
 from functools import cache
 from typing import cast
 
+from onetheory.math.linear import Matrix
 from onetheory.math.numbers import Eisenstein
 from onetheory.math.polynomials import Polynomial
 from research.experiments.computable_carrier.schoen_serre_outer_transfer import (
@@ -159,6 +160,46 @@ def mixed_exterior_square(source: MixedSchoenComplex) -> MixedExteriorSquare:
         ),
         pairs, positions, tuple(item.line_degree for item in source.objects),
     )
+
+
+def graded_exterior_frame(exterior: MixedExteriorSquare, frame: Matrix) -> Matrix:
+    """Apply an invertible homogeneous frame to the declared ordinary basis.
+
+    Expand each product of its two actual columns and canonically reorder
+    using the internal Koszul sign. Odd diagonals are ordinary symmetric
+    monomials: their off-diagonal coefficients add twice. This is a frame
+    transformation only, not a claim about an arbitrary twisted tensor cup.
+    """
+
+    size = len(exterior.source_positions)
+    if frame.row_count != size or frame.column_count != size or frame.rank() != size:
+        raise ValueError("the exterior frame needs an invertible source-size matrix")
+    if frame.scalar_type is not Eisenstein:
+        raise TypeError("the mixed exterior frame requires exact Eisenstein coefficients")
+    columns = []
+    for source in range(size):
+        column = []
+        for target in range(size):
+            value = Eisenstein.coerce(frame[target][source])
+            if value.is_zero():
+                continue
+            if (
+                exterior.source_positions[target] != exterior.source_positions[source]
+                or exterior.source_lines[target] != exterior.source_lines[source]
+            ):
+                raise ValueError("the source frame does not preserve homogeneous objects")
+            column.append((target, value))
+        columns.append(tuple(column))
+    indices = {pair: index for index, pair in enumerate(exterior.pairs)}
+    rows = [[Eisenstein(0) for _ in exterior.pairs] for _ in exterior.pairs]
+    for index, (first, second) in enumerate(exterior.pairs):
+        for a, first_value in columns[first]:
+            for b, second_value in columns[second]:
+                ordered = _ordered_pair(exterior.source_positions, a, b)
+                if ordered is not None:
+                    pair, sign = ordered
+                    rows[indices[pair]][index] += first_value * second_value * sign
+    return Matrix(tuple(tuple(row) for row in rows), scalar_type=Eisenstein)
 
 
 def reciprocal_covector_wedge(

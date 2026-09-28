@@ -21,6 +21,7 @@ from itertools import product
 
 import pytest
 
+from onetheory.math.linear import Matrix
 from onetheory.math.numbers import OMEGA, Eisenstein
 from onetheory.math.polynomials import Polynomial
 from research.experiments.computable_carrier.schoen_serre_outer import schoen_serre_outer_hom
@@ -34,6 +35,7 @@ from research.experiments.scientific_genesis.mixed_constituent_schoen_arrows imp
     MixedResolutionArrow,
 )
 from research.experiments.scientific_genesis.mixed_schoen_exterior_square import (
+    graded_exterior_frame,
     mixed_exterior_square,
     reciprocal_covector_wedge,
     resolution_vector_wedge,
@@ -62,6 +64,36 @@ def _fixture() -> MixedSchoenUnit:
             for index, value in enumerate((Eisenstein(1), OMEGA))
         ),
     )
+
+
+def test_graded_frame_uses_ordinary_odd_diagonals_and_composes() -> None:
+    """Direct polynomial expansion fixes the off-diagonal square factor."""
+
+    source = MixedSchoenUnit(
+        "homogeneous frame fixture", 0, (0, 0, 0),
+        tuple(MixedConstituentObject(str(i), p, (0, 0, 0))
+              for i, p in enumerate((0, 0, -1, -1))),
+    )
+    exterior = mixed_exterior_square(source)
+    first = Matrix(((1, 2, 0, 0), (0, 1, 0, 0),
+                    (0, 0, 2, 1), (0, 0, 1, 1)), scalar_type=Eisenstein)
+    second = Matrix(((0, 1, 0, 0), (1, 0, 0, 0),
+                     (0, 0, 1, OMEGA), (0, 0, 0, 1)), scalar_type=Eisenstein)
+    transformed = graded_exterior_frame(exterior, first)
+    index = {pair: i for i, pair in enumerate(exterior.pairs)}
+    assert transformed[index[(2, 2)]][index[(2, 2)]] == Eisenstein(4)
+    assert transformed[index[(2, 3)]][index[(2, 2)]] == Eisenstein(4)
+    assert transformed[index[(3, 3)]][index[(2, 2)]] == Eisenstein(1)
+    assert graded_exterior_frame(exterior, first @ second) == (
+        transformed @ graded_exterior_frame(exterior, second)
+    )
+    assert graded_exterior_frame(exterior, Matrix.identity(4, scalar_type=Eisenstein)) == (
+        Matrix.identity(len(exterior.pairs), scalar_type=Eisenstein)
+    )
+    incompatible = Matrix(((1, 0, 1, 0), (0, 1, 0, 0),
+                           (0, 0, 1, 0), (0, 0, 0, 1)), scalar_type=Eisenstein)
+    with pytest.raises(ValueError, match="preserve homogeneous objects"):
+        graded_exterior_frame(exterior, incompatible)
 
 
 def _section(context: _MixedContraction, index: int) -> SparseOuterCechCochain:

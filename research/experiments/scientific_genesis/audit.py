@@ -1103,7 +1103,9 @@ def _nodes() -> list[dict[str, object]]:
             "Wilson sector. Their 144-term full Yoneda evaluations are "
             "boundaries with 90-term exact primitives. A formal determinant "
             "identity reduces the rank-three decision to two extension-linear "
-            "null-to-null F-F coefficients, which remain uncomputed.",
+            "null-to-null F-F coefficients. Separate complete ordered scalar "
+            "screens now evaluate those directions; their physical tensor "
+            "identification remains a distinct gate.",
             (
                 "data/generated/scientific_genesis/alternate_up_null_channel.json",
                 "research/experiments/scientific_genesis/alternate_up_null_channel.py",
@@ -1112,7 +1114,7 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_alternate_up_null_channel.py",
             ),
             ("declared ordered cover convention", "frozen nonsplit P1"),
-            ("same-cone Higgs correction", "two null-to-null F-F couplings"),
+            ("physical identification of the ordered null scalars",),
         ),
         _node(
             "alternate_up_dual_higgs_inputs",
@@ -1134,7 +1136,7 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/test_scientific_genesis_alternate_up_dual_higgs_inputs.py",
             ),
             ("actual frozen alternate resolutions", "declared determinant orientation"),
-            ("signed full Higgs-cone comparison", "complete F-F scalar"),
+            ("physical quotient-cone comparison", "complete F-F block"),
         ),
         _node(
             "alternate_up_exterior_higgs_action",
@@ -1146,8 +1148,9 @@ def _nodes() -> list[dict[str, object]]:
             "pass. Both ordered h-wedge-q(e) products are full cycles with "
             "independently checked degree-one primitives. A selectively "
             "transferred candidate aids the solve but is not itself a global "
-            "operator certificate. The full cone comparison and scalar "
-            "contraction remain unresolved.",
+            "operator certificate. Both signed slot compositions and a "
+            "natural ideal-quotient cone now reproduce these identities. "
+            "Identification with the physical exterior pairing is separate.",
             (
                 "data/generated/scientific_genesis/alternate_up_exterior_higgs_action.json",
                 "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py",
@@ -1157,7 +1160,54 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/test_scientific_genesis_mixed_exterior_square.py",
             ),
             ("frozen alternate F", "ordered full-cover cup", "ordinary odd-square basis"),
-            ("signed full Higgs-cone comparison", "closed complete first-order scalar"),
+            ("physical exterior pairing and quotient trace",),
+        ),
+        _node(
+            "alternate_up_higgs_quotient_cone",
+            "natural coherent quotient cone for the alternate Higgs",
+            "Flavor",
+            "COMPUTED",
+            "The actual A-section quotient gives K=B1 tensor I6 B2 with "
+            "seven objects and six arrows, not an additional vector bundle. "
+            "Both full connecting arrows are closed; their signed Higgs "
+            "actions match the pinned exterior primitive differentials. "
+            "The raw null tensor differences lie entirely in the actual "
+            "A target, so their projections vanish before applying h. "
+            "This certifies the triangular quotient cone, not an arbitrary "
+            "exterior-V cochain map or a normalized physical coupling.",
+            (
+                "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json",
+                "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
+                "research/experiments/scientific_genesis/alternate_up_higgs_covector_comparison.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_FIRST_ORDER_SCALAR_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_up_higgs_quotient_cone.py",
+            ),
+            ("global first quotient", "full pinned primitive identities", "actual Serre quotient"),
+            ("physical exterior-V cochain comparison", "equivariant Higgs normalization"),
+        ),
+        _node(
+            "alternate_up_first_order_scalar",
+            "complete ordered alternate null-channel scalar screens",
+            "Flavor",
+            "COMPUTED",
+            "Both parameter coefficients include both matter-leg terms "
+            "and the positive signed Higgs primitive. Each complete scalar "
+            "is checked under the full differential before its exact "
+            "ordered cover residue is evaluated. A primitive-free tensor "
+            "calculation independently accounts for its zero defect. "
+            "The ordered residues are 0 and (2673-486 omega)/49; the a1 "
+            "coefficient is nonzero in the exact field. "
+            "Closed screens are not assigned as physical null coefficients "
+            "or as a permanent physical rank bound.",
+            (
+                "data/generated/scientific_genesis/alternate_up_first_order_scalar.json",
+                "research/experiments/scientific_genesis/alternate_up_first_order_scalar.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_FIRST_ORDER_SCALAR_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_up_first_order_scalar.py",
+                "tests/integration/test_scientific_genesis_alternate_up_higgs_covector_comparison.py",
+            ),
+            ("fixed null matter basis", "literal ordered cover cup", "checked positive k sign"),
+            ("physical pairing identification", "quotient trace convention", "complete up matrix"),
         ),
         _node(
             "alternate_constituent_determinant_pairing",
@@ -3391,17 +3441,74 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "alternate_up_exterior_higgs_action",
-            "first_exact_yukawa",
-            "The checked primitive in the reciprocal exterior resolution "
-            "must be identified with the signed full Higgs-cone correction "
-            "and combined with both matter-leg terms before taking a residue.",
+            "alternate_up_higgs_quotient_cone",
+            "Compose both signed slots and project the actual A target. "
+            "The full connecting maps close, and their Higgs actions are "
+            "exactly minus the pinned exterior products; D k plus action "
+            "vanishes coefficientwise in the triangular quotient cone.",
             (
-                "research/experiments/scientific_genesis/ALTERNATE_UP_EXTERIOR_HIGGS_ACTION_NOTE.md",
-                "research/experiments/scientific_genesis/ALTERNATE_UP_NULL_CHANNEL_NOTE.md",
+                "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json",
             ),
-            ("signed full cone comparison", "all three first-order terms"),
+            ("ordinary odd monomials", "global first quotient", "pinned full D k identities"),
+            True,
+            ("a closed quotient cone does not certify every exterior-V comparison",),
+        ),
+        _edge(
+            "alternate_up_null_channel",
+            "alternate_up_higgs_quotient_cone",
+            "The actual null matter wedges are full cycles. Before the "
+            "Higgs annihilator, both ordered tensor differences have only "
+            "A-section support and vanish on the legitimate ideal quotient.",
+            ("data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json",),
+            ("actual even null-matter support", "F/A is a coherent ideal quotient"),
+            True,
+            ("the all-input tensor comparison is not certified",),
+        ),
+        _edge(
+            "alternate_up_exterior_higgs_action",
+            "alternate_up_first_order_scalar",
+            "The exact signed slot identity fixes the positive k term; "
+            "both exact matter corrections must be included before tracing.",
+            ("data/generated/scientific_genesis/alternate_up_first_order_scalar.json",),
+            ("D x equals minus e b", "literal three-term order"),
+            True,
+            ("a single primitive term is not a closed Yukawa scalar",),
+        ),
+        _edge(
+            "alternate_up_null_channel",
+            "alternate_up_first_order_scalar",
+            "The determinant null combinations specify the actual matter "
+            "inputs without fitting coefficients or choosing an extension point.",
+            ("data/generated/scientific_genesis/alternate_up_first_order_scalar.json",),
+            ("declared seed0/seed5 basis and exact within-sector ratios",),
+            True,
+            ("full F-F matrix entries are not reconstructed from null scalars",),
+        ),
+        _edge(
+            "alternate_up_higgs_quotient_cone",
+            "alternate_up_first_order_scalar",
+            "The projected ordered tensor comparison vanishes before h. "
+            "Its primitive-free scalar defect agrees with the independently "
+            "evaluated full scalar differential.",
+            (
+                "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json",
+                "data/generated/scientific_genesis/alternate_up_first_order_scalar.json",
+            ),
+            ("actual null channel only",),
+            True,
+            ("this does not identify the complete physical exterior pairing",),
+        ),
+        _edge(
+            "alternate_up_first_order_scalar",
+            "first_exact_yukawa",
+            "A natural sheaf quotient and closed ordered scalars must be "
+            "identified with the equivariant physical Higgs pairing, with "
+            "explicit determinant and quotient trace conventions, before "
+            "the nonzero a1 scalar certifies generic physical holomorphic rank.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_FIRST_ORDER_SCALAR_NOTE.md",),
+            ("physical cochain comparison", "equivariant Higgs and trace normalization"),
             False,
-            ("neither null-to-null determinant coefficient is computed",),
+            ("a closed ordered residue alone is not a physical rank theorem",),
         ),
         _edge(
             "alternate_constituent_carrier_state",
@@ -5534,6 +5641,15 @@ def _engines() -> list[dict[str, object]]:
             ),
         ),
         (
+            "alternate coherent Higgs quotient cone and ordered null scalars",
+            "research-only; actual quotient maps and scalar closure, not physical normalization",
+            (
+                "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
+                "research/experiments/scientific_genesis/alternate_up_first_order_scalar.py",
+                "research/experiments/scientific_genesis/alternate_up_higgs_covector_comparison.py",
+            ),
+        ),
+        (
             "metrics",
             "generic numerical laws and carrier boundary only",
             (
@@ -5574,24 +5690,26 @@ def _scheduler() -> list[dict[str, object]]:
 
     tasks = [
         (
-            "distinct_constituent_realization_screen",
+            "alternate_physical_quotient_pairing",
             5,
             5,
             5,
             5,
             2,
             1,
-            "Test the two unused locally free I6 rays for descent and Higgs support.",
+            "The quotient cone and ordered null screens are checked. Identify "
+            "the physical pairing before the nonzero a1 residue can certify generic rank.",
         ),
         (
-            "distinct_su4_carrier_screen",
+            "alternate_complete_up_matrix",
             5,
             4,
             5,
             5,
             4,
             2,
-            "Screen a distinct underlying bundle against exact carrier gates.",
+            "Finish the quotient-normalized up sector after identifying "
+            "the nonzero a1 null residue, without choosing an extension point.",
         ),
         (
             "lawful_carrier_common_dga_lifts",
@@ -5601,7 +5719,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             5,
             4,
-            "Existing lifts remain conditional until a physical carrier is certified.",
+            "The alternate cone and matter lifts are certified; extend only "
+            "the reachable products needed by the unresolved scalar comparison.",
         ),
         (
             "minimal_common_dga_yukawa_slice",
@@ -5611,7 +5730,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             5,
             4,
-            "A physical matrix cannot precede the corrected determinant gate.",
+            "The corrected determinant gate is closed; the full Higgs "
+            "comparison and quotient trace still precede a complete holomorphic matrix.",
         ),
         (
             "automorphism_trichotomy_theorem",
@@ -6698,6 +6818,95 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the full reciprocal exterior primitive identities are not certified")
+    quotient_cone = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json"
+    ).read_text(encoding="utf-8"))
+    quotient_cone_digest = quotient_cone.pop("artifact_digest", None)
+    quotient_coefficients = quotient_cone.get("parameter_coefficients", [])
+    if (
+        quotient_cone_digest != _canonical_digest(quotient_cone)
+        or quotient_cone.get("schema") != "alternate-up-higgs-quotient-cone-v1"
+        or quotient_cone.get("prerequisite_artifact_digests", {}).get("full_exterior_primitives")
+        != exterior_digest
+        or quotient_cone.get("outer_parameter_basis") != ["a0", "a1"]
+        or quotient_cone.get("quotient_ideal_resolution_object_count") != 7
+        or quotient_cone.get("quotient_ideal_resolution_arrow_count") != 6
+        or quotient_cone.get("quotient_ideal_resolution_twist") != [0, 0, 1]
+        or quotient_cone.get("quotient_is_a_vector_bundle") is not False
+        or quotient_cone.get("quotient_covector_term_count") != 324
+        or any(quotient_cone.get(field) is not True for field in (
+            "full_quotient_covector_closed_exact",
+            "universal_triangular_quotient_cone_squared_zero_exact",
+            "higgs_lift_exists_by_full_pinned_primitive_identities",
+            "null_matter_quotient_tensor_comparison_exact",
+        ))
+        or [item.get("parameter") for item in quotient_coefficients] != ["a0", "a1"]
+        or [item.get("connecting_arrow_term_count") for item in quotient_coefficients]
+        != [103986, 87354]
+        or [item.get("higgs_action_term_count") for item in quotient_coefficients]
+        != [191628, 169983]
+        or [item.get("raw_null_tensor_difference_term_count") for item in quotient_coefficients]
+        != [31668, 30234]
+        or any(
+            item.get("full_connecting_arrow_closed_exact") is not True
+            or item.get("negative_action_equals_pinned_primitive_differential") is not True
+            or item.get("primitive_solver_reexecuted_by_this_writer") is not False
+            or item.get("raw_difference_has_only_actual_A_support") is not True
+            or item.get("projected_null_tensor_difference_zero_exact") is not True
+            or item.get("primitive_digest") != primitive.get("primitive_digest")
+            or item.get("primitive_term_count") != primitive.get("primitive_term_count")
+            for item, primitive in zip(quotient_coefficients, exterior_witnesses, strict=True)
+        )
+        or any(quotient_cone.get(field) is not False for field in (
+            "extension_point_selected", "observational_inputs_used",
+            "complete_holomorphic_up_matrix_available", "physical_yukawa_matrix_available",
+        ))
+    ):
+        raise ValueError("the actual alternate Higgs quotient cone is not certified")
+    ordered_scalar = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_first_order_scalar.json"
+    ).read_text(encoding="utf-8"))
+    ordered_scalar_digest = ordered_scalar.pop("artifact_digest", None)
+    ordered_coefficients = ordered_scalar.get("parameter_coefficients", [])
+    if (
+        ordered_scalar_digest != _canonical_digest(ordered_scalar)
+        or ordered_scalar.get("schema") != "alternate-up-first-order-scalar-screen-v1"
+        or ordered_scalar.get("prerequisite_artifact_digests", {}).get("null_channels")
+        != null_digest
+        or ordered_scalar.get("prerequisite_artifact_digests", {}).get("exterior_primitives")
+        != exterior_digest
+        or ordered_scalar.get("outer_parameter_basis") != ["a0", "a1"]
+        or ordered_scalar.get("scalar_order") != (
+            "h cup (q(xL) tensor bR - bL tensor q(xR)) + k cup (bL wedge bR)"
+        )
+        or ordered_scalar.get("signed_two_slot_cone_actions_exact") is not True
+        or ordered_scalar.get("higgs_primitive_sign") != (
+            "positive, because the dual cone action is minus h wedge q(e)"
+        )
+        or [item.get("parameter") for item in ordered_coefficients] != ["a0", "a1"]
+        or [item.get("ordered_cover_residue") for item in ordered_coefficients]
+        != ["0", "2673/49-486/49*omega"]
+        or any(
+            item.get("null_wedge_term_count") != 2997
+            or item.get("null_wedge_digest") != (
+                "d8bc1e32e654bcf3eda60b77472e59b5d5d0f01bfc4fdc16c9efc6f9e8b8e6da"
+            )
+            or item.get("scalar_term_count", 0) <= 0
+            or item.get("scalar_defect_term_count") != 0
+            or item.get("ordered_scalar_closed_exact") is not True
+            or not isinstance(item.get("ordered_cover_residue"), str)
+            or item.get("projection_depth") != 3
+            or item.get("physical_null_coefficient_assigned") is not False
+            for item in ordered_coefficients
+        )
+        or any(ordered_scalar.get(field) is not False for field in (
+            "derived_tensor_comparison_certified", "physical_null_coefficients_computed",
+            "rank_three_established", "complete_holomorphic_up_matrix_available",
+            "physical_yukawa_matrix_available", "extension_point_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the complete ordered alternate null scalar screens are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -6943,6 +7152,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_null_channel.json",
         "data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json",
         "data/generated/scientific_genesis/alternate_up_exterior_higgs_action.json",
+        "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json",
+        "data/generated/scientific_genesis/alternate_up_first_order_scalar.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -6967,7 +7178,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 775,
+            "collected_tests_at_audit": 797,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -7130,6 +7341,13 @@ def build_state() -> dict[str, object]:
                 "alternate_ray_0_1_wilson_higgs_pairs": 1,
                 "alternate_up_ordered_exterior_products_closed": True,
                 "alternate_up_reciprocal_exterior_primitives_verified": True,
+                "alternate_up_natural_quotient_cone_available": True,
+                "alternate_up_null_tensor_projection_exact": True,
+                "alternate_up_complete_ordered_null_screens_computed": True,
+                "alternate_up_ordered_null_cover_residues": [
+                    item["ordered_cover_residue"] for item in ordered_coefficients
+                ],
+                "alternate_up_ordered_null_a1_coefficient_nonzero": True,
                 "alternate_up_full_higgs_cone_comparison_available": False,
                 "alternate_up_null_to_null_coefficients_computed": False,
                 "alternate_ray_0_1_explicit_cocycles_available": False,
@@ -7352,10 +7570,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "identify the checked reciprocal exterior primitives with "
-                "the signed full Higgs-cone correction, then combine all "
-                "three first-order scalar terms for the two null-to-null "
-                "coefficients before finishing the full up matrix"
+                "identify the nonzero a1 ordered null scalar with the "
+                "equivariant physical Higgs pairing and explicit determinant/quotient "
+                "trace conventions, then derive the complete up matrix "
+                "without selecting an extension point"
             ),
         },
         "claims": _nodes(),
@@ -7439,6 +7657,12 @@ def build_state() -> dict[str, object]:
             "two strict null Yoneda combinations are full boundaries "
             "with 90-term primitives; the formal determinant now needs "
             "only two unknown extension-linear null-to-null coefficients",
+            "the natural coherent Higgs quotient has two full closed "
+            "connecting arrows; its signed actions reproduce the pinned "
+            "primitive identities without pretending the ideal is a vector bundle",
+            "both complete ordered null scalars are full cycles with exact "
+            "cover residues; the raw tensor differences vanish on the actual "
+            "A quotient, but physical pairing identification remains open",
             "the frozen alternate I6 quotient has six distinct local "
             "determinant pairings satisfying all thirty corrected overlap "
             "identities; no Hom-to-tensor chain map follows yet",

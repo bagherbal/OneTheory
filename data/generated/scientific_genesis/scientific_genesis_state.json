@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "513a1c5d11495e68277dc4e5bf4023e5453e774d8613b0fe2759dca32082beb1",
+  "artifact_digest": "d7cf9ee1387355f8e73859218d75db3d81bce7b07501e3dfaaa5ad69d28cbb43",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -612,6 +612,16 @@
       "sha256": "ae6fa4960c630cc7a57849f985c628ee2292572acaabe6053d44f710dbc759fc"
     },
     {
+      "bytes": 3211,
+      "path": "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json",
+      "sha256": "542ff9412d7b081e193ecff8f365c548cc8c02d7e99b203de2c6b63a7179627f"
+    },
+    {
+      "bytes": 2982,
+      "path": "data/generated/scientific_genesis/alternate_up_first_order_scalar.json",
+      "sha256": "5be85d9ba28c980516fe5557597ea9b9fd0b7e1e1e0a7989461b9a069b45c66e"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -648,11 +658,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 775,
+    "collected_tests_at_audit": 797,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 241,
-    "test_python_files": 222
+    "research_python_files": 244,
+    "test_python_files": 226
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1586,10 +1596,9 @@
       "label": "exact alternate up null-channel homotopies",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "same-cone Higgs correction",
-        "two null-to-null F-F couplings"
+        "physical identification of the ordered null scalars"
       ],
-      "statement": "The two exact mixed blocks select one null F combination per Wilson sector. Their 144-term full Yoneda evaluations are boundaries with 90-term exact primitives. A formal determinant identity reduces the rank-three decision to two extension-linear null-to-null F-F coefficients, which remain uncomputed.",
+      "statement": "The two exact mixed blocks select one null F combination per Wilson sector. Their 144-term full Yoneda evaluations are boundaries with 90-term exact primitives. A formal determinant identity reduces the rank-three decision to two extension-linear null-to-null F-F coefficients. Separate complete ordered scalar screens now evaluate those directions; their physical tensor identification remains a distinct gate.",
       "status": "COMPUTED"
     },
     {
@@ -1608,8 +1617,8 @@
       "label": "reciprocal covectors for the first-order alternate Higgs action",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "signed full Higgs-cone comparison",
-        "complete F-F scalar"
+        "physical quotient-cone comparison",
+        "complete F-F block"
       ],
       "statement": "The global Hilbert-Burch A-line pairing kills syzygies exactly. Its quotient sends both outer basis classes to independent nonboundary covectors F to B1. The saved A-supported Higgs retargets to F to B1 inverse with unchanged full grading. A separate exterior calculation now checks the ordered products and their full primitives; these input records alone do not supply the complete first-order scalar.",
       "status": "COMPUTED"
@@ -1632,10 +1641,56 @@
       "label": "checked reciprocal exterior primitives for the alternate up sector",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "signed full Higgs-cone comparison",
-        "closed complete first-order scalar"
+        "physical exterior pairing and quotient trace"
       ],
-      "statement": "The actual F resolution has a 31-object graded exterior square with ordinary odd monomials. All 124 full square-zero witnesses pass. Both ordered h-wedge-q(e) products are full cycles with independently checked degree-one primitives. A selectively transferred candidate aids the solve but is not itself a global operator certificate. The full cone comparison and scalar contraction remain unresolved.",
+      "statement": "The actual F resolution has a 31-object graded exterior square with ordinary odd monomials. All 124 full square-zero witnesses pass. Both ordered h-wedge-q(e) products are full cycles with independently checked degree-one primitives. A selectively transferred candidate aids the solve but is not itself a global operator certificate. Both signed slot compositions and a natural ideal-quotient cone now reproduce these identities. Identification with the physical exterior pairing is separate.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "global first quotient",
+        "full pinned primitive identities",
+        "actual Serre quotient"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json",
+        "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
+        "research/experiments/scientific_genesis/alternate_up_higgs_covector_comparison.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_FIRST_ORDER_SCALAR_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_higgs_quotient_cone.py"
+      ],
+      "id": "alternate_up_higgs_quotient_cone",
+      "label": "natural coherent quotient cone for the alternate Higgs",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "physical exterior-V cochain comparison",
+        "equivariant Higgs normalization"
+      ],
+      "statement": "The actual A-section quotient gives K=B1 tensor I6 B2 with seven objects and six arrows, not an additional vector bundle. Both full connecting arrows are closed; their signed Higgs actions match the pinned exterior primitive differentials. The raw null tensor differences lie entirely in the actual A target, so their projections vanish before applying h. This certifies the triangular quotient cone, not an arbitrary exterior-V cochain map or a normalized physical coupling.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "fixed null matter basis",
+        "literal ordered cover cup",
+        "checked positive k sign"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_first_order_scalar.json",
+        "research/experiments/scientific_genesis/alternate_up_first_order_scalar.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_FIRST_ORDER_SCALAR_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_first_order_scalar.py",
+        "tests/integration/test_scientific_genesis_alternate_up_higgs_covector_comparison.py"
+      ],
+      "id": "alternate_up_first_order_scalar",
+      "label": "complete ordered alternate null-channel scalar screens",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "physical pairing identification",
+        "quotient trace convention",
+        "complete up matrix"
+      ],
+      "statement": "Both parameter coefficients include both matter-leg terms and the positive signed Higgs primitive. Each complete scalar is checked under the full differential before its exact ordered cover residue is evaluated. A primitive-free tensor calculation independently accounts for its zero defect. The ordered residues are 0 and (2673-486 omega)/49; the a1 coefficient is nonzero in the exact field. Closed screens are not assigned as physical null coefficients or as a permanent physical rank bound.",
       "status": "COMPUTED"
     },
     {
@@ -3652,19 +3707,98 @@
     },
     {
       "assumptions_required": [
-        "signed full cone comparison",
-        "all three first-order terms"
+        "ordinary odd monomials",
+        "global first quotient",
+        "pinned full D k identities"
       ],
       "implementation_or_artifact": [
-        "research/experiments/scientific_genesis/ALTERNATE_UP_EXTERIOR_HIGGS_ACTION_NOTE.md",
-        "research/experiments/scientific_genesis/ALTERNATE_UP_NULL_CHANNEL_NOTE.md"
+        "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a closed quotient cone does not certify every exterior-V comparison"
+      ],
+      "mathematical_reason": "Compose both signed slots and project the actual A target. The full connecting maps close, and their Higgs actions are exactly minus the pinned exterior products; D k plus action vanishes coefficientwise in the triangular quotient cone.",
+      "source": "alternate_up_exterior_higgs_action",
+      "target": "alternate_up_higgs_quotient_cone"
+    },
+    {
+      "assumptions_required": [
+        "actual even null-matter support",
+        "F/A is a coherent ideal quotient"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the all-input tensor comparison is not certified"
+      ],
+      "mathematical_reason": "The actual null matter wedges are full cycles. Before the Higgs annihilator, both ordered tensor differences have only A-section support and vanish on the legitimate ideal quotient.",
+      "source": "alternate_up_null_channel",
+      "target": "alternate_up_higgs_quotient_cone"
+    },
+    {
+      "assumptions_required": [
+        "D x equals minus e b",
+        "literal three-term order"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_first_order_scalar.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a single primitive term is not a closed Yukawa scalar"
+      ],
+      "mathematical_reason": "The exact signed slot identity fixes the positive k term; both exact matter corrections must be included before tracing.",
+      "source": "alternate_up_exterior_higgs_action",
+      "target": "alternate_up_first_order_scalar"
+    },
+    {
+      "assumptions_required": [
+        "declared seed0/seed5 basis and exact within-sector ratios"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_first_order_scalar.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "full F-F matrix entries are not reconstructed from null scalars"
+      ],
+      "mathematical_reason": "The determinant null combinations specify the actual matter inputs without fitting coefficients or choosing an extension point.",
+      "source": "alternate_up_null_channel",
+      "target": "alternate_up_first_order_scalar"
+    },
+    {
+      "assumptions_required": [
+        "actual null channel only"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json",
+        "data/generated/scientific_genesis/alternate_up_first_order_scalar.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "this does not identify the complete physical exterior pairing"
+      ],
+      "mathematical_reason": "The projected ordered tensor comparison vanishes before h. Its primitive-free scalar defect agrees with the independently evaluated full scalar differential.",
+      "source": "alternate_up_higgs_quotient_cone",
+      "target": "alternate_up_first_order_scalar"
+    },
+    {
+      "assumptions_required": [
+        "physical cochain comparison",
+        "equivariant Higgs and trace normalization"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_FIRST_ORDER_SCALAR_NOTE.md"
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "neither null-to-null determinant coefficient is computed"
+        "a closed ordered residue alone is not a physical rank theorem"
       ],
-      "mathematical_reason": "The checked primitive in the reciprocal exterior resolution must be identified with the signed full Higgs-cone correction and combined with both matter-leg terms before taking a residue.",
-      "source": "alternate_up_exterior_higgs_action",
+      "mathematical_reason": "A natural sheaf quotient and closed ordered scalars must be identified with the equivariant physical Higgs pairing, with explicit determinant and quotient trace conventions, before the nonzero a1 scalar certifies generic physical holomorphic rank.",
+      "source": "alternate_up_first_order_scalar",
       "target": "first_exact_yukawa"
     },
     {
@@ -5686,6 +5820,8 @@
     "the four constant mixed up-sector entries have exact nonzero cover Laurent residues 3omega/2, (3+9omega)/14, 3/2, and (-9-6omega)/14 in declared bases; the parameter-linear F-F block and quotient normalization remain unresolved",
     "four exact mixed up-sector minors force holomorphic rank at least two for every nonsplit alternate P1 point; the F-F block and rank-three determinant test remain unresolved",
     "two strict null Yoneda combinations are full boundaries with 90-term primitives; the formal determinant now needs only two unknown extension-linear null-to-null coefficients",
+    "the natural coherent Higgs quotient has two full closed connecting arrows; its signed actions reproduce the pinned primitive identities without pretending the ideal is a vector bundle",
+    "both complete ordered null scalars are full cycles with exact cover residues; the raw tensor differences vanish on the actual A quotient, but physical pairing identification remains open",
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
     "the alternate universal up matrix has an exterior-forced zero E-E slot, constant mixed slots, and a parameter-linear F-F block; its determinant coefficients are uncomputed",
@@ -5809,9 +5945,17 @@
         0,
         1
       ],
+      "alternate_up_complete_ordered_null_screens_computed": true,
       "alternate_up_full_higgs_cone_comparison_available": false,
+      "alternate_up_natural_quotient_cone_available": true,
+      "alternate_up_null_tensor_projection_exact": true,
       "alternate_up_null_to_null_coefficients_computed": false,
       "alternate_up_ordered_exterior_products_closed": true,
+      "alternate_up_ordered_null_a1_coefficient_nonzero": true,
+      "alternate_up_ordered_null_cover_residues": [
+        "0",
+        "2673/49-486/49*omega"
+      ],
       "alternate_up_reciprocal_exterior_primitives_verified": true,
       "arbitrary_point_selected": false,
       "atlas_frame_comparison_exact": true,
@@ -6377,13 +6521,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "identify the checked reciprocal exterior primitives with the signed full Higgs-cone correction, then combine all three first-order scalar terms for the two null-to-null coefficients before finishing the full up matrix",
+    "next_required_object": "identify the nonzero a1 ordered null scalar with the equivariant physical Higgs pairing and explicit determinant/quotient trace conventions, then derive the complete up matrix without selecting an extension point",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 65.0,
-      "rationale": "Test the two unused locally free I6 rays for descent and Higgs support.",
+      "rationale": "The quotient cone and ordered null screens are checked. Identify the physical pairing before the nonzero a1 residue can certify generic rank.",
       "scores": {
         "computational_cost": 2,
         "distance_to_observable": 5,
@@ -6392,11 +6536,11 @@
         "risk_of_local_rabbit_hole": 1,
         "structural_reuse": 5
       },
-      "task": "distinct_constituent_realization_screen"
+      "task": "alternate_physical_quotient_pairing"
     },
     {
       "priority_score": 16.125,
-      "rationale": "Screen a distinct underlying bundle against exact carrier gates.",
+      "rationale": "Finish the quotient-normalized up sector after identifying the nonzero a1 null residue, without choosing an extension point.",
       "scores": {
         "computational_cost": 4,
         "distance_to_observable": 5,
@@ -6405,7 +6549,7 @@
         "risk_of_local_rabbit_hole": 2,
         "structural_reuse": 5
       },
-      "task": "distinct_su4_carrier_screen"
+      "task": "alternate_complete_up_matrix"
     },
     {
       "priority_score": 13.0,
@@ -6461,7 +6605,7 @@
     },
     {
       "priority_score": 1.2,
-      "rationale": "Existing lifts remain conditional until a physical carrier is certified.",
+      "rationale": "The alternate cone and matter lifts are certified; extend only the reachable products needed by the unresolved scalar comparison.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 2,
@@ -6474,7 +6618,7 @@
     },
     {
       "priority_score": 1.2,
-      "rationale": "A physical matrix cannot precede the corrected determinant gate.",
+      "rationale": "The corrected determinant gate is closed; the full Higgs comparison and quotient trace still precede a complete holomorphic matrix.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 2,
@@ -6656,6 +6800,15 @@
         "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py"
       ],
       "maturity": "research-only; full alternate products and primitives checked, not arbitrary twists"
+    },
+    {
+      "capability": "alternate coherent Higgs quotient cone and ordered null scalars",
+      "locations": [
+        "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
+        "research/experiments/scientific_genesis/alternate_up_first_order_scalar.py",
+        "research/experiments/scientific_genesis/alternate_up_higgs_covector_comparison.py"
+      ],
+      "maturity": "research-only; actual quotient maps and scalar closure, not physical normalization"
     },
     {
       "capability": "metrics",

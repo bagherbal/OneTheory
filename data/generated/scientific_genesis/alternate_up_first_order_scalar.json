@@ -1,0 +1,63 @@
+{
+  "artifact_digest": "4cbcffa3c69952885229de1d0a9bd6a6be2583bbd0b778210ae3bd2988f793e4",
+  "coefficient_field": "Q(omega)",
+  "complete_holomorphic_up_matrix_available": false,
+  "derived_tensor_comparison_certified": false,
+  "extension_point_selected": false,
+  "higgs_primitive_sign": "positive, because the dual cone action is minus h wedge q(e)",
+  "observational_inputs_used": false,
+  "outer_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "parameter_coefficients": [
+    {
+      "combined_matter_leg_digest": "62b0e26b2958854540f9a2ea8af98a68d8fd5b00b521062c1491eab33bd4a5c0",
+      "combined_matter_leg_term_count": 27374,
+      "higgs_leg_digest": "099d698e8f7c91675c57d7a72ac075d91b344bed3e3fad0e52d19573dfc9eb73",
+      "higgs_leg_term_count": 30155,
+      "left_matter_correction_term_count": 28933,
+      "null_wedge_digest": "d8bc1e32e654bcf3eda60b77472e59b5d5d0f01bfc4fdc16c9efc6f9e8b8e6da",
+      "null_wedge_term_count": 2997,
+      "ordered_cover_residue": "0",
+      "ordered_scalar_closed_exact": true,
+      "parameter": "a0",
+      "physical_null_coefficient_assigned": false,
+      "projection_depth": 3,
+      "right_matter_correction_term_count": 28963,
+      "scalar_defect_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "scalar_defect_term_count": 0,
+      "scalar_digest": "39bca8829a956c29f504fabddf069f88e4346e2c0029516eee78f8eb0c0934b1",
+      "scalar_term_count": 42302
+    },
+    {
+      "combined_matter_leg_digest": "bff1e98f00e8f1da3abfdd3093c39575ee03003443123fa98669d954aa693714",
+      "combined_matter_leg_term_count": 26409,
+      "higgs_leg_digest": "207fa49402fd719b9784eed8887f7435ebae3ef3b6a664c9e581031de5f97b10",
+      "higgs_leg_term_count": 29950,
+      "left_matter_correction_term_count": 28092,
+      "null_wedge_digest": "d8bc1e32e654bcf3eda60b77472e59b5d5d0f01bfc4fdc16c9efc6f9e8b8e6da",
+      "null_wedge_term_count": 2997,
+      "ordered_cover_residue": "2673/49-486/49*omega",
+      "ordered_scalar_closed_exact": true,
+      "parameter": "a1",
+      "physical_null_coefficient_assigned": false,
+      "projection_depth": 3,
+      "right_matter_correction_term_count": 28092,
+      "scalar_defect_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "scalar_defect_term_count": 0,
+      "scalar_digest": "238aa5e277ced986347b1ee0578088394eb3b1db89a425095e01b30ff143a4b2",
+      "scalar_term_count": 41454
+    }
+  ],
+  "physical_null_coefficients_computed": false,
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "exterior_primitives": "34e9b717602b13735aa0c3aa5219e3d87f4a4504d2b3c9ac4e64e2383b890f6a",
+    "null_channels": "47fe175edaf16fe011ce23966a55307736620d6df2d35b880e3f58e4e4c96594"
+  },
+  "rank_three_established": false,
+  "scalar_order": "h cup (q(xL) tensor bR - bL tensor q(xR)) + k cup (bL wedge bR)",
+  "schema": "alternate-up-first-order-scalar-screen-v1",
+  "signed_two_slot_cone_actions_exact": true
+}

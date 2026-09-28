@@ -85,8 +85,12 @@ not merely in reduced coordinates. The content-pinned witness is
 `alternate_up_exterior_higgs_action.json`; the computation and full
 reconstruction regression use the corresponding Python module and test.
 
-Even successful primitives do not supply a Yukawa matrix. Their sign must
-be identified with the full exterior-cone Higgs correction and combined with
-both matter-leg terms. Neither null-to-null coefficient, rank three, the full
-up matrix, quotient trace normalization, matter metrics, nor a common vacuum
-is inferred from this exterior calculation.
+Even successful primitives do not supply a Yukawa matrix. The separate
+`alternate_up_higgs_covector_comparison.py` now computes both full two-slot
+actions as minus the ordered product, fixing the positive primitive sign.
+The separate natural quotient cone and complete ordered null scalars check
+both matter-leg terms without inferring a physical tensor comparison here.
+Neither physical null-to-null coefficient, rank three, the full up matrix,
+quotient trace normalization, matter metrics, nor a common vacuum is inferred
+from this exterior calculation. The remaining physical pairing gate is
+explicit in `ALTERNATE_UP_FIRST_ORDER_SCALAR_NOTE.md`.

@@ -858,10 +858,42 @@ all 124 object/Koszul differential-square witnesses pass. The two
 144 A-supported incoming columns, but the candidate reduced operator
 is not used as a global certificate: each final primitive is checked
 by its complete differential. These are real reciprocal exterior
-primitives, not yet a signed full Higgs-cone representative or an F–F
-Yukawa value. The next gate is their full cone comparison followed by
-the closed sum of both matter-leg terms and the Higgs-leg term in the
-two null channels. Rank three, the full matrix, quotient trace,
-metrics, and a common vacuum remain open. See
+primitives, not by themselves a physical Higgs representative or an F–F
+Yukawa value. Both signed two-slot compositions now equal the negative
+exterior product exactly. The positive primitive sign therefore follows
+from the actual Hom composition rather than a scalar-fit convention. See
 `ALTERNATE_UP_EXTERIOR_HIGGS_ACTION_NOTE.md` and
 `alternate_up_exterior_higgs_action.json`.
+
+A smaller natural quotient now closes the reciprocal cone construction.
+Push out `E→V→F` by the global signed-minor row `E→B₁`, exterior-square
+the resulting rank-three bundle, then push out its `B₁⊗F` subobject by
+the actual Serre quotient `F→I₆B₂`. The result is a coherent Q with
+`0→K→Q→det(F)→0`, `K=B₁⊗I₆B₂`, not an additional physical bundle.
+Its seven-object, six-arrow K resolution carries the unchanged 324-term
+Higgs covector. Both 103,986- and 87,354-term connecting arrows are full
+cycles and reproduce the pinned primitive differentials with the derived
+sign. This certifies the triangular quotient cone coefficientwise.
+
+For the actual null inputs, the raw ordered tensor differences contain
+31,668 and 30,234 terms, entirely in the A target. Their projections to
+K vanish **before** applying h. Both matter-leg corrections plus the
+positive Higgs-leg correction are evaluated as complete ordered scalars;
+their full differentials are checked before taking any residue. The
+primitive-free comparison independently explains the zero scalar defects.
+The two independent complete reconstructions agree: the ordered residues
+are `0` along a0 and `(2673-486ω)/49` along a1. The latter is nonzero;
+there is no evidence for permanent vanishing of this ordered null screen.
+
+These calculations do not yet declare physical null Yukawa coefficients.
+The sheaf map `Λ²V→Q` still needs a cochain realization identifying the
+ordered pairing with the equivariant physical Higgs, followed by explicit
+determinant/quotient trace conventions. A closed ordered residue alone
+does not prove a physical rank statement. Finish that comparison before
+assigning the nonzero a1 coefficient to the physical determinant and
+computing the full matrix; do not begin an arbitrary higher-product
+ladder. Rank three, the
+complete up matrix, metrics, and a common vacuum remain open. See
+`ALTERNATE_UP_FIRST_ORDER_SCALAR_NOTE.md`,
+`alternate_up_higgs_quotient_cone.json`, and
+`alternate_up_first_order_scalar.json`.

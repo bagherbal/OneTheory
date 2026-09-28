@@ -1,0 +1,70 @@
+{
+  "artifact_digest": "1e829fafc0ff0dfbef7442decbc2259b4f8889647f4576a4e937846ebbdf729d",
+  "coefficient_field": "Q(omega)",
+  "complete_holomorphic_up_matrix_available": false,
+  "extension_point_selected": false,
+  "full_quotient_covector_closed_exact": true,
+  "higgs_lift_exists_by_full_pinned_primitive_identities": true,
+  "natural_sheaf_maps": [
+    "E to B1 by the certified global signed-minor row",
+    "V to R by pushing out the actual outer extension",
+    "exterior R to Q by B1 tensor F to B1 tensor I6 B2",
+    "exterior V to Q by functorial composition"
+  ],
+  "null_matter_quotient_tensor_comparison_exact": true,
+  "observational_inputs_used": false,
+  "outer_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "parameter_coefficients": [
+    {
+      "connecting_arrow_digest": "787a5da2682f6576e75cd933239f65532d1701be258f6bcdf9cac47ec042aaaa",
+      "connecting_arrow_term_count": 103986,
+      "full_connecting_arrow_closed_exact": true,
+      "higgs_action_digest": "4afada2cc15c53417c611abba157f5042128d0c8a6151165578fc0f31962bff6",
+      "higgs_action_term_count": 191628,
+      "negative_action_equals_pinned_primitive_differential": true,
+      "parameter": "a0",
+      "primitive_digest": "ab5b5877f0807252a473846ed96ec195c0c58dfa39322ac477e84f54e9b6fca1",
+      "primitive_solver_reexecuted_by_this_writer": false,
+      "primitive_term_count": 90756,
+      "projected_null_tensor_difference_zero_exact": true,
+      "raw_difference_has_only_actual_A_support": true,
+      "raw_null_tensor_difference_digest": "d36c897c1c2d3a978d4bbcc4c485d0520acce4434c873f99e6fed31e87f00e0a",
+      "raw_null_tensor_difference_term_count": 31668
+    },
+    {
+      "connecting_arrow_digest": "c4ac82d66efed8a05d61f5ece49d938b26ab9da84510cdcc121fc77d4576adc7",
+      "connecting_arrow_term_count": 87354,
+      "full_connecting_arrow_closed_exact": true,
+      "higgs_action_digest": "21350c8a04a4c828bf286c0e61d986a3e65bad0e2a135ede0cf9e58e52a6d5e5",
+      "higgs_action_term_count": 169983,
+      "negative_action_equals_pinned_primitive_differential": true,
+      "parameter": "a1",
+      "primitive_digest": "a4dcad1dbf03deb8172c02b4e67b930059ba9b598d26b362543f737183fb1224",
+      "primitive_solver_reexecuted_by_this_writer": false,
+      "primitive_term_count": 82458,
+      "projected_null_tensor_difference_zero_exact": true,
+      "raw_difference_has_only_actual_A_support": true,
+      "raw_null_tensor_difference_digest": "049993c8cb1c5264cc34ced62b5f376ca794bf26b9b8e4f5b9d06f04d27ff8fc",
+      "raw_null_tensor_difference_term_count": 30234
+    }
+  ],
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "full_exterior_primitives": "34e9b717602b13735aa0c3aa5219e3d87f4a4504d2b3c9ac4e64e2383b890f6a"
+  },
+  "quotient_covector_digest": "b8ad6ea9c800796dd5b446675eef97f53cdd8dc3af0381589f49e0100ccc69ae",
+  "quotient_covector_term_count": 324,
+  "quotient_ideal_resolution_arrow_count": 6,
+  "quotient_ideal_resolution_object_count": 7,
+  "quotient_ideal_resolution_twist": [
+    0,
+    0,
+    1
+  ],
+  "quotient_is_a_vector_bundle": false,
+  "schema": "alternate-up-higgs-quotient-cone-v1",
+  "universal_triangular_quotient_cone_squared_zero_exact": true
+}

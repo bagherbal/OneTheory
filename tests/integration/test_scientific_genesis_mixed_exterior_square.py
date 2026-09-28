@@ -36,6 +36,7 @@ from research.experiments.scientific_genesis.mixed_constituent_schoen_arrows imp
 from research.experiments.scientific_genesis.mixed_schoen_exterior_square import (
     mixed_exterior_square,
     reciprocal_covector_wedge,
+    resolution_vector_wedge,
 )
 from research.experiments.scientific_genesis.mixed_schoen_outer_actions import (
     _MixedContraction,
@@ -196,3 +197,36 @@ def test_a_candidate_preimage_cannot_bypass_the_full_primitive_identity(
     monkeypatch.setattr(experiment, "_sparse_preimage", lambda _map, _vector: {})
     with pytest.raises(ValueError, match="failed its full identity"):
         experiment.alternate_up_exterior_primitive.__wrapped__(0)
+
+
+def test_forward_odd_square_has_no_divided_power_factor() -> None:
+    """Forward multiplication and covector evaluation have distinct factors."""
+
+    source = _fixture()
+    exterior = mixed_exterior_square(source)
+    source_context = _MixedContraction(source, MixedSchoenUnit())
+    context = _MixedContraction(exterior, MixedSchoenUnit())
+    odd = SparseOuterCechCochain(tuple(
+        (
+            OuterCechBasis(
+                source_context.components[(2, 0, "k0")],
+                (0, 0, 0), (0, 0, 0), (0, 0), ((x,), (u,), (p,)),
+            ), Eisenstein(1),
+        )
+        for x, u, p in product(range(3), range(3), range(2))
+    ))
+    square = resolution_vector_wedge(odd, odd, exterior, context, -1, -1)
+    assert len(square.terms) == 18
+    assert {value for _, value in square.terms} == {Eisenstein(1)}
+    differentiated = source_context.differential(odd)
+    expected = resolution_vector_wedge(
+        differentiated, odd, exterior, context, 0, -1
+    ) + resolution_vector_wedge(
+        odd, differentiated, exterior, context, -1, 0
+    ).scale(-1)
+    assert context.differential(square) == expected
+    assert {value for _, value in expected.terms} == {Eisenstein(2), 2 * OMEGA}
+    with pytest.raises(ValueError, match="incompatible basis or grading"):
+        resolution_vector_wedge(odd, odd, exterior, context, 0, -1)
+    with pytest.raises(ValueError, match="source must be the declared unit"):
+        resolution_vector_wedge(odd, odd, exterior, source_context, -1, -1)

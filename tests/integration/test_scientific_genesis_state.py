@@ -18,6 +18,9 @@ Phase 0:
 import json
 from pathlib import Path
 
+import pytest
+
+from research.experiments.scientific_genesis import audit
 from research.experiments.scientific_genesis.audit import (
     build_state,
     validate_state,
@@ -35,6 +38,39 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
 
     validate_state(stored)
     assert stored == rebuilt
+
+
+@pytest.mark.parametrize(
+    "schema,field,error",
+    (
+        (
+            "alternate-up-higgs-quotient-cone-v1", "quotient_is_a_vector_bundle",
+            "actual alternate Higgs quotient cone is not certified",
+        ),
+        (
+            "alternate-up-first-order-scalar-screen-v1", "physical_null_coefficients_computed",
+            "complete ordered alternate null scalar screens are not certified",
+        ),
+    ),
+)
+def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
+    monkeypatch: pytest.MonkeyPatch, schema: str, field: str, error: str,
+) -> None:
+    """A valid content hash cannot turn an ideal or a screen into physics."""
+
+    original = json.loads
+
+    def inflated_loads(text: str) -> object:
+        record = original(text)
+        if isinstance(record, dict) and record.get("schema") == schema:
+            record.pop("artifact_digest")
+            record[field] = True
+            record["artifact_digest"] = audit._canonical_digest(record)
+        return record
+
+    monkeypatch.setattr(audit.json, "loads", inflated_loads)
+    with pytest.raises(ValueError, match=error):
+        build_state()
 
 
 def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> None:
@@ -497,8 +533,17 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_up_null_channel"]["status"] == "COMPUTED"
     assert claims["alternate_up_dual_higgs_inputs"]["status"] == "COMPUTED"
     assert claims["alternate_up_exterior_higgs_action"]["status"] == "COMPUTED"
+    assert claims["alternate_up_higgs_quotient_cone"]["status"] == "COMPUTED"
+    assert claims["alternate_up_first_order_scalar"]["status"] == "COMPUTED"
     assert path["criteria"]["alternate_up_ordered_exterior_products_closed"] is True
     assert path["criteria"]["alternate_up_reciprocal_exterior_primitives_verified"] is True
+    assert path["criteria"]["alternate_up_natural_quotient_cone_available"] is True
+    assert path["criteria"]["alternate_up_null_tensor_projection_exact"] is True
+    assert path["criteria"]["alternate_up_complete_ordered_null_screens_computed"] is True
+    assert path["criteria"]["alternate_up_ordered_null_cover_residues"] == [
+        "0", "2673/49-486/49*omega",
+    ]
+    assert path["criteria"]["alternate_up_ordered_null_a1_coefficient_nonzero"] is True
     assert path["criteria"]["alternate_up_full_higgs_cone_comparison_available"] is False
     assert path["criteria"]["alternate_up_null_to_null_coefficients_computed"] is False
     assert path["selection_status"] == (
@@ -508,10 +553,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "identify the checked reciprocal exterior primitives with "
-        "the signed full Higgs-cone correction, then combine all "
-        "three first-order scalar terms for the two null-to-null "
-        "coefficients before finishing the full up matrix"
+        "identify the nonzero a1 ordered null scalar with the "
+        "equivariant physical Higgs pairing and explicit determinant/quotient "
+        "trace conventions, then derive the complete up matrix "
+        "without selecting an extension point"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"
@@ -630,6 +675,6 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     scheduler = state["research_value_scheduler"]
-    assert scheduler[0]["task"] == "distinct_constituent_realization_screen"
-    assert scheduler[1]["task"] == "distinct_su4_carrier_screen"
+    assert scheduler[0]["task"] == "alternate_physical_quotient_pairing"
+    assert scheduler[1]["task"] == "alternate_complete_up_matrix"
     assert state["fitted_inputs"] == []

@@ -257,3 +257,90 @@ def reciprocal_covector_wedge(
                 basis, first_coefficient * second_coefficient * sign
             ))
     return SparseOuterCechCochain(tuple(result))
+
+
+def resolution_vector_wedge(
+    left: SparseOuterCechCochain,
+    right: SparseOuterCechCochain,
+    exterior: MixedExteriorSquare,
+    context: _MixedContraction,
+    left_degree: int,
+    right_degree: int,
+) -> SparseOuterCechCochain:
+    """Multiply actual resolution-valued cochains in the exterior basis.
+
+    Moving the first internal vector through the second coefficient
+    contributes (-1)^(p_first (right_degree-p_second)). Odd diagonals
+    are ordinary monomials, so this forward product has no factor two.
+    The ordered cover cup need not make this a chain map on arbitrary
+    mixed inputs; closure and Leibniz identities must be checked in
+    the complete differential for every scientific use.
+    """
+
+    if (
+        context.left != exterior
+        or len(context.right.objects) != 1
+        or context.right.objects[0].position != 0
+        or context.right.objects[0].line_degree != (0, 0, 0)
+    ):
+        raise ValueError("the exterior vector source must be the declared unit")
+    for cochain, degree in ((left, left_degree), (right, right_degree)):
+        for basis, _ in cochain.terms:
+            component = basis.component
+            index = component.left_index
+            if component.right_index != 0 or index not in range(len(exterior.source_positions)):
+                raise ValueError("an exterior input is not a resolution vector")
+            if (
+                basis.total_degree != degree
+                or component.object_degree != exterior.source_positions[index]
+                or component.line_degree != exterior.source_lines[index]
+            ):
+                raise ValueError("an exterior vector has incompatible basis or grading")
+    indices = {pair: index for index, pair in enumerate(exterior.pairs)}
+
+    @cache
+    def compatible(
+        i: int, first_cell: Cell, first_koszul: str,
+        j: int, second_cell: Cell, second_koszul: str,
+    ) -> tuple[int, OuterCechComponent, Cell] | None:
+        ordered = _ordered_pair(exterior.source_positions, i, j)
+        if ordered is None:
+            return None
+        cell = _cell_cup(first_cell, second_cell, "left")
+        koszul = _koszul_cup(first_koszul, second_koszul)
+        if cell is None or koszul is None:
+            return None
+        pair, sign = ordered
+        cell_sign, target_cell = cell
+        koszul_sign, target_koszul = koszul
+        crossing = (
+            exterior.source_positions[i] * (right_degree - exterior.source_positions[j])
+            + sum(len(simplex) - 1 for simplex in first_cell) * KOSZUL_DEGREES[second_koszul]
+        )
+        if crossing % 2:
+            sign *= -1
+        return (
+            sign * cell_sign * koszul_sign,
+            context.components[(indices[pair], 0, target_koszul)], target_cell,
+        )
+
+    result = []
+    for first, first_coefficient in left.terms:
+        for second, second_coefficient in right.terms:
+            target = compatible(
+                first.component.left_index, first.cell, first.component.koszul_summand,
+                second.component.left_index, second.cell, second.component.koszul_summand,
+            )
+            if target is None:
+                continue
+            sign, component, target_cell = target
+            basis = OuterCechBasis(
+                component,
+                cast(tuple[int, int, int], _sum_tuple(first.x_monomial, second.x_monomial)),
+                cast(tuple[int, int, int], _sum_tuple(first.u_monomial, second.u_monomial)),
+                cast(tuple[int, int], _sum_tuple(first.p_monomial, second.p_monomial)), target_cell,
+            )
+            if basis.total_degree != left_degree + right_degree:
+                raise ValueError("the exterior vector product changed its total degree")
+            result.append((basis, first_coefficient * second_coefficient * sign))
+    return SparseOuterCechCochain(tuple(result))

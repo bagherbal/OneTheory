@@ -847,5 +847,21 @@ classes to independent nonboundary covectors `F→B₁`; the saved
 A-supported Higgs is already a covector `F→B₁⁻¹` with unchanged
 grading and differential. Their derived exterior product targets
 the acyclic determinant line. This bypasses minor-open inversion
-for input preparation; the signed product and determinant-line
-primitive remain open. See `ALTERNATE_UP_DUAL_HIGGS_INPUTS_NOTE.md`.
+for input preparation. See `ALTERNATE_UP_DUAL_HIGGS_INPUTS_NOTE.md`.
+
+The ordered products `h∧q(eν)` are now actual closed cochains in the
+31-object derived exterior-square resolution of F. The ordinary odd
+monomial convention retains syzygy squares and their factors of two;
+all 124 object/Koszul differential-square witnesses pass. The two
+191,628- and 169,983-term products have exact full primitives with
+90,756 and 82,458 terms. Their construction selectively transfers the
+144 A-supported incoming columns, but the candidate reduced operator
+is not used as a global certificate: each final primitive is checked
+by its complete differential. These are real reciprocal exterior
+primitives, not yet a signed full Higgs-cone representative or an F–F
+Yukawa value. The next gate is their full cone comparison followed by
+the closed sum of both matter-leg terms and the Higgs-leg term in the
+two null channels. Rank three, the full matrix, quotient trace,
+metrics, and a common vacuum remain open. See
+`ALTERNATE_UP_EXTERIOR_HIGGS_ACTION_NOTE.md` and
+`alternate_up_exterior_higgs_action.json`.

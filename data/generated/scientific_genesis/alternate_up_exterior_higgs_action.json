@@ -1,0 +1,69 @@
+{
+  "artifact_digest": "34e9b717602b13735aa0c3aa5219e3d87f4a4504d2b3c9ac4e64e2383b890f6a",
+  "coefficient_field": "Q(omega)",
+  "complete_exterior_cone_higgs_cocycle_constructed": false,
+  "complete_holomorphic_up_matrix_available": false,
+  "determinant_target_degree": [
+    -2,
+    2,
+    0
+  ],
+  "even_even_object_count": 10,
+  "even_odd_object_count": 15,
+  "extension_point_selected": false,
+  "exterior_extension_term_count": 2349,
+  "exterior_object_count": 31,
+  "exterior_resolution_arrow_count": 42,
+  "full_differential_square_witness_count": 124,
+  "minor_inversion_used": false,
+  "next_required_object": "identify the ordered primitive with the signed full Higgs-cone correction and combine all three first-order scalar terms",
+  "null_to_null_coefficients_computed": false,
+  "observational_inputs_used": false,
+  "odd_odd_object_count": 6,
+  "odd_square_convention": "ordinary exterior monomials, not divided powers",
+  "ordered_product": "h wedge q(e)",
+  "outer_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "reciprocal_covectors": "465c9bc16c55b7de3fe59e0f4beddbf08b754faf26921e15af64c5655f7ddae1"
+  },
+  "rank_three_established": false,
+  "schema": "alternate-up-exterior-higgs-action-v1",
+  "witnesses": [
+    {
+      "candidate_operator_globally_certified": false,
+      "directly_transferred_candidate_columns": 144,
+      "full_primitive_identity_exact": true,
+      "full_product_cycle_exact": true,
+      "homotopy_depth": 2,
+      "inclusion_depth": 3,
+      "parameter": "a0",
+      "primitive_digest": "ab5b5877f0807252a473846ed96ec195c0c58dfa39322ac477e84f54e9b6fca1",
+      "primitive_sign_convention": "D primitive = ordered h wedge q(e)",
+      "primitive_term_count": 90756,
+      "product_digest": "4edc3984b2b8e6feb25619b5da110f0c2a1d561d65a37d5ad708a0ad1adacb5d",
+      "product_term_count": 191628,
+      "projection_depth": 3,
+      "reduced_preimage_support": 450
+    },
+    {
+      "candidate_operator_globally_certified": false,
+      "directly_transferred_candidate_columns": 144,
+      "full_primitive_identity_exact": true,
+      "full_product_cycle_exact": true,
+      "homotopy_depth": 2,
+      "inclusion_depth": 3,
+      "parameter": "a1",
+      "primitive_digest": "a4dcad1dbf03deb8172c02b4e67b930059ba9b598d26b362543f737183fb1224",
+      "primitive_sign_convention": "D primitive = ordered h wedge q(e)",
+      "primitive_term_count": 82458,
+      "product_digest": "037e23a4c75fbc762e3a4c3c61f90810a150a5d557d417481a4c9e9a1fe8ec11",
+      "product_term_count": 169983,
+      "projection_depth": 3,
+      "reduced_preimage_support": 450
+    }
+  ]
+}

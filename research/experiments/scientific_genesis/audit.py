@@ -1123,8 +1123,9 @@ def _nodes() -> list[dict[str, object]]:
             "Its quotient sends both outer basis classes to independent "
             "nonboundary covectors F to B1. The saved A-supported Higgs "
             "retargets to F to B1 inverse with unchanged full grading. "
-            "Their signed derived exterior product and determinant-line "
-            "primitive remain uncomputed.",
+            "A separate exterior calculation now checks the ordered products "
+            "and their full primitives; these input records alone do not "
+            "supply the complete first-order scalar.",
             (
                 "data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json",
                 "research/experiments/scientific_genesis/alternate_up_dual_higgs_inputs.py",
@@ -1133,7 +1134,30 @@ def _nodes() -> list[dict[str, object]]:
                 "tests/integration/test_scientific_genesis_alternate_up_dual_higgs_inputs.py",
             ),
             ("actual frozen alternate resolutions", "declared determinant orientation"),
-            ("signed dual exterior product", "Higgs primitive", "complete F-F scalar"),
+            ("signed full Higgs-cone comparison", "complete F-F scalar"),
+        ),
+        _node(
+            "alternate_up_exterior_higgs_action",
+            "checked reciprocal exterior primitives for the alternate up sector",
+            "Flavor",
+            "COMPUTED",
+            "The actual F resolution has a 31-object graded exterior square "
+            "with ordinary odd monomials. All 124 full square-zero witnesses "
+            "pass. Both ordered h-wedge-q(e) products are full cycles with "
+            "independently checked degree-one primitives. A selectively "
+            "transferred candidate aids the solve but is not itself a global "
+            "operator certificate. The full cone comparison and scalar "
+            "contraction remain unresolved.",
+            (
+                "data/generated/scientific_genesis/alternate_up_exterior_higgs_action.json",
+                "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py",
+                "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_EXTERIOR_HIGGS_ACTION_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_up_exterior_higgs_action.py",
+                "tests/integration/test_scientific_genesis_mixed_exterior_square.py",
+            ),
+            ("frozen alternate F", "ordered full-cover cup", "ordinary odd-square basis"),
+            ("signed full Higgs-cone comparison", "closed complete first-order scalar"),
         ),
         _node(
             "alternate_constituent_determinant_pairing",
@@ -3351,19 +3375,31 @@ def _edges() -> list[dict[str, object]]:
             ("data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json",),
             ("saved strict A-supported Hom class",),
             True,
-            ("the derived exterior product still needs totalization signs",),
+            ("retargeting alone does not supply the complete first-order scalar",),
         ),
         _edge(
             "alternate_up_dual_higgs_inputs",
+            "alternate_up_exterior_higgs_action",
+            "The actual reciprocal covectors evaluate on every graded "
+            "exterior monomial with declared totalization signs. The saved "
+            "Higgs kills A, allowing the ordered full products to close. "
+            "Each proposed primitive is checked by its full differential.",
+            ("data/generated/scientific_genesis/alternate_up_exterior_higgs_action.json",),
+            ("single even A target for constituent extension arrows",),
+            True,
+            ("no complete Higgs-cone representative is assigned",),
+        ),
+        _edge(
+            "alternate_up_exterior_higgs_action",
             "first_exact_yukawa",
-            "The reciprocal F-dual exterior product targets the acyclic "
-            "determinant line. Its primitive must be combined with the "
-            "known matter corrections to form a closed first-order scalar.",
+            "The checked primitive in the reciprocal exterior resolution "
+            "must be identified with the signed full Higgs-cone correction "
+            "and combined with both matter-leg terms before taking a residue.",
             (
-                "research/experiments/scientific_genesis/ALTERNATE_UP_DUAL_HIGGS_INPUTS_NOTE.md",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_EXTERIOR_HIGGS_ACTION_NOTE.md",
                 "research/experiments/scientific_genesis/ALTERNATE_UP_NULL_CHANNEL_NOTE.md",
             ),
-            ("exact derived exterior product and primitive",),
+            ("signed full cone comparison", "all three first-order terms"),
             False,
             ("neither null-to-null determinant coefficient is computed",),
         ),
@@ -5490,6 +5526,14 @@ def _engines() -> list[dict[str, object]]:
             ),
         ),
         (
+            "mixed graded exterior squares and reciprocal covector products",
+            "research-only; full alternate products and primitives checked, not arbitrary twists",
+            (
+                "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
+                "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py",
+            ),
+        ),
+        (
             "metrics",
             "generic numerical laws and carrier boundary only",
             (
@@ -6616,6 +6660,44 @@ def build_state() -> dict[str, object]:
         or dual_inputs.get("null_to_null_yukawa_computed") is not False
     ):
         raise ValueError("the reciprocal alternate Higgs-action inputs are not certified")
+    exterior_action = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_exterior_higgs_action.json"
+    ).read_text(encoding="utf-8"))
+    exterior_digest = exterior_action.pop("artifact_digest", None)
+    exterior_witnesses = exterior_action.get("witnesses", [])
+    if (
+        exterior_digest != _canonical_digest(exterior_action)
+        or exterior_action.get("schema") != "alternate-up-exterior-higgs-action-v1"
+        or exterior_action.get("prerequisite_artifact_digests", {}).get("reciprocal_covectors")
+        != dual_digest
+        or exterior_action.get("outer_parameter_basis") != ["a0", "a1"]
+        or exterior_action.get("ordered_product") != "h wedge q(e)"
+        or exterior_action.get("exterior_object_count") != 31
+        or exterior_action.get("exterior_resolution_arrow_count") != 42
+        or exterior_action.get("exterior_extension_term_count") != 2349
+        or [exterior_action.get(field) for field in (
+            "even_even_object_count", "even_odd_object_count", "odd_odd_object_count"
+        )] != [10, 15, 6]
+        or exterior_action.get("full_differential_square_witness_count") != 124
+        or exterior_action.get("determinant_target_degree") != [-2, 2, 0]
+        or [item.get("parameter") for item in exterior_witnesses] != ["a0", "a1"]
+        or [item.get("product_term_count") for item in exterior_witnesses] != [191628, 169983]
+        or any(
+            item.get("full_product_cycle_exact") is not True
+            or item.get("full_primitive_identity_exact") is not True
+            or item.get("primitive_term_count", 0) <= 0
+            or item.get("directly_transferred_candidate_columns") != 144
+            or item.get("candidate_operator_globally_certified") is not False
+            for item in exterior_witnesses
+        )
+        or any(exterior_action.get(field) is not False for field in (
+            "minor_inversion_used", "complete_exterior_cone_higgs_cocycle_constructed",
+            "null_to_null_coefficients_computed", "rank_three_established",
+            "complete_holomorphic_up_matrix_available", "physical_yukawa_matrix_available",
+            "extension_point_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the full reciprocal exterior primitive identities are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -6860,6 +6942,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_rank_floor.json",
         "data/generated/scientific_genesis/alternate_up_null_channel.json",
         "data/generated/scientific_genesis/alternate_up_dual_higgs_inputs.json",
+        "data/generated/scientific_genesis/alternate_up_exterior_higgs_action.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -6884,7 +6967,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 653,
+            "collected_tests_at_audit": 775,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -7045,6 +7128,10 @@ def build_state() -> dict[str, object]:
                 "alternate_ray_0_1_charged_structural_spectrum_passes": True,
                 "alternate_ray_0_1_higgs_h0_to_h3": [0, 4, 4, 0],
                 "alternate_ray_0_1_wilson_higgs_pairs": 1,
+                "alternate_up_ordered_exterior_products_closed": True,
+                "alternate_up_reciprocal_exterior_primitives_verified": True,
+                "alternate_up_full_higgs_cone_comparison_available": False,
+                "alternate_up_null_to_null_coefficients_computed": False,
                 "alternate_ray_0_1_explicit_cocycles_available": False,
                 "first_constituent_atlas_to_mixed_character": frame[
                     "first_constituent_uniform_twist"
@@ -7265,9 +7352,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "form the signed exterior product of reciprocal F-dual "
-                "covectors, solve the determinant-line Higgs correction, "
-                "and combine all first-order terms for the two null-to-null "
+                "identify the checked reciprocal exterior primitives with "
+                "the signed full Higgs-cone correction, then combine all "
+                "three first-order scalar terms for the two null-to-null "
                 "coefficients before finishing the full up matrix"
             ),
         },

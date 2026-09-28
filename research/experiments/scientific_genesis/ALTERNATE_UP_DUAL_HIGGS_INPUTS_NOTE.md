@@ -39,11 +39,15 @@ signed derived exterior product has target `(Λ²F)*=L_E`, since
 `B₁⊗B₁⁻¹=O` and `det F=L_E⁻¹`. The determinant endpoint is acyclic,
 so the required degree-two action admits a degree-one primitive once
 the actual product is constructed with the full totalization signs.
-That product and primitive are **not yet computed**. Together with
-the already-derived matter corrections, they must enter the complete
-first-order scalar before any determinant coefficient is assigned.
+The ordered full products and their exact primitives are now computed
+in `alternate_up_exterior_higgs_action.py`; their signs and scope are
+derived in `ALTERNATE_UP_EXTERIOR_HIGGS_ACTION_NOTE.md`. The original
+reciprocal-input artifact intentionally certifies inputs only. The
+separate exterior witness must still be identified with the full
+Higgs-cone convention and combined with both matter-leg corrections
+before any determinant coefficient is assigned.
 
 The exact reciprocal-input construction is
 `alternate_up_dual_higgs_inputs.py`. It removes a full Hom-to-tensor
-inverse from this input preparation, not the missing Higgs action or
-the eventual explicit exterior-cone representative.
+inverse from this input preparation, not the eventual explicit
+exterior-cone representative or the complete scalar contraction.

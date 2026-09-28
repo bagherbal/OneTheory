@@ -16,6 +16,12 @@ Phase 0:
 
 from __future__ import annotations
 
+from dataclasses import replace
+from itertools import product
+from typing import cast
+
+import pytest
+
 from onetheory.math.numbers import Eisenstein
 from research.experiments.computable_carrier.schoen_serre_outer_transfer import (
     OuterCechBasis,
@@ -25,7 +31,10 @@ from research.experiments.scientific_genesis.mixed_constituent_schoen_arrows imp
     MixedConstituentObject,
 )
 from research.experiments.scientific_genesis.mixed_outer_yoneda import compose_outer_cochains
-from research.experiments.scientific_genesis.mixed_schoen_common_dga import mixed_outer_cup
+from research.experiments.scientific_genesis.mixed_schoen_common_dga import (
+    mixed_outer_cup,
+    mixed_outer_cup_coefficient,
+)
 from research.experiments.scientific_genesis.mixed_schoen_outer_actions import _MixedContraction
 from research.experiments.scientific_genesis.mixed_schoen_outer_transfer import MixedSchoenUnit
 
@@ -60,6 +69,10 @@ def test_compatibility_reuse_preserves_exact_coefficient_cancellation() -> None:
         left, right, target.components, left_middle=middle, right_middle=middle,
     )
     assert actual == independent
+    for basis, coefficient in actual.terms:
+        assert mixed_outer_cup_coefficient(left, right, basis) == coefficient
+    cancelled = replace(actual.terms[0][0], x_monomial=(2, 2, 0))
+    assert mixed_outer_cup_coefficient(left, right, cancelled).is_zero()
     assert {basis.x_monomial: value for basis, value in actual.terms} == {
         (3, 1, 0): Eisenstein(1), (1, 3, 0): Eisenstein(-1),
     }
@@ -92,4 +105,63 @@ def test_compatibility_reuse_preserves_external_and_koszul_crossings() -> None:
     assert actual == independent
     assert len(actual.terms) == 1
     assert actual.terms[0][1] == Eisenstein(-1)
+    assert mixed_outer_cup_coefficient(left, right, actual.terms[0][0]) == Eisenstein(-1)
     assert mixed_outer_cup(left, left).is_zero()
+
+
+@pytest.mark.parametrize("left_koszul,right_koszul,right_position", tuple(product(
+    ("k0", "k1_x", "k1_u", "k2"), ("k0", "k1_x", "k1_u", "k2"), (0, -1),
+)))
+def test_inverse_coefficient_matches_materialized_and_independent_composition(
+    left_koszul: str, right_koszul: str, right_position: int,
+) -> None:
+    """Exhaust the small Koszul sign table, including a shifted line fixture."""
+
+    left_line, middle = _line("left", (6, 6, 4)), MixedSchoenUnit()
+    right_line = MixedSchoenUnit(
+        "shifted right", 0, (0, 0, 0),
+        (MixedConstituentObject("shifted right", right_position, (0, 0, 0)),),
+    )
+    left_context, right_context, target = (
+        _MixedContraction(left_line, middle), _MixedContraction(middle, right_line),
+        _MixedContraction(left_line, right_line),
+    )
+
+    def basis(context: _MixedContraction, koszul: str, cell: tuple[
+        tuple[int, ...], tuple[int, ...], tuple[int, ...],
+    ]) -> OuterCechBasis:
+        component = context.components[(0, 0, koszul)]
+        degrees = component.ambient_degree
+        monomials = tuple(tuple(
+            degree if index == simplex[0] else 0 for index in range(size)
+        ) for degree, simplex, size in zip(degrees, cell, (3, 3, 2), strict=True))
+        return OuterCechBasis(
+            component, cast(tuple[int, int, int], monomials[0]),
+            cast(tuple[int, int, int], monomials[1]), cast(tuple[int, int], monomials[2]), cell,
+        )
+
+    left = SparseOuterCechCochain(((
+        basis(left_context, left_koszul, ((0, 1), (0,), (0,))), Eisenstein(2, 1) / 7,
+    ),))
+    right = SparseOuterCechCochain(((
+        basis(right_context, right_koszul, ((1, 2), (0, 1, 2), (0, 1))), Eisenstein(3, -2) / 5,
+    ),))
+    actual = mixed_outer_cup(left, right)
+    independent = compose_outer_cochains(
+        left, right, target.components, left_middle=middle, right_middle=middle,
+    )
+    assert actual == independent
+    for key, coefficient in actual.terms:
+        assert mixed_outer_cup_coefficient(left, right, key) == coefficient
+        different_exponent = replace(key, x_monomial=(
+            key.x_monomial[0] - 1, key.x_monomial[1] + 1, key.x_monomial[2],
+        ))
+        assert mixed_outer_cup_coefficient(left, right, different_exponent).is_zero()
+        left_basis, left_value = left.terms[0]
+        wrong_left = SparseOuterCechCochain(((replace(
+            left_basis, cell=((0, 2), left_basis.cell[1], left_basis.cell[2]),
+        ), left_value),))
+        assert mixed_outer_cup_coefficient(wrong_left, right, key).is_zero()
+    if not actual.terms:
+        candidate = basis(target, "k2", ((0, 1, 2), (0, 1, 2), (0, 1)))
+        assert mixed_outer_cup_coefficient(left, right, candidate).is_zero()

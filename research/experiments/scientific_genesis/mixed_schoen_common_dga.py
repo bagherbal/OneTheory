@@ -159,6 +159,97 @@ def mixed_outer_cup(
     ))
 
 
+def mixed_outer_cup_coefficient(
+    left: SparseOuterCechCochain,
+    right: SparseOuterCechCochain,
+    target: OuterCechBasis,
+) -> Eisenstein:
+    """Evaluate one exact cup coefficient by inverse monomial lookup.
+
+    The target's ordered cell determines the right suffix from each left
+    prefix. Its Koszul subset, homogeneous degrees, and exponents likewise
+    determine at most one right basis term. This uses the same declared
+    cup signs but a different convolution algorithm. It does not trace a
+    noncycle, assert closure, or supply a missing physical input.
+    """
+
+    right_values = dict(right.terms)
+    target_component = target.component
+    target_subset = KOSZUL_SUBSETS[target_component.koszul_summand]
+
+    @cache
+    def required_right(
+        left_component: OuterCechComponent, left_cell: Cell,
+    ) -> tuple[OuterCechComponent, Cell, int] | None:
+        if left_component.left_index != target_component.left_index:
+            return None
+        left_subset = KOSZUL_SUBSETS[left_component.koszul_summand]
+        if not set(left_subset).issubset(target_subset):
+            return None
+        if any(
+            simplex != full[:len(simplex)]
+            for simplex, full in zip(left_cell, target.cell, strict=True)
+        ):
+            return None
+        right_cell = cast(Cell, tuple(
+            full[len(simplex) - 1:]
+            for simplex, full in zip(left_cell, target.cell, strict=True)
+        ))
+        right_koszul = SUBSET_KOSZUL[tuple(
+            item for item in target_subset if item not in left_subset
+        )]
+        cell = _cell_cup(left_cell, right_cell, "left")
+        koszul = _koszul_cup(left_component.koszul_summand, right_koszul)
+        if cell is None or koszul is None or cell[1] != target.cell:
+            return None
+        component = OuterCechComponent(
+            left_component.right_index, target_component.right_index,
+            target_component.object_degree - left_component.object_degree,
+            cast(tuple[int, int, int], tuple(
+                value - original for value, original in zip(
+                    target_component.line_degree, left_component.line_degree, strict=True,
+                )
+            )),
+            right_koszul,
+        )
+        crossing = (
+            KOSZUL_DEGREES[left_component.koszul_summand] * component.object_degree
+            + sum(len(simplex) - 1 for simplex in left_cell) * component.structural_degree
+        )
+        sign = cell[0] * koszul[0] * (-1 if crossing % 2 else 1)
+        return component, right_cell, sign
+
+    result = Eisenstein(0)
+    for basis, coefficient in left.terms:
+        required = required_right(basis.component, basis.cell)
+        if required is None:
+            continue
+        component, cell, sign = required
+        exponents = tuple(tuple(
+            value - original for value, original in zip(target_values, left_values, strict=True)
+        ) for target_values, left_values in zip(
+            (target.x_monomial, target.u_monomial, target.p_monomial),
+            (basis.x_monomial, basis.u_monomial, basis.p_monomial), strict=True,
+        ))
+        if any(
+            any(index not in simplex for index, value in enumerate(values) if value < 0)
+            for values, simplex in zip(exponents, cell, strict=True)
+        ):
+            # The inverse monomial is not regular on the required suffix,
+            # so it cannot occur in the normalized right cochain.
+            continue
+        right_basis = OuterCechBasis(
+            component,
+            cast(tuple[int, int, int], exponents[0]),
+            cast(tuple[int, int, int], exponents[1]), cast(tuple[int, int], exponents[2]),
+            cell,
+        )
+        value = right_values.get(right_basis)
+        if value is not None:
+            result += coefficient * value * sign
+    return result
+
+
 def perturbed_homotopy(
     cochain: SparseOuterCechCochain,
     contraction: _MixedContraction,

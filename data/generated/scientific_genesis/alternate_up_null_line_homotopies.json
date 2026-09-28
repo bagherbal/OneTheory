@@ -1,0 +1,7403 @@
+{
+  "K_ambient_space_dimensions": [
+    [
+      -3,
+      0
+    ],
+    [
+      -2,
+      0
+    ],
+    [
+      -1,
+      0
+    ],
+    [
+      0,
+      90
+    ],
+    [
+      1,
+      152
+    ],
+    [
+      2,
+      70
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      5,
+      0
+    ]
+  ],
+  "K_h0_to_h3": [
+    0,
+    5,
+    5,
+    0
+  ],
+  "artifact_digest": "71bb0c59d454610e9150873ae1e8ffed39c31fffdf2818fe4d70a3de91924be9",
+  "coefficient_field": "Q(omega)",
+  "complete_comparison_indeterminacy_eliminated": false,
+  "complete_holomorphic_up_matrix_available": false,
+  "extension_point_selected": false,
+  "hom_detF_to_K_ambient_space_dimensions": [
+    [
+      -3,
+      0
+    ],
+    [
+      -2,
+      0
+    ],
+    [
+      -1,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      108
+    ],
+    [
+      2,
+      72
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      5,
+      0
+    ]
+  ],
+  "hom_detF_to_K_dimension": 0,
+  "identity_endpoint_extension_map_unique_if_it_exists": true,
+  "line_degree": [
+    1,
+    -1,
+    -1
+  ],
+  "line_h0_to_h3": [
+    0,
+    0,
+    9,
+    0
+  ],
+  "line_primitive_unique_modulo_boundaries": true,
+  "natural_matter_product_comparison_certified": false,
+  "null_line_witnesses": [
+    {
+      "evaluated_character": [
+        2,
+        0
+      ],
+      "full_line_primitive_identity_exact": true,
+      "full_primitive_terms": [
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "162/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "162/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "162/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "54/7+162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "54/7+162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "54/7+162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "162/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "162/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "162/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-108/7+54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-108/7+54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-108/7+54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "54/7+162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "54/7+162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "54/7+162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-108/7+54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-108/7+54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-108/7+54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "27/7+18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "27/7+18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "27/7+18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "18/7-9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "18/7-9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "18/7-9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-18/7+9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-18/7+9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-18/7+9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "9/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "9/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "9/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "27/7+18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "27/7+18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "27/7+18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "9/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "9/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "9/7+27/7*omega"
+        }
+      ],
+      "full_yoneda_boundary_identity_exact": true,
+      "matter_character": [
+        0,
+        0
+      ],
+      "null_evaluation_digest": "b5d2d0e836403fe4e97b34e1ad0c5123dd6f9a5c2bcf4cfc40ddd8a40353880e",
+      "null_evaluation_term_count": 144,
+      "null_matter_combination": "seed5 - ratio * seed0",
+      "ordered_higgs_null_matter_evaluation_exact": true,
+      "primitive_digest": "3406d7825dd64b787ee78399b8bf8c997a02fd7411b6988951a2977f3cba6f4b",
+      "primitive_has_only_line_support": true,
+      "primitive_homotopy_depth": 2,
+      "primitive_inclusion_depth": 0,
+      "primitive_projection_depth": 2,
+      "primitive_term_count": 90,
+      "seed5_over_seed0": "2/7-1/7*omega"
+    },
+    {
+      "evaluated_character": [
+        0,
+        0
+      ],
+      "full_line_primitive_identity_exact": true,
+      "full_primitive_terms": [
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              0,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              2
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              0,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              0
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "135/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              1,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-135/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              1
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "108/7+135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "108/7-54/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              0
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-27/7+108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-162/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-108/7-135/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              0
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-54/7-162/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k0",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              0,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              2,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "27/7-108/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-9/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-9/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              -1,
+              0
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-9/7-27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-27/7-18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-27/7-18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -2,
+              -3,
+              1
+            ],
+            "x_monomial": [
+              0,
+              0,
+              1
+            ]
+          },
+          "coefficient": "-27/7-18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-18/7+9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-18/7+9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              0,
+              -3,
+              -1
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "-18/7+9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "9/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "9/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              1,
+              -2,
+              -3
+            ],
+            "x_monomial": [
+              0,
+              1,
+              0
+            ]
+          },
+          "coefficient": "9/7+27/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-18/7+9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-18/7+9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -3,
+              1,
+              -2
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-18/7+9/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                0
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-27/7-18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-27/7-18/7*omega"
+        },
+        {
+          "basis": {
+            "cell": [
+              [
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "koszul_summand": "k1_u",
+            "left_object": 0,
+            "line_degree": [
+              1,
+              -1,
+              -1
+            ],
+            "object_degree": 0,
+            "p_monomial": [
+              -1,
+              -1
+            ],
+            "right_object": 0,
+            "u_monomial": [
+              -1,
+              0,
+              -3
+            ],
+            "x_monomial": [
+              1,
+              0,
+              0
+            ]
+          },
+          "coefficient": "-27/7-18/7*omega"
+        }
+      ],
+      "full_yoneda_boundary_identity_exact": true,
+      "matter_character": [
+        1,
+        0
+      ],
+      "null_evaluation_digest": "d7cbabbee2aef6d5ce465ab3b9ac470e4842f088f1eadb84f8fb2e9242c7a1d5",
+      "null_evaluation_term_count": 144,
+      "null_matter_combination": "seed5 - ratio * seed0",
+      "ordered_higgs_null_matter_evaluation_exact": true,
+      "primitive_digest": "cd6c77c771258896848ae9774d3013f417a52c3a6bfe33c82e1a9ff47affd536",
+      "primitive_has_only_line_support": true,
+      "primitive_homotopy_depth": 2,
+      "primitive_inclusion_depth": 0,
+      "primitive_projection_depth": 2,
+      "primitive_term_count": 90,
+      "seed5_over_seed0": "-3/7-2/7*omega"
+    }
+  ],
+  "observational_inputs_used": false,
+  "physical_null_coefficients_computed": false,
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "actual_matter": "f90026450eb9c2d4a0b84085bb64518ec3e9def5ebc5af65aa2aae30a7d94976",
+    "natural_quotient": "1e829fafc0ff0dfbef7442decbc2259b4f8889647f4576a4e937846ebbdf729d",
+    "null_channels": "47fe175edaf16fe011ce23966a55307736620d6df2d35b880e3f58e4e4c96594",
+    "strict_higgs": "373de106d1ef9683dd97a70cb58234d51d3e689fe9eb0a922ade4051e111bcd4"
+  },
+  "remaining_matter_product_H2K_dimension": 5,
+  "schema": "alternate-up-null-line-homotopies-v1"
+}

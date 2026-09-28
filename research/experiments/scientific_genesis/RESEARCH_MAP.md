@@ -897,3 +897,44 @@ complete up matrix, metrics, and a common vacuum remain open. See
 `ALTERNATE_UP_FIRST_ORDER_SCALAR_NOTE.md`,
 `alternate_up_higgs_quotient_cone.json`, and
 `alternate_up_first_order_scalar.json`.
+
+The quotient's phase gate is now exact: the complete global signed-minor
+row forces B₁ frames `(ω,1)` for `(P,T)`. The inherited K and ordinary
+graded exterior frames preserve the full native Higgs character and make
+both connecting arrows strictly fixed. The common flat determinant
+repair gives the required up-Higgs character `(0,2)` without fitting a
+phase. A fresh exact ambient check and a separate Künneth vanishing proof
+support the unique natural Ext¹(Q,O) lift of h_K modulo boundaries.
+
+Class identification, matter-product identification, and trace normalization
+are distinct. In particular, uniqueness of the Higgs lift does not remove
+an ambiguous K class in a proposed matter-product lift. The ordered
+candidate is attacked by exchanging its actual matter inputs with the
+same h and κ, never by symmetrizing a failed scalar. The direct ordered
+top-Laurent trace is independent of the transferred projection: scalar
+Koszul perturbations strictly lower the subset and cannot alter k₂ H⁵.
+Neither exchange consistency nor this trace theorem alone identifies the
+natural cochain product or assigns a physical determinant coefficient.
+See `ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md`.
+
+Both actual ordered exchanges preserve closure and the cover residues
+`0` and `(2673-486ω)/49`. The full reverse-minus-forward differences have
+checked primitives with 21,964 and 21,817 terms. The archive retains the
+real scalars and unchanged exterior primitives for fresh full-differential
+verification. No symmetrizing average or point selection was used. Passing
+this necessary symmetry attack does not close the natural product gate.
+
+The first ambiguity groups and short witnesses now provide a genuine
+structural simplification. Both 90-term null Yoneda primitives have only
+line-subobject support; their full B₁⁻¹ differentials equal the actual
+ordered Higgs/null-matter products. The line has cohomology `(0,0,9,0)`,
+so its primitive is unique modulo boundaries. Independently,
+`Hom(det F,K)=0` follows from absent ambient degree-zero support and
+the exact transferred computation. A sheaf-extension map with fixed
+endpoints is consequently unique if it exists. Exact transfer of the
+actual K resolution gives cover cohomology `(0,5,5,0)`: the remaining
+H²(K) group is five-dimensional, not the vanishing degree-zero Hom group.
+This does not identify an arbitrary closed matter-product lift or assert
+that all five classes occur as reachable comparison corrections.
+Use these facts to shorten the natural comparison rather than repeat
+large scalar solves. See `alternate_up_null_line_homotopies.json`.

@@ -1,0 +1,70 @@
+{
+  "artifact_digest": "26eeab0fd42d246dbc514b103cab7f7cf4854fd84c1f2e1d94769db4f2d47adc",
+  "coefficient_field": "Q(omega)",
+  "complete_holomorphic_up_matrix_available": false,
+  "exchange_expected_sign": "positive: two cohomological degrees and two exterior slots",
+  "extension_point_selected": false,
+  "full_cochain_archive_name": "alternate_up_pairing_exchange.cochains.json.gz",
+  "full_cochain_archive_sha256": "d94b09b8f91516179213b2d0e80b2a485770b539360952d2917e24db06d31199",
+  "full_cochain_payload_digest": "667d93fa1ae05ce6722716e526ec24d90f3bdd2cb09ee54ff50b94258d72b709",
+  "observational_inputs_used": false,
+  "outer_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "parameter_coefficients": [
+    {
+      "exchange_difference_boundary_exact": true,
+      "exchange_difference_digest": "960fe3d7d6b2030ff5e4763746c733de9f3830ba401d03045e7355472178cd21",
+      "exchange_difference_term_count": 37786,
+      "exchange_homotopy_depth": 3,
+      "exchange_primitive_digest": "c85f58e39da83ae1a81721c45b57e9dd75bd75f8278c54f58a86dc30ad4b9213",
+      "exchange_primitive_term_count": 21964,
+      "exchange_residue_difference": "0",
+      "forward_direct_and_transferred_residues_equal": true,
+      "forward_direct_laurent_residue": "0",
+      "forward_scalar_digest": "39bca8829a956c29f504fabddf069f88e4346e2c0029516eee78f8eb0c0934b1",
+      "parameter": "a0",
+      "physical_higgs_identification_certified": false,
+      "reverse_cover_residue": "0",
+      "reverse_defect_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "reverse_defect_term_count": 0,
+      "reverse_direct_and_transferred_residues_equal": true,
+      "reverse_projection_depth": 3,
+      "reverse_scalar_closed_exact": true,
+      "reverse_scalar_digest": "96580aae611f9920c13d9b66cd1312a11181a7c08f8b2f0522dac6814b4056aa",
+      "reverse_scalar_term_count": 42299
+    },
+    {
+      "exchange_difference_boundary_exact": true,
+      "exchange_difference_digest": "4858efa36391f6aaad87b37d91bfbe4a2219ba970abb9424889f022018c62647",
+      "exchange_difference_term_count": 37198,
+      "exchange_homotopy_depth": 3,
+      "exchange_primitive_digest": "52e4714ab8c0916b33a935842b560fe7024a7c6f4c93366adcaaeb5897939c42",
+      "exchange_primitive_term_count": 21817,
+      "exchange_residue_difference": "0",
+      "forward_direct_and_transferred_residues_equal": true,
+      "forward_direct_laurent_residue": "2673/49-486/49*omega",
+      "forward_scalar_digest": "238aa5e277ced986347b1ee0578088394eb3b1db89a425095e01b30ff143a4b2",
+      "parameter": "a1",
+      "physical_higgs_identification_certified": false,
+      "reverse_cover_residue": "2673/49-486/49*omega",
+      "reverse_defect_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "reverse_defect_term_count": 0,
+      "reverse_direct_and_transferred_residues_equal": true,
+      "reverse_projection_depth": 3,
+      "reverse_scalar_closed_exact": true,
+      "reverse_scalar_digest": "426a1e8c7c059c311ebb048d3b4f987889bbafd3b1839a226460b76dc6f7a95c",
+      "reverse_scalar_term_count": 41442
+    }
+  ],
+  "physical_higgs_identification_certified": false,
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "forward_scalars": "4cbcffa3c69952885229de1d0a9bd6a6be2583bbd0b778210ae3bd2988f793e4",
+    "full_exterior_primitives": "34e9b717602b13735aa0c3aa5219e3d87f4a4504d2b3c9ac4e64e2383b890f6a"
+  },
+  "primitive_sign_changed": false,
+  "schema": "alternate-up-pairing-exchange-v1",
+  "symmetrizing_average_used": false
+}

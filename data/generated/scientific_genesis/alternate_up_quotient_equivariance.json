@@ -1,0 +1,72 @@
+{
+  "artifact_digest": "aa4933c6a2d80770188fad0c1da6023d29d9984345618cccb8e3eef7b5f8dfc2",
+  "coefficient_field": "Q(omega)",
+  "common_flat_twist": [
+    1,
+    2
+  ],
+  "complete_holomorphic_up_matrix_available": false,
+  "covector_common_twist_weight": -2,
+  "determinant_repair_makes_covector_and_forward_higgs_characters_equal": true,
+  "extension_point_selected": false,
+  "generator_checks": [
+    {
+      "connecting_arrows": [
+        {
+          "full_connecting_arrow_digest": "787a5da2682f6576e75cd933239f65532d1701be258f6bcdf9cac47ec042aaaa",
+          "full_connecting_arrow_strictly_fixed_exact": true,
+          "parameter": "a0"
+        },
+        {
+          "full_connecting_arrow_digest": "c4ac82d66efed8a05d61f5ece49d938b26ab9da84510cdcc121fc77d4576adc7",
+          "full_connecting_arrow_strictly_fixed_exact": true,
+          "parameter": "a1"
+        }
+      ],
+      "full_global_quotient_strictly_equivariant_exact": true,
+      "full_quotient_higgs_character_exact": true,
+      "generator": "P",
+      "inherited_B1_line_frame": "omega",
+      "native_higgs_eigenvalue": "-1-omega"
+    },
+    {
+      "connecting_arrows": [
+        {
+          "full_connecting_arrow_digest": "787a5da2682f6576e75cd933239f65532d1701be258f6bcdf9cac47ec042aaaa",
+          "full_connecting_arrow_strictly_fixed_exact": true,
+          "parameter": "a0"
+        },
+        {
+          "full_connecting_arrow_digest": "c4ac82d66efed8a05d61f5ece49d938b26ab9da84510cdcc121fc77d4576adc7",
+          "full_connecting_arrow_strictly_fixed_exact": true,
+          "parameter": "a1"
+        }
+      ],
+      "full_global_quotient_strictly_equivariant_exact": true,
+      "full_quotient_higgs_character_exact": true,
+      "generator": "T",
+      "inherited_B1_line_frame": "1",
+      "native_higgs_eigenvalue": "1"
+    }
+  ],
+  "global_first_quotient_digest": "f43b04eea3480df907cbc3480a1c40c7506c6636522da3634a69d6e3fb45985e",
+  "global_first_quotient_term_count": 54,
+  "line_frame_selected_to_fit_spectrum": false,
+  "native_quotient_covector_character": [
+    2,
+    0
+  ],
+  "observational_inputs_used": false,
+  "physical_pairing_chain_map_constructed": false,
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "native_higgs": "5dd66dc3cb8e71d281532267c2970dacf2f29852b80362dcbe9cfa14d4ba9ece",
+    "outer_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+    "quotient_cone": "1e829fafc0ff0dfbef7442decbc2259b4f8889647f4576a4e937846ebbdf729d"
+  },
+  "repaired_up_higgs_character": [
+    0,
+    2
+  ],
+  "schema": "alternate-up-quotient-equivariance-v1"
+}

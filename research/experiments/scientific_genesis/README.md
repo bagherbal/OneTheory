@@ -577,3 +577,32 @@ first/first vanishes, mixed entries are constant, and second/second
 entries are linear in the two outer parameters. The determinant is linear
 if nonzero. Its coefficients still require the same-cone Higgs class and
 exact contraction; the support theorem does not assign coupling values.
+
+The natural Higgs quotient now has an inherited, checked linearization.
+The global 54-term signed-minor row forces the B₁ frames `(ω,1)` rather
+than selecting them to fit the spectrum. Full covariance checks preserve
+the native `(2,0)` Higgs character and fix both connecting arrows. The
+common determinant repair gives the required forward character `(0,2)`.
+Acyclic determinant endpoints give uniqueness of the natural class lift
+modulo boundaries, not uniqueness of a chosen cochain representative.
+The actual matter-exchange attack keeps the same Higgs primitive and
+requires full differential witnesses; it must not average away a failure.
+A direct top-Laurent coefficient independently checks the ordered cover
+trace without assigning a quotient normalization. These checks remain
+separate from the natural all-input matter-product comparison. See
+`ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md` and the dedicated quotient
+equivariance and pairing-exchange experiments.
+
+Both actual ordered null exchanges preserve the cover residues `0` and
+`(2673-486ω)/49`. Full checked primitives certify the differences, with
+21,964 and 21,817 terms. Content-addressed full cochains permit fresh
+differential verification without an implicit primitive-solver fallback.
+This is a necessary symmetry check, not a complete physical pairing.
+
+Both short null Yoneda primitives have actual B₁⁻¹ line support and
+satisfy the full line differential identities. Vanishing H¹(B₁⁻¹)
+makes them unique modulo boundaries; `Hom(det F,K)=0` gives uniqueness
+of a fixed-endpoint sheaf-extension map if it exists. Neither statement
+eliminates the matter-product ambiguity: the actual K resolution has
+cover cohomology `(0,5,5,0)`. Its five-dimensional H² must not be silently
+discarded. The natural product comparison remains unresolved.

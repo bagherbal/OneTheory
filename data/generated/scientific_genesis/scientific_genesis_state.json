@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "d7cf9ee1387355f8e73859218d75db3d81bce7b07501e3dfaaa5ad69d28cbb43",
+  "artifact_digest": "391b595aa3574c0fdb8127cf02350e7181b225bcb7f8faeee1582648ed2a5cdb",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -622,6 +622,26 @@
       "sha256": "5be85d9ba28c980516fe5557597ea9b9fd0b7e1e1e0a7989461b9a069b45c66e"
     },
     {
+      "bytes": 2623,
+      "path": "data/generated/scientific_genesis/alternate_up_quotient_equivariance.json",
+      "sha256": "1fb0691bbda031b2db27e95a8bf88e32843cfdb304483e20ec2eb575f0eeeb13"
+    },
+    {
+      "bytes": 3565,
+      "path": "data/generated/scientific_genesis/alternate_up_pairing_exchange.json",
+      "sha256": "b5d16a9c4378e06e413896e559fc36fb901751e34344dcadb86233ea6ce733f0"
+    },
+    {
+      "bytes": 3392174,
+      "path": "data/generated/scientific_genesis/alternate_up_pairing_exchange.cochains.json.gz",
+      "sha256": "d94b09b8f91516179213b2d0e80b2a485770b539360952d2917e24db06d31199"
+    },
+    {
+      "bytes": 147661,
+      "path": "data/generated/scientific_genesis/alternate_up_null_line_homotopies.json",
+      "sha256": "d1d5a711a24ffdbf127aee76d38caeb73012bc54d41a7466fc0543ffd5f0875b"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -658,11 +678,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 797,
+    "collected_tests_at_audit": 858,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 244,
-    "test_python_files": 226
+    "research_python_files": 247,
+    "test_python_files": 229
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1691,6 +1711,74 @@
         "complete up matrix"
       ],
       "statement": "Both parameter coefficients include both matter-leg terms and the positive signed Higgs primitive. Each complete scalar is checked under the full differential before its exact ordered cover residue is evaluated. A primitive-free tensor calculation independently accounts for its zero defect. The ordered residues are 0 and (2673-486 omega)/49; the a1 coefficient is nonzero in the exact field. Closed screens are not assigned as physical null coefficients or as a permanent physical rank bound.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "actual constituent frames",
+        "inherited B1 frame",
+        "common flat twist (1,2)"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_quotient_equivariance.json",
+        "research/experiments/scientific_genesis/alternate_up_quotient_equivariance.py",
+        "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_quotient_equivariance.py"
+      ],
+      "id": "alternate_up_quotient_equivariance",
+      "label": "inherited quotient linearization and up-Higgs character",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "natural exterior-V matter-product comparison",
+        "explicit quotient trace"
+      ],
+      "statement": "The full 54-term global minor row forces B1 frames omega and 1. The inherited quotient Higgs retains its native (2,0) character; both complete connecting arrows are strictly P/T fixed. The common flat determinant repair gives covector character (0,2), also the forward Higgs character. No line phase is fitted.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "same actual Higgs primitive",
+        "declared ordered cover residue generator"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_pairing_exchange.json",
+        "data/generated/scientific_genesis/alternate_up_pairing_exchange.cochains.json.gz",
+        "research/experiments/scientific_genesis/alternate_up_pairing_exchange.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_pairing_exchange.py"
+      ],
+      "id": "alternate_up_pairing_exchange",
+      "label": "actual ordered matter exchange and independent Laurent trace",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "all-input derived tensor comparison",
+        "quotient trace",
+        "complete up matrix"
+      ],
+      "statement": "Reverse the actual null matter inputs with unchanged h and k. Record the full closure defect and ordered residue; when it agrees with the forward residue, require a full exact primitive of reverse minus forward. A literal top-Laurent coefficient checks the scalar trace independently of HPL projection. Full content-addressed cochains permit direct witness checks. No symmetrizing average or physical coefficient is assigned.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "actual primitive support",
+        "fixed Serre ideal quotient",
+        "complete cover groups"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_null_line_homotopies.json",
+        "research/experiments/scientific_genesis/alternate_up_null_line_homotopies.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_null_line_homotopies.py"
+      ],
+      "id": "alternate_up_null_line_homotopies",
+      "label": "actual line-supported null homotopies and comparison ambiguity groups",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "natural matter-product comparison",
+        "complete comparison indeterminacy"
+      ],
+      "statement": "Both saved 90-term null Yoneda primitives have only line support. Their full B1-inverse differentials equal the actual h cup b-null products. The line has complete cohomology (0,0,9,0), so its primitive is unique modulo boundaries. Hom(det F,K) is zero before and after exact transfer, making a fixed-endpoint sheaf-extension morphism unique if it exists. The matter-product H2(K) ambiguity is five-dimensional on the cover, so it is not thereby eliminated.",
       "status": "COMPUTED"
     },
     {
@@ -3784,6 +3872,132 @@
       "mathematical_reason": "The projected ordered tensor comparison vanishes before h. Its primitive-free scalar defect agrees with the independently evaluated full scalar differential.",
       "source": "alternate_up_higgs_quotient_cone",
       "target": "alternate_up_first_order_scalar"
+    },
+    {
+      "assumptions_required": [
+        "declared common constituent frames",
+        "determinant repair"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_quotient_equivariance.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "equivariance alone does not identify a matter-product map"
+      ],
+      "mathematical_reason": "The actual global minor row induces the unique quotient line frame. Tensoring it with the F/A frame and expanding the ordinary graded exterior frame checks h and both delta arrows.",
+      "source": "alternate_up_higgs_quotient_cone",
+      "target": "alternate_up_quotient_equivariance"
+    },
+    {
+      "assumptions_required": [
+        "both actual matter legs",
+        "unchanged ordered cup convention"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_pairing_exchange.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a failed exchange refutes this candidate, not the entire carrier"
+      ],
+      "mathematical_reason": "Exchange the full actual inputs without changing the primitive or averaging. Compare literal top-Laurent coefficients with transferred residues only after checking the full differential.",
+      "source": "alternate_up_first_order_scalar",
+      "target": "alternate_up_pairing_exchange"
+    },
+    {
+      "assumptions_required": [
+        "ordinary odd monomials",
+        "checked positive correction sign"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_pairing_exchange.cochains.json.gz"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a primitive sign cannot be changed to repair the exchanged residue"
+      ],
+      "mathematical_reason": "The same full primitive enters both orders. Its archived differential is checked against the pinned full exterior product.",
+      "source": "alternate_up_exterior_higgs_action",
+      "target": "alternate_up_pairing_exchange"
+    },
+    {
+      "assumptions_required": [
+        "natural sheaf exterior map",
+        "explicit trace normalization"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "matching characters do not prove a tensor comparison"
+      ],
+      "mathematical_reason": "The quotient class has the required repaired Higgs character. Its natural exterior-V matter product must still be realized on actual cochains before assigning any physical matrix entry.",
+      "source": "alternate_up_quotient_equivariance",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [
+        "natural matter-product comparison",
+        "representative independence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "even a passing closed exchange screen is not a complete Yukawa matrix"
+      ],
+      "mathematical_reason": "Exchange symmetry and an independent cover trace are necessary checks, not sufficient identification of the derived product.",
+      "source": "alternate_up_pairing_exchange",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [
+        "the 90-term primitives have only actual line-subobject support"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_null_line_homotopies.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "an E-valued boundary need not be a line boundary in another case"
+      ],
+      "mathematical_reason": "Inspect all actual primitive components, retarget the unchanged line grading, and check the complete line differential identity.",
+      "source": "alternate_up_null_channel",
+      "target": "alternate_up_null_line_homotopies"
+    },
+    {
+      "assumptions_required": [
+        "K is the concrete coherent Serre ideal quotient"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_null_line_homotopies.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "Hom(det F,K) is not the matter-product H2(K) ambiguity"
+      ],
+      "mathematical_reason": "The actual K resolution and determinant endpoint compute the degree-zero extension-map ambiguity without replacing K by a bundle.",
+      "source": "alternate_up_higgs_quotient_cone",
+      "target": "alternate_up_null_line_homotopies"
+    },
+    {
+      "assumptions_required": [
+        "natural exterior product",
+        "complete comparison-indeterminacy analysis"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "a closed partial product can still differ by an H2(K) class"
+      ],
+      "mathematical_reason": "The actual short line homotopies and fixed-endpoint uniqueness may shorten the natural product comparison; agreement must still be proved or checked by reachable tensor homotopies.",
+      "source": "alternate_up_null_line_homotopies",
+      "target": "first_exact_yukawa"
     },
     {
       "assumptions_required": [
@@ -5945,18 +6159,46 @@
         0,
         1
       ],
+      "alternate_up_complete_comparison_indeterminacy_eliminated": false,
       "alternate_up_complete_ordered_null_screens_computed": true,
       "alternate_up_full_higgs_cone_comparison_available": false,
+      "alternate_up_inherited_quotient_equivariance_certified": true,
       "alternate_up_natural_quotient_cone_available": true,
+      "alternate_up_null_line_h0_to_h3": [
+        0,
+        0,
+        9,
+        0
+      ],
       "alternate_up_null_tensor_projection_exact": true,
       "alternate_up_null_to_null_coefficients_computed": false,
+      "alternate_up_null_yoneda_line_homotopies_verified": true,
+      "alternate_up_ordered_exchange_consistent": true,
+      "alternate_up_ordered_exchange_screen_computed": true,
       "alternate_up_ordered_exterior_products_closed": true,
       "alternate_up_ordered_null_a1_coefficient_nonzero": true,
       "alternate_up_ordered_null_cover_residues": [
         "0",
         "2673/49-486/49*omega"
       ],
+      "alternate_up_ordered_null_direct_trace_independently_verified": true,
+      "alternate_up_ordered_reverse_null_cover_residues": [
+        "0",
+        "2673/49-486/49*omega"
+      ],
+      "alternate_up_quotient_K_h0_to_h3": [
+        0,
+        5,
+        5,
+        0
+      ],
+      "alternate_up_quotient_fixed_endpoint_map_ambiguity_dimension": 0,
+      "alternate_up_quotient_matter_product_ambiguity_dimension": 5,
       "alternate_up_reciprocal_exterior_primitives_verified": true,
+      "alternate_up_repaired_quotient_higgs_character": [
+        0,
+        2
+      ],
       "arbitrary_point_selected": false,
       "atlas_frame_comparison_exact": true,
       "atlas_higgs_characters_match_selected_source": false,
@@ -6521,13 +6763,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "identify the nonzero a1 ordered null scalar with the equivariant physical Higgs pairing and explicit determinant/quotient trace conventions, then derive the complete up matrix without selecting an extension point",
+    "next_required_object": "resolve the natural exterior-V-to-Q matter-product comparison before assigning an ordered null residue to the physical Higgs pairing, then declare determinant/quotient trace conventions and derive the complete up matrix without selecting an extension point",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 65.0,
-      "rationale": "The quotient cone and ordered null screens are checked. Identify the physical pairing before the nonzero a1 residue can certify generic rank.",
+      "rationale": "Actual covariance fixes the Higgs character. Use the short line homotopies to resolve the natural product before assigning an ordered null residue.",
       "scores": {
         "computational_cost": 2,
         "distance_to_observable": 5,
@@ -6806,7 +7048,11 @@
       "locations": [
         "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
         "research/experiments/scientific_genesis/alternate_up_first_order_scalar.py",
-        "research/experiments/scientific_genesis/alternate_up_higgs_covector_comparison.py"
+        "research/experiments/scientific_genesis/alternate_up_higgs_covector_comparison.py",
+        "research/experiments/scientific_genesis/alternate_up_quotient_equivariance.py",
+        "research/experiments/scientific_genesis/alternate_up_pairing_exchange.py",
+        "research/experiments/scientific_genesis/alternate_up_null_line_homotopies.py",
+        "research/experiments/scientific_genesis/mixed_schoen_common_dga.py"
       ],
       "maturity": "research-only; actual quotient maps and scalar closure, not physical normalization"
     },
@@ -6885,6 +7131,11 @@
     "the certified constituent atlases force Higgs characters (1,0), (1,1), (2,0), and (2,1), incompatible with the source-bound multiset"
   ],
   "structural_compression_questions": [
+    {
+      "attack": "derive the remaining comparison groups and reachable tensor homotopies; the line support is checked for these actual witnesses, but exchange symmetry does not prove agreement with the natural exterior map",
+      "evidence": "both actual 90-term null primitives are line boundaries; H1(B1 inverse) and Hom(det F,K) vanish, while matter-product H2(K) indeterminacy is five-dimensional on the cover and has not been eliminated",
+      "question": "Do the exact mixed null Yoneda boundaries eliminate the indeterminacy of the natural null-to-null product comparison?"
+    },
     {
       "attack": "derive the action from presentation characters and deliberately test singular and factor-exchanged sectors",
       "evidence": "1,296 exact actions repeatedly show direct scalar, quotient-reduced scalar, and one square-zero-unipotent type",

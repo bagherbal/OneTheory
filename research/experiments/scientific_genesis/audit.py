@@ -22,7 +22,7 @@ import hashlib
 import json
 from itertools import combinations
 from pathlib import Path
-from typing import Final
+from typing import Final, cast
 
 ROOT: Final = Path(__file__).resolve().parents[3]
 OUTPUT: Final = ROOT / "data/generated/scientific_genesis/scientific_genesis_state.json"
@@ -1208,6 +1208,70 @@ def _nodes() -> list[dict[str, object]]:
             ),
             ("fixed null matter basis", "literal ordered cover cup", "checked positive k sign"),
             ("physical pairing identification", "quotient trace convention", "complete up matrix"),
+        ),
+        _node(
+            "alternate_up_quotient_equivariance",
+            "inherited quotient linearization and up-Higgs character",
+            "Flavor",
+            "COMPUTED",
+            "The full 54-term global minor row forces B1 frames omega and 1. "
+            "The inherited quotient Higgs retains its native (2,0) character; "
+            "both complete connecting arrows are strictly P/T fixed. The "
+            "common flat determinant repair gives covector character (0,2), "
+            "also the forward Higgs character. No line phase is fitted.",
+            (
+                "data/generated/scientific_genesis/alternate_up_quotient_equivariance.json",
+                "research/experiments/scientific_genesis/alternate_up_quotient_equivariance.py",
+                "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_up_quotient_equivariance.py",
+            ),
+            ("actual constituent frames", "inherited B1 frame", "common flat twist (1,2)"),
+            ("natural exterior-V matter-product comparison", "explicit quotient trace"),
+        ),
+        _node(
+            "alternate_up_pairing_exchange",
+            "actual ordered matter exchange and independent Laurent trace",
+            "Flavor",
+            "COMPUTED",
+            "Reverse the actual null matter inputs with unchanged h and k. "
+            "Record the full closure defect and ordered residue; when it "
+            "agrees with the forward residue, require a full exact primitive "
+            "of reverse minus forward. A literal top-Laurent coefficient "
+            "checks the scalar trace independently of HPL projection. "
+            "Full content-addressed cochains permit direct witness checks. "
+            "No symmetrizing average or physical coefficient is assigned.",
+            (
+                "data/generated/scientific_genesis/alternate_up_pairing_exchange.json",
+                "data/generated/scientific_genesis/alternate_up_pairing_exchange.cochains.json.gz",
+                "research/experiments/scientific_genesis/alternate_up_pairing_exchange.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_up_pairing_exchange.py",
+            ),
+            ("same actual Higgs primitive", "declared ordered cover residue generator"),
+            ("all-input derived tensor comparison", "quotient trace", "complete up matrix"),
+        ),
+        _node(
+            "alternate_up_null_line_homotopies",
+            "actual line-supported null homotopies and comparison ambiguity groups",
+            "Flavor",
+            "COMPUTED",
+            "Both saved 90-term null Yoneda primitives have only line support. "
+            "Their full B1-inverse differentials equal the actual h cup b-null "
+            "products. The line has complete cohomology (0,0,9,0), so its "
+            "primitive is unique modulo boundaries. Hom(det F,K) is zero "
+            "before and after exact transfer, making a fixed-endpoint "
+            "sheaf-extension morphism unique if it exists. The matter-product "
+            "H2(K) ambiguity is five-dimensional on the cover, so it is not "
+            "thereby eliminated.",
+            (
+                "data/generated/scientific_genesis/alternate_up_null_line_homotopies.json",
+                "research/experiments/scientific_genesis/alternate_up_null_line_homotopies.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_up_null_line_homotopies.py",
+            ),
+            ("actual primitive support", "fixed Serre ideal quotient", "complete cover groups"),
+            ("natural matter-product comparison", "complete comparison indeterminacy"),
         ),
         _node(
             "alternate_constituent_determinant_pairing",
@@ -3499,6 +3563,90 @@ def _edges() -> list[dict[str, object]]:
             ("this does not identify the complete physical exterior pairing",),
         ),
         _edge(
+            "alternate_up_higgs_quotient_cone",
+            "alternate_up_quotient_equivariance",
+            "The actual global minor row induces the unique quotient line "
+            "frame. Tensoring it with the F/A frame and expanding the "
+            "ordinary graded exterior frame checks h and both delta arrows.",
+            ("data/generated/scientific_genesis/alternate_up_quotient_equivariance.json",),
+            ("declared common constituent frames", "determinant repair"),
+            True,
+            ("equivariance alone does not identify a matter-product map",),
+        ),
+        _edge(
+            "alternate_up_first_order_scalar",
+            "alternate_up_pairing_exchange",
+            "Exchange the full actual inputs without changing the primitive "
+            "or averaging. Compare literal top-Laurent coefficients with "
+            "transferred residues only after checking the full differential.",
+            ("data/generated/scientific_genesis/alternate_up_pairing_exchange.json",),
+            ("both actual matter legs", "unchanged ordered cup convention"),
+            True,
+            ("a failed exchange refutes this candidate, not the entire carrier",),
+        ),
+        _edge(
+            "alternate_up_exterior_higgs_action",
+            "alternate_up_pairing_exchange",
+            "The same full primitive enters both orders. Its archived "
+            "differential is checked against the pinned full exterior product.",
+            ("data/generated/scientific_genesis/alternate_up_pairing_exchange.cochains.json.gz",),
+            ("ordinary odd monomials", "checked positive correction sign"),
+            True,
+            ("a primitive sign cannot be changed to repair the exchanged residue",),
+        ),
+        _edge(
+            "alternate_up_quotient_equivariance",
+            "first_exact_yukawa",
+            "The quotient class has the required repaired Higgs character. "
+            "Its natural exterior-V matter product must still be realized "
+            "on actual cochains before assigning any physical matrix entry.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",),
+            ("natural sheaf exterior map", "explicit trace normalization"),
+            False,
+            ("matching characters do not prove a tensor comparison",),
+        ),
+        _edge(
+            "alternate_up_pairing_exchange",
+            "first_exact_yukawa",
+            "Exchange symmetry and an independent cover trace are necessary "
+            "checks, not sufficient identification of the derived product.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",),
+            ("natural matter-product comparison", "representative independence"),
+            False,
+            ("even a passing closed exchange screen is not a complete Yukawa matrix",),
+        ),
+        _edge(
+            "alternate_up_null_channel",
+            "alternate_up_null_line_homotopies",
+            "Inspect all actual primitive components, retarget the unchanged "
+            "line grading, and check the complete line differential identity.",
+            ("data/generated/scientific_genesis/alternate_up_null_line_homotopies.json",),
+            ("the 90-term primitives have only actual line-subobject support",),
+            True,
+            ("an E-valued boundary need not be a line boundary in another case",),
+        ),
+        _edge(
+            "alternate_up_higgs_quotient_cone",
+            "alternate_up_null_line_homotopies",
+            "The actual K resolution and determinant endpoint compute the "
+            "degree-zero extension-map ambiguity without replacing K by a bundle.",
+            ("data/generated/scientific_genesis/alternate_up_null_line_homotopies.json",),
+            ("K is the concrete coherent Serre ideal quotient",),
+            True,
+            ("Hom(det F,K) is not the matter-product H2(K) ambiguity",),
+        ),
+        _edge(
+            "alternate_up_null_line_homotopies",
+            "first_exact_yukawa",
+            "The actual short line homotopies and fixed-endpoint uniqueness "
+            "may shorten the natural product comparison; agreement must "
+            "still be proved or checked by reachable tensor homotopies.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md",),
+            ("natural exterior product", "complete comparison-indeterminacy analysis"),
+            False,
+            ("a closed partial product can still differ by an H2(K) class",),
+        ),
+        _edge(
             "alternate_up_first_order_scalar",
             "first_exact_yukawa",
             "A natural sheaf quotient and closed ordered scalars must be "
@@ -5647,6 +5795,10 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
                 "research/experiments/scientific_genesis/alternate_up_first_order_scalar.py",
                 "research/experiments/scientific_genesis/alternate_up_higgs_covector_comparison.py",
+                "research/experiments/scientific_genesis/alternate_up_quotient_equivariance.py",
+                "research/experiments/scientific_genesis/alternate_up_pairing_exchange.py",
+                "research/experiments/scientific_genesis/alternate_up_null_line_homotopies.py",
+                "research/experiments/scientific_genesis/mixed_schoen_common_dga.py",
             ),
         ),
         (
@@ -5697,8 +5849,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             1,
-            "The quotient cone and ordered null screens are checked. Identify "
-            "the physical pairing before the nonzero a1 residue can certify generic rank.",
+            "Actual covariance fixes the Higgs character. Use the short line "
+            "homotopies to resolve the natural product before assigning an ordered null residue.",
         ),
         (
             "alternate_complete_up_matrix",
@@ -5802,7 +5954,9 @@ def _scheduler() -> list[dict[str, object]]:
                 "rationale": rationale,
             }
         )
-    return sorted(records, key=lambda item: (-float(item["priority_score"]), str(item["task"])))
+    return sorted(records, key=lambda item: (
+        -float(cast(float, item["priority_score"])), str(item["task"]),
+    ))
 
 
 def build_state() -> dict[str, object]:
@@ -6907,6 +7061,145 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the complete ordered alternate null scalar screens are not certified")
+    quotient_equivariance = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_quotient_equivariance.json"
+    ).read_text(encoding="utf-8"))
+    quotient_equivariance_digest = quotient_equivariance.pop("artifact_digest", None)
+    quotient_generators = quotient_equivariance.get("generator_checks", [])
+    if (
+        quotient_equivariance_digest != _canonical_digest(quotient_equivariance)
+        or quotient_equivariance.get("schema") != "alternate-up-quotient-equivariance-v1"
+        or quotient_equivariance.get("prerequisite_artifact_digests") != {
+            "quotient_cone": quotient_cone_digest, "outer_cone": alternate_cone_digest,
+            "native_higgs": up_hom_digest,
+        }
+        or quotient_equivariance.get("global_first_quotient_term_count") != 54
+        or quotient_equivariance.get("global_first_quotient_digest") != (
+            "f43b04eea3480df907cbc3480a1c40c7506c6636522da3634a69d6e3fb45985e"
+        )
+        or quotient_equivariance.get("native_quotient_covector_character") != [2, 0]
+        or quotient_equivariance.get("common_flat_twist") != [1, 2]
+        or quotient_equivariance.get("covector_common_twist_weight") != -2
+        or quotient_equivariance.get("repaired_up_higgs_character") != [0, 2]
+        or quotient_equivariance.get(
+            "determinant_repair_makes_covector_and_forward_higgs_characters_equal"
+        ) is not True
+        or [item.get("generator") for item in quotient_generators] != ["P", "T"]
+        or [item.get("inherited_B1_line_frame") for item in quotient_generators] != ["omega", "1"]
+        or [item.get("native_higgs_eigenvalue") for item in quotient_generators]
+        != ["-1-omega", "1"]
+        or any(
+            item.get("full_global_quotient_strictly_equivariant_exact") is not True
+            or item.get("full_quotient_higgs_character_exact") is not True
+            or item.get("connecting_arrows") != [
+                {
+                    "parameter": arrow["parameter"],
+                    "full_connecting_arrow_digest": arrow["connecting_arrow_digest"],
+                    "full_connecting_arrow_strictly_fixed_exact": True,
+                } for arrow in quotient_coefficients
+            ] for item in quotient_generators
+        )
+        or any(quotient_equivariance.get(field) is not False for field in (
+            "line_frame_selected_to_fit_spectrum", "physical_pairing_chain_map_constructed",
+            "complete_holomorphic_up_matrix_available", "physical_yukawa_matrix_available",
+            "extension_point_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the inherited alternate quotient equivariance is not certified")
+    pairing_exchange = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_pairing_exchange.json"
+    ).read_text(encoding="utf-8"))
+    pairing_exchange_digest = pairing_exchange.pop("artifact_digest", None)
+    exchange_coefficients = pairing_exchange.get("parameter_coefficients", [])
+    exchange_archive = ROOT / (
+        "data/generated/scientific_genesis/alternate_up_pairing_exchange.cochains.json.gz"
+    )
+    if (
+        pairing_exchange_digest != _canonical_digest(pairing_exchange)
+        or pairing_exchange.get("schema") != "alternate-up-pairing-exchange-v1"
+        or pairing_exchange.get("prerequisite_artifact_digests") != {
+            "forward_scalars": ordered_scalar_digest, "full_exterior_primitives": exterior_digest,
+        }
+        or pairing_exchange.get("outer_parameter_basis") != ["a0", "a1"]
+        or pairing_exchange.get("full_cochain_archive_name") != exchange_archive.name
+        or pairing_exchange.get("full_cochain_archive_sha256") != _sha256(exchange_archive)
+        or [item.get("parameter") for item in exchange_coefficients] != ["a0", "a1"]
+        or any(
+            item.get("forward_scalar_digest") != forward["scalar_digest"]
+            or item.get("forward_direct_laurent_residue") != forward["ordered_cover_residue"]
+            or item.get("forward_direct_and_transferred_residues_equal") is not True
+            or item.get("physical_higgs_identification_certified") is not False
+            or not isinstance(item.get("reverse_scalar_closed_exact"), bool)
+            or not isinstance(item.get("exchange_difference_boundary_exact"), bool)
+            or (item["reverse_scalar_closed_exact"] and (
+                item.get("reverse_defect_term_count") != 0
+                or item.get("reverse_direct_and_transferred_residues_equal") is not True
+                or not isinstance(item.get("reverse_cover_residue"), str)
+            ))
+            or (not item["reverse_scalar_closed_exact"] and (
+                item.get("reverse_defect_term_count", 0) <= 0
+                or item.get("reverse_cover_residue") is not None
+                or item.get("exchange_difference_boundary_exact") is not False
+            ))
+            or (item["exchange_difference_boundary_exact"] and (
+                item.get("reverse_cover_residue") != forward["ordered_cover_residue"]
+                or item.get("exchange_primitive_term_count") is None
+                or item.get("exchange_homotopy_depth") is None
+            ))
+            for item, forward in zip(exchange_coefficients, ordered_coefficients, strict=True)
+        )
+        or any(pairing_exchange.get(field) is not False for field in (
+            "primitive_sign_changed", "symmetrizing_average_used",
+            "physical_higgs_identification_certified", "complete_holomorphic_up_matrix_available",
+            "physical_yukawa_matrix_available", "extension_point_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual alternate pairing exchange screen is not certified")
+    null_line = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_null_line_homotopies.json"
+    ).read_text(encoding="utf-8"))
+    null_line_digest = null_line.pop("artifact_digest", None)
+    null_line_witnesses = null_line.get("null_line_witnesses", [])
+    if (
+        null_line_digest != _canonical_digest(null_line)
+        or null_line.get("schema") != "alternate-up-null-line-homotopies-v1"
+        or null_line.get("prerequisite_artifact_digests") != {
+            "null_channels": null_digest, "strict_higgs": full_hom_digest,
+            "actual_matter": up_matter_digest, "natural_quotient": quotient_cone_digest,
+        }
+        or null_line.get("line_degree") != [1, -1, -1]
+        or null_line.get("line_h0_to_h3") != [0, 0, 9, 0]
+        or null_line.get("hom_detF_to_K_ambient_space_dimensions") != [
+            [-3, 0], [-2, 0], [-1, 0], [0, 0], [1, 108], [2, 72], [3, 0], [4, 0], [5, 0],
+        ]
+        or null_line.get("hom_detF_to_K_dimension") != 0
+        or null_line.get("K_ambient_space_dimensions") != [
+            [-3, 0], [-2, 0], [-1, 0], [0, 90], [1, 152], [2, 70], [3, 8], [4, 0], [5, 0],
+        ]
+        or null_line.get("K_h0_to_h3") != [0, 5, 5, 0]
+        or null_line.get("remaining_matter_product_H2K_dimension") != 5
+        or [item.get("matter_character") for item in null_line_witnesses] != [[0, 0], [1, 0]]
+        or any(
+            item.get("primitive_term_count") != 90
+            or item.get("primitive_digest") != reference["primitive_digest"]
+            or item.get("null_evaluation_digest") != reference["null_evaluation_digest"]
+            or len(item.get("full_primitive_terms", [])) != 90
+            or item.get("primitive_has_only_line_support") is not True
+            or item.get("full_line_primitive_identity_exact") is not True
+            or item.get("ordered_higgs_null_matter_evaluation_exact") is not True
+            for item, reference in zip(null_line_witnesses, channels, strict=True)
+        )
+        or null_line.get("line_primitive_unique_modulo_boundaries") is not True
+        or null_line.get("identity_endpoint_extension_map_unique_if_it_exists") is not True
+        or any(null_line.get(field) is not False for field in (
+            "natural_matter_product_comparison_certified",
+            "complete_comparison_indeterminacy_eliminated", "physical_null_coefficients_computed",
+            "complete_holomorphic_up_matrix_available", "physical_yukawa_matrix_available",
+            "extension_point_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual null line homotopies and ambiguity groups are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -7154,6 +7447,10 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_exterior_higgs_action.json",
         "data/generated/scientific_genesis/alternate_up_higgs_quotient_cone.json",
         "data/generated/scientific_genesis/alternate_up_first_order_scalar.json",
+        "data/generated/scientific_genesis/alternate_up_quotient_equivariance.json",
+        "data/generated/scientific_genesis/alternate_up_pairing_exchange.json",
+        "data/generated/scientific_genesis/alternate_up_pairing_exchange.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_null_line_homotopies.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -7178,7 +7475,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 797,
+            "collected_tests_at_audit": 858,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -7348,6 +7645,24 @@ def build_state() -> dict[str, object]:
                     item["ordered_cover_residue"] for item in ordered_coefficients
                 ],
                 "alternate_up_ordered_null_a1_coefficient_nonzero": True,
+                "alternate_up_inherited_quotient_equivariance_certified": True,
+                "alternate_up_repaired_quotient_higgs_character": [0, 2],
+                "alternate_up_ordered_null_direct_trace_independently_verified": True,
+                "alternate_up_ordered_exchange_screen_computed": True,
+                "alternate_up_null_yoneda_line_homotopies_verified": True,
+                "alternate_up_null_line_h0_to_h3": [0, 0, 9, 0],
+                "alternate_up_quotient_fixed_endpoint_map_ambiguity_dimension": 0,
+                "alternate_up_quotient_K_h0_to_h3": [0, 5, 5, 0],
+                "alternate_up_quotient_matter_product_ambiguity_dimension": 5,
+                "alternate_up_complete_comparison_indeterminacy_eliminated": False,
+                "alternate_up_ordered_exchange_consistent": all(
+                    item["reverse_scalar_closed_exact"]
+                    and item["exchange_difference_boundary_exact"]
+                    for item in exchange_coefficients
+                ),
+                "alternate_up_ordered_reverse_null_cover_residues": [
+                    item["reverse_cover_residue"] for item in exchange_coefficients
+                ],
                 "alternate_up_full_higgs_cone_comparison_available": False,
                 "alternate_up_null_to_null_coefficients_computed": False,
                 "alternate_ray_0_1_explicit_cocycles_available": False,
@@ -7570,10 +7885,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "identify the nonzero a1 ordered null scalar with the "
-                "equivariant physical Higgs pairing and explicit determinant/quotient "
-                "trace conventions, then derive the complete up matrix "
-                "without selecting an extension point"
+                "resolve the natural exterior-V-to-Q matter-product comparison "
+                "before assigning an ordered null residue to the physical Higgs "
+                "pairing, then declare determinant/quotient trace conventions "
+                "and derive the complete up matrix without selecting an extension point"
             ),
         },
         "claims": _nodes(),
@@ -7921,6 +8236,24 @@ def build_state() -> dict[str, object]:
         "structural_compression_questions": [
             {
                 "question": (
+                    "Do the exact mixed null Yoneda boundaries eliminate the "
+                    "indeterminacy of the natural null-to-null product comparison?"
+                ),
+                "evidence": (
+                    "both actual 90-term null primitives are line boundaries; "
+                    "H1(B1 inverse) and Hom(det F,K) vanish, while matter-product "
+                    "H2(K) indeterminacy is five-dimensional on the cover "
+                    "and has not been eliminated"
+                ),
+                "attack": (
+                    "derive the remaining comparison groups and reachable "
+                    "tensor homotopies; the line support is checked for these "
+                    "actual witnesses, but exchange symmetry does not prove "
+                    "agreement with the natural exterior map"
+                ),
+            },
+            {
+                "question": (
                     "When do constituent endomorphism radicals act trivially "
                     "on Ext before or only after quotient reduction?"
                 ),
@@ -8024,13 +8357,19 @@ def validate_state(payload: dict[str, object]) -> None:
     if visited != len(identifiers):
         raise ValueError("scientific dependency graph contains a cycle")
 
-    for engine in payload.get("reusable_engines", []):
+    engines = payload.get("reusable_engines", [])
+    if not isinstance(engines, list):
+        raise ValueError("reusable engines must be an array")
+    for engine in engines:
         if not isinstance(engine, dict):
             raise ValueError("engine records must be objects")
         for relative in engine.get("locations", []):
             if not isinstance(relative, str) or not (ROOT / relative).exists():
                 raise ValueError(f"reusable engine evidence is missing: {relative}")
-    for item in payload.get("research_value_scheduler", []):
+    scheduler = payload.get("research_value_scheduler", [])
+    if not isinstance(scheduler, list):
+        raise ValueError("research scheduler must be an array")
+    for item in scheduler:
         if not isinstance(item, dict) or not isinstance(item.get("scores"), dict):
             raise ValueError("scheduler entries require score objects")
         if any(
@@ -8057,16 +8396,17 @@ def main() -> int:
     """Regenerate the state and print its governing checkpoint."""
 
     payload = write_state()
-    checkpoint = payload["automorphism_checkpoint"]
+    checkpoint = cast(dict[str, object], payload["automorphism_checkpoint"])
+    vertical_path = cast(dict[str, object], payload["recommended_vertical_path"])
     path = OUTPUT.relative_to(ROOT)
     print(f"state: {path}")
     print(f"artifact_digest: {payload['artifact_digest']}")
-    print(f"claim_count: {len(payload['claims'])}")
-    print(f"dependency_count: {len(payload['dependencies'])}")
+    print(f"claim_count: {len(cast(list[object], payload['claims']))}")
+    print(f"dependency_count: {len(cast(list[object], payload['dependencies']))}")
     print(
         f"automorphism_checkpoint: {checkpoint['completed_pairs']}/{checkpoint['declared_pairs']}"
     )
-    print(f"next_required_object: {payload['recommended_vertical_path']['next_required_object']}")
+    print(f"next_required_object: {vertical_path['next_required_object']}")
     return 0
 
 

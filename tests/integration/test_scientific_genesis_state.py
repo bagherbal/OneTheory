@@ -51,6 +51,18 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "alternate-up-first-order-scalar-screen-v1", "physical_null_coefficients_computed",
             "complete ordered alternate null scalar screens are not certified",
         ),
+        (
+            "alternate-up-quotient-equivariance-v1", "physical_pairing_chain_map_constructed",
+            "inherited alternate quotient equivariance is not certified",
+        ),
+        (
+            "alternate-up-pairing-exchange-v1", "physical_higgs_identification_certified",
+            "actual alternate pairing exchange screen is not certified",
+        ),
+        (
+            "alternate-up-null-line-homotopies-v1", "complete_comparison_indeterminacy_eliminated",
+            "actual null line homotopies and ambiguity groups are not certified",
+        ),
     ),
 )
 def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
@@ -535,6 +547,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_up_exterior_higgs_action"]["status"] == "COMPUTED"
     assert claims["alternate_up_higgs_quotient_cone"]["status"] == "COMPUTED"
     assert claims["alternate_up_first_order_scalar"]["status"] == "COMPUTED"
+    assert claims["alternate_up_quotient_equivariance"]["status"] == "COMPUTED"
+    assert claims["alternate_up_pairing_exchange"]["status"] == "COMPUTED"
+    assert claims["alternate_up_null_line_homotopies"]["status"] == "COMPUTED"
     assert path["criteria"]["alternate_up_ordered_exterior_products_closed"] is True
     assert path["criteria"]["alternate_up_reciprocal_exterior_primitives_verified"] is True
     assert path["criteria"]["alternate_up_natural_quotient_cone_available"] is True
@@ -544,6 +559,24 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "0", "2673/49-486/49*omega",
     ]
     assert path["criteria"]["alternate_up_ordered_null_a1_coefficient_nonzero"] is True
+    assert path["criteria"]["alternate_up_inherited_quotient_equivariance_certified"] is True
+    assert path["criteria"]["alternate_up_repaired_quotient_higgs_character"] == [0, 2]
+    assert path["criteria"]["alternate_up_ordered_null_direct_trace_independently_verified"] is True
+    assert path["criteria"]["alternate_up_ordered_exchange_screen_computed"] is True
+    assert path["criteria"]["alternate_up_null_yoneda_line_homotopies_verified"] is True
+    assert path["criteria"]["alternate_up_null_line_h0_to_h3"] == [0, 0, 9, 0]
+    assert path["criteria"]["alternate_up_quotient_fixed_endpoint_map_ambiguity_dimension"] == 0
+    assert path["criteria"]["alternate_up_quotient_K_h0_to_h3"] == [0, 5, 5, 0]
+    assert path["criteria"]["alternate_up_quotient_matter_product_ambiguity_dimension"] == 5
+    assert path["criteria"]["alternate_up_complete_comparison_indeterminacy_eliminated"] is False
+    exchange = json.loads((STATE.parent / "alternate_up_pairing_exchange.json").read_text())
+    assert path["criteria"]["alternate_up_ordered_exchange_consistent"] == all(
+        item["reverse_scalar_closed_exact"] and item["exchange_difference_boundary_exact"]
+        for item in exchange["parameter_coefficients"]
+    )
+    assert path["criteria"]["alternate_up_ordered_reverse_null_cover_residues"] == [
+        item["reverse_cover_residue"] for item in exchange["parameter_coefficients"]
+    ]
     assert path["criteria"]["alternate_up_full_higgs_cone_comparison_available"] is False
     assert path["criteria"]["alternate_up_null_to_null_coefficients_computed"] is False
     assert path["selection_status"] == (
@@ -553,10 +586,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "identify the nonzero a1 ordered null scalar with the "
-        "equivariant physical Higgs pairing and explicit determinant/quotient "
-        "trace conventions, then derive the complete up matrix "
-        "without selecting an extension point"
+        "resolve the natural exterior-V-to-Q matter-product comparison "
+        "before assigning an ordered null residue to the physical Higgs "
+        "pairing, then declare determinant/quotient trace conventions "
+        "and derive the complete up matrix without selecting an extension point"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"

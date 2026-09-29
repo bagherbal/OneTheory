@@ -1028,3 +1028,29 @@ signed-minor row is the local pairing column for e wedge A, not its
 negative row. This gives a precise same-Higgs identification criterion,
 not permission to infer the canonical exterior product from closure
 alone. See `ALTERNATE_UP_NATURAL_NULL_SCALAR_NOTE.md`.
+
+The coupled product now has a literal vertex comparison: restricting
+its output to a cover vertex gives the ordinary local graded exterior
+map in the declared quotient. Both coherence kernels vanish on vertex
+outputs by carrier support; the full differential does not lower
+cover degree. Independent local sign tests cover all Koszul pairs,
+both object parities and odd diagonals, with all eighteen local
+differential projections. This is a local mathematical result, not a
+new scalar certificate.
+
+`ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md` derives the canonical sheaf
+comparison on the declared faithful presentations. The actual pushout
+R is locally free; the nonzero Serre section supplies an injective sheaf
+relation and coherent Q, not a fibrewise subbundle at its zeros.
+Union-supported Laurent operations and the complete Leibniz identity
+give a sheaf-natural chain map with the ordinary local augmentation.
+
+The independent truncation proof removes the apparent ambient-Tor
+roadblock: negative Tor cannot add a degree-zero map into a sheaf in
+degree zero. Hom0 is exactly Hom from H0 of the nonpositive derived
+tensor. Exact polynomial regressions distinguish this from a positive
+source shift, which can contribute Ext1. A separate balancing construction
+is not needed to identify this degree-zero quotient morphism. Arbitrary
+H2(K) lift ambiguity is not silently erased; it is not the freedom of
+this natural sheaf product. Complete actual scalar evaluation, determinant
+orientation, equivariance and quotient trace remain required.

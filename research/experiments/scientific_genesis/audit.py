@@ -1403,6 +1403,53 @@ def _nodes() -> list[dict[str, object]]:
             ("other arrow graphs excluded", "actual cone comparison and scalar evaluation"),
         ),
         _node(
+            "mixed_coupled_vertex_comparison",
+            "literal vertex-local comparison with the ordinary quotient exterior map",
+            "Flavor",
+            "DERIVED",
+            "The full differential preserves or raises cover degree. H and T "
+            "have input-cell union carriers and vanish on vertex outputs. "
+            "Consequently vertex restriction keeps all local syzygy and "
+            "Koszul arrows and sends the corrected product to the ordinary "
+            "local graded exterior quotient. Independent signs and all "
+            "eighteen vertex differential projections are checked. The local "
+            "identity supports a sheaf comparison only with faithful "
+            "resolutions and a sheaf-natural chain map.",
+            (
+                "research/experiments/scientific_genesis/mixed_schoen_coupled_tensor.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md",
+                "tests/integration/test_scientific_genesis_coupled_tensor.py",
+            ),
+            ("declared triangular source", "union-supported H/T kernels", "ordered cover"),
+            ("faithful sheaf resolutions", "complete scalar and quotient trace"),
+        ),
+        _node(
+            "alternate_up_canonical_quotient_product",
+            "canonical quotient sheaf product on the frozen alternate presentation",
+            "Flavor",
+            "DERIVED",
+            "The actual q_E pushout is locally free; killing the injective "
+            "B1 tensor A_F sheaf relation gives coherent Q. Vertex restriction "
+            "identifies the ordinary local wedge. Union-supported Laurent "
+            "operations make the complete chain map sheaf-natural. For a "
+            "nonpositive derived tensor and a degree-zero sheaf target, Hom0 "
+            "is exactly Hom from H0. An independent injective-resolution "
+            "proof shows that negative ambient Tor adds no map ambiguity. "
+            "The resulting comparison represents the canonical quotient "
+            "morphism, not an arbitrary H2(K) product lift.",
+            (
+                "research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md",
+                "data/generated/scientific_genesis/alternate_constituent_carrier_state.json",
+                "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json",
+                "tests/integration/test_scientific_genesis_derived_zero_rigidity.py",
+            ),
+            (
+                "frozen locally free Serre presentations", "nonzero injective A_F section",
+                "regular Schoen complete intersection", "full sheaf-natural Leibniz identity",
+            ),
+            ("complete closed Higgs evaluation", "equivariant quotient trace", "full matrix"),
+        ),
+        _node(
             "alternate_up_coupled_tensor_presentation",
             "actual two-coefficient pushout and full quotient-product comparison",
             "Flavor",
@@ -3798,6 +3845,49 @@ def _edges() -> list[dict[str, object]]:
             ("explicit even A and B", "two-term polynomial skeleton"),
             True,
             ("applying the isolated-target theorem twice is insufficient",),
+        ),
+        _edge(
+            "mixed_coupled_quotient_tensor_identity",
+            "mixed_coupled_vertex_comparison",
+            "The union-supported homotopies vanish on vertex outputs, leaving "
+            "the ordinary graded local wedge with the complete vertex differential.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md",),
+            ("no differential lowers cover degree", "graded Koszul signs retained"),
+            True,
+            ("this is not a global augmentation or a physical scalar",),
+        ),
+        _edge(
+            "mixed_coupled_vertex_comparison",
+            "alternate_up_canonical_quotient_product",
+            "For faithful flat ambient resolutions the degree-zero rigidity "
+            "lemma identifies a sheaf-natural product with its H0 local wedge. "
+            "Negative ambient Tor cannot supply an additional degree-zero map.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md",),
+            ("faithful ambient resolutions", "coherent Q", "sheaf-natural chain map"),
+            True,
+            ("positive source cohomology would invalidate the rigidity lemma",),
+        ),
+        _edge(
+            "alternate_up_coupled_tensor_presentation",
+            "alternate_up_canonical_quotient_product",
+            "The actual q_E row and all quotient arrows match the declared "
+            "pushout and coherent quotient. The frozen local-freeness and "
+            "Serre section establish the faithful local presentations.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md",),
+            ("frozen lawful locus", "fixed signed-minor orientation"),
+            True,
+            ("a fibrewise subbundle at section zeros is not assumed",),
+        ),
+        _edge(
+            "alternate_up_canonical_quotient_product",
+            "first_exact_yukawa",
+            "Evaluate the identified natural product with complete matter and "
+            "Higgs lifts, then establish determinant orientation, equivariant "
+            "descent and the explicitly normalized quotient trace for every entry.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md",),
+            ("complete actual lifts", "declared trace convention", "all matrix entries"),
+            False,
+            ("one null coefficient is not a complete or physical matrix",),
         ),
         _edge(
             "mixed_coupled_quotient_tensor_identity",
@@ -7950,7 +8040,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 1677,
+            "collected_tests_at_audit": 1991,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -8138,6 +8228,8 @@ def build_state() -> dict[str, object]:
                 "alternate_up_raw_syzygy_boundary_closure_defect_term_count": 489,
                 "alternate_up_first_slot_cover_coherence_derived": True,
                 "alternate_up_coupled_outer_tensor_comparison_available": True,
+                "alternate_up_local_vertex_tensor_comparison_available": True,
+                "alternate_up_canonical_quotient_sheaf_product_identified": True,
                 "alternate_up_complete_carrier_scalar_pairing_evaluated": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,

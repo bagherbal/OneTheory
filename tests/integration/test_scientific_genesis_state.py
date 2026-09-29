@@ -591,8 +591,12 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_schoen_hirsch_coherence"]["status"] == "DERIVED"
     assert claims["mixed_coupled_quotient_tensor_identity"]["status"] == "DERIVED"
     assert claims["alternate_up_coupled_tensor_presentation"]["status"] == "COMPUTED"
+    assert claims["mixed_coupled_vertex_comparison"]["status"] == "DERIVED"
+    assert claims["alternate_up_canonical_quotient_product"]["status"] == "DERIVED"
     assert path["criteria"]["alternate_up_first_slot_cover_coherence_derived"] is True
     assert path["criteria"]["alternate_up_coupled_outer_tensor_comparison_available"] is True
+    assert path["criteria"]["alternate_up_local_vertex_tensor_comparison_available"] is True
+    assert path["criteria"]["alternate_up_canonical_quotient_sheaf_product_identified"] is True
     assert path["criteria"]["alternate_up_complete_carrier_scalar_pairing_evaluated"] is False
     assert path["criteria"]["alternate_up_complete_tensor_comparison_available"] is False
     assert path["criteria"]["alternate_up_complete_comparison_indeterminacy_eliminated"] is False

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "08ce48f0710716f2396962d9d99fc8d391c5fb570c2dcc70fd5ffa5bb3331c69",
+  "artifact_digest": "0f2d39310285b10ad0526a03fd35c0bad98db7f0a05f0bea31df612644baba37",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -693,11 +693,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 1677,
+    "collected_tests_at_audit": 1991,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 255,
-    "test_python_files": 238
+    "test_python_files": 239
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1925,6 +1925,51 @@
         "actual cone comparison and scalar evaluation"
       ],
       "statement": "For declared even targets A and B, validate the complete inner Hom row and the outer row against the inner complex. The differential-invariant A wedge B relation defines a legitimate quotient. Structural-first braiding, two coefficient homotopies and T cancel the complete Leibniz defect. Global polynomial terms cancel by row closure; remaining quadratic outputs vanish in the quotient. The additive shortcut has an explicit counterexample.",
+      "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "declared triangular source",
+        "union-supported H/T kernels",
+        "ordered cover"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/mixed_schoen_coupled_tensor.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md",
+        "tests/integration/test_scientific_genesis_coupled_tensor.py"
+      ],
+      "id": "mixed_coupled_vertex_comparison",
+      "label": "literal vertex-local comparison with the ordinary quotient exterior map",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "faithful sheaf resolutions",
+        "complete scalar and quotient trace"
+      ],
+      "statement": "The full differential preserves or raises cover degree. H and T have input-cell union carriers and vanish on vertex outputs. Consequently vertex restriction keeps all local syzygy and Koszul arrows and sends the corrected product to the ordinary local graded exterior quotient. Independent signs and all eighteen vertex differential projections are checked. The local identity supports a sheaf comparison only with faithful resolutions and a sheaf-natural chain map.",
+      "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "frozen locally free Serre presentations",
+        "nonzero injective A_F section",
+        "regular Schoen complete intersection",
+        "full sheaf-natural Leibniz identity"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md",
+        "data/generated/scientific_genesis/alternate_constituent_carrier_state.json",
+        "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json",
+        "tests/integration/test_scientific_genesis_derived_zero_rigidity.py"
+      ],
+      "id": "alternate_up_canonical_quotient_product",
+      "label": "canonical quotient sheaf product on the frozen alternate presentation",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "complete closed Higgs evaluation",
+        "equivariant quotient trace",
+        "full matrix"
+      ],
+      "statement": "The actual q_E pushout is locally free; killing the injective B1 tensor A_F sheaf relation gives coherent Q. Vertex restriction identifies the ordinary local wedge. Union-supported Laurent operations make the complete chain map sheaf-natural. For a nonpositive derived tensor and a degree-zero sheaf target, Hom0 is exactly Hom from H0. An independent injective-resolution proof shows that negative ambient Tor adds no map ambiguity. The resulting comparison represents the canonical quotient morphism, not an arbitrary H2(K) product lift.",
       "status": "DERIVED"
     },
     {
@@ -4169,6 +4214,72 @@
       "mathematical_reason": "Retain structural-first braiding and full Hom-row closure while adding the higher compatibility required when beta acts on A.",
       "source": "mixed_graded_rank_one_tensor_comparison",
       "target": "mixed_coupled_quotient_tensor_identity"
+    },
+    {
+      "assumptions_required": [
+        "no differential lowers cover degree",
+        "graded Koszul signs retained"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "this is not a global augmentation or a physical scalar"
+      ],
+      "mathematical_reason": "The union-supported homotopies vanish on vertex outputs, leaving the ordinary graded local wedge with the complete vertex differential.",
+      "source": "mixed_coupled_quotient_tensor_identity",
+      "target": "mixed_coupled_vertex_comparison"
+    },
+    {
+      "assumptions_required": [
+        "faithful ambient resolutions",
+        "coherent Q",
+        "sheaf-natural chain map"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "positive source cohomology would invalidate the rigidity lemma"
+      ],
+      "mathematical_reason": "For faithful flat ambient resolutions the degree-zero rigidity lemma identifies a sheaf-natural product with its H0 local wedge. Negative ambient Tor cannot supply an additional degree-zero map.",
+      "source": "mixed_coupled_vertex_comparison",
+      "target": "alternate_up_canonical_quotient_product"
+    },
+    {
+      "assumptions_required": [
+        "frozen lawful locus",
+        "fixed signed-minor orientation"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a fibrewise subbundle at section zeros is not assumed"
+      ],
+      "mathematical_reason": "The actual q_E row and all quotient arrows match the declared pushout and coherent quotient. The frozen local-freeness and Serre section establish the faithful local presentations.",
+      "source": "alternate_up_coupled_tensor_presentation",
+      "target": "alternate_up_canonical_quotient_product"
+    },
+    {
+      "assumptions_required": [
+        "complete actual lifts",
+        "declared trace convention",
+        "all matrix entries"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "one null coefficient is not a complete or physical matrix"
+      ],
+      "mathematical_reason": "Evaluate the identified natural product with complete matter and Higgs lifts, then establish determinant orientation, equivariant descent and the explicitly normalized quotient trace for every entry.",
+      "source": "alternate_up_canonical_quotient_product",
+      "target": "first_exact_yukawa"
     },
     {
       "assumptions_required": [
@@ -6541,6 +6652,7 @@
         1
       ],
       "alternate_up_actual_syzygy_boundary_comparison_verified": true,
+      "alternate_up_canonical_quotient_sheaf_product_identified": true,
       "alternate_up_complete_carrier_scalar_pairing_evaluated": false,
       "alternate_up_complete_comparison_indeterminacy_eliminated": false,
       "alternate_up_complete_ordered_null_screens_computed": true,
@@ -6551,6 +6663,7 @@
       "alternate_up_full_higgs_cone_comparison_available": false,
       "alternate_up_graded_rank_one_F_tensor_identity_derived": true,
       "alternate_up_inherited_quotient_equivariance_certified": true,
+      "alternate_up_local_vertex_tensor_comparison_available": true,
       "alternate_up_natural_quotient_cone_available": true,
       "alternate_up_null_line_h0_to_h3": [
         0,

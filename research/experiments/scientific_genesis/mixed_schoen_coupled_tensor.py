@@ -27,7 +27,7 @@ from research.experiments.computable_carrier.schoen_serre_outer_transfer import 
     SparseOuterCechCochain,
 )
 
-from .mixed_constituent_schoen_arrows import MixedConstituentObject
+from .mixed_constituent_schoen_arrows import Cell, MixedConstituentObject
 from .mixed_schoen_common_dga import mixed_outer_cup
 from .mixed_schoen_cup_coherence import mixed_scalar_cup_coherence
 from .mixed_schoen_cup_homotopy import mixed_scalar_cup_homotopy
@@ -161,6 +161,27 @@ def project_coupled_exterior(
         if index is not None:
             terms.append((replace(b, component=replace(c, left_index=index)), value))
     return SparseOuterCechCochain(tuple(terms))
+
+
+def cover_vertex_restriction(
+    cochain: SparseOuterCechCochain, vertex: Cell,
+) -> SparseOuterCechCochain:
+    """Read the local resolution component at a declared cover vertex.
+
+    The differential cannot lower cover degree. At a vertex its positive
+    cover arrows disappear; polynomial, vertex and Koszul arrows remain.
+    This projection is not a global augmentation or a cohomology solver.
+    It supplies the local comparison required in the sheaf criterion.
+    """
+
+    if len(vertex) != 3 or any(
+        len(simplex) != 1 or simplex[0] not in range(size)
+        for simplex, size in zip(vertex, (3, 3, 2), strict=True)
+    ):
+        raise ValueError("the local comparison requires a vertex of the declared product cover")
+    return SparseOuterCechCochain(tuple(
+        (basis, value) for basis, value in cochain.terms if basis.cell == vertex
+    ))
 
 
 def coupled_quotient_vector_wedge(

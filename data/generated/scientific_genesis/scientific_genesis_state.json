@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "0f2d39310285b10ad0526a03fd35c0bad98db7f0a05f0bea31df612644baba37",
+  "artifact_digest": "f4e286f6e8912bc15a314fc60f4fe7b5b1943706ffbeca7345e8412db80792e8",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -657,6 +657,11 @@
       "sha256": "748f57c793f4c0c06065aa12f99894785b4072528cb35c667e51f39fe84a1cbd"
     },
     {
+      "bytes": 3307,
+      "path": "data/generated/scientific_genesis/alternate_up_quotient_trace.json",
+      "sha256": "48c47d8b0e6e2e305fe82b9df08300b1b9ee8bed0743c583d95323874ed03a71"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -693,11 +698,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 1991,
+    "collected_tests_at_audit": 2005,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 255,
-    "test_python_files": 239
+    "research_python_files": 256,
+    "test_python_files": 240
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1971,6 +1976,30 @@
       ],
       "statement": "The actual q_E pushout is locally free; killing the injective B1 tensor A_F sheaf relation gives coherent Q. Vertex restriction identifies the ordinary local wedge. Union-supported Laurent operations make the complete chain map sheaf-natural. For a nonpositive derived tensor and a degree-zero sheaf target, Hom0 is exactly Hom from H0. An independent injective-resolution proof shows that negative ambient Tor adds no map ambiguity. The resulting comparison represents the canonical quotient morphism, not an arbitrary H2(K) product lift.",
       "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "published free ninefold quotient",
+        "fixed ordered cover residue",
+        "pi*Omega_quotient=Omega_cover",
+        "finite-etale Serre trace compatibility"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_quotient_trace.json",
+        "research/experiments/scientific_genesis/alternate_up_quotient_trace.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_TRACE_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_quotient_trace.py"
+      ],
+      "id": "alternate_up_quotient_trace",
+      "label": "actual scalar descent and explicit finite-cover trace frame",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "complete closed carrier products",
+        "same-Higgs identification",
+        "full matrix"
+      ],
+      "statement": "The 55-term full cover H3(O) generator is closed with direct and transferred residue one. P changes it by a 30-term difference with a full checked 16-term primitive; T fixes it strictly. Thus H3(O) is deck trivial and the dual holomorphic volume form descends. In the stated pullback-compatible volume frame finite-etale Serre trace gives the factor 1/9. No matrix coefficient or canonical matter normalization is assigned.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [
@@ -4312,6 +4341,40 @@
       "mathematical_reason": "Both connecting arrows must agree as full cochains, not only as transferred classes or selected null-channel evaluations.",
       "source": "alternate_up_higgs_quotient_cone",
       "target": "alternate_up_coupled_tensor_presentation"
+    },
+    {
+      "assumptions_required": [
+        "free quotient",
+        "exact scalar deck-boundary witnesses",
+        "stated volume scale"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_TRACE_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a changed cover degree or a ramified map needs a different proof"
+      ],
+      "mathematical_reason": "The stated free ninefold map supports finite-etale descent and Tr_pi(pi*alpha)=degree*alpha in the explicitly descended volume frame.",
+      "source": "schoen_geometry",
+      "target": "alternate_up_quotient_trace"
+    },
+    {
+      "assumptions_required": [
+        "natural product",
+        "complete matrix entries",
+        "unchanged volume frame"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_quotient_trace.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "a holomorphic trace does not supply matter metrics or a vacuum"
+      ],
+      "mathematical_reason": "Use the fixed quotient trace only after the canonical product, complete closed inputs and Higgs identification have been checked for every required matrix entry.",
+      "source": "alternate_up_quotient_trace",
+      "target": "first_exact_yukawa"
     },
     {
       "assumptions_required": [
@@ -6658,7 +6721,9 @@
       "alternate_up_complete_ordered_null_screens_computed": true,
       "alternate_up_complete_tensor_comparison_available": false,
       "alternate_up_coupled_outer_tensor_comparison_available": true,
+      "alternate_up_cover_to_quotient_trace_factor": "1/9",
       "alternate_up_even_tensor_boundary_repair_verified": true,
+      "alternate_up_explicit_quotient_trace_constructed": true,
       "alternate_up_first_slot_cover_coherence_derived": true,
       "alternate_up_full_higgs_cone_comparison_available": false,
       "alternate_up_graded_rank_one_F_tensor_identity_derived": true,
@@ -6704,6 +6769,7 @@
         0,
         2
       ],
+      "alternate_up_scalar_class_descent_certified": true,
       "arbitrary_point_selected": false,
       "atlas_frame_comparison_exact": true,
       "atlas_higgs_characters_match_selected_source": false,

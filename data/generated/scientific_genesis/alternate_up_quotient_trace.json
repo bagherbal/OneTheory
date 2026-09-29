@@ -1,0 +1,111 @@
+{
+  "artifact_digest": "5d51f9fcb7d877ba5d66f4ae38bf231d6f777e3ed1dcdc28776a20a64c38a67c",
+  "coefficient_field": "Q(omega)",
+  "complete_holomorphic_up_matrix_available": false,
+  "cover_h3_deck_character": [
+    0,
+    0
+  ],
+  "cover_scalar_h0_to_h3": [
+    1,
+    0,
+    0,
+    1
+  ],
+  "cover_to_quotient_trace_factor": "1/9",
+  "cover_trace_of_generator": "1",
+  "covering_degree": 9,
+  "deck_checks": [
+    {
+      "cohomology_eigenvalue": "1",
+      "difference_boundary_exact": true,
+      "difference_digest": "033c1a0bcad65d9970aac4aa65c1cf92bc51c68b91c91dce3febf9427e18a140",
+      "difference_term_count": 30,
+      "full_image_closed_exact": true,
+      "generator": "P",
+      "homotopy_depth": 2,
+      "image_digest": "75ca6d919fdbcb73a1bb19ffe31971521fed00f2408c518e87853535138cbb1e",
+      "image_term_count": 55,
+      "primitive_digest": "b3014a9f11b3f531984e9374396091c8e25d18901a39f4fe869079deb3c49302",
+      "primitive_term_count": 16,
+      "projection_depth": 2,
+      "strictly_fixed": false
+    },
+    {
+      "cohomology_eigenvalue": "1",
+      "difference_boundary_exact": true,
+      "difference_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "difference_term_count": 0,
+      "full_image_closed_exact": true,
+      "generator": "T",
+      "homotopy_depth": 0,
+      "image_digest": "1e8720583364e1030c691c9bbb476734d17b3c6732a858cbd792da32c8a696b5",
+      "image_term_count": 55,
+      "primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "primitive_term_count": 0,
+      "projection_depth": 1,
+      "strictly_fixed": true
+    }
+  ],
+  "extension_point_selected": false,
+  "finite_etale_trace_identity": "trace_cover(pi*alpha)=degree*trace_quotient(alpha)",
+  "free_quotient_group": "Z3 x Z3",
+  "full_generator_closed_exact": true,
+  "full_generator_digest": "1e8720583364e1030c691c9bbb476734d17b3c6732a858cbd792da32c8a696b5",
+  "full_generator_term_count": 55,
+  "geometry_input_identifier": "schoen_quotient_2004",
+  "harmonic_seed_digest": "99d1de8df7cf6f953bd0be92286958b71b34008d883772319ebc8eaa00cefc0e",
+  "harmonic_seed_term_count": 1,
+  "holomorphic_trace_not_canonical_matter_normalization": true,
+  "inclusion_depth": 3,
+  "observational_inputs_used": false,
+  "physical_null_coefficient_assigned": false,
+  "physical_yukawa_matrix_available": false,
+  "published_input_sha256": "dc7b51776d7b362ae748f2bfde8ff4a90d54c82becb6a55e2a6eafb31bc0c99d",
+  "quotient_trace_normalization_constructed": true,
+  "quotient_trace_of_pullback_generator_class": "1/9",
+  "scalar_class_descent_certified": true,
+  "schema": "alternate-up-quotient-trace-v1",
+  "trace_coordinate": {
+    "cell": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "koszul_summand": "k2",
+    "object_indices": [
+      0,
+      0
+    ],
+    "p_monomial": [
+      -1,
+      -1
+    ],
+    "u_monomial": [
+      -1,
+      -1,
+      -1
+    ],
+    "x_monomial": [
+      -1,
+      -1,
+      -1
+    ]
+  },
+  "volume_form_convention": {
+    "cover": "dual to the fixed cover H3(O) generator with trace one",
+    "quotient": "the unique form whose pullback is that cover form",
+    "relation": "pi*Omega_quotient=Omega_cover"
+  }
+}

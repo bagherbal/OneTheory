@@ -1450,6 +1450,30 @@ def _nodes() -> list[dict[str, object]]:
             ("complete closed Higgs evaluation", "equivariant quotient trace", "full matrix"),
         ),
         _node(
+            "alternate_up_quotient_trace",
+            "actual scalar descent and explicit finite-cover trace frame",
+            "Flavor",
+            "COMPUTED",
+            "The 55-term full cover H3(O) generator is closed with direct "
+            "and transferred residue one. P changes it by a 30-term "
+            "difference with a full checked 16-term primitive; T fixes it "
+            "strictly. Thus H3(O) is deck trivial and the dual holomorphic "
+            "volume form descends. In the stated pullback-compatible volume "
+            "frame finite-etale Serre trace gives the factor 1/9. No matrix "
+            "coefficient or canonical matter normalization is assigned.",
+            (
+                "data/generated/scientific_genesis/alternate_up_quotient_trace.json",
+                "research/experiments/scientific_genesis/alternate_up_quotient_trace.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_TRACE_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_up_quotient_trace.py",
+            ),
+            (
+                "published free ninefold quotient", "fixed ordered cover residue",
+                "pi*Omega_quotient=Omega_cover", "finite-etale Serre trace compatibility",
+            ),
+            ("complete closed carrier products", "same-Higgs identification", "full matrix"),
+        ),
+        _node(
             "alternate_up_coupled_tensor_presentation",
             "actual two-coefficient pushout and full quotient-product comparison",
             "Flavor",
@@ -3908,6 +3932,27 @@ def _edges() -> list[dict[str, object]]:
             ("all polynomial and inner mixed blocks", "both universal coefficients"),
             True,
             ("dimensional agreement alone does not identify presentations",),
+        ),
+        _edge(
+            "schoen_geometry",
+            "alternate_up_quotient_trace",
+            "The stated free ninefold map supports finite-etale descent "
+            "and Tr_pi(pi*alpha)=degree*alpha in the explicitly descended volume frame.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_QUOTIENT_TRACE_NOTE.md",),
+            ("free quotient", "exact scalar deck-boundary witnesses", "stated volume scale"),
+            True,
+            ("a changed cover degree or a ramified map needs a different proof",),
+        ),
+        _edge(
+            "alternate_up_quotient_trace",
+            "first_exact_yukawa",
+            "Use the fixed quotient trace only after the canonical product, "
+            "complete closed inputs and Higgs identification have been checked "
+            "for every required matrix entry.",
+            ("data/generated/scientific_genesis/alternate_up_quotient_trace.json",),
+            ("natural product", "complete matrix entries", "unchanged volume frame"),
+            False,
+            ("a holomorphic trace does not supply matter metrics or a vacuum",),
         ),
         _edge(
             "alternate_up_coupled_tensor_presentation",
@@ -7762,6 +7807,60 @@ def build_state() -> dict[str, object]:
         raise ValueError(
             "the actual coupled quotient tensor comparison and scope are not certified"
         )
+    quotient_trace = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_quotient_trace.json"
+    ).read_text(encoding="utf-8"))
+    quotient_trace_digest = quotient_trace.pop("artifact_digest", None)
+    trace_deck_checks = quotient_trace.get("deck_checks", [])
+    if (
+        quotient_trace_digest != _canonical_digest(quotient_trace)
+        or quotient_trace.get("schema") != "alternate-up-quotient-trace-v1"
+        or quotient_trace.get("coefficient_field") != "Q(omega)"
+        or quotient_trace.get("cover_scalar_h0_to_h3") != [1, 0, 0, 1]
+        or quotient_trace.get("full_generator_term_count") != 55
+        or quotient_trace.get("full_generator_digest") != (
+            "1e8720583364e1030c691c9bbb476734d17b3c6732a858cbd792da32c8a696b5"
+        )
+        or quotient_trace.get("full_generator_closed_exact") is not True
+        or quotient_trace.get("cover_trace_of_generator") != "1"
+        or quotient_trace.get("cover_h3_deck_character") != [0, 0]
+        or quotient_trace.get("scalar_class_descent_certified") is not True
+        or quotient_trace.get("free_quotient_group") != "Z3 x Z3"
+        or quotient_trace.get("covering_degree") != 9
+        or quotient_trace.get("geometry_input_identifier") != "schoen_quotient_2004"
+        or quotient_trace.get("published_input_sha256") != _sha256(
+            ROOT / "data/published/visible_carrier/source_manifest.json"
+        )
+        or quotient_trace.get("volume_form_convention") != {
+            "cover": "dual to the fixed cover H3(O) generator with trace one",
+            "quotient": "the unique form whose pullback is that cover form",
+            "relation": "pi*Omega_quotient=Omega_cover",
+        }
+        or quotient_trace.get("finite_etale_trace_identity") != (
+            "trace_cover(pi*alpha)=degree*trace_quotient(alpha)"
+        )
+        or quotient_trace.get("cover_to_quotient_trace_factor") != "1/9"
+        or quotient_trace.get("quotient_trace_of_pullback_generator_class") != "1/9"
+        or quotient_trace.get("quotient_trace_normalization_constructed") is not True
+        or quotient_trace.get("holomorphic_trace_not_canonical_matter_normalization") is not True
+        or len(trace_deck_checks) != 2
+        or [item.get("generator") for item in trace_deck_checks] != ["P", "T"]
+        or [item.get("difference_term_count") for item in trace_deck_checks] != [30, 0]
+        or [item.get("primitive_term_count") for item in trace_deck_checks] != [16, 0]
+        or [item.get("strictly_fixed") for item in trace_deck_checks] != [False, True]
+        or any(
+            item.get("cohomology_eigenvalue") != "1"
+            or item.get("full_image_closed_exact") is not True
+            or item.get("difference_boundary_exact") is not True
+            for item in trace_deck_checks
+        )
+        or any(quotient_trace.get(field) is not False for field in (
+            "physical_null_coefficient_assigned", "complete_holomorphic_up_matrix_available",
+            "physical_yukawa_matrix_available", "extension_point_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual scalar descent and explicit quotient trace are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -8016,6 +8115,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",
         "data/generated/scientific_genesis/alternate_up_syzygy_tensor_comparison.json",
         "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json",
+        "data/generated/scientific_genesis/alternate_up_quotient_trace.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -8040,7 +8140,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 1991,
+            "collected_tests_at_audit": 2005,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -8230,6 +8330,9 @@ def build_state() -> dict[str, object]:
                 "alternate_up_coupled_outer_tensor_comparison_available": True,
                 "alternate_up_local_vertex_tensor_comparison_available": True,
                 "alternate_up_canonical_quotient_sheaf_product_identified": True,
+                "alternate_up_scalar_class_descent_certified": True,
+                "alternate_up_explicit_quotient_trace_constructed": True,
+                "alternate_up_cover_to_quotient_trace_factor": "1/9",
                 "alternate_up_complete_carrier_scalar_pairing_evaluated": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,

@@ -1054,3 +1054,16 @@ is not needed to identify this degree-zero quotient morphism. Arbitrary
 H2(K) lift ambiguity is not silently erased; it is not the freedom of
 this natural sheaf product. Complete actual scalar evaluation, determinant
 orientation, equivariance and quotient trace remain required.
+
+The scalar descent and normalization gate is now separate and explicit.
+The actual 55-term H3(O) cover generator is fully closed and has residue
+one. P changes its representative by a verified 30-term boundary with
+a 16-term primitive; T fixes it strictly. Hence its class and its
+Serre-dual volume form descend. With the recorded convention
+`pi*Omega_quotient=Omega_cover`, the finite-etale trace identity gives
+the quotient factor `1/9`. This is a holomorphic trace convention, not
+canonical matter normalization. No carrier scalar or matrix coefficient
+is assigned by this certificate. The ongoing complete null evaluation
+retains its original process and has now checked both full Higgs lifts.
+See `alternate_up_quotient_trace.json` and
+`ALTERNATE_UP_QUOTIENT_TRACE_NOTE.md`.

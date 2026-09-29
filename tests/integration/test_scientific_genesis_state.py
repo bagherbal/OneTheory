@@ -75,6 +75,10 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "alternate-up-coupled-tensor-comparison-v1", "full_carrier_scalar_pairing_evaluated",
             "actual coupled quotient tensor comparison and scope are not certified",
         ),
+        (
+            "alternate-up-quotient-trace-v1", "physical_null_coefficient_assigned",
+            "actual scalar descent and explicit quotient trace are not certified",
+        ),
     ),
 )
 def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
@@ -593,10 +597,14 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_up_coupled_tensor_presentation"]["status"] == "COMPUTED"
     assert claims["mixed_coupled_vertex_comparison"]["status"] == "DERIVED"
     assert claims["alternate_up_canonical_quotient_product"]["status"] == "DERIVED"
+    assert claims["alternate_up_quotient_trace"]["status"] == "COMPUTED"
     assert path["criteria"]["alternate_up_first_slot_cover_coherence_derived"] is True
     assert path["criteria"]["alternate_up_coupled_outer_tensor_comparison_available"] is True
     assert path["criteria"]["alternate_up_local_vertex_tensor_comparison_available"] is True
     assert path["criteria"]["alternate_up_canonical_quotient_sheaf_product_identified"] is True
+    assert path["criteria"]["alternate_up_scalar_class_descent_certified"] is True
+    assert path["criteria"]["alternate_up_explicit_quotient_trace_constructed"] is True
+    assert path["criteria"]["alternate_up_cover_to_quotient_trace_factor"] == "1/9"
     assert path["criteria"]["alternate_up_complete_carrier_scalar_pairing_evaluated"] is False
     assert path["criteria"]["alternate_up_complete_tensor_comparison_available"] is False
     assert path["criteria"]["alternate_up_complete_comparison_indeterminacy_eliminated"] is False

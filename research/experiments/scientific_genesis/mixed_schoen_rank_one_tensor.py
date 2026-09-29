@@ -76,6 +76,12 @@ def structurally_signed_vector_wedge(
     result = SparseOuterCechCochain()
     for first, a in _components(left).items():
         for second, b in _components(right).items():
+            # Whole-input validation above precedes this algebraic zero.
+            # In particular, an even line wedges with itself to zero,
+            # regardless of the number of ordered-cover coefficients.
+            # Odd diagonals remain ordinary nonzero exterior monomials.
+            if _ordered_pair(exterior.source_positions, first, second) is None:
+                continue
             p, q = exterior.source_positions[first], exterior.source_positions[second]
             crossing = (left_degree - p) * q + p * (right_degree - q)
             result = result + resolution_vector_wedge(

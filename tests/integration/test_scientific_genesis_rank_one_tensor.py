@@ -25,6 +25,7 @@ from research.experiments.computable_carrier.schoen_serre_outer_transfer import 
     OuterCechBasis,
     SparseOuterCechCochain,
 )
+from research.experiments.scientific_genesis import mixed_schoen_rank_one_tensor as tensor_module
 from research.experiments.scientific_genesis.mixed_constituent_schoen_arrows import (
     MixedConstituentObject,
     MixedExtensionTerm,
@@ -159,3 +160,57 @@ def test_rank_one_tensor_rejects_multiple_targets() -> None:
     with pytest.raises(ValueError, match="one actual mixed-arrow target"):
         rank_one_vector_wedge(SparseOuterCechCochain(), SparseOuterCechCochain(),
                               bad, exterior, out, 0, 0)
+
+
+@pytest.mark.parametrize("index", range(5))
+def test_structural_diagonal_skips_only_validated_even_blocks(index, monkeypatch) -> None:
+    """A known structural zero must not expand a coefficient Cartesian product."""
+
+    source = _fixture(False)
+    context = _MixedContraction(source, MixedSchoenUnit())
+    exterior = mixed_exterior_square(source)
+    out = _MixedContraction(exterior, MixedSchoenUnit())
+    # A vertex coefficient has a nonzero cup square on an odd internal
+    # generator. Keeping it is essential: graded exterior is symmetric
+    # on odd diagonals, not the ordinary alternating even convention.
+    a = _cochain(context, index, "k0", ((0,), (0,), (0,)))
+    degree = source.objects[index].position
+    calls = []
+
+    def observed(left, right, *args):
+        if not left.is_zero() and not right.is_zero():
+            calls.append((left, right))
+        return resolution_vector_wedge(left, right, *args)
+
+    monkeypatch.setattr(tensor_module, "resolution_vector_wedge", observed)
+    result = structurally_signed_vector_wedge(a, a, exterior, out, degree, degree)
+    assert result == resolution_vector_wedge(a, a, exterior, out, degree, degree)
+    assert len(calls) == (1 if degree % 2 else 0)
+    assert result.is_zero() == (degree % 2 == 0)
+
+
+@pytest.mark.parametrize("side", ("left", "right"))
+@pytest.mark.parametrize("corruption", ("index", "internal", "line", "total"))
+def test_even_diagonal_zero_does_not_hide_invalid_input(side, corruption) -> None:
+    """Early zeros cannot conceal basis, grading or normalization errors."""
+
+    source = _fixture(False)
+    context = _MixedContraction(source, MixedSchoenUnit())
+    exterior = mixed_exterior_square(source)
+    out = _MixedContraction(exterior, MixedSchoenUnit())
+    good = _cochain(context, 0, "k0", ((0,), (0,), (0,)))
+    basis, value = good.terms[0]
+    if corruption == "total":
+        bad_basis = replace(basis, cell=((0, 1), (0,), (0,)))
+    else:
+        component = replace(basis.component, **{
+            "index": {"left_index": 5},
+            "internal": {"object_degree": -1},
+            "line": {"line_degree": (0, 2, 0)},
+        }[corruption])
+        bad_basis = replace(basis, component=component,
+                            u_monomial=(2, 0, 0) if corruption == "line" else basis.u_monomial)
+    bad = SparseOuterCechCochain(((bad_basis, value),))
+    left, right = (bad, good) if side == "left" else (good, bad)
+    with pytest.raises(ValueError, match="resolution vector|incompatible basis or grading"):
+        structurally_signed_vector_wedge(left, right, exterior, out, 0, 0)

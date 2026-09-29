@@ -374,8 +374,8 @@ corrected 294-term product is exactly the full differential of its
 wedge is unchanged. Complete small witnesses are saved in
 `alternate_up_syzygy_tensor_comparison.json`; no scalar solve is used.
 
-This closes the rank-one F tensor identity, **not the outer carrier
-comparison**. A read-only check of each actual outer coefficient
+This isolated-target theorem closes the rank-one F tensor identity,
+**not by itself the outer carrier comparison**. Each actual outer coefficient
 `q_E(e_nu)` finds 846 terms acting on the inner A object. The outer
 target B is therefore not independent of the inner target A. The
 isolated-target proof cannot simply be applied twice: an iterated
@@ -409,6 +409,18 @@ row. Derive the next coefficient compatibility or prove its actual
 defect vanishes after the legitimate quotient; do not silently set it
 to zero. This generic counterexample is not a computed actual outer
 defect and is not a physical no-go result.
+
+The subsequent coupled comparison is now independently scoped in
+`ALTERNATE_UP_COUPLED_TENSOR_NOTE.md`. A recursively constructed
+degree-two chain filler produces the required scalar T correction,
+without claiming the strict rule above is true. The corrected product
+satisfies the full tensor identity in the legitimate A wedge B quotient.
+Both actual full pushout presentations agree with the previous Higgs
+cone, including every connecting-arrow term. Actual odd-syzygy and
+null-matter Leibniz checks pass, retaining the latter's nonzero outer
+differential. This identifies the quotient-product presentation; it
+does not reuse these earlier ordered screens as scalar coefficients.
+Evaluation on complete cone matter lifts remains the next gate.
 
 For a ninefold finite étale map π, a quotient trace is cover trace divided
 by nine **if** the holomorphic volume form and descended sections are

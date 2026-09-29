@@ -976,15 +976,39 @@ scalar primitive solver or physical coupling assignment is involved.
 See `alternate_up_syzygy_tensor_comparison.json` and the human derivation
 in `ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md`.
 
-The next gate is specifically the coupled outer-cone comparison. Both
-actual outer maps have nonzero support on the inner A target, so the
-isolated-target proof cannot simply be applied twice. Derive the
-iterated coefficient-homotopy compatibility through the legitimate
-B tensor A quotient before identifying the natural exterior-V-to-Q
-product. H²(K) indeterminacy, determinant/quotient trace conventions,
-the complete up matrix, and physical observables remain unresolved.
-An explicit triple of scalar degree-one edge cochains also refutes the
-strict first-slot Hirsch rule for this product-cover homotopy. The
-commutator homotopy remains valid; an iterated twisting proof requires
-the next compatibility or actual quotient cancellation, not a strict
-derivation assumption. This is not an actual outer-coupling evaluation.
+Both actual outer maps act nontrivially on the inner A target, so applying
+the isolated-target theorem twice is invalid. The strict first-slot
+Hirsch shortcut remains refuted by an explicit triple of edge cochains.
+Instead the higher compatibility is now derived: the chain defect is
+a positive-degree carrier cycle, filled by recursive first-vertex
+contraction. Its negative dual T has degree -2 and the full scalar
+Čech--Koszul identity. An independent boundary implementation checks
+all 147 carriers. No coefficient is fitted and the failed strict rule
+is not silently restored.
+
+For the declared triangular A-to-B arrow graph, the corrected product
+`W-N_alpha-N_beta+M` obeys the complete signed Leibniz identity in the
+differential-invariant A wedge B quotient. The M term uses T to cancel
+the additive corrections' Hirsch defect; an exact noncycle pair refutes
+the additive shortcut. Regression attacks include odd syzygies,
+diagonals, all Koszul subset pairs and two-equation gauge coefficients.
+This is a scoped structural theorem, not a claim for arbitrary graphs.
+
+The actual pushout R has nine resolution objects; its quotient Q has
+38. Every object, polynomial arrow, and inner mixed arrow agrees with
+the existing K/exterior-F cone, and both full connecting arrows agree
+exactly (103,986 and 87,354 terms). The actual pushout requires 540 and
+432 k₂ arrow terms, now explicitly retained as the ordered subset
+`(1,2)`. The full actual syzygy/null-matter Leibniz checks pass for both
+universal coefficients. The null matter alone is not closed in R:
+its outer images have 21,756 and 20,301 terms and are included in the
+identity rather than dropped. See
+`alternate_up_coupled_tensor_comparison.json` and
+`ALTERNATE_UP_COUPLED_TENSOR_NOTE.md`.
+
+The next gate is evaluation on the **complete** actual cone matter
+lifts with the existing quotient Higgs cocycle, followed by explicit
+determinant orientation, equivariance and quotient-trace checks. Earlier
+ordered scalar screens are not automatically entries of this natural
+product. H²(K) comparison questions, the complete up matrix, canonical
+metrics, common vacuum and physical observables remain unresolved.

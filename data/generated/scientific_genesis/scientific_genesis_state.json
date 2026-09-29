@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "99900feffd50e7861029b384320e1f436ac6fd4aaa084a164aa59eb93c77e8eb",
+  "artifact_digest": "2807d888c07c18ea97d26f806ef66a48d4353100f87a111eace33e6067d3ab64",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -652,6 +652,11 @@
       "sha256": "6700f4ae95b1ecc11974d793b3a40c09a2f912b98fbcd448b938c08511da442b"
     },
     {
+      "bytes": 3813,
+      "path": "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json",
+      "sha256": "748f57c793f4c0c06065aa12f99894785b4072528cb35c667e51f39fe84a1cbd"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -688,11 +693,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 1131,
+    "collected_tests_at_audit": 1590,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 251,
-    "test_python_files": 234
+    "research_python_files": 254,
+    "test_python_files": 237
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1879,6 +1884,70 @@
       ],
       "statement": "Three explicit scalar degree-one edge cochains give a one-term defect in H(ab,c)-(-1)^|a| a H(b,c)-(-1)^(|b||c|) H(a,c)b. The telescoping product-cover homotopy is therefore not a strict first-slot derivation, although its commutator chain identity remains exact. Coupled outer rows need a compatible higher homotopy or a scoped quotient proof.",
       "status": "REFUTED"
+    },
+    {
+      "assumptions": [
+        "fixed ordered cover",
+        "scalar coefficients",
+        "first-vertex contraction"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/mixed_schoen_cup_coherence.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_COUPLED_TENSOR_NOTE.md",
+        "tests/integration/test_scientific_genesis_cup_coherence.py"
+      ],
+      "id": "mixed_schoen_hirsch_coherence",
+      "label": "acyclic-carrier filler of the first-slot cover homotopy defect",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "not a physical pairing or matrix"
+      ],
+      "statement": "The nonzero chain Hirsch defect is a positive-degree cycle in each contractible cell carrier. Recursive first-vertex contraction gives boundary K-K boundary=J without coefficient fitting. Minus its dual gives a degree-minus-two scalar operation T, with the full Koszul differential. Independent product-chain boundaries check all 147 cells; the failed strict rule remains refuted.",
+      "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "two-term polynomial skeleton",
+        "triangular A-to-B graph",
+        "full closed Hom rows",
+        "declared ordered cover"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/mixed_schoen_coupled_tensor.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_COUPLED_TENSOR_NOTE.md",
+        "tests/integration/test_scientific_genesis_coupled_tensor.py"
+      ],
+      "id": "mixed_coupled_quotient_tensor_identity",
+      "label": "derived triangular two-row product in the A wedge B quotient",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "other arrow graphs excluded",
+        "actual cone comparison and scalar evaluation"
+      ],
+      "statement": "For declared even targets A and B, validate the complete inner Hom row and the outer row against the inner complex. The differential-invariant A wedge B relation defines a legitimate quotient. Structural-first braiding, two coefficient homotopies and T cancel the complete Leibniz defect. Global polynomial terms cancel by row closure; remaining quadratic outputs vanish in the quotient. The additive shortcut has an explicit counterexample.",
+      "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "frozen alternate component",
+        "actual universal coefficients a0 and a1"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json",
+        "research/experiments/scientific_genesis/alternate_up_coupled_tensor_comparison.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_COUPLED_TENSOR_NOTE.md",
+        "tests/integration/test_scientific_genesis_actual_coupled_tensor.py"
+      ],
+      "id": "alternate_up_coupled_tensor_presentation",
+      "label": "actual two-coefficient pushout and full quotient-product comparison",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "complete cone matter pairing not evaluated",
+        "trace conventions",
+        "complete up matrix and physical normalization absent"
+      ],
+      "statement": "The actual rank-three pushout has nine resolution objects, including two-equation Koszul arrows. Its 38-object quotient matches every object, polynomial and inner mixed arrow of the existing K/exterior-F cone. Both complete connecting arrows agree exactly. Full Leibniz checks use an actual odd syzygy primitive and null matter with nonzero outer differential; neither input is silently treated as closed in R. No scalar is evaluated.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [
@@ -4051,6 +4120,103 @@
       ],
       "mathematical_reason": "Use a derived higher coefficient compatibility or prove that the actual outer comparison defect vanishes in the legitimate quotient; the failed strict rule cannot identify the physical product.",
       "source": "product_cover_homotopy_strict_hirsch",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [
+        "positive-degree carrier cycles",
+        "explicit first-vertex contraction"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/mixed_schoen_cup_coherence.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a higher homotopy does not make the strict rule true"
+      ],
+      "mathematical_reason": "Fill the actual nonzero chain defect recursively in its contractible carrier rather than asserting a strict derivation rule.",
+      "source": "product_cover_homotopy_strict_hirsch",
+      "target": "mixed_schoen_hirsch_coherence"
+    },
+    {
+      "assumptions_required": [
+        "closed coupled rows",
+        "A wedge B killed by the legitimate quotient"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_COUPLED_TENSOR_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the theorem is not asserted for arbitrary twisting graphs"
+      ],
+      "mathematical_reason": "The T correction cancels the first-slot Hirsch defect left by the two additive row corrections in the declared quotient.",
+      "source": "mixed_schoen_hirsch_coherence",
+      "target": "mixed_coupled_quotient_tensor_identity"
+    },
+    {
+      "assumptions_required": [
+        "explicit even A and B",
+        "two-term polynomial skeleton"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/mixed_schoen_coupled_tensor.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "applying the isolated-target theorem twice is insufficient"
+      ],
+      "mathematical_reason": "Retain structural-first braiding and full Hom-row closure while adding the higher compatibility required when beta acts on A.",
+      "source": "mixed_graded_rank_one_tensor_comparison",
+      "target": "mixed_coupled_quotient_tensor_identity"
+    },
+    {
+      "assumptions_required": [
+        "fixed global minor quotient",
+        "retained full Koszul subsets"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the coherent quotient is not a fibrewise vector bundle"
+      ],
+      "mathematical_reason": "The actual pushout row is q_E(e); complete arrow comparison identifies its quotient with the existing Higgs cone presentation.",
+      "source": "mixed_coupled_quotient_tensor_identity",
+      "target": "alternate_up_coupled_tensor_presentation"
+    },
+    {
+      "assumptions_required": [
+        "all polynomial and inner mixed blocks",
+        "both universal coefficients"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "dimensional agreement alone does not identify presentations"
+      ],
+      "mathematical_reason": "Both connecting arrows must agree as full cochains, not only as transferred classes or selected null-channel evaluations.",
+      "source": "alternate_up_higgs_quotient_cone",
+      "target": "alternate_up_coupled_tensor_presentation"
+    },
+    {
+      "assumptions_required": [
+        "natural V-to-R pushout",
+        "complete matter lifts",
+        "fixed Higgs lift"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_COUPLED_TENSOR_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "previous ordered scalar screens are not assigned to the new product"
+      ],
+      "mathematical_reason": "Evaluate the corrected product on complete cone matter lifts with the existing quotient Higgs cocycle, then check determinant orientation, equivariance and explicitly declared quotient trace.",
+      "source": "alternate_up_coupled_tensor_presentation",
       "target": "first_exact_yukawa"
     },
     {
@@ -6248,6 +6414,8 @@
     "two strict null Yoneda combinations are full boundaries with 90-term primitives; the formal determinant now needs only two unknown extension-linear null-to-null coefficients",
     "the natural coherent Higgs quotient has two full closed connecting arrows; its signed actions reproduce the pinned primitive identities without pretending the ideal is a vector bundle",
     "both complete ordered null scalars are full cycles with exact cover residues; the raw tensor differences vanish on the actual A quotient, but physical pairing identification remains open",
+    "the nonzero product-cover Hirsch defect has an exact acyclic-carrier filler; its negative dual supplies the scalar higher compatibility without asserting the refuted strict rule",
+    "the corrected triangular two-row tensor product obeys full Leibniz in the legitimate A wedge B quotient; both actual 38-object presentations match the existing Higgs cone and pass full syzygy/null-matter attacks, but no complete scalar pairing is evaluated",
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
     "the alternate universal up matrix has an exterior-forced zero E-E slot, constant mixed slots, and a parameter-linear F-F block; its determinant coefficients are uncomputed",
@@ -6372,11 +6540,13 @@
         1
       ],
       "alternate_up_actual_syzygy_boundary_comparison_verified": true,
+      "alternate_up_complete_carrier_scalar_pairing_evaluated": false,
       "alternate_up_complete_comparison_indeterminacy_eliminated": false,
       "alternate_up_complete_ordered_null_screens_computed": true,
       "alternate_up_complete_tensor_comparison_available": false,
-      "alternate_up_coupled_outer_tensor_comparison_available": false,
+      "alternate_up_coupled_outer_tensor_comparison_available": true,
       "alternate_up_even_tensor_boundary_repair_verified": true,
+      "alternate_up_first_slot_cover_coherence_derived": true,
       "alternate_up_full_higgs_cone_comparison_available": false,
       "alternate_up_graded_rank_one_F_tensor_identity_derived": true,
       "alternate_up_inherited_quotient_equivariance_certified": true,
@@ -6984,13 +7154,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "extend the verified graded rank-one F tensor comparison through the coupled inner and outer arrows, then identify the natural exterior-V-to-Q product and declare determinant/quotient trace conventions before deriving the complete up matrix without selecting an extension point",
+    "next_required_object": "evaluate the derived coupled quotient product on complete actual cone matter lifts and the existing quotient Higgs cocycle, then check determinant orientation, equivariance and explicit quotient trace before deriving the complete up matrix without selecting an extension point",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 65.0,
-      "rationale": "The full graded rank-one F comparison is derived. The outer coefficient acts on the inner target, so derive the coupled outer comparison before pairing.",
+      "rationale": "The coupled quotient product and actual presentation are certified. Evaluate complete cone matter lifts with the fixed Higgs cocycle before assigning any scalar or quotient normalization.",
       "scores": {
         "computational_cost": 2,
         "distance_to_observable": 5,
@@ -7003,7 +7173,7 @@
     },
     {
       "priority_score": 16.125,
-      "rationale": "Finish the quotient-normalized up sector after identifying the nonzero a1 null residue, without choosing an extension point.",
+      "rationale": "Compute all entries from the natural quotient product after its complete scalar evaluation; the earlier nonzero a1 screen is not yet an assigned coefficient. Do not select an extension point.",
       "scores": {
         "computational_cost": 4,
         "distance_to_observable": 5,
@@ -7264,9 +7434,12 @@
         "research/experiments/scientific_genesis/mixed_schoen_cup_homotopy.py",
         "research/experiments/scientific_genesis/alternate_up_exterior_boundary_attack.py",
         "research/experiments/scientific_genesis/mixed_schoen_rank_one_tensor.py",
-        "research/experiments/scientific_genesis/alternate_up_syzygy_tensor_comparison.py"
+        "research/experiments/scientific_genesis/alternate_up_syzygy_tensor_comparison.py",
+        "research/experiments/scientific_genesis/mixed_schoen_cup_coherence.py",
+        "research/experiments/scientific_genesis/mixed_schoen_coupled_tensor.py",
+        "research/experiments/scientific_genesis/alternate_up_coupled_tensor_comparison.py"
       ],
-      "maturity": "research-only; graded rank-one comparison derived, coupled outer cone unresolved"
+      "maturity": "research-only; coupled quotient product derived and actual presentation checked"
     },
     {
       "capability": "alternate coherent Higgs quotient cone and ordered null scalars",

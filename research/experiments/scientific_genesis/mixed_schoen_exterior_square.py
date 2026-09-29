@@ -420,11 +420,9 @@ def _even_twisting_coefficients(
         for term in source.extension_terms:
             if term.source != index:
                 continue
-            if term.parent_degree != 0 or term.koszul_equation not in (None, 1, 2):
+            if term.parent_degree != 0:
                 raise ValueError("an even twisting coefficient has an unsupported grading")
-            koszul = "k0" if term.koszul_equation is None else (
-                "k1_x" if term.koszul_equation == 1 else "k1_u"
-            )
+            koszul = term.koszul_summand
             # The mixed differential stores parent-zero terms with a
             # minus sign in its left action. Alpha here is the actual
             # action coefficient, not the stored extension coefficient.

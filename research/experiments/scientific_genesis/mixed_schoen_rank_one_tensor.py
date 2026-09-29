@@ -116,12 +116,9 @@ def _closed_rank_one_row(
         if (
             position not in (-1, 0) or term.parent_degree != -position
             or term.parent_degree + term.cech_degree - term.koszul_degree != 1
-            or term.koszul_equation not in (None, 1, 2)
         ):
             raise ValueError("the mixed tensor row has incompatible internal or total grading")
-        koszul = "k0" if term.koszul_equation is None else (
-            "k1_x" if term.koszul_equation == 1 else "k1_u"
-        )
+        koszul = term.koszul_summand
         component = hom.components[(0, term.source, koszul)]
         basis = OuterCechBasis(
             component, term.x_monomial, term.u_monomial, term.p_monomial, term.cell,

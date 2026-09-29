@@ -28,7 +28,7 @@ from typing import Protocol, cast
 
 from onetheory.math.homological import VectorSpace
 from onetheory.math.numbers import Eisenstein
-from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
+from research.experiments.computable_carrier.generate_tier_b_schoen_outer_invariants import (
     _canonical_digest,
 )
 from research.experiments.computable_carrier.schoen_serre_outer import (
@@ -204,21 +204,27 @@ def _cell_cup(
 
 
 def _koszul_product(
-    equation: int | None,
+    equation: int | tuple[int, int] | None,
     summand: str,
     composition: str,
 ) -> tuple[int, str] | None:
-    """Exterior-multiply one selected equation with an outer Koszul summand."""
+    """Exterior-multiply the complete selected equation subset in declared order."""
 
     if equation is None:
-        return 1, summand
+        selected: tuple[int, ...] = ()
+    elif isinstance(equation, int) and equation in (1, 2):
+        selected = (equation,)
+    elif equation == (1, 2):
+        selected = (1, 2)
+    else:
+        raise ValueError("a mixed Koszul product needs the complete ordered equation subset")
     subset = KOSZUL_SUBSETS[summand]
-    if equation in subset:
+    if set(selected) & set(subset):
         return None
     raw = (
-        (equation, *subset)
+        (*selected, *subset)
         if composition == "left"
-        else (*subset, equation)
+        else (*subset, *selected)
     )
     inversions = sum(
         raw[left] > raw[right]
@@ -681,7 +687,7 @@ def mixed_outer_transfers(
 
     constituents = mixed_schoen_constituents()
     orientations = ((0, 1), (1, 0))
-    jobs = []
+    jobs: list[tuple[int, int, int]] = []
     for left_index, right_index in orientations:
         reduced = schoen_serre_outer_hom(
             _skeleton(constituents[left_index]),

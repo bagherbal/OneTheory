@@ -1361,6 +1361,72 @@ def _nodes() -> list[dict[str, object]]:
             ("actual outer defect not evaluated", "no carrier or Yukawa refutation"),
         ),
         _node(
+            "mixed_schoen_hirsch_coherence",
+            "acyclic-carrier filler of the first-slot cover homotopy defect",
+            "Flavor",
+            "DERIVED",
+            "The nonzero chain Hirsch defect is a positive-degree cycle in "
+            "each contractible cell carrier. Recursive first-vertex contraction "
+            "gives boundary K-K boundary=J without coefficient fitting. Minus "
+            "its dual gives a degree-minus-two scalar operation T, with the "
+            "full Koszul differential. Independent product-chain boundaries "
+            "check all 147 cells; the failed strict rule remains refuted.",
+            (
+                "research/experiments/scientific_genesis/mixed_schoen_cup_coherence.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_COUPLED_TENSOR_NOTE.md",
+                "tests/integration/test_scientific_genesis_cup_coherence.py",
+            ),
+            ("fixed ordered cover", "scalar coefficients", "first-vertex contraction"),
+            ("not a physical pairing or matrix",),
+        ),
+        _node(
+            "mixed_coupled_quotient_tensor_identity",
+            "derived triangular two-row product in the A wedge B quotient",
+            "Flavor",
+            "DERIVED",
+            "For declared even targets A and B, validate the complete inner "
+            "Hom row and the outer row against the inner complex. The "
+            "differential-invariant A wedge B relation defines a legitimate "
+            "quotient. Structural-first braiding, two coefficient homotopies "
+            "and T cancel the complete Leibniz defect. Global polynomial terms "
+            "cancel by row closure; remaining quadratic outputs vanish in "
+            "the quotient. The additive shortcut has an explicit counterexample.",
+            (
+                "research/experiments/scientific_genesis/mixed_schoen_coupled_tensor.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_COUPLED_TENSOR_NOTE.md",
+                "tests/integration/test_scientific_genesis_coupled_tensor.py",
+            ),
+            (
+                "two-term polynomial skeleton", "triangular A-to-B graph",
+                "full closed Hom rows", "declared ordered cover",
+            ),
+            ("other arrow graphs excluded", "actual cone comparison and scalar evaluation"),
+        ),
+        _node(
+            "alternate_up_coupled_tensor_presentation",
+            "actual two-coefficient pushout and full quotient-product comparison",
+            "Flavor",
+            "COMPUTED",
+            "The actual rank-three pushout has nine resolution objects, "
+            "including two-equation Koszul arrows. Its 38-object quotient "
+            "matches every object, polynomial and inner mixed arrow of the "
+            "existing K/exterior-F cone. Both complete connecting arrows agree "
+            "exactly. Full Leibniz checks use an actual odd syzygy primitive "
+            "and null matter with nonzero outer differential; neither input "
+            "is silently treated as closed in R. No scalar is evaluated.",
+            (
+                "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json",
+                "research/experiments/scientific_genesis/alternate_up_coupled_tensor_comparison.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_COUPLED_TENSOR_NOTE.md",
+                "tests/integration/test_scientific_genesis_actual_coupled_tensor.py",
+            ),
+            ("frozen alternate component", "actual universal coefficients a0 and a1"),
+            (
+                "complete cone matter pairing not evaluated", "trace conventions",
+                "complete up matrix and physical normalization absent",
+            ),
+        ),
+        _node(
             "alternate_constituent_determinant_pairing",
             "local pairing for the frozen alternate I6 ray",
             "Computable carrier",
@@ -3704,6 +3770,67 @@ def _edges() -> list[dict[str, object]]:
             ("the generic defect is not a computed physical coupling",),
         ),
         _edge(
+            "product_cover_homotopy_strict_hirsch",
+            "mixed_schoen_hirsch_coherence",
+            "Fill the actual nonzero chain defect recursively in its "
+            "contractible carrier rather than asserting a strict derivation rule.",
+            ("research/experiments/scientific_genesis/mixed_schoen_cup_coherence.py",),
+            ("positive-degree carrier cycles", "explicit first-vertex contraction"),
+            True,
+            ("a higher homotopy does not make the strict rule true",),
+        ),
+        _edge(
+            "mixed_schoen_hirsch_coherence",
+            "mixed_coupled_quotient_tensor_identity",
+            "The T correction cancels the first-slot Hirsch defect left "
+            "by the two additive row corrections in the declared quotient.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_COUPLED_TENSOR_NOTE.md",),
+            ("closed coupled rows", "A wedge B killed by the legitimate quotient"),
+            True,
+            ("the theorem is not asserted for arbitrary twisting graphs",),
+        ),
+        _edge(
+            "mixed_graded_rank_one_tensor_comparison",
+            "mixed_coupled_quotient_tensor_identity",
+            "Retain structural-first braiding and full Hom-row closure while "
+            "adding the higher compatibility required when beta acts on A.",
+            ("research/experiments/scientific_genesis/mixed_schoen_coupled_tensor.py",),
+            ("explicit even A and B", "two-term polynomial skeleton"),
+            True,
+            ("applying the isolated-target theorem twice is insufficient",),
+        ),
+        _edge(
+            "mixed_coupled_quotient_tensor_identity",
+            "alternate_up_coupled_tensor_presentation",
+            "The actual pushout row is q_E(e); complete arrow comparison "
+            "identifies its quotient with the existing Higgs cone presentation.",
+            ("data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json",),
+            ("fixed global minor quotient", "retained full Koszul subsets"),
+            True,
+            ("the coherent quotient is not a fibrewise vector bundle",),
+        ),
+        _edge(
+            "alternate_up_higgs_quotient_cone",
+            "alternate_up_coupled_tensor_presentation",
+            "Both connecting arrows must agree as full cochains, not only "
+            "as transferred classes or selected null-channel evaluations.",
+            ("data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json",),
+            ("all polynomial and inner mixed blocks", "both universal coefficients"),
+            True,
+            ("dimensional agreement alone does not identify presentations",),
+        ),
+        _edge(
+            "alternate_up_coupled_tensor_presentation",
+            "first_exact_yukawa",
+            "Evaluate the corrected product on complete cone matter lifts "
+            "with the existing quotient Higgs cocycle, then check determinant "
+            "orientation, equivariance and explicitly declared quotient trace.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_COUPLED_TENSOR_NOTE.md",),
+            ("natural V-to-R pushout", "complete matter lifts", "fixed Higgs lift"),
+            False,
+            ("previous ordered scalar screens are not assigned to the new product",),
+        ),
+        _edge(
             "alternate_up_first_order_scalar",
             "alternate_up_pairing_exchange",
             "Exchange the full actual inputs without changing the primitive "
@@ -5943,7 +6070,7 @@ def _engines() -> list[dict[str, object]]:
         ),
         (
             "mixed graded exterior squares and reciprocal covector products",
-            "research-only; graded rank-one comparison derived, coupled outer cone unresolved",
+            "research-only; coupled quotient product derived and actual presentation checked",
             (
                 "research/experiments/scientific_genesis/mixed_schoen_exterior_square.py",
                 "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py",
@@ -5951,6 +6078,9 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_up_exterior_boundary_attack.py",
                 "research/experiments/scientific_genesis/mixed_schoen_rank_one_tensor.py",
                 "research/experiments/scientific_genesis/alternate_up_syzygy_tensor_comparison.py",
+                "research/experiments/scientific_genesis/mixed_schoen_cup_coherence.py",
+                "research/experiments/scientific_genesis/mixed_schoen_coupled_tensor.py",
+                "research/experiments/scientific_genesis/alternate_up_coupled_tensor_comparison.py",
             ),
         ),
         (
@@ -6014,8 +6144,9 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             1,
-            "The full graded rank-one F comparison is derived. The outer coefficient "
-            "acts on the inner target, so derive the coupled outer comparison before pairing.",
+            "The coupled quotient product and actual presentation are certified. "
+            "Evaluate complete cone matter lifts with the fixed Higgs cocycle "
+            "before assigning any scalar or quotient normalization.",
         ),
         (
             "alternate_complete_up_matrix",
@@ -6025,8 +6156,9 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             4,
             2,
-            "Finish the quotient-normalized up sector after identifying "
-            "the nonzero a1 null residue, without choosing an extension point.",
+            "Compute all entries from the natural quotient product after its "
+            "complete scalar evaluation; the earlier nonzero a1 screen is "
+            "not yet an assigned coefficient. Do not select an extension point.",
         ),
         (
             "lawful_carrier_common_dga_lifts",
@@ -7463,6 +7595,74 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the actual syzygy tensor comparison and scope are not certified")
+    coupled_tensor = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json"
+    ).read_text(encoding="utf-8"))
+    coupled_tensor_digest = coupled_tensor.pop("artifact_digest", None)
+    coupled_presentations = coupled_tensor.get("presentations", [])
+    coupled_witnesses = coupled_tensor.get("actual_leibniz_checks", [])
+    if (
+        coupled_tensor_digest != _canonical_digest(coupled_tensor)
+        or coupled_tensor.get("schema") != "alternate-up-coupled-tensor-comparison-v1"
+        or coupled_tensor.get("coefficient_field") != "Q(omega)"
+        or coupled_tensor.get("outer_parameter_basis") != ["a0", "a1"]
+        or coupled_tensor.get("prerequisite_artifact_digests") != {
+            "existing_quotient_cone": quotient_cone_digest,
+            "actual_syzygy_comparison": syzygy_tensor_digest,
+        }
+        or coupled_tensor.get("derived_coupled_R_to_Q_tensor_identity") is not True
+        or [item.get("parameter") for item in coupled_presentations] != ["a0", "a1"]
+        or [item.get("parameter") for item in coupled_witnesses] != ["a0", "a1"]
+        or [item.get("source_k2_arrow_term_count") for item in coupled_presentations] != [540, 432]
+        or [item.get("source_right_matter_image_term_count") for item in coupled_witnesses]
+        != [21756, 20301]
+        or [item.get("full_product_differential_term_count") for item in coupled_witnesses]
+        != [1479, 1307]
+        or [item.get("full_product_differential_digest") for item in coupled_witnesses] != [
+            "c37003d46a719c805a27a22f50e3df9eda929865cb93155e87aa16a6f1b989d1",
+            "01b9d8d5403f0fc5bc7f5b603c5e838eeb3ffd5ba5f2729792dee4930f97e670",
+        ]
+        or any(
+            item.get("source_object_count") != 9 or item.get("quotient_object_count") != 38
+            or item.get("source_k2_arrow_term_count", 0) <= 0
+            or item.get("quotient_mixed_arrow_term_count") != (
+                2349 + reference["connecting_arrow_term_count"]
+            )
+            or item.get("connecting_arrow_term_count") != reference["connecting_arrow_term_count"]
+            or item.get("connecting_arrow_digest") != reference["connecting_arrow_digest"]
+            or item.get("quotient_is_a_vector_bundle") is not False
+            or any(item.get(field) is not True for field in (
+                "complete_outer_row_closed_against_inner_complex",
+                "all_objects_and_polynomial_blocks_equal_exact",
+                "complete_inner_mixed_block_equal_exact", "complete_connecting_arrow_equal_exact",
+                "legitimate_A_wedge_B_relation_differential_invariant",
+            ))
+            for item, reference in zip(coupled_presentations, quotient_coefficients, strict=True)
+        )
+        or any(
+            item.get("syzygy_primitive_term_count") != 3
+            or item.get("right_null_matter_term_count") != 522
+            or item.get("source_right_matter_image_term_count", 0) <= 0
+            or item.get("product_term_count") != 47
+            or item.get("product_digest") != (
+                "dc03b2274292318343bdc56d12743573d01f0cab49025f9da5d723071c68bb53"
+            )
+            or item.get("second_differentiated_slot_term_count", 0) <= 0
+            or item.get("full_signed_leibniz_identity_exact") is not True
+            or item.get("source_differential_squares_checked_exact") is not True
+            or item.get("constituent_null_matter_assumed_closed_in_R") is not False
+            or item.get("physical_scalar_evaluated") is not False
+            for item in coupled_witnesses
+        )
+        or any(coupled_tensor.get(field) is not False for field in (
+            "full_carrier_scalar_pairing_evaluated", "complete_holomorphic_up_matrix_available",
+            "physical_yukawa_matrix_available", "extension_point_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError(
+            "the actual coupled quotient tensor comparison and scope are not certified"
+        )
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -7716,6 +7916,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_null_line_homotopies.json",
         "data/generated/scientific_genesis/alternate_up_exterior_boundary_attack.json",
         "data/generated/scientific_genesis/alternate_up_syzygy_tensor_comparison.json",
+        "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -7740,7 +7941,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 1131,
+            "collected_tests_at_audit": 1590,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -7926,7 +8127,9 @@ def build_state() -> dict[str, object]:
                 "alternate_up_graded_rank_one_F_tensor_identity_derived": True,
                 "alternate_up_actual_syzygy_boundary_comparison_verified": True,
                 "alternate_up_raw_syzygy_boundary_closure_defect_term_count": 489,
-                "alternate_up_coupled_outer_tensor_comparison_available": False,
+                "alternate_up_first_slot_cover_coherence_derived": True,
+                "alternate_up_coupled_outer_tensor_comparison_available": True,
+                "alternate_up_complete_carrier_scalar_pairing_evaluated": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
                 "alternate_up_ordered_exchange_consistent": all(
@@ -8159,9 +8362,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "extend the verified graded rank-one F tensor comparison through "
-                "the coupled inner and outer arrows, then identify the natural exterior-V-to-Q "
-                "product and declare determinant/quotient trace conventions before "
+                "evaluate the derived coupled quotient product on complete actual cone "
+                "matter lifts and the existing quotient Higgs cocycle, then check "
+                "determinant orientation, equivariance and explicit quotient trace before "
                 "deriving the complete up matrix without selecting an extension point"
             ),
         },
@@ -8252,6 +8455,13 @@ def build_state() -> dict[str, object]:
             "both complete ordered null scalars are full cycles with exact "
             "cover residues; the raw tensor differences vanish on the actual "
             "A quotient, but physical pairing identification remains open",
+            "the nonzero product-cover Hirsch defect has an exact acyclic-carrier "
+            "filler; its negative dual supplies the scalar higher compatibility "
+            "without asserting the refuted strict rule",
+            "the corrected triangular two-row tensor product obeys full Leibniz "
+            "in the legitimate A wedge B quotient; both actual 38-object "
+            "presentations match the existing Higgs cone and pass full "
+            "syzygy/null-matter attacks, but no complete scalar pairing is evaluated",
             "the frozen alternate I6 quotient has six distinct local "
             "determinant pairings satisfying all thirty corrected overlap "
             "identities; no Hom-to-tensor chain map follows yet",

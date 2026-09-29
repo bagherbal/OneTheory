@@ -34,7 +34,7 @@ from research.experiments.computable_carrier.dp9_serre_actions import (
     _fiber_coordinate_images,
     _monomial_image,
 )
-from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
+from research.experiments.computable_carrier.generate_tier_b_schoen_outer_invariants import (
     _canonical_digest,
 )
 from research.experiments.computable_carrier.resolution_actions import (
@@ -86,7 +86,7 @@ class MixedExtensionTerm:
     source: int
     target: int
     parent_degree: int
-    koszul_equation: int | None
+    koszul_equation: int | tuple[int, int] | None
     x_monomial: Monomial3
     u_monomial: Monomial3
     p_monomial: Monomial2
@@ -101,9 +101,29 @@ class MixedExtensionTerm:
 
     @property
     def koszul_degree(self) -> int:
-        """Return zero or one for the selected hypersurface wedge."""
+        """Return the degree of the complete selected hypersurface wedge."""
 
-        return int(self.koszul_equation is not None)
+        return len(self.koszul_subset)
+
+    @property
+    def koszul_subset(self) -> tuple[int, ...]:
+        """Retain both equations in a k2 arrow, never collapse it to k1."""
+
+        if self.koszul_equation is None:
+            return ()
+        if isinstance(self.koszul_equation, int) and self.koszul_equation in (1, 2):
+            return (self.koszul_equation,)
+        if self.koszul_equation == (1, 2):
+            return (1, 2)
+        raise ValueError(
+            "a mixed arrow needs the ordered hypersurface subset (), (1), (2), or (1,2)"
+        )
+
+    @property
+    def koszul_summand(self) -> str:
+        """Name the exact equation subset used by the full outer complex."""
+
+        return {(): "k0", (1,): "k1_x", (2,): "k1_u", (1, 2): "k2"}[self.koszul_subset]
 
     @property
     def monomial_degree(self) -> LineDegree:
@@ -158,10 +178,11 @@ class MixedSchoenConstituent:
     def all_multidegrees_compatible(self) -> bool:
         """Return whether each term has the exact line-bundle map degree."""
 
-        equation_degree = {
+        equation_degree: dict[int | tuple[int, int] | None, LineDegree] = {
             None: (0, 0, 0),
             1: (3, 0, 1),
             2: (0, 3, 1),
+            (1, 2): (3, 3, 2),
         }
         return all(
             term.monomial_degree
@@ -384,6 +405,7 @@ def _extension_terms(
         parent = basis.component.parent_degree
         source = source_offsets[parent] + basis.component.bundle_index
         for unused_vertex in range(3):
+            cell: Cell
             if factor == 1:
                 x_monomial = basis.base_monomial
                 u_monomial = zero
@@ -398,10 +420,10 @@ def _extension_terms(
                     0,
                     parent,
                     factor if basis.component.koszul_degree else None,
-                    cast(Monomial3, x_monomial),
-                    cast(Monomial3, u_monomial),
+                    x_monomial,
+                    u_monomial,
                     basis.fiber_monomial,
-                    cast(Cell, cell),
+                    cell,
                     coefficient,
                 )
             )

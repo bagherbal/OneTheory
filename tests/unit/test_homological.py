@@ -282,6 +282,152 @@ def test_bicomplex_rejects_noncommuting_unsigned_directions() -> None:
         )
 
 
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_direct_sum_preserves_explicit_zero_edge_bases(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """Explicit terminal and incoming zeros use the assembled named spaces."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    left = VectorSpace("left", ("l",), scalar_type)
+    right = VectorSpace("right", ("r",), scalar_type)
+    left_spaces = GradedVectorSpace("L", {0: left})
+    right_spaces = GradedVectorSpace("R", {0: right})
+    left_complex = complex_type(left_spaces, {
+        0: LinearMap.zero(left, left_spaces.space(step)),
+        -step: LinearMap.zero(left_spaces.space(-step), left),
+    })
+    right_complex = complex_type(right_spaces, {
+        0: LinearMap.zero(right, right_spaces.space(step)),
+    })
+    summed = left_complex.direct_sum(right_complex)
+
+    assert isinstance(summed, complex_type)
+    assert summed.cohomology_dimension(0) == 2
+    assert summed.spaces.space(0) == left.direct_sum(right)
+    for degree in (-step, 0):
+        differential = summed.differential(degree)
+        assert differential.domain == summed.spaces.space(degree)
+        assert differential.codomain == summed.spaces.space(degree + step)
+        assert differential.is_zero()
+    assert summed.cohomology_dimension(step) == 0
+    assert summed.cohomology_dimension(-step) == 0
+
+
+def _three_term_complex(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> ChainComplex | CochainComplex:
+    """Give a generic exact complex with one surviving middle class."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    first = VectorSpace("first", ("x",), scalar_type)
+    middle = VectorSpace("middle", ("u", "v", "w"), scalar_type)
+    last = VectorSpace("last", ("y",), scalar_type)
+    a = scalar_type(2)
+    b = Rational(3) if scalar_type is Rational else OMEGA
+    return complex_type(
+        GradedVectorSpace("three term", {0: first, step: middle, 2 * step: last}),
+        {
+            0: LinearMap(first, middle, ((a,), (b,), (0,))),
+            step: LinearMap(middle, last, ((-b, a, 0),)),
+        },
+    )
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_representatives_are_cycles_independent_modulo_boundaries(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """The quotient basis removes an actual nonzero boundary over either field."""
+
+    complex_ = _three_term_complex(scalar_type, complex_type)
+    step = -1 if complex_type is ChainComplex else 1
+    assert complex_.cohomology_dimension(0) == 0
+    assert complex_.cohomology_dimension(2 * step) == 0
+    assert complex_.cohomology_dimension(step) == 1
+    assert len(complex_.cycles(step)) == 2
+    assert len(complex_.boundaries(step)) == 1
+    representatives = complex_.cohomology_representatives(step)
+    assert len(representatives) == 1
+    assert representatives[0].coordinates == tuple(scalar_type(x) for x in (0, 0, 1))
+    assert all(complex_.differential(step)(cycle).is_zero()
+               for cycle in (*complex_.boundaries(step), *representatives))
+    for amount in (-3, -2, 0, 2, 3):
+        shifted = complex_.shift(amount)
+        assert shifted.cohomology_dimension(step + amount) == 1
+        assert shifted.differential(amount).rows == complex_.differential(0).scale(
+            -1 if amount % 2 else 1
+        ).rows
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_identity_cone_has_an_explicit_contracting_homotopy(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """The signed cone contracts by h(y, x) = (0, y), not just a rank count."""
+
+    complex_ = _three_term_complex(scalar_type, complex_type)
+    cone = mapping_cone(ChainMap.identity(complex_))
+    step = -1 if complex_type is ChainComplex else 1
+    components = {}
+    for degree in cone.degrees:
+        domain = cone.spaces.space(degree)
+        codomain = cone.spaces.space(degree - step)
+        top_dimension = complex_.spaces.space(degree - step).dimension
+        components[degree] = LinearMap(domain, codomain, (
+            tuple(int(row - top_dimension == column) if row >= top_dimension else 0
+                  for column in range(domain.dimension))
+            for row in range(codomain.dimension)
+        ))
+    homotopy = ChainHomotopy(
+        ChainMap.identity(cone), ChainMap(cone, cone, {}), components
+    )
+
+    assert homotopy.first.source == cone
+    assert all(cone.cohomology_dimension(degree) == 0 for degree in cone.degrees)
+    zero_cone = mapping_cone(ChainMap(complex_, complex_, {}))
+    for degree in zero_cone.degrees:
+        assert zero_cone.cohomology_dimension(degree) == (
+            complex_.cohomology_dimension(degree)
+            + complex_.cohomology_dimension(degree + step)
+        )
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+def test_negative_horizontal_degree_totalization_keeps_exact_signs(
+    scalar_type: type[Rational] | type[Eisenstein],
+) -> None:
+    """Negative odd degrees also negate the vertical direction exactly."""
+
+    spaces = {
+        cell: VectorSpace(str(cell), ("e",), scalar_type)
+        for cell in ((-1, 0), (0, 0), (-1, 1), (0, 1))
+    }
+    a = scalar_type(2)
+    b = Rational(3) if scalar_type is Rational else OMEGA
+    bicomplex = Bicomplex(
+        "negative square", spaces,
+        horizontal={
+            (-1, q): LinearMap(spaces[-1, q], spaces[0, q], ((a,),)) for q in (0, 1)
+        },
+        vertical={
+            (p, 0): LinearMap(spaces[p, 0], spaces[p, 1], ((b,),)) for p in (-1, 0)
+        },
+    )
+    total = bicomplex.totalize()
+    assert total.differential(-1).rows == ((-b,), (a,))
+    assert total.differential(0).rows == ((a, b),)
+    assert total.differential(0).compose(total.differential(-1)).is_zero()
+    assert all(total.cohomology_dimension(degree) == 0 for degree in total.degrees)
+
+
 def test_dga_leibniz_commutator_pairing_and_maurer_cartan() -> None:
     degree_zero = VectorSpace("A0", ("1",))
     graded = GradedVectorSpace("A", {0: degree_zero})

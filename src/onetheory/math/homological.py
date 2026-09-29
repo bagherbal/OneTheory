@@ -589,10 +589,19 @@ class _ComplexMixin:
             {degree for degree, _ in self.differentials}
             | {degree for degree, _ in other.differentials}
         )
-        differentials = {
-            degree: LinearMap.direct_sum(self.differential(degree), other.differential(degree))
-            for degree in degrees
-        }
+        step = -1 if self._direction == "chain" else 1
+        differentials = {}
+        for degree in degrees:
+            if degree not in spaces.degrees or degree + step not in spaces.degrees:
+                # An absent summand is the zero space of the assembled complex,
+                # not the differently named direct sum of its two edge spaces.
+                differentials[degree] = LinearMap.zero(
+                    spaces.space(degree), spaces.space(degree + step)
+                )
+            else:
+                differentials[degree] = LinearMap.direct_sum(
+                    self.differential(degree), other.differential(degree)
+                )
         if self._direction == "chain":
             return ChainComplex(spaces, differentials)
         return CochainComplex(spaces, differentials)

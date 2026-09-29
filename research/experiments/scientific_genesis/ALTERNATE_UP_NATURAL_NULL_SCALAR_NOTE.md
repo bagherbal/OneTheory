@@ -70,6 +70,40 @@ The full product identities and scalar differential are checked
 before tracing either coefficient. Generic Hom evaluation tests
 include mixed arrows, polynomial syzygies and every Koszul pair.
 
+The archive verifier also reconstructs R and checks each saved r_nu
+against the actual b. It checks the declared B support, total degree,
+inner cycle, complete linear equation and absent quadratic action;
+content hashes and successful producer flags are not substitutes for
+these identities. Its regression attacks include a missing correction,
+the opposite sign, the wrong block and the wrong total degree.
+
+## Determinant and same-Higgs identification criterion
+
+The existing exterior filtration has graded pieces det(E), E tensor F
+and det(F). Exact line transfer gives zero H0 through H3 for both
+determinants (-2,2,0) and (2,-2,0), hence also for their duals.
+Dualizing the two bundle exact sequences therefore gives the canonical
+isomorphism H1((exterior-square V)^dual) = H1((E tensor F)^dual).
+This identifies classes, not chain representatives or tensor products.
+
+The quotient row has a fixed sign, not an adjustable Higgs phase:
+q_E(e) is the pairing e wedge A_E. In the established local relation
+order (F0,F0,F0,A), its entries are the Pluecker matrix column 3,
+not row 3. The saved Hom class has only A_E output and kills A_F.
+Consequently its mixed alternating functional is h_K(q_E(e),q_F(f)),
+with q_F the sheaf quotient F-to-F/A_F. This statement uses neither
+an inverse of a vanishing minor nor a fibrewise subbundle at its zeros.
+
+To assign the new scalar to this Higgs, the corrected chain product
+must represent the pullback of the canonical sheaf map
+exterior-square V-to-Q, with that mixed functional on the associated
+graded piece. The filtration isomorphism then identifies the pulled
+back degree-one covector class with the selected Higgs class uniquely.
+Matching cohomology dimensions or deck characters alone is insufficient.
+The full product's differential checks do not silently close this
+identification gate. Its determinant, equivariance and trace comparison
+still have to be recorded before a quotient Yukawa assignment.
+
 ## Trace and remaining scientific scope
 
 The cover trace assigns one to the ordered ambient k2 H5 generator:

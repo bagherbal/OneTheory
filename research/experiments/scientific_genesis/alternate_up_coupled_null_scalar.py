@@ -113,6 +113,38 @@ def retarget_quotient_block(
     return SparseOuterCechCochain(tuple(terms))
 
 
+def verify_pushout_matter_lift(
+    model: CoupledExteriorQuotient,
+    constant: SparseOuterCechCochain,
+    correction: SparseOuterCechCochain,
+) -> None:
+    """Validate a complete formal lift rather than its archived success flags.
+
+    The correction is supported on the declared isolated even B line;
+    the constant has no B component. Both are total-degree-one vectors.
+    Check the complete inner and linear identities before using either
+    in a product. The B support makes the absent quadratic action exact.
+    """
+
+    source = _MixedContraction(model.source, mixed_schoen_unit())
+    zero_model = replace(model.source, extension_terms=tuple(
+        t for t in model.source.extension_terms if t.target == model.inner_target
+    ))
+    zero = _MixedContraction(zero_model, mixed_schoen_unit())
+    for value, indices in (
+        (constant, {i: i for i in range(len(model.source.objects)) if i != model.outer_target}),
+        (correction, {model.outer_target: model.outer_target}),
+    ):
+        retarget_quotient_block(value, source, indices, dual=False)
+        if any(basis.total_degree != 1 for basis, _ in value.terms):
+            raise ValueError("the complete pushout matter lift must have total degree one")
+    _require_zero(zero.differential(constant), "constant matter is not a full inner cycle")
+    _require_zero(zero.differential(correction) + source.differential(constant),
+                  "the coefficientwise pushout matter identity failed")
+    _require_zero(source.differential(correction) + zero.differential(correction).scale(-1),
+                  "a quadratic outer matter action survived")
+
+
 @dataclass(frozen=True, slots=True)
 class CoupledNullScalar:
     """One formal parameter coefficient, not a selected carrier point."""
@@ -382,6 +414,9 @@ def load_coupled_null_scalar_witnesses(
             raise ValueError("an archived natural scalar witness changed its exact terms")
         result[name] = value
     model, unit = alternate_coupled_quotient(parameter_index), mixed_schoen_unit()
+    for matter, name in zip(alternate_null_matter(),
+                            ("left_line_correction", "right_line_correction"), strict=True):
+        verify_pushout_matter_lift(model, _push_f_vector(matter, model), result[name])
     indices, exterior_indices = quotient_block_indices(model)
     out = _MixedContraction(model.quotient, unit)
     zero_model = replace(model.quotient, extension_terms=tuple(

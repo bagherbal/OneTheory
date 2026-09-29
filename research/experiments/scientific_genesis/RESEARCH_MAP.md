@@ -1012,3 +1012,19 @@ determinant orientation, equivariance and quotient-trace checks. Earlier
 ordered scalar screens are not automatically entries of this natural
 product. H²(K) comparison questions, the complete up matrix, canonical
 metrics, common vacuum and physical observables remain unresolved.
+
+The evaluator and explicit archive verifier are now implemented in
+`alternate_up_coupled_null_scalar.py`; actual coefficient execution is
+still pending. The verifier reconstructs the saved complete matter lifts
+and checks their typed support, degree and full differential equations.
+It does not accept completion flags as mathematical evidence. Its
+independent inverse monomial convolution checks the ordered scalar trace.
+No new cover residue or physical matrix has been certified.
+
+Both determinant endpoint cohomologies have been recomputed exactly as
+zero. The natural dual exterior filtration therefore identifies the
+selected Higgs **class** with the mixed dual tensor class. The fixed
+signed-minor row is the local pairing column for e wedge A, not its
+negative row. This gives a precise same-Higgs identification criterion,
+not permission to infer the canonical exterior product from closure
+alone. See `ALTERNATE_UP_NATURAL_NULL_SCALAR_NOTE.md`.

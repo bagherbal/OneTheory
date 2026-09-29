@@ -28,6 +28,7 @@ from research.experiments.computable_carrier.schoen_serre_outer_transfer import 
 )
 from research.experiments.scientific_genesis.alternate_up_coupled_null_scalar import (
     retarget_quotient_block,
+    verify_pushout_matter_lift,
 )
 from research.experiments.scientific_genesis.mixed_constituent_schoen_arrows import (
     MixedConstituentObject,
@@ -180,3 +181,47 @@ def test_outer_parameter_degree_is_linear_for_B_supported_corrections(indices) -
     constant, at_one = at(0), at(1)
     value = Eisenstein(2, 1)
     assert at(value) == constant + (at_one + constant.scale(-1)).scale(value)
+
+
+def _exact_pushout_lift():
+    """Use a boundary of a typed noncycle as a mathematical lift fixture."""
+
+    source, unit = _coupled_complex(), mixed_schoen_unit()
+    model = coupled_exterior_quotient(source, 1, 0)
+    context = _MixedContraction(source, unit)
+    primitive = _entry(context, (1, 0), "k0", ((1,), (1,), (0,)))
+    full = context.differential(primitive)
+    assert not full.is_zero()
+    constant = SparseOuterCechCochain(tuple(
+        (basis, value) for basis, value in full.terms if basis.component.left_index != 0
+    ))
+    correction = full + constant.scale(-1)
+    assert not constant.is_zero() and not correction.is_zero()
+    return model, constant, correction
+
+
+def test_complete_pushout_archive_lift_is_checked_as_cochains() -> None:
+    model, constant, correction = _exact_pushout_lift()
+    verify_pushout_matter_lift(model, constant, correction)
+
+
+@pytest.mark.parametrize("corruption", ("sign", "missing", "block", "degree"))
+def test_pushout_archive_lift_refuses_invalid_corrections(corruption) -> None:
+    """A content digest cannot replace a typed, closed complete lift."""
+
+    model, constant, correction = _exact_pushout_lift()
+    if corruption == "sign":
+        bad = correction.scale(-1)
+        message = "coefficientwise pushout matter identity failed"
+    elif corruption == "missing":
+        bad = SparseOuterCechCochain()
+        message = "coefficientwise pushout matter identity failed"
+    elif corruption == "block":
+        bad = constant
+        message = "incompatible declared basis"
+    else:
+        context = _MixedContraction(model.source, mixed_schoen_unit())
+        bad = _entry(context, (0, 0), "k0", ((0,), (0,), (0,)))
+        message = "total degree one"
+    with pytest.raises(ValueError, match=message):
+        verify_pushout_matter_lift(model, constant, bad)

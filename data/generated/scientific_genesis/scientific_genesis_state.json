@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "f4e286f6e8912bc15a314fc60f4fe7b5b1943706ffbeca7345e8412db80792e8",
+  "artifact_digest": "b1866d1d86caa7b920be99ceaf47124b9ba94ecd5bd723079eadcdae0a7e74af",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -662,6 +662,21 @@
       "sha256": "48c47d8b0e6e2e305fe82b9df08300b1b9ee8bed0743c583d95323874ed03a71"
     },
     {
+      "bytes": 5326,
+      "path": "data/generated/scientific_genesis/alternate_up_mixed_quotient_pairing.json",
+      "sha256": "1e42480322612a8ddb42307048f7a5fab5e52373087466d69777b6dc54afa47e"
+    },
+    {
+      "bytes": 4017,
+      "path": "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.json",
+      "sha256": "4727c1c079833f797ec8ddaae27c37a19996481b966dcddb006fe0610c56581e"
+    },
+    {
+      "bytes": 4484133,
+      "path": "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.cochains.json.gz",
+      "sha256": "fc3d45636d34faf935b1144cfb543323b7bc68e40a9acfcffa0d4b4c5e0b344a"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -698,11 +713,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2005,
+    "collected_tests_at_audit": 2013,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 256,
-    "test_python_files": 240
+    "research_python_files": 257,
+    "test_python_files": 241
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -1976,6 +1991,73 @@
       ],
       "statement": "The actual q_E pushout is locally free; killing the injective B1 tensor A_F sheaf relation gives coherent Q. Vertex restriction identifies the ordinary local wedge. Union-supported Laurent operations make the complete chain map sheaf-natural. For a nonpositive derived tensor and a degree-zero sheaf target, Hom0 is exactly Hom from H0. An independent injective-resolution proof shows that negative ambient Tor adds no map ambiguity. The resulting comparison represents the canonical quotient morphism, not an arbitrary H2(K) product lift.",
       "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "frozen locally free carrier",
+        "acyclic determinant endpoints",
+        "closed quotient Higgs"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_MIXED_PAIRING_NOTE.md",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_quotient_equivariance.py",
+        "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py"
+      ],
+      "id": "alternate_up_same_higgs_class",
+      "label": "selected Higgs class identified by the natural exterior filtration",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "full matrix entries",
+        "canonical metrics and stabilized common vacuum"
+      ],
+      "statement": "The actual determinant endpoints and their duals are acyclic. The two dual bundle sequences canonically identify exterior H1 with the middle mixed functional. Pullback through the natural exterior-V-to-Q map restricts to h_K(q_E(e),q_F(f)). The source Hom has pure A_E output, kills A_F, and uses the fixed Pluecker column for e wedge A_E. Thus its class is the selected Higgs, without a fitted phase or a fabricated strict chain map.",
+      "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "fixed family seed bases",
+        "canonical quotient product",
+        "explicit holomorphic trace"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_mixed_quotient_pairing.json",
+        "research/experiments/scientific_genesis/alternate_up_mixed_quotient_pairing.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_MIXED_PAIRING_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_up_mixed_quotient_pairing.py"
+      ],
+      "id": "alternate_up_mixed_quotient_pairing",
+      "label": "four actual constant mixed entries in the common Higgs-first order",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "four F-F entries with both formal coefficients",
+        "canonical matter normalization"
+      ],
+      "statement": "Push the actual E classes through the fixed q_E row. On a B-supported input every coupled correction vanishes in B wedge B or the legitimate B wedge A_F relation. All four full scalar cycles have 2257 terms and unchanged exchanged-input cochains. Independent Hom composition checks the scalar-order sign: only the earlier determinant screen's mixed row changes. Quotient traces use the declared descended volume frame; the F-F block is not filled with zeros or called a complete matrix.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "complete actual carrier matter lifts",
+        "same closed Higgs",
+        "fixed cover residue frame"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.json",
+        "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.cochains.json.gz",
+        "research/experiments/scientific_genesis/alternate_up_coupled_null_scalar.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_NATURAL_NULL_SCALAR_NOTE.md"
+      ],
+      "id": "alternate_up_coupled_null_pairing",
+      "label": "complete natural carrier null contraction for both formal coefficients",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "all four F-F entries",
+        "canonical metrics",
+        "stabilized common vacuum"
+      ],
+      "statement": "Complete pushed matter and Higgs lifts, the corrected quotient product, and the scalar are checked coefficientwise by full differentials. The products have 142815 and 136570 terms; their scalars have 42302 and 41454 terms. Literal Laurent and transferred cover traces agree: 0 and (2673-486 omega)/49. Both scalar cochains equal the old screen literally. The explicit archive verifier rechecks saved identities and uses independent inverse convolution. This is one contraction, not all four F-F entries or a canonically normalized matrix.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [
@@ -4341,6 +4423,135 @@
       "mathematical_reason": "Both connecting arrows must agree as full cochains, not only as transferred classes or selected null-channel evaluations.",
       "source": "alternate_up_higgs_quotient_cone",
       "target": "alternate_up_coupled_tensor_presentation"
+    },
+    {
+      "assumptions_required": [
+        "natural exterior-V-to-Q morphism",
+        "fixed e wedge A_E orientation"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_MIXED_PAIRING_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "matching dimensions alone would not identify the selected class"
+      ],
+      "mathematical_reason": "The natural sheaf quotient fixes the middle mixed functional; acyclic determinant endpoints identify its exterior Higgs class uniquely.",
+      "source": "alternate_up_canonical_quotient_product",
+      "target": "alternate_up_same_higgs_class"
+    },
+    {
+      "assumptions_required": [
+        "unchanged full primitives",
+        "acyclic dual determinant endpoint"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a changed primitive sign would fail full closure"
+      ],
+      "mathematical_reason": "Both coefficientwise full Higgs primitive identities supply a closed quotient class, not just its leading character table.",
+      "source": "alternate_up_higgs_quotient_cone",
+      "target": "alternate_up_same_higgs_class"
+    },
+    {
+      "assumptions_required": [
+        "actual closed E and F inputs",
+        "fixed Higgs-first scalar order"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_mixed_quotient_pairing.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "ordered scalar signs cannot be hidden in a Higgs phase"
+      ],
+      "mathematical_reason": "The actual quotient functional represents the selected class; its evaluation uses fixed carrier matter bases rather than fitted coefficients.",
+      "source": "alternate_up_same_higgs_class",
+      "target": "alternate_up_mixed_quotient_pairing"
+    },
+    {
+      "assumptions_required": [
+        "verified scalar closure",
+        "unchanged descended volume frame"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_mixed_quotient_pairing.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a different volume scale rescales the holomorphic trace"
+      ],
+      "mathematical_reason": "Trace complete closed scalar classes with the explicit finite-cover volume frame; do not infer canonical matter metrics from this normalization.",
+      "source": "alternate_up_quotient_trace",
+      "target": "alternate_up_mixed_quotient_pairing"
+    },
+    {
+      "assumptions_required": [
+        "both formal coefficients",
+        "full Koszul arrows",
+        "explicit primitive archive"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "constituent matter alone is not closed in the outer cone"
+      ],
+      "mathematical_reason": "Evaluate the actual corrected product with complete pushed matter and Higgs lifts, then verify all coefficientwise differential identities.",
+      "source": "alternate_up_coupled_tensor_presentation",
+      "target": "alternate_up_coupled_null_pairing"
+    },
+    {
+      "assumptions_required": [
+        "natural quotient product",
+        "complete closed Higgs lift"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_UP_MIXED_PAIRING_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "no complete matrix follows from one null contraction"
+      ],
+      "mathematical_reason": "The closed quotient Higgs evaluates the identified natural class, not an independently chosen functional with a matching character.",
+      "source": "alternate_up_same_higgs_class",
+      "target": "alternate_up_coupled_null_pairing"
+    },
+    {
+      "assumptions_required": [
+        "all four remaining F-F entries",
+        "both parameter coefficients"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_mixed_quotient_pairing.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "partial entries must not be returned as a complete matrix"
+      ],
+      "mathematical_reason": "Retain the verified constant mixed row and column in the same Higgs-first order while evaluating the missing F-F block.",
+      "source": "alternate_up_mixed_quotient_pairing",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [
+        "every F-F entry derived",
+        "unchanged Higgs-first convention"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "rank information alone does not supply complete flavor data"
+      ],
+      "mathematical_reason": "The full F-F block must reproduce this null contraction in the fixed bases; one determinant-sensitive coefficient is not the whole matrix.",
+      "source": "alternate_up_coupled_null_pairing",
+      "target": "first_exact_yukawa"
     },
     {
       "assumptions_required": [
@@ -6716,7 +6927,7 @@
       ],
       "alternate_up_actual_syzygy_boundary_comparison_verified": true,
       "alternate_up_canonical_quotient_sheaf_product_identified": true,
-      "alternate_up_complete_carrier_scalar_pairing_evaluated": false,
+      "alternate_up_complete_carrier_scalar_pairing_evaluated": true,
       "alternate_up_complete_comparison_indeterminacy_eliminated": false,
       "alternate_up_complete_ordered_null_screens_computed": true,
       "alternate_up_complete_tensor_comparison_available": false,
@@ -6727,8 +6938,13 @@
       "alternate_up_first_slot_cover_coherence_derived": true,
       "alternate_up_full_higgs_cone_comparison_available": false,
       "alternate_up_graded_rank_one_F_tensor_identity_derived": true,
+      "alternate_up_higgs_first_constant_mixed_entries_computed": true,
       "alternate_up_inherited_quotient_equivariance_certified": true,
       "alternate_up_local_vertex_tensor_comparison_available": true,
+      "alternate_up_natural_null_cover_residues": [
+        "0",
+        "2673/49-486/49*omega"
+      ],
       "alternate_up_natural_quotient_cone_available": true,
       "alternate_up_null_line_h0_to_h3": [
         0,
@@ -6769,6 +6985,7 @@
         0,
         2
       ],
+      "alternate_up_same_higgs_class_identified": true,
       "alternate_up_scalar_class_descent_certified": true,
       "arbitrary_point_selected": false,
       "atlas_frame_comparison_exact": true,
@@ -7334,7 +7551,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "evaluate the derived coupled quotient product on complete actual cone matter lifts and the existing quotient Higgs cocycle, then check determinant orientation, equivariance and explicit quotient trace before deriving the complete up matrix without selecting an extension point",
+    "next_required_object": "evaluate all four F-F entries for both formal coefficients using actual carrier matter lifts and the canonical quotient product in the fixed Higgs-first trace frame; verify the resulting block against the complete null contraction before returning the complete up matrix",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

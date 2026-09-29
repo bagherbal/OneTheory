@@ -1,0 +1,150 @@
+{
+  "actual_higgs_covector_digest": "b8ad6ea9c800796dd5b446675eef97f53cdd8dc3af0381589f49e0100ccc69ae",
+  "artifact_digest": "6f475e7551bf00b13cfea5207293ffb517fdbd09d94e8b97264cd2edae941591",
+  "basis_order": {
+    "columns": [
+      "E(1,0)",
+      "F(1,0):seed0",
+      "F(1,0):seed5"
+    ],
+    "rows": [
+      "E(0,0)",
+      "F(0,0):seed0",
+      "F(0,0):seed5"
+    ]
+  },
+  "coefficient_field": "Q(omega)",
+  "complete_holomorphic_up_matrix_available": false,
+  "constant_mixed_entries_evaluated": true,
+  "evaluated_entries": [
+    {
+      "column": 1,
+      "cover_residue": "-3/2",
+      "exchange_difference_boundary_exact": true,
+      "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "exchange_primitive_term_count": 0,
+      "exchanged_scalar_closed_exact": true,
+      "first_constituent_character": [
+        0,
+        0
+      ],
+      "full_scalar_closed_exact": true,
+      "quotient_residue": "-1/6",
+      "reverse_scalar_digest": "06ec3a8328435bb902c4c20bf91c145bf2f14b3644e743c8138b856939ac3084",
+      "reverse_scalar_term_count": 2257,
+      "row": 0,
+      "scalar_digest": "06ec3a8328435bb902c4c20bf91c145bf2f14b3644e743c8138b856939ac3084",
+      "scalar_term_count": 2257,
+      "second_constituent_character": [
+        1,
+        0
+      ],
+      "second_constituent_seed_index": 0
+    },
+    {
+      "column": 2,
+      "cover_residue": "9/14+3/7*omega",
+      "exchange_difference_boundary_exact": true,
+      "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "exchange_primitive_term_count": 0,
+      "exchanged_scalar_closed_exact": true,
+      "first_constituent_character": [
+        0,
+        0
+      ],
+      "full_scalar_closed_exact": true,
+      "quotient_residue": "1/14+1/21*omega",
+      "reverse_scalar_digest": "57151f7c188ae4b9d41841593c30dc96882d58c1bd7720a90b6df024567d8b0d",
+      "reverse_scalar_term_count": 2257,
+      "row": 0,
+      "scalar_digest": "57151f7c188ae4b9d41841593c30dc96882d58c1bd7720a90b6df024567d8b0d",
+      "scalar_term_count": 2257,
+      "second_constituent_character": [
+        1,
+        0
+      ],
+      "second_constituent_seed_index": 5
+    },
+    {
+      "column": 0,
+      "cover_residue": "-3/2*omega",
+      "exchange_difference_boundary_exact": true,
+      "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "exchange_primitive_term_count": 0,
+      "exchanged_scalar_closed_exact": true,
+      "first_constituent_character": [
+        1,
+        0
+      ],
+      "full_scalar_closed_exact": true,
+      "quotient_residue": "-1/6*omega",
+      "reverse_scalar_digest": "f326b8248b22ece8128f9686bd6088d01466de1cf35ebc8c88bfa96b082dbe97",
+      "reverse_scalar_term_count": 2257,
+      "row": 1,
+      "scalar_digest": "f326b8248b22ece8128f9686bd6088d01466de1cf35ebc8c88bfa96b082dbe97",
+      "scalar_term_count": 2257,
+      "second_constituent_character": [
+        0,
+        0
+      ],
+      "second_constituent_seed_index": 0
+    },
+    {
+      "column": 0,
+      "cover_residue": "-3/14-9/14*omega",
+      "exchange_difference_boundary_exact": true,
+      "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "exchange_primitive_term_count": 0,
+      "exchanged_scalar_closed_exact": true,
+      "first_constituent_character": [
+        1,
+        0
+      ],
+      "full_scalar_closed_exact": true,
+      "quotient_residue": "-1/42-1/14*omega",
+      "reverse_scalar_digest": "80763041489d4704c8da9a0d4a76a86fe25c8c38c84ae3cd9bbe73eebe7716d4",
+      "reverse_scalar_term_count": 2257,
+      "row": 2,
+      "scalar_digest": "80763041489d4704c8da9a0d4a76a86fe25c8c38c84ae3cd9bbe73eebe7716d4",
+      "scalar_term_count": 2257,
+      "second_constituent_character": [
+        0,
+        0
+      ],
+      "second_constituent_seed_index": 5
+    }
+  ],
+  "extension_point_selected": false,
+  "exterior_filtration_parameter_degree": 0,
+  "first_first_entry_zero_by_B_wedge_B": true,
+  "first_matter_quotient_digests": [
+    {
+      "character": [
+        0,
+        0
+      ],
+      "cochain_digest": "4a339865814582e0a1ab1f4dfc0e37c1c4db160df6ddd068a6e9271b7a1a2a23"
+    },
+    {
+      "character": [
+        1,
+        0
+      ],
+      "cochain_digest": "f717d932af3097b985bfeddbf89439d338f561529f873d61d8540dc88bbdadf8"
+    }
+  ],
+  "higgs_phase_adjusted": false,
+  "observational_inputs_used": false,
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "actual_matter": "f90026450eb9c2d4a0b84085bb64518ec3e9def5ebc5af65aa2aae30a7d94976",
+    "coupled_product_presentation": "6f26314328265adfd2878100e70babdcfce78dfee0ce09304a9e4efd34a17626",
+    "explicit_trace_frame": "5d51f9fcb7d877ba5d66f4ae38bf231d6f777e3ed1dcdc28776a20a64c38a67c",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "old_ordered_mixed_comparison": "f38ab4076005208b6df3169cb27fa7217ed78e0e1410a50ce7f72801488e6ce6",
+    "quotient_higgs_cone": "1e829fafc0ff0dfbef7442decbc2259b4f8889647f4576a4e937846ebbdf729d"
+  },
+  "scalar_order": "h_K cup projected ordered B-F exterior product",
+  "schema": "alternate-up-mixed-quotient-pairing-v1",
+  "second_second_entries_assigned": false
+}

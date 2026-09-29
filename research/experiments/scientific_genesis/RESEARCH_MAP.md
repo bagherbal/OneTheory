@@ -1067,3 +1067,30 @@ is assigned by this certificate. The ongoing complete null evaluation
 retains its original process and has now checked both full Higgs lifts.
 See `alternate_up_quotient_trace.json` and
 `ALTERNATE_UP_QUOTIENT_TRACE_NOTE.md`.
+
+The complete natural null evaluation has finished: both coefficientwise
+matter, Higgs, quotient-product and scalar identities pass. The cover
+residues are `0` and `(2673-486 omega)/49`, with 42,302 and 41,454 scalar
+terms. Both scalars equal the earlier screen literally, without a fitted
+replacement. Full products contain 142,815 and 136,570 terms. Their
+content-addressed archive is preserved; its fresh verifier has checked
+both coefficients, including independent inverse convolution.
+
+The actual constant mixed entries now use the same Higgs-first scalar
+order. Their cover traces in row/column order `(0,1),(0,2),(1,0),(2,0)`
+are `-3/2`, `(9+6 omega)/14`, `-3 omega/2`, `-(3+9 omega)/14`.
+Each complete scalar has 2,257 terms and equals its exchanged-input
+scalar literally. Independent Hom composition checks the relative sign:
+the old determinant screen's mixed row changes sign, but its column
+already used the reversed order. No Higgs phase is adjusted.
+
+The acyclic dual determinant filtration and fixed signed-minor map
+identify the pulled-back quotient Higgs **class** with the selected
+source Hom class. This is a derived sheaf-class comparison, not a claim
+of a nonexistent strict matrix chain map. See
+`ALTERNATE_UP_MIXED_PAIRING_NOTE.md` and
+`alternate_up_mixed_quotient_pairing.json` for the actual holomorphic
+quotient traces. The next calculation is all four F-F entries with
+both formal coefficients, using real carrier lifts rather than arbitrary
+quotient-line primitives. One null contraction still does not supply
+the complete matrix, metrics, common vacuum or physical observables.

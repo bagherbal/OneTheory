@@ -1450,6 +1450,78 @@ def _nodes() -> list[dict[str, object]]:
             ("complete closed Higgs evaluation", "equivariant quotient trace", "full matrix"),
         ),
         _node(
+            "alternate_up_same_higgs_class",
+            "selected Higgs class identified by the natural exterior filtration",
+            "Flavor",
+            "DERIVED",
+            "The actual determinant endpoints and their duals are acyclic. "
+            "The two dual bundle sequences canonically identify exterior "
+            "H1 with the middle mixed functional. Pullback through the natural "
+            "exterior-V-to-Q map restricts to h_K(q_E(e),q_F(f)). The source "
+            "Hom has pure A_E output, kills A_F, and uses the fixed Pluecker "
+            "column for e wedge A_E. Thus its class is the selected Higgs, "
+            "without a fitted phase or a fabricated strict chain map.",
+            (
+                "research/experiments/scientific_genesis/ALTERNATE_UP_MIXED_PAIRING_NOTE.md",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_VERTEX_COMPARISON_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_up_quotient_equivariance.py",
+                "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
+            ),
+            (
+                "frozen locally free carrier", "acyclic determinant endpoints",
+                "closed quotient Higgs",
+            ),
+            ("full matrix entries", "canonical metrics and stabilized common vacuum"),
+        ),
+        _node(
+            "alternate_up_mixed_quotient_pairing",
+            "four actual constant mixed entries in the common Higgs-first order",
+            "Flavor",
+            "COMPUTED",
+            "Push the actual E classes through the fixed q_E row. On a "
+            "B-supported input every coupled correction vanishes in B wedge B "
+            "or the legitimate B wedge A_F relation. All four full scalar "
+            "cycles have 2257 terms and unchanged exchanged-input cochains. "
+            "Independent Hom composition checks the scalar-order sign: only "
+            "the earlier determinant screen's mixed row changes. Quotient "
+            "traces use the declared descended volume frame; the F-F block "
+            "is not filled with zeros or called a complete matrix.",
+            (
+                "data/generated/scientific_genesis/alternate_up_mixed_quotient_pairing.json",
+                "research/experiments/scientific_genesis/alternate_up_mixed_quotient_pairing.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_MIXED_PAIRING_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_up_mixed_quotient_pairing.py",
+            ),
+            ("fixed family seed bases", "canonical quotient product", "explicit holomorphic trace"),
+            ("four F-F entries with both formal coefficients", "canonical matter normalization"),
+        ),
+        _node(
+            "alternate_up_coupled_null_pairing",
+            "complete natural carrier null contraction for both formal coefficients",
+            "Flavor",
+            "COMPUTED",
+            "Complete pushed matter and Higgs lifts, the corrected quotient "
+            "product, and the scalar are checked coefficientwise by full "
+            "differentials. The products have 142815 and 136570 terms; "
+            "their scalars have 42302 and 41454 terms. Literal Laurent and "
+            "transferred cover traces agree: 0 and (2673-486 omega)/49. "
+            "Both scalar cochains equal the old screen literally. The "
+            "explicit archive verifier rechecks saved identities and uses "
+            "independent inverse convolution. This is one contraction, "
+            "not all four F-F entries or a canonically normalized matrix.",
+            (
+                "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.json",
+                "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.cochains.json.gz",
+                "research/experiments/scientific_genesis/alternate_up_coupled_null_scalar.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_NATURAL_NULL_SCALAR_NOTE.md",
+            ),
+            (
+                "complete actual carrier matter lifts", "same closed Higgs",
+                "fixed cover residue frame",
+            ),
+            ("all four F-F entries", "canonical metrics", "stabilized common vacuum"),
+        ),
+        _node(
             "alternate_up_quotient_trace",
             "actual scalar descent and explicit finite-cover trace frame",
             "Flavor",
@@ -3932,6 +4004,86 @@ def _edges() -> list[dict[str, object]]:
             ("all polynomial and inner mixed blocks", "both universal coefficients"),
             True,
             ("dimensional agreement alone does not identify presentations",),
+        ),
+        _edge(
+            "alternate_up_canonical_quotient_product",
+            "alternate_up_same_higgs_class",
+            "The natural sheaf quotient fixes the middle mixed functional; "
+            "acyclic determinant endpoints identify its exterior Higgs class uniquely.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_MIXED_PAIRING_NOTE.md",),
+            ("natural exterior-V-to-Q morphism", "fixed e wedge A_E orientation"),
+            True,
+            ("matching dimensions alone would not identify the selected class",),
+        ),
+        _edge(
+            "alternate_up_higgs_quotient_cone",
+            "alternate_up_same_higgs_class",
+            "Both coefficientwise full Higgs primitive identities supply "
+            "a closed quotient class, not just its leading character table.",
+            ("research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",),
+            ("unchanged full primitives", "acyclic dual determinant endpoint"),
+            True,
+            ("a changed primitive sign would fail full closure",),
+        ),
+        _edge(
+            "alternate_up_same_higgs_class",
+            "alternate_up_mixed_quotient_pairing",
+            "The actual quotient functional represents the selected class; "
+            "its evaluation uses fixed carrier matter bases rather than fitted coefficients.",
+            ("research/experiments/scientific_genesis/alternate_up_mixed_quotient_pairing.py",),
+            ("actual closed E and F inputs", "fixed Higgs-first scalar order"),
+            True,
+            ("ordered scalar signs cannot be hidden in a Higgs phase",),
+        ),
+        _edge(
+            "alternate_up_quotient_trace",
+            "alternate_up_mixed_quotient_pairing",
+            "Trace complete closed scalar classes with the explicit finite-cover "
+            "volume frame; do not infer canonical matter metrics from this normalization.",
+            ("data/generated/scientific_genesis/alternate_up_mixed_quotient_pairing.json",),
+            ("verified scalar closure", "unchanged descended volume frame"),
+            True,
+            ("a different volume scale rescales the holomorphic trace",),
+        ),
+        _edge(
+            "alternate_up_coupled_tensor_presentation",
+            "alternate_up_coupled_null_pairing",
+            "Evaluate the actual corrected product with complete pushed matter "
+            "and Higgs lifts, then verify all coefficientwise differential identities.",
+            ("data/generated/scientific_genesis/alternate_up_coupled_null_scalar.json",),
+            ("both formal coefficients", "full Koszul arrows", "explicit primitive archive"),
+            True,
+            ("constituent matter alone is not closed in the outer cone",),
+        ),
+        _edge(
+            "alternate_up_same_higgs_class",
+            "alternate_up_coupled_null_pairing",
+            "The closed quotient Higgs evaluates the identified natural class, "
+            "not an independently chosen functional with a matching character.",
+            ("research/experiments/scientific_genesis/ALTERNATE_UP_MIXED_PAIRING_NOTE.md",),
+            ("natural quotient product", "complete closed Higgs lift"),
+            True,
+            ("no complete matrix follows from one null contraction",),
+        ),
+        _edge(
+            "alternate_up_mixed_quotient_pairing",
+            "first_exact_yukawa",
+            "Retain the verified constant mixed row and column in the same "
+            "Higgs-first order while evaluating the missing F-F block.",
+            ("data/generated/scientific_genesis/alternate_up_mixed_quotient_pairing.json",),
+            ("all four remaining F-F entries", "both parameter coefficients"),
+            False,
+            ("partial entries must not be returned as a complete matrix",),
+        ),
+        _edge(
+            "alternate_up_coupled_null_pairing",
+            "first_exact_yukawa",
+            "The full F-F block must reproduce this null contraction in the "
+            "fixed bases; one determinant-sensitive coefficient is not the whole matrix.",
+            ("data/generated/scientific_genesis/alternate_up_coupled_null_scalar.json",),
+            ("every F-F entry derived", "unchanged Higgs-first convention"),
+            False,
+            ("rank information alone does not supply complete flavor data",),
         ),
         _edge(
             "schoen_geometry",
@@ -7861,6 +8013,100 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the actual scalar descent and explicit quotient trace are not certified")
+    mixed_quotient = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_mixed_quotient_pairing.json"
+    ).read_text(encoding="utf-8"))
+    mixed_quotient_digest = mixed_quotient.pop("artifact_digest", None)
+    mixed_quotient_entries = mixed_quotient.get("evaluated_entries", [])
+    if (
+        mixed_quotient_digest != _canonical_digest(mixed_quotient)
+        or mixed_quotient.get("schema") != "alternate-up-mixed-quotient-pairing-v1"
+        or mixed_quotient.get("prerequisite_artifact_digests") != {
+            "explicit_trace_frame": quotient_trace_digest,
+            "old_ordered_mixed_comparison": mixed_trace_digest,
+            "frozen_carrier": alternate_carrier_digest, "actual_matter": up_matter_digest,
+            "quotient_higgs_cone": quotient_cone_digest,
+            "coupled_product_presentation": coupled_tensor_digest,
+        }
+        or mixed_quotient.get("basis_order") != {
+            "rows": ["E(0,0)", "F(0,0):seed0", "F(0,0):seed5"],
+            "columns": ["E(1,0)", "F(1,0):seed0", "F(1,0):seed5"],
+        }
+        or mixed_quotient.get("constant_mixed_entries_evaluated") is not True
+        or mixed_quotient.get("first_first_entry_zero_by_B_wedge_B") is not True
+        or mixed_quotient.get("exterior_filtration_parameter_degree") != 0
+        or [(item.get("row"), item.get("column")) for item in mixed_quotient_entries]
+        != [(0, 1), (0, 2), (1, 0), (2, 0)]
+        or [item.get("cover_residue") for item in mixed_quotient_entries] != [
+            "-3/2", "9/14+3/7*omega", "-3/2*omega", "-3/14-9/14*omega",
+        ]
+        or [item.get("quotient_residue") for item in mixed_quotient_entries] != [
+            "-1/6", "1/14+1/21*omega", "-1/6*omega", "-1/42-1/14*omega",
+        ]
+        or any(
+            item.get("full_scalar_closed_exact") is not True
+            or item.get("exchanged_scalar_closed_exact") is not True
+            or item.get("exchange_difference_boundary_exact") is not True
+            or item.get("scalar_term_count") != 2257
+            or item.get("reverse_scalar_digest") != item.get("scalar_digest")
+            or item.get("exchange_primitive_term_count") != 0
+            for item in mixed_quotient_entries
+        )
+        or any(mixed_quotient.get(field) is not False for field in (
+            "second_second_entries_assigned", "complete_holomorphic_up_matrix_available",
+            "physical_yukawa_matrix_available", "higgs_phase_adjusted",
+            "extension_point_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual Higgs-first mixed quotient entries are not certified")
+    natural_null = json.loads((
+        ROOT / "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.json"
+    ).read_text(encoding="utf-8"))
+    natural_null_digest = natural_null.pop("artifact_digest", None)
+    natural_coefficients = natural_null.get("parameter_coefficients", [])
+    if (
+        natural_null_digest != _canonical_digest(natural_null)
+        or natural_null.get("schema") != "alternate-up-coupled-null-scalar-v1"
+        or natural_null.get("prerequisite_artifact_digests") != {
+            "coupled_tensor_comparison": coupled_tensor_digest,
+            "explicit_higgs_primitive_archive": pairing_exchange_digest,
+        }
+        or natural_null.get("full_carrier_null_pairing_evaluated") is not True
+        or natural_null.get("outer_parameter_basis") != ["a0", "a1"]
+        or natural_null.get("scalar_order") != "h_K cup P1 + kappa cup P0"
+        or natural_null.get("full_cochain_archive_name")
+        != "alternate_up_coupled_null_scalar.cochains.json.gz"
+        or natural_null.get("full_cochain_archive_sha256") != _sha256(
+            ROOT / "data/generated/scientific_genesis/"
+            "alternate_up_coupled_null_scalar.cochains.json.gz"
+        )
+        or [item.get("parameter") for item in natural_coefficients] != ["a0", "a1"]
+        or [item.get("ordered_cover_residue") for item in natural_coefficients]
+        != ["0", "2673/49-486/49*omega"]
+        or [item.get("product_linear_term_count") for item in natural_coefficients]
+        != [139818, 133573]
+        or [item.get("scalar_term_count") for item in natural_coefficients] != [42302, 41454]
+        or any(
+            any(item.get(field) is not True for field in (
+                "full_pushout_matter_lifts_closed_coefficientwise",
+                "full_quotient_higgs_lift_closed_coefficientwise",
+                "full_quotient_product_closed_coefficientwise", "scalar_closed_exact",
+                "direct_and_transferred_cover_residues_equal", "earlier_screen_literal_equal",
+            ))
+            or item.get("product_constant_term_count") != 2997
+            or item.get("earlier_screen_difference_term_count") != 0
+            or item.get("scalar_digest") != old.get("scalar_digest")
+            or item.get("quotient_normalization_assigned") is not False
+            or item.get("physical_null_coefficient_assigned") is not False
+            for item, old in zip(natural_coefficients, ordered_coefficients, strict=True)
+        )
+        or any(natural_null.get(field) is not False for field in (
+            "complete_holomorphic_up_matrix_available", "physical_yukawa_matrix_available",
+            "extension_point_selected", "quotient_normalization_assigned",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the complete natural null contraction and its scope are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -8116,6 +8362,9 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_syzygy_tensor_comparison.json",
         "data/generated/scientific_genesis/alternate_up_coupled_tensor_comparison.json",
         "data/generated/scientific_genesis/alternate_up_quotient_trace.json",
+        "data/generated/scientific_genesis/alternate_up_mixed_quotient_pairing.json",
+        "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.json",
+        "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -8140,7 +8389,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2005,
+            "collected_tests_at_audit": 2013,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -8333,7 +8582,12 @@ def build_state() -> dict[str, object]:
                 "alternate_up_scalar_class_descent_certified": True,
                 "alternate_up_explicit_quotient_trace_constructed": True,
                 "alternate_up_cover_to_quotient_trace_factor": "1/9",
-                "alternate_up_complete_carrier_scalar_pairing_evaluated": False,
+                "alternate_up_same_higgs_class_identified": True,
+                "alternate_up_higgs_first_constant_mixed_entries_computed": True,
+                "alternate_up_complete_carrier_scalar_pairing_evaluated": True,
+                "alternate_up_natural_null_cover_residues": [
+                    item["ordered_cover_residue"] for item in natural_coefficients
+                ],
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
                 "alternate_up_ordered_exchange_consistent": all(
@@ -8566,10 +8820,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "evaluate the derived coupled quotient product on complete actual cone "
-                "matter lifts and the existing quotient Higgs cocycle, then check "
-                "determinant orientation, equivariance and explicit quotient trace before "
-                "deriving the complete up matrix without selecting an extension point"
+                "evaluate all four F-F entries for both formal coefficients using "
+                "actual carrier matter lifts and the canonical quotient product in "
+                "the fixed Higgs-first trace frame; verify the resulting block against "
+                "the complete null contraction before returning the complete up matrix"
             ),
         },
         "claims": _nodes(),

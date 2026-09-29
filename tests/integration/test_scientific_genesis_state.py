@@ -79,6 +79,14 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "alternate-up-quotient-trace-v1", "physical_null_coefficient_assigned",
             "actual scalar descent and explicit quotient trace are not certified",
         ),
+        (
+            "alternate-up-mixed-quotient-pairing-v1", "second_second_entries_assigned",
+            "actual Higgs-first mixed quotient entries are not certified",
+        ),
+        (
+            "alternate-up-coupled-null-scalar-v1", "complete_holomorphic_up_matrix_available",
+            "complete natural null contraction and its scope are not certified",
+        ),
     ),
 )
 def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
@@ -598,6 +606,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["mixed_coupled_vertex_comparison"]["status"] == "DERIVED"
     assert claims["alternate_up_canonical_quotient_product"]["status"] == "DERIVED"
     assert claims["alternate_up_quotient_trace"]["status"] == "COMPUTED"
+    assert claims["alternate_up_same_higgs_class"]["status"] == "DERIVED"
+    assert claims["alternate_up_mixed_quotient_pairing"]["status"] == "COMPUTED"
+    assert claims["alternate_up_coupled_null_pairing"]["status"] == "COMPUTED"
     assert path["criteria"]["alternate_up_first_slot_cover_coherence_derived"] is True
     assert path["criteria"]["alternate_up_coupled_outer_tensor_comparison_available"] is True
     assert path["criteria"]["alternate_up_local_vertex_tensor_comparison_available"] is True
@@ -605,7 +616,12 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_up_scalar_class_descent_certified"] is True
     assert path["criteria"]["alternate_up_explicit_quotient_trace_constructed"] is True
     assert path["criteria"]["alternate_up_cover_to_quotient_trace_factor"] == "1/9"
-    assert path["criteria"]["alternate_up_complete_carrier_scalar_pairing_evaluated"] is False
+    assert path["criteria"]["alternate_up_same_higgs_class_identified"] is True
+    assert path["criteria"]["alternate_up_higgs_first_constant_mixed_entries_computed"] is True
+    assert path["criteria"]["alternate_up_complete_carrier_scalar_pairing_evaluated"] is True
+    assert path["criteria"]["alternate_up_natural_null_cover_residues"] == [
+        "0", "2673/49-486/49*omega",
+    ]
     assert path["criteria"]["alternate_up_complete_tensor_comparison_available"] is False
     assert path["criteria"]["alternate_up_complete_comparison_indeterminacy_eliminated"] is False
     exchange = json.loads((STATE.parent / "alternate_up_pairing_exchange.json").read_text())
@@ -625,10 +641,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "evaluate the derived coupled quotient product on complete actual cone "
-        "matter lifts and the existing quotient Higgs cocycle, then check "
-        "determinant orientation, equivariance and explicit quotient trace before "
-        "deriving the complete up matrix without selecting an extension point"
+        "evaluate all four F-F entries for both formal coefficients using "
+        "actual carrier matter lifts and the canonical quotient product in "
+        "the fixed Higgs-first trace frame; verify the resulting block against "
+        "the complete null contraction before returning the complete up matrix"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"

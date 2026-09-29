@@ -123,3 +123,26 @@ change the rank-three gate. Neither outcome is preselected.
 The complete 3-by-3 matrix, normalized Yukawas and low-energy observables
 remain distinct required results. Computing one null-channel scalar
 does not count as finishing any of them.
+
+## Completed exact evaluation
+
+Both full coefficient evaluations have finished. Their constant products
+have 2,997 terms; their linear products have 139,818 and 133,573 terms.
+The complete scalar cochains have 42,302 and 41,454 terms. Both pass
+full closure, and the independent literal and transferred cover traces
+agree at 0 and (2673-486 omega)/49. Their differences from the earlier
+screen are literally zero, computed rather than assumed.
+
+A fresh process decoded the explicit content-addressed archive and
+checked both saved pushout matter equations, product equations and
+full scalar differentials. Independent inverse monomial convolution
+gave the same two trace coefficients. The archive is
+`alternate_up_coupled_null_scalar.cochains.json.gz`; its metadata digest
+is `a61073d04386262d3a04b2d0c3abea20cfa5b2b497241035d21135b8ca97a8bc`.
+
+The actual mixed entries have separately been recomputed in the same
+Higgs-first order, with their full Hom-composer comparisons. That fixes
+the relative scalar-order sign of the mixed row before any determinant
+assignment. The complete F-F block is still required, not filled from
+this one contraction. These results supply neither canonical metrics
+nor a stabilized vacuum; no physical Yukawa matrix is claimed.

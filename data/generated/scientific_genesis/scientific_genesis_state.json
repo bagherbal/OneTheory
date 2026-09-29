@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "2807d888c07c18ea97d26f806ef66a48d4353100f87a111eace33e6067d3ab64",
+  "artifact_digest": "c06f8803f13de6bf1cde8069b690a55c907b5bf88d2c820d2e374c958d3f68c5",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -693,11 +693,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 1590,
+    "collected_tests_at_audit": 1659,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 254,
-    "test_python_files": 237
+    "research_python_files": 255,
+    "test_python_files": 238
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -6469,6 +6469,7 @@
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
     "common-DGA and HPL machinery",
+    "complete natural quotient null-scalar evaluator; actual coefficient execution pending, no new scalar residue certified",
     "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits"
   ],
   "fitted_inputs": [],
@@ -7453,6 +7454,15 @@
         "research/experiments/scientific_genesis/mixed_schoen_common_dga.py"
       ],
       "maturity": "research-only; actual quotient maps and scalar closure, not physical normalization"
+    },
+    {
+      "capability": "natural quotient null-channel scalar evaluation",
+      "locations": [
+        "research/experiments/scientific_genesis/alternate_up_coupled_null_scalar.py",
+        "research/experiments/scientific_genesis/ALTERNATE_UP_NATURAL_NULL_SCALAR_NOTE.md",
+        "tests/integration/test_scientific_genesis_quotient_evaluation.py"
+      ],
+      "maturity": "research-only evaluator; complete actual coefficient execution pending"
     },
     {
       "capability": "metrics",

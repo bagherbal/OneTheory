@@ -6097,6 +6097,15 @@ def _engines() -> list[dict[str, object]]:
             ),
         ),
         (
+            "natural quotient null-channel scalar evaluation",
+            "research-only evaluator; complete actual coefficient execution pending",
+            (
+                "research/experiments/scientific_genesis/alternate_up_coupled_null_scalar.py",
+                "research/experiments/scientific_genesis/ALTERNATE_UP_NATURAL_NULL_SCALAR_NOTE.md",
+                "tests/integration/test_scientific_genesis_quotient_evaluation.py",
+            ),
+        ),
+        (
             "metrics",
             "generic numerical laws and carrier boundary only",
             (
@@ -7941,7 +7950,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 1590,
+            "collected_tests_at_audit": 1659,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -8681,6 +8690,8 @@ def build_state() -> dict[str, object]:
         "experimental_prototypes": [
             "rank-four transition and horseshoe constructors",
             "common-DGA and HPL machinery",
+            "complete natural quotient null-scalar evaluator; actual coefficient "
+            "execution pending, no new scalar residue certified",
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [

@@ -98,6 +98,10 @@ def _verified_lift(parameter: int, side: int, family: int, directory: Path) -> F
         or record.get("extension_point_selected") is not False
         or record.get("full_constituent_identity_exact") is not True
         or record.get("full_pushout_identity_exact") is not True
+        or any(record.get(flag, False) is not False for flag in (
+            "complete_holomorphic_up_matrix_available", "physical_yukawa_matrix_available",
+            "observational_inputs_used",
+        ))
     ):
         raise ValueError("the archived F-F matter lift changed its actual source or scope")
     old = cast(dict[str, Any], _verified_payload(CONE_LIFTS)[1])
@@ -139,7 +143,7 @@ def _verified_lift(parameter: int, side: int, family: int, directory: Path) -> F
         raise ValueError("the saved F-F pushout lift changed its global quotient map")
     verify_pushout_matter_lift(model, constant, line_correction)
     return FFMatterLift(matter, constant, correction, line_correction,
-                        str(record["artifact_digest"]))
+                        _canonical_digest(record))
 
 
 def _verified_entry(parameter: int, row: int, column: int, directory: Path) -> FFEntry:

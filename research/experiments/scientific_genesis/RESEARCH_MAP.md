@@ -1105,3 +1105,12 @@ the literal natural-null cochain identity and the descended Higgs-first
 trace before returning any complete holomorphic matrix. Until those
 cochains and replays exist, the F-F block remains `BLOCKED`; neither
 formal rank information nor a valid archive hash supplies its values.
+
+The first necessary F-F matter input, the `a0` row seed-0 lift, is now
+saved with all 27,640 terms of its actual E correction and 13,326 terms
+of its quotient-line pushout correction. A separate replay rechecked the
+complete E differential, strict deck character, global quotient image,
+and pushout identity against the frozen constituent certificate. This
+establishes one matter lift only: seven other lifts, eight F-F scalar
+coefficients, and their full null crosscheck remain outstanding. The
+complete holomorphic matrix and physical observables are still blocked.

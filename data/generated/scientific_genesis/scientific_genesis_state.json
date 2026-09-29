@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "f6fe117e11ebc5fd26a0ef7b09e4c8ba8e0458ef18adec8607e82dc37f7ace84",
+  "artifact_digest": "03ceb2e2d130ef10ac474a560b327d3e343a11fb531c0c614e5ec8edb009cdda",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -677,6 +677,16 @@
       "sha256": "fc3d45636d34faf935b1144cfb543323b7bc68e40a9acfcffa0d4b4c5e0b344a"
     },
     {
+      "bytes": 2493,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.json",
+      "sha256": "3ea970850d2dd31b7d386d488428bc808006d5c7fded57dd464e4dadebc00e50"
+    },
+    {
+      "bytes": 346675,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.cochains.json.gz",
+      "sha256": "7778b2376a38ddf82a3b386c6e02da6c36e62fa87123a40bcbac27a4cdbef2a4"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -713,7 +723,7 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2045,
+    "collected_tests_at_audit": 2046,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 259,
@@ -2068,6 +2078,8 @@
       "evidence": [
         "research/experiments/scientific_genesis/alternate_up_ff_entries.py",
         "research/experiments/scientific_genesis/alternate_up_full_matrix.py",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.cochains.json.gz",
         "tests/integration/test_scientific_genesis_alternate_up_ff_entries.py",
         "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py"
       ],
@@ -2079,7 +2091,7 @@
         "all four a1 entries",
         "fresh exact archive replay"
       ],
-      "statement": "The actual constituent lift solver, fixed quotient product and Higgs-first trace are composed in an executable research evaluator. No F-F coefficient is assigned until its complete E correction, pushout image, quotient product and closed scalar are saved as exact witnesses. Both blocks and a fresh replay remain required before any complete holomorphic matrix is available.",
+      "statement": "The actual constituent lift solver, fixed quotient product and Higgs-first trace are composed in an executable research evaluator. The a0 row seed-0 actual E correction and pushout image have been independently replayed from a full cochain archive. No F-F coefficient is assigned until its complete E correction, pushout image, quotient product and closed scalar are saved as exact witnesses. Both blocks and a fresh replay remain required before any complete holomorphic matrix is available.",
       "status": "BLOCKED"
     },
     {

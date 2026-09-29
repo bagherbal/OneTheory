@@ -2,7 +2,8 @@
 
 Owns:
     Fixed-index validation, deterministic exact witness serialization,
-    missing-input rejection, and content-addressed corruption checks.
+    missing-input rejection, content-addressed corruption checks, and fresh
+    replay of the first actual coefficientwise carrier matter lift.
 
 Depends on:
     The research F-F evaluator and tiny mathematical archive fixtures.
@@ -32,11 +33,13 @@ from research.experiments.computable_carrier.schoen_serre_outer_transfer import 
     SparseOuterCechCochain,
 )
 from research.experiments.scientific_genesis.alternate_up_ff_entries import (
+    GENERATED,
     _read_witnesses,
     _write_witnesses,
     ff_entry_path,
     write_ff_coefficient,
 )
+from research.experiments.scientific_genesis.alternate_up_full_matrix import _verified_lift
 from research.experiments.scientific_genesis.alternate_up_mixed_scalar_trace import _scalar_context
 
 
@@ -69,6 +72,7 @@ def test_exact_archives_are_deterministic_and_do_not_imply_physics(tmp_path: Pat
     assert path.with_suffix(".cochains.json.gz").read_bytes() == archive
     loaded, witnesses = _read_witnesses(path, record["schema"], ("value", "zero"))
     assert loaded["physical_result"] is False
+    assert _canonical_digest(loaded) == first["artifact_digest"]
     assert witnesses == {"value": value, "zero": SparseOuterCechCochain()}
 
 
@@ -106,3 +110,17 @@ def test_a_rehashed_archive_still_requires_its_declared_witnesses(tmp_path: Path
     path.write_text(json.dumps(record), encoding="utf-8")
     with pytest.raises(ValueError, match="declared full witnesses"):
         _read_witnesses(path, "mathematical-archive-fixture", ("zero",))
+
+
+def test_first_actual_ff_matter_lift_replays_full_source_and_deck() -> None:
+    """No direct F-F entry is assigned by this single necessary input."""
+
+    lift = _verified_lift(0, 0, 1, GENERATED)
+    assert lift.matter.character == (0, 0)
+    assert lift.matter.seed_index == 0
+    assert len(lift.constant.terms) == 378
+    assert len(lift.constituent_correction.terms) == 27640
+    assert len(lift.line_correction.terms) == 13326
+    assert lift.checkpoint_digest == (
+        "b2fd30e6b26c8140ff52c41604e161d7fe39e83fd5edbafd63a224e0489094ea"
+    )

@@ -3,7 +3,7 @@
 Owns:
     Fixed-index validation, deterministic exact witness serialization,
     missing-input rejection, content-addressed corruption checks, and fresh
-    replay of the first actual coefficientwise carrier matter lift.
+    replay of all four actual a0 coefficientwise carrier matter lifts.
 
 Depends on:
     The research F-F evaluator and tiny mathematical archive fixtures.
@@ -112,15 +112,29 @@ def test_a_rehashed_archive_still_requires_its_declared_witnesses(tmp_path: Path
         _read_witnesses(path, "mathematical-archive-fixture", ("zero",))
 
 
-def test_first_actual_ff_matter_lift_replays_full_source_and_deck() -> None:
-    """No direct F-F entry is assigned by this single necessary input."""
+@pytest.mark.parametrize(
+    "side,family,character,seed,correction_terms,line_terms,digest",
+    (
+        (0, 1, (0, 0), 0, 27640, 13326,
+         "b2fd30e6b26c8140ff52c41604e161d7fe39e83fd5edbafd63a224e0489094ea"),
+        (0, 2, (0, 0), 5, 26779, 12708,
+         "d76441a381f99bee8419ce380a06e1786c7d8eb4347543b2535b96f35df7673d"),
+        (1, 1, (1, 0), 0, 27564, 13278,
+         "d6ca93a2ffb79b652a709fe17cb275b1a9032b85d394a816b5348e23b51ef303"),
+        (1, 2, (1, 0), 5, 26779, 12708,
+         "08871357a32bcfef583b2ebdb897817a9ce2cb4a49873444039a936e5cb69a69"),
+    ),
+)
+def test_actual_a0_ff_matter_lifts_replay_full_source_and_deck(
+    side: int, family: int, character: tuple[int, int], seed: int,
+    correction_terms: int, line_terms: int, digest: str,
+) -> None:
+    """Four necessary inputs do not themselves assign a direct F-F entry."""
 
-    lift = _verified_lift(0, 0, 1, GENERATED)
-    assert lift.matter.character == (0, 0)
-    assert lift.matter.seed_index == 0
+    lift = _verified_lift(0, side, family, GENERATED)
+    assert lift.matter.character == character
+    assert lift.matter.seed_index == seed
     assert len(lift.constant.terms) == 378
-    assert len(lift.constituent_correction.terms) == 27640
-    assert len(lift.line_correction.terms) == 13326
-    assert lift.checkpoint_digest == (
-        "b2fd30e6b26c8140ff52c41604e161d7fe39e83fd5edbafd63a224e0489094ea"
-    )
+    assert len(lift.constituent_correction.terms) == correction_terms
+    assert len(lift.line_correction.terms) == line_terms
+    assert lift.checkpoint_digest == digest

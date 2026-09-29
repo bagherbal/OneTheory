@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "03ceb2e2d130ef10ac474a560b327d3e343a11fb531c0c614e5ec8edb009cdda",
+  "artifact_digest": "046c028bf989290e88bb3233eceef653052135b640d88024cbb8c7c702d1d073",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -687,6 +687,36 @@
       "sha256": "7778b2376a38ddf82a3b386c6e02da6c36e62fa87123a40bcbac27a4cdbef2a4"
     },
     {
+      "bytes": 2493,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family2.json",
+      "sha256": "92a0088b11aeb070afb27a8547a5831c9c234a792a4da38c5e7c59a5099c6771"
+    },
+    {
+      "bytes": 369257,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family2.cochains.json.gz",
+      "sha256": "8df6a005c076f30ff6818a96725d1bd5a6eb33f26cb337e21269d501b0a3a0a0"
+    },
+    {
+      "bytes": 2493,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family1.json",
+      "sha256": "32a519e4524829484af0eedae1cf215e901e1a3f57746a9f1e7a4488331b07a6"
+    },
+    {
+      "bytes": 345865,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family1.cochains.json.gz",
+      "sha256": "e7b48948897b490af41c304abf0a90672a45caa7a76e3cdba663a411f51bbdd4"
+    },
+    {
+      "bytes": 2493,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family2.json",
+      "sha256": "2c609e2931d62601e10e57a979518b4552fec02cf6a1fa1a4456fb62239c3d36"
+    },
+    {
+      "bytes": 370166,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family2.cochains.json.gz",
+      "sha256": "207cbc5f44ad93f013219dcdcf3e33746731104bd6a17b3cc47b2defe4c9f693"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -723,7 +753,7 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2046,
+    "collected_tests_at_audit": 2049,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 259,
@@ -2080,6 +2110,12 @@
         "research/experiments/scientific_genesis/alternate_up_full_matrix.py",
         "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.json",
         "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family2.cochains.json.gz",
         "tests/integration/test_scientific_genesis_alternate_up_ff_entries.py",
         "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py"
       ],
@@ -2091,7 +2127,7 @@
         "all four a1 entries",
         "fresh exact archive replay"
       ],
-      "statement": "The actual constituent lift solver, fixed quotient product and Higgs-first trace are composed in an executable research evaluator. The a0 row seed-0 actual E correction and pushout image have been independently replayed from a full cochain archive. No F-F coefficient is assigned until its complete E correction, pushout image, quotient product and closed scalar are saved as exact witnesses. Both blocks and a fresh replay remain required before any complete holomorphic matrix is available.",
+      "statement": "The actual constituent lift solver, fixed quotient product and Higgs-first trace are composed in an executable research evaluator. All four a0 matter corrections and pushout images have been independently replayed from full cochain archives. No F-F coefficient is assigned until its complete E correction, pushout image, quotient product and closed scalar are saved as exact witnesses. Both blocks and a fresh replay remain required before any complete holomorphic matrix is available.",
       "status": "BLOCKED"
     },
     {

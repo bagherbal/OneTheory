@@ -1529,8 +1529,8 @@ def _nodes() -> list[dict[str, object]]:
             "BLOCKED",
             "The actual constituent lift solver, fixed quotient product and "
             "Higgs-first trace are composed in an executable research evaluator. "
-            "The a0 row seed-0 actual E correction and pushout image have "
-            "been independently replayed from a full cochain archive. "
+            "All four a0 matter corrections and pushout images have been "
+            "independently replayed from full cochain archives. "
             "No F-F coefficient is assigned until its complete E correction, "
             "pushout image, quotient product and closed scalar are saved as "
             "exact witnesses. Both blocks and a fresh replay remain required "
@@ -1540,6 +1540,12 @@ def _nodes() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_up_full_matrix.py",
                 "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.json",
                 "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family2.json",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family2.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family1.json",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family1.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family2.json",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family2.cochains.json.gz",
                 "tests/integration/test_scientific_genesis_alternate_up_ff_entries.py",
                 "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py",
             ),
@@ -8152,67 +8158,82 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the complete natural null contraction and its scope are not certified")
-    first_ff_path = (
-        ROOT / "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.json"
+    ff_inputs = {
+        "frozen_carrier": alternate_carrier_digest,
+        "actual_matter": up_matter_digest,
+        "constituent_lift_certificate": cone_matter_digest,
+        "coupled_product_presentation": coupled_tensor_digest,
+        "higgs_primitive_archive": pairing_exchange_digest,
+        "scalar_trace_frame": quotient_trace_digest,
+        "constant_mixed_entries": mixed_quotient_digest,
+        "complete_null_contraction": natural_null_digest,
+    }
+    ff_lift_specs = (
+        (0, 1, [0, 0], 0, "b2fd30e6b26c8140ff52c41604e161d7fe39e83fd5edbafd63a224e0489094ea",
+         (378, 27640, 13326)),
+        (0, 2, [0, 0], 5, "d76441a381f99bee8419ce380a06e1786c7d8eb4347543b2535b96f35df7673d",
+         (378, 26779, 12708)),
+        (1, 1, [1, 0], 0, "d6ca93a2ffb79b652a709fe17cb275b1a9032b85d394a816b5348e23b51ef303",
+         (378, 27564, 13278)),
+        (1, 2, [1, 0], 5, "08871357a32bcfef583b2ebdb897817a9ce2cb4a49873444039a936e5cb69a69",
+         (378, 26779, 12708)),
     )
-    first_ff = json.loads(first_ff_path.read_text(encoding="utf-8"))
-    first_ff_digest = first_ff.pop("artifact_digest", None)
-    first_ff_archive = first_ff_path.with_suffix(".cochains.json.gz")
-    first_ff_full = json.loads(gzip.decompress(first_ff_archive.read_bytes()))
-    first_ff_payload_digest = first_ff_full.pop("artifact_digest", None)
-    first_ff_witnesses = first_ff.get("witnesses", {})
-    first_ff_cochains = first_ff_full.get("cochains", {})
-    if (
-        first_ff_digest != _canonical_digest(first_ff)
-        or first_ff_digest != "b2fd30e6b26c8140ff52c41604e161d7fe39e83fd5edbafd63a224e0489094ea"
-        or first_ff.get("schema") != "alternate-up-ff-matter-lift-v1"
-        or first_ff.get("parameter") != "a0"
-        or first_ff.get("side") != 0
-        or first_ff.get("family") != 1
-        or first_ff.get("character") != [0, 0]
-        or first_ff.get("seed_index") != 0
-        or first_ff.get("actual_constituent_coefficient")
-        != second_lifts[0]["parameter_coefficients"][0]
-        or first_ff.get("prerequisite_artifact_digests") != {
-            "frozen_carrier": alternate_carrier_digest,
-            "actual_matter": up_matter_digest,
-            "constituent_lift_certificate": cone_matter_digest,
-            "coupled_product_presentation": coupled_tensor_digest,
-            "higgs_primitive_archive": pairing_exchange_digest,
-            "scalar_trace_frame": quotient_trace_digest,
-            "constant_mixed_entries": mixed_quotient_digest,
-            "complete_null_contraction": natural_null_digest,
-        }
-        or first_ff.get("full_constituent_identity_exact") is not True
-        or first_ff.get("full_pushout_identity_exact") is not True
-        or first_ff.get("extension_point_selected") is not False
-        or any(first_ff.get(flag, False) is not False for flag in (
-            "complete_holomorphic_up_matrix_available", "physical_yukawa_matrix_available",
-            "observational_inputs_used",
-        ))
-        or first_ff.get("full_cochain_archive_name") != first_ff_archive.name
-        or first_ff.get("full_cochain_archive_sha256") != _sha256(first_ff_archive)
-        or first_ff_payload_digest != _canonical_digest(first_ff_full)
-        or first_ff_payload_digest != first_ff.get("full_cochain_payload_digest")
-        or first_ff_full.get("schema") != "alternate-up-ff-matter-lift-v1-cochains"
-        or set(first_ff_witnesses) != {
-            "constant", "constituent_correction", "line_correction",
-        }
-        or set(first_ff_cochains) != set(first_ff_witnesses)
-        or any(
-            first_ff_witnesses[name] != {
-                "term_count": first_ff_cochains[name].get("term_count"),
-                "cochain_digest": first_ff_cochains[name].get("cochain_digest"),
-            }
-            or len(first_ff_cochains[name].get("terms", []))
-            != first_ff_witnesses[name]["term_count"]
-            for name in first_ff_witnesses
-        )
-        or [first_ff_witnesses[name]["term_count"] for name in (
-            "constant", "constituent_correction", "line_correction",
-        )] != [378, 27640, 13326]
+    for index, (side, family, character, seed, expected_digest, counts) in enumerate(
+        ff_lift_specs
     ):
-        raise ValueError("the first actual F-F matter lift and its exact archive are not certified")
+        ff_path = ROOT / (
+            f"data/generated/scientific_genesis/alternate_up_ff_lift_a0_"
+            f"side{side}_family{family}.json"
+        )
+        ff_record = json.loads(ff_path.read_text(encoding="utf-8"))
+        ff_digest = ff_record.pop("artifact_digest", None)
+        ff_archive = ff_path.with_suffix(".cochains.json.gz")
+        ff_full = json.loads(gzip.decompress(ff_archive.read_bytes()))
+        ff_payload_digest = ff_full.pop("artifact_digest", None)
+        ff_witnesses = ff_record.get("witnesses", {})
+        ff_cochains = ff_full.get("cochains", {})
+        if (
+            ff_digest != _canonical_digest(ff_record)
+            or ff_digest != expected_digest
+            or ff_record.get("schema") != "alternate-up-ff-matter-lift-v1"
+            or ff_record.get("parameter") != "a0"
+            or ff_record.get("side") != side
+            or ff_record.get("family") != family
+            or ff_record.get("character") != character
+            or ff_record.get("seed_index") != seed
+            or ff_record.get("actual_constituent_coefficient")
+            != second_lifts[index]["parameter_coefficients"][0]
+            or ff_record.get("prerequisite_artifact_digests") != ff_inputs
+            or ff_record.get("full_constituent_identity_exact") is not True
+            or ff_record.get("full_pushout_identity_exact") is not True
+            or ff_record.get("extension_point_selected") is not False
+            or any(ff_record.get(flag, False) is not False for flag in (
+                "complete_holomorphic_up_matrix_available", "physical_yukawa_matrix_available",
+                "observational_inputs_used",
+            ))
+            or ff_record.get("full_cochain_archive_name") != ff_archive.name
+            or ff_record.get("full_cochain_archive_sha256") != _sha256(ff_archive)
+            or ff_payload_digest != _canonical_digest(ff_full)
+            or ff_payload_digest != ff_record.get("full_cochain_payload_digest")
+            or ff_full.get("schema") != "alternate-up-ff-matter-lift-v1-cochains"
+            or set(ff_witnesses) != {
+                "constant", "constituent_correction", "line_correction",
+            }
+            or set(ff_cochains) != set(ff_witnesses)
+            or any(
+                ff_witnesses[name] != {
+                    "term_count": ff_cochains[name].get("term_count"),
+                    "cochain_digest": ff_cochains[name].get("cochain_digest"),
+                }
+                or len(ff_cochains[name].get("terms", []))
+                != ff_witnesses[name]["term_count"]
+                for name in ff_witnesses
+            )
+            or tuple(ff_witnesses[name]["term_count"] for name in (
+                "constant", "constituent_correction", "line_correction",
+            )) != counts
+        ):
+            raise ValueError("an actual a0 F-F matter lift or full archive is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -8473,6 +8494,12 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_coupled_null_scalar.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.json",
         "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side0_family2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family2.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -8497,7 +8524,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2046,
+            "collected_tests_at_audit": 2049,
             "original_sources_unchanged": True,
         },
         "artifacts": [

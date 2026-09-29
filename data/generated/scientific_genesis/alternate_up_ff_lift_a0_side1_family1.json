@@ -1,0 +1,55 @@
+{
+  "actual_constituent_coefficient": {
+    "coefficientwise_cone_identity_exact": true,
+    "correction_digest": "3b28f52ab64ca9b2bd5e9d9a4de726ac8696e118d292118257dc96caf5519204",
+    "correction_term_count": 27564,
+    "parameter": "a0",
+    "primitive_homotopy_depth": 4,
+    "primitive_inclusion_depth": 3,
+    "primitive_projection_depth": 4,
+    "product_cycle_exact": true,
+    "product_digest": "802ab178604514c97bfcaf2cac3142dda03ed360b01bd71b1163e78d9b465882",
+    "product_term_count": 46592,
+    "strict_alternate_character_exact": true
+  },
+  "artifact_digest": "d6ca93a2ffb79b652a709fe17cb275b1a9032b85d394a816b5348e23b51ef303",
+  "character": [
+    1,
+    0
+  ],
+  "extension_point_selected": false,
+  "family": 1,
+  "full_cochain_archive_name": "alternate_up_ff_lift_a0_side1_family1.cochains.json.gz",
+  "full_cochain_archive_sha256": "e7b48948897b490af41c304abf0a90672a45caa7a76e3cdba663a411f51bbdd4",
+  "full_cochain_payload_digest": "aeb687bc891ee4038e25bd73942004caab0115c521e9cf9f06cd89ba07824e35",
+  "full_constituent_identity_exact": true,
+  "full_pushout_identity_exact": true,
+  "parameter": "a0",
+  "prerequisite_artifact_digests": {
+    "actual_matter": "f90026450eb9c2d4a0b84085bb64518ec3e9def5ebc5af65aa2aae30a7d94976",
+    "complete_null_contraction": "a61073d04386262d3a04b2d0c3abea20cfa5b2b497241035d21135b8ca97a8bc",
+    "constant_mixed_entries": "6f475e7551bf00b13cfea5207293ffb517fdbd09d94e8b97264cd2edae941591",
+    "constituent_lift_certificate": "b821725103b3d341032e15d2335b2916fd82bcd211ec2611b9c0d41d2700d677",
+    "coupled_product_presentation": "6f26314328265adfd2878100e70babdcfce78dfee0ce09304a9e4efd34a17626",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "higgs_primitive_archive": "26eeab0fd42d246dbc514b103cab7f7cf4854fd84c1f2e1d94769db4f2d47adc",
+    "scalar_trace_frame": "5d51f9fcb7d877ba5d66f4ae38bf231d6f777e3ed1dcdc28776a20a64c38a67c"
+  },
+  "schema": "alternate-up-ff-matter-lift-v1",
+  "seed_index": 0,
+  "side": 1,
+  "witnesses": {
+    "constant": {
+      "cochain_digest": "130dc5a611c9d6a4133d0c1c4fdcdb0f6cd466a99949cd6f5750a8db123c6b01",
+      "term_count": 378
+    },
+    "constituent_correction": {
+      "cochain_digest": "3b28f52ab64ca9b2bd5e9d9a4de726ac8696e118d292118257dc96caf5519204",
+      "term_count": 27564
+    },
+    "line_correction": {
+      "cochain_digest": "3fdb2fd05393bc68e440f1be953ee70e9f15ae1e6863d371692a66b9e72eddb9",
+      "term_count": 13278
+    }
+  }
+}

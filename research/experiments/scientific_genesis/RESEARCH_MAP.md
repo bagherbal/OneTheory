@@ -1094,3 +1094,14 @@ quotient traces. The next calculation is all four F-F entries with
 both formal coefficients, using real carrier lifts rather than arbitrary
 quotient-line primitives. One null contraction still does not supply
 the complete matrix, metrics, common vacuum or physical observables.
+
+The next vertical computation now has an executable owner:
+`alternate_up_ff_entries.py` derives each of the four fixed F-F seed pairs
+for both formal coefficients from the actual E correction, not a freely
+chosen quotient-line representative. It checkpoints the full constituent
+correction, pushout image, quotient product and closed scalar. A separate
+fresh replay in `alternate_up_full_matrix.py` requires all eight entries,
+the literal natural-null cochain identity and the descended Higgs-first
+trace before returning any complete holomorphic matrix. Until those
+cochains and replays exist, the F-F block remains `BLOCKED`; neither
+formal rank information nor a valid archive hash supplies its values.

@@ -1522,6 +1522,26 @@ def _nodes() -> list[dict[str, object]]:
             ("all four F-F entries", "canonical metrics", "stabilized common vacuum"),
         ),
         _node(
+            "alternate_up_ff_block",
+            "four actual F-F entries for both universal coefficients",
+            "Flavor",
+            "BLOCKED",
+            "The actual constituent lift solver, fixed quotient product and "
+            "Higgs-first trace are composed in an executable research evaluator. "
+            "No F-F coefficient is assigned until its complete E correction, "
+            "pushout image, quotient product and closed scalar are saved as "
+            "exact witnesses. Both blocks and a fresh replay remain required "
+            "before any complete holomorphic matrix is available.",
+            (
+                "research/experiments/scientific_genesis/alternate_up_ff_entries.py",
+                "research/experiments/scientific_genesis/alternate_up_full_matrix.py",
+                "tests/integration/test_scientific_genesis_alternate_up_ff_entries.py",
+                "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py",
+            ),
+            ("frozen actual family bases", "same Higgs class", "canonical quotient product"),
+            ("all four a0 entries", "all four a1 entries", "fresh exact archive replay"),
+        ),
+        _node(
             "alternate_up_quotient_trace",
             "actual scalar descent and explicit finite-cover trace frame",
             "Flavor",
@@ -4084,6 +4104,26 @@ def _edges() -> list[dict[str, object]]:
             ("every F-F entry derived", "unchanged Higgs-first convention"),
             False,
             ("rank information alone does not supply complete flavor data",),
+        ),
+        _edge(
+            "alternate_up_coupled_tensor_presentation",
+            "alternate_up_ff_block",
+            "Each actual F class needs its certified E correction before the "
+            "fixed quotient product can evaluate an F-F entry.",
+            ("research/experiments/scientific_genesis/alternate_up_ff_entries.py",),
+            ("both formal coefficients", "four fixed F-family seed pairs"),
+            False,
+            ("a free quotient-line primitive is not an actual carrier matter lift",),
+        ),
+        _edge(
+            "alternate_up_ff_block",
+            "first_exact_yukawa",
+            "All eight coefficientwise scalar witnesses must close, reproduce "
+            "the natural null contraction, and enter the verified 3x3 matrix.",
+            ("research/experiments/scientific_genesis/alternate_up_full_matrix.py",),
+            ("fixed Higgs-first trace", "both complete F-F coefficient blocks"),
+            False,
+            ("source files or partial archives alone cannot supply matrix entries",),
         ),
         _edge(
             "schoen_geometry",
@@ -8389,7 +8429,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2013,
+            "collected_tests_at_audit": 2045,
             "original_sources_unchanged": True,
         },
         "artifacts": [

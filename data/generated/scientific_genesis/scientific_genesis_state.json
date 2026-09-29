@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b1866d1d86caa7b920be99ceaf47124b9ba94ecd5bd723079eadcdae0a7e74af",
+  "artifact_digest": "f6fe117e11ebc5fd26a0ef7b09e4c8ba8e0458ef18adec8607e82dc37f7ace84",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -713,11 +713,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2013,
+    "collected_tests_at_audit": 2045,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 257,
-    "test_python_files": 241
+    "research_python_files": 259,
+    "test_python_files": 243
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -2058,6 +2058,29 @@
       ],
       "statement": "Complete pushed matter and Higgs lifts, the corrected quotient product, and the scalar are checked coefficientwise by full differentials. The products have 142815 and 136570 terms; their scalars have 42302 and 41454 terms. Literal Laurent and transferred cover traces agree: 0 and (2673-486 omega)/49. Both scalar cochains equal the old screen literally. The explicit archive verifier rechecks saved identities and uses independent inverse convolution. This is one contraction, not all four F-F entries or a canonically normalized matrix.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "frozen actual family bases",
+        "same Higgs class",
+        "canonical quotient product"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_up_ff_entries.py",
+        "research/experiments/scientific_genesis/alternate_up_full_matrix.py",
+        "tests/integration/test_scientific_genesis_alternate_up_ff_entries.py",
+        "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py"
+      ],
+      "id": "alternate_up_ff_block",
+      "label": "four actual F-F entries for both universal coefficients",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "all four a0 entries",
+        "all four a1 entries",
+        "fresh exact archive replay"
+      ],
+      "statement": "The actual constituent lift solver, fixed quotient product and Higgs-first trace are composed in an executable research evaluator. No F-F coefficient is assigned until its complete E correction, pushout image, quotient product and closed scalar are saved as exact witnesses. Both blocks and a fresh replay remain required before any complete holomorphic matrix is available.",
+      "status": "BLOCKED"
     },
     {
       "assumptions": [
@@ -4551,6 +4574,38 @@
       ],
       "mathematical_reason": "The full F-F block must reproduce this null contraction in the fixed bases; one determinant-sensitive coefficient is not the whole matrix.",
       "source": "alternate_up_coupled_null_pairing",
+      "target": "first_exact_yukawa"
+    },
+    {
+      "assumptions_required": [
+        "both formal coefficients",
+        "four fixed F-family seed pairs"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_ff_entries.py"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "a free quotient-line primitive is not an actual carrier matter lift"
+      ],
+      "mathematical_reason": "Each actual F class needs its certified E correction before the fixed quotient product can evaluate an F-F entry.",
+      "source": "alternate_up_coupled_tensor_presentation",
+      "target": "alternate_up_ff_block"
+    },
+    {
+      "assumptions_required": [
+        "fixed Higgs-first trace",
+        "both complete F-F coefficient blocks"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_full_matrix.py"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "source files or partial archives alone cannot supply matrix entries"
+      ],
+      "mathematical_reason": "All eight coefficientwise scalar witnesses must close, reproduce the natural null contraction, and enter the verified 3x3 matrix.",
+      "source": "alternate_up_ff_block",
       "target": "first_exact_yukawa"
     },
     {

@@ -1049,7 +1049,8 @@ def _nodes() -> list[dict[str, object]]:
             "cycles. Their ordered cover residues are 3omega/2, "
             "(3+9omega)/14, 3/2, and (-9-6omega)/14. Reverse cup order "
             "gives the negative residue and both Yoneda ratios agree. "
-            "The F-F block, quotient trace, and full matrix remain open.",
+            "This is the earlier cover-frame certificate, not the final "
+            "Higgs-first quotient normalization.",
             (
                 "data/generated/scientific_genesis/"
                 "alternate_up_mixed_scalar_trace.json",
@@ -1065,11 +1066,6 @@ def _nodes() -> list[dict[str, object]]:
                 "saved unnormalized cochain bases",
                 "ordered cover Laurent residue generator has trace one",
             ),
-            (
-                "same-cone F-F block",
-                "quotient trace normalization",
-                "complete holomorphic up matrix",
-            ),
         ),
         _node(
             "alternate_up_rank_floor",
@@ -1078,9 +1074,9 @@ def _nodes() -> list[dict[str, object]]:
             "DERIVED",
             "Exterior degree forces the E-E slot to zero. The four exact "
             "mixed cover residues give four nonzero two-by-two minors "
-            "independent of the unknown F-F block and outer coordinates. "
-            "Every nonsplit point has holomorphic up rank at least two; "
-            "rank three and the complete matrix remain unresolved.",
+            "independent of the F-F block and outer coordinates. "
+            "Every nonsplit point has holomorphic up rank at least two. "
+            "The later complete matrix sharpens this bound.",
             (
                 "data/generated/scientific_genesis/alternate_up_rank_floor.json",
                 "research/experiments/scientific_genesis/alternate_up_rank_floor.py",
@@ -1093,7 +1089,6 @@ def _nodes() -> list[dict[str, object]]:
                 "ordered unnormalized cover bases",
                 "acyclic determinant filtration",
             ),
-            ("same-cone F-F block", "quotient-normalized full matrix"),
         ),
         _node(
             "alternate_up_null_channel",
@@ -3226,6 +3221,22 @@ def _nodes() -> list[dict[str, object]]:
             ("selected heterotic UV realization", "fixed quotient volume frame"),
         ),
         _node(
+            "alternate_metric_generation_reduction",
+            "quotient-level extension global-generation criterion",
+            "Normalization",
+            "PROVED",
+            "For an exact quotient bundle sequence 0 to A to E to B to 0, "
+            "global generation of A and B plus H1(X,A)=0 imply global "
+            "generation of E, uniformly in the extension parameter. "
+            "The alternate carrier has not yet satisfied these premises.",
+            (
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_GENERATION_REDUCTION_NOTE.md",
+                "data/generated/scientific_genesis/alternate_constituent_carrier_state.json",
+            ),
+            ("descended locally free extension", "descending positive twist"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -3236,7 +3247,7 @@ def _nodes() -> list[dict[str, object]]:
             "proof and converged Ricci-flat/HYM matter metrics.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
             missing=(
-                "alternate-carrier positive-twist sections and global generation",
+                "alternate-carrier constituent quotient generation and H1 vanishing",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -6189,6 +6200,33 @@ def _edges() -> list[dict[str, object]]:
             ("reference-carrier comparison only",),
             False,
             ("computable carrier may realize a different texture",),
+        ),
+        _edge(
+            "alternate_constituent_carrier_state",
+            "alternate_metric_generation_reduction",
+            "The frozen alternate cone supplies the descended locally free "
+            "short exact extension sequence to which the criterion applies.",
+            (
+                "data/generated/scientific_genesis/alternate_constituent_carrier_state.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_GENERATION_REDUCTION_NOTE.md",
+            ),
+            ("selected heterotic realization", "non-split alternate P1"),
+            True,
+            ("the published reference extension is not this alternate cone",),
+        ),
+        _edge(
+            "alternate_metric_generation_reduction",
+            "visible_metrics",
+            "Surjective section lifts and fiberwise exactness reduce rank-four "
+            "global generation to two constituent evaluations and one H1 vanishing.",
+            (
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_GENERATION_REDUCTION_NOTE.md",
+            ),
+            ("declared descending positive twist", "quotient-level section certificates"),
+            True,
+            ("a failed premise leaves direct evaluation or another twist necessary",),
         ),
         _edge(
             "computable_carrier_state",
@@ -9275,10 +9313,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "establish alternate-carrier positive-twist global generation "
-                "from the actual cone and fixed bases before any metric "
-                "approximation; physical normalization still requires "
-                "converged Ricci-flat and HYM metrics plus a common vacuum"
+                "at a declared descending positive twist, certify quotient "
+                "global generation of both alternate constituents and "
+                "H1(X,V1(H))=0; then the exact extension criterion gives "
+                "rank-four generation before numerical metric work"
             ),
         },
         "claims": _nodes(),
@@ -9351,27 +9389,27 @@ def build_state() -> dict[str, object]:
             "four exact strict-Hom/I6 Yoneda evaluations survive in "
             "H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios "
             "are (2-omega)/7 and (-3-2omega)/7, while scalar entries "
-            "are computed separately and the same-cone Higgs remains open",
+            "were subsequently composed with the same-cone Higgs class",
             "four actual constant mixed up-sector entries have exact "
             "Higgs-first quotient residues in the fixed declared bases",
             "four exact mixed up-sector minors force holomorphic rank at "
             "least two for every nonsplit alternate P1 point",
             "two strict null Yoneda combinations are full boundaries "
-            "with 90-term primitives; the formal determinant now needs "
-            "only two unknown extension-linear null-to-null coefficients",
+            "with 90-term primitives; the determinant reduction needs "
+            "only two extension-linear null-to-null coefficients, now computed",
             "the natural coherent Higgs quotient has two full closed "
             "connecting arrows; its signed actions reproduce the pinned "
             "primitive identities without pretending the ideal is a vector bundle",
             "both complete ordered null scalars are full cycles with exact "
             "cover residues; the raw tensor differences vanish on the actual "
-            "A quotient, but physical pairing identification remains open",
+            "A quotient, with final pairing identification certified later",
             "the nonzero product-cover Hirsch defect has an exact acyclic-carrier "
             "filler; its negative dual supplies the scalar higher compatibility "
             "without asserting the refuted strict rule",
             "the corrected triangular two-row tensor product obeys full Leibniz "
             "in the legitimate A wedge B quotient; both actual 38-object "
             "presentations match the existing Higgs cone and pass full "
-            "syzygy/null-matter attacks, but no complete scalar pairing is evaluated",
+            "syzygy/null-matter attacks; the scalar pairing was computed later",
             "the frozen alternate I6 quotient has six distinct local "
             "determinant pairings satisfying all thirty corrected overlap "
             "identities; no Hom-to-tensor chain map follows yet",
@@ -9381,6 +9419,9 @@ def build_state() -> dict[str, object]:
             "the alternate universal holomorphic up matrix has all nine "
             "actual-carrier entries and determinant "
             "(-3/98-39omega/196)a1 in the fixed quotient frame",
+            "global generation of a descended vector-bundle extension "
+            "follows from quotient-level constituent generation and "
+            "vanishing H1 of its subbundle; the alternate premises are open",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

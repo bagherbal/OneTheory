@@ -710,16 +710,17 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "establish alternate-carrier positive-twist global generation "
-        "from the actual cone and fixed bases before any metric "
-        "approximation; physical normalization still requires "
-        "converged Ricci-flat and HYM metrics plus a common vacuum"
+        "at a declared descending positive twist, certify quotient "
+        "global generation of both alternate constituents and "
+        "H1(X,V1(H))=0; then the exact extension criterion gives "
+        "rank-four generation before numerical metric work"
     )
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_up_holomorphic_rank_three_locus"] == "a1 != 0"
     assert path["criteria"]["alternate_up_physical_yukawa_matrix_available"] is False
     assert claims["alternate_up_ff_block"]["status"] == "COMPUTED"
     assert claims["first_exact_yukawa"]["status"] == "COMPUTED"
+    assert claims["alternate_metric_generation_reduction"]["status"] == "PROVED"
     assert claims["visible_metrics"]["status"] == "BLOCKED"
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (

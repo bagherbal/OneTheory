@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "cbd4a99a108ae1af5f3e9e6d5c88375edbc1c5429aa892b86829854fb4c1d617",
+  "artifact_digest": "2f92577d3c2e320547069736a7a20f2c0ab0f1648f4125bea2e59aa07fbd46ab",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -1781,12 +1781,8 @@
       "id": "alternate_up_mixed_scalar_trace",
       "label": "exact alternate mixed up-sector cover residues",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "same-cone F-F block",
-        "quotient trace normalization",
-        "complete holomorphic up matrix"
-      ],
-      "statement": "The actual first-constituent Pluecker form contracts four strict I3/degree-two Yoneda pairs to 2,257-term full scalar cycles. Their ordered cover residues are 3omega/2, (3+9omega)/14, 3/2, and (-9-6omega)/14. Reverse cup order gives the negative residue and both Yoneda ratios agree. The F-F block, quotient trace, and full matrix remain open.",
+      "missing_prerequisites": [],
+      "statement": "The actual first-constituent Pluecker form contracts four strict I3/degree-two Yoneda pairs to 2,257-term full scalar cycles. Their ordered cover residues are 3omega/2, (3+9omega)/14, 3/2, and (-9-6omega)/14. Reverse cup order gives the negative residue and both Yoneda ratios agree. This is the earlier cover-frame certificate, not the final Higgs-first quotient normalization.",
       "status": "COMPUTED"
     },
     {
@@ -1804,11 +1800,8 @@
       "id": "alternate_up_rank_floor",
       "label": "rank-two floor of the alternate holomorphic up matrix",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "same-cone F-F block",
-        "quotient-normalized full matrix"
-      ],
-      "statement": "Exterior degree forces the E-E slot to zero. The four exact mixed cover residues give four nonzero two-by-two minors independent of the unknown F-F block and outer coordinates. Every nonsplit point has holomorphic up rank at least two; rank three and the complete matrix remain unresolved.",
+      "missing_prerequisites": [],
+      "statement": "Exterior degree forces the E-E slot to zero. The four exact mixed cover residues give four nonzero two-by-two minors independent of the F-F block and outer coordinates. Every nonsplit point has holomorphic up rank at least two. The later complete matrix sharpens this bound.",
       "status": "DERIVED"
     },
     {
@@ -3624,6 +3617,22 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "descended locally free extension",
+        "descending positive twist"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERATION_REDUCTION_NOTE.md",
+        "data/generated/scientific_genesis/alternate_constituent_carrier_state.json"
+      ],
+      "id": "alternate_metric_generation_reduction",
+      "label": "quotient-level extension global-generation criterion",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "For an exact quotient bundle sequence 0 to A to E to B to 0, global generation of A and B plus H1(X,A)=0 imply global generation of E, uniformly in the extension parameter. The alternate carrier has not yet satisfied these premises.",
+      "status": "PROVED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -3633,7 +3642,7 @@
       "label": "Ricci-flat, HYM, and matter metric package",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "alternate-carrier positive-twist sections and global generation",
+        "alternate-carrier constituent quotient generation and H1 vanishing",
         "converged Ricci-flat and HYM metrics"
       ],
       "statement": "Generic section machinery exists. The published reference lacks its complete carrier cocycles; the alternate cone has chain data but lacks a carrier-specific positive-twist global-generation proof and converged Ricci-flat/HYM matter metrics.",
@@ -6854,6 +6863,39 @@
       "target": "first_exact_yukawa"
     },
     {
+      "assumptions_required": [
+        "selected heterotic realization",
+        "non-split alternate P1"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_constituent_carrier_state.json",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERATION_REDUCTION_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the published reference extension is not this alternate cone"
+      ],
+      "mathematical_reason": "The frozen alternate cone supplies the descended locally free short exact extension sequence to which the criterion applies.",
+      "source": "alternate_constituent_carrier_state",
+      "target": "alternate_metric_generation_reduction"
+    },
+    {
+      "assumptions_required": [
+        "declared descending positive twist",
+        "quotient-level section certificates"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERATION_REDUCTION_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a failed premise leaves direct evaluation or another twist necessary"
+      ],
+      "mathematical_reason": "Surjective section lifts and fiberwise exactness reduce rank-four global generation to two constituent evaluations and one H1 vanishing.",
+      "source": "alternate_metric_generation_reduction",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "research/experiments/visible_metrics/audit.py"
@@ -7053,17 +7095,18 @@
     "the alternate P1 determinant filtration and exact Hom action give Higgs H1 characters leaving one pair and no triplets under the selected Wilson line, so the whole structural component is frozen",
     "the frozen alternate P1 cone has six strict up-sector matter classes from two exact I3 constants and eight coefficientwise I6-to-I3 corrections, without a selected extension point",
     "the alternate Hom H1 has a strict full-Cech character-(2,0) representative required by the up-Higgs Wilson sector; its tensor and exterior-cone chain maps remain unavailable",
-    "four exact strict-Hom/I6 Yoneda evaluations survive in H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios are (2-omega)/7 and (-3-2omega)/7, while scalar entries are computed separately and the same-cone Higgs remains open",
+    "four exact strict-Hom/I6 Yoneda evaluations survive in H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios are (2-omega)/7 and (-3-2omega)/7, while scalar entries were subsequently composed with the same-cone Higgs class",
     "four actual constant mixed up-sector entries have exact Higgs-first quotient residues in the fixed declared bases",
     "four exact mixed up-sector minors force holomorphic rank at least two for every nonsplit alternate P1 point",
-    "two strict null Yoneda combinations are full boundaries with 90-term primitives; the formal determinant now needs only two unknown extension-linear null-to-null coefficients",
+    "two strict null Yoneda combinations are full boundaries with 90-term primitives; the determinant reduction needs only two extension-linear null-to-null coefficients, now computed",
     "the natural coherent Higgs quotient has two full closed connecting arrows; its signed actions reproduce the pinned primitive identities without pretending the ideal is a vector bundle",
-    "both complete ordered null scalars are full cycles with exact cover residues; the raw tensor differences vanish on the actual A quotient, but physical pairing identification remains open",
+    "both complete ordered null scalars are full cycles with exact cover residues; the raw tensor differences vanish on the actual A quotient, with final pairing identification certified later",
     "the nonzero product-cover Hirsch defect has an exact acyclic-carrier filler; its negative dual supplies the scalar higher compatibility without asserting the refuted strict rule",
-    "the corrected triangular two-row tensor product obeys full Leibniz in the legitimate A wedge B quotient; both actual 38-object presentations match the existing Higgs cone and pass full syzygy/null-matter attacks, but no complete scalar pairing is evaluated",
+    "the corrected triangular two-row tensor product obeys full Leibniz in the legitimate A wedge B quotient; both actual 38-object presentations match the existing Higgs cone and pass full syzygy/null-matter attacks; the scalar pairing was computed later",
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
     "the alternate universal holomorphic up matrix has all nine actual-carrier entries and determinant (-3/98-39omega/196)a1 in the fixed quotient frame",
+    "global generation of a descended vector-bundle extension follows from quotient-level constituent generation and vanishing H1 of its subbundle; the alternate premises are open",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -7823,7 +7866,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "establish alternate-carrier positive-twist global generation from the actual cone and fixed bases before any metric approximation; physical normalization still requires converged Ricci-flat and HYM metrics plus a common vacuum",
+    "next_required_object": "at a declared descending positive twist, certify quotient global generation of both alternate constituents and H1(X,V1(H))=0; then the exact extension criterion gives rank-four generation before numerical metric work",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

@@ -524,8 +524,10 @@ not cochain-equal to either sign of the grouped matter-leg residual. The
 immediate flavor task is therefore the exact homotopy comparing these two
 contraction routes; only then can both legs be combined and traced.
 
-Metrics are blocked first by explicit carrier extension data and then by
-section bases, global generation, and controlled Ricci-flat/HYM convergence.
+For the published reference carrier, metrics are blocked first by its
+explicit extension data. The distinct alternate carrier now has exact
+chain representatives, but positive-twist section bases, global generation,
+and controlled Ricci-flat/HYM convergence remain open for that carrier.
 Physical Pfaffians are blocked by seed embeddings and determinant-line maps.
 The hidden sector is blocked by exact bundle maps, descent, stability, and
 spectrum. Consequently no complete effective action, stabilized common vacuum,
@@ -810,18 +812,18 @@ acyclic. Exterior degree forces the first/first entry to zero, mixed
 entries to be constant, and the second/second block to be linear. Thus
 the full determinant is either identically zero or a nonzero linear form
 in `(a0,a1)`; in the latter case it vanishes at one point of the frozen
-projective line. Its determinant coefficients and possible rank three
-remain unresolved.
+projective line. The later complete-matrix certificate below evaluates
+both coefficients and determines the rank-three locus.
 The proof and its exact support regression are in
 `ALTERNATE_UP_YUKAWA_SUPPORT_NOTE.md` and
 `alternate_up_yukawa_support.json`.
 
-The four exact mixed cover residues now sharpen that support theorem.
+The four exact mixed cover residues sharpened that support theorem.
 In the fixed ordered `E,F,F` bases they give four nonzero `2×2` minors,
-each independent of the unknown `F–F` block. Hence every nonsplit
+each independent of the `F–F` block. Hence every nonsplit
 member has holomorphic up-sector rank **at least two**; rank zero and
-rank one are excluded on this frozen family. The determinant is still
-an uncomputed linear form, so rank three is not established. The
+rank one are excluded on this frozen family. This early certificate
+did not determine rank three; the complete matrix below does. The
 content-pinned calculation and its convention boundaries are in
 `alternate_up_rank_floor.json` and `ALTERNATE_UP_RANK_FLOOR_NOTE.md`.
 
@@ -829,10 +831,10 @@ The determinant-sensitive channel can now be compressed further. The
 two exact within-character mixed ratios define strict `F` combinations
 whose 144-term full Yoneda evaluations are boundaries, each with a
 90-term exact primitive. A four-indeterminate identity reduces the
-rank-three test to the two unknown coefficients of the null-to-null
-`F–F` pairing along `(a0,a1)`. This is a shorter next calculation than
-enumerating all eight `F–F` coefficients, but the same-cone Higgs
-correction and complete matrix remain open. The exact homotopies and
+rank-three test to two coefficients of the null-to-null `F–F` pairing
+along `(a0,a1)`. This initially offered a shorter next calculation
+than enumerating all eight `F–F` coefficients; the later exact replay
+closed the complete matrix as well. The exact homotopies and
 sign convention are in `alternate_up_null_channel.json` and
 `ALTERNATE_UP_NULL_CHANNEL_NOTE.md`.
 
@@ -1139,5 +1141,11 @@ observational input. See `ALTERNATE_UP_FULL_MATRIX_NOTE.md` for the exact
 matrix and determinant expansion. It is holomorphic only, not a normalized
 mass prediction. The next vertical gate is alternate-carrier
 positive-twist global generation before numerical Ricci-flat/HYM metric
-work; the common vacuum, other flavor sectors, and physical observables
-remain blocked.
+work. The exact quotient extension sequence offers a structural reduction:
+at a declared descending twist, prove both constituent bundles globally
+generated on the quotient and `H^1(X,V1(H))=0`; then every alternate P1
+extension is globally generated. This is a conditional criterion, not a
+certificate of its premises. Cover sections or the published reference
+carrier's `404`-section ledger cannot be substituted. See
+`ALTERNATE_METRIC_GENERATION_REDUCTION_NOTE.md`. The common vacuum, other
+flavor sectors, and physical observables remain blocked.

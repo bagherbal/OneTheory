@@ -1180,3 +1180,20 @@ does not establish quotient generation. In fact each individual
 the actual equivariant frame. The next exact gate is invariant
 fiberwise evaluation for both constituents on the quotient, not another
 cover section count.
+
+That quotient generation gate now closes at a deliberately enlarged
+mathematical twist `H=(14,16,10)`. The alternate right ray (0,1) has
+Serre subline `(6,6,0)` at the old trial twist, with exact `H1=0`,
+and four basepoint-free Hilbert–Burch source lines `(6,3,2)`. Thus
+both actual constituents generate on the cover at `H0=(5,7,1)`.
+The descending auxiliary `O(9,9,9)` separates every free nine-point
+deck orbit by an eight-factor product of ambient linear forms; exact
+finite-group averaging then proves invariant fiberwise evaluation at
+`H`. All first-constituent line Koszul terms are acyclic above H0 at
+this enlarged twist, giving `H1(X,V1(H))=0`. The extension criterion
+therefore proves every alternate P1 rank-four bundle globally generated
+on the quotient at `H`. This is a structural existence theorem, not
+an explicit invariant basis or a numerical metric. See
+`ALTERNATE_METRIC_QUOTIENT_GENERATION_NOTE.md`. The next vertical
+object is an actual invariant basis for controlled Ricci-flat/HYM
+computation; the common vacuum and physical normalization remain open.

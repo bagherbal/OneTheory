@@ -1,0 +1,558 @@
+{
+  "ambient_multihomogeneous_separation_bound_per_factor": 8,
+  "artifact_digest": "f6ee1cdf3d29e37c3586ae0833a7d0e8dd2870b6b824ce69e3b73e296cf97dad",
+  "base_twist_cover_degree": [
+    5,
+    7,
+    1
+  ],
+  "both_constituents_quotient_generated_at_generating_twist": true,
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "explicit_invariant_section_basis_constructed": false,
+  "first_constituent_cover_generated_at_base_twist": true,
+  "first_constituent_h1_vanishes_at_generating_twist": true,
+  "first_large_twist_line_profiles": [
+    {
+      "all_ambient_terms_acyclic_above_h0": true,
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            179550,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            13,
+            17,
+            9
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            113400,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            13,
+            14,
+            8
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            101574,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            10,
+            17,
+            8
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            63360,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            10,
+            14,
+            7
+          ]
+        }
+      },
+      "name": "A",
+      "twisted_degree": [
+        13,
+        17,
+        9
+      ]
+    },
+    {
+      "all_ambient_terms_acyclic_above_h0": true,
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            160056,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            11,
+            17,
+            11
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            102960,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            11,
+            14,
+            10
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            84645,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            8,
+            17,
+            10
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            54000,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            8,
+            14,
+            9
+          ]
+        }
+      },
+      "name": "F0:0",
+      "twisted_degree": [
+        11,
+        17,
+        11
+      ]
+    },
+    {
+      "all_ambient_terms_acyclic_above_h0": true,
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            160056,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            11,
+            17,
+            11
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            102960,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            11,
+            14,
+            10
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            84645,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            8,
+            17,
+            10
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            54000,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            8,
+            14,
+            9
+          ]
+        }
+      },
+      "name": "F0:1",
+      "twisted_degree": [
+        11,
+        17,
+        11
+      ]
+    },
+    {
+      "all_ambient_terms_acyclic_above_h0": true,
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            160056,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            11,
+            17,
+            11
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            102960,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            11,
+            14,
+            10
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            84645,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            8,
+            17,
+            10
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            54000,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            8,
+            14,
+            9
+          ]
+        }
+      },
+      "name": "F0:2",
+      "twisted_degree": [
+        11,
+        17,
+        11
+      ]
+    },
+    {
+      "all_ambient_terms_acyclic_above_h0": true,
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            135432,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            10,
+            17,
+            11
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            87120,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            10,
+            14,
+            10
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            67716,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            7,
+            17,
+            10
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            43200,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            7,
+            14,
+            9
+          ]
+        }
+      },
+      "name": "F1:0",
+      "twisted_degree": [
+        10,
+        17,
+        11
+      ]
+    },
+    {
+      "all_ambient_terms_acyclic_above_h0": true,
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            135432,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            10,
+            17,
+            11
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            87120,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            10,
+            14,
+            10
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            67716,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            7,
+            17,
+            10
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            43200,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            7,
+            14,
+            9
+          ]
+        }
+      },
+      "name": "F1:1",
+      "twisted_degree": [
+        10,
+        17,
+        11
+      ]
+    }
+  ],
+  "free_deck_orbit_size": 9,
+  "generating_twist_cover_degree": [
+    14,
+    16,
+    10
+  ],
+  "generation_at_base_twist_certified": false,
+  "invariant_evaluation_argument": "Cover generation tensored with orbit-separating sections surjects onto the direct sum of nine orbit fibers; exact averaging makes invariant sections surject onto the quotient fiber",
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "orbit_separation_argument": "For each other point of a free nine-point orbit, choose a linear form in one projective factor vanishing there but not at the target; multiply eight forms and pad each factor to degree nine by nonvanishing linear forms",
+  "orbit_separator_cover_degree": [
+    9,
+    9,
+    9
+  ],
+  "orbit_separator_descends": true,
+  "physical_yukawas_available": false,
+  "prerequisite_artifact_digests": {
+    "alternate_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "alternate_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+    "first_constituent": "97e390edc44ba0d89b32ebb48d0409b5c7f1e2f53ece5bb96011d5093be585bc"
+  },
+  "rank_four_quotient_generated_for_all_alternate_p1": true,
+  "right_constituent_cover_generated_at_base_twist": true,
+  "right_hilbert_burch_source_base_degrees": [
+    [
+      6,
+      3,
+      2
+    ],
+    [
+      6,
+      3,
+      2
+    ],
+    [
+      6,
+      3,
+      2
+    ],
+    [
+      6,
+      3,
+      2
+    ]
+  ],
+  "right_serre_subline_base_ambient_koszul_profile": {
+    "k0": {
+      "ambient_h0_to_h5": [
+        784,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degree": [
+        6,
+        6,
+        0
+      ]
+    },
+    "k1_u": {
+      "ambient_h0_to_h5": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degree": [
+        6,
+        3,
+        -1
+      ]
+    },
+    "k1_x": {
+      "ambient_h0_to_h5": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degree": [
+        3,
+        6,
+        -1
+      ]
+    },
+    "k2": {
+      "ambient_h0_to_h5": [
+        0,
+        100,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degree": [
+        3,
+        3,
+        -2
+      ]
+    }
+  },
+  "right_serre_subline_base_degree": [
+    6,
+    6,
+    0
+  ],
+  "right_serre_subline_base_h0": 684,
+  "schema": "alternate-metric-quotient-generation-v1"
+}

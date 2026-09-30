@@ -735,11 +735,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "at the descending mathematical twist H=(5,7,1), certify "
-        "invariant fiberwise evaluation for both actual alternate "
-        "constituents on the quotient; V1(H) is generated on the "
-        "cover and its quotient H1 vanishes, but quotient generation "
-        "and numerical metrics remain unproved"
+        "construct exact invariant section bases for the alternate "
+        "carrier at the proved generating twist H=(14,16,10), "
+        "then test Ricci-flat and HYM convergence; global generation "
+        "is established but no numerical matter metric exists"
     )
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_up_holomorphic_rank_three_locus"] == "a1 != 0"
@@ -750,7 +749,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_metric_subbundle_vanishing"]["status"] == "COMPUTED"
     assert path["criteria"]["alternate_metric_subbundle_h1_vanishing"] is True
     assert path["criteria"]["alternate_metric_first_constituent_cover_generated"] is True
-    assert path["criteria"]["alternate_metric_constituents_globally_generated"] is False
+    assert claims["alternate_metric_quotient_generation"]["status"] == "PROVED"
+    assert path["criteria"]["alternate_metric_large_generating_twist"] == [14, 16, 10]
+    assert path["criteria"]["alternate_metric_constituents_globally_generated"] is True
+    assert path["criteria"]["alternate_metric_rank_four_globally_generated"] is True
+    assert path["criteria"]["alternate_metric_explicit_invariant_basis_available"] is False
     assert claims["visible_metrics"]["status"] == "BLOCKED"
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (

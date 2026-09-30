@@ -3260,17 +3260,40 @@ def _nodes() -> list[dict[str, object]]:
             ("published free Schoen quotient", "unchanged actual first constituent"),
         ),
         _node(
+            "alternate_metric_quotient_generation",
+            "alternate carrier quotient generation at an enlarged twist",
+            "Normalization",
+            "PROVED",
+            "At the declared mathematical twist (14,16,10), both actual "
+            "alternate constituents are globally generated on the quotient: "
+            "Serre cover generation, a descending orbit-separating line, "
+            "and exact finite-group averaging prove invariant evaluation. "
+            "The first constituent has H1=0 there, so the rank-four P1 "
+            "family is globally generated. No explicit invariant section "
+            "basis or numerical metric is supplied.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_quotient_generation.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_metric_quotient_generation.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_QUOTIENT_GENERATION_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_metric_quotient_generation.py",
+            ),
+            ("published free Schoen quotient", "actual alternate constituent rays"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
             "BLOCKED",
-            "Generic section machinery exists. The published reference lacks "
-            "its complete carrier cocycles; the alternate cone has chain data "
-            "but lacks a carrier-specific positive-twist global-generation "
-            "proof and converged Ricci-flat/HYM matter metrics.",
+            "The alternate carrier is globally generated at a declared "
+            "large twist, but explicit invariant section bases and converged "
+            "Ricci-flat/HYM matter metrics are not yet available. The "
+            "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
             missing=(
-                "alternate-carrier quotient generation of both constituents",
+                "explicit alternate-carrier invariant section bases",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -5435,6 +5458,21 @@ def _edges() -> list[dict[str, object]]:
             (),
         ),
         _edge(
+            "alternate_metric_quotient_generation",
+            "visible_metrics",
+            "Serre cover generation, orbit interpolation, averaging, and "
+            "large-twist acyclicity prove the carrier's exact global-"
+            "generation prerequisite on the quotient.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_quotient_generation.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_QUOTIENT_GENERATION_NOTE.md",
+            ),
+            ("selected heterotic UV realization", "declared mathematical twist"),
+            True,
+            ("generation does not provide invariant bases or converged metrics",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -6263,7 +6301,7 @@ def _edges() -> list[dict[str, object]]:
             ),
             ("same descended twist on both constituents",),
             True,
-            ("constituent global generation is still unproved",),
+            ("quotient generation at the smaller trial twist is unproved",),
         ),
         _edge(
             "computable_carrier_state",
@@ -6272,7 +6310,7 @@ def _edges() -> list[dict[str, object]]:
             ("research/experiments/visible_metrics/audit.py",),
             (),
             True,
-            ("global generation or numerical convergence may fail",),
+            ("explicit invariant bases or numerical convergence may fail",),
         ),
         _edge(
             "first_exact_yukawa",
@@ -8653,6 +8691,44 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the alternate metric subbundle vanishing or its scope is not certified")
+    generation_path = ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_quotient_generation.json"
+    )
+    generation = json.loads(generation_path.read_text(encoding="utf-8"))
+    generation_digest = generation.pop("artifact_digest", None)
+    if (
+        generation_digest != _canonical_digest(generation)
+        or generation_digest != "f6ee1cdf3d29e37c3586ae0833a7d0e8dd2870b6b824ce69e3b73e296cf97dad"
+        or generation.get("schema") != "alternate-metric-quotient-generation-v1"
+        or generation.get("base_twist_cover_degree") != [5, 7, 1]
+        or generation.get("orbit_separator_cover_degree") != [9, 9, 9]
+        or generation.get("generating_twist_cover_degree") != [14, 16, 10]
+        or generation.get("free_deck_orbit_size") != 9
+        or generation.get("ambient_multihomogeneous_separation_bound_per_factor") != 8
+        or generation.get("right_serre_subline_base_degree") != [6, 6, 0]
+        or generation.get("right_serre_subline_base_h0") != 684
+        or generation.get("right_hilbert_burch_source_base_degrees") != [[6, 3, 2]] * 4
+        or generation.get("prerequisite_artifact_digests") != {
+            "first_constituent": metric_digest,
+            "alternate_cone": alternate_cone_digest,
+            "alternate_carrier": alternate_carrier_digest,
+        }
+        or any(generation.get(flag) is not True for flag in (
+            "first_constituent_cover_generated_at_base_twist",
+            "right_constituent_cover_generated_at_base_twist",
+            "orbit_separator_descends",
+            "first_constituent_h1_vanishes_at_generating_twist",
+            "both_constituents_quotient_generated_at_generating_twist",
+            "rank_four_quotient_generated_for_all_alternate_p1",
+        ))
+        or any(generation.get(flag) is not False for flag in (
+            "generation_at_base_twist_certified",
+            "explicit_invariant_section_basis_constructed",
+            "numerical_metrics_available", "physical_yukawas_available",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the alternate quotient-generation theorem or scope is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -8947,6 +9023,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_ff_coefficient_a1.json",
         "data/generated/scientific_genesis/alternate_up_full_holomorphic_matrix.json",
         "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
+        "data/generated/scientific_genesis/alternate_metric_quotient_generation.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -9177,7 +9254,12 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_trial_twist": metric["twist_cover_degree"],
                 "alternate_metric_subbundle_h1_vanishing": True,
                 "alternate_metric_first_constituent_cover_generated": True,
-                "alternate_metric_constituents_globally_generated": False,
+                "alternate_metric_large_generating_twist": generation[
+                    "generating_twist_cover_degree"
+                ],
+                "alternate_metric_constituents_globally_generated": True,
+                "alternate_metric_rank_four_globally_generated": True,
+                "alternate_metric_explicit_invariant_basis_available": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
                 "alternate_up_ordered_exchange_consistent": all(
@@ -9410,11 +9492,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "at the descending mathematical twist H=(5,7,1), certify "
-                "invariant fiberwise evaluation for both actual alternate "
-                "constituents on the quotient; V1(H) is generated on the "
-                "cover and its quotient H1 vanishes, but quotient generation "
-                "and numerical metrics remain unproved"
+                "construct exact invariant section bases for the alternate "
+                "carrier at the proved generating twist H=(14,16,10), "
+                "then test Ricci-flat and HYM convergence; global generation "
+                "is established but no numerical matter metric exists"
             ),
         },
         "claims": _nodes(),

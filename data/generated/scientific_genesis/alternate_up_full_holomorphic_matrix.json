@@ -1,0 +1,172 @@
+{
+  "all_nine_entries_derived_from_actual_carrier": true,
+  "artifact_digest": "5dca3368f127ddf90eb8e263b403e6ca74f8857a3e505930194c51a67120884f",
+  "basis_order": {
+    "columns": [
+      "E(1,0)",
+      "F(1,0):seed0",
+      "F(1,0):seed5"
+    ],
+    "rows": [
+      "E(0,0)",
+      "F(0,0):seed0",
+      "F(0,0):seed5"
+    ]
+  },
+  "canonical_matter_metrics_available": false,
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "coefficient_field": "Q(omega)",
+  "common_vacuum_stabilized": false,
+  "cover_to_quotient_trace_factor": "1/9",
+  "determinant": [
+    {
+      "coefficient": "-3/98-39/196*omega",
+      "powers": [
+        0,
+        1
+      ]
+    }
+  ],
+  "extension_point_selected": false,
+  "holomorphic_matrix_available": true,
+  "matrix_entries": [
+    [
+      [],
+      [
+        {
+          "coefficient": "-1/6",
+          "powers": [
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "1/14+1/21*omega",
+          "powers": [
+            0,
+            0
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "coefficient": "-1/6*omega",
+          "powers": [
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "181/18+5/2*omega",
+          "powers": [
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "617/18+31/6*omega",
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "11/21-1223/126*omega",
+          "powers": [
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "-1399/126-95/126*omega",
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "coefficient": "-1/42-1/14*omega",
+          "powers": [
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "-347/63-1249/126*omega",
+          "powers": [
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "1235/126-55/63*omega",
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "-97/441-55/147*omega",
+          "powers": [
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "65/18+1/9*omega",
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ]
+    ]
+  ],
+  "null_contraction": [
+    {
+      "coefficient": "297/49-54/49*omega",
+      "powers": [
+        0,
+        1
+      ]
+    }
+  ],
+  "observational_inputs_used": false,
+  "outer_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "ff_coefficient_a0": "5b624f9a52f3e5397d0ea114e8beff753897238503a58dcfd7c398041a54dbff",
+    "ff_coefficient_a1": "49dae41f452f925a4165c0bed7baeaaaead0990e81b7cd54d11adf4fefe3445f",
+    "mixed_pairing": "6f475e7551bf00b13cfea5207293ffb517fdbd09d94e8b97264cd2edae941591"
+  },
+  "rank_two_minor": [
+    {
+      "coefficient": "-1/36*omega",
+      "powers": [
+        0,
+        0
+      ]
+    }
+  ],
+  "scalar_order": "Higgs first in the fixed quotient volume frame",
+  "schema": "alternate-up-full-holomorphic-matrix-v1"
+}

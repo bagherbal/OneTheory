@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "37bae449be6fe034e4756d8ba9d3fc3192bedf18d42f570079fec9abbfb1568b",
+  "artifact_digest": "cbd4a99a108ae1af5f3e9e6d5c88375edbc1c5429aa892b86829854fb4c1d617",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -847,6 +847,11 @@
       "sha256": "7081f0ec3ee2aec108b755cc33f0d56d65563a874131c2871a12c492be876083"
     },
     {
+      "bytes": 3356,
+      "path": "data/generated/scientific_genesis/alternate_up_full_holomorphic_matrix.json",
+      "sha256": "a8d570ce289b7c8b88fe91bf4c7c007637507d933c063bb003cdd5f452f66940"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -883,7 +888,7 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2060,
+    "collected_tests_at_audit": 2066,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 259,
@@ -906,7 +911,7 @@
     "equivariantly trivial quotient determinant with preserved Wilson spectrum",
     "atlas-derived relative-pushdown line characters resolving the unavailable down-Higgs representation",
     "the first nontrivial deformation or higher-product Yukawa contribution",
-    "carrier-derived nontrivial holomorphic Yukawa matrix",
+    "alternate-carrier matter metrics and remaining flavor matrices",
     "physical normalization, hidden sector, vacuum, and low-energy predictions"
   ],
   "claims": [
@@ -2272,18 +2277,16 @@
         "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.json",
         "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_ff_coefficient_a1.json",
+        "data/generated/scientific_genesis/alternate_up_full_holomorphic_matrix.json",
         "tests/integration/test_scientific_genesis_alternate_up_ff_entries.py",
         "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py"
       ],
       "id": "alternate_up_ff_block",
       "label": "four actual F-F entries for both universal coefficients",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "fresh exact a1 archive replay",
-        "complete matrix assembly"
-      ],
-      "statement": "The actual constituent lift solver, fixed quotient product and Higgs-first trace are composed in an executable research evaluator. All four a0 matter corrections and pushout images have been independently replayed from full cochain archives. The a0 block has four exact closed scalar entries and passes its literal independent natural-null cochain check. A fresh replay also recovered every a0 entry from its complete archive. The a1 producer has likewise saved four closed scalar entries and a literal natural-null cochain check. Fresh a1 archive replay and complete assembly remain required before any full holomorphic matrix is available.",
-      "status": "BLOCKED"
+      "missing_prerequisites": [],
+      "statement": "All eight F-F entries have complete source-lift, product and scalar archives. Fresh replay checks both four-entry blocks, their literal natural-null cochain identities, and the fixed Higgs-first quotient trace. This gives one exact formal holomorphic 3x3 up matrix, not a canonically normalized one.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [
@@ -2471,11 +2474,8 @@
       "id": "alternate_up_yukawa_support",
       "label": "universal up-matrix filtration support",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "same-cone Higgs chain class",
-        "two determinant coefficients"
-      ],
-      "statement": "The one-plus-two constituent matter bases and acyclic determinant filtration force the E-E slot to vanish, the E-F slots to be parameter-independent, and the F-F block to be linear in the two outer parameters. Consequently the three-by-three determinant is linear if nonzero; its two coefficients remain uncomputed.",
+      "missing_prerequisites": [],
+      "statement": "The one-plus-two constituent matter bases and acyclic determinant filtration force the E-E slot to vanish, the E-F slots to be parameter-independent, and the F-F block to be linear in the two outer parameters. Consequently the three-by-three determinant is linear. Both coefficients are now computed in the separately audited complete matrix.",
       "status": "DERIVED"
     },
     {
@@ -3595,8 +3595,14 @@
       "status": "PROVED"
     },
     {
-      "assumptions": [],
+      "assumptions": [
+        "selected heterotic UV realization",
+        "fixed quotient volume frame"
+      ],
       "evidence": [
+        "data/generated/scientific_genesis/alternate_up_full_holomorphic_matrix.json",
+        "research/experiments/scientific_genesis/alternate_up_full_matrix.py",
+        "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py",
         "data/generated/scientific_genesis/mixed_schoen_matter_leg_deformation.json",
         "data/generated/scientific_genesis/mixed_schoen_higgs_leg_deformation.json",
         "data/generated/scientific_genesis/mixed_schoen_v2_pluecker_chain_map.json",
@@ -3613,11 +3619,9 @@
       "id": "first_exact_yukawa",
       "label": "first carrier-derived 3x3 holomorphic Yukawa matrix",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "exact replacement constituent or carrier realization with a nontrivial holomorphic Yukawa matrix"
-      ],
-      "statement": "The complete carrier-derived tree-level up matrix is exactly zero. The first parameter-linear matter leg and complementary Higgs lift are exact scoped results, and the bottom V2 Pluecker pairing is closed and equivariant. All eight complete first-order coefficients vanish exactly. Exterior-filtration truncation proves that the full universal up matrix has rank zero, so this branch cannot supply the required nontrivial matrix. Convention-corrected down and charged-lepton matrices also vanish exactly through every exterior-allowed order. The prior Dirac-neutrino assignment is withdrawn. No available flavor sector on this frozen carrier realization supplies the first nontrivial holomorphic matrix.",
-      "status": "BLOCKED"
+      "missing_prerequisites": [],
+      "statement": "The selected published-reference carrier remains a scoped zero-matrix no-go. On the distinct stable descended alternate P1 carrier, complete actual chain witnesses produce an exact 3x3 formal holomorphic up matrix. Its determinant is (-3/98-39*omega/196)*a1, so rank three holds precisely on a1 nonzero. No extension point, canonical metrics, or common vacuum has been selected; this is not a physical mass matrix.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
@@ -3629,12 +3633,10 @@
       "label": "Ricci-flat, HYM, and matter metric package",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "carrier extension cocycles",
-        "positive-twist section package",
-        "global generation",
+        "alternate-carrier positive-twist sections and global generation",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "Generic section machinery exists, but carrier cocycles, section bases, global-generation proof, and converged metrics are absent.",
+      "statement": "Generic section machinery exists. The published reference lacks its complete carrier cocycles; the alternate cone has chain data but lacks a carrier-specific positive-twist global-generation proof and converged Ricci-flat/HYM matter metrics.",
       "status": "BLOCKED"
     },
     {
@@ -3651,7 +3653,7 @@
         "positive matter and Higgs metrics",
         "stabilized common vacuum"
       ],
-      "statement": "Canonical-normalization laws exist, but holomorphic matrices, positive metrics, and a common stabilized context do not.",
+      "statement": "Canonical-normalization laws and one alternate holomorphic up matrix exist, but positive carrier metrics, the other flavor sectors, and a common stabilized context do not.",
       "status": "BLOCKED"
     },
     {
@@ -4246,7 +4248,7 @@
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "rank three still depends on the unknown F-F block"
+        "this lower bound alone cannot establish rank three"
       ],
       "mathematical_reason": "Nonzero mixed rows and columns give nonzero E/F two-by-two minors because the E-E entry vanishes. No F-F entry can alter these minors.",
       "source": "alternate_up_mixed_scalar_trace",
@@ -4803,7 +4805,7 @@
       "implementation_or_artifact": [
         "research/experiments/scientific_genesis/alternate_up_full_matrix.py"
       ],
-      "implication": "conditional_or_conjectural",
+      "implication": "exact",
       "known_failure_modes": [
         "source files or partial archives alone cannot supply matrix entries"
       ],
@@ -6804,7 +6806,7 @@
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the first nontrivial holomorphic Yukawa remains unresolved"
+        "the reference-carrier branch alone cannot provide it"
       ],
       "mathematical_reason": "The physical down matrix vanishes at every exterior-allowed order, so a first nontrivial matrix must use another lawful physical sector or an exact replacement carrier realization.",
       "source": "mixed_down_first_order_matrix",
@@ -6817,7 +6819,7 @@
       ],
       "implication": "conditional_or_conjectural",
       "known_failure_modes": [
-        "the first nontrivial holomorphic Yukawa remains unresolved"
+        "the reference-carrier branch alone cannot provide it"
       ],
       "mathematical_reason": "The last available physical flavor matrix on the frozen carrier vanishes through every exterior-allowed order, so a nontrivial matrix requires an exact replacement realization.",
       "source": "mixed_charged_lepton_convention",
@@ -7052,8 +7054,8 @@
     "the frozen alternate P1 cone has six strict up-sector matter classes from two exact I3 constants and eight coefficientwise I6-to-I3 corrections, without a selected extension point",
     "the alternate Hom H1 has a strict full-Cech character-(2,0) representative required by the up-Higgs Wilson sector; its tensor and exterior-cone chain maps remain unavailable",
     "four exact strict-Hom/I6 Yoneda evaluations survive in H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios are (2-omega)/7 and (-3-2omega)/7, while scalar entries are computed separately and the same-cone Higgs remains open",
-    "the four constant mixed up-sector entries have exact nonzero cover Laurent residues 3omega/2, (3+9omega)/14, 3/2, and (-9-6omega)/14 in declared bases; the parameter-linear F-F block and quotient normalization remain unresolved",
-    "four exact mixed up-sector minors force holomorphic rank at least two for every nonsplit alternate P1 point; the F-F block and rank-three determinant test remain unresolved",
+    "four actual constant mixed up-sector entries have exact Higgs-first quotient residues in the fixed declared bases",
+    "four exact mixed up-sector minors force holomorphic rank at least two for every nonsplit alternate P1 point",
     "two strict null Yoneda combinations are full boundaries with 90-term primitives; the formal determinant now needs only two unknown extension-linear null-to-null coefficients",
     "the natural coherent Higgs quotient has two full closed connecting arrows; its signed actions reproduce the pinned primitive identities without pretending the ideal is a vector bundle",
     "both complete ordered null scalars are full cycles with exact cover residues; the raw tensor differences vanish on the actual A quotient, but physical pairing identification remains open",
@@ -7061,7 +7063,7 @@
     "the corrected triangular two-row tensor product obeys full Leibniz in the legitimate A wedge B quotient; both actual 38-object presentations match the existing Higgs cone and pass full syzygy/null-matter attacks, but no complete scalar pairing is evaluated",
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
-    "the alternate universal up matrix has an exterior-forced zero E-E slot, constant mixed slots, and a parameter-linear F-F block; its determinant coefficients are uncomputed",
+    "the alternate universal holomorphic up matrix has all nine actual-carrier entries and determinant (-3/98-39omega/196)a1 in the fixed quotient frame",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -7112,7 +7114,7 @@
   "experimental_prototypes": [
     "rank-four transition and horseshoe constructors",
     "common-DGA and HPL machinery",
-    "complete natural quotient null-scalar evaluator; actual coefficient execution pending, no new scalar residue certified",
+    "complete natural quotient null-scalar evaluator with both exact coefficient residues certified",
     "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits"
   ],
   "fitted_inputs": [],
@@ -7197,6 +7199,17 @@
       "alternate_up_full_higgs_cone_comparison_available": false,
       "alternate_up_graded_rank_one_F_tensor_identity_derived": true,
       "alternate_up_higgs_first_constant_mixed_entries_computed": true,
+      "alternate_up_holomorphic_matrix_available": true,
+      "alternate_up_holomorphic_matrix_determinant": [
+        {
+          "coefficient": "-3/98-39/196*omega",
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "alternate_up_holomorphic_rank_three_locus": "a1 != 0",
       "alternate_up_inherited_quotient_equivariance_certified": true,
       "alternate_up_local_vertex_tensor_comparison_available": true,
       "alternate_up_natural_null_cover_residues": [
@@ -7227,6 +7240,7 @@
         "0",
         "2673/49-486/49*omega"
       ],
+      "alternate_up_physical_yukawa_matrix_available": false,
       "alternate_up_quotient_K_h0_to_h3": [
         0,
         5,
@@ -7809,7 +7823,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "replay the a1 F-F entries from actual carrier lifts and the fixed Higgs-first quotient product; verify both complete coefficient blocks against the natural null contraction, then assemble the exact holomorphic up matrix",
+    "next_required_object": "establish alternate-carrier positive-twist global generation from the actual cone and fixed bases before any metric approximation; physical normalization still requires converged Ricci-flat and HYM metrics plus a common vacuum",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

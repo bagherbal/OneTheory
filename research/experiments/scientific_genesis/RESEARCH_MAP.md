@@ -6,6 +6,8 @@ reality. Quantum phase, Lorentzian causality, Einstein gravity, and the
 dimensional constants are explicit assumptions. Heterotic `E8 x E8` and the
 Schoen quotient are selected realization data. There is no Genesis-to-UV
 derivation, and the repository must continue to label that edge blocked.
+The distinct alternate carrier now has one complete exact 3x3 holomorphic
+up matrix from its generated chains; this is not a physical Yukawa matrix.
 
 ## Established and computed
 
@@ -1095,16 +1097,16 @@ both formal coefficients, using real carrier lifts rather than arbitrary
 quotient-line primitives. One null contraction still does not supply
 the complete matrix, metrics, common vacuum or physical observables.
 
-The next vertical computation now has an executable owner:
+The F-F vertical computation has an executable owner:
 `alternate_up_ff_entries.py` derives each of the four fixed F-F seed pairs
 for both formal coefficients from the actual E correction, not a freely
 chosen quotient-line representative. It checkpoints the full constituent
 correction, pushout image, quotient product and closed scalar. A separate
 fresh replay in `alternate_up_full_matrix.py` requires all eight entries,
 the literal natural-null cochain identity and the descended Higgs-first
-trace before returning any complete holomorphic matrix. The combined
-matrix remains `BLOCKED` until every archive is replayed; neither formal
-rank information nor a valid archive hash alone supplies its values.
+trace before returning a complete holomorphic matrix. These checks have
+now passed; neither the earlier rank screen nor archive hashes alone
+were used as substitutes for the actual entry values.
 
 All four `a0` matter inputs are now saved with full exact cochains.
 Separate replays checked each complete E differential, strict deck
@@ -1127,6 +1129,15 @@ Their cover residues in the same order are `617/2+93 omega/2`,
 The complete `a1` null cochain equals the independently archived null
 cochain literally, with cover residue `(2673-486 omega)/49`. A direct
 exact determinant expansion gives `-2187/98-28431 omega/196`, nonzero.
-This is a potential rank-three locus in the formal holomorphic family,
-not a normalized mass prediction. Fresh `a1` archive replay and complete
-matrix assembly are in progress; physical observables remain blocked.
+Fresh `a1` archive replay and complete matrix assembly have now passed.
+The content-addressed nine-entry matrix has determinant
+`(-3/98-39 omega/196)a1` in the declared quotient frame and a nonzero
+constant mixed minor `-omega/36`. Thus its rank is three on `a1!=0` and
+two at the projective point `a1=0`. All entries come from actual frozen
+alternate-carrier chains, with no extension coordinate selected and no
+observational input. See `ALTERNATE_UP_FULL_MATRIX_NOTE.md` for the exact
+matrix and determinant expansion. It is holomorphic only, not a normalized
+mass prediction. The next vertical gate is alternate-carrier
+positive-twist global generation before numerical Ricci-flat/HYM metric
+work; the common vacuum, other flavor sectors, and physical observables
+remain blocked.

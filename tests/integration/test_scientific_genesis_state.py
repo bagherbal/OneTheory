@@ -133,7 +133,7 @@ def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
 def test_a1_producer_archives_cannot_claim_a_physical_or_complete_matrix(
     monkeypatch: pytest.MonkeyPatch, schema: str, field: str, error: str,
 ) -> None:
-    """The second formal coefficient still needs fresh full-entry replay."""
+    """A coefficient archive cannot claim the matrix assembled above it."""
 
     original = json.loads
 
@@ -148,6 +148,33 @@ def test_a1_producer_archives_cannot_claim_a_physical_or_complete_matrix(
 
     monkeypatch.setattr(audit.json, "loads", inflated_loads)
     with pytest.raises(ValueError, match=error):
+        build_state()
+
+
+@pytest.mark.parametrize("field", (
+    "physical_yukawa_matrix_available", "canonical_matter_metrics_available",
+    "common_vacuum_stabilized", "extension_point_selected",
+    "observational_inputs_used",
+))
+def test_full_holomorphic_matrix_cannot_claim_physical_scope(
+    monkeypatch: pytest.MonkeyPatch, field: str,
+) -> None:
+    """A fresh hash cannot turn the conditional matrix into a prediction."""
+
+    original = json.loads
+
+    def inflated_loads(text: str) -> object:
+        record = original(text)
+        if isinstance(record, dict) and record.get("schema") == (
+            "alternate-up-full-holomorphic-matrix-v1"
+        ):
+            record.pop("artifact_digest")
+            record[field] = True
+            record["artifact_digest"] = audit._canonical_digest(record)
+        return record
+
+    monkeypatch.setattr(audit.json, "loads", inflated_loads)
+    with pytest.raises(ValueError, match="complete alternate holomorphic matrix or its scope"):
         build_state()
 
 
@@ -683,11 +710,18 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "replay the a1 F-F entries from actual carrier lifts and the "
-        "fixed Higgs-first quotient product; verify both complete "
-        "coefficient blocks against the natural null contraction, "
-        "then assemble the exact holomorphic up matrix"
+        "establish alternate-carrier positive-twist global generation "
+        "from the actual cone and fixed bases before any metric "
+        "approximation; physical normalization still requires "
+        "converged Ricci-flat and HYM metrics plus a common vacuum"
     )
+    assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
+    assert path["criteria"]["alternate_up_holomorphic_rank_three_locus"] == "a1 != 0"
+    assert path["criteria"]["alternate_up_physical_yukawa_matrix_available"] is False
+    assert claims["alternate_up_ff_block"]["status"] == "COMPUTED"
+    assert claims["first_exact_yukawa"]["status"] == "COMPUTED"
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"
     )

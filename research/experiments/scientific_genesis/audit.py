@@ -1526,18 +1526,12 @@ def _nodes() -> list[dict[str, object]]:
             "alternate_up_ff_block",
             "four actual F-F entries for both universal coefficients",
             "Flavor",
-            "BLOCKED",
-            "The actual constituent lift solver, fixed quotient product and "
-            "Higgs-first trace are composed in an executable research evaluator. "
-            "All four a0 matter corrections and pushout images have been "
-            "independently replayed from full cochain archives. The a0 "
-            "block has four exact closed scalar entries and passes its "
-            "literal independent natural-null cochain check. A fresh "
-            "replay also recovered every a0 entry from its complete archive. "
-            "The a1 producer has likewise saved four closed scalar entries "
-            "and a literal natural-null cochain check. Fresh a1 archive "
-            "replay and complete assembly remain required before any full "
-            "holomorphic matrix is available.",
+            "COMPUTED",
+            "All eight F-F entries have complete source-lift, product and "
+            "scalar archives. Fresh replay checks both four-entry blocks, "
+            "their literal natural-null cochain identities, and the fixed "
+            "Higgs-first quotient trace. This gives one exact formal "
+            "holomorphic 3x3 up matrix, not a canonically normalized one.",
             (
                 "research/experiments/scientific_genesis/alternate_up_ff_entries.py",
                 "research/experiments/scientific_genesis/alternate_up_full_matrix.py",
@@ -1575,11 +1569,11 @@ def _nodes() -> list[dict[str, object]]:
                 "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.json",
                 "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.cochains.json.gz",
                 "data/generated/scientific_genesis/alternate_up_ff_coefficient_a1.json",
+                "data/generated/scientific_genesis/alternate_up_full_holomorphic_matrix.json",
                 "tests/integration/test_scientific_genesis_alternate_up_ff_entries.py",
                 "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py",
             ),
             ("frozen actual family bases", "same Higgs class", "canonical quotient product"),
-            ("fresh exact a1 archive replay", "complete matrix assembly"),
         ),
         _node(
             "alternate_up_quotient_trace",
@@ -1781,8 +1775,8 @@ def _nodes() -> list[dict[str, object]]:
             "determinant filtration force the E-E slot to vanish, the "
             "E-F slots to be parameter-independent, and the F-F block "
             "to be linear in the two outer parameters. Consequently the "
-            "three-by-three determinant is linear if nonzero; its two "
-            "coefficients remain uncomputed.",
+            "three-by-three determinant is linear. Both coefficients are "
+            "now computed in the separately audited complete matrix.",
             (
                 "data/generated/scientific_genesis/"
                 "alternate_up_yukawa_support.json",
@@ -1794,7 +1788,6 @@ def _nodes() -> list[dict[str, object]]:
                 "test_scientific_genesis_alternate_up_yukawa_support.py",
             ),
             ("frozen alternate P1", "acyclic determinant endpoints"),
-            ("same-cone Higgs chain class", "two determinant coefficients"),
         ),
         _node(
             "relative_constituent_pushdowns",
@@ -3193,19 +3186,18 @@ def _nodes() -> list[dict[str, object]]:
             "first_exact_yukawa",
             "first carrier-derived 3x3 holomorphic Yukawa matrix",
             "Flavor",
-            "BLOCKED",
-            "The complete carrier-derived tree-level up matrix is exactly zero. "
-            "The first parameter-linear matter leg and complementary Higgs lift "
-            "are exact scoped results, and the bottom V2 Pluecker pairing is "
-            "closed and equivariant. All eight complete first-order "
-            "coefficients vanish exactly. Exterior-filtration truncation proves "
-            "that the full universal up matrix has rank zero, so this branch "
-            "cannot supply the required nontrivial matrix. Convention-corrected "
-            "down and charged-lepton matrices also vanish exactly through every "
-            "exterior-allowed order. The prior Dirac-neutrino assignment is "
-            "withdrawn. No available flavor sector on this frozen carrier "
-            "realization supplies the first nontrivial holomorphic matrix.",
+            "COMPUTED",
+            "The selected published-reference carrier remains a scoped zero-"
+            "matrix no-go. On the distinct stable descended alternate P1 "
+            "carrier, complete actual chain witnesses produce an exact "
+            "3x3 formal holomorphic up matrix. Its determinant is "
+            "(-3/98-39*omega/196)*a1, so rank three holds precisely on "
+            "a1 nonzero. No extension point, canonical metrics, or common "
+            "vacuum has been selected; this is not a physical mass matrix.",
             (
+                "data/generated/scientific_genesis/alternate_up_full_holomorphic_matrix.json",
+                "research/experiments/scientific_genesis/alternate_up_full_matrix.py",
+                "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py",
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_matter_leg_deformation.json",
                 "data/generated/scientific_genesis/"
@@ -3231,23 +3223,20 @@ def _nodes() -> list[dict[str, object]]:
                 "data/generated/scientific_genesis/"
                 "mixed_schoen_charged_lepton_convention.json",
             ),
-            missing=(
-                "exact replacement constituent or carrier realization with a "
-                "nontrivial holomorphic Yukawa matrix",
-            ),
+            ("selected heterotic UV realization", "fixed quotient volume frame"),
         ),
         _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
             "BLOCKED",
-            "Generic section machinery exists, but carrier cocycles, section "
-            "bases, global-generation proof, and converged metrics are absent.",
+            "Generic section machinery exists. The published reference lacks "
+            "its complete carrier cocycles; the alternate cone has chain data "
+            "but lacks a carrier-specific positive-twist global-generation "
+            "proof and converged Ricci-flat/HYM matter metrics.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
             missing=(
-                "carrier extension cocycles",
-                "positive-twist section package",
-                "global generation",
+                "alternate-carrier positive-twist sections and global generation",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -3256,8 +3245,9 @@ def _nodes() -> list[dict[str, object]]:
             "canonically normalized physical Yukawas",
             "Normalization",
             "BLOCKED",
-            "Canonical-normalization laws exist, but holomorphic matrices, "
-            "positive metrics, and a common stabilized context do not.",
+            "Canonical-normalization laws and one alternate holomorphic up "
+            "matrix exist, but positive carrier metrics, the other flavor "
+            "sectors, and a common stabilized context do not.",
             ("src/onetheory/physics/observables.py", "src/onetheory/physics/matter.py"),
             missing=(
                 "all holomorphic Yukawa sectors",
@@ -3786,7 +3776,7 @@ def _edges() -> list[dict[str, object]]:
             ),
             ("same ordered cover trace", "nonsplit frozen carrier"),
             True,
-            ("rank three still depends on the unknown F-F block",),
+            ("this lower bound alone cannot establish rank three",),
         ),
         _edge(
             "alternate_up_yukawa_support",
@@ -4162,7 +4152,7 @@ def _edges() -> list[dict[str, object]]:
             "the natural null contraction, and enter the verified 3x3 matrix.",
             ("research/experiments/scientific_genesis/alternate_up_full_matrix.py",),
             ("fixed Higgs-first trace", "both complete F-F coefficient blocks"),
-            False,
+            True,
             ("source files or partial archives alone cannot supply matrix entries",),
         ),
         _edge(
@@ -6164,7 +6154,7 @@ def _edges() -> list[dict[str, object]]:
             ),
             (),
             False,
-            ("the first nontrivial holomorphic Yukawa remains unresolved",),
+            ("the reference-carrier branch alone cannot provide it",),
         ),
         _edge(
             "mixed_charged_lepton_convention",
@@ -6178,7 +6168,7 @@ def _edges() -> list[dict[str, object]]:
             ),
             (),
             False,
-            ("the first nontrivial holomorphic Yukawa remains unresolved",),
+            ("the reference-carrier branch alone cannot provide it",),
         ),
         _edge(
             "common_dga_package",
@@ -8493,6 +8483,46 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the complete exact a1 F-F block and natural null check are not certified")
+    full_up_path = ROOT / (
+        "data/generated/scientific_genesis/alternate_up_full_holomorphic_matrix.json"
+    )
+    full_up = json.loads(full_up_path.read_text(encoding="utf-8"))
+    full_up_digest = full_up.pop("artifact_digest", None)
+    if (
+        full_up_digest != _canonical_digest(full_up)
+        or full_up_digest != "5dca3368f127ddf90eb8e263b403e6ca74f8857a3e505930194c51a67120884f"
+        or full_up.get("schema") != "alternate-up-full-holomorphic-matrix-v1"
+        or full_up.get("carrier_status") != "conditional on the selected heterotic UV realization"
+        or full_up.get("coefficient_field") != "Q(omega)"
+        or full_up.get("outer_parameter_basis") != ["a0", "a1"]
+        or full_up.get("basis_order") != mixed_quotient.get("basis_order")
+        or full_up.get("scalar_order") != "Higgs first in the fixed quotient volume frame"
+        or full_up.get("cover_to_quotient_trace_factor") != "1/9"
+        or full_up.get("prerequisite_artifact_digests") != {
+            "ff_coefficient_a0": ff_block_digest,
+            "ff_coefficient_a1": ff_a1_block_digest,
+            "mixed_pairing": mixed_quotient_digest,
+        }
+        or full_up.get("determinant") != [{
+            "powers": [0, 1], "coefficient": "-3/98-39/196*omega",
+        }]
+        or full_up.get("rank_two_minor") != [{
+            "powers": [0, 0], "coefficient": "-1/36*omega",
+        }]
+        or full_up.get("null_contraction") != [{
+            "powers": [0, 1], "coefficient": "297/49-54/49*omega",
+        }]
+        or len(full_up.get("matrix_entries", [])) != 3
+        or any(len(row) != 3 for row in full_up["matrix_entries"])
+        or full_up.get("all_nine_entries_derived_from_actual_carrier") is not True
+        or full_up.get("holomorphic_matrix_available") is not True
+        or any(full_up.get(flag) is not False for flag in (
+            "physical_yukawa_matrix_available", "canonical_matter_metrics_available",
+            "common_vacuum_stabilized", "extension_point_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the complete alternate holomorphic matrix or its scope is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -8785,6 +8815,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.json",
         "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_ff_coefficient_a1.json",
+        "data/generated/scientific_genesis/alternate_up_full_holomorphic_matrix.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -8809,7 +8840,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2060,
+            "collected_tests_at_audit": 2066,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -9008,6 +9039,10 @@ def build_state() -> dict[str, object]:
                 "alternate_up_natural_null_cover_residues": [
                     item["ordered_cover_residue"] for item in natural_coefficients
                 ],
+                "alternate_up_holomorphic_matrix_available": True,
+                "alternate_up_holomorphic_matrix_determinant": full_up["determinant"],
+                "alternate_up_holomorphic_rank_three_locus": "a1 != 0",
+                "alternate_up_physical_yukawa_matrix_available": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
                 "alternate_up_ordered_exchange_consistent": all(
@@ -9240,10 +9275,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "replay the a1 F-F entries from actual carrier lifts and the "
-                "fixed Higgs-first quotient product; verify both complete "
-                "coefficient blocks against the natural null contraction, "
-                "then assemble the exact holomorphic up matrix"
+                "establish alternate-carrier positive-twist global generation "
+                "from the actual cone and fixed bases before any metric "
+                "approximation; physical normalization still requires "
+                "converged Ricci-flat and HYM metrics plus a common vacuum"
             ),
         },
         "claims": _nodes(),
@@ -9317,13 +9352,10 @@ def build_state() -> dict[str, object]:
             "H2(Hom(det V1,V1)); their two fixed-basis mixed-entry ratios "
             "are (2-omega)/7 and (-3-2omega)/7, while scalar entries "
             "are computed separately and the same-cone Higgs remains open",
-            "the four constant mixed up-sector entries have exact nonzero "
-            "cover Laurent residues 3omega/2, (3+9omega)/14, 3/2, and "
-            "(-9-6omega)/14 in declared bases; the parameter-linear "
-            "F-F block and quotient normalization remain unresolved",
+            "four actual constant mixed up-sector entries have exact "
+            "Higgs-first quotient residues in the fixed declared bases",
             "four exact mixed up-sector minors force holomorphic rank at "
-            "least two for every nonsplit alternate P1 point; the F-F "
-            "block and rank-three determinant test remain unresolved",
+            "least two for every nonsplit alternate P1 point",
             "two strict null Yoneda combinations are full boundaries "
             "with 90-term primitives; the formal determinant now needs "
             "only two unknown extension-linear null-to-null coefficients",
@@ -9346,9 +9378,9 @@ def build_state() -> dict[str, object]:
             "all sixty minor opens of the alternate I6 quotient carry exact "
             "rank-two duality inverses and syzygy-dual contractions, but "
             "the strict Hom class has not reached a common Higgs complex",
-            "the alternate universal up matrix has an exterior-forced zero "
-            "E-E slot, constant mixed slots, and a parameter-linear F-F "
-            "block; its determinant coefficients are uncomputed",
+            "the alternate universal holomorphic up matrix has all nine "
+            "actual-carrier entries and determinant "
+            "(-3/98-39omega/196)a1 in the fixed quotient frame",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "
@@ -9559,8 +9591,8 @@ def build_state() -> dict[str, object]:
         "experimental_prototypes": [
             "rank-four transition and horseshoe constructors",
             "common-DGA and HPL machinery",
-            "complete natural quotient null-scalar evaluator; actual coefficient "
-            "execution pending, no new scalar residue certified",
+            "complete natural quotient null-scalar evaluator with both "
+            "exact coefficient residues certified",
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
         ],
         "blocked_physical_calculations": [
@@ -9568,7 +9600,7 @@ def build_state() -> dict[str, object]:
             "atlas-derived relative-pushdown line characters resolving the "
             "unavailable down-Higgs representation",
             "the first nontrivial deformation or higher-product Yukawa contribution",
-            "carrier-derived nontrivial holomorphic Yukawa matrix",
+            "alternate-carrier matter metrics and remaining flavor matrices",
             "physical normalization, hidden sector, vacuum, and low-energy predictions",
         ],
         "duplicated_calculations": [

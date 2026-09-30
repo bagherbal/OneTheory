@@ -1182,18 +1182,24 @@ fiberwise evaluation for both constituents on the quotient, not another
 cover section count.
 
 That quotient generation gate now closes at a deliberately enlarged
-mathematical twist `H=(14,16,10)`. The alternate right ray (0,1) has
+mathematical twist `H=(14,16,1)`. The alternate right ray (0,1) has
 Serre subline `(6,6,0)` at the old trial twist, with exact `H1=0`,
 and four basepoint-free Hilbert–Burch source lines `(6,3,2)`. Thus
 both actual constituents generate on the cover at `H0=(5,7,1)`.
-The descending auxiliary `O(9,9,9)` separates every free nine-point
-deck orbit by an eight-factor product of ambient linear forms; exact
+The free action stays free after projection to the two `P2` factors:
+every nonempty fiber is a point or all of `P1`, and a deck element
+preserving one would fix a cover point. The descending auxiliary
+`O(9,9,0)` therefore separates every projected nine-point orbit by
+an eight-factor product of ambient linear forms; exact
 finite-group averaging then proves invariant fiberwise evaluation at
-`H`. All first-constituent line Koszul terms are acyclic above H0 at
-this enlarged twist, giving `H1(X,V1(H))=0`. The extension criterion
+`H`. The first Serre subline has its exact rank-transgression pattern,
+and all first Hilbert–Burch lines are acyclic above H0, giving
+`H1(X,V1(H))=0`. The extension criterion
 therefore proves every alternate P1 rank-four bundle globally generated
-on the quotient at `H`. This is a structural existence theorem, not
-an explicit invariant basis or a numerical metric. See
+on the quotient at `H`. Exact cohomology and free-action characters give
+`2655+2690=5345` quotient sections, compared with `13,373` for the
+earlier all-factor separator. This is a structural existence theorem,
+not an explicit invariant basis or a numerical metric. See
 `ALTERNATE_METRIC_QUOTIENT_GENERATION_NOTE.md`. The next vertical
 object is an actual invariant basis for controlled Ricci-flat/HYM
 computation; the common vacuum and physical normalization remain open.

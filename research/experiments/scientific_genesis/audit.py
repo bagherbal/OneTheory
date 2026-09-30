@@ -3264,12 +3264,13 @@ def _nodes() -> list[dict[str, object]]:
             "alternate carrier quotient generation at an enlarged twist",
             "Normalization",
             "PROVED",
-            "At the declared mathematical twist (14,16,10), both actual "
+            "At the declared mathematical twist (14,16,1), both actual "
             "alternate constituents are globally generated on the quotient: "
-            "Serre cover generation, a descending orbit-separating line, "
+            "Serre cover generation, a descending projected-orbit separator, "
             "and exact finite-group averaging prove invariant evaluation. "
             "The first constituent has H1=0 there, so the rank-four P1 "
-            "family is globally generated. No explicit invariant section "
+            "family is globally generated with 5345 quotient sections. "
+            "No explicit invariant section "
             "basis or numerical metric is supplied.",
             (
                 "data/generated/scientific_genesis/alternate_metric_quotient_generation.json",
@@ -8698,16 +8699,21 @@ def build_state() -> dict[str, object]:
     generation_digest = generation.pop("artifact_digest", None)
     if (
         generation_digest != _canonical_digest(generation)
-        or generation_digest != "f6ee1cdf3d29e37c3586ae0833a7d0e8dd2870b6b824ce69e3b73e296cf97dad"
-        or generation.get("schema") != "alternate-metric-quotient-generation-v1"
+        or generation_digest != "3ca16bfa116c6b5530d73e74486eb196d37dbf9c0f7e75d445e84c41176fe063"
+        or generation.get("schema") != "alternate-metric-quotient-generation-v2"
         or generation.get("base_twist_cover_degree") != [5, 7, 1]
-        or generation.get("orbit_separator_cover_degree") != [9, 9, 9]
-        or generation.get("generating_twist_cover_degree") != [14, 16, 10]
+        or generation.get("orbit_separator_cover_degree") != [9, 9, 0]
+        or generation.get("generating_twist_cover_degree") != [14, 16, 1]
         or generation.get("free_deck_orbit_size") != 9
-        or generation.get("ambient_multihomogeneous_separation_bound_per_factor") != 8
+        or generation.get("projected_orbit_action_free") is not True
+        or generation.get("projected_fiber_type") != "empty, point, or the full projective line"
+        or generation.get("ambient_multihomogeneous_separation_bound_per_p2_factor") != 8
         or generation.get("right_serre_subline_base_degree") != [6, 6, 0]
         or generation.get("right_serre_subline_base_h0") != 684
         or generation.get("right_hilbert_burch_source_base_degrees") != [[6, 3, 2]] * 4
+        or generation.get("cover_h0_constituents_at_generating_twist") != [23895, 24210]
+        or generation.get("quotient_h0_constituents_at_generating_twist") != [2655, 2690]
+        or generation.get("quotient_h0_rank_four_at_generating_twist") != 5345
         or generation.get("prerequisite_artifact_digests") != {
             "first_constituent": metric_digest,
             "alternate_cone": alternate_cone_digest,
@@ -9257,6 +9263,9 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_large_generating_twist": generation[
                     "generating_twist_cover_degree"
                 ],
+                "alternate_metric_quotient_section_count": generation[
+                    "quotient_h0_rank_four_at_generating_twist"
+                ],
                 "alternate_metric_constituents_globally_generated": True,
                 "alternate_metric_rank_four_globally_generated": True,
                 "alternate_metric_explicit_invariant_basis_available": False,
@@ -9493,7 +9502,7 @@ def build_state() -> dict[str, object]:
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
                 "construct exact invariant section bases for the alternate "
-                "carrier at the proved generating twist H=(14,16,10), "
+                "carrier at the proved generating twist H=(14,16,1), "
                 "then test Ricci-flat and HYM convergence; global generation "
                 "is established but no numerical matter metric exists"
             ),

@@ -21,6 +21,7 @@ from math import comb
 from pathlib import Path
 
 from onetheory.math.numbers import OMEGA, Eisenstein
+from onetheory.models.heterotic_schoen.geometry import schoen_geometry
 from research.experiments.scientific_genesis.distinct_constituent_ray_screen import (
     lift_joint_character_ray,
 )
@@ -61,13 +62,17 @@ def _ambient(degree: tuple[int, int, int]) -> list[int]:
     return result
 
 
+def _h0(profile: dict[str, object], key: str) -> int:
+    return profile[key]["ambient_h0_to_h5"][0]
+
+
 def test_second_constituent_cover_generation_uses_actual_ray() -> None:
     record = json.loads(ARTIFACT.read_text(encoding="utf-8"))
     digest = record.pop("artifact_digest")
     assert digest == hashlib.sha256(json.dumps(
         record, sort_keys=True, separators=(",", ":"),
     ).encode("utf-8")).hexdigest()
-    assert record["schema"] == "alternate-metric-quotient-generation-v1"
+    assert record["schema"] == "alternate-metric-quotient-generation-v2"
     action = published_constituent_deck_actions()[1]
     ray = lift_joint_character_ray(action, Eisenstein(1), OMEGA)
     second = _constituent(ray, "I6-ray-0-1", 2, (1, -1, 0))
@@ -94,20 +99,28 @@ def test_large_twist_closes_invariant_evaluation_and_outer_h1() -> None:
     first = json.loads(FIRST.read_text(encoding="utf-8"))
     assert record["prerequisite_artifact_digests"]["first_constituent"] == first["artifact_digest"]
     assert record["base_twist_cover_degree"] == [5, 7, 1]
-    assert record["orbit_separator_cover_degree"] == [9, 9, 9]
-    assert record["generating_twist_cover_degree"] == [14, 16, 10]
+    assert record["orbit_separator_cover_degree"] == [9, 9, 0]
+    assert record["generating_twist_cover_degree"] == [14, 16, 1]
     assert record["free_deck_orbit_size"] == 9
-    assert record["ambient_multihomogeneous_separation_bound_per_factor"] == 8
+    assert record["projected_orbit_action_free"] is True
+    assert record["projected_fiber_type"] == "empty, point, or the full projective line"
+    assert record["ambient_multihomogeneous_separation_bound_per_p2_factor"] == 8
+    geometry = schoen_geometry()
+    assert geometry.quotient.acts_freely and geometry.quotient.order == 9
+    assert geometry.cover.cox.equations == (
+        "p1 = mu F(x) + nu G(x)", "p2 = 2 nu F(u) + mu G(u)",
+    )
     assert (OMEGA**2) ** 9 * (OMEGA**2) ** 9 == Eisenstein(1)
     assert (OMEGA**2) ** 14 * (OMEGA**2) ** 16 == Eisenstein(1)
     assert record["orbit_separator_descends"] is True
     assert record["first_constituent_cover_generated_at_base_twist"] is True
+    dimensions = []
     for source, item in zip(
         first["line_objects"], record["first_large_twist_line_profiles"], strict=True,
     ):
         assert item["name"] == source["name"]
         assert item["twisted_degree"] == [
-            a + b for a, b in zip(source["source_degree"], (14, 16, 10), strict=True)
+            a + b for a, b in zip(source["source_degree"], (14, 16, 1), strict=True)
         ]
         for piece, subtraction in (
             ("k0", (0, 0, 0)), ("k1_x", (3, 0, 1)),
@@ -119,7 +132,53 @@ def test_large_twist_closes_invariant_evaluation_and_outer_h1() -> None:
             profile = item["ambient_koszul_profile"][piece]
             assert profile["degree"] == list(expected_degree)
             assert profile["ambient_h0_to_h5"] == _ambient(expected_degree)
-            assert profile["ambient_h0_to_h5"][1:] == [0] * 5
+        profile = item["ambient_koszul_profile"]
+        if item["role"] == "A":
+            assert profile["k1_x"]["ambient_h0_to_h5"] == [0] * 6
+            assert profile["k1_u"]["ambient_h0_to_h5"] == [0] * 6
+            dimension = _h0(profile, "k0") - profile["k2"]["ambient_h0_to_h5"][1]
+        else:
+            assert all(value["ambient_h0_to_h5"][1:] == [0] * 5 for value in profile.values())
+            dimension = (
+                _h0(profile, "k0") - _h0(profile, "k1_x")
+                - _h0(profile, "k1_u") + _h0(profile, "k2")
+            )
+        assert item["cover_h0"] == dimension
+        assert item["cover_higher_cohomology_vanishes"] is True
+        dimensions.append(dimension if item["role"] != "F1" else -dimension)
+    assert sum(dimensions) == 23895
+    second = _constituent(
+        lift_joint_character_ray(
+            published_constituent_deck_actions()[1], Eisenstein(1), OMEGA,
+        ),
+        "I6-ray-0-1", 2, (1, -1, 0),
+    )
+    right_dimensions = []
+    for source, item in zip(
+        second.objects, record["second_large_twist_line_profiles"], strict=True,
+    ):
+        assert item["twisted_degree"] == [
+            a + b for a, b in zip(source.line_degree, (14, 16, 1), strict=True)
+        ]
+        profile = item["ambient_koszul_profile"]
+        for piece in profile.values():
+            assert piece["ambient_h0_to_h5"] == _ambient(tuple(piece["degree"]))
+        if item["role"] == "A":
+            assert profile["k1_x"]["ambient_h0_to_h5"] == [0] * 6
+            assert profile["k1_u"]["ambient_h0_to_h5"] == [0] * 6
+            dimension = _h0(profile, "k0") - profile["k2"]["ambient_h0_to_h5"][1]
+        else:
+            assert all(value["ambient_h0_to_h5"][1:] == [0] * 5 for value in profile.values())
+            dimension = (
+                _h0(profile, "k0") - _h0(profile, "k1_x")
+                - _h0(profile, "k1_u") + _h0(profile, "k2")
+            )
+        assert item["cover_h0"] == dimension
+        right_dimensions.append(dimension if item["role"] != "F1" else -dimension)
+    assert sum(right_dimensions) == 24210
+    assert record["cover_h0_constituents_at_generating_twist"] == [23895, 24210]
+    assert record["quotient_h0_constituents_at_generating_twist"] == [2655, 2690]
+    assert record["quotient_h0_rank_four_at_generating_twist"] == 5345
     assert record["first_constituent_h1_vanishes_at_generating_twist"] is True
     assert record["both_constituents_quotient_generated_at_generating_twist"] is True
     assert record["rank_four_quotient_generated_for_all_alternate_p1"] is True

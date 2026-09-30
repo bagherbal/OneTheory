@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "8424efded998adfa549b4f70eca2ad501382b1a8daf67c65ef91da29e7d7c680",
+  "artifact_digest": "eb395512b742deb3782939f290119e079368e59f009242f9728177545ec5797f",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -857,9 +857,9 @@
       "sha256": "6258e605b6e5c7f77c1b312da61831fdc60b44c1e179de885cbcc1b3777d5568"
     },
     {
-      "bytes": 10079,
+      "bytes": 20462,
       "path": "data/generated/scientific_genesis/alternate_metric_quotient_generation.json",
-      "sha256": "fc9532cbf9dd5454124808272f9abe13d4590e206ff3922405efd0fe1c68a00a"
+      "sha256": "b3726b08f2cc9addce0a054f54aaf76385250dcda483fb56c7df3992a0a6fc21"
     },
     {
       "bytes": 1534,
@@ -3675,7 +3675,7 @@
       "label": "alternate carrier quotient generation at an enlarged twist",
       "layer": "Normalization",
       "missing_prerequisites": [],
-      "statement": "At the declared mathematical twist (14,16,10), both actual alternate constituents are globally generated on the quotient: Serre cover generation, a descending orbit-separating line, and exact finite-group averaging prove invariant evaluation. The first constituent has H1=0 there, so the rank-four P1 family is globally generated. No explicit invariant section basis or numerical metric is supplied.",
+      "statement": "At the declared mathematical twist (14,16,1), both actual alternate constituents are globally generated on the quotient: Serre cover generation, a descending projected-orbit separator, and exact finite-group averaging prove invariant evaluation. The first constituent has H1=0 there, so the rank-four P1 family is globally generated with 5345 quotient sections. No explicit invariant section basis or numerical metric is supplied.",
       "status": "PROVED"
     },
     {
@@ -7288,8 +7288,9 @@
       "alternate_metric_large_generating_twist": [
         14,
         16,
-        10
+        1
       ],
+      "alternate_metric_quotient_section_count": 5345,
       "alternate_metric_rank_four_globally_generated": true,
       "alternate_metric_subbundle_h1_vanishing": true,
       "alternate_metric_trial_twist": [
@@ -7961,7 +7962,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "construct exact invariant section bases for the alternate carrier at the proved generating twist H=(14,16,10), then test Ricci-flat and HYM convergence; global generation is established but no numerical matter metric exists",
+    "next_required_object": "construct exact invariant section bases for the alternate carrier at the proved generating twist H=(14,16,1), then test Ricci-flat and HYM convergence; global generation is established but no numerical matter metric exists",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

@@ -51,8 +51,8 @@ OUTPUT = ROOT / "data/generated/scientific_genesis/alternate_metric_quotient_gen
 CONE = ROOT / "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json"
 CARRIER = ROOT / "data/generated/scientific_genesis/alternate_constituent_carrier_state.json"
 BASE_TWIST = (5, 7, 1)
-ORBIT_SEPARATOR = (9, 9, 9)
-GENERATING_TWIST = (14, 16, 10)
+ORBIT_SEPARATOR = (9, 9, 0)
+GENERATING_TWIST = (14, 16, 1)
 
 type Degree = tuple[int, int, int]
 
@@ -92,6 +92,26 @@ def _ambient_only_h0(profile: dict[str, object]) -> bool:
         == [0] * 5
         for item in profile.values()
     )
+
+
+def _line_h0_and_vanishing(profile: dict[str, object], role: str) -> int:
+    """Use the two exact Koszul support patterns present at this twist."""
+
+    if role == "A":
+        return _h0_only_dimension(profile, role)
+    if role not in ("F0", "F1") or not _ambient_only_h0(profile):
+        raise ValueError("the Hilbert--Burch line lost its H0-only ambient profile")
+    dimensions = {
+        name: cast(list[int], cast(dict[str, object], item)["ambient_h0_to_h5"])[0]
+        for name, item in profile.items()
+    }
+    result = (
+        dimensions["k0"] - dimensions["k1_x"]
+        - dimensions["k1_u"] + dimensions["k2"]
+    )
+    if result < 0:
+        raise ValueError("the exact Koszul H0 alternating sum is negative")
+    return result
 
 
 def alternate_metric_quotient_generation() -> dict[str, object]:
@@ -145,30 +165,50 @@ def alternate_metric_quotient_generation() -> dict[str, object]:
             raise ValueError("the orbit separator or generating twist does not descend")
     if _twisted(BASE_TWIST, ORBIT_SEPARATOR) != GENERATING_TWIST:
         raise ValueError("the generating twist is not the certified tensor product")
-    if any(degree < geometry.quotient.order - 1 for degree in ORBIT_SEPARATOR):
-        raise ValueError("the ambient separator cannot distinguish every orbit point")
+    if (
+        any(degree < geometry.quotient.order - 1 for degree in ORBIT_SEPARATOR[:2])
+        or ORBIT_SEPARATOR[2] != 0
+        or not all(degree > 0 for degree in GENERATING_TWIST)
+    ):
+        raise ValueError("the projected-orbit separator or ample twist changed")
 
     first_large_lines = []
-    for item in first.objects:
-        degree = _twisted(item.line_degree, GENERATING_TWIST)
-        profile = _koszul_profile(degree, equations)
-        if not _ambient_only_h0(profile):
-            raise ValueError("large-twist first-constituent line acyclicity failed")
-        first_large_lines.append({
-            "name": item.name,
-            "twisted_degree": list(degree),
-            "ambient_koszul_profile": profile,
-            "all_ambient_terms_acyclic_above_h0": True,
-        })
+    second_large_lines = []
+    for constituent, records in ((first, first_large_lines), (second, second_large_lines)):
+        for item, role in zip(constituent.objects, _roles(constituent), strict=True):
+            degree = _twisted(item.line_degree, GENERATING_TWIST)
+            profile = _koszul_profile(degree, equations)
+            dimension = _line_h0_and_vanishing(profile, role)
+            records.append({
+                "name": item.name,
+                "role": role,
+                "twisted_degree": list(degree),
+                "ambient_koszul_profile": profile,
+                "cover_h0": dimension,
+                "cover_higher_cohomology_vanishes": True,
+            })
+    cover_dimensions = []
+    for records in (first_large_lines, second_large_lines):
+        cover_dimension = sum(
+            int(item["cover_h0"]) * (1 if item["role"] != "F1" else -1)
+            for item in records
+        )
+        if cover_dimension <= 0 or cover_dimension % geometry.quotient.order:
+            raise ValueError("the cover H0 character dimension is inconsistent")
+        cover_dimensions.append(cover_dimension)
 
     return {
-        "schema": "alternate-metric-quotient-generation-v1",
+        "schema": "alternate-metric-quotient-generation-v2",
         "carrier_status": "conditional on the selected heterotic UV realization",
         "base_twist_cover_degree": list(BASE_TWIST),
         "orbit_separator_cover_degree": list(ORBIT_SEPARATOR),
         "generating_twist_cover_degree": list(GENERATING_TWIST),
         "free_deck_orbit_size": geometry.quotient.order,
-        "ambient_multihomogeneous_separation_bound_per_factor": geometry.quotient.order - 1,
+        "projected_orbit_action_free": True,
+        "projected_fiber_type": "empty, point, or the full projective line",
+        "ambient_multihomogeneous_separation_bound_per_p2_factor": (
+            geometry.quotient.order - 1
+        ),
         "right_serre_subline_base_degree": list(right_a),
         "right_serre_subline_base_h0": right_a_h0,
         "right_serre_subline_base_ambient_koszul_profile": right_a_profile,
@@ -177,10 +217,11 @@ def alternate_metric_quotient_generation() -> dict[str, object]:
         "first_constituent_cover_generated_at_base_twist": True,
         "orbit_separator_descends": True,
         "orbit_separation_argument": (
-            "For each other point of a free nine-point orbit, choose a "
-            "linear form in one projective factor vanishing there but not "
-            "at the target; multiply eight forms and pad each factor to "
-            "degree nine by nonvanishing linear forms"
+            "A deck element fixing the projected P2xP2 pair preserves a "
+            "nonempty fiber cut by linear P1 equations, hence fixes a "
+            "point, contradicting the free action. For each of the other "
+            "eight projected orbit points, choose one separating P2 linear "
+            "form; multiply and pad both P2 degrees to nine"
         ),
         "invariant_evaluation_argument": (
             "Cover generation tensored with orbit-separating sections "
@@ -188,6 +229,14 @@ def alternate_metric_quotient_generation() -> dict[str, object]:
             "averaging makes invariant sections surject onto the quotient fiber"
         ),
         "first_large_twist_line_profiles": first_large_lines,
+        "second_large_twist_line_profiles": second_large_lines,
+        "cover_h0_constituents_at_generating_twist": cover_dimensions,
+        "quotient_h0_constituents_at_generating_twist": [
+            value // geometry.quotient.order for value in cover_dimensions
+        ],
+        "quotient_h0_rank_four_at_generating_twist": (
+            sum(cover_dimensions) // geometry.quotient.order
+        ),
         "first_constituent_h1_vanishes_at_generating_twist": True,
         "both_constituents_quotient_generated_at_generating_twist": True,
         "rank_four_quotient_generated_for_all_alternate_p1": True,

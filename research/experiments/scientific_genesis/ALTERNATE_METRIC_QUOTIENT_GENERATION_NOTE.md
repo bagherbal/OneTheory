@@ -3,7 +3,7 @@
 This is a mathematical prerequisite for metrics on the frozen alternate
 heterotic carrier, conditional on that selected UV realization. It does
 not select an extension coordinate, Kähler modulus, or vacuum. The twist
-`H=(14,16,10)` is deliberately larger than the earlier trial
+`H=(14,16,1)` is deliberately larger in the two `P2` degrees than the trial
 `H0=(5,7,1)`; no generation claim is made at `H0` on the quotient.
 
 ## Both actual constituents generate on the cover at `H0`
@@ -28,20 +28,31 @@ the reference carrier's section count.
 ## Orbit separation gives invariant evaluation
 
 The published `Z3 × Z3` action is free, so each cover orbit has nine
-distinct points in the ambient `P2 × P2 × P1`. Fix a target point in
-one orbit. For each of the other eight points, at least one projective
-factor differs. Choose a linear form in that factor vanishing at the
-other point but nonzero at the target. Their product vanishes at all
-eight other points and not at the target. Multiplying by linear forms
-nonzero at the target pads each factor to degree nine. Consequently
-the complete ambient system `O(9,9,9)` separates *every* deck orbit,
-not merely sampled orbits. Restriction to the cover preserves these
-values.
+distinct points. In fact their projections to `P2_x × P2_u` are also
+distinct. Fix `(x,u)`. The two Schoen equations are homogeneous linear
+equations in the shared base coordinates `(mu,nu)`, so their common
+fiber in `P1` is empty, one point, or all of `P1`. If a nonidentity
+deck element fixed `(x,u)` in the image, it would preserve a nonempty
+fiber. It would fix the sole point of a point fiber; on a full `P1`
+fiber its projective action has an eigenline and hence a fixed point.
+Either contradicts the free action on the cover. Thus no nonidentity
+deck element fixes a projected point.
+
+Fix a target projected point in an orbit. For each of the other eight
+projected points, at least one `P2` coordinate differs. Choose a
+linear form in that factor vanishing at the other point but nonzero at
+the target. Their product vanishes at all eight others and not at the
+target. Multiplying by linear forms nonzero at the target pads *both*
+`P2` factors to degree nine. Consequently `O(9,9,0)` separates every
+deck orbit, not merely sampled orbits. Restriction to the cover
+preserves these values.
 
 The exact coordinate lifts have scalar commutator `omega^2` on each
-`P2` factor and `1` on `P1`. Therefore `O(9,9,9)` has commuting
+`P2` factor and `1` on `P1`. Therefore `O(9,9,0)` has commuting
 order-three lifts and descends. The tensor product with the already
-descending `H0` is `H=(14,16,10)` and also descends. For either
+descending `H0` is `H=(14,16,1)` and also descends. All its ambient
+multidegrees are positive, so this is an ample mathematical twist.
+For either
 equivariant constituent generated on the cover at `H0`, multiply a
 global section attaining any chosen fiber vector by an orbit-
 separating section. This makes the evaluation map at the direct sum
@@ -54,14 +65,27 @@ proof and does not construct an explicit invariant section basis.
 
 ## The rank-four family
 
-At `H`, every ambient Koszul term for each line of the actual first
-constituent has cohomology only in degree zero. Exactness of the
-two-equation Koszul sheaf resolution gives higher-cohomology
-vanishing for those restricted lines; the genuine Hilbert–Burch and
+At `H`, the first Serre subline `A=(13,17,0)` has the same exact
+Koszul support pattern as at the trial twist: `K1` vanishes and
+`H1(K2)` injects into `H0(K0)`, so `H1(A)=0`. Every ambient Koszul
+term for each first Hilbert–Burch line has cohomology only in degree
+zero. Exactness of the two-equation Koszul sheaf resolution gives
+higher-cohomology vanishing for those restricted lines; the genuine
+Hilbert–Burch and
 Serre sequences then give `H^1(X,V1(H))=0` on the cover and hence on
 the quotient. The quotient-level extension criterion lifts sections
 from `V2(H)` and fills the `V1(H)` kernel. Thus every member of the
 frozen alternate non-split `P1` family is globally generated at `H`.
+
+Exact line-cohomology arithmetic gives cover `H0` dimensions
+`23,895` and `24,210` for the two constituents. Their higher
+cohomology vanishes; holomorphic Lefschetz for the free ninefold
+quotient gives invariant dimensions `2,655` and `2,690`, hence
+`5,345` rank-four sections. These are dimensions, not constructed
+section vectors. The previous all-factor separator `O(9,9,9)` needed
+`13,373` quotient sections; dropping its unnecessary `P1` degree
+substantially reduces the computational target without sacrificing
+the global-generation theorem.
 
 The exact evidence is in
 `data/generated/scientific_genesis/alternate_metric_quotient_generation.json`.

@@ -736,7 +736,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert path["next_required_object"] == (
         "construct exact invariant section bases for the alternate "
-        "carrier at the proved generating twist H=(14,16,10), "
+        "carrier at the proved generating twist H=(14,16,1), "
         "then test Ricci-flat and HYM convergence; global generation "
         "is established but no numerical matter metric exists"
     )
@@ -750,7 +750,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_metric_subbundle_h1_vanishing"] is True
     assert path["criteria"]["alternate_metric_first_constituent_cover_generated"] is True
     assert claims["alternate_metric_quotient_generation"]["status"] == "PROVED"
-    assert path["criteria"]["alternate_metric_large_generating_twist"] == [14, 16, 10]
+    assert path["criteria"]["alternate_metric_large_generating_twist"] == [14, 16, 1]
+    assert path["criteria"]["alternate_metric_quotient_section_count"] == 5345
     assert path["criteria"]["alternate_metric_constituents_globally_generated"] is True
     assert path["criteria"]["alternate_metric_rank_four_globally_generated"] is True
     assert path["criteria"]["alternate_metric_explicit_invariant_basis_available"] is False

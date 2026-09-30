@@ -1203,3 +1203,19 @@ not an explicit invariant basis or a numerical metric. See
 `ALTERNATE_METRIC_QUOTIENT_GENERATION_NOTE.md`. The next vertical
 object is an actual invariant basis for controlled Ricci-flat/HYM
 computation; the common vacuum and physical normalization remain open.
+
+The first actual section component is now explicit. At this same twist,
+the first Serre subline has degree `(13,17,0)`. Eliminating the common
+`P1` coordinate gives the invariant bidegree-`(3,3)` relation
+`R=2 F(x)F(u)-G(x)G(u)`. Its section space is the degree-`(13,17)`
+polynomial quotient by `R` times degree `(10,14)`. The frozen carrier's
+determinant-repairing flat character changes the first-subline frame
+from the atlas `(omega^2,1)` to `(1,omega^2)`. In that actual frame,
+with the metric twist using its declared natural ambient linearization,
+exact monomial orbit sums give 1995 invariant ambient vectors; the
+invariant relation space has rank 880, leaving an explicit 1115-vector
+quotient basis. Independent rank specialization modulo 7 verifies the
+chosen complement. See `ALTERNATE_METRIC_FIRST_SUBLINE_SECTIONS_NOTE.md`.
+This does not construct the remaining 1540 first Serre-quotient
+sections, their non-split lifts, the 2690 second-constituent sections,
+or any rank-four metric.

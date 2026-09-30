@@ -3270,7 +3270,7 @@ def _nodes() -> list[dict[str, object]]:
             "and exact finite-group averaging prove invariant evaluation. "
             "The first constituent has H1=0 there, so the rank-four P1 "
             "family is globally generated with 5345 quotient sections. "
-            "No explicit invariant section "
+            "No complete rank-four invariant section "
             "basis or numerical metric is supplied.",
             (
                 "data/generated/scientific_genesis/alternate_metric_quotient_generation.json",
@@ -3284,12 +3284,35 @@ def _nodes() -> list[dict[str, object]]:
             ("published free Schoen quotient", "actual alternate constituent rays"),
         ),
         _node(
+            "alternate_metric_first_subline_sections",
+            "actual first Serre subline invariant section basis",
+            "Normalization",
+            "COMPUTED",
+            "At H=(14,16,1), the frozen determinant-repaired first "
+            "Serre subline has an explicit 1115-vector quotient basis. "
+            "The projected Schoen eliminant is deck invariant; exact "
+            "orbit sums and an 880-rank ideal quotient construct the basis. "
+            "The full constituent and rank-four section bases remain open.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_metric_first_subline_sections.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_metric_first_subline_sections.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_FIRST_SUBLINE_SECTIONS_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_metric_first_subline_sections.py",
+            ),
+            ("frozen alternate common flat character", "published Schoen cubics"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
             "BLOCKED",
             "The alternate carrier is globally generated at a declared "
-            "large twist, but explicit invariant section bases and converged "
+            "ample twist. Its first Serre subline has an actual invariant "
+            "basis, but full carrier sections and converged "
             "Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
@@ -5472,6 +5495,21 @@ def _edges() -> list[dict[str, object]]:
             ("selected heterotic UV realization", "declared mathematical twist"),
             True,
             ("generation does not provide invariant bases or converged metrics",),
+        ),
+        _edge(
+            "alternate_metric_first_subline_sections",
+            "visible_metrics",
+            "The actual-frame invariant subline basis supplies one direct "
+            "component of the exact carrier section construction.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_metric_first_subline_sections.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_FIRST_SUBLINE_SECTIONS_NOTE.md",
+            ),
+            ("determinant-repaired alternate carrier",),
+            True,
+            ("Serre quotient lifts and complete carrier sections remain missing",),
         ),
         _edge(
             "computable_carrier_state",
@@ -8735,6 +8773,37 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the alternate quotient-generation theorem or scope is not certified")
+    subline_path = ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_first_subline_sections.json"
+    )
+    subline = json.loads(subline_path.read_text(encoding="utf-8"))
+    subline_digest = subline.pop("artifact_digest", None)
+    if (
+        subline_digest != _canonical_digest(subline)
+        or subline_digest != "73b91e7f16496bc32f5bd03903edd6d06fb0e6dc9dd8b13811ccd62f4fff5a73"
+        or subline.get("schema") != "alternate-metric-first-subline-sections-v1"
+        or subline.get("twisted_subline_cover_degree") != [13, 17, 0]
+        or subline.get("metric_twist_linearization")
+        != "natural commuting ambient P/T coordinate lifts"
+        or subline.get("actual_subline_frame_p_t") != ["1", "-1-omega"]
+        or subline.get("projected_eliminant_bidegree") != [3, 3]
+        or subline.get("projected_eliminant_deck_invariant") is not True
+        or subline.get("ambient_invariant_orbit_count") != 1995
+        or subline.get("ideal_invariant_orbit_count") != 880
+        or subline.get("ideal_inclusion_rank") != 880
+        or subline.get("quotient_subline_section_count") != 1115
+        or len(subline.get("quotient_basis_monomials_x_u", [])) != 1115
+        or subline.get("prerequisite_artifact_digests") != {
+            "generation": generation_digest,
+            "alternate_cone": alternate_cone_digest,
+        }
+        or any(subline.get(flag) is not False for flag in (
+            "full_constituent_section_basis_available",
+            "rank_four_section_basis_available", "numerical_metrics_available",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual first-subline section basis or scope is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9030,6 +9099,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_full_holomorphic_matrix.json",
         "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
         "data/generated/scientific_genesis/alternate_metric_quotient_generation.json",
+        "data/generated/scientific_genesis/alternate_metric_first_subline_sections.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -9266,6 +9336,10 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_quotient_section_count": generation[
                     "quotient_h0_rank_four_at_generating_twist"
                 ],
+                "alternate_metric_first_subline_basis_count": subline[
+                    "quotient_subline_section_count"
+                ],
+                "alternate_metric_remaining_first_serre_quotient_dimension": 1540,
                 "alternate_metric_constituents_globally_generated": True,
                 "alternate_metric_rank_four_globally_generated": True,
                 "alternate_metric_explicit_invariant_basis_available": False,
@@ -9501,10 +9575,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "construct exact invariant section bases for the alternate "
-                "carrier at the proved generating twist H=(14,16,1), "
-                "then test Ricci-flat and HYM convergence; global generation "
-                "is established but no numerical matter metric exists"
+                "at H=(14,16,1), construct the remaining 1540 invariant "
+                "first Hilbert-Burch quotient sections and their Serre lifts; "
+                "then complete V2 and rank-four bases before controlled "
+                "Ricci-flat/HYM convergence tests"
             ),
         },
         "claims": _nodes(),

@@ -735,10 +735,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "construct exact invariant section bases for the alternate "
-        "carrier at the proved generating twist H=(14,16,1), "
-        "then test Ricci-flat and HYM convergence; global generation "
-        "is established but no numerical matter metric exists"
+        "at H=(14,16,1), construct the remaining 1540 invariant "
+        "first Hilbert-Burch quotient sections and their Serre lifts; "
+        "then complete V2 and rank-four bases before controlled "
+        "Ricci-flat/HYM convergence tests"
     )
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_up_holomorphic_rank_three_locus"] == "a1 != 0"
@@ -750,8 +750,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_metric_subbundle_h1_vanishing"] is True
     assert path["criteria"]["alternate_metric_first_constituent_cover_generated"] is True
     assert claims["alternate_metric_quotient_generation"]["status"] == "PROVED"
+    assert claims["alternate_metric_first_subline_sections"]["status"] == "COMPUTED"
     assert path["criteria"]["alternate_metric_large_generating_twist"] == [14, 16, 1]
     assert path["criteria"]["alternate_metric_quotient_section_count"] == 5345
+    assert path["criteria"]["alternate_metric_first_subline_basis_count"] == 1115
+    assert path["criteria"]["alternate_metric_remaining_first_serre_quotient_dimension"] == 1540
     assert path["criteria"]["alternate_metric_constituents_globally_generated"] is True
     assert path["criteria"]["alternate_metric_rank_four_globally_generated"] is True
     assert path["criteria"]["alternate_metric_explicit_invariant_basis_available"] is False

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "046c028bf989290e88bb3233eceef653052135b640d88024cbb8c7c702d1d073",
+  "artifact_digest": "220f9062fd8a268b4c1adf1a3faf5ed378270bf2e433d140fd74b907f8b5f0cd",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -717,6 +717,51 @@
       "sha256": "207cbc5f44ad93f013219dcdcf3e33746731104bd6a17b3cc47b2defe4c9f693"
     },
     {
+      "bytes": 2462,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a0_r1_c1.json",
+      "sha256": "b6dd53961118ed13b0c5e1b3b88dd1a0d79aac790d1d4d7b81d42f0ed5fcdd90"
+    },
+    {
+      "bytes": 1398387,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a0_r1_c1.cochains.json.gz",
+      "sha256": "ea4f7b26c0ed496091f03ad56f3697342a8d6f55b098c1c6f428571ea626db4e"
+    },
+    {
+      "bytes": 2468,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a0_r1_c2.json",
+      "sha256": "e3065ef0b5a8e269e758142eb52d93dd72efb98d2e1d73d9d8e33c27d4dbacea"
+    },
+    {
+      "bytes": 1710053,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a0_r1_c2.cochains.json.gz",
+      "sha256": "8a3cb4a482596239b4b62a347812b58cd6fd44bc5afabe1149768a5899c565e4"
+    },
+    {
+      "bytes": 2472,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c1.json",
+      "sha256": "2646d8b8e6e2545cc4a7a4b9efa4b70604f12f3a676ff7a6cf8c79707c71e3b1"
+    },
+    {
+      "bytes": 1708006,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c1.cochains.json.gz",
+      "sha256": "182e78e3ad60765c87f106d56f79493328a5487b779f23676b6067d8086c09c5"
+    },
+    {
+      "bytes": 2469,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c2.json",
+      "sha256": "68efe929ff676915ec94c28b9834e2f9d14fde5c9cb681d5431a01c2181f0bb2"
+    },
+    {
+      "bytes": 1635564,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c2.cochains.json.gz",
+      "sha256": "0038cfa43d18444fe07fb6f9b372d8d158c98df5b8702178fe5d3173581bf760"
+    },
+    {
+      "bytes": 1935,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_coefficient_a0.json",
+      "sha256": "81a11df1d445e6d1e2016b35aba5c09a5e5ba39b3f578d786db4abea173a4ffe"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -753,7 +798,7 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2049,
+    "collected_tests_at_audit": 2053,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 259,
@@ -2116,6 +2161,15 @@
         "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family1.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family2.json",
         "data/generated/scientific_genesis/alternate_up_ff_lift_a0_side1_family2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a0_r1_c1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a0_r1_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a0_r1_c2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a0_r1_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_coefficient_a0.json",
         "tests/integration/test_scientific_genesis_alternate_up_ff_entries.py",
         "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py"
       ],
@@ -2123,11 +2177,11 @@
       "label": "four actual F-F entries for both universal coefficients",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "all four a0 entries",
         "all four a1 entries",
-        "fresh exact archive replay"
+        "fresh exact archive replay",
+        "complete matrix assembly"
       ],
-      "statement": "The actual constituent lift solver, fixed quotient product and Higgs-first trace are composed in an executable research evaluator. All four a0 matter corrections and pushout images have been independently replayed from full cochain archives. No F-F coefficient is assigned until its complete E correction, pushout image, quotient product and closed scalar are saved as exact witnesses. Both blocks and a fresh replay remain required before any complete holomorphic matrix is available.",
+      "statement": "The actual constituent lift solver, fixed quotient product and Higgs-first trace are composed in an executable research evaluator. All four a0 matter corrections and pushout images have been independently replayed from full cochain archives. The a0 block has four exact closed scalar entries and passes its literal independent natural-null cochain check. A fresh replay also recovered every a0 entry from its complete archive. No further F-F coefficient is assigned until its complete E correction, pushout image, quotient product and closed scalar are saved as exact witnesses. The a1 block and fresh replays remain required before any complete holomorphic matrix is available.",
       "status": "BLOCKED"
     },
     {
@@ -4594,8 +4648,8 @@
     },
     {
       "assumptions_required": [
-        "all four remaining F-F entries",
-        "both parameter coefficients"
+        "all four a1 F-F entries",
+        "freshly verified parameter blocks"
       ],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/alternate_up_mixed_quotient_pairing.json"
@@ -7654,7 +7708,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "evaluate all four F-F entries for both formal coefficients using actual carrier matter lifts and the canonical quotient product in the fixed Higgs-first trace frame; verify the resulting block against the complete null contraction before returning the complete up matrix",
+    "next_required_object": "evaluate all four a1 F-F entries using actual carrier matter lifts and the canonical quotient product in the fixed Higgs-first trace frame; replay both coefficient blocks against the complete null contraction before returning the complete up matrix",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

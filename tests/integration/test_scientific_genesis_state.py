@@ -87,6 +87,14 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "alternate-up-coupled-null-scalar-v1", "complete_holomorphic_up_matrix_available",
             "complete natural null contraction and its scope are not certified",
         ),
+        (
+            "alternate-up-ff-entry-v1", "physical_yukawa_matrix_available",
+            "an exact a0 F-F scalar entry or archive is not certified",
+        ),
+        (
+            "alternate-up-ff-coefficient-v1", "complete_holomorphic_up_matrix_available",
+            "the complete exact a0 F-F block and natural null check are not certified",
+        ),
     ),
 )
 def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
@@ -641,10 +649,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "evaluate all four F-F entries for both formal coefficients using "
-        "actual carrier matter lifts and the canonical quotient product in "
-        "the fixed Higgs-first trace frame; verify the resulting block against "
-        "the complete null contraction before returning the complete up matrix"
+        "evaluate all four a1 F-F entries using actual carrier matter "
+        "lifts and the canonical quotient product in the fixed Higgs-first "
+        "trace frame; replay both coefficient blocks against the complete "
+        "null contraction before returning the complete up matrix"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"

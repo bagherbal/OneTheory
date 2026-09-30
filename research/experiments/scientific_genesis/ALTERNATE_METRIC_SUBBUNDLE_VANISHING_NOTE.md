@@ -1,0 +1,79 @@
+# First-constituent vanishing at a declared metric twist
+
+This certificate tests the actual `V1` constituent of the frozen alternate
+P1 carrier at the mathematical candidate cover degree `H=(5,7,1)`.
+No extension coordinate or physical Kähler modulus is selected. The
+published reference carrier's `192+212` ledger is not used as an input.
+
+The Schoen cover is the regular complete intersection of degrees
+`e_x=(3,0,1)` and `e_u=(0,3,1)` inside
+`P2_x × P2_u × P1_base`. Its deck generators have scalar commutator
+`omega^2` on each P2 coordinate block and `1` on the base block.
+Consequently the induced commutator on `O(H)` is
+`(omega^2)^5 (omega^2)^7 = 1`. Both coordinate lifts have order three
+and preserve the two equations with their recorded units. The twist
+therefore has a commuting ambient linearization and descends.
+
+The actual first constituent is a Serre extension
+
+```text
+0 -> A -> V1(H) -> Q -> 0,
+0 -> F1 -> F0 -> Q -> 0.
+```
+
+Its line-object degrees after twisting are `A=(4,8,0)`, three copies
+of `F0=(2,8,2)`, and two copies of `F1=(1,8,2)`. The second sequence
+is the genuine Hilbert–Burch ideal-sheaf resolution; the first is the
+non-split Serre sequence. There is **no** asserted global two-term
+matrix `F1 -> A+F0` for the non-split bundle.
+
+Exact Künneth dimensions for the four ambient Koszul pieces are:
+
+| Restricted line | `K0` | `K1_x` | `K1_u` | `K2` | `h0` on cover |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `A=(4,8,0)` | `H0=675` | `0` | `0` | `H1=63` | `612` |
+| each `F0=(2,8,2)` | `H0=810` | `0` | `H0=252` | `0` | `558` |
+| each `F1=(1,8,2)` | `H0=405` | `0` | `H0=126` | `0` | `279` |
+
+All unlisted ambient cohomology groups vanish. Exactness of the
+two-equation Koszul resolution and its two short exact sequences gives
+`H^i(cover,A)=H^i(cover,F0)=H^i(cover,F1)=0` for `i>0`.
+For `A`, the 63 classes in `H1(K2)` transgress injectively into the
+675-dimensional ambient `H0(K0)`; they subtract rather than add to
+the restricted `H0`. This is a genuine second-page Koszul differential:
+the current sparse first-page line complex has a zero `d1` here and
+would incorrectly leave 63 classes in total degree `-1`. Its raw
+cohomology dimensions must not be used for this twist. The two exact
+sheaf short sequences above, rather than that first-page rank, prove
+the injective transgression. The Hilbert–Burch sequence then gives
+`H^i(cover,Q)=0` for `i>0` and
+`h0(Q)=3*558-2*279=1116`. The Serre sequence gives
+
+```text
+H^i(cover,V1(H)) = 0 for i>0,
+h0(cover,V1(H)) = 612+1116 = 1728.
+```
+
+These statements are independent of the outer rank-four extension
+parameter and of the inner Serre extension class. Because the quotient
+action is free and `V1(H)` is equivariant with only `H0` cohomology,
+holomorphic Lefschetz gives trace zero for each nonidentity deck element.
+Its `H0` representation is therefore 192 copies of the regular
+representation of `Z3 × Z3`. Hence
+
+```text
+H^1(quotient,V1(H)) = 0,
+h0(quotient,V1(H)) = 192.
+```
+
+The second number independently matches an earlier reference dimension,
+but agreement is only a cross-check. This certificate proves **one**
+premise of the quotient-level generation reduction. It does not show
+that either constituent is globally generated, does not construct
+rank-four sections, and does not supply Ricci-flat/HYM metrics or
+physical Yukawas.
+
+The exact ambient profiles and source hashes are in
+`data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json`.
+The independent regression recomputes every ambient dimension directly
+from projective-space binomial formulas.

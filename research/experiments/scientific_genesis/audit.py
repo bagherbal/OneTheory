@@ -3237,6 +3237,28 @@ def _nodes() -> list[dict[str, object]]:
             ("descended locally free extension", "descending positive twist"),
         ),
         _node(
+            "alternate_metric_subbundle_vanishing",
+            "first alternate constituent H1 vanishing at a descending twist",
+            "Normalization",
+            "COMPUTED",
+            "At the declared mathematical twist (5,7,1), exact ambient "
+            "Kunneth profiles and the genuine Serre/Hilbert--Burch sequences "
+            "give cover H0(V1(H))=1728 and H1(V1(H))=0. The commuting "
+            "deck lift and free-action character theorem give quotient "
+            "H0=192 and H1=0. A rank-63 higher Koszul transgression is "
+            "essential; the sparse first page alone is not final cohomology. "
+            "Neither constituent generation premise is proved.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
+                "research/experiments/scientific_genesis/alternate_metric_subbundle_vanishing.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_SUBBUNDLE_VANISHING_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_metric_subbundle_vanishing.py",
+            ),
+            ("published free Schoen quotient", "unchanged actual first constituent"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -3247,7 +3269,7 @@ def _nodes() -> list[dict[str, object]]:
             "proof and converged Ricci-flat/HYM matter metrics.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
             missing=(
-                "alternate-carrier constituent quotient generation and H1 vanishing",
+                "alternate-carrier quotient generation of both constituents",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -6229,6 +6251,20 @@ def _edges() -> list[dict[str, object]]:
             ("a failed premise leaves direct evaluation or another twist necessary",),
         ),
         _edge(
+            "alternate_metric_subbundle_vanishing",
+            "visible_metrics",
+            "The quotient H1 obstruction to lifting V2(H) sections through "
+            "the rank-four extension vanishes at the declared twist.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_SUBBUNDLE_VANISHING_NOTE.md",
+            ),
+            ("same descended twist on both constituents",),
+            True,
+            ("constituent global generation is still unproved",),
+        ),
+        _edge(
             "computable_carrier_state",
             "visible_metrics",
             "Metric construction needs the explicit carrier and extension cocycles.",
@@ -8561,6 +8597,54 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the complete alternate holomorphic matrix or its scope is not certified")
+    metric_path = ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json"
+    )
+    metric = json.loads(metric_path.read_text(encoding="utf-8"))
+    metric_digest = metric.pop("artifact_digest", None)
+    first_arrows = json.loads((ROOT / (
+        "data/generated/scientific_genesis/mixed_constituent_schoen_arrows.json"
+    )).read_text(encoding="utf-8"))
+    first_arrows_digest = first_arrows.pop("artifact_digest", None)
+    metric_lines = metric.get("line_objects", [])
+    if (
+        metric_digest != _canonical_digest(metric)
+        or metric_digest != "7e1a128f50d76b196f8a7139df08c22bca7e6feedb66e2342fd7a12cba5c3c24"
+        or first_arrows_digest != _canonical_digest(first_arrows)
+        or metric.get("schema") != "alternate-metric-subbundle-vanishing-v1"
+        or metric.get("carrier_status") != "conditional on the selected heterotic UV realization"
+        or metric.get("twist_cover_degree") != [5, 7, 1]
+        or metric.get("twist_status") != (
+            "declared mathematical candidate; no metric modulus selected"
+        )
+        or metric.get("equation_degrees_x_u_base") != [[3, 0, 1], [0, 3, 1]]
+        or metric.get("deck_coordinate_commutators") != ["-1-omega", "-1-omega", "1"]
+        or metric.get("twist_descends_by_commuting_lifts") is not True
+        or metric.get("prerequisite_artifact_digests") != {
+            "alternate_cone": alternate_cone_digest,
+            "alternate_carrier": alternate_carrier_digest,
+            "first_constituent_arrows": first_arrows_digest,
+        }
+        or [(item.get("role"), item.get("twisted_degree"), item.get("cover_h0"))
+            for item in metric_lines] != [
+                ("A", [4, 8, 0], 612),
+                *( ("F0", [2, 8, 2], 558) for _ in range(3) ),
+                *( ("F1", [1, 8, 2], 279) for _ in range(2) ),
+            ]
+        or metric.get("cover_h0_first_constituent") != 1728
+        or metric.get("cover_h1_to_h3_first_constituent") != [0, 0, 0]
+        or metric.get("quotient_h0_first_constituent") != 192
+        or metric.get("quotient_h1_first_constituent") != 0
+        or metric.get("subline_koszul_higher_transgression_rank") != 63
+        or metric.get("ambient_first_page_alone_incomplete_for_subline") is not True
+        or metric.get("result_independent_of_outer_extension_parameter") is not True
+        or any(metric.get(flag) is not False for flag in (
+            "global_generation_of_constituents_certified",
+            "rank_four_global_generation_certified", "numerical_metrics_available",
+            "physical_yukawas_available", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the alternate metric subbundle vanishing or its scope is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -8854,6 +8938,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_ff_coefficient_a1.json",
         "data/generated/scientific_genesis/alternate_up_full_holomorphic_matrix.json",
+        "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -8878,7 +8963,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2066,
+            "collected_tests_at_audit": 2071,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -9081,6 +9166,9 @@ def build_state() -> dict[str, object]:
                 "alternate_up_holomorphic_matrix_determinant": full_up["determinant"],
                 "alternate_up_holomorphic_rank_three_locus": "a1 != 0",
                 "alternate_up_physical_yukawa_matrix_available": False,
+                "alternate_metric_trial_twist": metric["twist_cover_degree"],
+                "alternate_metric_subbundle_h1_vanishing": True,
+                "alternate_metric_constituents_globally_generated": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
                 "alternate_up_ordered_exchange_consistent": all(
@@ -9313,10 +9401,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "at a declared descending positive twist, certify quotient "
-                "global generation of both alternate constituents and "
-                "H1(X,V1(H))=0; then the exact extension criterion gives "
-                "rank-four generation before numerical metric work"
+                "at the descending mathematical twist H=(5,7,1), certify "
+                "quotient global generation of the two actual alternate "
+                "constituents; H1(X,V1(H))=0 is now exact, but evaluation "
+                "surjectivity and numerical metrics remain unproved"
             ),
         },
         "claims": _nodes(),
@@ -9421,7 +9509,10 @@ def build_state() -> dict[str, object]:
             "(-3/98-39omega/196)a1 in the fixed quotient frame",
             "global generation of a descended vector-bundle extension "
             "follows from quotient-level constituent generation and "
-            "vanishing H1 of its subbundle; the alternate premises are open",
+            "vanishing H1 of its subbundle; two alternate generation premises remain open",
+            "the actual alternate first constituent at descending twist "
+            "(5,7,1) has cover H0=1728 and higher cohomology zero; "
+            "quotient H0=192 and H1=0, with generation still unproved",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

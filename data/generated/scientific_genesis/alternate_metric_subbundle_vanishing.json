@@ -1,0 +1,544 @@
+{
+  "ambient_first_page_alone_incomplete_for_subline": true,
+  "artifact_digest": "7e1a128f50d76b196f8a7139df08c22bca7e6feedb66e2342fd7a12cba5c3c24",
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "cover_h0_first_constituent": 1728,
+  "cover_h1_to_h3_first_constituent": [
+    0,
+    0,
+    0
+  ],
+  "deck_coordinate_commutators": [
+    "-1-omega",
+    "-1-omega",
+    "1"
+  ],
+  "equation_degrees_x_u_base": [
+    [
+      3,
+      0,
+      1
+    ],
+    [
+      0,
+      3,
+      1
+    ]
+  ],
+  "global_generation_of_constituents_certified": false,
+  "line_objects": [
+    {
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            675,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            4,
+            8,
+            0
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            4,
+            5,
+            -1
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            1,
+            8,
+            -1
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            0,
+            63,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            1,
+            5,
+            -2
+          ]
+        }
+      },
+      "cover_h0": 612,
+      "cover_h1_to_h3": [
+        0,
+        0,
+        0
+      ],
+      "name": "A",
+      "role": "A",
+      "source_degree": [
+        -1,
+        1,
+        -1
+      ],
+      "twisted_degree": [
+        4,
+        8,
+        0
+      ]
+    },
+    {
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            810,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            2,
+            8,
+            2
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            252,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            2,
+            5,
+            1
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            -1,
+            8,
+            1
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            -1,
+            5,
+            0
+          ]
+        }
+      },
+      "cover_h0": 558,
+      "cover_h1_to_h3": [
+        0,
+        0,
+        0
+      ],
+      "name": "F0:0",
+      "role": "F0",
+      "source_degree": [
+        -3,
+        1,
+        1
+      ],
+      "twisted_degree": [
+        2,
+        8,
+        2
+      ]
+    },
+    {
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            810,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            2,
+            8,
+            2
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            252,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            2,
+            5,
+            1
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            -1,
+            8,
+            1
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            -1,
+            5,
+            0
+          ]
+        }
+      },
+      "cover_h0": 558,
+      "cover_h1_to_h3": [
+        0,
+        0,
+        0
+      ],
+      "name": "F0:1",
+      "role": "F0",
+      "source_degree": [
+        -3,
+        1,
+        1
+      ],
+      "twisted_degree": [
+        2,
+        8,
+        2
+      ]
+    },
+    {
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            810,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            2,
+            8,
+            2
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            252,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            2,
+            5,
+            1
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            -1,
+            8,
+            1
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            -1,
+            5,
+            0
+          ]
+        }
+      },
+      "cover_h0": 558,
+      "cover_h1_to_h3": [
+        0,
+        0,
+        0
+      ],
+      "name": "F0:2",
+      "role": "F0",
+      "source_degree": [
+        -3,
+        1,
+        1
+      ],
+      "twisted_degree": [
+        2,
+        8,
+        2
+      ]
+    },
+    {
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            405,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            1,
+            8,
+            2
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            126,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            1,
+            5,
+            1
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            -2,
+            8,
+            1
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            -2,
+            5,
+            0
+          ]
+        }
+      },
+      "cover_h0": 279,
+      "cover_h1_to_h3": [
+        0,
+        0,
+        0
+      ],
+      "name": "F1:0",
+      "role": "F1",
+      "source_degree": [
+        -4,
+        1,
+        1
+      ],
+      "twisted_degree": [
+        1,
+        8,
+        2
+      ]
+    },
+    {
+      "ambient_koszul_profile": {
+        "k0": {
+          "ambient_h0_to_h5": [
+            405,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            1,
+            8,
+            2
+          ]
+        },
+        "k1_u": {
+          "ambient_h0_to_h5": [
+            126,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            1,
+            5,
+            1
+          ]
+        },
+        "k1_x": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            -2,
+            8,
+            1
+          ]
+        },
+        "k2": {
+          "ambient_h0_to_h5": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "degree": [
+            -2,
+            5,
+            0
+          ]
+        }
+      },
+      "cover_h0": 279,
+      "cover_h1_to_h3": [
+        0,
+        0,
+        0
+      ],
+      "name": "F1:1",
+      "role": "F1",
+      "source_degree": [
+        -4,
+        1,
+        1
+      ],
+      "twisted_degree": [
+        1,
+        8,
+        2
+      ]
+    }
+  ],
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "physical_yukawas_available": false,
+  "prerequisite_artifact_digests": {
+    "alternate_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "alternate_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+    "first_constituent_arrows": "8527e26fa297a58a0139a67123fbf55ab9828da081609cd81615c18482468f81"
+  },
+  "quotient_h0_first_constituent": 192,
+  "quotient_h1_first_constituent": 0,
+  "rank_four_global_generation_certified": false,
+  "result_independent_of_outer_extension_parameter": true,
+  "schema": "alternate-metric-subbundle-vanishing-v1",
+  "subline_koszul_higher_transgression_rank": 63,
+  "twist_cover_degree": [
+    5,
+    7,
+    1
+  ],
+  "twist_descends_by_commuting_lifts": true,
+  "twist_status": "declared mathematical candidate; no metric modulus selected"
+}

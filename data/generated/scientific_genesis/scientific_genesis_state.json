@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "2f92577d3c2e320547069736a7a20f2c0ab0f1648f4125bea2e59aa07fbd46ab",
+  "artifact_digest": "2e24b23e5c8cc41c1b9ea3e2132f64782a161ac02a5b86803c8e489da448d256",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -852,6 +852,11 @@
       "sha256": "a8d570ce289b7c8b88fe91bf4c7c007637507d933c063bb003cdd5f452f66940"
     },
     {
+      "bytes": 9228,
+      "path": "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
+      "sha256": "7b1d2bf0f92fce70155bc7632a779bdb4dd6cf859cfa6c9e068b9da1005b1c74"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -888,11 +893,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2066,
+    "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 259,
-    "test_python_files": 243
+    "research_python_files": 260,
+    "test_python_files": 244
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3633,6 +3638,24 @@
       "status": "PROVED"
     },
     {
+      "assumptions": [
+        "published free Schoen quotient",
+        "unchanged actual first constituent"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
+        "research/experiments/scientific_genesis/alternate_metric_subbundle_vanishing.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SUBBUNDLE_VANISHING_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_subbundle_vanishing.py"
+      ],
+      "id": "alternate_metric_subbundle_vanishing",
+      "label": "first alternate constituent H1 vanishing at a descending twist",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "At the declared mathematical twist (5,7,1), exact ambient Kunneth profiles and the genuine Serre/Hilbert--Burch sequences give cover H0(V1(H))=1728 and H1(V1(H))=0. The commuting deck lift and free-action character theorem give quotient H0=192 and H1=0. A rank-63 higher Koszul transgression is essential; the sparse first page alone is not final cohomology. Neither constituent generation premise is proved.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -3642,7 +3665,7 @@
       "label": "Ricci-flat, HYM, and matter metric package",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "alternate-carrier constituent quotient generation and H1 vanishing",
+        "alternate-carrier quotient generation of both constituents",
         "converged Ricci-flat and HYM metrics"
       ],
       "statement": "Generic section machinery exists. The published reference lacks its complete carrier cocycles; the alternate cone has chain data but lacks a carrier-specific positive-twist global-generation proof and converged Ricci-flat/HYM matter metrics.",
@@ -6896,6 +6919,22 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "same descended twist on both constituents"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SUBBUNDLE_VANISHING_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "constituent global generation is still unproved"
+      ],
+      "mathematical_reason": "The quotient H1 obstruction to lifting V2(H) sections through the rank-four extension vanishes at the declared twist.",
+      "source": "alternate_metric_subbundle_vanishing",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "research/experiments/visible_metrics/audit.py"
@@ -7106,7 +7145,8 @@
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
     "the alternate universal holomorphic up matrix has all nine actual-carrier entries and determinant (-3/98-39omega/196)a1 in the fixed quotient frame",
-    "global generation of a descended vector-bundle extension follows from quotient-level constituent generation and vanishing H1 of its subbundle; the alternate premises are open",
+    "global generation of a descended vector-bundle extension follows from quotient-level constituent generation and vanishing H1 of its subbundle; two alternate generation premises remain open",
+    "the actual alternate first constituent at descending twist (5,7,1) has cover H0=1728 and higher cohomology zero; quotient H0=192 and H1=0, with generation still unproved",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -7202,6 +7242,13 @@
         ]
       ],
       "alternate_fixed_atlas_su4_excluded": true,
+      "alternate_metric_constituents_globally_generated": false,
+      "alternate_metric_subbundle_h1_vanishing": true,
+      "alternate_metric_trial_twist": [
+        5,
+        7,
+        1
+      ],
       "alternate_other_linearisations_excluded": false,
       "alternate_ray_0_1_all_nonzero_p1_stable_in_sufficient_chamber": true,
       "alternate_ray_0_1_charged_structural_spectrum_passes": true,
@@ -7866,7 +7913,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "at a declared descending positive twist, certify quotient global generation of both alternate constituents and H1(X,V1(H))=0; then the exact extension criterion gives rank-four generation before numerical metric work",
+    "next_required_object": "at the descending mathematical twist H=(5,7,1), certify quotient global generation of the two actual alternate constituents; H1(X,V1(H))=0 is now exact, but evaluation surjectivity and numerical metrics remain unproved",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

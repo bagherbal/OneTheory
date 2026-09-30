@@ -1149,3 +1149,23 @@ certificate of its premises. Cover sections or the published reference
 carrier's `404`-section ledger cannot be substituted. See
 `ALTERNATE_METRIC_GENERATION_REDUCTION_NOTE.md`. The common vacuum, other
 flavor sectors, and physical observables remain blocked.
+
+The first premise of that criterion now closes at the declared
+mathematical twist `H=(5,7,1)`. Exact ambient Künneth and two-equation
+Koszul profiles for the actual first constituent, followed by its
+Hilbert–Burch and Serre long exact sequences, give
+`H^1(cover,V1(H))=0` and `h0(cover,V1(H))=1728`. The ambient deck
+commutator cancels on this twist, so it descends. Free-action Lefschetz
+then gives `H^1(quotient,V1(H))=0` and `h0(quotient,V1(H))=192`.
+This reproduces the reference count independently, without using it
+as a rank input or treating it as evidence of global generation.
+See `ALTERNATE_METRIC_SUBBUNDLE_VANISHING_NOTE.md` and its exact
+artifact. The two constituent evaluation-surjectivity proofs are still
+missing; no metric approximation is unlocked by this vanishing alone.
+The `A=(4,8,0)` line also exposed a precise first-page Koszul limitation:
+its sparse `d1` is zero on a 63-dimensional total-degree-minus-one
+piece, while the actual regular-complete-intersection cohomology has
+an injective rank-63 higher transgression. The exact Serre argument uses
+the full sheaf sequences; treating the sparse first page as final line
+cohomology would give the wrong section count. A regression records this
+failure mode before any numerical metric calculation.

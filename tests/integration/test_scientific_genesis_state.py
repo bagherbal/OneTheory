@@ -178,6 +178,31 @@ def test_full_holomorphic_matrix_cannot_claim_physical_scope(
         build_state()
 
 
+@pytest.mark.parametrize("field", (
+    "global_generation_of_constituents_certified", "numerical_metrics_available",
+))
+def test_vanishing_artifact_cannot_claim_a_metric_gate(
+    monkeypatch: pytest.MonkeyPatch, field: str,
+) -> None:
+    """One vanishing proof cannot certify section evaluation or metrics."""
+
+    original = json.loads
+
+    def inflated_loads(text: str) -> object:
+        record = original(text)
+        if isinstance(record, dict) and record.get("schema") == (
+            "alternate-metric-subbundle-vanishing-v1"
+        ):
+            record.pop("artifact_digest")
+            record[field] = True
+            record["artifact_digest"] = audit._canonical_digest(record)
+        return record
+
+    monkeypatch.setattr(audit.json, "loads", inflated_loads)
+    with pytest.raises(ValueError, match="alternate metric subbundle vanishing or its scope"):
+        build_state()
+
+
 def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> None:
     """The scheduler pivots to source-bound reconstruction without guessing."""
 
@@ -710,10 +735,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "at a declared descending positive twist, certify quotient "
-        "global generation of both alternate constituents and "
-        "H1(X,V1(H))=0; then the exact extension criterion gives "
-        "rank-four generation before numerical metric work"
+        "at the descending mathematical twist H=(5,7,1), certify "
+        "quotient global generation of the two actual alternate "
+        "constituents; H1(X,V1(H))=0 is now exact, but evaluation "
+        "surjectivity and numerical metrics remain unproved"
     )
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_up_holomorphic_rank_three_locus"] == "a1 != 0"
@@ -721,6 +746,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_up_ff_block"]["status"] == "COMPUTED"
     assert claims["first_exact_yukawa"]["status"] == "COMPUTED"
     assert claims["alternate_metric_generation_reduction"]["status"] == "PROVED"
+    assert claims["alternate_metric_subbundle_vanishing"]["status"] == "COMPUTED"
+    assert path["criteria"]["alternate_metric_subbundle_h1_vanishing"] is True
+    assert path["criteria"]["alternate_metric_constituents_globally_generated"] is False
     assert claims["visible_metrics"]["status"] == "BLOCKED"
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (

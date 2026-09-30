@@ -1169,3 +1169,14 @@ an injective rank-63 higher transgression. The exact Serre argument uses
 the full sheaf sequences; treating the sparse first page as final line
 cohomology would give the wrong section count. A regression records this
 failure mode before any numerical metric calculation.
+
+At the same twist, the actual first constituent is globally generated
+**on the cover**: its Serre subline and the three Hilbert–Burch source
+lines restrict basepoint-free ambient lines, their quotient is generated,
+and the proved subline H1 vanishing lifts every quotient section. This
+does not establish quotient generation. In fact each individual
+`F0=(2,8,2)` ambient line lift has nontrivial deck commutator
+`omega^2`; the three-dimensional resolution block must be handled in
+the actual equivariant frame. The next exact gate is invariant
+fiberwise evaluation for both constituents on the quotient, not another
+cover section count.

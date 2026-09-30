@@ -736,9 +736,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     )
     assert path["next_required_object"] == (
         "at the descending mathematical twist H=(5,7,1), certify "
-        "quotient global generation of the two actual alternate "
-        "constituents; H1(X,V1(H))=0 is now exact, but evaluation "
-        "surjectivity and numerical metrics remain unproved"
+        "invariant fiberwise evaluation for both actual alternate "
+        "constituents on the quotient; V1(H) is generated on the "
+        "cover and its quotient H1 vanishes, but quotient generation "
+        "and numerical metrics remain unproved"
     )
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_up_holomorphic_rank_three_locus"] == "a1 != 0"
@@ -748,6 +749,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_metric_generation_reduction"]["status"] == "PROVED"
     assert claims["alternate_metric_subbundle_vanishing"]["status"] == "COMPUTED"
     assert path["criteria"]["alternate_metric_subbundle_h1_vanishing"] is True
+    assert path["criteria"]["alternate_metric_first_constituent_cover_generated"] is True
     assert path["criteria"]["alternate_metric_constituents_globally_generated"] is False
     assert claims["visible_metrics"]["status"] == "BLOCKED"
     assert claims["physical_yukawas"]["status"] == "BLOCKED"

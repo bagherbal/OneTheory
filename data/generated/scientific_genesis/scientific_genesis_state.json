@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "2e24b23e5c8cc41c1b9ea3e2132f64782a161ac02a5b86803c8e489da448d256",
+  "artifact_digest": "98001ffa53412019925587ed7c31833ef1663c6611509dc3c02b4465498a2706",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -852,9 +852,9 @@
       "sha256": "a8d570ce289b7c8b88fe91bf4c7c007637507d933c063bb003cdd5f452f66940"
     },
     {
-      "bytes": 9228,
+      "bytes": 10463,
       "path": "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
-      "sha256": "7b1d2bf0f92fce70155bc7632a779bdb4dd6cf859cfa6c9e068b9da1005b1c74"
+      "sha256": "6258e605b6e5c7f77c1b312da61831fdc60b44c1e179de885cbcc1b3777d5568"
     },
     {
       "bytes": 1534,
@@ -3652,7 +3652,7 @@
       "label": "first alternate constituent H1 vanishing at a descending twist",
       "layer": "Normalization",
       "missing_prerequisites": [],
-      "statement": "At the declared mathematical twist (5,7,1), exact ambient Kunneth profiles and the genuine Serre/Hilbert--Burch sequences give cover H0(V1(H))=1728 and H1(V1(H))=0. The commuting deck lift and free-action character theorem give quotient H0=192 and H1=0. A rank-63 higher Koszul transgression is essential; the sparse first page alone is not final cohomology. Neither constituent generation premise is proved.",
+      "statement": "At the declared mathematical twist (5,7,1), exact ambient Kunneth profiles and the genuine Serre/Hilbert--Burch sequences give cover H0(V1(H))=1728 and H1(V1(H))=0. The commuting deck lift and free-action character theorem give quotient H0=192 and H1=0. A rank-63 higher Koszul transgression is essential; the sparse first page alone is not final cohomology. The actual V1(H) is generated on the cover by the Serre extension criterion. Quotient constituent generation is unproved.",
       "status": "COMPUTED"
     },
     {
@@ -7243,6 +7243,7 @@
       ],
       "alternate_fixed_atlas_su4_excluded": true,
       "alternate_metric_constituents_globally_generated": false,
+      "alternate_metric_first_constituent_cover_generated": true,
       "alternate_metric_subbundle_h1_vanishing": true,
       "alternate_metric_trial_twist": [
         5,
@@ -7913,7 +7914,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "at the descending mathematical twist H=(5,7,1), certify quotient global generation of the two actual alternate constituents; H1(X,V1(H))=0 is now exact, but evaluation surjectivity and numerical metrics remain unproved",
+    "next_required_object": "at the descending mathematical twist H=(5,7,1), certify invariant fiberwise evaluation for both actual alternate constituents on the quotient; V1(H) is generated on the cover and its quotient H1 vanishes, but quotient generation and numerical metrics remain unproved",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

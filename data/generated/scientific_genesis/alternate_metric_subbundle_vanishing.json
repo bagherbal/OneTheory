@@ -1,7 +1,9 @@
 {
   "ambient_first_page_alone_incomplete_for_subline": true,
-  "artifact_digest": "7e1a128f50d76b196f8a7139df08c22bca7e6feedb66e2342fd7a12cba5c3c24",
+  "artifact_digest": "97e390edc44ba0d89b32ebb48d0409b5c7f1e2f53ece5bb96011d5093be585bc",
   "carrier_status": "conditional on the selected heterotic UV realization",
+  "cover_generation_argument": "A and the three F0 lines are restrictions of basepoint-free ambient lines; Q is a quotient of F0; H1(cover,A)=0 lifts every Q section through the actual Serre extension",
+  "cover_global_generation_first_constituent": true,
   "cover_h0_first_constituent": 1728,
   "cover_h1_to_h3_first_constituent": [
     0,
@@ -26,6 +28,7 @@
     ]
   ],
   "global_generation_of_constituents_certified": false,
+  "individual_f0_ambient_lifts_commute": false,
   "line_objects": [
     {
       "ambient_koszul_profile": {
@@ -90,6 +93,9 @@
           ]
         }
       },
+      "ambient_line_deck_commutator": "1",
+      "ambient_line_lift_commutes": true,
+      "ambient_nonnegative_and_cover_generated": true,
       "cover_h0": 612,
       "cover_h1_to_h3": [
         0,
@@ -172,6 +178,9 @@
           ]
         }
       },
+      "ambient_line_deck_commutator": "-1-omega",
+      "ambient_line_lift_commutes": false,
+      "ambient_nonnegative_and_cover_generated": true,
       "cover_h0": 558,
       "cover_h1_to_h3": [
         0,
@@ -254,6 +263,9 @@
           ]
         }
       },
+      "ambient_line_deck_commutator": "-1-omega",
+      "ambient_line_lift_commutes": false,
+      "ambient_nonnegative_and_cover_generated": true,
       "cover_h0": 558,
       "cover_h1_to_h3": [
         0,
@@ -336,6 +348,9 @@
           ]
         }
       },
+      "ambient_line_deck_commutator": "-1-omega",
+      "ambient_line_lift_commutes": false,
+      "ambient_nonnegative_and_cover_generated": true,
       "cover_h0": 558,
       "cover_h1_to_h3": [
         0,
@@ -418,6 +433,9 @@
           ]
         }
       },
+      "ambient_line_deck_commutator": "1",
+      "ambient_line_lift_commutes": true,
+      "ambient_nonnegative_and_cover_generated": true,
       "cover_h0": 279,
       "cover_h1_to_h3": [
         0,
@@ -500,6 +518,9 @@
           ]
         }
       },
+      "ambient_line_deck_commutator": "1",
+      "ambient_line_lift_commutes": true,
+      "ambient_nonnegative_and_cover_generated": true,
       "cover_h0": 279,
       "cover_h1_to_h3": [
         0,
@@ -528,6 +549,7 @@
     "alternate_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
     "first_constituent_arrows": "8527e26fa297a58a0139a67123fbf55ab9828da081609cd81615c18482468f81"
   },
+  "quotient_global_generation_first_constituent_certified": false,
   "quotient_h0_first_constituent": 192,
   "quotient_h1_first_constituent": 0,
   "rank_four_global_generation_certified": false,

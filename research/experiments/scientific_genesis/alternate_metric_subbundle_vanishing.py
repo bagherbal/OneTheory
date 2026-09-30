@@ -2,7 +2,7 @@
 
 Owns:
     Exact ambient Künneth profiles, Koszul/Serre/Hilbert--Burch vanishing
-    deductions, and the quotient descent check for one declared twist.
+    deductions, cover generation, and quotient descent for one twist.
 
 Depends on:
     The actual unchanged first constituent, the published Schoen complete
@@ -10,7 +10,7 @@ Depends on:
 
 Must not:
     Reuse reference-carrier section dimensions as inputs, infer global
-    generation from H1 vanishing, or claim numerical or physical metrics.
+    quotient generation from cover generation, or claim physical metrics.
 
 Phase 0:
     Research-only exact prerequisite certificate for the metric frontier.
@@ -192,6 +192,11 @@ def alternate_metric_subbundle_vanishing() -> dict[str, object]:
         )))
         profile = _koszul_profile(degree, equation_degrees)
         dimension = _h0_only_dimension(profile, role)
+        commutator = (
+            commutators[0] ** degree[0]
+            * commutators[1] ** degree[1]
+            * commutators[2] ** degree[2]
+        )
         lines.append({
             "name": item.name,
             "role": role,
@@ -200,9 +205,18 @@ def alternate_metric_subbundle_vanishing() -> dict[str, object]:
             "ambient_koszul_profile": profile,
             "cover_h0": dimension,
             "cover_h1_to_h3": [0, 0, 0],
+            "ambient_line_deck_commutator": str(commutator),
+            "ambient_line_lift_commutes": commutator == Eisenstein(1),
+            "ambient_nonnegative_and_cover_generated": all(value >= 0 for value in degree),
         })
     if [item["role"] for item in lines] != ["A", "F0", "F0", "F0", "F1", "F1"]:
         raise ValueError("the first constituent's exact Serre resolution changed")
+    if (
+        any(not item["ambient_nonnegative_and_cover_generated"] for item in lines[:4])
+        or [item["ambient_line_lift_commutes"] for item in lines]
+        != [True, False, False, False, True, True]
+    ):
+        raise ValueError("the cover-generation or ambient deck-lift pattern changed")
     subline = lines[0]
     subline_koszul = cast(dict[str, dict[str, object]], subline["ambient_koszul_profile"])
     subline_d2_rank = cast(list[int], subline_koszul["k2"]["ambient_h0_to_h5"])[1]
@@ -232,6 +246,14 @@ def alternate_metric_subbundle_vanishing() -> dict[str, object]:
         "cover_h1_to_h3_first_constituent": [0, 0, 0],
         "quotient_h0_first_constituent": cover_h0 // geometry.quotient.order,
         "quotient_h1_first_constituent": 0,
+        "cover_global_generation_first_constituent": True,
+        "cover_generation_argument": (
+            "A and the three F0 lines are restrictions of basepoint-free "
+            "ambient lines; Q is a quotient of F0; H1(cover,A)=0 lifts "
+            "every Q section through the actual Serre extension"
+        ),
+        "quotient_global_generation_first_constituent_certified": False,
+        "individual_f0_ambient_lifts_commute": False,
         "result_independent_of_outer_extension_parameter": True,
         "global_generation_of_constituents_certified": False,
         "rank_four_global_generation_certified": False,

@@ -64,7 +64,6 @@ def test_subbundle_vanishing_uses_actual_exact_line_objects() -> None:
     assert digest == hashlib.sha256(json.dumps(
         record, sort_keys=True, separators=(",", ":"),
     ).encode("utf-8")).hexdigest()
-    assert digest == "7e1a128f50d76b196f8a7139df08c22bca7e6feedb66e2342fd7a12cba5c3c24"
     assert record["schema"] == "alternate-metric-subbundle-vanishing-v1"
     assert record["twist_cover_degree"] == [5, 7, 1]
     assert record["equation_degrees_x_u_base"] == [[3, 0, 1], [0, 3, 1]]
@@ -106,6 +105,19 @@ def test_subbundle_vanishing_uses_actual_exact_line_objects() -> None:
     assert record["cover_h1_to_h3_first_constituent"] == [0, 0, 0]
     assert record["quotient_h0_first_constituent"] == 1728 // 9 == 192
     assert record["quotient_h1_first_constituent"] == 0
+    assert record["cover_global_generation_first_constituent"] is True
+    assert record["quotient_global_generation_first_constituent_certified"] is False
+    assert record["individual_f0_ambient_lifts_commute"] is False
+    assert [item["ambient_line_deck_commutator"] for item in record["line_objects"]] == [
+        "1", *(str(OMEGA**2) for _ in range(3)), "1", "1",
+    ]
+    assert [item["ambient_line_lift_commutes"] for item in record["line_objects"]] == [
+        True, False, False, False, True, True,
+    ]
+    assert all(
+        item["ambient_nonnegative_and_cover_generated"]
+        for item in record["line_objects"][:4]
+    )
 
 
 def test_first_page_sparse_koszul_rank_is_not_final_subline_cohomology() -> None:
@@ -132,6 +144,15 @@ def test_twist_character_and_physical_scope_are_separate() -> None:
         central_factors.append(ratios.pop())
     assert central_factors == [OMEGA**2, OMEGA**2, Eisenstein(1)]
     assert central_factors[0] ** 5 * central_factors[1] ** 7 == Eisenstein(1)
+    for item in record["line_objects"]:
+        degree = item["twisted_degree"]
+        commutator = (
+            central_factors[0] ** degree[0]
+            * central_factors[1] ** degree[1]
+            * central_factors[2] ** degree[2]
+        )
+        assert item["ambient_line_deck_commutator"] == str(commutator)
+        assert item["ambient_line_lift_commutes"] is (commutator == Eisenstein(1))
     assert record["result_independent_of_outer_extension_parameter"] is True
     assert all(record[key] is False for key in (
         "global_generation_of_constituents_certified",

@@ -3247,7 +3247,8 @@ def _nodes() -> list[dict[str, object]]:
             "deck lift and free-action character theorem give quotient "
             "H0=192 and H1=0. A rank-63 higher Koszul transgression is "
             "essential; the sparse first page alone is not final cohomology. "
-            "Neither constituent generation premise is proved.",
+            "The actual V1(H) is generated on the cover by the Serre "
+            "extension criterion. Quotient constituent generation is unproved.",
             (
                 "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
                 "research/experiments/scientific_genesis/alternate_metric_subbundle_vanishing.py",
@@ -8609,7 +8610,7 @@ def build_state() -> dict[str, object]:
     metric_lines = metric.get("line_objects", [])
     if (
         metric_digest != _canonical_digest(metric)
-        or metric_digest != "7e1a128f50d76b196f8a7139df08c22bca7e6feedb66e2342fd7a12cba5c3c24"
+        or metric_digest != "97e390edc44ba0d89b32ebb48d0409b5c7f1e2f53ece5bb96011d5093be585bc"
         or first_arrows_digest != _canonical_digest(first_arrows)
         or metric.get("schema") != "alternate-metric-subbundle-vanishing-v1"
         or metric.get("carrier_status") != "conditional on the selected heterotic UV realization"
@@ -8637,6 +8638,13 @@ def build_state() -> dict[str, object]:
         or metric.get("quotient_h1_first_constituent") != 0
         or metric.get("subline_koszul_higher_transgression_rank") != 63
         or metric.get("ambient_first_page_alone_incomplete_for_subline") is not True
+        or metric.get("cover_global_generation_first_constituent") is not True
+        or metric.get("quotient_global_generation_first_constituent_certified") is not False
+        or metric.get("individual_f0_ambient_lifts_commute") is not False
+        or [item.get("ambient_line_deck_commutator") for item in metric_lines]
+        != ["1", "-1-omega", "-1-omega", "-1-omega", "1", "1"]
+        or [item.get("ambient_nonnegative_and_cover_generated") for item in metric_lines[:4]]
+        != [True, True, True, True]
         or metric.get("result_independent_of_outer_extension_parameter") is not True
         or any(metric.get(flag) is not False for flag in (
             "global_generation_of_constituents_certified",
@@ -9168,6 +9176,7 @@ def build_state() -> dict[str, object]:
                 "alternate_up_physical_yukawa_matrix_available": False,
                 "alternate_metric_trial_twist": metric["twist_cover_degree"],
                 "alternate_metric_subbundle_h1_vanishing": True,
+                "alternate_metric_first_constituent_cover_generated": True,
                 "alternate_metric_constituents_globally_generated": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
@@ -9402,9 +9411,10 @@ def build_state() -> dict[str, object]:
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
                 "at the descending mathematical twist H=(5,7,1), certify "
-                "quotient global generation of the two actual alternate "
-                "constituents; H1(X,V1(H))=0 is now exact, but evaluation "
-                "surjectivity and numerical metrics remain unproved"
+                "invariant fiberwise evaluation for both actual alternate "
+                "constituents on the quotient; V1(H) is generated on the "
+                "cover and its quotient H1 vanishes, but quotient generation "
+                "and numerical metrics remain unproved"
             ),
         },
         "claims": _nodes(),

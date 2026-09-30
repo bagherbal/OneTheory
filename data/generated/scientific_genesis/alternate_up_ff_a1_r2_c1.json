@@ -1,0 +1,51 @@
+{
+  "actual_matter_lift_digests": [
+    "b32e6cc80c8492e01ffd896c2d77edb5e74a0967a4c962daf0263e64a84c5d03",
+    "fe0abbfd3110e15dfc6a8bd02ae5c8e54aabc881c5dfc33668cc3080d5481bd4"
+  ],
+  "artifact_digest": "9ddb9885fbe50b6ade521611abd8ee372333c3b397f6830961e126fb4573044a",
+  "column": 1,
+  "column_seed_index": 0,
+  "complete_holomorphic_up_matrix_available": false,
+  "cover_residue": "1235/14-55/7*omega",
+  "direct_transferred_and_inverse_convolution_traces_equal": true,
+  "extension_point_selected": false,
+  "exterior_filtration_parameter_degree": 1,
+  "full_cochain_archive_name": "alternate_up_ff_a1_r2_c1.cochains.json.gz",
+  "full_cochain_archive_sha256": "3ca11a2b68833e7595d14c8681927c22dd40fb7d0d070e29f428709aa5827eca",
+  "full_cochain_payload_digest": "1615132c7f90ec0e1a8f5ee686f9591b4c46ee99f2033fca17c841454c25077f",
+  "full_coefficientwise_product_identity_exact": true,
+  "full_scalar_closed_exact": true,
+  "parameter": "a1",
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "actual_matter": "f90026450eb9c2d4a0b84085bb64518ec3e9def5ebc5af65aa2aae30a7d94976",
+    "complete_null_contraction": "a61073d04386262d3a04b2d0c3abea20cfa5b2b497241035d21135b8ca97a8bc",
+    "constant_mixed_entries": "6f475e7551bf00b13cfea5207293ffb517fdbd09d94e8b97264cd2edae941591",
+    "constituent_lift_certificate": "b821725103b3d341032e15d2335b2916fd82bcd211ec2611b9c0d41d2700d677",
+    "coupled_product_presentation": "6f26314328265adfd2878100e70babdcfce78dfee0ce09304a9e4efd34a17626",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "higgs_primitive_archive": "26eeab0fd42d246dbc514b103cab7f7cf4854fd84c1f2e1d94769db4f2d47adc",
+    "scalar_trace_frame": "5d51f9fcb7d877ba5d66f4ae38bf231d6f777e3ed1dcdc28776a20a64c38a67c"
+  },
+  "projection_depth": 3,
+  "quotient_residue": "1235/126-55/63*omega",
+  "row": 2,
+  "row_seed_index": 5,
+  "scalar_order": "h_K cup P1 + kappa cup P0",
+  "schema": "alternate-up-ff-entry-v1",
+  "witnesses": {
+    "product_constant": {
+      "cochain_digest": "209d9492b46baebc8834400cb49696f117257878f336ae3b9c904c2694fa80b2",
+      "term_count": 2349
+    },
+    "product_linear": {
+      "cochain_digest": "93c141b09b4ba0010546c5ceb65c46473459e325dcf13a38cea10e5b281aa55a",
+      "term_count": 108380
+    },
+    "scalar": {
+      "cochain_digest": "471566576979f04d53b302a9075be9ff6dd7401d43b072dbdfbf7e571c6ffbca",
+      "term_count": 49719
+    }
+  }
+}

@@ -1534,11 +1534,10 @@ def _nodes() -> list[dict[str, object]]:
             "block has four exact closed scalar entries and passes its "
             "literal independent natural-null cochain check. A fresh "
             "replay also recovered every a0 entry from its complete archive. "
-            "No further F-F coefficient is assigned until its complete E "
-            "correction, pushout image, quotient product and closed scalar "
-            "are saved as exact witnesses. The a1 block and fresh replays "
-            "remain required "
-            "before any complete holomorphic matrix is available.",
+            "The a1 producer has likewise saved four closed scalar entries "
+            "and a literal natural-null cochain check. Fresh a1 archive "
+            "replay and complete assembly remain required before any full "
+            "holomorphic matrix is available.",
             (
                 "research/experiments/scientific_genesis/alternate_up_ff_entries.py",
                 "research/experiments/scientific_genesis/alternate_up_full_matrix.py",
@@ -1559,11 +1558,28 @@ def _nodes() -> list[dict[str, object]]:
                 "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c2.json",
                 "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c2.cochains.json.gz",
                 "data/generated/scientific_genesis/alternate_up_ff_coefficient_a0.json",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family1.json",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family1.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family2.json",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family2.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family1.json",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family1.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family2.json",
+                "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family2.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c1.json",
+                "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c1.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c2.json",
+                "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c2.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c1.json",
+                "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c1.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.json",
+                "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.cochains.json.gz",
+                "data/generated/scientific_genesis/alternate_up_ff_coefficient_a1.json",
                 "tests/integration/test_scientific_genesis_alternate_up_ff_entries.py",
                 "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py",
             ),
             ("frozen actual family bases", "same Higgs class", "canonical quotient product"),
-            ("all four a1 entries", "fresh exact archive replay", "complete matrix assembly"),
+            ("fresh exact a1 archive replay", "complete matrix assembly"),
         ),
         _node(
             "alternate_up_quotient_trace",
@@ -8327,6 +8343,156 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the complete exact a0 F-F block and natural null check are not certified")
+    ff_a1_lift_specs = (
+        (0, 1, [0, 0], 0, "77f04729847dc58ec78314fc1c6fb92017c5a999475dd7047e6f50ee2b837526",
+         (378, 25244, 11961)),
+        (0, 2, [0, 0], 5, "b32e6cc80c8492e01ffd896c2d77edb5e74a0967a4c962daf0263e64a84c5d03",
+         (378, 23868, 11310)),
+        (1, 1, [1, 0], 0, "fe0abbfd3110e15dfc6a8bd02ae5c8e54aabc881c5dfc33668cc3080d5481bd4",
+         (378, 25220, 11973)),
+        (1, 2, [1, 0], 5, "76c8051802c5be7be5a56edbba44ac62978a2501391bb734ee14348d4936e7df",
+         (378, 23868, 11310)),
+    )
+    for index, (side, family, character, seed, expected_digest, counts) in enumerate(
+        ff_a1_lift_specs
+    ):
+        lift_path = ROOT / (
+            f"data/generated/scientific_genesis/alternate_up_ff_lift_a1_"
+            f"side{side}_family{family}.json"
+        )
+        lift_record = json.loads(lift_path.read_text(encoding="utf-8"))
+        lift_digest = lift_record.pop("artifact_digest", None)
+        lift_archive = lift_path.with_suffix(".cochains.json.gz")
+        lift_full = json.loads(gzip.decompress(lift_archive.read_bytes()))
+        lift_payload_digest = lift_full.pop("artifact_digest", None)
+        lift_witnesses = lift_record.get("witnesses", {})
+        lift_cochains = lift_full.get("cochains", {})
+        if (
+            lift_digest != _canonical_digest(lift_record)
+            or lift_digest != expected_digest
+            or lift_record.get("schema") != "alternate-up-ff-matter-lift-v1"
+            or lift_record.get("parameter") != "a1"
+            or lift_record.get("side") != side
+            or lift_record.get("family") != family
+            or lift_record.get("character") != character
+            or lift_record.get("seed_index") != seed
+            or lift_record.get("actual_constituent_coefficient")
+            != second_lifts[index]["parameter_coefficients"][1]
+            or lift_record.get("prerequisite_artifact_digests") != ff_inputs
+            or lift_record.get("full_constituent_identity_exact") is not True
+            or lift_record.get("full_pushout_identity_exact") is not True
+            or lift_record.get("extension_point_selected") is not False
+            or any(lift_record.get(flag, False) is not False for flag in (
+                "complete_holomorphic_up_matrix_available", "physical_yukawa_matrix_available",
+                "observational_inputs_used",
+            ))
+            or lift_record.get("full_cochain_archive_name") != lift_archive.name
+            or lift_record.get("full_cochain_archive_sha256") != _sha256(lift_archive)
+            or lift_payload_digest != _canonical_digest(lift_full)
+            or lift_payload_digest != lift_record.get("full_cochain_payload_digest")
+            or lift_full.get("schema") != "alternate-up-ff-matter-lift-v1-cochains"
+            or set(lift_witnesses) != {
+                "constant", "constituent_correction", "line_correction",
+            }
+            or set(lift_cochains) != set(lift_witnesses)
+            or any(
+                lift_witnesses[name] != {
+                    "term_count": lift_cochains[name].get("term_count"),
+                    "cochain_digest": lift_cochains[name].get("cochain_digest"),
+                }
+                or len(lift_cochains[name].get("terms", []))
+                != lift_witnesses[name]["term_count"]
+                for name in lift_witnesses
+            )
+            or tuple(lift_witnesses[name]["term_count"] for name in (
+                "constant", "constituent_correction", "line_correction",
+            )) != counts
+        ):
+            raise ValueError("an actual a1 F-F matter lift or full archive is not certified")
+    ff_a1_entry_specs = (
+        (1, 1, "505e715da88acd1a0a2e91d811f6f45659f92b5ec629c845eae8f81b4a93780f",
+         "617/2+93/2*omega", "617/18+31/6*omega", (2169, 101853, 43425)),
+        (1, 2, "62298b039af54250cb7b4c305f21d811789cd3ddf6bb305890f046078a16f50b",
+         "-1399/14-95/14*omega", "-1399/126-95/126*omega", (2322, 108444, 49706)),
+        (2, 1, "9ddb9885fbe50b6ade521611abd8ee372333c3b397f6830961e126fb4573044a",
+         "1235/14-55/7*omega", "1235/126-55/63*omega", (2349, 108380, 49719)),
+        (2, 2, "94cfd013941bd9894a8b2e59eb46dad2ead6577a804e406db9fe82e57c165ffc",
+         "65/2+omega", "65/18+1/9*omega", (2211, 97929, 42334)),
+    )
+    ff_a1_entry_digests = []
+    for row, column, expected_digest, cover_residue, quotient_residue, counts in (
+        ff_a1_entry_specs
+    ):
+        entry_path = ROOT / (
+            f"data/generated/scientific_genesis/alternate_up_ff_a1_r{row}_c{column}.json"
+        )
+        entry_record = json.loads(entry_path.read_text(encoding="utf-8"))
+        entry_digest = entry_record.pop("artifact_digest", None)
+        entry_archive = entry_path.with_suffix(".cochains.json.gz")
+        ff_a1_entry_digests.append(entry_digest)
+        lift_digests = [
+            next(spec[4] for spec in ff_a1_lift_specs if spec[:2] == (side, family))
+            for side, family in ((0, row), (1, column))
+        ]
+        witnesses = entry_record.get("witnesses", {})
+        if (
+            entry_digest != _canonical_digest(entry_record)
+            or entry_digest != expected_digest
+            or entry_record.get("schema") != "alternate-up-ff-entry-v1"
+            or entry_record.get("parameter") != "a1"
+            or (entry_record.get("row"), entry_record.get("column")) != (row, column)
+            or (entry_record.get("row_seed_index"), entry_record.get("column_seed_index"))
+            != (0 if row == 1 else 5, 0 if column == 1 else 5)
+            or entry_record.get("actual_matter_lift_digests") != lift_digests
+            or entry_record.get("prerequisite_artifact_digests") != ff_inputs
+            or entry_record.get("scalar_order") != "h_K cup P1 + kappa cup P0"
+            or entry_record.get("exterior_filtration_parameter_degree") != 1
+            or entry_record.get("cover_residue") != cover_residue
+            or entry_record.get("quotient_residue") != quotient_residue
+            or any(entry_record.get(flag) is not True for flag in (
+                "full_coefficientwise_product_identity_exact",
+                "full_scalar_closed_exact",
+                "direct_transferred_and_inverse_convolution_traces_equal",
+            ))
+            or any(entry_record.get(flag) is not False for flag in (
+                "extension_point_selected", "physical_yukawa_matrix_available",
+                "complete_holomorphic_up_matrix_available",
+            ))
+            or entry_record.get("full_cochain_archive_name") != entry_archive.name
+            or entry_record.get("full_cochain_archive_sha256") != _sha256(entry_archive)
+            or set(witnesses) != {"product_constant", "product_linear", "scalar"}
+            or tuple(witnesses[name].get("term_count") for name in (
+                "product_constant", "product_linear", "scalar",
+            )) != counts
+        ):
+            raise ValueError("an exact a1 F-F scalar entry or archive is not certified")
+    ff_a1_block_path = ROOT / (
+        "data/generated/scientific_genesis/alternate_up_ff_coefficient_a1.json"
+    )
+    ff_a1_block = json.loads(ff_a1_block_path.read_text(encoding="utf-8"))
+    ff_a1_block_digest = ff_a1_block.pop("artifact_digest", None)
+    if (
+        ff_a1_block_digest != _canonical_digest(ff_a1_block)
+        or ff_a1_block_digest != "49dae41f452f925a4165c0bed7baeaaaead0990e81b7cd54d11adf4fefe3445f"
+        or ff_a1_block.get("schema") != "alternate-up-ff-coefficient-v1"
+        or ff_a1_block.get("parameter") != "a1"
+        or ff_a1_block.get("prerequisite_artifact_digests") != ff_inputs
+        or ff_a1_block.get("entry_artifact_digests") != ff_a1_entry_digests
+        or ff_a1_block.get("cover_block") != [
+            [spec[3] for spec in ff_a1_entry_specs[:2]],
+            [spec[3] for spec in ff_a1_entry_specs[2:]],
+        ]
+        or ff_a1_block.get("complete_null_scalar_digest")
+        != natural_coefficients[1]["scalar_digest"]
+        or ff_a1_block.get("complete_null_cover_residue") != "2673/49-486/49*omega"
+        or ff_a1_block.get("complete_null_scalar_literal_equal") is not True
+        or ff_a1_block.get("all_four_entries_evaluated") is not True
+        or any(ff_a1_block.get(flag) is not False for flag in (
+            "extension_point_selected", "physical_yukawa_matrix_available",
+            "complete_holomorphic_up_matrix_available", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the complete exact a1 F-F block and natural null check are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -8602,6 +8768,23 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c2.json",
         "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c2.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_ff_coefficient_a0.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_coefficient_a1.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -8626,7 +8809,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2053,
+            "collected_tests_at_audit": 2060,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -9057,10 +9240,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "evaluate all four a1 F-F entries using actual carrier matter "
-                "lifts and the canonical quotient product in the fixed Higgs-first "
-                "trace frame; replay both coefficient blocks against the complete "
-                "null contraction before returning the complete up matrix"
+                "replay the a1 F-F entries from actual carrier lifts and the "
+                "fixed Higgs-first quotient product; verify both complete "
+                "coefficient blocks against the natural null contraction, "
+                "then assemble the exact holomorphic up matrix"
             ),
         },
         "claims": _nodes(),

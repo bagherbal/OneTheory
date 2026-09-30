@@ -3,7 +3,7 @@
 Owns:
     Fixed-index validation, deterministic exact witness serialization,
     missing-input rejection, content-addressed corruption checks, and fresh
-    replay of all four actual a0 coefficientwise carrier matter lifts.
+    replay of both coefficientwise four-lift carrier matter blocks.
 
 Depends on:
     The research F-F evaluator and tiny mathematical archive fixtures.
@@ -113,25 +113,41 @@ def test_a_rehashed_archive_still_requires_its_declared_witnesses(tmp_path: Path
 
 
 @pytest.mark.parametrize(
-    "side,family,character,seed,correction_terms,line_terms,digest",
+    "parameter,side,family,character,seed,correction_terms,line_terms,digest",
     (
-        (0, 1, (0, 0), 0, 27640, 13326,
-         "b2fd30e6b26c8140ff52c41604e161d7fe39e83fd5edbafd63a224e0489094ea"),
-        (0, 2, (0, 0), 5, 26779, 12708,
-         "d76441a381f99bee8419ce380a06e1786c7d8eb4347543b2535b96f35df7673d"),
-        (1, 1, (1, 0), 0, 27564, 13278,
-         "d6ca93a2ffb79b652a709fe17cb275b1a9032b85d394a816b5348e23b51ef303"),
-        (1, 2, (1, 0), 5, 26779, 12708,
-         "08871357a32bcfef583b2ebdb897817a9ce2cb4a49873444039a936e5cb69a69"),
+        pytest.param(0, 0, 1, (0, 0), 0, 27640, 13326,
+                     "b2fd30e6b26c8140ff52c41604e161d7fe39e83fd5edbafd63a224e0489094ea",
+                     id="a0-row-seed0"),
+        pytest.param(0, 0, 2, (0, 0), 5, 26779, 12708,
+                     "d76441a381f99bee8419ce380a06e1786c7d8eb4347543b2535b96f35df7673d",
+                     id="a0-row-seed5"),
+        pytest.param(0, 1, 1, (1, 0), 0, 27564, 13278,
+                     "d6ca93a2ffb79b652a709fe17cb275b1a9032b85d394a816b5348e23b51ef303",
+                     id="a0-column-seed0"),
+        pytest.param(0, 1, 2, (1, 0), 5, 26779, 12708,
+                     "08871357a32bcfef583b2ebdb897817a9ce2cb4a49873444039a936e5cb69a69",
+                     id="a0-column-seed5"),
+        pytest.param(1, 0, 1, (0, 0), 0, 25244, 11961,
+                     "77f04729847dc58ec78314fc1c6fb92017c5a999475dd7047e6f50ee2b837526",
+                     id="a1-row-seed0"),
+        pytest.param(1, 0, 2, (0, 0), 5, 23868, 11310,
+                     "b32e6cc80c8492e01ffd896c2d77edb5e74a0967a4c962daf0263e64a84c5d03",
+                     id="a1-row-seed5"),
+        pytest.param(1, 1, 1, (1, 0), 0, 25220, 11973,
+                     "fe0abbfd3110e15dfc6a8bd02ae5c8e54aabc881c5dfc33668cc3080d5481bd4",
+                     id="a1-column-seed0"),
+        pytest.param(1, 1, 2, (1, 0), 5, 23868, 11310,
+                     "76c8051802c5be7be5a56edbba44ac62978a2501391bb734ee14348d4936e7df",
+                     id="a1-column-seed5"),
     ),
 )
-def test_actual_a0_ff_matter_lifts_replay_full_source_and_deck(
-    side: int, family: int, character: tuple[int, int], seed: int,
+def test_actual_ff_matter_lifts_replay_full_source_and_deck(
+    parameter: int, side: int, family: int, character: tuple[int, int], seed: int,
     correction_terms: int, line_terms: int, digest: str,
 ) -> None:
     """Four necessary inputs do not themselves assign a direct F-F entry."""
 
-    lift = _verified_lift(0, side, family, GENERATED)
+    lift = _verified_lift(parameter, side, family, GENERATED)
     assert lift.matter.character == character
     assert lift.matter.seed_index == seed
     assert len(lift.constant.terms) == 378

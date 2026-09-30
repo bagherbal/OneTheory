@@ -1102,18 +1102,16 @@ chosen quotient-line representative. It checkpoints the full constituent
 correction, pushout image, quotient product and closed scalar. A separate
 fresh replay in `alternate_up_full_matrix.py` requires all eight entries,
 the literal natural-null cochain identity and the descended Higgs-first
-trace before returning any complete holomorphic matrix. Until those
-cochains and replays exist, the F-F block remains `BLOCKED`; neither
-formal rank information nor a valid archive hash supplies its values.
+trace before returning any complete holomorphic matrix. The combined
+matrix remains `BLOCKED` until every archive is replayed; neither formal
+rank information nor a valid archive hash alone supplies its values.
 
 All four `a0` matter inputs are now saved with full exact cochains.
 Separate replays checked each complete E differential, strict deck
 character, global quotient image, and pushout identity against the
 frozen constituent certificate. The corrections have respectively
 27,640, 26,779, 27,564, and 26,779 terms in fixed row/column seed order.
-This establishes the four necessary `a0` matter lifts only: all four
-`a1` lifts and the `a1` scalar block remain outstanding. The `a0` F-F
-block has now been evaluated from these lifts: its four cover residues
+The `a0` F-F block has been evaluated from these lifts: its four cover residues
 in fixed row/column order are `181/2+45 omega/2`,
 `33/7-1223 omega/14`, `-347/7-1249 omega/14`, and
 `-97/49-165 omega/49`. All four full scalar cochains are closed, and
@@ -1121,7 +1119,14 @@ their natural-null combination equals the independent complete null
 cochain literally, with zero cover residue. Fresh archive replay of
 all four `a0` entries and their source lifts has passed. An independent
 exact 3x3 determinant expansion using the fixed mixed entries also
-vanishes on this formal
-`a0` slice; this does not establish the rank of the full two-parameter
-matrix. A complete holomorphic matrix and
-physical observables remain blocked.
+vanishes on this formal `a0` slice.
+
+The producer has now saved all four `a1` matter lifts and F-F entries.
+Their cover residues in the same order are `617/2+93 omega/2`,
+`-1399/14-95 omega/14`, `1235/14-55 omega/7`, and `65/2+omega`.
+The complete `a1` null cochain equals the independently archived null
+cochain literally, with cover residue `(2673-486 omega)/49`. A direct
+exact determinant expansion gives `-2187/98-28431 omega/196`, nonzero.
+This is a potential rank-three locus in the formal holomorphic family,
+not a normalized mass prediction. Fresh `a1` archive replay and complete
+matrix assembly are in progress; physical observables remain blocked.

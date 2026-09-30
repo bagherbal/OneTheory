@@ -117,6 +117,40 @@ def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
         build_state()
 
 
+@pytest.mark.parametrize(
+    "schema,field,error",
+    (
+        (
+            "alternate-up-ff-entry-v1", "physical_yukawa_matrix_available",
+            "an exact a1 F-F scalar entry or archive is not certified",
+        ),
+        (
+            "alternate-up-ff-coefficient-v1", "complete_holomorphic_up_matrix_available",
+            "the complete exact a1 F-F block and natural null check are not certified",
+        ),
+    ),
+)
+def test_a1_producer_archives_cannot_claim_a_physical_or_complete_matrix(
+    monkeypatch: pytest.MonkeyPatch, schema: str, field: str, error: str,
+) -> None:
+    """The second formal coefficient still needs fresh full-entry replay."""
+
+    original = json.loads
+
+    def inflated_loads(text: str) -> object:
+        record = original(text)
+        if (isinstance(record, dict) and record.get("schema") == schema
+                and record.get("parameter") == "a1"):
+            record.pop("artifact_digest")
+            record[field] = True
+            record["artifact_digest"] = audit._canonical_digest(record)
+        return record
+
+    monkeypatch.setattr(audit.json, "loads", inflated_loads)
+    with pytest.raises(ValueError, match=error):
+        build_state()
+
+
 def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> None:
     """The scheduler pivots to source-bound reconstruction without guessing."""
 
@@ -649,10 +683,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "evaluate all four a1 F-F entries using actual carrier matter "
-        "lifts and the canonical quotient product in the fixed Higgs-first "
-        "trace frame; replay both coefficient blocks against the complete "
-        "null contraction before returning the complete up matrix"
+        "replay the a1 F-F entries from actual carrier lifts and the "
+        "fixed Higgs-first quotient product; verify both complete "
+        "coefficient blocks against the natural null contraction, "
+        "then assemble the exact holomorphic up matrix"
     )
     assert claims["selected_atlas_common_frame_comparison"]["status"] == (
         "COMPUTED"

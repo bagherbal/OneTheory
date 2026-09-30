@@ -1,0 +1,41 @@
+{
+  "all_four_entries_evaluated": true,
+  "artifact_digest": "49dae41f452f925a4165c0bed7baeaaaead0990e81b7cd54d11adf4fefe3445f",
+  "complete_holomorphic_up_matrix_available": false,
+  "complete_null_cover_residue": "2673/49-486/49*omega",
+  "complete_null_scalar_digest": "238aa5e277ced986347b1ee0578088394eb3b1db89a425095e01b30ff143a4b2",
+  "complete_null_scalar_literal_equal": true,
+  "cover_block": [
+    [
+      "617/2+93/2*omega",
+      "-1399/14-95/14*omega"
+    ],
+    [
+      "1235/14-55/7*omega",
+      "65/2+omega"
+    ]
+  ],
+  "entry_artifact_digests": [
+    "505e715da88acd1a0a2e91d811f6f45659f92b5ec629c845eae8f81b4a93780f",
+    "62298b039af54250cb7b4c305f21d811789cd3ddf6bb305890f046078a16f50b",
+    "9ddb9885fbe50b6ade521611abd8ee372333c3b397f6830961e126fb4573044a",
+    "94cfd013941bd9894a8b2e59eb46dad2ead6577a804e406db9fe82e57c165ffc"
+  ],
+  "extension_point_selected": false,
+  "left_null_ratio": "2/7-1/7*omega",
+  "observational_inputs_used": false,
+  "parameter": "a1",
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "actual_matter": "f90026450eb9c2d4a0b84085bb64518ec3e9def5ebc5af65aa2aae30a7d94976",
+    "complete_null_contraction": "a61073d04386262d3a04b2d0c3abea20cfa5b2b497241035d21135b8ca97a8bc",
+    "constant_mixed_entries": "6f475e7551bf00b13cfea5207293ffb517fdbd09d94e8b97264cd2edae941591",
+    "constituent_lift_certificate": "b821725103b3d341032e15d2335b2916fd82bcd211ec2611b9c0d41d2700d677",
+    "coupled_product_presentation": "6f26314328265adfd2878100e70babdcfce78dfee0ce09304a9e4efd34a17626",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "higgs_primitive_archive": "26eeab0fd42d246dbc514b103cab7f7cf4854fd84c1f2e1d94769db4f2d47adc",
+    "scalar_trace_frame": "5d51f9fcb7d877ba5d66f4ae38bf231d6f777e3ed1dcdc28776a20a64c38a67c"
+  },
+  "right_null_ratio": "-3/7-2/7*omega",
+  "schema": "alternate-up-ff-coefficient-v1"
+}

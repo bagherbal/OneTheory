@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "220f9062fd8a268b4c1adf1a3faf5ed378270bf2e433d140fd74b907f8b5f0cd",
+  "artifact_digest": "37bae449be6fe034e4756d8ba9d3fc3192bedf18d42f570079fec9abbfb1568b",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -762,6 +762,91 @@
       "sha256": "81a11df1d445e6d1e2016b35aba5c09a5e5ba39b3f578d786db4abea173a4ffe"
     },
     {
+      "bytes": 2493,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family1.json",
+      "sha256": "35d371ad97fa78a730759a10bbebe9a1fd7ffdf76357383a040098c1c438e553"
+    },
+    {
+      "bytes": 312368,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family1.cochains.json.gz",
+      "sha256": "79b46c23df8c2c2b59de8ce201c0770d41cc0e6a4c21ee80b5f7fbbbcd3a9342"
+    },
+    {
+      "bytes": 2493,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family2.json",
+      "sha256": "5ab0db60724ab7316c6c9403c93d87301d1ffce7f906a071c832c29183b8d344"
+    },
+    {
+      "bytes": 332100,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family2.cochains.json.gz",
+      "sha256": "f75277293ba38b432deb958590121b06f8811880c28f2ed4024542b4973c3f0a"
+    },
+    {
+      "bytes": 2493,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family1.json",
+      "sha256": "fe5992cba28a509f7a502fb28738948b4a344bb4c3af5b73ca4365069d8dff6f"
+    },
+    {
+      "bytes": 312387,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family1.cochains.json.gz",
+      "sha256": "84f6f6270389ad763bba7f9371a0373ca1c9dbe6f66cf5140659d756df949555"
+    },
+    {
+      "bytes": 2493,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family2.json",
+      "sha256": "ab32bb94b1d9d5ade63278ce2e631f4cf6f01694685d833e61c56c4f3bae30bf"
+    },
+    {
+      "bytes": 332144,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family2.cochains.json.gz",
+      "sha256": "b598fc2611e23adec2d2e6ae812ab730d6e1a2e3f455e64653660505444b62b7"
+    },
+    {
+      "bytes": 2463,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c1.json",
+      "sha256": "f3581442b8cc1b671a8562a9d05e0b1c6bfff0c7c3d57974193b32e7b49df6be"
+    },
+    {
+      "bytes": 1333274,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c1.cochains.json.gz",
+      "sha256": "b67c57c5bfffdb32fb603192facbb69e32236f502ca5fb0950c15a393d99884d"
+    },
+    {
+      "bytes": 2472,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c2.json",
+      "sha256": "2a1e322f28cf84b55587488055c25c647a953721ba2f2cde027b207f348f8961"
+    },
+    {
+      "bytes": 1634833,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c2.cochains.json.gz",
+      "sha256": "91b2bab01ab23aab1d8c8d1ca6ce2019ce7a1222995a8ec78c07bf5f0a13d287"
+    },
+    {
+      "bytes": 2468,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c1.json",
+      "sha256": "99bc3b35cce695041661e6f58d8fa922ddcc5f13a918b8b037574ed13f04de2a"
+    },
+    {
+      "bytes": 1635958,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c1.cochains.json.gz",
+      "sha256": "3ca11a2b68833e7595d14c8681927c22dd40fb7d0d070e29f428709aa5827eca"
+    },
+    {
+      "bytes": 2454,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.json",
+      "sha256": "50eca9f15deae229846712e3247bcf150ad45481417e4d7be3827240dafbcfa8"
+    },
+    {
+      "bytes": 1569749,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.cochains.json.gz",
+      "sha256": "ada9f107cc5b6b5ddfc3f6641a0702e07cd0316b25d9312b68ed67bfca42941a"
+    },
+    {
+      "bytes": 1945,
+      "path": "data/generated/scientific_genesis/alternate_up_ff_coefficient_a1.json",
+      "sha256": "7081f0ec3ee2aec108b755cc33f0d56d65563a874131c2871a12c492be876083"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -798,7 +883,7 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2053,
+    "collected_tests_at_audit": 2060,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 259,
@@ -2170,6 +2255,23 @@
         "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c2.json",
         "data/generated/scientific_genesis/alternate_up_ff_a0_r2_c2.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_ff_coefficient_a0.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side0_family2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_lift_a1_side1_family2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r1_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c1.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.json",
+        "data/generated/scientific_genesis/alternate_up_ff_a1_r2_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_up_ff_coefficient_a1.json",
         "tests/integration/test_scientific_genesis_alternate_up_ff_entries.py",
         "tests/integration/test_scientific_genesis_alternate_up_full_matrix.py"
       ],
@@ -2177,11 +2279,10 @@
       "label": "four actual F-F entries for both universal coefficients",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "all four a1 entries",
-        "fresh exact archive replay",
+        "fresh exact a1 archive replay",
         "complete matrix assembly"
       ],
-      "statement": "The actual constituent lift solver, fixed quotient product and Higgs-first trace are composed in an executable research evaluator. All four a0 matter corrections and pushout images have been independently replayed from full cochain archives. The a0 block has four exact closed scalar entries and passes its literal independent natural-null cochain check. A fresh replay also recovered every a0 entry from its complete archive. No further F-F coefficient is assigned until its complete E correction, pushout image, quotient product and closed scalar are saved as exact witnesses. The a1 block and fresh replays remain required before any complete holomorphic matrix is available.",
+      "statement": "The actual constituent lift solver, fixed quotient product and Higgs-first trace are composed in an executable research evaluator. All four a0 matter corrections and pushout images have been independently replayed from full cochain archives. The a0 block has four exact closed scalar entries and passes its literal independent natural-null cochain check. A fresh replay also recovered every a0 entry from its complete archive. The a1 producer has likewise saved four closed scalar entries and a literal natural-null cochain check. Fresh a1 archive replay and complete assembly remain required before any full holomorphic matrix is available.",
       "status": "BLOCKED"
     },
     {
@@ -7708,7 +7809,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "evaluate all four a1 F-F entries using actual carrier matter lifts and the canonical quotient product in the fixed Higgs-first trace frame; replay both coefficient blocks against the complete null contraction before returning the complete up matrix",
+    "next_required_object": "replay the a1 F-F entries from actual carrier lifts and the fixed Higgs-first quotient product; verify both complete coefficient blocks against the natural null contraction, then assemble the exact holomorphic up matrix",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

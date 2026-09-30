@@ -22,7 +22,7 @@ from pathlib import Path
 
 import pytest
 
-from onetheory.math.numbers import Eisenstein
+from onetheory.math.numbers import Eisenstein, Rational
 from research.experiments.scientific_genesis.alternate_up_ff_entries import GENERATED
 from research.experiments.scientific_genesis.alternate_up_full_matrix import (
     _lift_path,
@@ -76,4 +76,26 @@ def test_actual_a0_slice_has_exact_rank_two_determinant() -> None:
     assert row[1] * column[1] != 0
     assert determinant == Eisenstein(0)
     assert block["complete_null_cover_residue"] == "0"
+    assert block["complete_holomorphic_up_matrix_available"] is False
+
+
+def test_actual_a1_slice_has_nonzero_exact_determinant() -> None:
+    """A nonzero formal determinant coefficient is not a physical mass prediction."""
+
+    mixed = json.loads(MIXED.read_text(encoding="utf-8"))
+    block = json.loads((GENERATED / "alternate_up_ff_coefficient_a1.json").read_text(
+        encoding="utf-8",
+    ))
+    row = {item["column"]: _parse_eisenstein_text(item["cover_residue"])
+           for item in mixed["evaluated_entries"] if item["row"] == 0}
+    column = {item["row"]: _parse_eisenstein_text(item["cover_residue"])
+              for item in mixed["evaluated_entries"] if item["column"] == 0}
+    a, b = (_parse_eisenstein_text(value) for value in block["cover_block"][0])
+    c, d = (_parse_eisenstein_text(value) for value in block["cover_block"][1])
+    determinant = -row[1] * column[1] * d + row[1] * column[2] * b
+    determinant += row[2] * column[1] * c - row[2] * column[2] * a
+    null = _parse_eisenstein_text(block["complete_null_cover_residue"])
+    assert null != Eisenstein(0)
+    assert determinant == -row[1] * column[1] * null
+    assert determinant == Eisenstein(Rational(-2187, 98), Rational(-28431, 196))
     assert block["complete_holomorphic_up_matrix_available"] is False

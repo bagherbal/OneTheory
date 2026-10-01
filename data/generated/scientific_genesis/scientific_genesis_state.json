@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "e7f03972053ae751fd0c204d835d3bca9de63481eee9a4a7c488149689226d96",
+  "artifact_digest": "8bb533e1644e8b0082b4d50963f99f5a830db0fd6efe579a4d993bac0bda05ff",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -917,6 +917,11 @@
       "sha256": "58afb865e7ef06e4b476005106016173fee1c738c7050a63e17fc21803d75180"
     },
     {
+      "bytes": 7294,
+      "path": "data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json",
+      "sha256": "a060ea20cc01bcdb4cc6997f3d7bdad4aade08d182adda81de8e6b49ada3cf08"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -956,8 +961,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 268,
-    "test_python_files": 252
+    "research_python_files": 269,
+    "test_python_files": 253
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3860,8 +3865,27 @@
       "label": "independently certified universal metric-section lift operators",
       "layer": "Normalization",
       "missing_prerequisites": [],
-      "statement": "All 256 Laurent support patterns in both grading parities pass independent integer incidence and raw contraction checks. Twenty actual source-module columns certify both outer composition identities, agreeing with the constructor's cup. The actual repaired target arrows and equation units certify averaging. A finite residual-iteration proof establishes the 5345-vector universal invariant section construction without expanded coefficient replay or an extension-point choice. Actual local rank-four fiber evaluation and metrics remain open.",
+      "statement": "All 256 Laurent support patterns in both grading parities pass independent integer incidence and raw contraction checks. Twenty actual source-module columns certify both outer composition identities, agreeing with the constructor's cup. The actual repaired target arrows and equation units certify averaging. A finite residual-iteration proof establishes the 5345-vector universal invariant section construction without expanded coefficient replay or an extension-point choice. Local fiber evaluation is supplied by a separate artifact; controlled numerical metrics remain open.",
       "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "both actual cover equations",
+        "explicit chart line frames and quotient pivot rows",
+        "independently certified actual universal section constructor"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json",
+        "research/experiments/scientific_genesis/alternate_metric_fiber_evaluation.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_EVALUATION_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_fiber_evaluation.py"
+      ],
+      "id": "alternate_metric_fiber_evaluation",
+      "label": "actual symbolic rank-four local fiber evaluation",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "The actual nine generators and five local relations yield an explicitly based rank-four quotient over Q(omega)[a0,a1]. All boundary identities and its nonzero triangular minor hold for every parameter. Four actual basis sections span an exact cover-point fiber without a parameter choice. On-demand section evaluation is available; full metric sampling and convergence remain unresolved.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
@@ -3873,10 +3897,10 @@
       "label": "Ricci-flat, HYM, and matter metric package",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "actual rank-four local fiber evaluation",
+        "controlled full-basis evaluation and metric sampling",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified, but local fiber evaluation and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available. Controlled evaluation/sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -6656,6 +6680,39 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "point satisfies both cover equations",
+        "explicit nonzero relation minors"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "an implicit fiber basis or dropped Serre/outer terms changes the evaluated object"
+      ],
+      "mathematical_reason": "Restricting actual universal section cochains to a declared chart and quotienting the actual local relations gives their fiber values.",
+      "source": "alternate_metric_lift_operator_certificate",
+      "target": "alternate_metric_fiber_evaluation"
+    },
+    {
+      "assumptions_required": [
+        "controlled full-basis sampling",
+        "declared moduli and measure",
+        "metric convergence"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "local algebraic evaluation supplies neither a measure nor a Hermitian metric"
+      ],
+      "mathematical_reason": "Actual framed section values provide algebraic inputs to controlled metric evaluation; four spanning probe columns alone are not metrics.",
+      "source": "alternate_metric_fiber_evaluation",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -7605,7 +7662,8 @@
     "the alternate universal holomorphic up matrix has all nine actual-carrier entries and determinant (-3/98-39omega/196)a1 in the fixed quotient frame",
     "global generation of a descended vector-bundle extension follows from quotient-level constituent generation and vanishing H1 of its subbundle; the actual alternate premises are certified at H=(14,16,1)",
     "the actual alternate first constituent at descending twist (5,7,1) has cover H0=1728 and higher cohomology zero; quotient H0=192 and H1=0; this count alone is not a quotient-generation proof at that smaller twist",
-    "both actual alternate constituents now have complete invariant section bases at H=(14,16,1), of sizes 2655 and 2690, with independent exact closure, repaired deck actions, and quotient image checks; universal rank-four lifts remain unresolved",
+    "both actual alternate constituents now have complete invariant section bases at H=(14,16,1), of sizes 2655 and 2690, with independent exact closure, repaired deck actions, and quotient image checks; their universal rank-four lift formula is certified",
+    "the actual universal rank-four bundle admits explicit local fiber evaluation with both extension parameters symbolic; four actual basis columns at an exact cover probe have determinant 1/81",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -7701,6 +7759,7 @@
         ]
       ],
       "alternate_fixed_atlas_su4_excluded": true,
+      "alternate_metric_complete_point_evaluation_matrix_materialized": false,
       "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
       "alternate_metric_explicit_invariant_basis_available": true,
@@ -7721,7 +7780,7 @@
         16,
         1
       ],
-      "alternate_metric_local_rank_four_evaluation_available": false,
+      "alternate_metric_local_rank_four_evaluation_available": true,
       "alternate_metric_quotient_section_count": 5345,
       "alternate_metric_rank_four_globally_generated": true,
       "alternate_metric_rank_four_quotient_lifts_remaining_count": 0,
@@ -8398,26 +8457,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "obtain actual local rank-four fiber evaluation from the independently certified 5345-section universal basis before controlled Ricci-flat/HYM convergence tests",
+    "next_required_object": "develop controlled full-basis evaluation and sampling from the actual rank-four evaluator, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
-      "priority_score": 34.333,
-      "rationale": "Convert the actual universal section cochains to local rank-four fiber evaluations before Ricci-flat/HYM approximation.",
-      "scores": {
-        "computational_cost": 3,
-        "distance_to_observable": 5,
-        "foundational_importance": 3,
-        "probability_of_discriminating_theory": 4,
-        "risk_of_local_rabbit_hole": 1,
-        "structural_reuse": 5
-      },
-      "task": "rank_four_local_fiber_evaluation"
-    },
-    {
       "priority_score": 12.9,
-      "rationale": "Compute Ricci-flat/HYM metrics only after certified actual evaluation inputs; require convergence before physical normalization.",
+      "rationale": "Develop controlled full-basis evaluation/sampling from the actual rank-four evaluator; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,

@@ -3437,7 +3437,8 @@ def _nodes() -> list[dict[str, object]]:
             "averaging. A finite residual-iteration proof establishes the "
             "5345-vector universal invariant section construction without "
             "expanded coefficient replay or an extension-point choice. "
-            "Actual local rank-four fiber evaluation and metrics remain open.",
+            "Local fiber evaluation is supplied by a separate artifact; "
+            "controlled numerical metrics remain open.",
             (
                 "data/generated/scientific_genesis/"
                 "alternate_metric_lift_operator_certificate.json",
@@ -3452,6 +3453,27 @@ def _nodes() -> list[dict[str, object]]:
              "complete independently certified constituent section bases"),
         ),
         _node(
+            "alternate_metric_fiber_evaluation",
+            "actual symbolic rank-four local fiber evaluation",
+            "Normalization",
+            "COMPUTED",
+            "The actual nine generators and five local relations yield an "
+            "explicitly based rank-four quotient over Q(omega)[a0,a1]. "
+            "All boundary identities and its nonzero triangular minor hold "
+            "for every parameter. Four actual basis sections span an exact "
+            "cover-point fiber without a parameter choice. On-demand section "
+            "evaluation is available; full metric sampling and convergence "
+            "remain unresolved.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json",
+                "research/experiments/scientific_genesis/alternate_metric_fiber_evaluation.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_EVALUATION_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_fiber_evaluation.py",
+            ),
+            ("both actual cover equations", "explicit chart line frames and quotient pivot rows",
+             "independently certified actual universal section constructor"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -3459,13 +3481,13 @@ def _nodes() -> list[dict[str, object]]:
             "The alternate carrier is globally generated at a declared "
             "ample twist. Both actual constituents have complete invariant "
             "section bases of sizes 2655 and 2690. Its universal rank-four "
-            "lifting formula is independently certified, but local fiber "
-            "evaluation and converged "
-            "Ricci-flat/HYM matter metrics are not yet available. The "
+            "lifting formula is independently certified and exact local "
+            "rank-four evaluation is available. Controlled evaluation/sampling "
+            "and converged Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
             missing=(
-                "actual rank-four local fiber evaluation",
+                "controlled full-basis evaluation and metric sampling",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -5819,6 +5841,26 @@ def _edges() -> list[dict[str, object]]:
             ("a certified section constructor is not a numerical metric",),
         ),
         _edge(
+            "alternate_metric_lift_operator_certificate",
+            "alternate_metric_fiber_evaluation",
+            "Restricting actual universal section cochains to a declared chart "
+            "and quotienting the actual local relations gives their fiber values.",
+            ("data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json",),
+            ("point satisfies both cover equations", "explicit nonzero relation minors"),
+            True,
+            ("an implicit fiber basis or dropped Serre/outer terms changes the evaluated object",),
+        ),
+        _edge(
+            "alternate_metric_fiber_evaluation",
+            "visible_metrics",
+            "Actual framed section values provide algebraic inputs to controlled "
+            "metric evaluation; four spanning probe columns alone are not metrics.",
+            ("data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json",),
+            ("controlled full-basis sampling", "declared moduli and measure", "metric convergence"),
+            True,
+            ("local algebraic evaluation supplies neither a measure nor a Hermitian metric",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -6962,17 +7004,6 @@ def _scheduler() -> list[dict[str, object]]:
 
     tasks = [
         (
-            "rank_four_local_fiber_evaluation",
-            5,
-            3,
-            4,
-            5,
-            3,
-            1,
-            "Convert the actual universal section cochains to local rank-four "
-            "fiber evaluations before Ricci-flat/HYM approximation.",
-        ),
-        (
             "alternate_metric_convergence",
             5,
             4,
@@ -6980,8 +7011,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             5,
             2,
-            "Compute Ricci-flat/HYM metrics only after certified actual "
-            "evaluation inputs; require convergence before physical normalization.",
+            "Develop controlled full-basis evaluation/sampling from the actual "
+            "rank-four evaluator; require Ricci-flat/HYM convergence before normalization.",
         ),
         (
             "alternate_remaining_holomorphic_sectors",
@@ -9365,6 +9396,41 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the independent universal lift operator certificate is not certified")
+    fiber_evaluation = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json"
+    )).read_text(encoding="utf-8"))
+    fiber_digest = fiber_evaluation.pop("artifact_digest", None)
+    if (
+        fiber_digest != _canonical_digest(fiber_evaluation)
+        or fiber_digest != "8b603ad5bcd0c9ecf557521036c5636e35d9c8ec214f2a26750d44bd32588c86"
+        or fiber_evaluation.get("schema") != "alternate-metric-fiber-evaluation-v1"
+        or fiber_evaluation.get("prerequisite_artifact_digests", {}).get("lift_certificate")
+        != lift_operator_digest
+        or fiber_evaluation.get("parameter_basis") != ["a0", "a1"]
+        or fiber_evaluation.get("generating_twist_cover_degree") != [14, 16, 1]
+        or fiber_evaluation.get("point") != {
+            "x": ["1", "-1", "0"], "u": ["1", "1", "1"],
+            "p": ["0", "1"], "chart": [0, 0, 1],
+        }
+        or fiber_evaluation.get("first_pivot_rows") != [0, 2]
+        or fiber_evaluation.get("second_pivot_rows") != [0, 1, 2]
+        or len(fiber_evaluation.get("fiber_basis_labels", [])) != 4
+        or fiber_evaluation.get("actual_basis_indices") != [0, 1273, 2670, 3973]
+        or fiber_evaluation.get("actual_section_determinant_all_parameters") != "1/81"
+        or any(fiber_evaluation.get(field) in (None, "0") for field in (
+            "relation_minor_all_parameters", "actual_section_determinant_all_parameters",
+        ))
+        or any(fiber_evaluation.get(flag) is not True for flag in (
+            "local_rank_four_evaluator_available",
+            "all_parameter_boundary_quotient_identities_exact",
+            "actual_four_section_spanning_probe_exact",
+        ))
+        or any(fiber_evaluation.get(flag) is not False for flag in (
+            "complete_5345_column_point_matrix_materialized", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual local rank-four fiber evaluation or scope is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9672,6 +9738,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_second_sections.relations.json.gz",
         "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
         "data/generated/scientific_genesis/alternate_metric_lift_operator_certificate.json",
+        "data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -9934,7 +10001,8 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_constituents_globally_generated": True,
                 "alternate_metric_rank_four_globally_generated": True,
                 "alternate_metric_explicit_invariant_basis_available": True,
-                "alternate_metric_local_rank_four_evaluation_available": False,
+                "alternate_metric_local_rank_four_evaluation_available": True,
+                "alternate_metric_complete_point_evaluation_matrix_materialized": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
                 "alternate_up_ordered_exchange_consistent": all(
@@ -10167,9 +10235,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "obtain actual local rank-four fiber evaluation from the "
-                "independently certified 5345-section universal basis before controlled "
-                "Ricci-flat/HYM convergence tests"
+                "develop controlled full-basis evaluation and sampling from the actual "
+                "rank-four evaluator, then certify Ricci-flat/HYM convergence without "
+                "choosing physical moduli by hand"
             ),
         },
         "claims": _nodes(),
@@ -10283,7 +10351,10 @@ def build_state() -> dict[str, object]:
             "both actual alternate constituents now have complete invariant "
             "section bases at H=(14,16,1), of sizes 2655 and 2690, with "
             "independent exact closure, repaired deck actions, and quotient "
-            "image checks; universal rank-four lifts remain unresolved",
+            "image checks; their universal rank-four lift formula is certified",
+            "the actual universal rank-four bundle admits explicit local fiber "
+            "evaluation with both extension parameters symbolic; four actual "
+            "basis columns at an exact cover probe have determinant 1/81",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "

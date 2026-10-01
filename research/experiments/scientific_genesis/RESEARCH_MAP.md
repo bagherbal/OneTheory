@@ -1315,6 +1315,19 @@ and repaired group relations certify strict averaging. The resulting
 replay of 5,380 coefficients has neither been required nor claimed.
 See `ALTERNATE_METRIC_LIFT_OPERATOR_CERTIFICATE_NOTE.md`.
 
-The next gate is actual local rank-four fiber evaluation, followed by controlled
-metric convergence. Physical prediction flags remain false; no vacuum, mass,
-mixing angle, or Genesis implication has been supplied by the section proof.
+Actual local rank-four fiber evaluation is now available with both parameters
+symbolic. The actual local complex has nine generators and five relations;
+its explicitly selected triangular relation minor has constant nonzero
+determinant. An exact quotient projection kills every parameter coefficient
+of the boundary matrix. On-demand evaluation uses the certified universal
+section constructor, retaining both nonsplit Serre and outer corrections.
+Four actual archived section columns span an exact cover-point fiber for all
+parameters. Independent raw-arrow specialization and polynomial products
+check the local identities and explicit frame-transition cocycles. See
+`ALTERNATE_METRIC_FIBER_EVALUATION_NOTE.md`.
+
+The next gate is controlled full-basis evaluation and metric sampling, followed
+by Ricci-flat/HYM convergence. The four-column probe is not a complete 5345-column
+sampling matrix or a Hermitian metric. Physical prediction flags remain false;
+no vacuum, mass, mixing angle, or Genesis implication has been supplied by these
+section and fiber results.

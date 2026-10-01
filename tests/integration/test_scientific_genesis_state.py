@@ -44,6 +44,15 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         (
+            "alternate-metric-fiber-evaluation-v1", "numerical_metrics_available",
+            "actual local rank-four fiber evaluation or scope is not certified",
+        ),
+        (
+            "alternate-metric-fiber-evaluation-v1",
+            "complete_5345_column_point_matrix_materialized",
+            "actual local rank-four fiber evaluation or scope is not certified",
+        ),
+        (
             "alternate-up-higgs-quotient-cone-v1", "quotient_is_a_vector_bundle",
             "actual alternate Higgs quotient cone is not certified",
         ),
@@ -760,9 +769,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "obtain actual local rank-four fiber evaluation from the "
-        "independently certified 5345-section universal basis before controlled "
-        "Ricci-flat/HYM convergence tests"
+        "develop controlled full-basis evaluation and sampling from the actual "
+        "rank-four evaluator, then certify Ricci-flat/HYM convergence without "
+        "choosing physical moduli by hand"
     )
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_up_holomorphic_rank_three_locus"] == "a1 != 0"
@@ -801,9 +810,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_metric_constituents_globally_generated"] is True
     assert path["criteria"]["alternate_metric_rank_four_globally_generated"] is True
     assert path["criteria"]["alternate_metric_explicit_invariant_basis_available"] is True
-    assert path["criteria"]["alternate_metric_local_rank_four_evaluation_available"] is False
+    assert claims["alternate_metric_fiber_evaluation"]["status"] == "COMPUTED"
+    assert path["criteria"]["alternate_metric_local_rank_four_evaluation_available"] is True
+    assert path["criteria"][
+        "alternate_metric_complete_point_evaluation_matrix_materialized"
+    ] is False
     assert claims["visible_metrics"]["status"] == "BLOCKED"
-    assert "actual rank-four local fiber evaluation" in (
+    assert "controlled full-basis evaluation and metric sampling" in (
         claims["visible_metrics"]["missing_prerequisites"]
     )
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
@@ -924,9 +937,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     scheduler = state["research_value_scheduler"]
-    assert scheduler[0]["task"] == "rank_four_local_fiber_evaluation"
-    assert scheduler[1]["task"] == "alternate_metric_convergence"
+    assert scheduler[0]["task"] == "alternate_metric_convergence"
     assert not {"alternate_physical_quotient_pairing", "alternate_complete_up_matrix",
-                "lawful_carrier_global_generation", "certify_universal_metric_lift_formula"
+                "lawful_carrier_global_generation", "certify_universal_metric_lift_formula",
+                "rank_four_local_fiber_evaluation"
                 } & {task["task"] for task in scheduler}
     assert state["fitted_inputs"] == []

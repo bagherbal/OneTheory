@@ -860,6 +860,124 @@ def test_cone_exact_sequence_and_canonical_nullhomotopy(
     )
 
 
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_complexes_snapshot_mutable_constructor_inputs(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """External containers cannot later alter a validated differential or basis."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    labels = ["x", "y"]
+    first = VectorSpace("first", labels, scalar_type)
+    last = VectorSpace("last", ("z",), scalar_type)
+    components = {0: first, step: last}
+    spaces = GradedVectorSpace("snapshot", components)
+    coefficient = Rational(2, 3) if scalar_type is Rational else OMEGA
+    rows = [[coefficient, scalar_type(0)]]
+    differential = LinearMap(first, last, rows)
+    differentials = {0: differential}
+    complex_ = complex_type(spaces, differentials)
+    map_components = {degree: LinearMap.identity(spaces.space(degree))
+                      for degree in spaces.degrees}
+    identity = ChainMap(complex_, complex_, map_components)
+    homotopy_components = {0: LinearMap.zero(first, spaces.space(-step))}
+    homotopy = ChainHomotopy(identity, identity, homotopy_components)
+
+    labels.reverse()
+    rows[0][0] = scalar_type(0)
+    components.clear()
+    differentials.clear()
+    map_components.clear()
+    homotopy_components.clear()
+
+    assert first.basis == ("x", "y")
+    assert complex_.differential(0).rows == ((coefficient, scalar_type(0)),)
+    assert complex_.cohomology_dimension(0) == 1
+    assert complex_.cohomology_dimension(step) == 0
+    assert identity == ChainMap.identity(complex_)
+    assert len(homotopy.components) == 1
+    assert hash(complex_) == hash(complex_type(spaces, {0: differential}))
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_reordered_basis_cannot_be_used_as_an_implicit_change_of_coordinates(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """Equal names and dimensions do not authorize a hidden basis permutation."""
+
+    first = VectorSpace("same name", ("x", "y"), scalar_type)
+    reordered = VectorSpace("same name", ("y", "x"), scalar_type)
+    complex_ = complex_type(GradedVectorSpace("original", {0: first}), {})
+    other = complex_type(GradedVectorSpace("reordered", {0: reordered}), {})
+    identity = LinearMap.identity(first)
+
+    with pytest.raises(ValueError, match="vector basis"):
+        identity(CoordinateVector(reordered, (1, 0)))
+    with pytest.raises(ValueError, match="matching named spaces"):
+        identity.compose(LinearMap.identity(reordered))
+    with pytest.raises(ValueError, match="codomain"):
+        ChainMap(complex_, other, {0: identity})
+
+    # A basis permutation is valid only when explicitly supplied as a typed map.
+    permutation = ChainMap(complex_, other, {
+        0: LinearMap(first, reordered, ((0, 1), (1, 0))),
+    })
+    inverse = ChainMap(other, complex_, {
+        0: LinearMap(reordered, first, ((0, 1), (1, 0))),
+    })
+    assert inverse.compose(permutation) == ChainMap.identity(complex_)
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+def test_nine_cell_totalization_matches_the_tensor_complex_cohomology(
+    scalar_type: type[Rational] | type[Eisenstein],
+) -> None:
+    """Three-cell diagonals retain block order and all vertical parity signs."""
+
+    cells = {(p, q): VectorSpace(f"cell {p},{q}", ("00", "01", "10", "11"), scalar_type)
+             for p in range(3) for q in range(3)}
+    a = Rational(2, 3) if scalar_type is Rational else OMEGA
+    b = Rational(3, 5) if scalar_type is Rational else Eisenstein(1, 2)
+    horizontal_rows = ((0, 0, a, 0), (0, 0, 0, a), (0, 0, 0, 0), (0, 0, 0, 0))
+    vertical_rows = ((0, b, 0, 0), (0, 0, 0, 0), (0, 0, 0, b), (0, 0, 0, 0))
+    bicomplex = Bicomplex(
+        "tensor grid", cells,
+        horizontal={(p, q): LinearMap(cells[p, q], cells[p + 1, q], horizontal_rows)
+                    for p in range(2) for q in range(3)},
+        vertical={(p, q): LinearMap(cells[p, q], cells[p, q + 1], vertical_rows)
+                  for p in range(3) for q in range(2)},
+    )
+    total = bicomplex.totalize()
+
+    # Independently assemble each scalar entry, without the block-map helper.
+    for degree in range(5):
+        sources = sorted(cell for cell in cells if sum(cell) == degree)
+        targets = sorted(cell for cell in cells if sum(cell) == degree + 1)
+        expected = []
+        for target in targets:
+            for row in range(4):
+                values = []
+                for p, q in sources:
+                    block = horizontal_rows if target == (p + 1, q) else (
+                        vertical_rows if target == (p, q + 1) else ((0,) * 4,) * 4
+                    )
+                    sign = -1 if target == (p, q + 1) and p % 2 else 1
+                    values.extend(scalar_type(sign) * value for value in block[row])
+                expected.append(tuple(values))
+        assert total.differential(degree).rows == tuple(expected)
+        assert total.differential(degree + 1).compose(total.differential(degree)).is_zero()
+
+    # Each factor has one class at either endpoint and none in the middle.
+    assert tuple(total.cohomology_dimension(degree) for degree in range(5)) == (1, 0, 2, 0, 1)
+    assert tuple(len(total.cohomology_representatives(degree)) for degree in range(5)) == (
+        1, 0, 2, 0, 1,
+    )
+
+
 def test_dga_leibniz_commutator_pairing_and_maurer_cartan() -> None:
     degree_zero = VectorSpace("A0", ("1",))
     graded = GradedVectorSpace("A", {0: degree_zero})

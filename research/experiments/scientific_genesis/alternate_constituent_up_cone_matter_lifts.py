@@ -1,8 +1,8 @@
 """Lift alternate up-type matter sectors through the universal outer cone.
 
 Owns:
-    Exact constant first-constituent classes and parameter-linear corrections
-    for all four required second-constituent up-type classes.
+    Reusable strict first-constituent character classes and exact universal
+    corrections; the up-sector wrapper retains all four required I6 lifts.
 
 Depends on:
     The frozen alternate cone, strict I6 matter classes, exact common-DGA cup,
@@ -54,6 +54,7 @@ from .alternate_constituent_up_matter_representatives import (
     AlternateMatterClass,
     Character,
     _project,
+    _require_characters,
     _strict,
     alternate_constituent_up_matter_representatives,
 )
@@ -215,6 +216,14 @@ class AlternateUpConeMatterLifts:
 def _first_representatives() -> tuple[FirstMatterClass, FirstMatterClass]:
     """Recover only the two needed first-factor sectors in atlas frames."""
 
+    return cast(tuple[FirstMatterClass, FirstMatterClass], _first_representatives_for(TARGETS))
+
+
+@cache
+def _first_representatives_for(targets: tuple[Character, ...]) -> tuple[FirstMatterClass, ...]:
+    """Reuse the unchanged first complex for explicitly ordered character sectors."""
+
+    _require_characters(targets)
     first = mixed_schoen_constituents()[0]
     unit = mixed_schoen_unit()
     transferred = mixed_transferred_outer_hom(first, unit)
@@ -244,7 +253,7 @@ def _first_representatives() -> tuple[FirstMatterClass, FirstMatterClass]:
         )
         if not contraction.differential(full).is_zero():
             raise ValueError("an I3 matter seed is not closed")
-        for character in TARGETS:
+        for character in targets:
             projected = _project(full, character, contraction, actions, frames)
             if projected.is_zero():
                 continue
@@ -279,9 +288,9 @@ def _first_representatives() -> tuple[FirstMatterClass, FirstMatterClass]:
                     raise ValueError("an I3 target character has multiplicity above one")
             elif previous is None:
                 found[character] = candidate
-    if set(found) != set(TARGETS):
+    if set(found) != set(targets):
         raise ValueError("the I3 target character sectors are incomplete")
-    return cast(tuple[FirstMatterClass, FirstMatterClass], tuple(found[item] for item in TARGETS))
+    return tuple(found[item] for item in targets)
 
 
 def _coefficient(

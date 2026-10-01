@@ -44,6 +44,15 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         *tuple(
+            ("alternate-neutrino-mixed-pairing-v1", field,
+             "the actual neutrino witnesses changed their trusted scope or inputs")
+            for field in (
+                "complete_holomorphic_neutrino_matrix_available",
+                "physical_yukawa_matrix_available", "majorana_mechanism_derived",
+                "observational_inputs_used",
+            )
+        ),
+        *tuple(
             ("alternate-metric-global-weight-bound-v1", field,
              "the global auxiliary weight bound or its scope is not certified")
             for field in (
@@ -939,13 +948,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "certify practical multi-point throughput using the actual universal "
-        "quotient frames and completed single-domain output; use the exact "
-        "global auxiliary weight bound to implement controlled independent "
-        "SU-uniform proposals with certified input coverage and "
-        "actual matrix integrand bounds and integration-error control, then "
-        "certify Ricci-flat/HYM "
-        "convergence without choosing physical moduli by hand"
+        "derive the eight actual neutrino F-F coefficients with the existing "
+        "constituent-lift and coupled-product engines, then independently "
+        "verify and assemble the complete holomorphic matrix; metric sampling, "
+        "Ricci-flat/HYM convergence, other sectors, and the common vacuum "
+        "remain required before physical normalization"
     )
     assert path["criteria"][
         "alternate_metric_exact_residue_and_auxiliary_measure_available"
@@ -1176,7 +1183,12 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     scheduler = state["research_value_scheduler"]
-    assert scheduler[0]["task"] == "alternate_metric_convergence"
+    assert scheduler[0]["task"] == "alternate_complete_neutrino_matrix"
+    assert claims["alternate_neutrino_mixed_pairing"]["status"] == "COMPUTED"
+    assert claims["alternate_neutrino_matrix"]["status"] == "BLOCKED"
+    assert path["criteria"]["alternate_neutrino_constant_mixed_entry_count"] == 4
+    assert path["criteria"]["alternate_neutrino_complete_holomorphic_matrix_available"] is False
+    assert path["criteria"]["alternate_neutrino_majorana_mechanism_derived"] is False
     assert not {"alternate_physical_quotient_pairing", "alternate_complete_up_matrix",
                 "lawful_carrier_global_generation", "certify_universal_metric_lift_formula",
                 "rank_four_local_fiber_evaluation"

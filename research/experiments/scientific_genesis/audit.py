@@ -6,7 +6,8 @@ Owns:
 
 Depends on:
     Standard-library inspection of repository sources and generated artifacts,
-    plus the research-only read-only consumer of completed bounded output.
+    plus research-only read-only consumers of completed bounded output and
+    the source-pinned full neutrino witness packet.
 
 Must not:
     Infer scientific truth from file presence, choose an extension coordinate,
@@ -3784,6 +3785,42 @@ def _nodes() -> list[dict[str, object]]:
             ),
         ),
         _node(
+            "alternate_neutrino_mixed_pairing",
+            "constant Dirac-neutrino pairings on the frozen alternate carrier",
+            "Flavor",
+            "COMPUTED",
+            "The source Wilson weights for L and nu^c require pre-twist "
+            "characters (2,1) and (2,2). Their sum matches the up-sector "
+            "matter-pair character, so the already certified up-Higgs covector "
+            "can be reused without choosing a new Higgs or carrier. Six actual "
+            "strict constituent cycles and four constant mixed scalars are "
+            "archived. Independent Hom composition reproduces each literal "
+            "scalar; direct and transferred traces agree in the fixed volume "
+            "frame. This is not the missing F-F block or physical mass data.",
+            ("research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",
+             "research/experiments/scientific_genesis/ALTERNATE_NEUTRINO_MIXED_PAIRING_NOTE.md",
+             "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
+             "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
+             "tests/integration/test_scientific_genesis_alternate_neutrino_mixed_pairing.py"),
+            ("source-pinned Wilson embedding", "frozen alternate determinant repair",
+             "same actual canonical quotient pairing and trace"),
+        ),
+        _node(
+            "alternate_neutrino_matrix",
+            "complete alternate holomorphic Dirac-neutrino matrix",
+            "Flavor",
+            "BLOCKED",
+            "A shared up-Higgs object does not identify the up and neutrino "
+            "family bases or coupling values. Every neutrino scalar must be "
+            "derived from its own actual matter characters in the same carrier.",
+            ("research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",
+             "research/experiments/scientific_genesis/alternate_neutrino_ff_entries.py",
+             "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py"),
+            ("conditional heterotic realization", "unchanged frozen carrier"),
+            missing=("complete parameter-linear F-F neutrino block",
+                     "independent all-entry scalar and representative checks"),
+        ),
+        _node(
             "physical_pfaffians",
             "physical worldsheet Pfaffians",
             "Vacuum",
@@ -6517,6 +6554,38 @@ def _edges() -> list[dict[str, object]]:
             ("one certified local domain is not global sampling or a Hermitian metric",),
         ),
         _edge(
+            "alternate_constituent_carrier_state", "alternate_neutrino_mixed_pairing",
+            "The frozen carrier and flat determinant repair determine the "
+            "actual matter-character sectors for source-pinned Wilson weights.",
+            ("research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",),
+            ("unchanged constituent atlases", "actual exact character projections"), True,
+            ("character support alone gives no coupling value",),
+        ),
+        _edge(
+            "alternate_up_mixed_quotient_pairing", "alternate_neutrino_mixed_pairing",
+            "The same canonical quotient product and up-Higgs trace evaluate "
+            "different matter characters without transferring up-sector values.",
+            ("research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",),
+            ("same Higgs covector", "fresh actual neutrino matter representatives"), True,
+            ("gauge unification does not supply a family-basis identification",),
+        ),
+        _edge(
+            "alternate_neutrino_mixed_pairing", "alternate_neutrino_matrix",
+            "Four constant mixed entries provide only the off-block input "
+            "to the full parameter-linear matrix.",
+            ("research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",),
+            ("actual F-F matter corrections", "complete eight coefficient scalars"), True,
+            ("absent entries must not be filled with zero or up-sector values",),
+        ),
+        _edge(
+            "alternate_neutrino_matrix", "physical_yukawas",
+            "A derived holomorphic neutrino matrix is one required sector "
+            "before physical normalization in a common stabilized vacuum.",
+            ("research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",),
+            ("other flavor sectors", "canonical metrics", "stabilized common vacuum"), True,
+            ("a Dirac coupling is not a Majorana mechanism or physical mass",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -7639,6 +7708,20 @@ def _engines() -> list[dict[str, object]]:
             ),
         ),
         (
+            "same-carrier strict character projection and remaining flavor execution",
+            "research-only; six neutrino constituent cycles and four constant "
+            "mixed scalars independently checked; full coefficients still pending",
+            (
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_up_matter_representatives.py",
+                "research/experiments/scientific_genesis/"
+                "alternate_constituent_up_cone_matter_lifts.py",
+                "research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",
+                "research/experiments/scientific_genesis/alternate_neutrino_ff_entries.py",
+                "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py",
+            ),
+        ),
+        (
             "instantons",
             "carrier boundary and input audit only",
             (
@@ -7670,6 +7753,21 @@ def _scheduler() -> list[dict[str, object]]:
     """Return value-ranked tasks under the Scientific Genesis criterion."""
 
     tasks = [
+        (
+            "alternate_complete_neutrino_matrix",
+            5,
+            4,
+            5,
+            5,
+            3,
+            2,
+            "The four actual mixed entries and six strict constituent classes "
+            "are independently checked. Reuse the existing E-correction and "
+            "canonical quotient engines for eight neutrino F-F coefficients "
+            "in the same frozen carrier. The completed metric point matrix "
+            "took 3.37 hours without certifying practical integration; another "
+            "modest source-key optimization is not the shortest vertical step.",
+        ),
         (
             "alternate_metric_convergence",
             5,
@@ -10567,6 +10665,22 @@ def build_state() -> dict[str, object]:
         or complete_matrix["original_probe_indices_checked"] != [0, 1273, 2655]
     ):
         raise ValueError("completed bounded matrix execution is not independently certified")
+    from . import alternate_neutrino_mixed_pairing as neutrino_mixed
+
+    neutrino_packet, _neutrino_witnesses = neutrino_mixed.load_mixed_pairing(
+        expected_digest="1bc8020db27e9f7a3c7ee7a7abf4ab0c456903c993eab27b0038cad5e12e6049",
+    )
+    if (
+        neutrino_packet["full_cochain_archive_sha256"]
+        != "49bf7e7066fdfc46a87107f4e0a369bcffc1476d084490fcccffe552ae5a3cfd"
+        or [item["cover_residue"] for item in neutrino_packet["evaluated_entries"]]
+        != ["3*omega", "-3/2", "-3/14-9/14*omega", "3*omega"]
+        or [item["seed_index"] for item in neutrino_packet["first_constituent_classes"]]
+        != [0, 1]
+        or [item["seed_index"] for item in neutrino_packet["second_constituent_classes"]]
+        != [2, 4, 1, 3]
+    ):
+        raise ValueError("the actual neutrino mixed entries are not independently certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -10889,6 +11003,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_bounded_support.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_matrix.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_matrix.columns.jsonl.gz",
+        "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
+        "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -10913,7 +11029,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2501,
+            "collected_tests_at_audit": 2583,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -11116,6 +11232,12 @@ def build_state() -> dict[str, object]:
                 "alternate_up_holomorphic_matrix_determinant": full_up["determinant"],
                 "alternate_up_holomorphic_rank_three_locus": "a1 != 0",
                 "alternate_up_physical_yukawa_matrix_available": False,
+                "alternate_neutrino_actual_constituent_classes_available": True,
+                "alternate_neutrino_constant_mixed_entry_count": 4,
+                "alternate_neutrino_shared_up_higgs_used": True,
+                "alternate_neutrino_complete_holomorphic_matrix_available": False,
+                "alternate_neutrino_physical_yukawa_matrix_available": False,
+                "alternate_neutrino_majorana_mechanism_derived": False,
                 "alternate_metric_trial_twist": metric["twist_cover_degree"],
                 "alternate_metric_subbundle_h1_vanishing": True,
                 "alternate_metric_first_constituent_cover_generated": True,
@@ -11410,19 +11532,21 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "certify practical multi-point throughput using the actual universal "
-                "quotient frames and completed single-domain output; use the exact "
-                "global auxiliary weight bound to implement controlled independent "
-                "SU-uniform proposals with certified input coverage and "
-                "actual matrix integrand bounds and integration-error control, then "
-                "certify Ricci-flat/HYM "
-                "convergence without choosing physical moduli by hand"
+                "derive the eight actual neutrino F-F coefficients with the existing "
+                "constituent-lift and coupled-product engines, then independently "
+                "verify and assemble the complete holomorphic matrix; metric sampling, "
+                "Ricci-flat/HYM convergence, other sectors, and the common vacuum "
+                "remain required before physical normalization"
             ),
         },
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "six strict alternate neutrino constituent classes and four actual "
+            "constant mixed scalars have complete archived witnesses; independent "
+            "Hom composition gives literal scalar equality, with fixed quotient "
+            "traces and no up-family value or basis identification",
             "exact homogeneous surface-gradient and critical-support identities "
             "give a quantitative global positive-law conormal lower bound and "
             "ideal auxiliary weight variance bound without sampling or physical moduli selection",
@@ -11827,8 +11951,9 @@ def build_state() -> dict[str, object]:
                 "attack": (
                     "closed by the Hermitian Schur-complement proof, independent "
                     "full ambient inverse/determinant checks, exact source points, "
-                    "and all 36 declared domains. Global input coverage, quantitative "
-                    "lower bounds, and sampling error remain separate open gates"
+                    "and all 36 declared domains. The separate full polynomial "
+                    "certificate now supplies a conservative global lower bound; "
+                    "global input coverage and sampling error remain open gates"
                 ),
             },
             {

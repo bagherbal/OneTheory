@@ -1466,8 +1466,8 @@ the common stabilized vacuum, remaining holomorphic flavor sectors, and
 Genesis-to-UV remain missing. No observational or moduli-selection flag
 was enabled.
 
-Complete bounded matrix output is now an explicit BLOCKED successor gate,
-not a claim inferred from the existence of its writer. The writer calls
+Complete bounded matrix output is now COMPUTED on one declared local domain,
+after actual execution and a full consumer audit. The writer calls
 the existing bounded evaluator for every original index and produces a
 deterministic compressed JSON-line stream on the declared finite regression
 domain. A separate parser reads the entire completed stream, checks index
@@ -1482,8 +1482,8 @@ regular-monomial factoring would reduce source keys from 1972 to 1477
 per parameter; this modest count reduction is not an implemented theorem
 or justification to replace the verified engine before its complete output
 is measured. A structural-compression question records that possibility.
-The full output gate must be audited from actual completed artifacts before
-promotion to COMPUTED. Controlled sampling, practical multi-point cost,
+The full output gate is audited from all 5345 actual archived columns,
+not file presence. It took 12143.715 seconds; controlled sampling, practical multi-point cost,
 metric convergence, physical normalization, the common vacuum, remaining
 flavor sectors, and Genesis-to-UV remain open regardless of process status.
 
@@ -1492,8 +1492,8 @@ actual compressed archive bytes, then checks all columns, hashes, domain
 and parameter identities, exact scope flags, and the independently checked
 original predecessor probe records. It is read-only and cannot promote a
 gate from metadata alone. Its negative tests use descriptive metadata
-contracts, not synthetic scientific matrices. The matrix claim remains
-BLOCKED until the real full run and consumer audit finish. Physical metric,
+contracts, not synthetic scientific matrices. The matrix claim is
+COMPUTED only for that domain, not a sampling cloud or converged metric. Physical metric,
 sampling, and prediction flags remain false.
 
 ## Actual integration-weight moments
@@ -1534,9 +1534,34 @@ factorial, probability, and quotient normalizations. The proof in
 weights and finite moments of every nonnegative order by positivity and
 compactness. The original A/9 tail theorem is unchanged and not contradicted.
 
-The scheduler now favors this positive mixture for integration. A numerical
-global weight bound, critical-fiber chart engine, controlled uniform
-proposals, complete section throughput, integration errors, Ricci-flat/HYM
+The positive mixture remains the integration route. A separate exact polynomial
+certificate now gives a conservative global weight bound, and declared axis-critical
+chart enclosures exist. Controlled uniform proposals, global numerical input
+coverage, practical multi-point section throughput, integration errors, Ricci-flat/HYM
 convergence, physical normalization, and a common vacuum remain open.
 Selecting one root per independent configuration is required when claiming
 independent draws; correlated full root batches cannot be counted as such.
+
+## Same-carrier Dirac-neutrino vertical slice
+
+The source-pinned L/nu^c/H_u Wilson weights route to constituent characters
+`(2,1),(2,2)` under the existing repaired-forward convention. Their pair character
+permits the already certified up-Higgs covector, not an identification of family
+bases or coupling values. Reusing the exact strict-character engines gives I3
+seeds `0,1` and I6 seeds `2,4` / `1,3` in the unchanged reduced basis.
+
+`alternate_neutrino_mixed_pairing.json` contains 18 literal full-cochain witnesses.
+Independent Hom composition reproduces all four canonical quotient scalars,
+including their order sign; direct and transferred traces agree. In the declared
+row/column ordering the cover entries are `3ω`, `-3/2`, `-(3+9ω)/14`, and `3ω`;
+quotient entries divide by nine. No absent F-F entries are inserted. See
+`ALTERNATE_NEUTRINO_MIXED_PAIRING_NOTE.md` and its 15 independent regressions.
+
+This closes `alternate_neutrino_mixed_pairing` as COMPUTED. The complete matrix
+remains BLOCKED until all eight actual parameter coefficients and all-entry
+independent checks exist. `alternate_neutrino_ff_entries.py` reuses the existing
+constituent correction, quotient pushout, and coupled scalar engines; it does
+not reuse the up null channel or its values. Checkpoints are sector-specific.
+The scheduler now favors this remaining flavor slice over another small metric
+source-key optimization. Metrics, the other flavor sectors, Majorana structure,
+the common vacuum, physical observables, and Genesis-to-UV remain unresolved.

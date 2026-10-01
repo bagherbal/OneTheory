@@ -652,3 +652,28 @@ through syzygies and the outer cone, not repetition of the scalar screens.
 The carrier and original closed screens are not refuted by this operation
 failure. See `alternate_up_exterior_boundary_attack.json` and
 `ALTERNATE_UP_QUOTIENT_PAIRING_NOTE.md`.
+
+## Current same-carrier neutrino frontier
+
+The frozen alternate carrier now has its own strict Dirac-neutrino constituent
+classes in characters `(2,1),(2,2)`. The existing up-Higgs covector applies by
+the source-pinned character sum; neither up values nor family bases are copied.
+Four constant mixed cover traces are `3ω`, `-3/2`, `-(3+9ω)/14`, and `3ω` in
+the unchanged seed order. Each quotient trace is divided by nine. The full
+18-witness archive is content-addressed, independent Hom composition reproduces
+the literal scalar cochains, and the producer reproduces archive bytes.
+
+These are partial holomorphic couplings, not a full neutrino matrix or physical
+masses. The F-F block still requires eight parameter coefficients.
+`alternate_neutrino_ff_entries.py` only orchestrates the existing constituent,
+pushout, coupled-product, and trace engines on these actual neutrino inputs.
+Its explicit execution either derives corrections or requires saved checkpoints;
+it does not synthesize missing ones. `alternate_neutrino_full_matrix.py` checks
+all sixteen required input files before replay and assembly; this successor
+remains unavailable until the actual coefficient jobs and independent replay finish.
+The current graph prioritizes this flavor
+slice while controlled metric integration remains open. The 5345-column bounded
+matrix and a conservative global auxiliary weight bound are certified inputs,
+not practical sampling or Ricci-flat/HYM convergence. No Majorana mechanism,
+physical normalization, stabilized vacuum, observation selection, or Genesis-to-UV
+derivation is claimed. See `ALTERNATE_NEUTRINO_MIXED_PAIRING_NOTE.md`.

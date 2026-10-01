@@ -1,8 +1,9 @@
 """Generate strict alternate-constituent matter classes for one Yukawa slice.
 
 Owns:
-    Two complete I6 matter character sectors required by the up-type Wilson
-    weights, with exact full Cech cycles and alternate-atlas eigenactions.
+    Reusable strict I6 character projection in the frozen alternate complex;
+    the up-sector wrapper retains its two published Wilson sectors and exact
+    full Cech cycles with alternate-atlas eigenactions.
 
 Depends on:
     The frozen alternate component, exact mixed transfer and contraction,
@@ -84,6 +85,17 @@ def _add(left: Character, right: Character) -> Character:
 
 def _negative(value: Character) -> Character:
     return (-value[0]) % 3, (-value[1]) % 3
+
+
+def _require_characters(characters: tuple[Character, ...]) -> None:
+    """Require explicit ordered, distinct canonical Z3 x Z3 characters."""
+
+    if (not isinstance(characters, tuple) or not characters
+        or any(not isinstance(c, tuple) or len(c) != 2
+               or any(type(e) is not int or not 0 <= e < 3 for e in c)
+               for c in characters)
+        or len(set(characters)) != len(characters)):
+        raise ValueError("explicit distinct canonical character pairs are required")
 
 
 def _project(
@@ -252,6 +264,22 @@ def alternate_constituent_up_matter_representatives() -> AlternateUpMatterRepres
         _add(weight, _negative(common_twist))
         for weight in UP_SPINOR_WILSON_WEIGHTS
     )
+    classes, reduced_dimension, boundary_dimension = _strict_i6_representatives(target_characters)
+    return AlternateUpMatterRepresentatives(
+        classes, common_twist, carrier_digest, spectrum_digest, matter_digest,
+        source_digest, reduced_dimension, boundary_dimension,
+    )
+
+
+@cache
+def _strict_i6_representatives(target_characters: tuple[Character, ...]):
+    """Reuse the frozen I6 complex for explicitly requested character sectors.
+
+    The projection, seed order, reduced basis, and full action checks are
+    unchanged. This returns constituent classes, never uncorrected cone classes.
+    """
+
+    _require_characters(target_characters)
     ray = lift_joint_character_ray(
         published_constituent_deck_actions()[1], OMEGA**0, OMEGA**1
     )
@@ -278,9 +306,7 @@ def alternate_constituent_up_matter_representatives() -> AlternateUpMatterRepres
         name: (_common_frame(second, action), Matrix.identity(1, scalar_type=Eisenstein))
         for name, action in actions.items()
     }
-    found: dict[Character, list[AlternateMatterClass]] = {
-        target_characters[0]: [], target_characters[1]: []
-    }
+    found: dict[Character, list[AlternateMatterClass]] = {c: [] for c in target_characters}
     for seed_index, coefficients in enumerate(seeds):
         full, inclusion_depth = _perturbed_inclusion(
             _reduced_cochain(entries, coefficients), contraction
@@ -328,14 +354,9 @@ def alternate_constituent_up_matter_representatives() -> AlternateUpMatterRepres
         if all(len(items) == 2 for items in found.values()):
             break
     if any(len(items) != 2 for items in found.values()):
-        raise ValueError("the strict up-type I6 sectors did not reach expected dimension")
-    return AlternateUpMatterRepresentatives(
+        raise ValueError("the strict requested I6 sectors did not reach expected dimension")
+    return (
         tuple(item for character in target_characters for item in found[character]),
-        common_twist,
-        carrier_digest,
-        spectrum_digest,
-        matter_digest,
-        source_digest,
         spaces[1].dimension - incoming.rank() - outgoing.rank(),
         len(boundaries),
     )

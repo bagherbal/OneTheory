@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "3cab51482a0d9e8719ec5ab0550b755fb09d64994d0c7840d4a88c0b1462dc1b",
+  "artifact_digest": "f18797ce8108e08d682fa72a942b47716750badd776c83dc8d29f0591f8e129e",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -992,6 +992,16 @@
       "sha256": "3f0b600967c9b61d060c2c5d13f51d8b6e5e549bf50600ca6cd813d387e9afce"
     },
     {
+      "bytes": 13010,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
+      "sha256": "b634077922c0a7d2ed8c4fb3886ff562412d4f2c12b61fc00a57cea98418ea10"
+    },
+    {
+      "bytes": 159645,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
+      "sha256": "49bf7e7066fdfc46a87107f4e0a369bcffc1476d084490fcccffe552ae5a3cfd"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -1028,11 +1038,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2501,
+    "collected_tests_at_audit": 2583,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 282,
-    "test_python_files": 266
+    "research_python_files": 285,
+    "test_python_files": 268
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -4219,6 +4229,46 @@
         "stabilized common vacuum"
       ],
       "statement": "Canonical-normalization laws and one alternate holomorphic up matrix exist, but positive carrier metrics, the other flavor sectors, and a common stabilized context do not.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
+        "source-pinned Wilson embedding",
+        "frozen alternate determinant repair",
+        "same actual canonical quotient pairing and trace"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",
+        "research/experiments/scientific_genesis/ALTERNATE_NEUTRINO_MIXED_PAIRING_NOTE.md",
+        "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
+        "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
+        "tests/integration/test_scientific_genesis_alternate_neutrino_mixed_pairing.py"
+      ],
+      "id": "alternate_neutrino_mixed_pairing",
+      "label": "constant Dirac-neutrino pairings on the frozen alternate carrier",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "The source Wilson weights for L and nu^c require pre-twist characters (2,1) and (2,2). Their sum matches the up-sector matter-pair character, so the already certified up-Higgs covector can be reused without choosing a new Higgs or carrier. Six actual strict constituent cycles and four constant mixed scalars are archived. Independent Hom composition reproduces each literal scalar; direct and transferred traces agree in the fixed volume frame. This is not the missing F-F block or physical mass data.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "conditional heterotic realization",
+        "unchanged frozen carrier"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",
+        "research/experiments/scientific_genesis/alternate_neutrino_ff_entries.py",
+        "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py"
+      ],
+      "id": "alternate_neutrino_matrix",
+      "label": "complete alternate holomorphic Dirac-neutrino matrix",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "complete parameter-linear F-F neutrino block",
+        "independent all-entry scalar and representative checks"
+      ],
+      "statement": "A shared up-Higgs object does not identify the up and neutrino family bases or coupling values. Every neutrino scalar must be derived from its own actual matter characters in the same carrier.",
       "status": "BLOCKED"
     },
     {
@@ -7589,6 +7639,71 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "unchanged constituent atlases",
+        "actual exact character projections"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "character support alone gives no coupling value"
+      ],
+      "mathematical_reason": "The frozen carrier and flat determinant repair determine the actual matter-character sectors for source-pinned Wilson weights.",
+      "source": "alternate_constituent_carrier_state",
+      "target": "alternate_neutrino_mixed_pairing"
+    },
+    {
+      "assumptions_required": [
+        "same Higgs covector",
+        "fresh actual neutrino matter representatives"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "gauge unification does not supply a family-basis identification"
+      ],
+      "mathematical_reason": "The same canonical quotient product and up-Higgs trace evaluate different matter characters without transferring up-sector values.",
+      "source": "alternate_up_mixed_quotient_pairing",
+      "target": "alternate_neutrino_mixed_pairing"
+    },
+    {
+      "assumptions_required": [
+        "actual F-F matter corrections",
+        "complete eight coefficient scalars"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "absent entries must not be filled with zero or up-sector values"
+      ],
+      "mathematical_reason": "Four constant mixed entries provide only the off-block input to the full parameter-linear matrix.",
+      "source": "alternate_neutrino_mixed_pairing",
+      "target": "alternate_neutrino_matrix"
+    },
+    {
+      "assumptions_required": [
+        "other flavor sectors",
+        "canonical metrics",
+        "stabilized common vacuum"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a Dirac coupling is not a Majorana mechanism or physical mass"
+      ],
+      "mathematical_reason": "A derived holomorphic neutrino matrix is one required sector before physical normalization in a common stabilized vacuum.",
+      "source": "alternate_neutrino_matrix",
+      "target": "physical_yukawas"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -8497,6 +8612,7 @@
     }
   ],
   "established_results": [
+    "six strict alternate neutrino constituent classes and four actual constant mixed scalars have complete archived witnesses; independent Hom composition gives literal scalar equality, with fixed quotient traces and no up-family value or basis identification",
     "exact homogeneous surface-gradient and critical-support identities give a quantitative global positive-law conormal lower bound and ideal auxiliary weight variance bound without sampling or physical moduli selection",
     "all 5345 original bounded columns are materialized on one declared local domain; compressed/raw hashes, complete stream parsing, and three predecessor probes are independently checked",
     "a Hermitian Schur-complement identity yields projection-free positive-law weights from the full ambient conormal Gram; the original sparse Jacobian has a positive three-term determinant and all 36 declared domain enclosures agree with the old charts",
@@ -8702,6 +8818,12 @@
       "alternate_metric_weight_individual_projection_inverses_required": false,
       "alternate_metric_weight_second_moment_finite": true,
       "alternate_metric_weight_third_moment_finite": false,
+      "alternate_neutrino_actual_constituent_classes_available": true,
+      "alternate_neutrino_complete_holomorphic_matrix_available": false,
+      "alternate_neutrino_constant_mixed_entry_count": 4,
+      "alternate_neutrino_majorana_mechanism_derived": false,
+      "alternate_neutrino_physical_yukawa_matrix_available": false,
+      "alternate_neutrino_shared_up_higgs_used": true,
       "alternate_other_linearisations_excluded": false,
       "alternate_ray_0_1_all_nonzero_p1_stable_in_sufficient_chamber": true,
       "alternate_ray_0_1_charged_structural_spectrum_passes": true,
@@ -9366,10 +9488,23 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "certify practical multi-point throughput using the actual universal quotient frames and completed single-domain output; use the exact global auxiliary weight bound to implement controlled independent SU-uniform proposals with certified input coverage and actual matrix integrand bounds and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
+    "next_required_object": "derive the eight actual neutrino F-F coefficients with the existing constituent-lift and coupled-product engines, then independently verify and assemble the complete holomorphic matrix; metric sampling, Ricci-flat/HYM convergence, other sectors, and the common vacuum remain required before physical normalization",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
+    {
+      "priority_score": 21.5,
+      "rationale": "The four actual mixed entries and six strict constituent classes are independently checked. Reuse the existing E-correction and canonical quotient engines for eight neutrino F-F coefficients in the same frozen carrier. The completed metric point matrix took 3.37 hours without certifying practical integration; another modest source-key optimization is not the shortest vertical step.",
+      "scores": {
+        "computational_cost": 3,
+        "distance_to_observable": 5,
+        "foundational_importance": 4,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 2,
+        "structural_reuse": 5
+      },
+      "task": "alternate_complete_neutrino_matrix"
+    },
     {
       "priority_score": 12.9,
       "rationale": "Use the actual residue and normalized FS measure with the bounded all-index evaluator and certified complete single-domain output; measure multi-point cost, then implement the positive auxiliary SU-uniform mixture using the quantitative global weight bound, certified inputs, actual matrix integrand bounds, and error control; require Ricci-flat/HYM convergence before normalization.",
@@ -9668,6 +9803,17 @@
       "maturity": "research-only; actual roots/charts/densities/universal frames, not sampling or metrics"
     },
     {
+      "capability": "same-carrier strict character projection and remaining flavor execution",
+      "locations": [
+        "research/experiments/scientific_genesis/alternate_constituent_up_matter_representatives.py",
+        "research/experiments/scientific_genesis/alternate_constituent_up_cone_matter_lifts.py",
+        "research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",
+        "research/experiments/scientific_genesis/alternate_neutrino_ff_entries.py",
+        "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py"
+      ],
+      "maturity": "research-only; six neutrino constituent cycles and four constant mixed scalars independently checked; full coefficients still pending"
+    },
+    {
       "capability": "instantons",
       "locations": [
         "src/onetheory/models/heterotic_schoen/instantons.py",
@@ -9735,7 +9881,7 @@
   ],
   "structural_compression_questions": [
     {
-      "attack": "closed by the Hermitian Schur-complement proof, independent full ambient inverse/determinant checks, exact source points, and all 36 declared domains. Global input coverage, quantitative lower bounds, and sampling error remain separate open gates",
+      "attack": "closed by the Hermitian Schur-complement proof, independent full ambient inverse/determinant checks, exact source points, and all 36 declared domains. The separate full polynomial certificate now supplies a conservative global lower bound; global input coverage and sampling error remain open gates",
       "evidence": "18 regular and 18 axis-critical domains use the same residue-to-FS-cube ratio in different free frames",
       "question": "Can the ambient conormal Gram eliminate individual projection inverses from all positive-law weights?"
     },

@@ -36,6 +36,22 @@ Scalar = Rational | Eisenstein
 type ScalarType = type[Rational] | type[Eisenstein]
 
 
+def _require_integer_degree(degree: object) -> None:
+    """Reject numeric aliases of an integer grading, including booleans."""
+
+    if not isinstance(degree, int) or isinstance(degree, bool):
+        raise TypeError("graded degrees must be integers")
+
+
+def _require_bidegree(cell: object) -> None:
+    """Require an ordered pair of actual integer degrees."""
+
+    if not isinstance(cell, tuple) or len(cell) != 2:
+        raise ValueError("bicomplex cells require (horizontal, vertical) degrees")
+    for degree in cell:
+        _require_integer_degree(degree)
+
+
 def _coerce(value: object, scalar_type: ScalarType) -> Scalar:
     if scalar_type is Rational:
         return coerce_rational(value)
@@ -153,8 +169,8 @@ class GradedVectorSpace:
         pairs = tuple(components.items()) if isinstance(components, Mapping) else tuple(components)
         if len({degree for degree, _ in pairs}) != len(pairs):
             raise ValueError("graded degrees must be unique")
-        if any(not isinstance(degree, int) or isinstance(degree, bool) for degree, _ in pairs):
-            raise TypeError("graded degrees must be integers")
+        for degree, _ in pairs:
+            _require_integer_degree(degree)
         if any(not isinstance(space, VectorSpace) for _, space in pairs):
             raise TypeError("graded components must be VectorSpace instances")
         ordered = tuple(sorted(pairs, key=lambda pair: pair[0]))
@@ -179,6 +195,7 @@ class GradedVectorSpace:
     def space(self, degree: int) -> VectorSpace:
         """Return a component, or its canonical zero-dimensional component."""
 
+        _require_integer_degree(degree)
         for component_degree, space in self.components:
             if component_degree == degree:
                 return space
@@ -503,6 +520,7 @@ class _ComplexMixin:
     def differential(self, degree: int) -> LinearMap:
         """Return the typed differential, including an implicit zero at an edge."""
 
+        _require_integer_degree(degree)
         for source_degree, differential in self._differentials:
             if source_degree == degree:
                 return differential
@@ -530,6 +548,7 @@ class _ComplexMixin:
     def boundaries(self, degree: int) -> tuple[CoordinateVector, ...]:
         """Return an exact basis of boundaries in the requested degree."""
 
+        _require_integer_degree(degree)
         source_degree = degree + 1 if self._direction == "chain" else degree - 1
         return self.differential(source_degree).image_basis()
 
@@ -703,6 +722,7 @@ class ChainMap:
     def component(self, degree: int) -> LinearMap:
         """Return the typed component, using zero outside supplied degrees."""
 
+        _require_integer_degree(degree)
         for component_degree, component in self.components:
             if component_degree == degree:
                 return component
@@ -783,6 +803,7 @@ class ChainHomotopy:
     def component(self, degree: int) -> LinearMap:
         """Return the typed shifted component, including implicit zero maps."""
 
+        _require_integer_degree(degree)
         for component_degree, component in self.components:
             if component_degree == degree:
                 return component
@@ -866,10 +887,10 @@ class Bicomplex:
     ) -> None:
         component_pairs = (tuple(components.items()) if isinstance(components, Mapping)
                            else tuple(components))
+        for cell, _ in component_pairs:
+            _require_bidegree(cell)
         if len({cell for cell, _ in component_pairs}) != len(component_pairs):
             raise ValueError("bicomplex cells must be unique")
-        if any(len(cell) != 2 for cell, _ in component_pairs):
-            raise ValueError("bicomplex cells require (horizontal, vertical) degrees")
         scalar_types = {space.scalar_type for _, space in component_pairs}
         if len(scalar_types) > 1:
             raise TypeError("all bicomplex components must use one scalar type")
@@ -877,6 +898,8 @@ class Bicomplex:
                             else tuple(horizontal))
         vertical_pairs = (tuple(vertical.items()) if isinstance(vertical, Mapping)
                           else tuple(vertical))
+        for cell, _ in (*horizontal_pairs, *vertical_pairs):
+            _require_bidegree(cell)
         if len({cell for cell, _ in horizontal_pairs}) != len(horizontal_pairs):
             raise ValueError("horizontal source cells must be unique")
         if len({cell for cell, _ in vertical_pairs}) != len(vertical_pairs):
@@ -896,6 +919,7 @@ class Bicomplex:
     def space(self, cell: tuple[int, int]) -> VectorSpace:
         """Return a cell space or the canonical zero space at an absent cell."""
 
+        _require_bidegree(cell)
         for component_cell, space in self.components:
             if component_cell == cell:
                 return space

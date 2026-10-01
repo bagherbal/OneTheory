@@ -480,6 +480,84 @@ def test_negative_horizontal_degree_totalization_keeps_exact_signs(
     assert all(total.cohomology_dimension(degree) == 0 for degree in total.degrees)
 
 
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+@pytest.mark.parametrize("invalid_degree", (False, True, 0.0, 1.0, 1.5, "0"))
+def test_integer_gradings_reject_aliases_in_maps_and_lookups(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+    invalid_degree: object,
+) -> None:
+    """An invalid degree must not select an existing integer-indexed basis."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    spaces = GradedVectorSpace("C", {
+        degree: VectorSpace(f"C{degree}", ("e",), scalar_type) for degree in (0, 1)
+    })
+    complex_ = complex_type(spaces, {
+        degree: LinearMap.zero(spaces.space(degree), spaces.space(degree + step))
+        for degree in spaces.degrees
+    })
+    identity = ChainMap.identity(complex_)
+    homotopy = ChainHomotopy(identity, identity, {
+        degree: LinearMap.zero(spaces.space(degree), spaces.space(degree - step))
+        for degree in spaces.degrees
+    })
+
+    for lookup in (
+        spaces.space, complex_.differential, complex_.cycles, complex_.boundaries,
+        complex_.cohomology_dimension, complex_.cohomology_representatives,
+        identity.component, homotopy.component,
+    ):
+        with pytest.raises(TypeError, match="degrees must be integers"):
+            lookup(invalid_degree)  # type: ignore[arg-type]
+
+    with pytest.raises(TypeError, match="degrees must be integers"):
+        GradedVectorSpace("invalid", [(invalid_degree, spaces.space(0))])  # type: ignore[list-item]
+    with pytest.raises(TypeError, match="degrees must be integers"):
+        complex_type(spaces, [(invalid_degree, complex_.differential(0))])  # type: ignore[list-item]
+    with pytest.raises(TypeError, match="degrees must be integers"):
+        ChainMap(complex_, complex_, [(invalid_degree, identity.component(0))])  # type: ignore[list-item]
+    with pytest.raises(TypeError, match="degrees must be integers"):
+        ChainHomotopy(identity, identity, [(invalid_degree, homotopy.component(0))])  # type: ignore[list-item]
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("invalid_degree", (False, True, 0.0, 1.0, 1.5, "0"))
+@pytest.mark.parametrize("axis", (0, 1))
+def test_bicomplexes_require_integer_degrees_in_each_direction(
+    scalar_type: type[Rational] | type[Eisenstein],
+    invalid_degree: object,
+    axis: int,
+) -> None:
+    """Neither cell labels nor map sources may bypass the integer grading."""
+
+    space = VectorSpace("B00", ("e",), scalar_type)
+    bicomplex = Bicomplex("B", {(0, 0): space})
+    cell = (invalid_degree, 0) if axis == 0 else (0, invalid_degree)
+    with pytest.raises(TypeError, match="degrees must be integers"):
+        bicomplex.space(cell)  # type: ignore[arg-type]
+    with pytest.raises(TypeError, match="degrees must be integers"):
+        Bicomplex("invalid", [(cell, space)])  # type: ignore[list-item]
+    for direction in ("horizontal", "vertical"):
+        target = (1, 0) if direction == "horizontal" else (0, 1)
+        map_ = LinearMap.zero(space, bicomplex.space(target))
+        with pytest.raises(TypeError, match="degrees must be integers"):
+            Bicomplex("B", {(0, 0): space}, **{direction: [(cell, map_)]})  # type: ignore[arg-type]
+
+
+@pytest.mark.parametrize("cell", ((), (0,), (0, 1, 2), "00", [0, 0]))
+def test_bicomplexes_reject_malformed_bidegrees(cell: object) -> None:
+    """Each bidegree is explicitly an ordered pair, not an incidental index."""
+
+    space = VectorSpace("B00", ("e",))
+    bicomplex = Bicomplex("B", {(0, 0): space})
+    with pytest.raises(ValueError, match="horizontal, vertical"):
+        bicomplex.space(cell)  # type: ignore[arg-type]
+    with pytest.raises(ValueError, match="horizontal, vertical"):
+        Bicomplex("invalid", [(cell, space)])  # type: ignore[list-item]
+
+
 def test_dga_leibniz_commutator_pairing_and_maurer_cartan() -> None:
     degree_zero = VectorSpace("A0", ("1",))
     graded = GradedVectorSpace("A", {0: degree_zero})

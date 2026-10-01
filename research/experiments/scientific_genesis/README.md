@@ -663,8 +663,10 @@ the unchanged seed order. Each quotient trace is divided by nine. The full
 18-witness archive is content-addressed, independent Hom composition reproduces
 the literal scalar cochains, and the producer reproduces archive bytes.
 
-These are partial holomorphic couplings, not a full neutrino matrix or physical
-masses. The F-F block still requires eight parameter coefficients.
+These mixed entries are inputs to the now complete holomorphic neutrino matrix,
+not physical masses. All eight F-F parameter coefficients have finished full
+independent replay with exact equality to the archived constant products,
+linear products, and scalar cochains.
 All eight actual F-family matter corrections now have full archives and have
 passed independent replay of the original equations, strict atlas characters,
 and literal quotient pushouts. Their existence is not a scalar evaluation.
@@ -673,12 +675,15 @@ pushout, coupled-product, and trace engines on these actual neutrino inputs.
 Its explicit execution either derives corrections or requires saved checkpoints;
 it does not synthesize missing ones. `alternate_neutrino_full_matrix.py` checks
 all sixteen required input files before replay and assembly; this successor
-remains unavailable until independent full scalar replay finishes. All eight
-coefficient jobs have finished; the one- or two-worker replay uses the unchanged
+is available after successful full scalar replay. All eight
+coefficient jobs have finished; the one- or two-worker replay uses the same
 full validators and pins every metadata and literal archive byte before and
-after evaluation. A separate scalar determinant expansion gives
-`(3/2+3ω/4) a0`, but this cannot certify the matrix before full replay succeeds.
-The current graph prioritizes this flavor
+after evaluation. A separate scalar determinant expansion agrees with the full
+polynomial determinant, `(3/2+3ω/4) a0`. Eleven tests verify every actual entry,
+the fixed trace, a nonzero rank-two minor, and rejection of scope/basis attacks.
+The neutrino rank-three locus `D(a0)` meets the up locus `D(a1)` on the same
+original P1 without point selection. See `ALTERNATE_NEUTRINO_FULL_MATRIX_NOTE.md`.
+The current graph prioritizes the remaining down/charged-lepton flavor
 slice while controlled metric integration remains open. The 5345-column bounded
 matrix and a conservative global auxiliary weight bound are certified inputs,
 not practical sampling or Ricci-flat/HYM convergence. No Majorana mechanism,
@@ -696,8 +701,13 @@ the old up-sector packet is separately regressed. See
 
 `alternate_down_higgs_quotient_cone.py` applies the existing natural quotient,
 signed exterior product, and full primitive engines to this explicitly supplied
-class. Both new coefficient identities must pass independent replay before this
-next graph node is established. No up primitive is relabelled as a down result.
+class. Both new coefficient identities now pass independent replay: each full
+action equals a separately formed signed reciprocal wedge, and each original
+full primitive differential equals its product. The actual witnesses also pass
+both coupled scalar-input equations with zero quadratic action. Thirteen tests
+cover these identities and routing/scope attacks. This closes the quotient-cone
+node, not a full-exterior-square Higgs or a matrix. No up primitive is relabelled
+as a down result. See `ALTERNATE_DOWN_HIGGS_QUOTIENT_CONE_NOTE.md`.
 Neither down-quark nor charged-lepton matrices, metrics, or physical masses follow
 from the Hom input alone.
 
@@ -705,5 +715,17 @@ The remaining `d^c` and `e^c` constituent sectors are independently checked:
 native characters `(1,1)` and `(2,0)`, two E classes and four F classes, with
 unchanged reduced coordinates and strict full atlas characters. Ten regressions
 check literal reproduction, nonboundaries, and character-space ranks. Existing
-Q and L classes are not recomputed. These inputs do not supply missing cone
+Q and L classes are not recomputed. These constituent inputs alone do not supply cone
 corrections or scalar products. See `ALTERNATE_REMAINING_FLAVOR_MATTER_NOTE.md`.
+
+`alternate_remaining_flavor_matter_lifts.py` explicitly derives only the eight
+new d/e corrections using the existing constituent solver and quotient maps.
+The common read-only validator now takes an actual supplied matter class;
+neutrino replay retains the same equations and atlas checks. All eight new
+corrections now pass independent original full differential, strict atlas,
+literal quotient, and coupled-matter checks. Thirty-seven regressions cover
+the actual corrections, shared neutrino validator, input boundaries, missing
+checkpoints, and rehashed scope/routing attacks. The node is COMPUTED; complete
+down and charged-lepton scalar matrices remain missing. No missing checkpoint
+triggers a solver. Q/L corrections are not recomputed. The artifact-bound
+derivation is `ALTERNATE_REMAINING_FLAVOR_MATTER_LIFTS_NOTE.md`.

@@ -6,8 +6,8 @@ reality. Quantum phase, Lorentzian causality, Einstein gravity, and the
 dimensional constants are explicit assumptions. Heterotic `E8 x E8` and the
 Schoen quotient are selected realization data. There is no Genesis-to-UV
 derivation, and the repository must continue to label that edge blocked.
-The distinct alternate carrier now has one complete exact 3x3 holomorphic
-up matrix from its generated chains; this is not a physical Yukawa matrix.
+The distinct alternate carrier now has complete exact 3x3 holomorphic up and
+Dirac-neutrino matrices from its generated chains; neither is a physical Yukawa matrix.
 
 ## Established and computed
 
@@ -1558,8 +1558,8 @@ quotient entries divide by nine. No absent F-F entries are inserted. See
 `ALTERNATE_NEUTRINO_MIXED_PAIRING_NOTE.md` and its 15 independent regressions.
 
 This closes `alternate_neutrino_mixed_pairing` as COMPUTED. The complete matrix
-remains BLOCKED until all eight actual parameter coefficients and all-entry
-independent checks exist. `alternate_neutrino_ff_entries.py` reuses the existing
+now also closes after full replay of all eight actual parameter coefficients
+and independent all-entry checks. `alternate_neutrino_ff_entries.py` reuses the existing
 constituent correction, quotient pushout, and coupled scalar engines; it does
 not reuse the up null channel or its values. Checkpoints are sector-specific.
 The scheduler now favors this remaining flavor slice over another small metric
@@ -1571,10 +1571,13 @@ full constituent equations, strict atlas actions, and literal quotient-pushout
 replay. This closes `alternate_neutrino_matter_lifts` as COMPUTED, not the missing
 eight scalar coefficients or the complete neutrino matrix. Both coefficient
 jobs have now completed all four scalar entries each. Full independent replay
-continues with at most two workers, using the original validators and immutable
-source snapshots. A separate exact determinant expansion gives
-`(3/2+3ω/4) a0`; the matrix node cannot close until all full scalar identities
-and literal witnesses pass replay.
+has completed with two workers, using the original validators and immutable
+source snapshots. All sixteen matter/entry sources passed the full original
+equations and literal witness comparisons. A separate exact determinant
+expansion agrees with the polynomial determinant `(3/2+3ω/4) a0`. Eleven
+all-entry and scope regressions pass. The formal neutrino rank-three locus
+`D(a0)` meets the up locus `D(a1)` on `D(a0*a1)` in the same original P1;
+neither bases nor parameters are selected to force this statement.
 
 The down-Higgs native Hom input is also COMPUTED: character `(2,2)`, seed 1,
 351 full terms, coordinates `(0,(1-omega)/3,0,(2+omega)/3)` in the original basis.
@@ -1587,9 +1590,12 @@ The next declared edge is `alternate_down_higgs_quotient_cone`: retarget the act
 Hom class through the established ideal quotient, compute both actual outer
 actions, compare their full signed exterior products, and solve both full cone
 equations. The experiment reuses the existing engines with an explicit class,
-not up-sector coefficient values. This node remains BLOCKED until both witnesses
-exist and are independently checked. The down and charged-lepton matter products
-must subsequently be calculated in their own actual character sectors.
+not up-sector coefficient values. Both full primitive equations now pass
+independent original-differential replay, with each action independently formed
+both as a quotient composition and as a signed reciprocal wedge. Both actual
+coupled scalar-input checks pass their constant and linear equations with zero
+quadratic action. This closes the quotient-cone node as COMPUTED; it does not
+construct a complete full-exterior-square Higgs or either flavor matrix.
 
 The missing constituent inputs are now COMPUTED as
 `alternate_down_lepton_matter`: native d/e characters `(1,1)` / `(2,0)`, E
@@ -1597,5 +1603,20 @@ seeds `0,2`, F seeds `2,4` / `0,5`. All six full cycles are archived in their
 original bases. Ten independent checks establish full closure, both atlas
 characters, nonboundary coordinates, rank-two F character spaces, exact producer
 reproduction, and rejection of scope/routing attacks. Existing Q/L sectors are
-not regenerated. Their corrected carrier states and remaining scalar traces
-are still missing. See `ALTERNATE_REMAINING_FLAVOR_MATTER_NOTE.md`.
+not regenerated. Their constituent inputs alone do not determine corrected
+carrier states or scalar traces. See `ALTERNATE_REMAINING_FLAVOR_MATTER_NOTE.md`.
+
+The declared edge `alternate_remaining_flavor_matter_lifts` is now COMPUTED. Its thin
+producer schedules only the existing exact constituent solver and quotient
+maps on the four actual d/e classes and original outer coefficients. The
+read-only full-equation/atlas/pushout validator has been extracted from the
+neutrino replay into the common evaluator without changing its mathematics.
+All eight new coefficient archives pass independent replay: original full
+constituent equations, both strict atlas actions, literal quotient pushouts,
+and full coupled identities. Thirty-seven regressions also retain the actual
+neutrino checks and reject missing inputs or changed scope/routing. The sixteen
+metadata/archive files are bound by the ledger; no Q/L correction is resolved
+again. The next mathematical objects are actual down and charged-lepton
+mixed/F-F scalar products and complete matrices, not metrics inferred from
+holomorphic ranks. `ALTERNATE_REMAINING_FLAVOR_MATTER_LIFTS_NOTE.md` remains the
+immutable, artifact-hashed producer derivation.

@@ -1,4 +1,4 @@
-# Actual Dirac-neutrino coefficients and the pending full-matrix certificate
+# Complete actual holomorphic Dirac-neutrino matrix
 
 The realization is conditional on the same frozen alternate heterotic carrier,
 with common determinant repair `(1,2)`, original atlas frames, and original
@@ -40,29 +40,32 @@ volume convention `pi*Omega_quotient=Omega_cover`. This is not canonical
 matter normalization.
 
 An independent four-term scalar expansion of the determinant, using the
-pinned completed coefficient metadata rather than a polynomial-determinant
-routine, gives
+pinned completed coefficient metadata, agrees with the full polynomial
+determinant and gives
 
 ```text
 det Y_nu = (3/2 + 3 omega/4) a0.
 ```
 
 Its a1 coefficient cancels exactly. The constant quotient minor in rows
-0,1 and columns 0,1 is `-1/42 - omega/63`, so the produced matrix has a
-rank-two floor. Conditional on independent full scalar replay succeeding,
-the formal rank-three locus is `D(a0)` and its rank-two complement is `a0=0`.
+0,1 and columns 0,1 is `-1/42 - omega/63`, so the matrix has a rank-two
+floor. All eight full scalar replays now pass. The formal rank-three locus
+is `D(a0)` and its rank-two complement is `a0=0` on the original P1.
 The certified up matrix has rank-three locus `D(a1)` on the same original
 P1; the two conditions are compatible on `D(a0 a1)` without choosing a point.
 None of these holomorphic statements predicts masses or mixing.
 
-The complete neutrino-matrix node remains **BLOCKED** while full replay is
-running. The assembler reads all sixteen actual matter and scalar packets,
+The complete neutrino-matrix node is **COMPUTED** after successful full replay.
+The assembler reads all sixteen actual matter and scalar packets,
 replays every original equation and literal scalar product, and compares
 metadata digests and archive byte hashes before and after replay. At most
 two workers schedule the same exact validators; parallel execution changes
 neither the mathematics nor the result schema. A missing prerequisite causes
-failure before execution or output. Only a completed, independently checked
-all-entry output can close the node.
+failure before execution or output. The completed output digest is
+`40e5e45b6be980d49c432dbc707c496be56728731cd9b6f9d71d4cf08d8909eb`.
+All-entry source matching, the separate scalar determinant expansion, fixed
+trace normalization, common up/neutrino rank conditions, missing-input
+rejection, and rehashed scope/basis attacks pass eleven regressions.
 
 Matter metrics, a common stabilized vacuum, Majorana structure, physical
 observables, and the Genesis-to-UV edge remain missing. No observations,

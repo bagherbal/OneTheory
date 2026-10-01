@@ -14,6 +14,15 @@ The established law object deliberately contains no physical instance: gauge cou
 
 The executable reality slice now also carries the exact observable split-wall ledger, corrected formal mixed branch, local/open-locus admissibility certificates, scoped degree-three and order-five exclusions, and the finite holomorphic flavor frontier. The complete lawful tree-level up matrix is exactly zero. Its first parameter-linear matter leg has an exact noncycle obstruction and zero partial residue, while the complementary Higgs determinant-line correction and its canonical diagonal normalization are exact; the full local Pluecker chain map for the two bottom matter representatives remains missing. Rank-three Yukawas, metrics, canonical normalization, masses, CP observables, instantons, hidden-bundle existence, and vacuum stabilization therefore remain explicit missing inputs.
 
+Separate conditional research on the frozen, determinant-repaired alternate
+carrier now has complete exact holomorphic up and Dirac-neutrino matrices
+from generated chain witnesses. Their rank-three loci meet on the original
+universal parameter space without selecting a point. These results are not
+promoted physical Yukawas: down and charged-lepton scalar matrices, matter
+metrics, and one stabilized vacuum remain missing. See the
+[Scientific Genesis research map](research/experiments/scientific_genesis/RESEARCH_MAP.md)
+for the evidence-backed distinction from the production/reference branches.
+
 ## Dependency direction
 
 ```text

@@ -1,0 +1,198 @@
+{
+  "all_eight_formal_coefficient_scalars_replayed": true,
+  "all_nine_entries_derived_from_actual_carrier": true,
+  "artifact_digest": "40e5e45b6be980d49c432dbc707c496be56728731cd9b6f9d71d4cf08d8909eb",
+  "basis_order": {
+    "columns": [
+      "E(2,2):seed1",
+      "F(2,2):seed1",
+      "F(2,2):seed3"
+    ],
+    "rows": [
+      "E(2,1):seed0",
+      "F(2,1):seed2",
+      "F(2,1):seed4"
+    ]
+  },
+  "canonical_matter_metrics_available": false,
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "coefficient_field": "Q(omega)",
+  "common_vacuum_stabilized": false,
+  "cover_to_quotient_trace_factor": "1/9",
+  "determinant": [
+    {
+      "coefficient": "3/2+3/4*omega",
+      "powers": [
+        1,
+        0
+      ]
+    }
+  ],
+  "extension_point_selected": false,
+  "holomorphic_matrix_available": true,
+  "majorana_mechanism_derived": false,
+  "matrix_entries": [
+    [
+      [],
+      [
+        {
+          "coefficient": "1/3*omega",
+          "powers": [
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "-1/6",
+          "powers": [
+            0,
+            0
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "coefficient": "-1/42-1/14*omega",
+          "powers": [
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "-503/14-464/7*omega",
+          "powers": [
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "466/21+974/63*omega",
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "1927/126+209/126*omega",
+          "powers": [
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "-1/42+565/126*omega",
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "coefficient": "1/3*omega",
+          "powers": [
+            0,
+            0
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "-298/9-26/3*omega",
+          "powers": [
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "3+79/3*omega",
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ],
+      [
+        {
+          "coefficient": "-83/3-736/9*omega",
+          "powers": [
+            1,
+            0
+          ]
+        },
+        {
+          "coefficient": "-41/9+625/18*omega",
+          "powers": [
+            0,
+            1
+          ]
+        }
+      ]
+    ]
+  ],
+  "observational_inputs_used": false,
+  "outer_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "alternate_neutrino_ff_a0_r1_c1": "b756d7078882c84ab8115320e729b0dbc4d5a34b06d77bccc411762cb2a72265",
+    "alternate_neutrino_ff_a0_r1_c2": "56887cf77095486901c0a1327e7004435e13c7c73a2dfa031bd5bb17ef1eca5a",
+    "alternate_neutrino_ff_a0_r2_c1": "1f7243d848789b04ff39d2adc66eb2455fd36df2fa4136902e11a34ea036b8e7",
+    "alternate_neutrino_ff_a0_r2_c2": "ef44e13e813c8c35f8c7f3d27861d840787968a489f2b2696fd75152b9382143",
+    "alternate_neutrino_ff_a1_r1_c1": "31f01478088bb6ede78b54fe556706a17413f3d32f5e0d62ef4ccbbdb1457b74",
+    "alternate_neutrino_ff_a1_r1_c2": "09c7e8e0b8cdcf990955412d6a028678cc1dcbe414b0c51534738ad8c1f8f16b",
+    "alternate_neutrino_ff_a1_r2_c1": "7420fb17560d7cdaec8f78977bfc3d057e7871fb8e35a1480bc50325d55b623e",
+    "alternate_neutrino_ff_a1_r2_c2": "e325c129ac8ad049cfa42ccbeac94ef2ef835193af779c0bd4857432a261b174",
+    "alternate_neutrino_ff_lift_a0_side0_family1": "ffc2ff3bdab420bfc9b16ffd1892aa4b84c2896808f976a09ffbca604d6a1379",
+    "alternate_neutrino_ff_lift_a0_side0_family2": "7da302ec452f693ced8a436b29bed9402257428ce85576e2f36c9b0e3cbeab62",
+    "alternate_neutrino_ff_lift_a0_side1_family1": "ce0af7244b5be8a5d8786243f3378518826294cbb7ffabda2df5e7befe84037c",
+    "alternate_neutrino_ff_lift_a0_side1_family2": "fbde476e5e4e892988e9408ff454603da4afb1bc8f8396cbec9d8313921171be",
+    "alternate_neutrino_ff_lift_a1_side0_family1": "d20d9d68689a66e769a4c637efc8abb365fcb4021990dc021126302e8824004d",
+    "alternate_neutrino_ff_lift_a1_side0_family2": "4002b844a63e4a3de0d909f6b232bc4ad645ce7c835fdf4cbb733ef665ee8245",
+    "alternate_neutrino_ff_lift_a1_side1_family1": "ce3f70ba89af4e70b315a490401a734ecb2ce405b33eeb2d85167d545fdb27c8",
+    "alternate_neutrino_ff_lift_a1_side1_family2": "e26c664effe33ed3ca157b0d357062b119b24c3bbc08a3b74cde43cb15691bde",
+    "constant_mixed_pairing": "1bc8020db27e9f7a3c7ee7a7abf4ab0c456903c993eab27b0038cad5e12e6049"
+  },
+  "prerequisite_full_archive_sha256": {
+    "alternate_neutrino_ff_a0_r1_c1": "4f91f4aba20b9744f387b4581ec6566fe5e80d52f08b50215b141ed510d913a9",
+    "alternate_neutrino_ff_a0_r1_c2": "46a4fbbba0bc56b912ac0d03416e8b4c65574f222921e763ab34e13813e522be",
+    "alternate_neutrino_ff_a0_r2_c1": "b404077732bdef54be338757dc11a06941b74ea09ea1d99be222895d78b0c0c5",
+    "alternate_neutrino_ff_a0_r2_c2": "a07126fd612fe1d69f4074054617bfe9ad60b1da58302613562fbfe32d83e1d2",
+    "alternate_neutrino_ff_a1_r1_c1": "6d3c31e394b574bb2ffd397b0048fbc072c7765eb8ed4dc13ba76c55448d5e24",
+    "alternate_neutrino_ff_a1_r1_c2": "889ac4469a9c4fbbdf3311bb27194cfa3c469fc94fd839c1fa89078e37b6c30e",
+    "alternate_neutrino_ff_a1_r2_c1": "0c88dbc11fc6c726203d8780e54ca8fb65e8b7ee54b4786a49fd8816288bb661",
+    "alternate_neutrino_ff_a1_r2_c2": "8f14ac35312fc94cbaaac4dd0da767dac3496ad318c1305e52e0a95de214cb9f",
+    "alternate_neutrino_ff_lift_a0_side0_family1": "40eb7d0467c3393b15d4263b8b31567612f26db4ccba5d2183203710ee5e0a1e",
+    "alternate_neutrino_ff_lift_a0_side0_family2": "0b1604d44525848e2708547ea231dd84dcbb167008dd5259e5c26b8699c0468a",
+    "alternate_neutrino_ff_lift_a0_side1_family1": "f8df88538e14c25af5caaacb2e1a9f85e54ff92a2274e72e1bcd99df70c6a7bf",
+    "alternate_neutrino_ff_lift_a0_side1_family2": "5117449fcddbd65e4f2ea899b1da4424a0231f6e07220aa101afb4e24a5c45d0",
+    "alternate_neutrino_ff_lift_a1_side0_family1": "bcf383629c44fcfa97d8801f7b06db0744a00512e00c27f63cbe3aab987eef47",
+    "alternate_neutrino_ff_lift_a1_side0_family2": "dd0087ea31dab42723531270da35f4d6d9adc7f8b168dcbb020f5b2f7d6c236f",
+    "alternate_neutrino_ff_lift_a1_side1_family1": "41524710306499b7d45d761b88690646fd8d16c756ded983f81bac16b4ac4d36",
+    "alternate_neutrino_ff_lift_a1_side1_family2": "2fa46aaab2af111b8e3e0707765394e1684651562ab9a163c44f8545903b90ef"
+  },
+  "rank_three_locus_nonempty": true,
+  "rank_two_minor": [
+    {
+      "coefficient": "-1/42-1/63*omega",
+      "powers": [
+        0,
+        0
+      ]
+    }
+  ],
+  "scalar_order": "Higgs first in the fixed quotient volume frame",
+  "schema": "alternate-neutrino-full-holomorphic-matrix-v1"
+}

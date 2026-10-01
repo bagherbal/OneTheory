@@ -28,6 +28,7 @@ from functools import cache
 from pathlib import Path
 from typing import Any, cast
 
+from onetheory.math.linear import Matrix
 from onetheory.math.numbers import Eisenstein, Rational
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_invariants import (
     _canonical_digest,
@@ -36,12 +37,15 @@ from research.experiments.computable_carrier.schoen_serre_outer_transfer import 
     OuterCechBasis,
     SparseOuterCechCochain,
 )
+from research.experiments.computable_carrier.schoen_sparse_actions import schoen_sparse_deck_actions
 
+from .alternate_constituent_hom_actions import _common_frame
 from .alternate_constituent_up_cone_matter_lifts import OUTPUT as CONE_LIFTS
 from .alternate_constituent_up_cone_matter_lifts import _coefficient
 from .alternate_constituent_up_matter_representatives import (
     CARRIER,
     AlternateMatterClass,
+    _strict,
     alternate_constituent_up_matter_representatives,
 )
 from .alternate_constituent_up_matter_representatives import OUTPUT as MATTER
@@ -226,6 +230,39 @@ class FFMatterLift:
     constituent_correction: SparseOuterCechCochain
     line_correction: SparseOuterCechCochain
     checkpoint_digest: str
+
+
+def checked_quotient_matter_lift(
+    parameter: int, matter: AlternateMatterClass, constant: SparseOuterCechCochain,
+    correction: SparseOuterCechCochain, line_correction: SparseOuterCechCochain,
+    *, checkpoint_digest: str,
+) -> FFMatterLift:
+    """Replay an explicit actual lift in the original full atlas; never solve."""
+
+    _indices(parameter, 1)
+    first, unit = mixed_schoen_constituents()[0], mixed_schoen_unit()
+    context = _MixedContraction(first, unit)
+    product = mixed_outer_cup(alternate_outer_coefficient(parameter), matter.full_cochain)
+    _require_zero(context.differential(correction) + product,
+                  "the archived actual correction fails its full constituent identity")
+    actions = {action.name: action for action in schoen_sparse_deck_actions()}
+    frames = {name: (_common_frame(first, action), Matrix.identity(1, scalar_type=Eisenstein))
+              for name, action in actions.items()}
+    if not _strict(correction, matter.character, context, actions, frames):
+        raise ValueError("the actual correction lost its strict atlas character")
+    model = alternate_coupled_quotient(parameter)
+    line = MixedSchoenUnit("actual B1 quotient", 0, QUOTIENT_LINE, (
+        MixedConstituentObject("actual B1 quotient", 0, QUOTIENT_LINE),
+    ))
+    expected_constant = _push_f_vector(matter.full_cochain, model)
+    expected_correction = retarget_quotient_block(
+        _quotient(correction, _MixedContraction(line, unit)),
+        _MixedContraction(model.source, unit), {0: 0}, dual=False,
+    )
+    if constant != expected_constant or line_correction != expected_correction:
+        raise ValueError("the actual matter lift changed its literal quotient pushout")
+    verify_pushout_matter_lift(model, constant, line_correction)
+    return FFMatterLift(matter, constant, correction, line_correction, checkpoint_digest)
 
 
 def _derive_lift(

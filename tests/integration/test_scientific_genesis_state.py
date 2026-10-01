@@ -48,6 +48,20 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "the independently replayed actual neutrino matter lift changed",
         ),
         *tuple(
+            ("alternate-remaining-flavor-matter-lift-v1", field,
+             "the independently replayed actual remaining matter lift changed")
+            for field in ("extension_point_selected", "physical_yukawas_available",
+                          "yukawa_entries_assigned", "existing_Q_and_L_recomputed")
+        ),
+        (
+            "alternate-down-higgs-quotient-cone-v1", "full_exterior_square_higgs_constructed",
+            "the independently replayed actual down-Higgs quotient cone changed",
+        ),
+        (
+            "alternate-neutrino-full-holomorphic-matrix-v1", "physical_yukawa_matrix_available",
+            "the completed neutrino matrix changed its trusted output digest",
+        ),
+        *tuple(
             ("alternate-remaining-flavor-matter-v1", field,
              "the remaining flavor input changed its expected content digest")
             for field in ("physical_yukawas_available", "full_cone_matter_corrections_computed")
@@ -965,9 +979,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "independently replay all eight completed actual neutrino F-F "
-        "coefficients and assemble the complete holomorphic matrix; verify "
-        "the completed down-Higgs cone before remaining flavor traces; metric sampling, "
+        "use the verified actual d^c/e^c corrections, down-Higgs cone, "
+        "and archived Q/L inputs "
+        "for complete down and charged-lepton scalar matrices; metric sampling, "
         "Ricci-flat/HYM convergence, other sectors, and the common vacuum "
         "remain required before physical normalization"
     )
@@ -1200,12 +1214,19 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     scheduler = state["research_value_scheduler"]
-    assert scheduler[0]["task"] == "alternate_complete_neutrino_matrix"
+    assert scheduler[0]["task"] == "alternate_complete_down_lepton_matrices"
     assert claims["alternate_neutrino_mixed_pairing"]["status"] == "COMPUTED"
-    assert claims["alternate_neutrino_matrix"]["status"] == "BLOCKED"
+    assert claims["alternate_neutrino_matrix"]["status"] == "COMPUTED"
     assert claims["alternate_down_lepton_matter"]["status"] == "COMPUTED"
+    assert claims["alternate_down_higgs_quotient_cone"]["status"] == "COMPUTED"
+    assert claims["alternate_remaining_flavor_matter_lifts"]["status"] == "COMPUTED"
+    assert claims["alternate_remaining_flavor_matter_lifts"]["missing_prerequisites"] == []
+    assert len([path for path in claims["alternate_remaining_flavor_matter_lifts"]["evidence"]
+                if path.startswith("data/generated/")]) == 16
     assert path["criteria"]["alternate_neutrino_constant_mixed_entry_count"] == 4
-    assert path["criteria"]["alternate_neutrino_complete_holomorphic_matrix_available"] is False
+    assert path["criteria"]["alternate_neutrino_complete_holomorphic_matrix_available"] is True
+    assert path["criteria"]["alternate_neutrino_holomorphic_rank_three_locus"] == "a0 != 0"
+    assert path["criteria"]["alternate_up_neutrino_common_rank_three_locus"] == "a0*a1 != 0"
     assert path["criteria"]["alternate_neutrino_majorana_mechanism_derived"] is False
     assert not {"alternate_physical_quotient_pairing", "alternate_complete_up_matrix",
                 "lawful_carrier_global_generation", "certify_universal_metric_lift_formula",

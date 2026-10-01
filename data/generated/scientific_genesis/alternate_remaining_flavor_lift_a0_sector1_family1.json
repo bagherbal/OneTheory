@@ -1,0 +1,69 @@
+{
+  "actual_constituent_coefficient": {
+    "coefficientwise_cone_identity_exact": true,
+    "correction_digest": "43a5954dc903cd254058c0fc20575f1bafb69bafdf924892751c1338ce9d3835",
+    "correction_term_count": 27616,
+    "parameter": "a0",
+    "primitive_homotopy_depth": 4,
+    "primitive_inclusion_depth": 3,
+    "primitive_projection_depth": 4,
+    "product_cycle_exact": true,
+    "product_digest": "18333ab1fecd3942ed5788570ead832ee0c7b5b5d25675512f86c54d9174c909",
+    "product_term_count": 46592,
+    "strict_alternate_character_exact": true
+  },
+  "artifact_digest": "8b7644c50e4ea0e2d4ff89ba35c111d0c5611599f63e289fac506c58b76202a7",
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "character": [
+    2,
+    0
+  ],
+  "coefficient_field": "Q(omega)",
+  "existing_Q_and_L_recomputed": false,
+  "extension_point_selected": false,
+  "family": 1,
+  "full_cochain_archive_name": "alternate_remaining_flavor_lift_a0_sector1_family1.cochains.json.gz",
+  "full_cochain_archive_sha256": "619fe38e791f3ec319931fc6e976f9a9aa56e7d3696d013a3412ac75046ccf9a",
+  "full_cochain_payload_digest": "afc6b4f4e004dfb59d9a456b279e17b51f6929368b72d01dc99b377bd5cb6251",
+  "full_constituent_identity_exact": true,
+  "full_pushout_identity_exact": true,
+  "observational_inputs_used": false,
+  "outer_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "parameter": "a0",
+  "physical_yukawas_available": false,
+  "prerequisite_artifact_digests": {
+    "actual_down_higgs_hom": "476e48e981ab66382b43d2510d7a271b2fa3f82468f885b7050edb9af3cd9276",
+    "actual_remaining_matter": "363c8bc51e58fd6177943b89fdac08b760c5059bf09b1ba7e64b84414a53a8dc",
+    "alternate_hom_actions": "b72aa878323cc9dd2e4fc503b51191742ade124ef67a74de18b0efff88172d14",
+    "coupled_product_presentation": "6f26314328265adfd2878100e70babdcfce78dfee0ce09304a9e4efd34a17626",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "invariant_outer_basis": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+    "published_wilson_source": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "source_character_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241",
+    "structural_spectrum": "cbf2f4c78e15d140bbfd1cc11e98e0eeba473b59ca48f7090096807ad2aee1bd",
+    "universal_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+  },
+  "proof_sha256": "fdf1485616de9750f0d8c2f3d5195baed5a428164987c368ce35a23711b9e06a",
+  "schema": "alternate-remaining-flavor-matter-lift-v1",
+  "sector": 1,
+  "sector_label": "e^c",
+  "seed_index": 0,
+  "witnesses": {
+    "constant": {
+      "cochain_digest": "26f0f6292501d6be6d12e60b34a45ebe9291db8424e305ad5c9a488b7757007c",
+      "term_count": 378
+    },
+    "constituent_correction": {
+      "cochain_digest": "43a5954dc903cd254058c0fc20575f1bafb69bafdf924892751c1338ce9d3835",
+      "term_count": 27616
+    },
+    "line_correction": {
+      "cochain_digest": "f77a5eb8d858cdf3bd87535676c102f02af4a9e7c66a272756e54fc6f0a754ad",
+      "term_count": 13302
+    }
+  },
+  "yukawa_entries_assigned": false
+}

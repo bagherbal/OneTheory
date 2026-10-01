@@ -24,30 +24,18 @@ from concurrent.futures import ProcessPoolExecutor
 from hashlib import sha256
 from pathlib import Path
 
-from onetheory.math.linear import Matrix
 from onetheory.math.numbers import Eisenstein, Rational
 from onetheory.math.polynomials import Polynomial, PolynomialMatrix, determinant
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_invariants import (
     _canonical_digest,
 )
-from research.experiments.computable_carrier.schoen_sparse_actions import schoen_sparse_deck_actions
 
 from . import alternate_neutrino_ff_entries as coefficients
 from . import alternate_neutrino_mixed_pairing as mixed
 from . import alternate_up_ff_entries as engine
-from .alternate_constituent_hom_actions import _common_frame
-from .alternate_constituent_up_matter_representatives import _strict
-from .alternate_up_coupled_null_scalar import retarget_quotient_block, verify_pushout_matter_lift
-from .alternate_up_coupled_tensor_comparison import _push_f_vector, alternate_coupled_quotient
-from .alternate_up_dual_higgs_inputs import _quotient
 from .alternate_up_full_matrix import _polynomial_record
-from .alternate_up_higgs_covector_comparison import QUOTIENT_LINE, alternate_outer_coefficient
-from .mixed_constituent_schoen_arrows import MixedConstituentObject, mixed_schoen_constituents
 from .mixed_schoen_chain_actions import _parse_eisenstein_text
-from .mixed_schoen_common_dga import mixed_outer_cup
 from .mixed_schoen_matter_representatives import _cochain_digest
-from .mixed_schoen_outer_actions import _MixedContraction
-from .mixed_schoen_outer_transfer import MixedSchoenUnit, mixed_schoen_unit
 from .mixed_schoen_outer_universal_cone import _verified_payload
 
 OUTPUT = coefficients.GENERATED / "alternate_neutrino_full_holomorphic_matrix.json"
@@ -77,30 +65,10 @@ def _verified_lift(parameter: int, side: int, family: int, directory: Path):
         _cochain_digest((correction,))
     ):
         raise ValueError("the neutrino constituent correction changed its certificate")
-    first, unit = mixed_schoen_constituents()[0], mixed_schoen_unit()
-    context = _MixedContraction(first, unit)
-    product = mixed_outer_cup(alternate_outer_coefficient(parameter), matter.full_cochain)
-    engine._require_zero(context.differential(correction) + product,
-                         "the archived neutrino correction fails its full constituent identity")
-    actions = {action.name: action for action in schoen_sparse_deck_actions()}
-    frames = {name: (_common_frame(first, action), Matrix.identity(1, scalar_type=Eisenstein))
-              for name, action in actions.items()}
-    if not _strict(correction, matter.character, context, actions, frames):
-        raise ValueError("the actual neutrino correction lost its strict atlas character")
-    model = alternate_coupled_quotient(parameter)
-    line = MixedSchoenUnit("actual B1 quotient", 0, QUOTIENT_LINE, (
-        MixedConstituentObject("actual B1 quotient", 0, QUOTIENT_LINE),
-    ))
-    constant = _push_f_vector(matter.full_cochain, model)
-    line_correction = retarget_quotient_block(
-        _quotient(correction, _MixedContraction(line, unit)),
-        _MixedContraction(model.source, unit), {0: 0}, dual=False,
+    return engine.checked_quotient_matter_lift(
+        parameter, matter, witnesses["constant"], correction, witnesses["line_correction"],
+        checkpoint_digest=_verified_payload(path)[0],
     )
-    if constant != witnesses["constant"] or line_correction != witnesses["line_correction"]:
-        raise ValueError("the actual neutrino matter lift changed its literal quotient pushout")
-    verify_pushout_matter_lift(model, constant, line_correction)
-    return engine.FFMatterLift(matter, constant, correction, line_correction,
-                               _verified_payload(path)[0])
 
 
 def _verified_entry(parameter: int, row: int, column: int, directory: Path, *, lifts=None):

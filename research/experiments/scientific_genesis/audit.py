@@ -3774,9 +3774,9 @@ def _nodes() -> list[dict[str, object]]:
             "canonically normalized physical Yukawas",
             "Normalization",
             "BLOCKED",
-            "Canonical-normalization laws and one alternate holomorphic up "
-            "matrix exist, but positive carrier metrics, the other flavor "
-            "sectors, and a common stabilized context do not.",
+            "Canonical-normalization laws and complete alternate holomorphic "
+            "up/neutrino matrices exist, but positive carrier metrics, "
+            "down/lepton matrices, and a common stabilized context do not.",
             ("src/onetheory/physics/observables.py", "src/onetheory/physics/matter.py"),
             missing=(
                 "all holomorphic Yukawa sectors",
@@ -3826,18 +3826,21 @@ def _nodes() -> list[dict[str, object]]:
             "alternate_neutrino_matrix",
             "complete alternate holomorphic Dirac-neutrino matrix",
             "Flavor",
-            "BLOCKED",
-            "A shared up-Higgs object does not identify the up and neutrino "
-            "family bases or coupling values. Every neutrino scalar must be "
-            "derived from its own actual matter characters in the same carrier.",
+            "COMPUTED",
+            "All eight actual F-F coefficients pass full independent scalar "
+            "replay with literal constant-product, linear-product, and scalar "
+            "witness equality. The fixed quotient matrix has determinant "
+            "(3/2+3*omega/4)*a0 and a nonzero constant rank-two minor. Its "
+            "rank-three locus D(a0) meets the up locus D(a1) on the same P1. "
+            "No family bases are identified; no point, metrics, Majorana "
+            "mechanism, stabilized vacuum, or physical mass is inferred.",
             ("research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",
              "research/experiments/scientific_genesis/alternate_neutrino_ff_entries.py",
              "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py",
+             "data/generated/scientific_genesis/alternate_neutrino_full_holomorphic_matrix.json",
              "research/experiments/scientific_genesis/ALTERNATE_NEUTRINO_FULL_MATRIX_NOTE.md",
              "tests/integration/test_scientific_genesis_alternate_neutrino_full_matrix.py"),
             ("conditional heterotic realization", "unchanged frozen carrier"),
-            missing=("independent full replay of eight actual parameter-linear F-F scalars",
-                     "all-entry matrix assembly and representative checks"),
         ),
         _node(
             "alternate_down_higgs_hom_representative",
@@ -3863,11 +3866,14 @@ def _nodes() -> list[dict[str, object]]:
             "alternate_down_higgs_quotient_cone",
             "actual down-Higgs universal quotient cocycle",
             "Flavor",
-            "BLOCKED",
-            "The native down-Higgs Hom class must factor through the same "
-            "natural ideal quotient. Both actual outer-coefficient actions "
-            "then require exact primitives in the existing exterior complex. "
-            "Up-sector primitives cannot be relabelled as down-sector data.",
+            "COMPUTED",
+            "The 351-term actual down-Higgs covector factors through the "
+            "natural coherent ideal quotient. Both signed quotient actions "
+            "equal independently formed reciprocal wedges. Independent full "
+            "differential replay verifies both archived exterior primitives, "
+            "and the coupled scalar-input checker confirms the constant and "
+            "linear equations with zero quadratic action. No up value, complete "
+            "full-exterior-square Higgs, or flavor matrix is inferred.",
             ("research/experiments/scientific_genesis/alternate_down_higgs_quotient_cone.py",
              "research/experiments/scientific_genesis/ALTERNATE_DOWN_HIGGS_QUOTIENT_CONE_NOTE.md",
              "data/generated/scientific_genesis/alternate_down_higgs_quotient_cone.json",
@@ -3876,8 +3882,6 @@ def _nodes() -> list[dict[str, object]]:
              "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
              "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py"),
             ("fixed frozen carrier", "actual native down-Higgs Hom input"),
-            missing=("full down-Higgs quotient covector",
-                     "two independently checked actual exterior primitives"),
         ),
         _node(
             "alternate_down_lepton_matter",
@@ -3900,6 +3904,30 @@ def _nodes() -> list[dict[str, object]]:
              "research/experiments/scientific_genesis/"
              "alternate_constituent_up_cone_matter_lifts.py"),
             ("same frozen carrier and source-pinned Wilson action",),
+        ),
+        _node(
+            "alternate_remaining_flavor_matter_lifts",
+            "actual formal down and charged-lepton matter corrections",
+            "Flavor",
+            "COMPUTED",
+            "All eight actual d^c and e^c outer-parameter corrections are "
+            "archived with literal quotient pushouts. Independent replay "
+            "checks each full constituent equation, both original atlas "
+            "actions, literal quotient maps, and the complete coupled matter "
+            "identity. Original seeds and outer bases are unchanged; existing "
+            "Q/L corrections are not recomputed. No scalar matrix is inferred.",
+            ("research/experiments/scientific_genesis/alternate_remaining_flavor_matter.py",
+             "research/experiments/scientific_genesis/alternate_remaining_flavor_matter_lifts.py",
+             "research/experiments/scientific_genesis/ALTERNATE_REMAINING_FLAVOR_MATTER_LIFTS_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_remaining_flavor_matter_lifts.py",
+             *(f"data/generated/scientific_genesis/"
+               f"alternate_remaining_flavor_lift_a{parameter}_sector{sector}_family{family}.{suffix}"
+               for parameter in (0, 1) for sector in (0, 1) for family in (1, 2)
+               for suffix in ("json", "cochains.json.gz")),
+             "research/experiments/scientific_genesis/"
+             "alternate_constituent_up_cone_matter_lifts.py",
+             "research/experiments/scientific_genesis/alternate_up_ff_entries.py"),
+            ("same frozen two-parameter carrier", "original matter bases"),
         ),
         _node(
             "physical_pfaffians",
@@ -6737,6 +6765,24 @@ def _edges() -> list[dict[str, object]]:
             ("neither a constituent class nor a gauge weight supplies a coupling",),
         ),
         _edge(
+            "alternate_down_lepton_matter", "alternate_remaining_flavor_matter_lifts",
+            "The actual universal outer class composes with each new d^c/e^c "
+            "cycle; a strict full primitive gives its coefficient correction.",
+            ("research/experiments/scientific_genesis/"
+             "alternate_constituent_up_cone_matter_lifts.py",),
+            ("full original differential", "fixed universal outer basis"), True,
+            ("uncorrected constituent cycles are not full carrier states",),
+        ),
+        _edge(
+            "alternate_remaining_flavor_matter_lifts", "physical_yukawas",
+            "The actual new d^c/e^c corrections supply only the missing sides "
+            "of down and charged-lepton products with the archived Q/L states.",
+            ("research/experiments/scientific_genesis/alternate_up_ff_entries.py",),
+            ("existing Q/L lifts", "verified down-Higgs cocycle", "complete scalar entries",
+             "canonical metrics", "common stabilized vacuum"), True,
+            ("corrected matter alone does not supply a scalar or a physical Yukawa",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -7905,19 +7951,18 @@ def _scheduler() -> list[dict[str, object]]:
 
     tasks = [
         (
-            "alternate_complete_neutrino_matrix",
+            "alternate_complete_down_lepton_matrices",
             5,
             4,
             5,
             5,
             3,
             2,
-            "The four actual mixed entries and six strict constituent classes "
-            "are independently checked. Reuse the existing E-correction and "
-            "canonical quotient engines for eight neutrino F-F coefficients "
-            "in the same frozen carrier. The completed metric point matrix "
-            "took 3.37 hours without certifying practical integration; another "
-            "modest source-key optimization is not the shortest vertical step.",
+            "Complete up and neutrino matrices and the actual down-Higgs cone "
+            "are independently checked, as are all eight actual d/e corrections. "
+            "Compute canonical mixed/F-F scalar products in the same carrier. "
+            "The existing exact engines provide this remaining vertical slice; "
+            "physical normalization still needs controlled metrics and a common vacuum.",
         ),
         (
             "alternate_metric_convergence",
@@ -7933,18 +7978,6 @@ def _scheduler() -> list[dict[str, object]]:
             "SU-uniform mixture using the quantitative global weight bound, "
             "certified inputs, actual matrix integrand bounds, and error control; "
             "require Ricci-flat/HYM convergence before normalization.",
-        ),
-        (
-            "alternate_remaining_holomorphic_sectors",
-            4,
-            4,
-            5,
-            4,
-            4,
-            2,
-            "Derive down, charged-lepton, and neutrino matrices from the "
-            "same frozen alternate carrier; retired forward-branch zeros "
-            "are not these sectors.",
         ),
         (
             "shared_hidden_vacuum",
@@ -10816,7 +10849,19 @@ def build_state() -> dict[str, object]:
         or complete_matrix["original_probe_indices_checked"] != [0, 1273, 2655]
     ):
         raise ValueError("completed bounded matrix execution is not independently certified")
+    from . import alternate_neutrino_full_matrix as full_neutrino
     from . import alternate_neutrino_mixed_pairing as neutrino_mixed
+
+    neutrino_matrix = full_neutrino.load_full_neutrino_matrix(
+        expected_digest="40e5e45b6be980d49c432dbc707c496be56728731cd9b6f9d71d4cf08d8909eb",
+    )
+    if (neutrino_matrix.get("determinant")
+        != [{"powers": [1, 0], "coefficient": "3/2+3/4*omega"}]
+        or neutrino_matrix.get("rank_two_minor")
+        != [{"powers": [0, 0], "coefficient": "-1/42-1/63*omega"}]):
+        raise ValueError(
+            "the independently replayed complete neutrino matrix changed its rank data",
+        )
 
     neutrino_packet, _neutrino_witnesses = neutrino_mixed.load_mixed_pairing(
         expected_digest="1bc8020db27e9f7a3c7ee7a7abf4ab0c456903c993eab27b0038cad5e12e6049",
@@ -10897,6 +10942,86 @@ def build_state() -> dict[str, object]:
         or [len(value.terms) for value in remaining_witnesses.values()]
         != [360, 360, 378, 378, 378, 378]):
         raise ValueError("the independently verified remaining flavor constituent inputs changed")
+    from . import alternate_remaining_flavor_matter_lifts as remaining_lifts
+
+    remaining_checkpoints = (
+        (0, 0, 1, 27001, 13071,
+         "1d4a931761d341544ee256e0d1550be434bde41ac3d0a51588b02540d02b6d29"),
+        (0, 0, 2, 26682, 12855,
+         "3b508c5e6b9c24d5eb433b9cf187d06c767fe13d5ec7d5afd977a9b8d4afb1c4"),
+        (0, 1, 1, 27616, 13302,
+         "8b7644c50e4ea0e2d4ff89ba35c111d0c5611599f63e289fac506c58b76202a7"),
+        (0, 1, 2, 26779, 12708,
+         "1683484cb1a51168f7c3506adf38a831fad65e87485906fa2873501544e3c631"),
+        (1, 0, 1, 24016, 11397,
+         "eb3f71dec8372883e3b132fc877e2870c271a5d58628f2941c59b059e2a983da"),
+        (1, 0, 2, 23782, 11163,
+         "09aaa371e465124fd344fb3a4fc421d51d1164fbf7e8330a45fcbffd31df9b52"),
+        (1, 1, 1, 25216, 11973,
+         "572637f5986124caece4159531611e592e6177f9166b1d2806f048ed65e91c86"),
+        (1, 1, 2, 23868, 11310,
+         "064e7fd324f2ba23dff2a51dddd7969397b083de6061ba338dc2301218c5ad44"),
+    )
+    remaining_parents = remaining_lifts._inputs()[1]
+    remaining_proof = _sha256(remaining_lifts.PROOF)
+    for parameter, sector, family, e_terms, b_terms, expected_digest in remaining_checkpoints:
+        path = remaining_lifts.lift_path(parameter, sector, family)
+        lift_digest, lift = _verified_payload(path)
+        archive = path.with_suffix(".cochains.json.gz")
+        witnesses = lift.get("witnesses", {})
+        # Independent full-equation tests establish the mathematics. This
+        # ledger binds their actual metadata and complete archive bytes.
+        if (lift_digest != expected_digest
+            or lift.get("schema") != remaining_lifts.SCHEMA
+            or lift.get("prerequisite_artifact_digests") != remaining_parents
+            or lift.get("proof_sha256") != remaining_proof
+            or lift.get("outer_parameter_basis") != ["a0", "a1"]
+            or (lift.get("parameter"), lift.get("sector"), lift.get("family"))
+            != (f"a{parameter}", sector, family)
+            or lift.get("character") != [[1, 1], [2, 0]][sector]
+            or lift.get("seed_index") != ((2, 4), (0, 5))[sector][family - 1]
+            or set(witnesses) != {"constant", "constituent_correction", "line_correction"}
+            or witnesses.get("constant", {}).get("term_count") != 378
+            or witnesses.get("constituent_correction", {}).get("term_count") != e_terms
+            or witnesses.get("line_correction", {}).get("term_count") != b_terms
+            or lift.get("full_cochain_archive_name") != archive.name
+            or _sha256(archive) != lift.get("full_cochain_archive_sha256")
+            or any(lift.get(flag) is not True for flag in (
+                "full_constituent_identity_exact", "full_pushout_identity_exact",
+            ))
+            or any(lift.get(flag) is not False for flag in (
+                "existing_Q_and_L_recomputed", "extension_point_selected",
+                "yukawa_entries_assigned", "physical_yukawas_available",
+                "observational_inputs_used",
+            ))):
+            raise ValueError("the independently replayed actual remaining matter lift changed")
+    from . import alternate_down_higgs_quotient_cone as down_cone
+
+    # Full independent equations are encoded by the thirteen critical tests.
+    # This ledger binds their exact packet and archive bytes, as for the
+    # neutrino matter certificates above; it does not rerun a calculation.
+    down_cone_digest, down_cone_packet = _verified_payload(down_cone.OUTPUT)
+    down_cone_archive = down_cone.OUTPUT.with_suffix(".cochains.json.gz")
+    down_cone_parents = {
+        "actual_down_higgs_hom": down_packet["artifact_digest"],
+        "frozen_carrier": down_packet["prerequisite_artifact_digests"]["frozen_carrier"],
+        "outer_invariants": _verified_payload(ROOT / (
+            "data/generated/scientific_genesis/alternate_constituent_outer_invariants.json"
+        ))[0],
+    }
+    if (down_cone_digest != "50d0a3f0f2547f5c1eb05444765b2322075dc03fd56b2b65cf7874534044274f"
+        or down_cone_packet.get("prerequisite_artifact_digests") != down_cone_parents
+        or down_cone_packet.get("source") != down_packet["source"]
+        or down_cone_packet.get("higgs_input_proof_sha256") != down_packet["proof_sha256"]
+        or down_cone_packet.get("full_cochain_archive_name") != down_cone_archive.name
+        or _sha256(down_cone_archive) != down_cone_packet.get("full_cochain_archive_sha256")
+        or down_cone_packet.get("full_cochain_archive_sha256")
+        != "b8d5f6ceefe1582ea3c168a3e3e48d762cfa912aa3ada0aff0a43bc7772381e0"
+        or [down_cone_packet.get("witnesses", {}).get(f"correction_a{parameter}", {}).get(
+            "term_count",
+        ) for parameter in (0, 1)]
+        != [88650, 76014]):
+        raise ValueError("the independently replayed actual down-Higgs quotient cone changed")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -10970,6 +11095,12 @@ def build_state() -> dict[str, object]:
         raise ValueError("the same-constituent Wilson obstruction is not certified")
 
     artifact_paths = (
+        *(str(remaining_lifts.lift_path(parameter, sector, family).relative_to(ROOT))
+          for parameter in (0, 1) for sector in (0, 1) for family in (1, 2)),
+        *(str(remaining_lifts.lift_path(parameter, sector, family).with_suffix(
+            ".cochains.json.gz",
+        ).relative_to(ROOT))
+          for parameter in (0, 1) for sector in (0, 1) for family in (1, 2)),
         "data/generated/computable_carrier/computable_carrier_artifact.json",
         "data/generated/computable_carrier/tier_b_schoen_outer_full.json",
         "data/generated/computable_carrier/tier_b_schoen_outer_invariants.json",
@@ -11221,6 +11352,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_bounded_matrix.columns.jsonl.gz",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_neutrino_full_holomorphic_matrix.json",
         "data/generated/scientific_genesis/alternate_down_higgs_hom_representative.json",
         "data/generated/scientific_genesis/"
         "alternate_down_higgs_hom_representative.cochains.json.gz",
@@ -11263,7 +11395,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2646,
+            "collected_tests_at_audit": 2698,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -11469,7 +11601,10 @@ def build_state() -> dict[str, object]:
                 "alternate_neutrino_actual_constituent_classes_available": True,
                 "alternate_neutrino_constant_mixed_entry_count": 4,
                 "alternate_neutrino_shared_up_higgs_used": True,
-                "alternate_neutrino_complete_holomorphic_matrix_available": False,
+                "alternate_neutrino_complete_holomorphic_matrix_available": True,
+                "alternate_neutrino_holomorphic_matrix_determinant": neutrino_matrix["determinant"],
+                "alternate_neutrino_holomorphic_rank_three_locus": "a0 != 0",
+                "alternate_up_neutrino_common_rank_three_locus": "a0*a1 != 0",
                 "alternate_neutrino_physical_yukawa_matrix_available": False,
                 "alternate_neutrino_majorana_mechanism_derived": False,
                 "alternate_metric_trial_twist": metric["twist_cover_degree"],
@@ -11766,9 +11901,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "independently replay all eight completed actual neutrino F-F "
-                "coefficients and assemble the complete holomorphic matrix; verify "
-                "the completed down-Higgs cone before remaining flavor traces; metric sampling, "
+                "use the verified actual d^c/e^c corrections, down-Higgs cone, "
+                "and archived Q/L inputs "
+                "for complete down and charged-lepton scalar matrices; metric sampling, "
                 "Ricci-flat/HYM convergence, other sectors, and the common vacuum "
                 "remain required before physical normalization"
             ),
@@ -11777,6 +11912,18 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "all eight actual d^c/e^c parameter corrections pass independent "
+            "original full differential, atlas, literal quotient-pushout, and "
+            "coupled-identity replay; Q/L inputs and original bases are unchanged, "
+            "while down and charged-lepton scalar matrices remain missing",
+            "the complete actual neutrino matrix has full all-entry scalar "
+            "replay and fixed quotient trace; its determinant is "
+            "(3/2+3*omega/4)*a0, and its rank-three locus meets the certified "
+            "up locus on D(a0*a1) without parameter selection or physical normalization",
+            "both actual down-Higgs quotient actions equal independent signed "
+            "reciprocal wedges; full archived primitive equations and both "
+            "coupled-input constant/linear/quadratic checks pass in the original "
+            "differential, without relabelled up data or a complete flavor matrix",
             "two actual E and four actual F classes for d^c and e^c are archived "
             "in the original bases; independent full closure, atlas characters, "
             "nonboundary coordinates, character ranks, and exact producer "
@@ -12177,6 +12324,25 @@ def build_state() -> dict[str, object]:
             },
         ],
         "structural_compression_questions": [
+            {
+                "question": (
+                    "Can H2(E)=0 and the one-way outer row replace separate "
+                    "matter-lift existence searches by one character-equivariant "
+                    "universal theorem, leaving only needed literal coefficients?"
+                ),
+                "evidence": (
+                    "twenty-four archived up/neutrino/d/e coefficient corrections use "
+                    "the same full equation, strict atlas projection, and "
+                    "parameter-linear quotient pushout in the same frozen carrier"
+                ),
+                "attack": (
+                    "check exact H2(E) vanishing, full row nilpotence, and "
+                    "commutation with both atlas generators before quantifying "
+                    "over all classes; this would certify existence and "
+                    "truncation, not assign any uncomputed primitive, scalar, "
+                    "physical normalization, or moduli value"
+                ),
+            },
             {
                 "question": (
                     "Can the ambient conormal Gram eliminate individual "

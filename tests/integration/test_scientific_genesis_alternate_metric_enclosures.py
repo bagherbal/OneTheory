@@ -13,7 +13,7 @@ Must not:
     accept possible zero denominators, or replace actual section coefficients.
 
 Phase 0:
-    Local bound tests only; sampling and universal fiber-frame bounds are open.
+    Local bound tests only; universal frame checks belong to their separate suite.
 """
 
 import hashlib

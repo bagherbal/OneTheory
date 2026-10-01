@@ -1416,3 +1416,27 @@ matrix. That next gate remains explicit, as do the controlled SU-uniform
 proposal law, integration errors, Ricci-flat/HYM convergence, common vacuum,
 remaining flavor sectors, and Genesis-to-UV implication. No physical
 prediction or moduli-selection flag was enabled.
+
+Actual universal quotient frames now have certified enclosures on declared
+pivot domains. The original constituent differential and outer cup compile
+all nine-generator/five-relation columns; both nonsplit Serre and outer
+blocks are retained. Explicit small pivot determinants exclude zero, and
+an exact block elimination theorem gives quotient/boundary identities for
+both symbolic extension parameters. Independent full five-row polynomial
+and Gaussian elimination attack the separate block implementation; named
+frame changes satisfy inverse/cocycle laws. No coordinate or row choice is
+hidden, and failed minors do not trigger fallback. See
+`ALTERNATE_METRIC_BOUNDED_FIBERS_NOTE.md` and its content-addressed artifact.
+
+Original full universal cochains can be bounded in those frames on demand.
+The actual outer-corrected section at index 2655 reproduces both nonzero
+parameter columns of the independent exact point archive; finite and
+infinity probes have coefficientwise bounds without choosing a0 or a1.
+The earlier local-density artifact retains its historical open-frame flag;
+the new successor closes the scoped local frame prerequisite, not global
+atlas coverage. Practical compressed full-basis enclosure evaluation and
+the complete 5345-column bounded matrix remain open. Extend the existing
+certified finite-pole representation rather than reimplement the sections.
+Controlled proposal precision, the SU-uniform sampling law, integration
+error, Ricci-flat/HYM convergence, the common vacuum, remaining flavor
+sectors, and Genesis-to-UV remain unresolved.

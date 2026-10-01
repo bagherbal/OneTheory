@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "2c3da9d3fe6c0a26db6a71ca45d8c51f2a01896ae8f30bda755de72bc7de4969",
+  "artifact_digest": "fc66037401aa028e60a931503434ef79ece321a055cae57892de833c9827220b",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -947,6 +947,11 @@
       "sha256": "cff1c995ae479549b49d1f83cf47bce0617262dd5d9f82fc7f9821b133c9d52e"
     },
     {
+      "bytes": 159201,
+      "path": "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
+      "sha256": "49d0ba47c8201c55391458b1fed1619087f8b91dd2d3b5ea29d1f2f0a8717ae1"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -986,8 +991,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 274,
-    "test_python_files": 258
+    "research_python_files": 275,
+    "test_python_files": 259
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3992,6 +3997,26 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "certified actual cover-point enclosures",
+        "explicit relation pivot rows",
+        "original nonsplit Serre and outer coefficients",
+        "nonzero determinant enclosures"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
+        "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_BOUNDED_FIBERS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_bounded_fibers.py"
+      ],
+      "id": "alternate_metric_bounded_fibers",
+      "label": "determinant-certified universal rank-four quotient enclosures",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "The original differential and outer cup supply all actual local relations. Explicit constituent pivot minors exclude zero and exact block elimination proves the universal quotient identities for symbolic a0,a1. Finite and infinity probes have named frame bounds and an actual outer-corrected section, independently checked against full five-row symbolic/Gaussian elimination and the original point archive. Original-cochain bounds are available on demand; compressed complete-matrix throughput and controlled integration remain unestablished.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -4004,7 +4029,7 @@
         "controlled numerical full-basis evaluation and metric sampling",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Actual chart, Laurent-coefficient, and density errors are bounded, but the universal quotient frames, complete bounded section matrix, and controlled sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Actual chart, Laurent-coefficient, and density errors are bounded, and universal quotient frames now have certified bounds on declared pivot domains. Full original-cochain section evaluation is bounded on demand; the complete bounded section matrix, practical compressed throughput, and controlled sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -6989,6 +7014,73 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "declared compatible generator bases",
+        "determinant balls exclude zero"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "an accepted local frame is not global atlas coverage",
+        "a zero-containing residual does not prove a quotient identity"
+      ],
+      "mathematical_reason": "Certified geometric and Laurent coefficient bounds enclose the actual universal relation matrices and their selected quotient frames.",
+      "source": "alternate_metric_enclosures",
+      "target": "alternate_metric_bounded_fibers"
+    },
+    {
+      "assumptions_required": [
+        "same original differential and outer cup",
+        "explicit row and line-frame choices"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "discarding the outer relation would replace the bundle by a direct sum"
+      ],
+      "mathematical_reason": "The original nine-generator/five-relation construction supplies the same local frame semantics without substituting uncertified centers.",
+      "source": "alternate_metric_fiber_evaluation",
+      "target": "alternate_metric_bounded_fibers"
+    },
+    {
+      "assumptions_required": [
+        "original full outer lift",
+        "declared local quotient domain"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "on-demand construction does not establish practical full-matrix throughput"
+      ],
+      "mathematical_reason": "The certified universal section constructor gives actual constant and extension-linear cochains for coefficientwise bounded evaluation.",
+      "source": "alternate_metric_lift_operator_certificate",
+      "target": "alternate_metric_bounded_fibers"
+    },
+    {
+      "assumptions_required": [
+        "controlled complete section evaluation",
+        "SU-uniform proposal law",
+        "independent integration errors",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "two corrected section probes are not a complete bounded matrix or metric"
+      ],
+      "mathematical_reason": "Actual universal frame and section enclosures supply bundle-valued integration inputs after complete bounded evaluation, proposal precision, integration error, and metric convergence are established.",
+      "source": "alternate_metric_bounded_fibers",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -8038,10 +8130,12 @@
       ],
       "alternate_fixed_atlas_su4_excluded": true,
       "alternate_metric_bounded_section_and_density_evaluation_available": false,
-      "alternate_metric_bounded_universal_fiber_frame_available": false,
+      "alternate_metric_bounded_universal_fiber_frame_available": true,
       "alternate_metric_certified_Qomega_intersection_roots_available": true,
       "alternate_metric_certified_chart_and_density_enclosures_available": true,
+      "alternate_metric_complete_bounded_5345_column_matrix_materialized": false,
       "alternate_metric_complete_point_evaluation_matrix_materialized": true,
+      "alternate_metric_compressed_complete_section_enclosure_engine_available": false,
       "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
       "alternate_metric_controlled_numerical_sampling_available": false,
@@ -8066,6 +8160,7 @@
       ],
       "alternate_metric_laurent_coefficient_enclosure_engine_available": true,
       "alternate_metric_local_rank_four_evaluation_available": true,
+      "alternate_metric_on_demand_original_cochain_section_bounds_available": true,
       "alternate_metric_quotient_section_count": 5345,
       "alternate_metric_rank_four_globally_generated": true,
       "alternate_metric_rank_four_quotient_lifts_remaining_count": 0,
@@ -8742,13 +8837,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "bound the actual universal quotient frames and complete section evaluator using certified chart, coefficient, and density enclosures; implement the declared SU-uniform proposal law with precision and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
+    "next_required_object": "extend the certified finite-support evaluator to bounded full-basis evaluation using the actual universal quotient frames; implement the declared SU-uniform proposal law with precision and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Use the actual residue and normalized FS measure with the complete point evaluator and certified density bounds; bound the universal quotient frames and complete section matrix, then implement the SU-uniform proposal law with integration-error control; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Use the actual residue and normalized FS measure with the complete point evaluator and certified density/frame bounds; extend the finite-support representation to bounded full-basis evaluation, then implement the SU-uniform proposal law with integration-error control; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,
@@ -9037,9 +9132,10 @@
       "capability": "certified metric integration input enclosures",
       "locations": [
         "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
-        "research/experiments/scientific_genesis/alternate_metric_enclosures.py"
+        "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
+        "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py"
       ],
-      "maturity": "research-only; actual roots/charts/coefficients/densities, not sampling or metrics"
+      "maturity": "research-only; actual roots/charts/densities/universal frames, not sampling or metrics"
     },
     {
       "capability": "instantons",

@@ -127,14 +127,31 @@ def local_coordinates(cochain, point, context):
 def relation_generator(point, context, index):
     """Use one declared homogeneous line frame as a local relation generator."""
 
+    return relation_generator_in_chart(point.chart, context, index)
+
+
+def relation_generator_in_chart(chart, context, index):
+    """Construct the SAME symbolic generator without substituting a point.
+
+    A chart labels a local line frame; its generator does not require point
+    coordinates. This lets certified enclosure evaluation reuse the original
+    differential and cup operators, rather than specialize approximate centers.
+    """
+
+    if (not isinstance(chart, tuple) or len(chart) != 3
+        or any(type(i) is not int or not 0 <= i < size
+               for i, size in zip(chart, (3, 3, 2), strict=True))):
+        raise ValueError("an explicit integer local-generator chart is required")
+    if type(index) is not int or not 0 <= index < len(context.left.objects):
+        raise ValueError("an actual local relation object index is required")
     obj = context.left.objects[index]
     if obj.position != -1:
         raise ValueError("a local relation must come from the actual degree-minus-one object")
     monomials = tuple(tuple(degree if j == pivot else 0 for j in range(size))
-                      for degree, pivot, size in zip(obj.line_degree, point.chart, (3, 3, 2),
+                      for degree, pivot, size in zip(obj.line_degree, chart, (3, 3, 2),
                                                      strict=True))
     return SparseOuterCechCochain(((OuterCechBasis(
-        context.components[index, 0, "k0"], *monomials, point.cell,
+        context.components[index, 0, "k0"], *monomials, tuple((i,) for i in chart),
     ), Eisenstein(1)),))
 
 

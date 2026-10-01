@@ -3565,6 +3565,29 @@ def _nodes() -> list[dict[str, object]]:
              "declared outward bound precision", "unchanged residue/FS conventions"),
         ),
         _node(
+            "alternate_metric_bounded_fibers",
+            "determinant-certified universal rank-four quotient enclosures",
+            "Normalization",
+            "COMPUTED",
+            "The original differential and outer cup supply all actual local "
+            "relations. Explicit constituent pivot minors exclude zero and "
+            "exact block elimination proves the universal quotient identities "
+            "for symbolic a0,a1. Finite and infinity probes have named frame "
+            "bounds and an actual outer-corrected section, independently checked "
+            "against full five-row symbolic/Gaussian elimination and the original "
+            "point archive. Original-cochain bounds are available on demand; "
+            "compressed complete-matrix throughput and controlled integration "
+            "remain unestablished.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
+                "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_BOUNDED_FIBERS_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_bounded_fibers.py",
+            ),
+            ("certified actual cover-point enclosures", "explicit relation pivot rows",
+             "original nonsplit Serre and outer coefficients", "nonzero determinant enclosures"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -3578,8 +3601,10 @@ def _nodes() -> list[dict[str, object]]:
             "measure are explicit. Complete projective roots have exact "
             "inclusion certificates for declared Q(omega) configurations. "
             "Actual chart, Laurent-coefficient, and density errors are bounded, "
-            "but the universal quotient frames, complete bounded section matrix, "
-            "and controlled sampling "
+            "and universal quotient frames now have certified bounds on declared "
+            "pivot domains. Full original-cochain section evaluation is bounded "
+            "on demand; the complete bounded section matrix, practical compressed "
+            "throughput, and controlled sampling "
             "and converged Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
@@ -6074,6 +6099,49 @@ def _edges() -> list[dict[str, object]]:
             ("certified local densities do not give a sampling law or Hermitian metric",),
         ),
         _edge(
+            "alternate_metric_enclosures",
+            "alternate_metric_bounded_fibers",
+            "Certified geometric and Laurent coefficient bounds enclose the "
+            "actual universal relation matrices and their selected quotient frames.",
+            ("data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",),
+            ("declared compatible generator bases", "determinant balls exclude zero"),
+            True,
+            ("an accepted local frame is not global atlas coverage",
+             "a zero-containing residual does not prove a quotient identity"),
+        ),
+        _edge(
+            "alternate_metric_fiber_evaluation",
+            "alternate_metric_bounded_fibers",
+            "The original nine-generator/five-relation construction supplies "
+            "the same local frame semantics without substituting uncertified centers.",
+            ("data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",),
+            ("same original differential and outer cup", "explicit row and line-frame choices"),
+            True,
+            ("discarding the outer relation would replace the bundle by a direct sum",),
+        ),
+        _edge(
+            "alternate_metric_lift_operator_certificate",
+            "alternate_metric_bounded_fibers",
+            "The certified universal section constructor gives actual constant "
+            "and extension-linear cochains for coefficientwise bounded evaluation.",
+            ("data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",),
+            ("original full outer lift", "declared local quotient domain"),
+            True,
+            ("on-demand construction does not establish practical full-matrix throughput",),
+        ),
+        _edge(
+            "alternate_metric_bounded_fibers",
+            "visible_metrics",
+            "Actual universal frame and section enclosures supply bundle-valued "
+            "integration inputs after complete bounded evaluation, proposal "
+            "precision, integration error, and metric convergence are established.",
+            ("data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",),
+            ("controlled complete section evaluation", "SU-uniform proposal law",
+             "independent integration errors", "Ricci-flat/HYM convergence"),
+            True,
+            ("two corrected section probes are not a complete bounded matrix or metric",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -7186,10 +7254,12 @@ def _engines() -> list[dict[str, object]]:
         ),
         (
             "certified metric integration input enclosures",
-            "research-only; actual roots/charts/coefficients/densities, not sampling or metrics",
+            "research-only; actual roots/charts/densities/universal frames, "
+            "not sampling or metrics",
             (
                 "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
                 "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
+                "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py",
             ),
         ),
         (
@@ -7233,8 +7303,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             "Use the actual residue and normalized FS measure with the complete "
-            "point evaluator and certified density bounds; bound the universal "
-            "quotient frames and complete section matrix, then implement "
+            "point evaluator and certified density/frame bounds; extend the "
+            "finite-support representation to bounded full-basis evaluation, then implement "
             "the SU-uniform proposal law with integration-error control; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
@@ -9798,6 +9868,45 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("local enclosure inputs or their scientific scope are not certified")
+    bounded_fibers = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json"
+    )).read_text(encoding="utf-8"))
+    bounded_fiber_digest = bounded_fibers.pop("artifact_digest", None)
+    if (
+        bounded_fiber_digest != _canonical_digest(bounded_fibers)
+        or bounded_fiber_digest
+        != "d9e320a952cc6d5fc843ea2f9c0254823d8d9a49b8d6dbd1d2dda0dd2d61f01c"
+        or bounded_fibers.get("schema") != "alternate-metric-bounded-fibers-v1"
+        or bounded_fibers.get("enclosure_artifact_digest") != enclosure_digest
+        or bounded_fibers.get("root_artifact_digest") != root_digest
+        or bounded_fibers.get("original_fiber_evaluation_artifact_digest") != fiber_digest
+        or bounded_fibers.get("parameter_basis") != ["a0", "a1"]
+        or bounded_fibers.get("bound_bits") != 80
+        or bounded_fibers.get("bounded_universal_fiber_frame_available") is not True
+        or bounded_fibers.get("on_demand_original_cochain_section_bounds_available") is not True
+        or [item.get("name") for item in bounded_fibers.get("actual_frame_probes", [])]
+        != ["finite_chart", "infinity_branch"]
+        or any(item.get("first_pivot_rows") != [0, 2]
+               or item.get("second_pivot_rows") != [0, 1, 2]
+               or item.get("fiber_basis_labels") != fiber_evaluation.get("fiber_basis_labels")
+               or [p.get("basis_index") for p in item.get("actual_universal_section_probes", [])]
+               != [0, 2655] for item in bounded_fibers.get("actual_frame_probes", []))
+        or any(Fraction(item["relation_minor"]["center"][0])**2
+               - Fraction(item["relation_minor"]["center"][0])
+               * Fraction(item["relation_minor"]["center"][1])
+               + Fraction(item["relation_minor"]["center"][1])**2
+               <= Fraction(item["relation_minor"]["radius"])**2
+               for item in bounded_fibers.get("actual_frame_probes", []))
+        or any(bounded_fibers.get(flag) is not False for flag in (
+            "complete_bounded_5345_column_matrix_materialized",
+            "compressed_complete_section_enclosure_engine_available",
+            "bounded_section_and_density_evaluation_available",
+            "controlled_numerical_sampling_available", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected", "vacuum_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("bounded universal fibers or their scientific scope are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -10111,6 +10220,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_measure.json",
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
         "data/generated/scientific_genesis/alternate_metric_enclosures.json",
+        "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -10379,7 +10489,10 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_certified_Qomega_intersection_roots_available": True,
                 "alternate_metric_certified_chart_and_density_enclosures_available": True,
                 "alternate_metric_laurent_coefficient_enclosure_engine_available": True,
-                "alternate_metric_bounded_universal_fiber_frame_available": False,
+                "alternate_metric_bounded_universal_fiber_frame_available": True,
+                "alternate_metric_on_demand_original_cochain_section_bounds_available": True,
+                "alternate_metric_compressed_complete_section_enclosure_engine_available": False,
+                "alternate_metric_complete_bounded_5345_column_matrix_materialized": False,
                 "alternate_metric_bounded_section_and_density_evaluation_available": False,
                 "alternate_metric_controlled_numerical_sampling_available": False,
                 "alternate_up_complete_tensor_comparison_available": False,
@@ -10614,8 +10727,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "bound the actual universal quotient frames and complete section "
-                "evaluator using certified chart, coefficient, and density enclosures; "
+                "extend the certified finite-support evaluator to bounded full-basis "
+                "evaluation using the actual universal quotient frames; "
                 "implement the declared SU-uniform "
                 "proposal law with precision and integration-error control, then "
                 "certify Ricci-flat/HYM "

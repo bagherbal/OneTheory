@@ -13,7 +13,7 @@ Must not:
     change charts, select moduli, or infer sampling or metric convergence.
 
 Phase 0:
-    Research-only local enclosures; universal fiber-frame bounds remain open.
+    Research-only local enclosures; universal fiber bounds are supplied separately.
 """
 
 from __future__ import annotations

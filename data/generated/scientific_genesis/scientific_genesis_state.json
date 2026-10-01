@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "1d26a3456d4e8c725db522653ea31df5e79945b736f699c8ecf9307953511461",
+  "artifact_digest": "a6a2f9bc9c62ea804406bfc10aefe96bbe99f1dff08c2feba72728065dc3d32d",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -892,6 +892,21 @@
       "sha256": "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68"
     },
     {
+      "bytes": 408134,
+      "path": "data/generated/scientific_genesis/alternate_metric_second_sections.json",
+      "sha256": "242de6f4405e21de1182b15c555289f8e8ada6b8e21385fac653bb1a44c98868"
+    },
+    {
+      "bytes": 125864,
+      "path": "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz",
+      "sha256": "cce0f3f00f7a61fb870087e21249af02ddd2b48c23b67e36bf0d67f8ee6a37e3"
+    },
+    {
+      "bytes": 162600,
+      "path": "data/generated/scientific_genesis/alternate_metric_second_sections.relations.json.gz",
+      "sha256": "75377d5c5538d973cb0efc4d2b7810a266a14690371ca5f64c73f609f753065a"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -931,8 +946,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 265,
-    "test_python_files": 249
+    "research_python_files": 266,
+    "test_python_files": 250
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3760,7 +3775,7 @@
       "label": "actual first Serre quotient invariant section basis",
       "layer": "Normalization",
       "missing_prerequisites": [],
-      "statement": "The equivariant Hilbert-Burch cokernel is the coordinate-point ideal at degree (13,17,2) with frame (omega^2,omega^2). Its exact ideal Koszul presentation has 5814 target vectors, 5114 relations, and an 840-dimensional syzygy space. An independently replayed nonzero integral minor gives an explicit 1540-vector Q(omega) quotient section basis. Non-split Serre lifts and complete carrier bases remain missing.",
+      "statement": "The equivariant Hilbert-Burch cokernel is the coordinate-point ideal at degree (13,17,2) with frame (omega^2,omega^2). Its exact ideal Koszul presentation has 5814 target vectors, 5114 relations, and an 840-dimensional syzygy space. An independently replayed nonzero integral minor gives an explicit 1540-vector Q(omega) quotient section basis. This quotient artifact alone contains no nonsplit Serre or outer lifts.",
       "status": "COMPUTED"
     },
     {
@@ -3779,7 +3794,27 @@
       "label": "actual first constituent complete invariant section basis",
       "layer": "Normalization",
       "missing_prerequisites": [],
-      "statement": "At H=(14,16,1), nine actual full-differential lift templates transport by polynomial plane factors to all 1540 first Serre-quotient sections. Together with the 1115 subline sections they give a complete 2655-vector V1 basis. Every archived cochain has independent exact closure, repaired deck-invariance, and quotient-image replay. V2 and rank-four bases and numerical metrics remain missing.",
+      "statement": "At H=(14,16,1), nine actual full-differential lift templates transport by polynomial plane factors to all 1540 first Serre-quotient sections. Together with the 1115 subline sections they give a complete 2655-vector V1 basis. Every archived cochain has independent exact closure, repaired deck-invariance, and quotient-image replay. Universal rank-four lifts and numerical metrics remain missing.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "actual alternate I6 ray (0,1)",
+        "common determinant-repair character [1,2]"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_second_sections.json",
+        "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz",
+        "data/generated/scientific_genesis/alternate_metric_second_sections.relations.json.gz",
+        "research/experiments/scientific_genesis/alternate_metric_second_sections.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SECOND_SECTIONS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_second_sections.py"
+      ],
+      "id": "alternate_metric_second_sections",
+      "label": "actual alternate second constituent complete invariant section basis",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "The actual I6 ray (0,1) at H=(14,16,1) has a complete 2690-vector V2 basis: 1135 subline sections plus 1555 nonsplit quotient lifts. Stabilizer-normalized orbits include fixed monomials; the fat-axis ideal Koszul presentation has an independently verified exact 4337-rank minor. Twelve full-differential templates transport the lifts. Every section and relation has independent coefficient replay. Universal rank-four lifts and metric convergence remain open.",
       "status": "COMPUTED"
     },
     {
@@ -3792,10 +3827,10 @@
       "label": "Ricci-flat, HYM, and matter metric package",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "explicit alternate-carrier invariant section bases",
+        "parameter-dependent rank-four invariant section lifts",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Its first constituent has a complete actual 2655-vector invariant section basis, but V2 and rank-four sections, and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690, but universal rank-four lifts and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -6459,10 +6494,41 @@
       ],
       "implication": "exact",
       "known_failure_modes": [
-        "V2 and rank-four lifts and metric convergence remain necessary"
+        "universal rank-four lifts and metric convergence remain necessary"
       ],
       "mathematical_reason": "The complete V1 section basis supplies one genuine constituent input for the eventual rank-four metric construction.",
       "source": "alternate_metric_first_serre_lifts",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
+        "source-checked actual second ideal frame",
+        "fat-axis regular sequence"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_second_sections.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "reference-ray sections are not alternate-ray sections"
+      ],
+      "mathematical_reason": "The actual alternate ray and declared twist fix the second subline, ideal Koszul presentation, and nonsplit section lifts.",
+      "source": "alternate_metric_quotient_generation",
+      "target": "alternate_metric_second_sections"
+    },
+    {
+      "assumptions_required": [
+        "actual parameter-dependent outer extension"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_second_sections.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the direct sum of constituent bases is not the nonsplit rank-four basis"
+      ],
+      "mathematical_reason": "The complete actual V2 basis supplies all quotient inputs for universal rank-four section lifting at the generating twist.",
+      "source": "alternate_metric_second_sections",
       "target": "visible_metrics"
     },
     {
@@ -7413,8 +7479,9 @@
     "the frozen alternate I6 quotient has six distinct local determinant pairings satisfying all thirty corrected overlap identities; no Hom-to-tensor chain map follows yet",
     "all sixty minor opens of the alternate I6 quotient carry exact rank-two duality inverses and syzygy-dual contractions, but the strict Hom class has not reached a common Higgs complex",
     "the alternate universal holomorphic up matrix has all nine actual-carrier entries and determinant (-3/98-39omega/196)a1 in the fixed quotient frame",
-    "global generation of a descended vector-bundle extension follows from quotient-level constituent generation and vanishing H1 of its subbundle; two alternate generation premises remain open",
-    "the actual alternate first constituent at descending twist (5,7,1) has cover H0=1728 and higher cohomology zero; quotient H0=192 and H1=0, with generation still unproved",
+    "global generation of a descended vector-bundle extension follows from quotient-level constituent generation and vanishing H1 of its subbundle; the actual alternate premises are certified at H=(14,16,1)",
+    "the actual alternate first constituent at descending twist (5,7,1) has cover H0=1728 and higher cohomology zero; quotient H0=192 and H1=0; this count alone is not a quotient-generation proof at that smaller twist",
+    "both actual alternate constituents now have complete invariant section bases at H=(14,16,1), of sizes 2655 and 2690, with independent exact closure, repaired deck actions, and quotient image checks; universal rank-four lifts remain unresolved",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -7510,6 +7577,7 @@
         ]
       ],
       "alternate_fixed_atlas_su4_excluded": true,
+      "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
       "alternate_metric_explicit_invariant_basis_available": false,
       "alternate_metric_first_constituent_cover_generated": true,
@@ -7529,6 +7597,9 @@
       ],
       "alternate_metric_quotient_section_count": 5345,
       "alternate_metric_rank_four_globally_generated": true,
+      "alternate_metric_rank_four_quotient_lifts_remaining_count": 2690,
+      "alternate_metric_second_constituent_section_basis_available": true,
+      "alternate_metric_second_constituent_section_basis_count": 2690,
       "alternate_metric_subbundle_h1_vanishing": true,
       "alternate_metric_trial_twist": [
         5,
@@ -8199,7 +8270,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "at H=(14,16,1), construct the 2690 actual alternate V2 invariant sections, then lift them through the universal outer extension using the complete 2655-vector V1 basis; complete the rank-four section basis before controlled Ricci-flat/HYM convergence tests",
+    "next_required_object": "at H=(14,16,1), lift all 2690 actual alternate V2 invariant sections through the parameter-dependent universal outer extension and combine them with the complete 2655-vector V1 basis; verify the full 5345-vector rank-four section basis before controlled Ricci-flat/HYM convergence tests",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
@@ -8583,6 +8654,11 @@
     "the certified constituent atlases force Higgs characters (1,0), (1,1), (2,0), and (2,1), incompatible with the source-bound multiset"
   ],
   "structural_compression_questions": [
+    {
+      "attack": "check the complete source arrow sets, both Laurent-pole directions, repaired actions, and every full residual; polynomial-linearity proves the transport for these constituents, but does not solve universal outer lifts",
+      "evidence": "nine V1 and twelve actual alternate V2 templates lift 1540 and 1555 quotient sections; all extension arrows are plane-polynomial with only P1-overlap poles",
+      "question": "Can the actual constituent Serre lifts be transported from finitely many P1 templates rather than solved separately for every generating section?"
+    },
     {
       "attack": "derive the remaining comparison groups and reachable tensor homotopies; the line support is checked for these actual witnesses, but exchange symmetry does not prove agreement with the natural exterior map",
       "evidence": "both actual 90-term null primitives are line boundaries; H1(B1 inverse) and Hom(det F,K) vanish, while matter-product H2(K) indeterminacy is five-dimensional on the cover and has not been eliminated",

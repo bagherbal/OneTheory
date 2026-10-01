@@ -1218,7 +1218,8 @@ quotient basis. Independent rank specialization modulo 7 verifies the
 chosen complement. See `ALTERNATE_METRIC_FIRST_SUBLINE_SECTIONS_NOTE.md`.
 This subline result alone does not construct quotient sections or non-split
 lifts. Those two first-constituent prerequisites are now closed below;
-the 2690 second-constituent sections and rank-four metric remain open.
+the second-constituent basis is also now constructed below, while the
+rank-four lifts and metric remain open.
 
 Both actual first-resolution ambient invariant blocks are now explicit:
 13,338 F0 vectors at degree `(11,17,2)` and 7,524 F1 vectors at
@@ -1261,9 +1262,31 @@ and spanning without a large invented rank test. The two Laurent-pole
 directions and regular middle case also agree with the separate full-cover
 homotopy engine. See `ALTERNATE_METRIC_FIRST_SERRE_LIFTS_NOTE.md`.
 
-The next object is the **actual alternate V2** 2,690-vector invariant section
-basis, not the published reference constituent. Its sections must then be
-lifted through the universal outer extension and combined with V1 to obtain
-the 5,345-vector rank-four basis. Controlled Ricci-flat/HYM convergence,
+The **actual alternate V2** now also has its complete 2,690-vector invariant
+section basis: 1,135 subline sections plus 1,555 non-split quotient lifts.
+The frozen I6 ray is `(0,1)`, with common determinant repair `[1,2]`; the
+reference second constituent is not substituted. Its scalar subline frame
+is trivial, so admissible P-fixed monomials occur and must have coefficient
+one rather than an unnormalized Reynolds factor three. Its ideal-image
+frame is `(omega,omega^2)`. Source-equation multiplication uses the product
+of target and equation characters, checked by exact reconstruction.
+
+The actual ideal has the fat-axis primary decomposition
+`(u1,u2^2) intersect (u2,u0^2) intersect (u0,u1^2)`. The actual nonzero
+pencil coefficients give a Cohen–Macaulay regular-sequence argument for
+the ideal Koszul presentation. Its invariant dimensions are
+`5892-(2628+2568-859)=1555`; independent integral relation replay and a
+4,337-square minor modulo seven certify the complement. The subline
+eliminant quotient has dimensions `2056-921=1135`, including its fixed
+orbits. Twelve full-differential P1 templates transport all actual Serre
+lifts. Every section is independently replayed over `Z[omega]` for
+closure, repaired P/T invariance, and its prescribed quotient image.
+The pole and middle cases also agree with the separate full-cover
+homotopy engine. See `ALTERNATE_METRIC_SECOND_SECTIONS_NOTE.md`.
+
+The next object is the universal outer-extension lift of all 2,690 V2
+sections, combined with V1 to obtain the 5,345-vector rank-four basis.
+The direct sum of the constituent bases is not that nonsplit basis.
+Controlled Ricci-flat/HYM convergence,
 physical Yukawa normalization, common-vacuum stabilization, and the
 Genesis-to-UV derivation remain unresolved.

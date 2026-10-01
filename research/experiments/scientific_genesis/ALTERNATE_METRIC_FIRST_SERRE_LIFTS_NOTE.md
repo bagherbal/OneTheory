@@ -4,7 +4,9 @@ This is conditional on the frozen heterotic/Schoen realization and its
 determinant-repaired alternate carrier. No vacuum, metric, or observed input
 is selected. At the declared generating twist `H=(14,16,1)`, the first
 constituent now has a complete **2,655-vector invariant section basis**.
-The second constituent and universal rank-four section bases remain open.
+The second constituent is now constructed in the separate
+`ALTERNATE_METRIC_SECOND_SECTIONS_NOTE.md`. Universal rank-four lifts
+remain open; this artifact certifies only V1.
 
 ## Why nine templates replace 1,540 homotopy solves
 
@@ -74,7 +76,7 @@ python -m research.experiments.scientific_genesis.alternate_metric_first_serre_l
 ```
 
 The JSON artifact binds the three prerequisite artifacts and the full archive.
-The next prerequisite is the actual alternate V2 section basis, followed by
-parameter-dependent rank-four lifts. No Ricci-flat/HYM convergence, matter
+The actual alternate V2 basis is separately certified. The next prerequisite
+is parameter-dependent rank-four lifts. No Ricci-flat/HYM convergence, matter
 normalization, physical Yukawa matrix, or Genesis-to-UV derivation follows
 from this section-basis result alone.

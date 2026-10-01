@@ -3337,8 +3337,8 @@ def _nodes() -> list[dict[str, object]]:
             "Its exact ideal Koszul presentation has 5814 target vectors, "
             "5114 relations, and an 840-dimensional syzygy space. An "
             "independently replayed nonzero integral minor gives an explicit "
-            "1540-vector Q(omega) quotient section basis. Non-split Serre "
-            "lifts and complete carrier bases remain missing.",
+            "1540-vector Q(omega) quotient section basis. This quotient "
+            "artifact alone contains no nonsplit Serre or outer lifts.",
             (
                 "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json",
                 "data/generated/scientific_genesis/"
@@ -3361,8 +3361,8 @@ def _nodes() -> list[dict[str, object]]:
             "Serre-quotient sections. Together with the 1115 subline "
             "sections they give a complete 2655-vector V1 basis. Every "
             "archived cochain has independent exact closure, repaired "
-            "deck-invariance, and quotient-image replay. V2 and rank-four "
-            "bases and numerical metrics remain missing.",
+            "deck-invariance, and quotient-image replay. Universal rank-four "
+            "lifts and numerical metrics remain missing.",
             (
                 "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
                 "data/generated/scientific_genesis/"
@@ -3376,19 +3376,46 @@ def _nodes() -> list[dict[str, object]]:
             ("actual non-split first Serre extension", "certified H0 quotient and subline bases"),
         ),
         _node(
+            "alternate_metric_second_sections",
+            "actual alternate second constituent complete invariant section basis",
+            "Normalization",
+            "COMPUTED",
+            "The actual I6 ray (0,1) at H=(14,16,1) has a complete "
+            "2690-vector V2 basis: 1135 subline sections plus 1555 "
+            "nonsplit quotient lifts. Stabilizer-normalized orbits include "
+            "fixed monomials; the fat-axis ideal Koszul presentation has "
+            "an independently verified exact 4337-rank minor. Twelve "
+            "full-differential templates transport the lifts. Every "
+            "section and relation has independent coefficient replay. "
+            "Universal rank-four lifts and metric convergence remain open.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_second_sections.json",
+                "data/generated/scientific_genesis/"
+                "alternate_metric_second_sections.sections.json.gz",
+                "data/generated/scientific_genesis/"
+                "alternate_metric_second_sections.relations.json.gz",
+                "research/experiments/scientific_genesis/alternate_metric_second_sections.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_SECOND_SECTIONS_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_metric_second_sections.py",
+            ),
+            ("actual alternate I6 ray (0,1)", "common determinant-repair character [1,2]"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
             "BLOCKED",
             "The alternate carrier is globally generated at a declared "
-            "ample twist. Its first constituent has a complete actual "
-            "2655-vector invariant section basis, but V2 and rank-four "
-            "sections, and converged "
+            "ample twist. Both actual constituents have complete invariant "
+            "section bases of sizes 2655 and 2690, but universal rank-four "
+            "lifts and converged "
             "Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
             missing=(
-                "explicit alternate-carrier invariant section bases",
+                "parameter-dependent rank-four invariant section lifts",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -5666,7 +5693,27 @@ def _edges() -> list[dict[str, object]]:
             ("data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",),
             ("selected heterotic UV realization",),
             True,
-            ("V2 and rank-four lifts and metric convergence remain necessary",),
+            ("universal rank-four lifts and metric convergence remain necessary",),
+        ),
+        _edge(
+            "alternate_metric_quotient_generation",
+            "alternate_metric_second_sections",
+            "The actual alternate ray and declared twist fix the second "
+            "subline, ideal Koszul presentation, and nonsplit section lifts.",
+            ("data/generated/scientific_genesis/alternate_metric_second_sections.json",),
+            ("source-checked actual second ideal frame", "fat-axis regular sequence"),
+            True,
+            ("reference-ray sections are not alternate-ray sections",),
+        ),
+        _edge(
+            "alternate_metric_second_sections",
+            "visible_metrics",
+            "The complete actual V2 basis supplies all quotient inputs "
+            "for universal rank-four section lifting at the generating twist.",
+            ("data/generated/scientific_genesis/alternate_metric_second_sections.json",),
+            ("actual parameter-dependent outer extension",),
+            True,
+            ("the direct sum of constituent bases is not the nonsplit rank-four basis",),
         ),
         _edge(
             "computable_carrier_state",
@@ -9075,6 +9122,64 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the actual complete first-constituent section basis is not certified")
+    second_sections_path = ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_second_sections.json"
+    )
+    second_sections = json.loads(second_sections_path.read_text(encoding="utf-8"))
+    second_digest = second_sections.pop("artifact_digest", None)
+    second_a = second_sections.get("subline_certificate", {})
+    second_q = second_sections.get("quotient_certificate", {})
+    if (
+        second_digest != _canonical_digest(second_sections)
+        or second_digest
+        != "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348"
+        or second_sections.get("schema") != "alternate-metric-second-sections-v1"
+        or second_sections.get("ray_character_exponents") != [0, 1]
+        or second_sections.get("common_flat_character_twist") != [1, 2]
+        or second_sections.get("twist_cover_degree") != [14, 16, 1]
+        or second_sections.get("subline_degree") != [15, 15, 0]
+        or second_sections.get("ideal_degree") != [15, 15, 2]
+        or second_sections.get("subline_frame_exponents") != [0, 0]
+        or second_sections.get("ideal_frame_exponents") != [1, 2]
+        or second_sections.get("section_dimension") != 2690
+        or second_sections.get("subline_section_count") != 1135
+        or second_sections.get("quotient_lift_count") != 1555
+        or second_sections.get("subline_fixed_orbit_counts") != [1, 1]
+        or second_sections.get("full_differential_template_count") != 12
+        or second_sections.get("expanded_full_cover_term_count") != 271035
+        or second_a.get("target_dimension") != 2056
+        or second_a.get("source_dimensions") != [921]
+        or second_a.get("certified_rank") != 921
+        or len(second_a.get("basis_labels", [])) != 1135
+        or second_q.get("target_dimension") != 5892
+        or second_q.get("source_dimensions") != [2628, 2568]
+        or second_q.get("syzygy_dimension") != 859
+        or second_q.get("certified_rank") != 4337
+        or second_q.get("structural_relation_rank_upper_bound") != 4337
+        or second_q.get("source_frame_exponents") != [[0, 2], [1, 2]]
+        or second_q.get("syzygy_frame_exponents") != [0, 2]
+        or len(second_q.get("basis_labels", [])) != 1555
+        or second_sections.get("prerequisite_artifact_digests") != {
+            "generation": generation_digest, "alternate_cone": alternate_cone_digest,
+        }
+        or any(second_sections.get(f"{name}_archive") != (
+            "data/generated/scientific_genesis/"
+            f"alternate_metric_second_sections.{suffix}.json.gz"
+        ) or _sha256(ROOT / second_sections[f"{name}_archive"])
+            != second_sections.get(f"{name}_archive_sha256")
+               for name, suffix in (("section", "sections"), ("relation", "relations")))
+        or any(second_sections.get(flag) is not True for flag in (
+            "ideal_koszul_regular_sequence_on_fat_axis_quotient",
+            "actual_ideal_frame_source_checked",
+            "all_sections_full_differential_closed", "all_sections_strictly_p_t_invariant",
+            "second_constituent_section_basis_available",
+        ))
+        or any(second_sections.get(flag) is not False for flag in (
+            "rank_four_section_basis_available", "numerical_metrics_available",
+            "physical_yukawas_available", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual complete second-constituent section basis is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9377,6 +9482,9 @@ def build_state() -> dict[str, object]:
         "alternate_metric_first_quotient_sections.relations.json.gz",
         "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
         "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz",
+        "data/generated/scientific_genesis/alternate_metric_second_sections.json",
+        "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz",
+        "data/generated/scientific_genesis/alternate_metric_second_sections.relations.json.gz",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -9624,6 +9732,12 @@ def build_state() -> dict[str, object]:
                     "section_dimension"
                 ],
                 "alternate_metric_first_constituent_section_basis_available": True,
+                "alternate_metric_second_constituent_section_basis_count": second_sections[
+                    "section_dimension"
+                ],
+                "alternate_metric_second_constituent_section_basis_available": True,
+                "alternate_metric_constituent_section_bases_available": True,
+                "alternate_metric_rank_four_quotient_lifts_remaining_count": 2690,
                 "alternate_metric_first_resolution_ambient_generator_counts": [
                     item["ambient_invariant_generator_count"] for item in ambient_blocks
                 ],
@@ -9862,10 +9976,11 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "at H=(14,16,1), construct the 2690 actual alternate V2 "
-                "invariant sections, then lift them through the universal "
-                "outer extension using the complete 2655-vector V1 basis; "
-                "complete the rank-four section basis before controlled "
+                "at H=(14,16,1), lift all 2690 actual alternate V2 invariant "
+                "sections through the parameter-dependent universal outer "
+                "extension and combine them with the complete 2655-vector "
+                "V1 basis; verify the full 5345-vector rank-four section "
+                "basis before controlled "
                 "Ricci-flat/HYM convergence tests"
             ),
         },
@@ -9971,10 +10086,16 @@ def build_state() -> dict[str, object]:
             "(-3/98-39omega/196)a1 in the fixed quotient frame",
             "global generation of a descended vector-bundle extension "
             "follows from quotient-level constituent generation and "
-            "vanishing H1 of its subbundle; two alternate generation premises remain open",
+            "vanishing H1 of its subbundle; the actual alternate premises "
+            "are certified at H=(14,16,1)",
             "the actual alternate first constituent at descending twist "
             "(5,7,1) has cover H0=1728 and higher cohomology zero; "
-            "quotient H0=192 and H1=0, with generation still unproved",
+            "quotient H0=192 and H1=0; this count alone is not a "
+            "quotient-generation proof at that smaller twist",
+            "both actual alternate constituents now have complete invariant "
+            "section bases at H=(14,16,1), of sizes 2655 and 2690, with "
+            "independent exact closure, repaired deck actions, and quotient "
+            "image checks; universal rank-four lifts remain unresolved",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "
@@ -10224,6 +10345,24 @@ def build_state() -> dict[str, object]:
             },
         ],
         "structural_compression_questions": [
+            {
+                "question": (
+                    "Can the actual constituent Serre lifts be transported "
+                    "from finitely many P1 templates rather than solved "
+                    "separately for every generating section?"
+                ),
+                "evidence": (
+                    "nine V1 and twelve actual alternate V2 templates lift "
+                    "1540 and 1555 quotient sections; all extension arrows "
+                    "are plane-polynomial with only P1-overlap poles"
+                ),
+                "attack": (
+                    "check the complete source arrow sets, both Laurent-pole "
+                    "directions, repaired actions, and every full residual; "
+                    "polynomial-linearity proves the transport for these "
+                    "constituents, but does not solve universal outer lifts"
+                ),
+            },
             {
                 "question": (
                     "Do the exact mixed null Yoneda boundaries eliminate the "

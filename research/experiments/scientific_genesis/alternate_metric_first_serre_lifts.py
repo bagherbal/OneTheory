@@ -208,14 +208,15 @@ def _accumulate(values: dict, key: tuple, value: Pair) -> None:
         values[key] = updated
 
 
-def _compact(cochain: SparseOuterCechCochain) -> CompactSection:
+def _compact(cochain: SparseOuterCechCochain, object_count: int = 4) -> CompactSection:
     """Check, rather than assume, polynomial constancy on the nine plane charts."""
 
     groups: dict[SectionKey, dict[tuple[int, int], Pair]] = {}
     for basis, value in cochain.terms:
         if (
             basis.total_degree != 0 or basis.component.koszul_summand != "k0"
-            or basis.component.right_index != 0 or basis.component.left_index not in range(4)
+            or basis.component.right_index != 0
+            or basis.component.left_index not in range(object_count)
             or any(len(simplex) != 1 for simplex in basis.cell)
             or any(exponent < 0 for exponent in (*basis.x_monomial, *basis.u_monomial))
         ):
@@ -324,14 +325,21 @@ def _deck(section: CompactSection, generator: int) -> CompactSection:
 
     images = _inputs()[generator]
     _contraction, _actions, frames = _context()
-    frame = frames[generator]
+    return _deck_from_frame(section, images, frames[generator])
+
+
+def _deck_from_frame(
+    section: CompactSection, images: tuple[tuple[int, int], ...], frame: Matrix,
+) -> CompactSection:
+    """Apply a declared homogeneous frame to polynomial-plane section terms."""
+
     if any(target != source for source, (_phase, target) in enumerate(images[6:], 6)):
         raise ValueError("the P1 chart-preserving compression no longer applies")
     result = {}
     for (index, monomial, chart), coefficient in section:
         phase, image = _act(monomial, images)
         geometric = _multiply(coefficient, ROOT_PAIRS[phase])
-        for target in range(4):
+        for target in range(frame.row_count):
             value = _multiply(geometric, _pair(cast(Eisenstein, frame[target][index])))
             _accumulate(result, (target, image, chart), value)
     return _freeze(result)

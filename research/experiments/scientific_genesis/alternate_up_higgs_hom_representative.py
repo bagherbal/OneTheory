@@ -1,8 +1,9 @@
 """Extract the alternate Hom class needed by the up-Higgs chain route.
 
 Owns:
-    One strict full-Čech representative in the unique Hom character that the
-    certified determinant and flat frames send to the up-Higgs sector.
+    Reusable strict native-character extraction in the frozen Hom complex;
+    the up-sector wrapper retains the unique class that the certified
+    determinant and flat frames send to its source-pinned Higgs sector.
 
 Depends on:
     The frozen alternate carrier, exact Hom transfer, atlas deck actions, and
@@ -55,6 +56,7 @@ from .alternate_constituent_up_matter_representatives import (
     _add,
     _negative,
     _project,
+    _require_characters,
     _strict,
 )
 from .distinct_constituent_ray_screen import lift_joint_character_ray
@@ -180,6 +182,38 @@ def alternate_up_higgs_hom_representative() -> AlternateUpHiggsHomRepresentative
     ):
         raise ValueError("the alternate up-Higgs Hom character premises changed")
 
+    full, seed, coordinates, inclusion, projection = _strict_hom_representative(HOM_CHARACTER)
+    return AlternateUpHiggsHomRepresentative(
+        full, seed, coordinates, carrier_digest, cone_digest, spectrum_digest, hom_action_digest,
+        inclusion, projection,
+    )
+
+
+def _strict_hom_representative(character: Character):
+    """Reuse the original Hom complex for one declared native character.
+
+    The reduced basis, seed order, and full atlas frames are unchanged.
+    This returns a Hom class only, not a new physical Higgs object.
+    """
+
+    _require_characters((character,))
+    return _cached_strict_hom_representative(character)
+
+
+@cache
+def _cached_strict_hom_representative(character: Character):
+    """Memoize only already validated canonical integer characters."""
+
+    _, hom_action = _verified_payload(HOM_ACTIONS)
+    cases = [item for item in hom_action.get("cases", [])
+             if item.get("ray_character_exponents") == [0, 1]]
+    if (hom_action.get("schema") != "alternate-constituent-hom-actions-v2"
+        or len(cases) != 1 or list(character) not in cases[0].get("cover_hom_characters", [])
+        or cases[0].get("cohomology_group_relations") is not True
+        or cases[0].get("boundary_preservation_certified") is not True):
+        raise ValueError("the requested native Hom character has no certified representation")
+    case = cases[0]
+
     first = mixed_schoen_constituents()[0]
     ray = lift_joint_character_ray(
         published_constituent_deck_actions()[1], OMEGA**0, OMEGA**1
@@ -210,19 +244,19 @@ def alternate_up_higgs_hom_representative() -> AlternateUpHiggsHomRepresentative
         name: (_common_frame(first, action), _common_frame(second, action))
         for name, action in actions.items()
     }
-    found: AlternateUpHiggsHomRepresentative | None = None
+    found = None
     for seed_index, coefficients in enumerate(seeds):
         full, inclusion_depth = _perturbed_inclusion(
             _reduced_cochain(entries, coefficients), contraction
         )
         if not contraction.differential(full).is_zero():
             raise ValueError("an alternate Hom seed is not a full cycle")
-        projected = _project(full, HOM_CHARACTER, contraction, actions, frames)
+        projected = _project(full, character, contraction, actions, frames)
         if projected.is_zero():
             continue
         if not contraction.differential(projected).is_zero():
             raise ValueError("the alternate Hom character projection is not closed")
-        if not _strict(projected, HOM_CHARACTER, contraction, actions, frames):
+        if not _strict(projected, character, contraction, actions, frames):
             raise ValueError("the alternate Hom character projection is not strict")
         reduced, projection_depth = _perturbed_projection(projected, contraction, 1)
         coordinates = solver.coordinates(reduced)
@@ -232,30 +266,26 @@ def alternate_up_higgs_hom_representative() -> AlternateUpHiggsHomRepresentative
         )
         if all(value.is_zero() for value in cohomology):
             continue
-        candidate = AlternateUpHiggsHomRepresentative(
-            projected, seed_index, cohomology,
-            carrier_digest, cone_digest, spectrum_digest, hom_action_digest,
-            inclusion_depth, projection_depth,
-        )
+        candidate = (projected, seed_index, cohomology, inclusion_depth, projection_depth)
         if found is None:
             found = candidate
         else:
             scale = next(
                 left / right
                 for left, right in zip(
-                    cohomology, found.cohomology_coordinates, strict=True
+                    cohomology, found[2], strict=True
                 )
                 if not right.is_zero()
             )
             if any(
                 left != scale * right
                 for left, right in zip(
-                    cohomology, found.cohomology_coordinates, strict=True
+                    cohomology, found[2], strict=True
                 )
             ):
                 raise ValueError("the target Hom character has multiplicity above one")
     if found is None:
-        raise ValueError("the up-Higgs-relevant Hom character has no full class")
+        raise ValueError("the requested native Hom character has no full class")
     return found
 
 

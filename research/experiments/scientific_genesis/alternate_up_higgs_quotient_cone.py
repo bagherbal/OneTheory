@@ -104,10 +104,16 @@ def alternate_higgs_quotient_models() -> tuple[MixedSchoenConstituent, MixedScho
 def alternate_higgs_quotient_covector() -> SparseOuterCechCochain:
     """Retarget the same Higgs through F-to-F/A_F and verify full closure."""
 
+    return quotient_higgs_covector(load_alternate_up_higgs_hom_full_cochain())
+
+
+def quotient_higgs_covector(full: SparseOuterCechCochain) -> SparseOuterCechCochain:
+    """Retarget an explicitly supplied A-supported Hom cycle on this fixed quotient."""
+
     _, quotient = alternate_higgs_quotient_models()
     context = _MixedContraction(mixed_schoen_unit(), quotient)
     result = []
-    for basis, coefficient in load_alternate_up_higgs_hom_full_cochain().terms:
+    for basis, coefficient in full.terms:
         if basis.component.left_index != 0 or basis.component.right_index == 0:
             raise ValueError("the saved Higgs no longer factors through F/A_F")
         component = context.components[(
@@ -119,7 +125,7 @@ def alternate_higgs_quotient_covector() -> SparseOuterCechCochain:
             component, basis.x_monomial, basis.u_monomial, basis.p_monomial, basis.cell,
         ), coefficient))
     cochain = SparseOuterCechCochain(tuple(result))
-    if not context.differential(cochain).is_zero():
+    if cochain.is_zero() or not context.differential(cochain).is_zero():
         raise ValueError("the Higgs is not closed on its actual ideal-quotient resolution")
     return cochain
 

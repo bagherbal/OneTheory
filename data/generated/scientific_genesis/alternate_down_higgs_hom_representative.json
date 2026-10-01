@@ -1,0 +1,69 @@
+{
+  "artifact_digest": "476e48e981ab66382b43d2510d7a271b2fa3f82468f885b7050edb9af3cd9276",
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "coefficient_field": "Q(omega)",
+  "cohomology_coordinates": [
+    "0",
+    "1/3-1/3*omega",
+    "0",
+    "2/3+1/3*omega"
+  ],
+  "common_flat_twist": [
+    1,
+    2
+  ],
+  "complete_charged_lepton_matrix_available": false,
+  "complete_down_matrix_available": false,
+  "constant_mixed_couplings_evaluated": false,
+  "covector_common_twist_weight": -2,
+  "extension_point_selected": false,
+  "full_cochain_archive_name": "alternate_down_higgs_hom_representative.cochains.json.gz",
+  "full_cochain_archive_sha256": "7f03d8421c911ce0ad124b29a50ecc7e620f0e9df9f443c1b0a1d8a6a4ead1a2",
+  "full_cochain_payload_digest": "026523635b8c419293a595163d538d3d29729871c3129791a9cf9eae8b564d94",
+  "full_cycle_exact": true,
+  "higgs_exterior_cocycle_constructed": false,
+  "hom_orientation": "Hom(V2 tensor det(V1), V1)",
+  "inclusion_depth": 2,
+  "native_hom_character": [
+    2,
+    2
+  ],
+  "next_required_object": "realize the actual down-Higgs quotient covector, then derive all down and charged-lepton matter products on this same carrier",
+  "nonboundary_exact": true,
+  "observational_inputs_used": false,
+  "physical_yukawas_available": false,
+  "prerequisite_artifact_digests": {
+    "alternate_hom_actions": "b72aa878323cc9dd2e4fc503b51191742ade124ef67a74de18b0efff88172d14",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "published_wilson_source": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "source_character_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241",
+    "structural_spectrum": "cbf2f4c78e15d140bbfd1cc11e98e0eeba473b59ca48f7090096807ad2aee1bd",
+    "universal_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+  },
+  "projection_depth": 1,
+  "proof_sha256": "92a39f21c77a628333eb6572fca456d9ffa63cc94eb3e5586003d237d7e5ad78",
+  "reduced_basis_identity": "alternate:up-higgs:Hom (unchanged original identity)",
+  "repaired_higgs_forward_character": [
+    0,
+    1
+  ],
+  "repaired_higgs_source_character": [
+    0,
+    2
+  ],
+  "schema": "alternate-down-higgs-hom-class-v1",
+  "seed_index": 1,
+  "source": {
+    "arxiv_id": "hep-th/0512177",
+    "locator": "equation (28)",
+    "url": "https://arxiv.org/html/hep-th/0512177v3",
+    "version": "v3"
+  },
+  "strict_native_character_exact": true,
+  "witnesses": {
+    "strict_native_hom": {
+      "cochain_digest": "881fb40321958b330c9b0458efc8e9db8959499a46241deba17cf6b3dfbad60e",
+      "term_count": 351
+    }
+  }
+}

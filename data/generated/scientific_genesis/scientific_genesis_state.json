@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "f18797ce8108e08d682fa72a942b47716750badd776c83dc8d29f0591f8e129e",
+  "artifact_digest": "2e992a51efee65a6950d44562c1d461e08b06fae16b4868a25f508ea802778c1",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -1002,6 +1002,96 @@
       "sha256": "49bf7e7066fdfc46a87107f4e0a369bcffc1476d084490fcccffe552ae5a3cfd"
     },
     {
+      "bytes": 2672,
+      "path": "data/generated/scientific_genesis/alternate_down_higgs_hom_representative.json",
+      "sha256": "9b0090ddda6f18c8663fdabbfa89c9665af137a80683ad77ed442e3259fd7996"
+    },
+    {
+      "bytes": 1626,
+      "path": "data/generated/scientific_genesis/alternate_down_higgs_hom_representative.cochains.json.gz",
+      "sha256": "7f03d8421c911ce0ad124b29a50ecc7e620f0e9df9f443c1b0a1d8a6a4ead1a2"
+    },
+    {
+      "bytes": 2698,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a0_side0_family1.json",
+      "sha256": "f3e3c39f8423a37bf4d33eea5cea2a1553d36881e5e6faebf55730341026de04"
+    },
+    {
+      "bytes": 2698,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a0_side0_family2.json",
+      "sha256": "4e5187a901ae4ab07ed02d99c50f63356f8351deb1c3f13df81d51d8ffd67fa4"
+    },
+    {
+      "bytes": 2698,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a0_side1_family1.json",
+      "sha256": "22b7fc9857576e8636a2f626f18665a0a65555cd57b7a52600b12b08d1402ebb"
+    },
+    {
+      "bytes": 2698,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a0_side1_family2.json",
+      "sha256": "b6c16525709d6e31448952bea288c3760d56981032b699dab9df2669cd262e11"
+    },
+    {
+      "bytes": 2698,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a1_side0_family1.json",
+      "sha256": "10f122731cf655399ffa115a0641171e4afda79c1fc3a6c1294fe26f038ff938"
+    },
+    {
+      "bytes": 2698,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a1_side0_family2.json",
+      "sha256": "fb26a6aa29c8eeab4414b2d0e03045a646b59d7204f2d6f55fccc8a0c3b001af"
+    },
+    {
+      "bytes": 2698,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a1_side1_family1.json",
+      "sha256": "bdab94d1c773c2da989c86a136877d848d63c2db2ab65f45ca120d0ce58ff6fd"
+    },
+    {
+      "bytes": 2698,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a1_side1_family2.json",
+      "sha256": "5cb7cdb114fa32fa93782195042ca5c2752b2949367b737326236478786860c0"
+    },
+    {
+      "bytes": 372246,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a0_side0_family1.cochains.json.gz",
+      "sha256": "40eb7d0467c3393b15d4263b8b31567612f26db4ccba5d2183203710ee5e0a1e"
+    },
+    {
+      "bytes": 352778,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a0_side0_family2.cochains.json.gz",
+      "sha256": "0b1604d44525848e2708547ea231dd84dcbb167008dd5259e5c26b8699c0468a"
+    },
+    {
+      "bytes": 353598,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a0_side1_family1.cochains.json.gz",
+      "sha256": "f8df88538e14c25af5caaacb2e1a9f85e54ff92a2274e72e1bcd99df70c6a7bf"
+    },
+    {
+      "bytes": 344796,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a0_side1_family2.cochains.json.gz",
+      "sha256": "5117449fcddbd65e4f2ea899b1da4424a0231f6e07220aa101afb4e24a5c45d0"
+    },
+    {
+      "bytes": 335855,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a1_side0_family1.cochains.json.gz",
+      "sha256": "bcf383629c44fcfa97d8801f7b06db0744a00512e00c27f63cbe3aab987eef47"
+    },
+    {
+      "bytes": 302727,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a1_side0_family2.cochains.json.gz",
+      "sha256": "dd0087ea31dab42723531270da35f4d6d9adc7f8b168dcbb020f5b2f7d6c236f"
+    },
+    {
+      "bytes": 309921,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a1_side1_family1.cochains.json.gz",
+      "sha256": "41524710306499b7d45d761b88690646fd8d16c756ded983f81bac16b4ac4d36"
+    },
+    {
+      "bytes": 315735,
+      "path": "data/generated/scientific_genesis/alternate_neutrino_ff_lift_a1_side1_family2.cochains.json.gz",
+      "sha256": "2fa46aaab2af111b8e3e0707765394e1684651562ab9a163c44f8545903b90ef"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -1038,11 +1128,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2583,
+    "collected_tests_at_audit": 2611,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 285,
-    "test_python_files": 268
+    "research_python_files": 287,
+    "test_python_files": 269
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -4253,6 +4343,24 @@
     },
     {
       "assumptions": [
+        "fixed actual neutrino seeds and frame conventions",
+        "same frozen universal two-parameter carrier",
+        "no extension point selected"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_neutrino_ff_entries.py",
+        "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py",
+        "tests/integration/test_scientific_genesis_alternate_neutrino_ff_entries.py"
+      ],
+      "id": "alternate_neutrino_matter_lifts",
+      "label": "actual formal Dirac-neutrino matter corrections",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "All eight actual parameter, side, and family corrections are archived with full constituent and quotient witnesses. Independent read-only replay verifies each original differential equation, strict full atlas character, literal quotient pushout, and coefficientwise matter identity. These are actual matter inputs, not the remaining complete scalar evaluations or a neutrino matrix.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
         "conditional heterotic realization",
         "unchanged frozen carrier"
       ],
@@ -4265,10 +4373,49 @@
       "label": "complete alternate holomorphic Dirac-neutrino matrix",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "complete parameter-linear F-F neutrino block",
+        "complete eight parameter-linear F-F scalar evaluations",
         "independent all-entry scalar and representative checks"
       ],
       "statement": "A shared up-Higgs object does not identify the up and neutrino family bases or coupling values. Every neutrino scalar must be derived from its own actual matter characters in the same carrier.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
+        "same frozen carrier and determinant repair",
+        "source-pinned Wilson weights"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_down_higgs_hom_representative.py",
+        "research/experiments/scientific_genesis/ALTERNATE_DOWN_HIGGS_HOM_NOTE.md",
+        "data/generated/scientific_genesis/alternate_down_higgs_hom_representative.json",
+        "data/generated/scientific_genesis/alternate_down_higgs_hom_representative.cochains.json.gz",
+        "tests/integration/test_scientific_genesis_alternate_down_higgs_hom_representative.py"
+      ],
+      "id": "alternate_down_higgs_hom_representative",
+      "label": "source-routed down-Higgs Hom class on the frozen alternate carrier",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "The fixed common twist routes native Hom character (2,2) to the published down-Higgs forward weight (0,1). Its actual 351-term strict class is archived in the original reduced basis. Independent replay verifies full closure, both atlas characters, and exact nonboundary coordinates. This is not an exterior Higgs lift or a down-quark or charged-lepton Yukawa coefficient.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "fixed frozen carrier",
+        "actual native down-Higgs Hom input"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_down_higgs_quotient_cone.py",
+        "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
+        "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py"
+      ],
+      "id": "alternate_down_higgs_quotient_cone",
+      "label": "actual down-Higgs universal quotient cocycle",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "full down-Higgs quotient covector",
+        "two independently checked actual exterior primitives"
+      ],
+      "statement": "The native down-Higgs Hom class must factor through the same natural ideal quotient. Both actual outer-coefficient actions then require exact primitives in the existing exterior complex. Up-sector primitives cannot be relabelled as down-sector data.",
       "status": "BLOCKED"
     },
     {
@@ -7701,6 +7848,109 @@
       ],
       "mathematical_reason": "A derived holomorphic neutrino matrix is one required sector before physical normalization in a common stabilized vacuum.",
       "source": "alternate_neutrino_matrix",
+      "target": "physical_yukawas"
+    },
+    {
+      "assumptions_required": [
+        "original full differentials",
+        "same literal quotient pushout"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_neutrino_ff_entries.py",
+        "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a reduced preimage without a verified full equation is insufficient"
+      ],
+      "mathematical_reason": "The actual sector-specific constituent representatives admit full corrections for both universal outer coefficients.",
+      "source": "alternate_neutrino_mixed_pairing",
+      "target": "alternate_neutrino_matter_lifts"
+    },
+    {
+      "assumptions_required": [
+        "actual full Higgs cocycle",
+        "complete direct and transferred scalar traces"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a matter lift alone does not determine a Yukawa coefficient"
+      ],
+      "mathematical_reason": "Eight verified actual matter lifts supply the inputs to the remaining complete coupled F-F product and scalar calculations.",
+      "source": "alternate_neutrino_matter_lifts",
+      "target": "alternate_neutrino_matrix"
+    },
+    {
+      "assumptions_required": [
+        "actual alternate I6 ray (0,1)",
+        "fixed common flat twist (1,2)"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_higgs_hom_representative.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a character in a spectrum is not a generated chain representative"
+      ],
+      "mathematical_reason": "The repaired Hom representation and unchanged common twist route the published down-Higgs weight to its unique native character.",
+      "source": "alternate_constituent_carrier_state",
+      "target": "alternate_down_higgs_hom_representative"
+    },
+    {
+      "assumptions_required": [
+        "actual exterior Higgs realization",
+        "same-carrier matter classes",
+        "all entries",
+        "canonical metrics",
+        "common vacuum"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_higgs_hom_representative.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a Hom class alone cannot supply either matrix or a physical mass"
+      ],
+      "mathematical_reason": "A strict down-Higgs class is one prerequisite for both remaining holomorphic down-quark and charged-lepton matrices on this carrier.",
+      "source": "alternate_down_higgs_hom_representative",
+      "target": "physical_yukawas"
+    },
+    {
+      "assumptions_required": [
+        "actual down-Higgs witness",
+        "same signed quotient maps and outer basis"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
+        "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "the actual down action may be nonboundary even when the up action is exact"
+      ],
+      "mathematical_reason": "A-supported Hom data factors through the actual ideal quotient; full exterior primitives solve its two coefficientwise cone equations.",
+      "source": "alternate_down_higgs_hom_representative",
+      "target": "alternate_down_higgs_quotient_cone"
+    },
+    {
+      "assumptions_required": [
+        "actual sector-specific matter products",
+        "all entries",
+        "metrics",
+        "common vacuum"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a Higgs cocycle alone does not determine any Yukawa scalar"
+      ],
+      "mathematical_reason": "One actual down-Higgs cocycle is shared by the remaining down and charged-lepton scalar calculations, not by their matter bases.",
+      "source": "alternate_down_higgs_quotient_cone",
       "target": "physical_yukawas"
     },
     {

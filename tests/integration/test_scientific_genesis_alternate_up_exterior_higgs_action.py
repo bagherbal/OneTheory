@@ -24,10 +24,14 @@ import pytest
 from research.experiments.computable_carrier.generate_tier_b_schoen_outer_automorphisms import (
     _canonical_digest,
 )
+from research.experiments.computable_carrier.schoen_serre_outer_transfer import (
+    SparseOuterCechCochain,
+)
 from research.experiments.scientific_genesis.alternate_up_exterior_higgs_action import (
     OUTPUT,
     alternate_up_exterior_context,
     alternate_up_exterior_primitive,
+    exact_exterior_primitive,
     exterior_square_witness_count,
 )
 
@@ -81,3 +85,6 @@ def test_exterior_primitives_do_not_claim_a_complete_physical_higgs_or_matrix() 
         assert payload[field] is False
     with pytest.raises(ValueError, match="parameter index is unavailable"):
         alternate_up_exterior_primitive(2)
+    for invalid_index in (True, 0.0, 1.0, -1, 2):
+        with pytest.raises(ValueError, match="parameter index is unavailable"):
+            exact_exterior_primitive(invalid_index, SparseOuterCechCochain())

@@ -195,7 +195,26 @@ def alternate_up_exterior_primitive(parameter_index: int) -> ExteriorPrimitive:
     """Solve only the needed products, then verify each full identity."""
 
     product = alternate_up_exterior_product(parameter_index)
+    return exact_exterior_primitive(parameter_index, product)
+
+
+def exact_exterior_primitive(
+    parameter_index: int, product: SparseOuterCechCochain,
+) -> ExteriorPrimitive:
+    """Reuse the fixed exterior preimage engine for an explicitly supplied product.
+
+    No sector, covector, or scalar is inferred from the parameter index. The
+    compact candidate operator is only a search aid; the original full
+    differential must verify the returned primitive exactly.
+    """
+
+    if (not isinstance(parameter_index, int) or isinstance(parameter_index, bool)
+        or parameter_index not in (0, 1)):
+        raise ValueError("the alternate extension parameter index is unavailable")
     _, context = alternate_up_exterior_context()
+    if (product.is_zero() or any(basis.total_degree != 2 for basis, _ in product.terms)
+        or not context.differential(product).is_zero()):
+        raise ValueError("the declared exterior product must be a nonzero full degree-two cycle")
     projected, projection_depth = _perturbed_projection(product, context, 2)
     candidate, count = _incoming_candidate()
     source_coordinates = _sparse_preimage(candidate, projected)

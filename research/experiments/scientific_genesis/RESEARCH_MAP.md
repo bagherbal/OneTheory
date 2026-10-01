@@ -1565,3 +1565,24 @@ not reuse the up null channel or its values. Checkpoints are sector-specific.
 The scheduler now favors this remaining flavor slice over another small metric
 source-key optimization. Metrics, the other flavor sectors, Majorana structure,
 the common vacuum, physical observables, and Genesis-to-UV remain unresolved.
+
+All eight actual neutrino F-family correction archives have now passed independent
+full constituent equations, strict atlas actions, and literal quotient-pushout
+replay. This closes `alternate_neutrino_matter_lifts` as COMPUTED, not the missing
+eight scalar coefficients or the complete neutrino matrix. The original two
+coefficient jobs continue through their four actual scalar entries each.
+
+The down-Higgs native Hom input is also COMPUTED: character `(2,2)`, seed 1,
+351 full terms, coordinates `(0,(1-omega)/3,0,(2+omega)/3)` in the original basis.
+The repaired forward weight `(0,1)` follows from the published Wilson action and
+fixed determinant repair. Independent full differential, deck, and nonboundary
+checks verify the archived witness; this is not an exterior Higgs or a coupling.
+`ALTERNATE_DOWN_HIGGS_HOM_NOTE.md` records the derivation and limits.
+
+The next declared edge is `alternate_down_higgs_quotient_cone`: retarget the actual
+Hom class through the established ideal quotient, compute both actual outer
+actions, compare their full signed exterior products, and solve both full cone
+equations. The experiment reuses the existing engines with an explicit class,
+not up-sector coefficient values. This node remains BLOCKED until both witnesses
+exist and are independently checked. The down and charged-lepton matter products
+must subsequently be calculated in their own actual character sectors.

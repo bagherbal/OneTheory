@@ -665,6 +665,9 @@ the literal scalar cochains, and the producer reproduces archive bytes.
 
 These are partial holomorphic couplings, not a full neutrino matrix or physical
 masses. The F-F block still requires eight parameter coefficients.
+All eight actual F-family matter corrections now have full archives and have
+passed independent replay of the original equations, strict atlas characters,
+and literal quotient pushouts. Their existence is not a scalar evaluation.
 `alternate_neutrino_ff_entries.py` only orchestrates the existing constituent,
 pushout, coupled-product, and trace engines on these actual neutrino inputs.
 Its explicit execution either derives corrections or requires saved checkpoints;
@@ -677,3 +680,19 @@ matrix and a conservative global auxiliary weight bound are certified inputs,
 not practical sampling or Ricci-flat/HYM convergence. No Majorana mechanism,
 physical normalization, stabilized vacuum, observation selection, or Genesis-to-UV
 derivation is claimed. See `ALTERNATE_NEUTRINO_MIXED_PAIRING_NOTE.md`.
+
+## Remaining down-Higgs input
+
+The source-pinned down-Higgs Wilson weight `(0,1)` requires native Hom character
+`(2,2)` in the same frozen carrier. The actual 351-term class is archived and
+independently checked for full closure, both strict atlas actions, and exact
+nonboundary coordinates. The original Hom basis and seed ordering are unchanged;
+the old up-sector packet is separately regressed. See
+`ALTERNATE_DOWN_HIGGS_HOM_NOTE.md`.
+
+`alternate_down_higgs_quotient_cone.py` applies the existing natural quotient,
+signed exterior product, and full primitive engines to this explicitly supplied
+class. Both new coefficient identities must pass independent replay before this
+next graph node is established. No up primitive is relabelled as a down result.
+Neither down-quark nor charged-lepton matrices, metrics, or physical masses follow
+from the Hom input alone.

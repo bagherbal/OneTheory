@@ -15,6 +15,7 @@ Phase 0:
     Research execution-contract tests; independent all-entry replay is still required.
 """
 
+from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
 import pytest
@@ -80,3 +81,39 @@ def test_incomplete_neutrino_coefficients_do_not_produce_a_partial_matrix(
     with pytest.raises(FileNotFoundError, match="actual neutrino coefficient prerequisite"):
         assembly.write_full_neutrino_matrix(destination)
     assert not destination.exists()
+
+
+def _replay_lift(indices):
+    """Check the original full equations in a worker, returning only exact metadata."""
+
+    parameter, side, family = indices
+    lift = assembly._verified_lift(parameter, side, family, coefficients.GENERATED)
+    return (parameter, side, family, lift.matter.character, lift.matter.seed_index,
+            len(lift.constituent_correction.terms), len(lift.line_correction.terms),
+            lift.checkpoint_digest)
+
+
+def test_all_eight_actual_neutrino_lifts_replay_full_source_and_deck() -> None:
+    """Hashes bind actual source witnesses only after full algebraic revalidation."""
+
+    expected = (
+        (0, 0, 1, (2, 1), 2, 27001, 13071,
+         "ffc2ff3bdab420bfc9b16ffd1892aa4b84c2896808f976a09ffbca604d6a1379"),
+        (0, 0, 2, (2, 1), 4, 26689, 12855,
+         "7da302ec452f693ced8a436b29bed9402257428ce85576e2f36c9b0e3cbeab62"),
+        (0, 1, 1, (2, 2), 1, 27198, 12966,
+         "ce0af7244b5be8a5d8786243f3378518826294cbb7ffabda2df5e7befe84037c"),
+        (0, 1, 2, (2, 2), 3, 27369, 13158,
+         "fbde476e5e4e892988e9408ff454603da4afb1bc8f8396cbec9d8313921171be"),
+        (1, 0, 1, (2, 1), 2, 24016, 11397,
+         "d20d9d68689a66e769a4c637efc8abb365fcb4021990dc021126302e8824004d"),
+        (1, 0, 2, (2, 1), 4, 23795, 11163,
+         "4002b844a63e4a3de0d909f6b232bc4ad645ce7c835fdf4cbb733ef665ee8245"),
+        (1, 1, 1, (2, 2), 1, 23916, 11844,
+         "ce3f70ba89af4e70b315a490401a734ecb2ce405b33eeb2d85167d545fdb27c8"),
+        (1, 1, 2, (2, 2), 3, 25441, 12294,
+         "e26c664effe33ed3ca157b0d357062b119b24c3bbc08a3b74cde43cb15691bde"),
+    )
+    jobs = [row[:3] for row in expected]
+    with ProcessPoolExecutor(max_workers=4) as pool:
+        assert tuple(pool.map(_replay_lift, jobs)) == expected

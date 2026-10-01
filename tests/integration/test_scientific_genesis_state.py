@@ -43,6 +43,18 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
 @pytest.mark.parametrize(
     "schema,field,error",
     (
+        (
+            "alternate-neutrino-ff-matter-lift-v1", "extension_point_selected",
+            "the independently replayed actual neutrino matter lift changed",
+        ),
+        *tuple(
+            ("alternate-down-higgs-hom-class-v1", field,
+             "the down-Higgs Hom input changed its expected content digest")
+            for field in (
+                "higgs_exterior_cocycle_constructed", "complete_down_matrix_available",
+                "complete_charged_lepton_matrix_available", "extension_point_selected",
+            )
+        ),
         *tuple(
             ("alternate-neutrino-mixed-pairing-v1", field,
              "the actual neutrino witnesses changed their trusted scope or inputs")

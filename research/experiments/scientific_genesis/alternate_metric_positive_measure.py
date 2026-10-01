@@ -84,6 +84,27 @@ def _fs_pullback(coordinates, tangent):
     return matrices._multiply(matrices._multiply(adjoint, metric), tangent)
 
 
+def _volume_from_tangent(coordinates, tangent, omega_density, *, covering_degree, bits):
+    """Reuse the declared positive FS-cube law in any explicitly named free frame."""
+
+    s, z, r, w, t = coordinates
+    forms = (_fs_pullback((s, z), tangent[:2]), _fs_pullback((r, w), tangent[2:4]),
+             _fs_pullback((t,), tangent[4:]))
+    beta = matrices._add(matrices._add(forms[0], forms[1]), forms[2])
+    density = matrices._determinant(beta) * 6
+    if not density.center.b.is_zero():
+        raise ValueError("the Hermitian density center must be an exact real rational")
+    interval = bounds.Interval(density.center.a - density.radius,
+                               density.center.a + density.radius, bits)
+    if interval.lower <= 0:
+        raise ValueError("the declared bounds do not certify the positive FS-cube density")
+    _components, mass, _probabilities = masses()
+    cover = omega_density * mass / interval
+    return {"positive_density_times_pi_cubed": interval,
+            "cover_weight_without_pi_cubed": cover,
+            "quotient_weight_without_pi_cubed": cover / covering_degree}
+
+
 def bounded_positive_measure(point, chart, *, volume_scale, covering_degree, bits):
     """Bound beta^3 and its weights on an explicitly regular projection chart.
 
@@ -102,22 +123,8 @@ def bounded_positive_measure(point, chart, *, volume_scale, covering_degree, bit
     zero, one = coordinates[0]._coerce(0), coordinates[0]._coerce(1)
     tangent = ((one, zero, zero), (-fs / fz, zero, -ft / fz),
                (zero, one, zero), (zero, -gr / gw, -gt / gw), (zero, zero, one))
-    s, z, r, w, t = coordinates
-    forms = (_fs_pullback((s, z), tangent[:2]), _fs_pullback((r, w), tangent[2:4]),
-             _fs_pullback((t,), tangent[4:]))
-    beta = matrices._add(matrices._add(forms[0], forms[1]), forms[2])
-    density = matrices._determinant(beta) * 6
-    if not density.center.b.is_zero():
-        raise ValueError("the Hermitian density center must be an exact real rational")
-    interval = bounds.Interval(density.center.a - density.radius,
-                               density.center.a + density.radius, bits)
-    if interval.lower <= 0:
-        raise ValueError("the declared bounds do not certify the positive FS-cube density")
-    _components, mass, _probabilities = masses()
-    cover = original.omega_density * mass / interval
-    return {"positive_density_times_pi_cubed": interval,
-            "cover_weight_without_pi_cubed": cover,
-            "quotient_weight_without_pi_cubed": cover / covering_degree}
+    return _volume_from_tangent(coordinates, tangent, original.omega_density,
+                                covering_degree=covering_degree, bits=bits)
 
 
 def positive_artifact():

@@ -44,6 +44,17 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         *tuple(
+            ("alternate-metric-critical-charts-v1", field,
+             "the declared critical charts or their scientific scope is not certified")
+            for field in (
+                "all_triangle_node_inputs_certified", "complete_global_atlas_coverage_certified",
+                "quantitative_global_weight_bound_available",
+                "controlled_numerical_sampling_available", "numerical_metrics_available",
+                "physical_yukawas_available", "physical_kahler_class_selected", "vacuum_selected",
+                "observational_inputs_used",
+            )
+        ),
+        *tuple(
             ("alternate-metric-positive-measure-v1", field,
              "the positive auxiliary law or its scientific scope is not certified")
             for field in (
@@ -912,6 +923,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_metric_bounded_support"]["status"] == "COMPUTED"
     assert claims["alternate_metric_weight_moments"]["status"] == "DERIVED"
     assert claims["alternate_metric_positive_measure"]["status"] == "DERIVED"
+    assert claims["alternate_metric_critical_charts"]["status"] == "COMPUTED"
+    assert path["criteria"][
+        "alternate_metric_declared_critical_fiber_chart_enclosures_available"
+    ] is True
+    assert path["criteria"]["alternate_metric_complete_global_atlas_coverage_certified"] is False
     assert path["criteria"]["alternate_metric_positive_auxiliary_law_derived"] is True
     assert path["criteria"]["alternate_metric_positive_law_ideal_weight_globally_bounded"] is True
     assert path["criteria"][

@@ -22,6 +22,17 @@ certificate, and scientific review are explicit. Run `python -m
 research.experiments.scientific_genesis.audit` to regenerate and validate the
 machine-readable state.
 
+The positive auxiliary integration law now has certified base-eliminating
+charts on all three partner roots of each of the six actual axis-critical
+fibers. These 18 domains retain exact point-line membership, explicit coordinate
+orders, signed residues, and the unchanged FS-cube density. Independent full
+wedge determinants, regular-chart overlap Jacobians, base-pivot transitions,
+and precision refinement check the calculation. Triangle-node input
+certificates, complete global coverage, a quantitative global weight bound,
+controlled uniform proposals, integration errors, and Ricci-flat/HYM convergence
+remain open. Regression points do not select physical moduli or become samples.
+See `ALTERNATE_METRIC_CRITICAL_CHARTS_NOTE.md`.
+
 The current pair-73 frontier includes exact universal extension, chain-lift,
 algebraic-locus, and necessary stability-wall artifacts. The forced subobjects
 exclude the family at the published polarization, but the complete Kähler cone

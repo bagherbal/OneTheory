@@ -3566,6 +3566,27 @@ def _nodes() -> list[dict[str, object]]:
             ("actual smooth compact cover", "explicit auxiliary FS convention"),
         ),
         _node(
+            "alternate_metric_critical_charts",
+            "certified point-line roots and critical-fiber projection densities",
+            "Normalization",
+            "COMPUTED",
+            "Base-eliminating charts enclose signed residues and the unchanged "
+            "positive FS-cube density on all three partner roots of each of "
+            "the six actual axis-critical fibers. Complete point-line root "
+            "certificates preserve exact source membership. Independent full "
+            "wedge determinants, regular-chart overlap Jacobians, and base "
+            "pivot transitions verify the coordinate conventions. These 18 "
+            "declared domains are not all triangle-node input certificates, "
+            "global atlas coverage, a quantitative global bound, or a sampler.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_critical_charts.json",
+                "research/experiments/scientific_genesis/alternate_metric_critical_charts.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_CRITICAL_CHARTS_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_critical_charts.py",
+            ),
+            ("same actual pencils", "nonzero declared eliminated-coordinate Jacobians"),
+        ),
+        _node(
             "alternate_metric_projective_roots",
             "certified complete projective intersections for exact sampling inputs",
             "Normalization",
@@ -6331,6 +6352,38 @@ def _edges() -> list[dict[str, object]]:
              "complete section evaluation", "Ricci-flat/HYM convergence"),
             True,
             ("existence of a finite global bound does not compute that bound",),
+        ),
+        _edge(
+            "alternate_metric_positive_measure",
+            "alternate_metric_critical_charts",
+            "The positive proposal gives actual point-line component equations "
+            "and a density that remains positive at critical fibers.",
+            ("research/experiments/scientific_genesis/alternate_metric_positive_measure.py",),
+            ("certified actual partner roots", "explicit nonzero base-coordinate derivative"),
+            True,
+            ("uniform sampling cannot be inferred from exact regression inputs",),
+        ),
+        _edge(
+            "alternate_metric_weight_moments",
+            "alternate_metric_critical_charts",
+            "The nodal-fiber proof establishes a nonzero base derivative on the "
+            "critical factor and a regular partner factor for the actual cover.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md",),
+            ("actual nodal critical loci", "declared compatible projection pivots"),
+            True,
+            ("a critical triangle may require algebraic input beyond Q(omega)",),
+        ),
+        _edge(
+            "alternate_metric_critical_charts",
+            "visible_metrics",
+            "Certified critical-factor coordinates extend positive-law integration "
+            "only after global coverage, controlled proposals, quantitative "
+            "bounds, and Ricci-flat/HYM convergence are also established.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_CRITICAL_CHARTS_NOTE.md",),
+            ("global atlas coverage", "controlled proposals and numerical error",
+             "actual complete section evaluation", "Ricci-flat/HYM convergence"),
+            True,
+            ("axis-node probes do not certify all triangle-node input domains",),
         ),
         _edge(
             "alternate_metric_bounded_support",
@@ -10104,6 +10157,56 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the positive auxiliary law or its scientific scope is not certified")
+    critical_record = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_critical_charts.json"
+    )).read_text(encoding="utf-8"))
+    critical_digest = critical_record.pop("artifact_digest", None)
+    if (
+        critical_digest != _canonical_digest(critical_record)
+        or critical_digest != "b40ff532135437c7e0ff1bb041a1cd26696303ea721e3ed108c6a04c029a7504"
+        or critical_record.get("schema") != "alternate-metric-critical-charts-v1"
+        or critical_record.get("positive_measure_artifact_digest") != positive_digest
+        or critical_record.get("moment_artifact_digest") != moment_digest
+        or critical_record.get("proof") != (
+            "research/experiments/scientific_genesis/ALTERNATE_METRIC_CRITICAL_CHARTS_NOTE.md"
+        )
+        or critical_record.get("proof_sha256") != _sha256(ROOT / (
+            "research/experiments/scientific_genesis/ALTERNATE_METRIC_CRITICAL_CHARTS_NOTE.md"
+        ))
+        or critical_record.get("ambient_coordinate_order") != ["s", "z", "r", "w", "t"]
+        or critical_record.get("free_coordinate_orders")
+        != {"1": ["s", "z", "r"], "2": ["r", "w", "s"]}
+        or critical_record.get("wedge_jacobian_rules") != {"1": "-f_t*g_w", "2": "f_z*g_t"}
+        or critical_record.get("partner_line") != [[1, 0, 0], [0, 1, 1]]
+        or critical_record.get("root_policy") != {
+            "requested_radius": "1/1073741824", "coefficient_bits": 60,
+            "modulus_bound_bits": 80, "max_iterations": 128, "parameter_pivot": 0,
+        }
+        or critical_record.get("bound_bits") != 80
+        or critical_record.get("covering_degree") != 9
+        or [(p.get("source_side"), p.get("source_axis"))
+            for p in critical_record.get("actual_axis_fiber_probes", [])]
+        != [(s, a) for s in (1, 2) for a in range(3)]
+        or any(p.get("partner_root_certificate", {}).get("total_root_count") != 3
+               or len(p.get("all_three_critical_chart_records", [])) != 3
+               or any(Fraction(r["positive_density_times_pi_cubed"][0]) <= 0
+                      or Fraction(r["omega_density"][0]) <= 0
+                      or r.get("free_coordinate_indices")
+                      != ([0, 1, 2] if p["source_side"] == 1 else [2, 3, 0])
+                      for r in p.get("all_three_critical_chart_records", []))
+               for p in critical_record.get("actual_axis_fiber_probes", []))
+        or any(critical_record.get(flag) is not True for flag in (
+            "point_line_cover_membership_certified",
+            "declared_critical_fiber_chart_enclosures_available",
+        ))
+        or any(critical_record.get(flag) is not False for flag in (
+            "all_triangle_node_inputs_certified", "complete_global_atlas_coverage_certified",
+            "quantitative_global_weight_bound_available", "controlled_numerical_sampling_available",
+            "numerical_metrics_available", "physical_yukawas_available", "extension_point_selected",
+            "vacuum_selected", "physical_kahler_class_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the declared critical charts or their scientific scope is not certified")
     root_record = json.loads((ROOT / (
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json"
     )).read_text(encoding="utf-8"))
@@ -10563,6 +10666,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_measure.json",
         "data/generated/scientific_genesis/alternate_metric_weight_moments.json",
         "data/generated/scientific_genesis/alternate_metric_positive_measure.json",
+        "data/generated/scientific_genesis/alternate_metric_critical_charts.json",
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
         "data/generated/scientific_genesis/alternate_metric_enclosures.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
@@ -10839,6 +10943,8 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_positive_law_ideal_weight_globally_bounded": True,
                 "alternate_metric_positive_law_quantitative_global_bound_available": False,
                 "alternate_metric_critical_fiber_chart_enclosures_available": False,
+                "alternate_metric_declared_critical_fiber_chart_enclosures_available": True,
+                "alternate_metric_complete_global_atlas_coverage_certified": False,
                 "alternate_metric_certified_Qomega_intersection_roots_available": True,
                 "alternate_metric_certified_chart_and_density_enclosures_available": True,
                 "alternate_metric_laurent_coefficient_enclosure_engine_available": True,
@@ -11094,6 +11200,10 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "base-eliminating signed residue and positive-density bounds cover "
+            "all three partner roots of the six actual axis-critical fibers; "
+            "these 18 declared domains do not certify all triangle-node inputs "
+            "or a complete global numerical atlas",
             "the positive ambient FS-cube auxiliary law has mass 72 and exact "
             "projective mixture probabilities 3/4,1/8,1/8; its ideal weights "
             "are bounded on the unchanged compact cover without computing "

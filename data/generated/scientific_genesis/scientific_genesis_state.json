@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "aa985525f859a64b8d55420ea9259e74ad641f554713fb4d9c1995d7de9511fc",
+  "artifact_digest": "155dfe1d4d2304c5abe516e94c4abea6af904c32a25f56c9da6cec85ffc3b111",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -947,6 +947,11 @@
       "sha256": "c2d18e5354a6458590093a30a70ab3a865f97e15eecdb35d1a521d4a1c18dc57"
     },
     {
+      "bytes": 82519,
+      "path": "data/generated/scientific_genesis/alternate_metric_critical_charts.json",
+      "sha256": "8cc81e68ede78d23fa00072df2bbfd6d915af449516d642167d12705698ef769"
+    },
+    {
       "bytes": 32583,
       "path": "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
       "sha256": "2ea43c74be1eb8ef4eda0edd5ae1cd9e093765b4ce3c128ccfe4f355edd42c52"
@@ -1006,8 +1011,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 279,
-    "test_python_files": 263
+    "research_python_files": 280,
+    "test_python_files": 264
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -4007,6 +4012,24 @@
       "missing_prerequisites": [],
       "statement": "The positive ambient FS sum has cube mass 72 on the unchanged actual cover. Its normalized law is the exact 3/4,1/8,1/8 mixture of nine-root and two three-root projective intersection laws. Strict positivity and compactness bound its ideal importance weight globally, so all nonnegative moments are finite. Actual three-root branches and 18 regular-chart density enclosures are verified. No numerical global bound, critical-fiber chart engine, controlled sampler, physical Kahler class, or metric is supplied.",
       "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "same actual pencils",
+        "nonzero declared eliminated-coordinate Jacobians"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_critical_charts.json",
+        "research/experiments/scientific_genesis/alternate_metric_critical_charts.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_CRITICAL_CHARTS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_critical_charts.py"
+      ],
+      "id": "alternate_metric_critical_charts",
+      "label": "certified point-line roots and critical-fiber projection densities",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "Base-eliminating charts enclose signed residues and the unchanged positive FS-cube density on all three partner roots of each of the six actual axis-critical fibers. Complete point-line root certificates preserve exact source membership. Independent full wedge determinants, regular-chart overlap Jacobians, and base pivot transitions verify the coordinate conventions. These 18 declared domains are not all triangle-node input certificates, global atlas coverage, a quantitative global bound, or a sampler.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [
@@ -7327,6 +7350,56 @@
     },
     {
       "assumptions_required": [
+        "certified actual partner roots",
+        "explicit nonzero base-coordinate derivative"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_metric_positive_measure.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "uniform sampling cannot be inferred from exact regression inputs"
+      ],
+      "mathematical_reason": "The positive proposal gives actual point-line component equations and a density that remains positive at critical fibers.",
+      "source": "alternate_metric_positive_measure",
+      "target": "alternate_metric_critical_charts"
+    },
+    {
+      "assumptions_required": [
+        "actual nodal critical loci",
+        "declared compatible projection pivots"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a critical triangle may require algebraic input beyond Q(omega)"
+      ],
+      "mathematical_reason": "The nodal-fiber proof establishes a nonzero base derivative on the critical factor and a regular partner factor for the actual cover.",
+      "source": "alternate_metric_weight_moments",
+      "target": "alternate_metric_critical_charts"
+    },
+    {
+      "assumptions_required": [
+        "global atlas coverage",
+        "controlled proposals and numerical error",
+        "actual complete section evaluation",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_CRITICAL_CHARTS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "axis-node probes do not certify all triangle-node input domains"
+      ],
+      "mathematical_reason": "Certified critical-factor coordinates extend positive-law integration only after global coverage, controlled proposals, quantitative bounds, and Ricci-flat/HYM convergence are also established.",
+      "source": "alternate_metric_critical_charts",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "all 5345 columns must finish",
         "complete independent stream validation"
       ],
@@ -8269,6 +8342,7 @@
     }
   ],
   "established_results": [
+    "base-eliminating signed residue and positive-density bounds cover all three partner roots of the six actual axis-critical fibers; these 18 declared domains do not certify all triangle-node inputs or a complete global numerical atlas",
     "the positive ambient FS-cube auxiliary law has mass 72 and exact projective mixture probabilities 3/4,1/8,1/8; its ideal weights are bounded on the unchanged compact cover without computing a numerical bound or selecting physical Kahler moduli",
     "the actual A/9 importance weight has finite nonnegative moments exactly below order three; its finite variance has no numerical upper bound yet, so quantitative sampling-error control remains open",
     "exact reusable arithmetic, polynomial, homological, Cech, Cox, sheaf, and geometry engines",
@@ -8417,12 +8491,14 @@
       "alternate_metric_certified_Qomega_intersection_roots_available": true,
       "alternate_metric_certified_chart_and_density_enclosures_available": true,
       "alternate_metric_complete_bounded_5345_column_matrix_materialized": false,
+      "alternate_metric_complete_global_atlas_coverage_certified": false,
       "alternate_metric_complete_point_evaluation_matrix_materialized": true,
       "alternate_metric_compressed_complete_section_enclosure_engine_available": true,
       "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
       "alternate_metric_controlled_numerical_sampling_available": false,
       "alternate_metric_critical_fiber_chart_enclosures_available": false,
+      "alternate_metric_declared_critical_fiber_chart_enclosures_available": true,
       "alternate_metric_exact_residue_and_auxiliary_measure_available": true,
       "alternate_metric_explicit_invariant_basis_available": true,
       "alternate_metric_first_constituent_cover_generated": true,

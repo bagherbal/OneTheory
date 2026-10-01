@@ -365,6 +365,60 @@ def intersection_roots(first_line, second_line, p, *, parameter_pivots, policy):
     return IntersectionRoots(first_line, second_line, p, first, second)
 
 
+@dataclass(frozen=True, slots=True)
+class PointLineRoots:
+    """A supplied exact plane point and all three actual partner roots.
+
+    The fixed input is identified by the literal `fixed`, not a fictitious
+    first-plane root or an assertion of uniform sampling. Both original cover
+    equations are certified: one over the exact field, the other by the
+    complete actual-pencil root certificate. Source base points are excluded.
+    """
+
+    source_side: int
+    source_point: tuple[Eisenstein, ...]
+    partner_line: ProjectiveLine
+    p: tuple[Eisenstein, ...]
+    partner: ProjectiveRoots
+
+    def __post_init__(self):
+        if type(self.source_side) is not int or self.source_side not in (1, 2):
+            raise ValueError("choose the first or second source plane explicitly")
+        if not isinstance(self.partner_line, ProjectiveLine):
+            raise TypeError("an immutable explicitly based partner line is required")
+        point = tuple(Eisenstein.coerce(c) for c in self.source_point)
+        p = tuple(Eisenstein.coerce(c) for c in self.p)
+        if len(point) != 3 or all(c.is_zero() for c in point):
+            raise ValueError("a nonzero exact source plane point is required")
+        if len(p) != 2 or all(c.is_zero() for c in p):
+            raise ValueError("an explicit nonzero projective base is required")
+        cox = schoen_geometry().cover.cox
+        f, g = tuple(Eisenstein.coerce(c.substitute(point).coefficient(()))
+                     for c in (cox.cubic_f, cox.cubic_g))
+        if f.is_zero() and g.is_zero():
+            raise ValueError("a source base point does not determine a point-line component")
+        source_equation = (p[0] * f + p[1] * g if self.source_side == 1
+                           else 2 * p[1] * f + p[0] * g)
+        if not source_equation.is_zero():
+            raise ValueError("the exact source point does not satisfy its actual cover equation")
+        if (not isinstance(self.partner, ProjectiveRoots)
+            or self.partner.count != 3
+            or restrict_pencil(self.partner_line, p, 3 - self.source_side)
+            != self.partner.homogeneous):
+            raise ValueError(
+                "the partner roots are not the complete actual other-pencil restriction"
+            )
+        object.__setattr__(self, "source_point", point)
+        object.__setattr__(self, "p", p)
+
+    @property
+    def root_pairs(self):
+        indices = tuple(range(len(self.partner.finite.disks))) + (
+            ("infinity",) if self.partner.infinity_multiplicity else ()
+        )
+        return tuple(("fixed", i) if self.source_side == 1 else (i, "fixed") for i in indices)
+
+
 def _scalar_record(value):
     value = Eisenstein.coerce(value)
     return [str(value.a), str(value.b)]

@@ -248,7 +248,7 @@ class BoundedCoverPoint:
     equation residual. Stored coordinate balls are normalized enclosures.
     """
 
-    intersection: roots.IntersectionRoots
+    intersection: roots.IntersectionRoots | roots.PointLineRoots
     root_pair: tuple
     chart: tuple[int, int, int]
     bits: int
@@ -258,23 +258,30 @@ class BoundedCoverPoint:
 
     def __post_init__(self):
         _bits(self.bits)
-        if not isinstance(self.intersection, roots.IntersectionRoots):
+        if not isinstance(self.intersection, (roots.IntersectionRoots, roots.PointLineRoots)):
             raise TypeError("an actual certified projective intersection is required")
         if (not isinstance(self.root_pair, tuple) or len(self.root_pair) != 2
-            or any(type(i) is not int and i != "infinity" for i in self.root_pair)
+            or any(type(i) is not int and i not in ("infinity", "fixed") for i in self.root_pair)
             or self.root_pair not in self.intersection.root_pairs):
             raise ValueError("the root pair is absent from the complete certified intersection")
         if (not isinstance(self.chart, tuple) or len(self.chart) != 3
             or any(type(i) is not int or not 0 <= i < size
                    for i, size in zip(self.chart, (3, 3, 2), strict=True))):
             raise ValueError("three explicit homogeneous chart pivots are required")
-        groups = (
-            _line_point(self.intersection.first_line, self.intersection.first,
-                        self.root_pair[0], self.bits),
-            _line_point(self.intersection.second_line, self.intersection.second,
-                        self.root_pair[1], self.bits),
-            tuple(Ball(c, Rational(0), self.bits) for c in self.intersection.p),
-        )
+        if isinstance(self.intersection, roots.PointLineRoots):
+            source = tuple(Ball(c, Rational(0), self.bits) for c in self.intersection.source_point)
+            partner = _line_point(self.intersection.partner_line, self.intersection.partner,
+                                  self.root_pair[1 if self.intersection.source_side == 1 else 0],
+                                  self.bits)
+            planes = (source, partner) if self.intersection.source_side == 1 else (partner, source)
+        else:
+            planes = (
+                _line_point(self.intersection.first_line, self.intersection.first,
+                            self.root_pair[0], self.bits),
+                _line_point(self.intersection.second_line, self.intersection.second,
+                            self.root_pair[1], self.bits),
+            )
+        groups = (*planes, tuple(Ball(c, Rational(0), self.bits) for c in self.intersection.p))
         for name, group, pivot in zip(("x", "u", "p"), groups, self.chart, strict=True):
             # The normalized pivot is identically one, not an uncertain q/q.
             inverse = group[pivot].inverse()
@@ -344,8 +351,8 @@ class BoundedMeasure:
     quotient_weight_pi3_removed: Interval
 
 
-def bounded_local_measure(point, chart, *, volume_scale, covering_degree, bits):
-    """Propagate root errors through the SAME actual residue and FS geometry."""
+def _chart_coordinates(point, chart, bits):
+    """Normalize one certified point in its caller-declared projection chart."""
 
     _bits(bits)
     if not isinstance(point, (CoverPoint, BoundedCoverPoint)):
@@ -360,6 +367,13 @@ def bounded_local_measure(point, chart, *, volume_scale, covering_degree, bits):
                        point.u[chart.u_solve], point.p[pf])
     else:
         coordinates = tuple(Ball(c, Rational(0), bits) for c in chart.coordinates(point))
+    return coordinates
+
+
+def bounded_local_measure(point, chart, *, volume_scale, covering_degree, bits):
+    """Propagate root errors through the SAME actual residue and FS geometry."""
+
+    coordinates = _chart_coordinates(point, chart, bits)
     scale = Eisenstein.coerce(volume_scale)
     if scale.is_zero():
         raise ValueError("an explicit nonzero volume-form scale is required")

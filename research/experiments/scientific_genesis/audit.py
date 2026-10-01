@@ -3930,6 +3930,43 @@ def _nodes() -> list[dict[str, object]]:
             ("same frozen two-parameter carrier", "original matter bases"),
         ),
         _node(
+            "alternate_down_lepton_mixed_pairing",
+            "actual down and charged-lepton constant mixed scalar blocks",
+            "Flavor",
+            "COMPUTED",
+            "All eight actual Q/d and L/e constant mixed scalars are archived "
+            "with literal matter, Hom, quotient, scalar, and exchange witnesses. "
+            "Each entire scalar equals the separate full Hom-composition "
+            "and E-contraction result; strict original atlas characters, "
+            "direct/transferred traces, quotient normalization, and byte-for-byte "
+            "reproduction pass nineteen regressions. No F-F block is inferred.",
+            ("research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py",
+             "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_MIXED_PAIRING_NOTE.md",
+             "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.json",
+             "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.cochains.json.gz",
+             "tests/integration/test_scientific_genesis_alternate_down_lepton_mixed_pairing.py",
+             "research/experiments/scientific_genesis/alternate_up_mixed_quotient_pairing.py"),
+            ("same frozen carrier", "unchanged original quotient volume frame"),
+        ),
+        _node(
+            "alternate_down_lepton_matrices",
+            "complete actual down and charged-lepton holomorphic matrices",
+            "Flavor",
+            "BLOCKED",
+            "All scalar entries must come from actual Q/d and L/e matter "
+            "states paired with the actual down-Higgs cocycle. Existing up "
+            "and neutrino values cannot fill these two missing matrices.",
+            ("research/experiments/scientific_genesis/alternate_up_ff_entries.py",
+             "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py",
+             "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FF_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_down_lepton_ff_entries.py",
+             "research/experiments/scientific_genesis/alternate_remaining_flavor_matter_lifts.py",
+             "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py"),
+            ("conditional heterotic realization", "original formal outer basis"),
+            missing=("sixteen actual F-F coefficient scalars",
+                     "independent all-entry replay and exact matrix rank loci"),
+        ),
+        _node(
             "physical_pfaffians",
             "physical worldsheet Pfaffians",
             "Vacuum",
@@ -6782,6 +6819,41 @@ def _edges() -> list[dict[str, object]]:
              "canonical metrics", "common stabilized vacuum"), True,
             ("corrected matter alone does not supply a scalar or a physical Yukawa",),
         ),
+        *tuple(_edge(
+            source, "alternate_down_lepton_mixed_pairing",
+            reason,
+            ("research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py",),
+            ("actual original E/F witnesses", "fixed quotient and Higgs-first order"), True,
+            ("character routing or a shared Higgs object does not supply a scalar value",),
+        ) for source, reason in (
+            ("alternate_down_lepton_matter", "Actual d/e classes pair with distinct archived Q/L "
+             "classes; their B-F quotient products are computed, not relabelled."),
+            ("alternate_down_higgs_quotient_cone", "The actual down covector evaluates the "
+             "constant mixed products in both sectors with the fixed volume frame."),
+        )),
+        *tuple(_edge(
+            source, "alternate_down_lepton_matrices",
+            reason,
+            ("research/experiments/scientific_genesis/alternate_up_ff_entries.py",
+             "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py"),
+            ("actual full matter/Higgs inputs", "all entries and independent full scalar replay"),
+            True, ("partial blocks cannot be presented as a complete matrix",),
+        ) for source, reason in (
+            ("alternate_down_lepton_mixed_pairing", "Eight verified constant mixed entries "
+             "supply the non-F-F parts of the two actual matrices."),
+            ("alternate_remaining_flavor_matter_lifts", "Eight actual d/e corrections combine "
+             "with existing Q/L lifts for sixteen formal F-F scalar coefficients."),
+            ("alternate_down_higgs_quotient_cone", "The actual down-Higgs constant and linear "
+             "coefficients evaluate complete coupled products, without up primitives."),
+        )),
+        _edge(
+            "alternate_down_lepton_matrices", "physical_yukawas",
+            "Complete holomorphic down and charged-lepton matrices supply two "
+            "missing sectors, but do not replace their metrics or stabilized parameters.",
+            ("src/onetheory/physics/observables.py",),
+            ("controlled matter/Higgs metrics", "one stabilized common vacuum"), True,
+            ("holomorphic scalar ranks alone do not predict physical masses or mixing",),
+        ),
         _edge(
             "computable_carrier_state",
             "common_dga_package",
@@ -7959,8 +8031,9 @@ def _scheduler() -> list[dict[str, object]]:
             3,
             2,
             "Complete up and neutrino matrices and the actual down-Higgs cone "
-            "are independently checked, as are all eight actual d/e corrections. "
-            "Compute canonical mixed/F-F scalar products in the same carrier. "
+            "are independently checked, as are all eight actual d/e corrections "
+            "and all eight actual down/lepton mixed scalars. Compute the "
+            "sixteen remaining F-F coefficients with full replay in the same carrier. "
             "The existing exact engines provide this remaining vertical slice; "
             "physical normalization still needs controlled metrics and a common vacuum.",
         ),
@@ -11022,6 +11095,19 @@ def build_state() -> dict[str, object]:
         ) for parameter in (0, 1)]
         != [88650, 76014]):
         raise ValueError("the independently replayed actual down-Higgs quotient cone changed")
+    from . import alternate_down_lepton_mixed_pairing as down_lepton_mixed
+
+    actual_mixed, _ = down_lepton_mixed.load_mixed_pairing(
+        expected_digest="ae7f62edaf3621af9b8dc8142f597218cd5426b8b922fd9b6b1e8ae2cb1ed1b1",
+    )
+    if (actual_mixed["full_cochain_archive_sha256"]
+        != "473ba7c6b1d4a04f9b61f4d459232dfd688178d9f4cb8ae411bf5073d45517a6"
+        or [[entry["cover_residue"] for entry in sector["evaluated_entries"]]
+            for sector in actual_mixed["sectors"]] != [
+                ["5/14+1/14*omega", "-1/2+2*omega", "-1/2-omega", "-1/14+2/7*omega"],
+                ["1+1/2*omega", "5/14+1/14*omega", "-2/7-5/14*omega", "-2-5/2*omega"],
+            ]):
+        raise ValueError("the independently checked actual down/lepton mixed scalars changed")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -11095,6 +11181,8 @@ def build_state() -> dict[str, object]:
         raise ValueError("the same-constituent Wilson obstruction is not certified")
 
     artifact_paths = (
+        "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.cochains.json.gz",
         *(str(remaining_lifts.lift_path(parameter, sector, family).relative_to(ROOT))
           for parameter in (0, 1) for sector in (0, 1) for family in (1, 2)),
         *(str(remaining_lifts.lift_path(parameter, sector, family).with_suffix(
@@ -11395,7 +11483,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2698,
+            "collected_tests_at_audit": 2746,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -11606,6 +11694,12 @@ def build_state() -> dict[str, object]:
                 "alternate_neutrino_holomorphic_rank_three_locus": "a0 != 0",
                 "alternate_up_neutrino_common_rank_three_locus": "a0*a1 != 0",
                 "alternate_neutrino_physical_yukawa_matrix_available": False,
+                "alternate_down_lepton_constant_mixed_entry_count": sum(
+                    len(sector["evaluated_entries"]) for sector in actual_mixed["sectors"]
+                ),
+                "alternate_down_lepton_mixed_blocks_available": True,
+                "alternate_down_lepton_complete_holomorphic_matrices_available": False,
+                "alternate_down_lepton_physical_yukawa_matrices_available": False,
                 "alternate_neutrino_majorana_mechanism_derived": False,
                 "alternate_metric_trial_twist": metric["twist_cover_degree"],
                 "alternate_metric_subbundle_h1_vanishing": True,
@@ -11901,9 +11995,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "use the verified actual d^c/e^c corrections, down-Higgs cone, "
-                "and archived Q/L inputs "
-                "for complete down and charged-lepton scalar matrices; metric sampling, "
+                "compute and independently replay all sixteen actual down/lepton F-F "
+                "coefficients using verified mixed blocks, down-Higgs primitives, and "
+                "archived Q/L/d/e lifts, then assemble both complete holomorphic matrices; "
+                "metric sampling, "
                 "Ricci-flat/HYM convergence, other sectors, and the common vacuum "
                 "remain required before physical normalization"
             ),
@@ -11912,6 +12007,9 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "all eight actual down/lepton mixed scalars equal independent full "
+            "Hom composition in the original bases and Higgs-first quotient "
+            "volume frame; no Q/L correction solve or F-F scalar is substituted",
             "all eight actual d^c/e^c parameter corrections pass independent "
             "original full differential, atlas, literal quotient-pushout, and "
             "coupled-identity replay; Q/L inputs and original bases are unchanged, "

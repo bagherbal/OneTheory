@@ -53,7 +53,7 @@ from .alternate_up_quotient_trace import OUTPUT as TRACE
 from .mixed_constituent_schoen_arrows import MixedConstituentObject
 from .mixed_schoen_common_dga import mixed_outer_cup, perturbed_homotopy
 from .mixed_schoen_matter_representatives import _cochain_digest
-from .mixed_schoen_outer_actions import _MixedContraction
+from .mixed_schoen_outer_actions import _MixedContraction, _perturbed_projection
 from .mixed_schoen_outer_transfer import MixedSchoenUnit, mixed_schoen_unit
 from .mixed_schoen_outer_universal_cone import _verified_payload
 
@@ -171,25 +171,40 @@ def mixed_quotient_entries() -> tuple[MixedQuotientEntry, ...]:
         if [item.seed_index for item in selected] != [0, 5]:
             raise ValueError("the frozen mixed family seed order changed")
         for family_index, item in enumerate(selected, start=1):
-            scalar = mixed_outer_cup(h, quotient_mixed_product(
-                line, item.full_cochain, line_first=line_first,
-            ))
-            reverse = mixed_outer_cup(h, quotient_mixed_product(
-                line, item.full_cochain, line_first=not line_first,
-            ))
-            direct = direct_ordered_scalar_residue(scalar)
-            if direct_ordered_scalar_residue(reverse) != direct:
-                raise ValueError("the actual mixed exterior exchange changed its scalar trace")
-            difference = reverse + scalar.scale(-1)
-            primitive, _ = perturbed_homotopy(difference, _scalar_context())
-            if _scalar_context().differential(primitive) != difference:
-                raise ValueError("the actual mixed exchange lacks its full boundary identity")
-            entries.append(MixedQuotientEntry(
-                0 if line_first else family_index, family_index if line_first else 0,
-                first_character, second_character, item.seed_index,
-                scalar, reverse, primitive, direct,
+            entries.append(evaluate_mixed_entry(
+                h, line, item.full_cochain, line_first=line_first, family=family_index,
+                first_character=first_character, second_character=second_character,
+                second_seed_index=item.seed_index,
             ))
     return tuple(entries)
+
+
+def evaluate_mixed_entry(
+    h: SparseOuterCechCochain, line: SparseOuterCechCochain, vector: SparseOuterCechCochain,
+    *, line_first: bool, family: int, first_character: tuple[int, int],
+    second_character: tuple[int, int], second_seed_index: int,
+) -> MixedQuotientEntry:
+    """Evaluate explicitly supplied actual inputs with the existing signed engine."""
+
+    if type(line_first) is not bool or type(family) is not int or family not in (1, 2):
+        raise ValueError("an actual mixed entry requires its declared order and family")
+    scalar = mixed_outer_cup(h, quotient_mixed_product(line, vector, line_first=line_first))
+    reverse = mixed_outer_cup(h, quotient_mixed_product(line, vector, line_first=not line_first))
+    if not _scalar_context().differential(scalar).is_zero():
+        raise ValueError("the actual mixed scalar is not fully closed")
+    direct = direct_ordered_scalar_residue(scalar)
+    reduced, _ = _perturbed_projection(scalar, _scalar_context(), 3)
+    if (set(reduced) - {0} or reduced.get(0, 0) != direct
+        or direct_ordered_scalar_residue(reverse) != direct):
+        raise ValueError("the independent actual mixed traces disagree")
+    difference = reverse + scalar.scale(-1)
+    primitive, _ = perturbed_homotopy(difference, _scalar_context())
+    if _scalar_context().differential(primitive) != difference:
+        raise ValueError("the actual mixed exchange lacks its full boundary identity")
+    return MixedQuotientEntry(
+        0 if line_first else family, family if line_first else 0,
+        first_character, second_character, second_seed_index, scalar, reverse, primitive, direct,
+    )
 
 
 def write_mixed_quotient_pairing(path: Path = OUTPUT) -> dict[str, object]:

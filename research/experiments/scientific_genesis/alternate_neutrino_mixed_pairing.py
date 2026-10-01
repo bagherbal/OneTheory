@@ -37,13 +37,9 @@ from .alternate_constituent_up_matter_representatives import (
     _strict_i6_representatives,
 )
 from .alternate_up_ff_entries import _read_witnesses, _write_witnesses
-from .alternate_up_mixed_quotient_pairing import (
-    MixedQuotientEntry,
-    quotient_mixed_product,
-)
 from .mixed_constituent_schoen_arrows import MixedConstituentObject
 from .mixed_schoen_matter_representatives import _cochain_digest
-from .mixed_schoen_outer_actions import _MixedContraction, _perturbed_projection
+from .mixed_schoen_outer_actions import _MixedContraction
 from .mixed_schoen_outer_transfer import MixedSchoenUnit, mixed_schoen_unit
 from .mixed_schoen_outer_universal_cone import _verified_payload
 
@@ -130,27 +126,10 @@ def mixed_entries():
         if len(selected) != 2:
             raise ValueError("each actual neutrino F character needs two independent classes")
         for family, matter in enumerate(selected, start=1):
-            scalar = pairing.mixed_outer_cup(h, quotient_mixed_product(
-                quotient, matter.full_cochain, line_first=line_first,
-            ))
-            reverse = pairing.mixed_outer_cup(h, quotient_mixed_product(
-                quotient, matter.full_cochain, line_first=not line_first,
-            ))
-            if not pairing._scalar_context().differential(scalar).is_zero():
-                raise ValueError("a canonical neutrino scalar is not fully closed")
-            direct = pairing.direct_ordered_scalar_residue(scalar)
-            reduced, _depth = _perturbed_projection(scalar, pairing._scalar_context(), 3)
-            if (set(reduced) - {0} or reduced.get(0, 0) != direct
-                or pairing.direct_ordered_scalar_residue(reverse) != direct):
-                raise ValueError("the independent canonical neutrino traces disagree")
-            difference = reverse + scalar.scale(-1)
-            primitive, _ = pairing.perturbed_homotopy(difference, pairing._scalar_context())
-            if pairing._scalar_context().differential(primitive) != difference:
-                raise ValueError("the neutrino exchange lacks its full exact boundary identity")
-            results.append(MixedQuotientEntry(
-                0 if line_first else family, family if line_first else 0,
-                left.character, matter.character, matter.seed_index,
-                scalar, reverse, primitive, direct,
+            results.append(pairing.evaluate_mixed_entry(
+                h, quotient, matter.full_cochain, line_first=line_first, family=family,
+                first_character=left.character, second_character=matter.character,
+                second_seed_index=matter.seed_index,
             ))
     return tuple(results)
 

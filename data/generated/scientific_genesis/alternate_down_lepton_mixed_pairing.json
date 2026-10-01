@@ -1,0 +1,438 @@
+{
+  "Q_and_L_matter_corrections_recomputed": false,
+  "Q_first_class_reproduced_from_existing_generator": true,
+  "artifact_digest": "ae7f62edaf3621af9b8dc8142f597218cd5426b8b922fd9b6b1e8ae2cb1ed1b1",
+  "basis_convention": "unchanged original E/F reduced seed order and atlas frames",
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "coefficient_field": "Q(omega)",
+  "complete_charged_lepton_matrix_available": false,
+  "complete_down_matrix_available": false,
+  "constant_mixed_entries_evaluated": true,
+  "cover_to_quotient_trace_factor": "1/9",
+  "extension_point_selected": false,
+  "exterior_filtration_parameter_degree": 0,
+  "first_first_entry_zero_by_B_wedge_B": true,
+  "full_cochain_archive_name": "alternate_down_lepton_mixed_pairing.cochains.json.gz",
+  "full_cochain_archive_sha256": "473ba7c6b1d4a04f9b61f4d459232dfd688178d9f4cb8ae411bf5073d45517a6",
+  "full_cochain_payload_digest": "e3c66ccfd87a25953603fe3e2aafbbf0132d95cdb0fa877f5742aadce7400b46",
+  "native_down_higgs_hom_character": [
+    2,
+    2
+  ],
+  "observational_inputs_used": false,
+  "outer_parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "physical_yukawas_available": false,
+  "prerequisite_artifact_digests": {
+    "actual_L_matter": "1bc8020db27e9f7a3c7ee7a7abf4ab0c456903c993eab27b0038cad5e12e6049",
+    "actual_Q_constant_family1": "b2fd30e6b26c8140ff52c41604e161d7fe39e83fd5edbafd63a224e0489094ea",
+    "actual_Q_constant_family2": "d76441a381f99bee8419ce380a06e1786c7d8eb4347543b2535b96f35df7673d",
+    "actual_down_higgs_cone": "50d0a3f0f2547f5c1eb05444765b2322075dc03fd56b2b65cf7874534044274f",
+    "actual_remaining_matter": "363c8bc51e58fd6177943b89fdac08b760c5059bf09b1ba7e64b84414a53a8dc",
+    "fixed_quotient_trace": "5d51f9fcb7d877ba5d66f4ae38bf231d6f777e3ed1dcdc28776a20a64c38a67c",
+    "original_Q_first_metadata": "b821725103b3d341032e15d2335b2916fd82bcd211ec2611b9c0d41d2700d677",
+    "original_Q_quotient_metadata": "6f475e7551bf00b13cfea5207293ffb517fdbd09d94e8b97264cd2edae941591",
+    "original_Q_second_metadata": "f90026450eb9c2d4a0b84085bb64518ec3e9def5ebc5af65aa2aae30a7d94976"
+  },
+  "proof_sha256": "558eda46d7e4216275eab28fa8ee5adc452b631c2d1b9a7763d31e71643d1f10",
+  "scalar_order": "Higgs first in the fixed quotient volume frame",
+  "schema": "alternate-down-lepton-mixed-pairing-v1",
+  "second_second_entries_assigned": false,
+  "sectors": [
+    {
+      "coupling": [
+        "Q",
+        "d^c",
+        "H_d"
+      ],
+      "evaluated_entries": [
+        {
+          "column": 1,
+          "cover_residue": "5/14+1/14*omega",
+          "exchange_difference_boundary_exact": true,
+          "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+          "exchange_primitive_term_count": 0,
+          "exchanged_scalar_closed_exact": true,
+          "first_constituent_character": [
+            0,
+            0
+          ],
+          "full_scalar_closed_exact": true,
+          "quotient_residue": "5/126+1/126*omega",
+          "reverse_scalar_digest": "bedc754e0e98ef3cbb112778e9cb863dfc050c7c586727b051543e23798f707c",
+          "reverse_scalar_term_count": 2413,
+          "row": 0,
+          "scalar_digest": "bedc754e0e98ef3cbb112778e9cb863dfc050c7c586727b051543e23798f707c",
+          "scalar_term_count": 2413,
+          "second_constituent_character": [
+            1,
+            1
+          ],
+          "second_constituent_seed_index": 2
+        },
+        {
+          "column": 2,
+          "cover_residue": "-1/2+2*omega",
+          "exchange_difference_boundary_exact": true,
+          "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+          "exchange_primitive_term_count": 0,
+          "exchanged_scalar_closed_exact": true,
+          "first_constituent_character": [
+            0,
+            0
+          ],
+          "full_scalar_closed_exact": true,
+          "quotient_residue": "-1/18+2/9*omega",
+          "reverse_scalar_digest": "5fa0e7ae98508ffb08511e4c46e1dbd313438008dc7e97cfdb6b8d089e4cb010",
+          "reverse_scalar_term_count": 2413,
+          "row": 0,
+          "scalar_digest": "5fa0e7ae98508ffb08511e4c46e1dbd313438008dc7e97cfdb6b8d089e4cb010",
+          "scalar_term_count": 2413,
+          "second_constituent_character": [
+            1,
+            1
+          ],
+          "second_constituent_seed_index": 4
+        },
+        {
+          "column": 0,
+          "cover_residue": "-1/2-omega",
+          "exchange_difference_boundary_exact": true,
+          "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+          "exchange_primitive_term_count": 0,
+          "exchanged_scalar_closed_exact": true,
+          "first_constituent_character": [
+            1,
+            1
+          ],
+          "full_scalar_closed_exact": true,
+          "quotient_residue": "-1/18-1/9*omega",
+          "reverse_scalar_digest": "458df3d6b95eb6fdc97bce879a487d8202a73ec0e21dd3442fb4fbd609c04084",
+          "reverse_scalar_term_count": 2413,
+          "row": 1,
+          "scalar_digest": "458df3d6b95eb6fdc97bce879a487d8202a73ec0e21dd3442fb4fbd609c04084",
+          "scalar_term_count": 2413,
+          "second_constituent_character": [
+            0,
+            0
+          ],
+          "second_constituent_seed_index": 0
+        },
+        {
+          "column": 0,
+          "cover_residue": "-1/14+2/7*omega",
+          "exchange_difference_boundary_exact": true,
+          "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+          "exchange_primitive_term_count": 0,
+          "exchanged_scalar_closed_exact": true,
+          "first_constituent_character": [
+            1,
+            1
+          ],
+          "full_scalar_closed_exact": true,
+          "quotient_residue": "-1/126+2/63*omega",
+          "reverse_scalar_digest": "dd405f4e434288680e47b647e89f8ef6131cfab2e16fec76a0cd266cc07cbeef",
+          "reverse_scalar_term_count": 2413,
+          "row": 2,
+          "scalar_digest": "dd405f4e434288680e47b647e89f8ef6131cfab2e16fec76a0cd266cc07cbeef",
+          "scalar_term_count": 2413,
+          "second_constituent_character": [
+            0,
+            0
+          ],
+          "second_constituent_seed_index": 5
+        }
+      ],
+      "native_matter_characters": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "sector": 0
+    },
+    {
+      "coupling": [
+        "L",
+        "e^c",
+        "H_d"
+      ],
+      "evaluated_entries": [
+        {
+          "column": 1,
+          "cover_residue": "1+1/2*omega",
+          "exchange_difference_boundary_exact": true,
+          "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+          "exchange_primitive_term_count": 0,
+          "exchanged_scalar_closed_exact": true,
+          "first_constituent_character": [
+            2,
+            1
+          ],
+          "full_scalar_closed_exact": true,
+          "quotient_residue": "1/9+1/18*omega",
+          "reverse_scalar_digest": "6badd9ab8fdd3e24cab9182f469d2ede49006f4e6615cfb3147ec46b7d9ab7d4",
+          "reverse_scalar_term_count": 2413,
+          "row": 0,
+          "scalar_digest": "6badd9ab8fdd3e24cab9182f469d2ede49006f4e6615cfb3147ec46b7d9ab7d4",
+          "scalar_term_count": 2413,
+          "second_constituent_character": [
+            2,
+            0
+          ],
+          "second_constituent_seed_index": 0
+        },
+        {
+          "column": 2,
+          "cover_residue": "5/14+1/14*omega",
+          "exchange_difference_boundary_exact": true,
+          "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+          "exchange_primitive_term_count": 0,
+          "exchanged_scalar_closed_exact": true,
+          "first_constituent_character": [
+            2,
+            1
+          ],
+          "full_scalar_closed_exact": true,
+          "quotient_residue": "5/126+1/126*omega",
+          "reverse_scalar_digest": "1834b2a9ec8972d3429a34ec308418e5a2b62439f0cb5b57ba4bbf7650073dcd",
+          "reverse_scalar_term_count": 2413,
+          "row": 0,
+          "scalar_digest": "1834b2a9ec8972d3429a34ec308418e5a2b62439f0cb5b57ba4bbf7650073dcd",
+          "scalar_term_count": 2413,
+          "second_constituent_character": [
+            2,
+            0
+          ],
+          "second_constituent_seed_index": 5
+        },
+        {
+          "column": 0,
+          "cover_residue": "-2/7-5/14*omega",
+          "exchange_difference_boundary_exact": true,
+          "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+          "exchange_primitive_term_count": 0,
+          "exchanged_scalar_closed_exact": true,
+          "first_constituent_character": [
+            2,
+            0
+          ],
+          "full_scalar_closed_exact": true,
+          "quotient_residue": "-2/63-5/126*omega",
+          "reverse_scalar_digest": "8fdd55fef25aff0100d0e4cc6ad6fac0bfa8058b4670bec0430c26b017a9e122",
+          "reverse_scalar_term_count": 2413,
+          "row": 1,
+          "scalar_digest": "8fdd55fef25aff0100d0e4cc6ad6fac0bfa8058b4670bec0430c26b017a9e122",
+          "scalar_term_count": 2413,
+          "second_constituent_character": [
+            2,
+            1
+          ],
+          "second_constituent_seed_index": 2
+        },
+        {
+          "column": 0,
+          "cover_residue": "-2-5/2*omega",
+          "exchange_difference_boundary_exact": true,
+          "exchange_primitive_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+          "exchange_primitive_term_count": 0,
+          "exchanged_scalar_closed_exact": true,
+          "first_constituent_character": [
+            2,
+            0
+          ],
+          "full_scalar_closed_exact": true,
+          "quotient_residue": "-2/9-5/18*omega",
+          "reverse_scalar_digest": "c6c943fb5c1b4e5080709c97816d611e0900c42155a6bd38955daab0124e0d8d",
+          "reverse_scalar_term_count": 2413,
+          "row": 2,
+          "scalar_digest": "c6c943fb5c1b4e5080709c97816d611e0900c42155a6bd38955daab0124e0d8d",
+          "scalar_term_count": 2413,
+          "second_constituent_character": [
+            2,
+            1
+          ],
+          "second_constituent_seed_index": 4
+        }
+      ],
+      "native_matter_characters": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "sector": 1
+    }
+  ],
+  "source": {
+    "arxiv_id": "hep-th/0512177",
+    "higgs_locator": "equation (28)",
+    "matter_locator": "equation (24)",
+    "url": "https://arxiv.org/html/hep-th/0512177v3",
+    "version": "v3"
+  },
+  "witnesses": {
+    "actual_down_higgs_hom": {
+      "cochain_digest": "881fb40321958b330c9b0458efc8e9db8959499a46241deba17cf6b3dfbad60e",
+      "term_count": 351
+    },
+    "actual_down_higgs_quotient": {
+      "cochain_digest": "de4c727b702e935c6b224855a37285d56967fab1a1b860de9d5e52890537f7dc",
+      "term_count": 351
+    },
+    "first_s0_column": {
+      "cochain_digest": "c0178cec92238ec0be180e2e5a212666444d7e1e598cc9d91654ba4ef355fd03",
+      "term_count": 360
+    },
+    "first_s0_row": {
+      "cochain_digest": "b6bb7e0fc2820fceeb3fcd31dde61c59bdadaa49e6b01ff94ebeeb11681aedd1",
+      "term_count": 360
+    },
+    "first_s1_column": {
+      "cochain_digest": "a2a1b67a4854a95832cf3543bfa1e742e60bc32d9e94af1b01ffd0ab149c65a7",
+      "term_count": 360
+    },
+    "first_s1_row": {
+      "cochain_digest": "09480a96ac796af21b58a6a7372bac69196a1d0c0e5dff89c796b826f1630cc2",
+      "term_count": 360
+    },
+    "s0_r0_c1_exchange_primitive": {
+      "cochain_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "term_count": 0
+    },
+    "s0_r0_c1_reverse": {
+      "cochain_digest": "bedc754e0e98ef3cbb112778e9cb863dfc050c7c586727b051543e23798f707c",
+      "term_count": 2413
+    },
+    "s0_r0_c1_scalar": {
+      "cochain_digest": "bedc754e0e98ef3cbb112778e9cb863dfc050c7c586727b051543e23798f707c",
+      "term_count": 2413
+    },
+    "s0_r0_c2_exchange_primitive": {
+      "cochain_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "term_count": 0
+    },
+    "s0_r0_c2_reverse": {
+      "cochain_digest": "5fa0e7ae98508ffb08511e4c46e1dbd313438008dc7e97cfdb6b8d089e4cb010",
+      "term_count": 2413
+    },
+    "s0_r0_c2_scalar": {
+      "cochain_digest": "5fa0e7ae98508ffb08511e4c46e1dbd313438008dc7e97cfdb6b8d089e4cb010",
+      "term_count": 2413
+    },
+    "s0_r1_c0_exchange_primitive": {
+      "cochain_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "term_count": 0
+    },
+    "s0_r1_c0_reverse": {
+      "cochain_digest": "458df3d6b95eb6fdc97bce879a487d8202a73ec0e21dd3442fb4fbd609c04084",
+      "term_count": 2413
+    },
+    "s0_r1_c0_scalar": {
+      "cochain_digest": "458df3d6b95eb6fdc97bce879a487d8202a73ec0e21dd3442fb4fbd609c04084",
+      "term_count": 2413
+    },
+    "s0_r2_c0_exchange_primitive": {
+      "cochain_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "term_count": 0
+    },
+    "s0_r2_c0_reverse": {
+      "cochain_digest": "dd405f4e434288680e47b647e89f8ef6131cfab2e16fec76a0cd266cc07cbeef",
+      "term_count": 2413
+    },
+    "s0_r2_c0_scalar": {
+      "cochain_digest": "dd405f4e434288680e47b647e89f8ef6131cfab2e16fec76a0cd266cc07cbeef",
+      "term_count": 2413
+    },
+    "s1_r0_c1_exchange_primitive": {
+      "cochain_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "term_count": 0
+    },
+    "s1_r0_c1_reverse": {
+      "cochain_digest": "6badd9ab8fdd3e24cab9182f469d2ede49006f4e6615cfb3147ec46b7d9ab7d4",
+      "term_count": 2413
+    },
+    "s1_r0_c1_scalar": {
+      "cochain_digest": "6badd9ab8fdd3e24cab9182f469d2ede49006f4e6615cfb3147ec46b7d9ab7d4",
+      "term_count": 2413
+    },
+    "s1_r0_c2_exchange_primitive": {
+      "cochain_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "term_count": 0
+    },
+    "s1_r0_c2_reverse": {
+      "cochain_digest": "1834b2a9ec8972d3429a34ec308418e5a2b62439f0cb5b57ba4bbf7650073dcd",
+      "term_count": 2413
+    },
+    "s1_r0_c2_scalar": {
+      "cochain_digest": "1834b2a9ec8972d3429a34ec308418e5a2b62439f0cb5b57ba4bbf7650073dcd",
+      "term_count": 2413
+    },
+    "s1_r1_c0_exchange_primitive": {
+      "cochain_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "term_count": 0
+    },
+    "s1_r1_c0_reverse": {
+      "cochain_digest": "8fdd55fef25aff0100d0e4cc6ad6fac0bfa8058b4670bec0430c26b017a9e122",
+      "term_count": 2413
+    },
+    "s1_r1_c0_scalar": {
+      "cochain_digest": "8fdd55fef25aff0100d0e4cc6ad6fac0bfa8058b4670bec0430c26b017a9e122",
+      "term_count": 2413
+    },
+    "s1_r2_c0_exchange_primitive": {
+      "cochain_digest": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "term_count": 0
+    },
+    "s1_r2_c0_reverse": {
+      "cochain_digest": "c6c943fb5c1b4e5080709c97816d611e0900c42155a6bd38955daab0124e0d8d",
+      "term_count": 2413
+    },
+    "s1_r2_c0_scalar": {
+      "cochain_digest": "c6c943fb5c1b4e5080709c97816d611e0900c42155a6bd38955daab0124e0d8d",
+      "term_count": 2413
+    },
+    "second_s0_column_f1": {
+      "cochain_digest": "d5d2a4bab0db8d9555fc431c0f99642d22644feeeae6dff07b6f06eece945f14",
+      "term_count": 378
+    },
+    "second_s0_column_f2": {
+      "cochain_digest": "c6ed06e1e0fe67fa576dd0c2ef0989fe7262c7e8ad10f76d7089f6d15da01eee",
+      "term_count": 378
+    },
+    "second_s0_row_f1": {
+      "cochain_digest": "ccf4019dee9e17cb439891bce51630d0e1170b33e5a60c7b0493a48ce95ec243",
+      "term_count": 378
+    },
+    "second_s0_row_f2": {
+      "cochain_digest": "562d76a6bdfdb5526cbd2482ba99245d39b32e52d5991bd9df1b40b9ecc833fa",
+      "term_count": 378
+    },
+    "second_s1_column_f1": {
+      "cochain_digest": "cf24420badb1311c1ba247187cff65ad113f92abe54fafb7947767823dc276a8",
+      "term_count": 378
+    },
+    "second_s1_column_f2": {
+      "cochain_digest": "2e0809c85feb6abd9e6f336fb8d0dd3382523facf7d0669ebba442cd3d75305b",
+      "term_count": 378
+    },
+    "second_s1_row_f1": {
+      "cochain_digest": "b5e1bb9fbb1b2eec5303e20c3dfed69b1f4407d7d5644ae8fce955195bdd3d3f",
+      "term_count": 378
+    },
+    "second_s1_row_f2": {
+      "cochain_digest": "a28eb6eecd7b535326c807d6fb6f55b575e00c9f934a1517b70c5c288eeb98ae",
+      "term_count": 378
+    }
+  }
+}

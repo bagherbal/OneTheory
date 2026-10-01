@@ -729,3 +729,26 @@ checkpoints, and rehashed scope/routing attacks. The node is COMPUTED; complete
 down and charged-lepton scalar matrices remain missing. No missing checkpoint
 triggers a solver. Q/L corrections are not recomputed. The artifact-bound
 derivation is `ALTERNATE_REMAINING_FLAVOR_MATTER_LIFTS_NOTE.md`.
+
+## Actual remaining mixed blocks
+
+`alternate_down_lepton_mixed_pairing.py` now supplies all eight constant
+E-F/F-E scalars in the original Q/d and L/e bases. Every entire scalar
+equals a separate full Hom-composition/E-contraction result. Nineteen tests
+verify literal cycles and both atlas characters, exact traces, reproduction,
+missing-input behavior, and scope/basis attacks. The original Q E class was
+reproduced because its old packet had metadata only; its whole certificate
+matches before use. Q F classes come from the literal original up-lift
+constant blocks; L and d/e come from their existing archives. Neither Q nor L
+correction is solved again. The down-Higgs covector is supplied explicitly,
+not replaced by up values. See `ALTERNATE_DOWN_LEPTON_MIXED_PAIRING_NOTE.md`.
+
+The mixed node is COMPUTED, not a complete matrix. The declared matrix edge
+still needs sixteen actual F-F scalar coefficients. The thin
+`alternate_down_lepton_ff_entries.py` schedules the existing original lift,
+coupled-input, wedge, and scalar engines with pinned inputs and actual
+down-Higgs primitives. It saves each successful full scalar immediately and
+permits only one or two workers. Twenty-four execution guards verify source
+routing, indices, missing checkpoints, and bounded scheduling. These guards
+do not certify any absent coefficient or complete matrix. Independent full
+replay remains required; metrics and the common vacuum remain missing.

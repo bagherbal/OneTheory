@@ -62,6 +62,13 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "the completed neutrino matrix changed its trusted output digest",
         ),
         *tuple(
+            ("alternate-down-lepton-mixed-pairing-v1", field,
+             "the actual down/lepton mixed packet changed its trusted digest")
+            for field in ("complete_down_matrix_available",
+                          "complete_charged_lepton_matrix_available", "physical_yukawas_available",
+                          "second_second_entries_assigned", "extension_point_selected")
+        ),
+        *tuple(
             ("alternate-remaining-flavor-matter-v1", field,
              "the remaining flavor input changed its expected content digest")
             for field in ("physical_yukawas_available", "full_cone_matter_corrections_computed")
@@ -979,9 +986,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "use the verified actual d^c/e^c corrections, down-Higgs cone, "
-        "and archived Q/L inputs "
-        "for complete down and charged-lepton scalar matrices; metric sampling, "
+        "compute and independently replay all sixteen actual down/lepton F-F "
+        "coefficients using verified mixed blocks, down-Higgs primitives, and "
+        "archived Q/L/d/e lifts, then assemble both complete holomorphic matrices; "
+        "metric sampling, "
         "Ricci-flat/HYM convergence, other sectors, and the common vacuum "
         "remain required before physical normalization"
     )
@@ -1219,11 +1227,19 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_neutrino_matrix"]["status"] == "COMPUTED"
     assert claims["alternate_down_lepton_matter"]["status"] == "COMPUTED"
     assert claims["alternate_down_higgs_quotient_cone"]["status"] == "COMPUTED"
+    assert claims["alternate_down_lepton_mixed_pairing"]["status"] == "COMPUTED"
+    assert claims["alternate_down_lepton_matrices"]["status"] == "BLOCKED"
     assert claims["alternate_remaining_flavor_matter_lifts"]["status"] == "COMPUTED"
     assert claims["alternate_remaining_flavor_matter_lifts"]["missing_prerequisites"] == []
     assert len([path for path in claims["alternate_remaining_flavor_matter_lifts"]["evidence"]
                 if path.startswith("data/generated/")]) == 16
     assert path["criteria"]["alternate_neutrino_constant_mixed_entry_count"] == 4
+    assert path["criteria"]["alternate_down_lepton_constant_mixed_entry_count"] == 8
+    assert path["criteria"]["alternate_down_lepton_mixed_blocks_available"] is True
+    assert path["criteria"][
+        "alternate_down_lepton_complete_holomorphic_matrices_available"
+    ] is False
+    assert path["criteria"]["alternate_down_lepton_physical_yukawa_matrices_available"] is False
     assert path["criteria"]["alternate_neutrino_complete_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_neutrino_holomorphic_rank_three_locus"] == "a0 != 0"
     assert path["criteria"]["alternate_up_neutrino_common_rank_three_locus"] == "a0*a1 != 0"

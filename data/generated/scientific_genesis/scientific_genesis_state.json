@@ -1,6 +1,16 @@
 {
-  "artifact_digest": "7b9e8aeaf5d3880bb54a3b8b8db273cea9b1bbafac4c8c74fcc73d38285aa63c",
+  "artifact_digest": "dcc2db7ea8d11a1b87df9ad45cd43df2a4a7c385ef7f9d8d1c826932124f5f00",
   "artifacts": [
+    {
+      "bytes": 16555,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.json",
+      "sha256": "e322a792618179d4c9738b39652ed1b56c08ff7e9361dcbb4d2216a9ca1e7c7e"
+    },
+    {
+      "bytes": 334328,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.cochains.json.gz",
+      "sha256": "473ba7c6b1d4a04f9b61f4d459232dfd688178d9f4cb8ae411bf5073d45517a6"
+    },
     {
       "bytes": 3139,
       "path": "data/generated/scientific_genesis/alternate_remaining_flavor_lift_a0_sector0_family1.json",
@@ -1313,11 +1323,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2698,
+    "collected_tests_at_audit": 2746,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 289,
-    "test_python_files": 273
+    "research_python_files": 291,
+    "test_python_files": 275
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -4658,6 +4668,49 @@
       "missing_prerequisites": [],
       "statement": "All eight actual d^c and e^c outer-parameter corrections are archived with literal quotient pushouts. Independent replay checks each full constituent equation, both original atlas actions, literal quotient maps, and the complete coupled matter identity. Original seeds and outer bases are unchanged; existing Q/L corrections are not recomputed. No scalar matrix is inferred.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "same frozen carrier",
+        "unchanged original quotient volume frame"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py",
+        "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_MIXED_PAIRING_NOTE.md",
+        "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.cochains.json.gz",
+        "tests/integration/test_scientific_genesis_alternate_down_lepton_mixed_pairing.py",
+        "research/experiments/scientific_genesis/alternate_up_mixed_quotient_pairing.py"
+      ],
+      "id": "alternate_down_lepton_mixed_pairing",
+      "label": "actual down and charged-lepton constant mixed scalar blocks",
+      "layer": "Flavor",
+      "missing_prerequisites": [],
+      "statement": "All eight actual Q/d and L/e constant mixed scalars are archived with literal matter, Hom, quotient, scalar, and exchange witnesses. Each entire scalar equals the separate full Hom-composition and E-contraction result; strict original atlas characters, direct/transferred traces, quotient normalization, and byte-for-byte reproduction pass nineteen regressions. No F-F block is inferred.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "conditional heterotic realization",
+        "original formal outer basis"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_up_ff_entries.py",
+        "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py",
+        "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FF_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_down_lepton_ff_entries.py",
+        "research/experiments/scientific_genesis/alternate_remaining_flavor_matter_lifts.py",
+        "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py"
+      ],
+      "id": "alternate_down_lepton_matrices",
+      "label": "complete actual down and charged-lepton holomorphic matrices",
+      "layer": "Flavor",
+      "missing_prerequisites": [
+        "sixteen actual F-F coefficient scalars",
+        "independent all-entry replay and exact matrix rank loci"
+      ],
+      "statement": "All scalar entries must come from actual Q/d and L/e matter states paired with the actual down-Higgs cocycle. Existing up and neutrino values cannot fill these two missing matrices.",
+      "status": "BLOCKED"
     },
     {
       "assumptions": [],
@@ -8265,6 +8318,105 @@
       "target": "physical_yukawas"
     },
     {
+      "assumptions_required": [
+        "actual original E/F witnesses",
+        "fixed quotient and Higgs-first order"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "character routing or a shared Higgs object does not supply a scalar value"
+      ],
+      "mathematical_reason": "Actual d/e classes pair with distinct archived Q/L classes; their B-F quotient products are computed, not relabelled.",
+      "source": "alternate_down_lepton_matter",
+      "target": "alternate_down_lepton_mixed_pairing"
+    },
+    {
+      "assumptions_required": [
+        "actual original E/F witnesses",
+        "fixed quotient and Higgs-first order"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "character routing or a shared Higgs object does not supply a scalar value"
+      ],
+      "mathematical_reason": "The actual down covector evaluates the constant mixed products in both sectors with the fixed volume frame.",
+      "source": "alternate_down_higgs_quotient_cone",
+      "target": "alternate_down_lepton_mixed_pairing"
+    },
+    {
+      "assumptions_required": [
+        "actual full matter/Higgs inputs",
+        "all entries and independent full scalar replay"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_ff_entries.py",
+        "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "partial blocks cannot be presented as a complete matrix"
+      ],
+      "mathematical_reason": "Eight verified constant mixed entries supply the non-F-F parts of the two actual matrices.",
+      "source": "alternate_down_lepton_mixed_pairing",
+      "target": "alternate_down_lepton_matrices"
+    },
+    {
+      "assumptions_required": [
+        "actual full matter/Higgs inputs",
+        "all entries and independent full scalar replay"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_ff_entries.py",
+        "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "partial blocks cannot be presented as a complete matrix"
+      ],
+      "mathematical_reason": "Eight actual d/e corrections combine with existing Q/L lifts for sixteen formal F-F scalar coefficients.",
+      "source": "alternate_remaining_flavor_matter_lifts",
+      "target": "alternate_down_lepton_matrices"
+    },
+    {
+      "assumptions_required": [
+        "actual full matter/Higgs inputs",
+        "all entries and independent full scalar replay"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_up_ff_entries.py",
+        "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "partial blocks cannot be presented as a complete matrix"
+      ],
+      "mathematical_reason": "The actual down-Higgs constant and linear coefficients evaluate complete coupled products, without up primitives.",
+      "source": "alternate_down_higgs_quotient_cone",
+      "target": "alternate_down_lepton_matrices"
+    },
+    {
+      "assumptions_required": [
+        "controlled matter/Higgs metrics",
+        "one stabilized common vacuum"
+      ],
+      "implementation_or_artifact": [
+        "src/onetheory/physics/observables.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "holomorphic scalar ranks alone do not predict physical masses or mixing"
+      ],
+      "mathematical_reason": "Complete holomorphic down and charged-lepton matrices supply two missing sectors, but do not replace their metrics or stabilized parameters.",
+      "source": "alternate_down_lepton_matrices",
+      "target": "physical_yukawas"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -9173,6 +9325,7 @@
     }
   ],
   "established_results": [
+    "all eight actual down/lepton mixed scalars equal independent full Hom composition in the original bases and Higgs-first quotient volume frame; no Q/L correction solve or F-F scalar is substituted",
     "all eight actual d^c/e^c parameter corrections pass independent original full differential, atlas, literal quotient-pushout, and coupled-identity replay; Q/L inputs and original bases are unchanged, while down and charged-lepton scalar matrices remain missing",
     "the complete actual neutrino matrix has full all-entry scalar replay and fixed quotient trace; its determinant is (3/2+3*omega/4)*a0, and its rank-three locus meets the certified up locus on D(a0*a1) without parameter selection or physical normalization",
     "both actual down-Higgs quotient actions equal independent signed reciprocal wedges; full archived primitive equations and both coupled-input constant/linear/quadratic checks pass in the original differential, without relabelled up data or a complete flavor matrix",
@@ -9314,6 +9467,10 @@
       "all_neutrino_matter_lifts_exact": true,
       "all_published_yukawa_character_products_invariant": true,
       "all_reverse_down_matter_lifts_exact": true,
+      "alternate_down_lepton_complete_holomorphic_matrices_available": false,
+      "alternate_down_lepton_constant_mixed_entry_count": 8,
+      "alternate_down_lepton_mixed_blocks_available": true,
+      "alternate_down_lepton_physical_yukawa_matrices_available": false,
       "alternate_fixed_atlas_determinant_characters": [
         [
           2,
@@ -10064,13 +10221,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "use the verified actual d^c/e^c corrections, down-Higgs cone, and archived Q/L inputs for complete down and charged-lepton scalar matrices; metric sampling, Ricci-flat/HYM convergence, other sectors, and the common vacuum remain required before physical normalization",
+    "next_required_object": "compute and independently replay all sixteen actual down/lepton F-F coefficients using verified mixed blocks, down-Higgs primitives, and archived Q/L/d/e lifts, then assemble both complete holomorphic matrices; metric sampling, Ricci-flat/HYM convergence, other sectors, and the common vacuum remain required before physical normalization",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 21.5,
-      "rationale": "Complete up and neutrino matrices and the actual down-Higgs cone are independently checked, as are all eight actual d/e corrections. Compute canonical mixed/F-F scalar products in the same carrier. The existing exact engines provide this remaining vertical slice; physical normalization still needs controlled metrics and a common vacuum.",
+      "rationale": "Complete up and neutrino matrices and the actual down-Higgs cone are independently checked, as are all eight actual d/e corrections and all eight actual down/lepton mixed scalars. Compute the sixteen remaining F-F coefficients with full replay in the same carrier. The existing exact engines provide this remaining vertical slice; physical normalization still needs controlled metrics and a common vacuum.",
       "scores": {
         "computational_cost": 3,
         "distance_to_observable": 5,

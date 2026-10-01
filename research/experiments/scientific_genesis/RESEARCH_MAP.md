@@ -1620,3 +1620,31 @@ again. The next mathematical objects are actual down and charged-lepton
 mixed/F-F scalar products and complete matrices, not metrics inferred from
 holomorphic ranks. `ALTERNATE_REMAINING_FLAVOR_MATTER_LIFTS_NOTE.md` remains the
 immutable, artifact-hashed producer derivation.
+
+The next edge `alternate_down_lepton_mixed_pairing` is COMPUTED. All eight
+actual mixed scalars have literal witnesses and equal independently composed
+full Hom scalars, not just residues. In order `(0,1),(0,2),(1,0),(2,0)`, the
+cover traces are:
+
+| Sector | (0,1) | (0,2) | (1,0) | (2,0) |
+| --- | --- | --- | --- | --- |
+| Down | (5+omega)/14 | -1/2+2 omega | -1/2-omega | (-1+4 omega)/14 |
+| Charged lepton | 1+omega/2 | (5+omega)/14 | (-4-5 omega)/14 | -2-5 omega/2 |
+
+Each quotient value divides by nine. Original bases remain distinct; no
+parameter, vacuum, mass, or physical hierarchy follows. Nineteen regressions
+include full original differential/deck checks, separate Hom composition,
+literal byte reproduction, and scope/basis attacks. Both existing up/neutrino
+producers also reproduce their prior packets unchanged after extracting the
+explicit-input scalar evaluator. The original unarchived Q E class is
+reproduced and pinned to its whole previous certificate, not newly selected.
+
+`alternate_down_lepton_matrices` stays BLOCKED on sixteen actual F-F coefficient
+scalars and independent complete matrix replay. The declared experiment
+`alternate_down_lepton_ff_entries.py` consumes the sixteen existing Q/L/d/e
+correction packets and actual down-Higgs primitives. It schedules the unchanged
+full validators and scalar engine with at most two workers, snapshots source
+metadata/archive bytes, and saves each completed literal product and scalar.
+It does not solve missing inputs or present partial matrices. Twenty-four
+execution-control regressions are not evidence that an absent coefficient
+has been computed. See `ALTERNATE_DOWN_LEPTON_FF_NOTE.md`.

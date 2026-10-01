@@ -1290,3 +1290,22 @@ The direct sum of the constituent bases is not that nonsplit basis.
 Controlled Ricci-flat/HYM convergence,
 physical Yukawa normalization, common-vacuum stabilization, and the
 Genesis-to-UV derivation remain unresolved.
+
+A finite universal lift constructor now exists for all 5,345 section indices.
+The 24 actual target ambient components have reduced degrees only
+`-3,-2,-1,0`, so a closed degree-one residual has no reduced obstruction
+coordinate. The mixed-arrow object gain dominates every Koszul wedge loss;
+the combined weight is in `[0,4]`, proving `(h Delta)^5=0`. Thus the existing
+full-cover contraction supplies `h'=sum(j=0..4)(-h Delta)^j h` for every
+outer coefficient, followed by an explicitly normalized repaired deck
+average. Both parameters remain symbolic. Actual subline and nonsplit
+quotient probes retain all correction terms and pass full identities.
+Independent tests reconstruct their products by suffix cells and recompute
+all ambient degrees. See `ALTERNATE_METRIC_OUTER_LIFTS_NOTE.md`.
+
+This is a constructive formula, not completed independent replay of all
+2,690 lifts. The next gate is independent full-formula certification or
+coefficient replay, followed by local rank-four fiber evaluation and controlled
+metric convergence. The rank-four basis availability and physical prediction
+flags remain false; no vacuum, mass, mixing angle, or Genesis implication has
+been supplied by the formula.

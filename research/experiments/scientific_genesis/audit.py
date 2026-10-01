@@ -3403,6 +3403,26 @@ def _nodes() -> list[dict[str, object]]:
             ("actual alternate I6 ray (0,1)", "common determinant-repair character [1,2]"),
         ),
         _node(
+            "alternate_metric_outer_lift_formula",
+            "finite universal metric-section lift constructor",
+            "Normalization",
+            "DERIVED",
+            "Every actual V1(H) ambient component has reduced degree at "
+            "most zero. The full mixed-arrow filtration makes (h Delta)^5 "
+            "zero, yielding a finite primitive for every degree-one outer "
+            "residual. An exact constructor covers all 5345 basis indices "
+            "without an extension-point choice. Four actual coefficient "
+            "probes are checked; full independent rank-four replay and "
+            "numerical metrics remain unavailable.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
+                "research/experiments/scientific_genesis/alternate_metric_outer_lifts.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_OUTER_LIFTS_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_outer_lifts.py",
+            ),
+            ("actual target differential", "standard cover contraction identities"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -3415,7 +3435,7 @@ def _nodes() -> list[dict[str, object]]:
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
             missing=(
-                "parameter-dependent rank-four invariant section lifts",
+                "independent full universal section-formula certification or coefficient replay",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -5716,6 +5736,36 @@ def _edges() -> list[dict[str, object]]:
             ("the direct sum of constituent bases is not the nonsplit rank-four basis",),
         ),
         _edge(
+            "alternate_metric_first_serre_lifts",
+            "alternate_metric_outer_lift_formula",
+            "The complete V1 basis supplies the injected half of the "
+            "universal section construction in the actual target complex.",
+            ("data/generated/scientific_genesis/alternate_metric_outer_lifts.json",),
+            ("actual first-constituent target contraction",),
+            True,
+            ("an injected constituent basis alone does not give outer lifts",),
+        ),
+        _edge(
+            "alternate_metric_second_sections",
+            "alternate_metric_outer_lift_formula",
+            "Every actual V2 section enters the same finite outer "
+            "homotopy formula with both frozen universal coefficients.",
+            ("data/generated/scientific_genesis/alternate_metric_outer_lifts.json",),
+            ("standard contraction identity", "strict invariant outer cocycles"),
+            True,
+            ("full independent formula or coefficient replay is still required",),
+        ),
+        _edge(
+            "alternate_metric_outer_lift_formula",
+            "visible_metrics",
+            "The universal section constructor provides the nonsplit "
+            "cochains needed for later rank-four evaluation and metric work.",
+            ("data/generated/scientific_genesis/alternate_metric_outer_lifts.json",),
+            ("independent full formula certification",),
+            True,
+            ("a formal section basis is not a converged Ricci-flat or HYM metric",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -6859,80 +6909,83 @@ def _scheduler() -> list[dict[str, object]]:
 
     tasks = [
         (
-            "alternate_physical_quotient_pairing",
+            "certify_universal_metric_lift_formula",
             5,
-            5,
+            4,
             5,
             5,
             2,
             1,
-            "The coupled quotient product and actual presentation are certified. "
-            "Evaluate complete cone matter lifts with the fixed Higgs cocycle "
-            "before assigning any scalar or quotient normalization.",
+            "Independently certify the finite full-cover contraction and "
+            "composition identities, bypassing 5380 separate outer solves "
+            "without treating the four probes as full basis replay.",
         ),
         (
-            "alternate_complete_up_matrix",
+            "rank_four_local_fiber_evaluation",
             5,
+            3,
             4,
             5,
-            5,
-            4,
-            2,
-            "Compute all entries from the natural quotient product after its "
-            "complete scalar evaluation; the earlier nonzero a1 screen is "
-            "not yet an assigned coefficient. Do not select an extension point.",
+            3,
+            1,
+            "Convert the actual universal section cochains to local rank-four "
+            "fiber evaluations before Ricci-flat/HYM approximation.",
         ),
         (
-            "lawful_carrier_common_dga_lifts",
-            2,
-            4,
-            2,
-            5,
+            "alternate_metric_convergence",
             5,
             4,
-            "The alternate cone and matter lifts are certified; extend only "
-            "the reachable products needed by the unresolved scalar comparison.",
+            5,
+            5,
+            5,
+            2,
+            "Compute Ricci-flat/HYM metrics only after certified actual "
+            "evaluation inputs; require convergence before physical normalization.",
         ),
         (
-            "minimal_common_dga_yukawa_slice",
-            2,
+            "alternate_remaining_holomorphic_sectors",
+            4,
+            4,
+            5,
+            4,
             4,
             2,
+            "Derive down, charged-lepton, and neutrino matrices from the "
+            "same frozen alternate carrier; retired forward-branch zeros "
+            "are not these sectors.",
+        ),
+        (
+            "shared_hidden_vacuum",
+            4,
             5,
             5,
             4,
-            "The corrected determinant gate is closed; the full Higgs "
-            "comparison and quotient trace still precede a complete holomorphic matrix.",
+            5,
+            2,
+            "Close anomaly, instanton, hidden-sector, and shared stabilization "
+            "dependencies without selecting a fitted vacuum.",
+        ),
+        (
+            "full_independent_section_replay",
+            5,
+            3,
+            3,
+            2,
+            5,
+            5,
+            "Backup independent certificate if full operator review fails; "
+            "do not default to expanding every section separately.",
         ),
         (
             "automorphism_trichotomy_theorem",
-            3,
-            4,
-            4,
-            5,
-            3,
-            2,
-            "Compresses repeated action data without blocking carrier construction.",
-        ),
-        (
-            "lawful_carrier_global_generation",
-            3,
-            3,
-            4,
-            4,
-            4,
-            3,
-            "Screens the later metric route before expensive numerical geometry.",
-        ),
-        (
-            "first_tree_rank_explanation",
-            4,
-            4,
-            5,
-            5,
+            1,
             4,
             2,
-            "Determines whether higher products are mathematically required.",
+            5,
+            4,
+            4,
+            "Secondary structural work; cannot block the already frozen "
+            "alternate carrier-to-observable path.",
         ),
         (
             "finish_automorphism_sweep",
@@ -9180,6 +9233,46 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the actual complete second-constituent section basis is not certified")
+    outer_lifts = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_outer_lifts.json"
+    )).read_text(encoding="utf-8"))
+    outer_lifts_digest = outer_lifts.pop("artifact_digest", None)
+    outer_structure = outer_lifts.get("structural_certificate", {})
+    if (
+        outer_lifts_digest != _canonical_digest(outer_lifts)
+        or outer_lifts_digest
+        != "3708b3f7757ec12080daa98d09315ed53a2c7d0e0ead61ff3a55777bb00aaa4c"
+        or outer_lifts.get("schema") != "alternate-metric-outer-lift-formula-v1"
+        or outer_lifts.get("parameter_basis") != ["a0", "a1"]
+        or outer_lifts.get("basis_dimension") != 5345
+        or outer_lifts.get("universal_section_constructor_available") is not True
+        or outer_lifts.get("prerequisite_artifact_digests") != {
+            "first": first_lifts_digest, "second": second_digest,
+            "invariants": alternate_invariants_digest, "cone": alternate_cone_digest,
+        }
+        or outer_structure.get("raw_reduced_degree_one_dimension") != 0
+        or outer_structure.get("h_delta_nilpotence_bound") != 5
+        or outer_structure.get("raw_reduced_dimensions") != [
+            [-3, 8640], [-2, 72504], [-1, 177966], [0, 137997],
+        ]
+        or len(outer_structure.get("component_profiles", [])) != 24
+        or len(outer_lifts.get("actual_coefficient_probes", [])) != 2
+        or [p.get("second_basis_index") for p in outer_lifts.get("actual_coefficient_probes", [])]
+        != [0, 1135]
+        or any(
+            p.get("all_coefficientwise_cone_identities_exact") is not True
+            or p.get("all_corrections_strictly_invariant") is not True
+            or len(p.get("coefficient_digests", [])) != 2
+            or len(p.get("coefficient_term_counts", [])) != 2
+            for p in outer_lifts.get("actual_coefficient_probes", [])
+        )
+        or any(outer_lifts.get(flag) is not False for flag in (
+            "complete_independent_rank_four_basis_replay", "rank_four_section_basis_available",
+            "numerical_metrics_available", "physical_yukawas_available",
+            "extension_point_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the finite universal outer lifting formula or scope is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9485,6 +9578,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_second_sections.json",
         "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz",
         "data/generated/scientific_genesis/alternate_metric_second_sections.relations.json.gz",
+        "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -9738,6 +9832,8 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_second_constituent_section_basis_available": True,
                 "alternate_metric_constituent_section_bases_available": True,
                 "alternate_metric_rank_four_quotient_lifts_remaining_count": 2690,
+                "alternate_metric_universal_section_constructor_available": True,
+                "alternate_metric_full_independent_rank_four_replay_completed": False,
                 "alternate_metric_first_resolution_ambient_generator_counts": [
                     item["ambient_invariant_generator_count"] for item in ambient_blocks
                 ],
@@ -9976,11 +10072,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "at H=(14,16,1), lift all 2690 actual alternate V2 invariant "
-                "sections through the parameter-dependent universal outer "
-                "extension and combine them with the complete 2655-vector "
-                "V1 basis; verify the full 5345-vector rank-four section "
-                "basis before controlled "
+                "independently certify the finite universal lift formula "
+                "or replay all 2690 V2 lifts; obtain actual rank-four fiber "
+                "evaluation from the 5345-section basis before controlled "
                 "Ricci-flat/HYM convergence tests"
             ),
         },
@@ -10345,6 +10439,22 @@ def build_state() -> dict[str, object]:
             },
         ],
         "structural_compression_questions": [
+            {
+                "question": (
+                    "Can one degree-support and nilpotent-filtration theorem "
+                    "replace 5380 independent outer coefficient solves?"
+                ),
+                "evidence": (
+                    "all 24 actual ambient target components have no positive "
+                    "reduced degree; all mixed arrows raise a weight in [0,4]"
+                ),
+                "attack": (
+                    "independently replay the full contraction and composition "
+                    "identities, including mixed Koszul wedges and both outer "
+                    "parameters; four literal coefficients already close, "
+                    "but complete independent basis replay is not claimed"
+                ),
+            },
             {
                 "question": (
                     "Can the actual constituent Serre lifts be transported "

@@ -1,0 +1,628 @@
+{
+  "actual_coefficient_probes": [
+    {
+      "all_coefficientwise_cone_identities_exact": true,
+      "all_corrections_strictly_invariant": true,
+      "coefficient_digests": [
+        "d546c4ad790f91a2a9eb96570f341e54a11511695d1856889dd450c7de634d02",
+        "b6b478fb09e2dc7b0242b96a782242f9c2faf53d9015fc14f89f9c10f0c8e25d"
+      ],
+      "coefficient_term_counts": [
+        3663,
+        3663
+      ],
+      "homotopy_depths": [
+        3,
+        3
+      ],
+      "second_basis_index": 0,
+      "second_constant_digest": "32e9564685221b193e9611f74d72b8c0725192bfee2d54d553015b8ade29a22f",
+      "second_constant_term_count": 54
+    },
+    {
+      "all_coefficientwise_cone_identities_exact": true,
+      "all_corrections_strictly_invariant": true,
+      "coefficient_digests": [
+        "b1fe09b7417c69ffa90915f7e9d63068215b8b4e262368c03a1eae2cd329b875",
+        "e499c34fec18844981638268e745b1acb79e44ec3af2114dd176c3e49e467ebf"
+      ],
+      "coefficient_term_counts": [
+        15033,
+        12090
+      ],
+      "homotopy_depths": [
+        3,
+        3
+      ],
+      "second_basis_index": 1135,
+      "second_constant_digest": "e66c20e90da37aca717fe2d606da4a017369f3fa4794c01540db157b573da521",
+      "second_constant_term_count": 135
+    }
+  ],
+  "artifact_digest": "3708b3f7757ec12080daa98d09315ed53a2c7d0e0ead61ff3a55777bb00aaa4c",
+  "basis_dimension": 5345,
+  "basis_index_blocks": [
+    [
+      0,
+      2655,
+      "V1 injection"
+    ],
+    [
+      2655,
+      5345,
+      "universal V2 lifts"
+    ]
+  ],
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "coefficient_field": "Q(omega)",
+  "complete_independent_rank_four_basis_replay": false,
+  "extension_point_selected": false,
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "physical_yukawas_available": false,
+  "prerequisite_artifact_digests": {
+    "cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+    "first": "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d",
+    "invariants": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+    "second": "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348"
+  },
+  "rank_four_section_basis_available": false,
+  "reynolds_normalization": "1/3 times (identity+P+P^2), with T fixation checked",
+  "schema": "alternate-metric-outer-lift-formula-v1",
+  "structural_certificate": {
+    "all_object_arrows_strictly_raise_weight": true,
+    "cochain_contraction_sign": "d h + h d = identity - inclusion projection",
+    "component_profiles": [
+      {
+        "ambient_degree": [
+          13,
+          17,
+          0
+        ],
+        "ambient_h0_to_h5": [
+          17955,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          0,
+          0,
+          "k0"
+        ],
+        "structural_degree": 0
+      },
+      {
+        "ambient_degree": [
+          13,
+          14,
+          -1
+        ],
+        "ambient_h0_to_h5": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          0,
+          0,
+          "k1_u"
+        ],
+        "structural_degree": -1
+      },
+      {
+        "ambient_degree": [
+          10,
+          17,
+          -1
+        ],
+        "ambient_h0_to_h5": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          0,
+          0,
+          "k1_x"
+        ],
+        "structural_degree": -1
+      },
+      {
+        "ambient_degree": [
+          10,
+          14,
+          -2
+        ],
+        "ambient_h0_to_h5": [
+          0,
+          7920,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          0,
+          0,
+          "k2"
+        ],
+        "structural_degree": -2
+      },
+      {
+        "ambient_degree": [
+          11,
+          17,
+          2
+        ],
+        "ambient_h0_to_h5": [
+          40014,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          1,
+          0,
+          "k0"
+        ],
+        "structural_degree": 0
+      },
+      {
+        "ambient_degree": [
+          11,
+          14,
+          1
+        ],
+        "ambient_h0_to_h5": [
+          18720,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          1,
+          0,
+          "k1_u"
+        ],
+        "structural_degree": -1
+      },
+      {
+        "ambient_degree": [
+          8,
+          17,
+          1
+        ],
+        "ambient_h0_to_h5": [
+          15390,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          1,
+          0,
+          "k1_x"
+        ],
+        "structural_degree": -1
+      },
+      {
+        "ambient_degree": [
+          8,
+          14,
+          0
+        ],
+        "ambient_h0_to_h5": [
+          5400,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          1,
+          0,
+          "k2"
+        ],
+        "structural_degree": -2
+      },
+      {
+        "ambient_degree": [
+          11,
+          17,
+          2
+        ],
+        "ambient_h0_to_h5": [
+          40014,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          2,
+          0,
+          "k0"
+        ],
+        "structural_degree": 0
+      },
+      {
+        "ambient_degree": [
+          11,
+          14,
+          1
+        ],
+        "ambient_h0_to_h5": [
+          18720,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          2,
+          0,
+          "k1_u"
+        ],
+        "structural_degree": -1
+      },
+      {
+        "ambient_degree": [
+          8,
+          17,
+          1
+        ],
+        "ambient_h0_to_h5": [
+          15390,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          2,
+          0,
+          "k1_x"
+        ],
+        "structural_degree": -1
+      },
+      {
+        "ambient_degree": [
+          8,
+          14,
+          0
+        ],
+        "ambient_h0_to_h5": [
+          5400,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          2,
+          0,
+          "k2"
+        ],
+        "structural_degree": -2
+      },
+      {
+        "ambient_degree": [
+          11,
+          17,
+          2
+        ],
+        "ambient_h0_to_h5": [
+          40014,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          3,
+          0,
+          "k0"
+        ],
+        "structural_degree": 0
+      },
+      {
+        "ambient_degree": [
+          11,
+          14,
+          1
+        ],
+        "ambient_h0_to_h5": [
+          18720,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          3,
+          0,
+          "k1_u"
+        ],
+        "structural_degree": -1
+      },
+      {
+        "ambient_degree": [
+          8,
+          17,
+          1
+        ],
+        "ambient_h0_to_h5": [
+          15390,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          3,
+          0,
+          "k1_x"
+        ],
+        "structural_degree": -1
+      },
+      {
+        "ambient_degree": [
+          8,
+          14,
+          0
+        ],
+        "ambient_h0_to_h5": [
+          5400,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          3,
+          0,
+          "k2"
+        ],
+        "structural_degree": -2
+      },
+      {
+        "ambient_degree": [
+          10,
+          17,
+          2
+        ],
+        "ambient_h0_to_h5": [
+          33858,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          4,
+          0,
+          "k0"
+        ],
+        "structural_degree": -1
+      },
+      {
+        "ambient_degree": [
+          10,
+          14,
+          1
+        ],
+        "ambient_h0_to_h5": [
+          15840,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          4,
+          0,
+          "k1_u"
+        ],
+        "structural_degree": -2
+      },
+      {
+        "ambient_degree": [
+          7,
+          17,
+          1
+        ],
+        "ambient_h0_to_h5": [
+          12312,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          4,
+          0,
+          "k1_x"
+        ],
+        "structural_degree": -2
+      },
+      {
+        "ambient_degree": [
+          7,
+          14,
+          0
+        ],
+        "ambient_h0_to_h5": [
+          4320,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          4,
+          0,
+          "k2"
+        ],
+        "structural_degree": -3
+      },
+      {
+        "ambient_degree": [
+          10,
+          17,
+          2
+        ],
+        "ambient_h0_to_h5": [
+          33858,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          5,
+          0,
+          "k0"
+        ],
+        "structural_degree": -1
+      },
+      {
+        "ambient_degree": [
+          10,
+          14,
+          1
+        ],
+        "ambient_h0_to_h5": [
+          15840,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          5,
+          0,
+          "k1_u"
+        ],
+        "structural_degree": -2
+      },
+      {
+        "ambient_degree": [
+          7,
+          17,
+          1
+        ],
+        "ambient_h0_to_h5": [
+          12312,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          5,
+          0,
+          "k1_x"
+        ],
+        "structural_degree": -2
+      },
+      {
+        "ambient_degree": [
+          7,
+          14,
+          0
+        ],
+        "ambient_h0_to_h5": [
+          4320,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "component": [
+          5,
+          0,
+          "k2"
+        ],
+        "structural_degree": -3
+      }
+    ],
+    "extension_term_count": 216,
+    "filtration_range": [
+      0,
+      4
+    ],
+    "formula": "h' = sum(j=0..4) (-h Delta)^j h; b_i = -Reynolds(h'(e_i cup s))",
+    "h_delta_nilpotence_bound": 5,
+    "object_filtration_weights": [
+      2,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "proof_source": "https://arxiv.org/abs/math/0403266",
+    "raw_reduced_degree_one_dimension": 0,
+    "raw_reduced_dimensions": [
+      [
+        -3,
+        8640
+      ],
+      [
+        -2,
+        72504
+      ],
+      [
+        -1,
+        177966
+      ],
+      [
+        0,
+        137997
+      ]
+    ],
+    "resolution_arrow_count": 4,
+    "twist_cover_degree": [
+      14,
+      16,
+      1
+    ]
+  },
+  "universal_section_constructor_available": true
+}

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "a6a2f9bc9c62ea804406bfc10aefe96bbe99f1dff08c2feba72728065dc3d32d",
+  "artifact_digest": "73737ba44ea0255a5373337a9d44afc3e4a60941fb6879deffc0d41707c71c22",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -907,6 +907,11 @@
       "sha256": "75377d5c5538d973cb0efc4d2b7810a266a14690371ca5f64c73f609f753065a"
     },
     {
+      "bytes": 11202,
+      "path": "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
+      "sha256": "db79450dc54178b2af7058fabb3e85f519c109868cd5cd5312f5da67cd52fac7"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -946,8 +951,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 266,
-    "test_python_files": 250
+    "research_python_files": 267,
+    "test_python_files": 251
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3818,6 +3823,24 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "actual target differential",
+        "standard cover contraction identities"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
+        "research/experiments/scientific_genesis/alternate_metric_outer_lifts.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_OUTER_LIFTS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_outer_lifts.py"
+      ],
+      "id": "alternate_metric_outer_lift_formula",
+      "label": "finite universal metric-section lift constructor",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "Every actual V1(H) ambient component has reduced degree at most zero. The full mixed-arrow filtration makes (h Delta)^5 zero, yielding a finite primitive for every degree-one outer residual. An exact constructor covers all 5345 basis indices without an extension-point choice. Four actual coefficient probes are checked; full independent rank-four replay and numerical metrics remain unavailable.",
+      "status": "DERIVED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -3827,7 +3850,7 @@
       "label": "Ricci-flat, HYM, and matter metric package",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "parameter-dependent rank-four invariant section lifts",
+        "independent full universal section-formula certification or coefficient replay",
         "converged Ricci-flat and HYM metrics"
       ],
       "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690, but universal rank-four lifts and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
@@ -6532,6 +6555,52 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "actual first-constituent target contraction"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_outer_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "an injected constituent basis alone does not give outer lifts"
+      ],
+      "mathematical_reason": "The complete V1 basis supplies the injected half of the universal section construction in the actual target complex.",
+      "source": "alternate_metric_first_serre_lifts",
+      "target": "alternate_metric_outer_lift_formula"
+    },
+    {
+      "assumptions_required": [
+        "standard contraction identity",
+        "strict invariant outer cocycles"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_outer_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "full independent formula or coefficient replay is still required"
+      ],
+      "mathematical_reason": "Every actual V2 section enters the same finite outer homotopy formula with both frozen universal coefficients.",
+      "source": "alternate_metric_second_sections",
+      "target": "alternate_metric_outer_lift_formula"
+    },
+    {
+      "assumptions_required": [
+        "independent full formula certification"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_outer_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a formal section basis is not a converged Ricci-flat or HYM metric"
+      ],
+      "mathematical_reason": "The universal section constructor provides the nonsplit cochains needed for later rank-four evaluation and metric work.",
+      "source": "alternate_metric_outer_lift_formula",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -7590,6 +7659,7 @@
       "alternate_metric_first_serre_lifts_remaining_count": 0,
       "alternate_metric_first_serre_quotient_basis_count": 1540,
       "alternate_metric_first_subline_basis_count": 1115,
+      "alternate_metric_full_independent_rank_four_replay_completed": false,
       "alternate_metric_large_generating_twist": [
         14,
         16,
@@ -7606,6 +7676,7 @@
         7,
         1
       ],
+      "alternate_metric_universal_section_constructor_available": true,
       "alternate_other_linearisations_excluded": false,
       "alternate_ray_0_1_all_nonzero_p1_stable_in_sufficient_chamber": true,
       "alternate_ray_0_1_charged_structural_spectrum_passes": true,
@@ -8270,74 +8341,74 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "at H=(14,16,1), lift all 2690 actual alternate V2 invariant sections through the parameter-dependent universal outer extension and combine them with the complete 2655-vector V1 basis; verify the full 5345-vector rank-four section basis before controlled Ricci-flat/HYM convergence tests",
+    "next_required_object": "independently certify the finite universal lift formula or replay all 2690 V2 lifts; obtain actual rank-four fiber evaluation from the 5345-section basis before controlled Ricci-flat/HYM convergence tests",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
-      "priority_score": 65.0,
-      "rationale": "The coupled quotient product and actual presentation are certified. Evaluate complete cone matter lifts with the fixed Higgs cocycle before assigning any scalar or quotient normalization.",
+      "priority_score": 64.5,
+      "rationale": "Independently certify the finite full-cover contraction and composition identities, bypassing 5380 separate outer solves without treating the four probes as full basis replay.",
       "scores": {
         "computational_cost": 2,
         "distance_to_observable": 5,
-        "foundational_importance": 5,
+        "foundational_importance": 4,
         "probability_of_discriminating_theory": 5,
         "risk_of_local_rabbit_hole": 1,
         "structural_reuse": 5
       },
-      "task": "alternate_physical_quotient_pairing"
+      "task": "certify_universal_metric_lift_formula"
     },
     {
-      "priority_score": 16.125,
-      "rationale": "Compute all entries from the natural quotient product after its complete scalar evaluation; the earlier nonzero a1 screen is not yet an assigned coefficient. Do not select an extension point.",
+      "priority_score": 34.333,
+      "rationale": "Convert the actual universal section cochains to local rank-four fiber evaluations before Ricci-flat/HYM approximation.",
       "scores": {
-        "computational_cost": 4,
+        "computational_cost": 3,
+        "distance_to_observable": 5,
+        "foundational_importance": 3,
+        "probability_of_discriminating_theory": 4,
+        "risk_of_local_rabbit_hole": 1,
+        "structural_reuse": 5
+      },
+      "task": "rank_four_local_fiber_evaluation"
+    },
+    {
+      "priority_score": 12.9,
+      "rationale": "Compute Ricci-flat/HYM metrics only after certified actual evaluation inputs; require convergence before physical normalization.",
+      "scores": {
+        "computational_cost": 5,
         "distance_to_observable": 5,
         "foundational_importance": 4,
         "probability_of_discriminating_theory": 5,
         "risk_of_local_rabbit_hole": 2,
         "structural_reuse": 5
       },
-      "task": "alternate_complete_up_matrix"
+      "task": "alternate_metric_convergence"
     },
     {
-      "priority_score": 13.0,
-      "rationale": "Determines whether higher products are mathematically required.",
+      "priority_score": 10.5,
+      "rationale": "Derive down, charged-lepton, and neutrino matrices from the same frozen alternate carrier; retired forward-branch zeros are not these sectors.",
       "scores": {
         "computational_cost": 4,
         "distance_to_observable": 4,
         "foundational_importance": 4,
         "probability_of_discriminating_theory": 5,
         "risk_of_local_rabbit_hole": 2,
-        "structural_reuse": 5
-      },
-      "task": "first_tree_rank_explanation"
-    },
-    {
-      "priority_score": 10.667,
-      "rationale": "Compresses repeated action data without blocking carrier construction.",
-      "scores": {
-        "computational_cost": 3,
-        "distance_to_observable": 3,
-        "foundational_importance": 4,
-        "probability_of_discriminating_theory": 4,
-        "risk_of_local_rabbit_hole": 2,
-        "structural_reuse": 5
-      },
-      "task": "automorphism_trichotomy_theorem"
-    },
-    {
-      "priority_score": 4.25,
-      "rationale": "Screens the later metric route before expensive numerical geometry.",
-      "scores": {
-        "computational_cost": 4,
-        "distance_to_observable": 3,
-        "foundational_importance": 3,
-        "probability_of_discriminating_theory": 4,
-        "risk_of_local_rabbit_hole": 3,
         "structural_reuse": 4
       },
-      "task": "lawful_carrier_global_generation"
+      "task": "alternate_remaining_holomorphic_sectors"
+    },
+    {
+      "priority_score": 8.5,
+      "rationale": "Close anomaly, instanton, hidden-sector, and shared stabilization dependencies without selecting a fitted vacuum.",
+      "scores": {
+        "computational_cost": 5,
+        "distance_to_observable": 4,
+        "foundational_importance": 5,
+        "probability_of_discriminating_theory": 5,
+        "risk_of_local_rabbit_hole": 2,
+        "structural_reuse": 4
+      },
+      "task": "shared_hidden_vacuum"
     },
     {
       "priority_score": 3.438,
@@ -8353,30 +8424,30 @@
       "task": "genesis_foundational_contract"
     },
     {
-      "priority_score": 1.2,
-      "rationale": "The alternate cone and matter lifts are certified; extend only the reachable products needed by the unresolved scalar comparison.",
+      "priority_score": 1.32,
+      "rationale": "Backup independent certificate if full operator review fails; do not default to expanding every section separately.",
       "scores": {
         "computational_cost": 5,
-        "distance_to_observable": 2,
-        "foundational_importance": 4,
-        "probability_of_discriminating_theory": 2,
-        "risk_of_local_rabbit_hole": 4,
-        "structural_reuse": 5
+        "distance_to_observable": 5,
+        "foundational_importance": 3,
+        "probability_of_discriminating_theory": 3,
+        "risk_of_local_rabbit_hole": 5,
+        "structural_reuse": 2
       },
-      "task": "lawful_carrier_common_dga_lifts"
+      "task": "full_independent_section_replay"
     },
     {
-      "priority_score": 1.2,
-      "rationale": "The corrected determinant gate is closed; the full Higgs comparison and quotient trace still precede a complete holomorphic matrix.",
+      "priority_score": 0.875,
+      "rationale": "Secondary structural work; cannot block the already frozen alternate carrier-to-observable path.",
       "scores": {
-        "computational_cost": 5,
-        "distance_to_observable": 2,
+        "computational_cost": 4,
+        "distance_to_observable": 1,
         "foundational_importance": 4,
         "probability_of_discriminating_theory": 2,
         "risk_of_local_rabbit_hole": 4,
         "structural_reuse": 5
       },
-      "task": "minimal_common_dga_yukawa_slice"
+      "task": "automorphism_trichotomy_theorem"
     },
     {
       "priority_score": 0.32,
@@ -8654,6 +8725,11 @@
     "the certified constituent atlases force Higgs characters (1,0), (1,1), (2,0), and (2,1), incompatible with the source-bound multiset"
   ],
   "structural_compression_questions": [
+    {
+      "attack": "independently replay the full contraction and composition identities, including mixed Koszul wedges and both outer parameters; four literal coefficients already close, but complete independent basis replay is not claimed",
+      "evidence": "all 24 actual ambient target components have no positive reduced degree; all mixed arrows raise a weight in [0,4]",
+      "question": "Can one degree-support and nilpotent-filtration theorem replace 5380 independent outer coefficient solves?"
+    },
     {
       "attack": "check the complete source arrow sets, both Laurent-pole directions, repaired actions, and every full residual; polynomial-linearity proves the transport for these constituents, but does not solve universal outer lifts",
       "evidence": "nine V1 and twelve actual alternate V2 templates lift 1540 and 1555 quotient sections; all extension arrows are plane-polynomial with only P1-overlap poles",

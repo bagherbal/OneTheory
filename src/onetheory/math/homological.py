@@ -104,6 +104,27 @@ def _require_same_scalar(left: ScalarType, right: ScalarType) -> None:
         raise TypeError("exact linear objects must use the same scalar type")
 
 
+def _common_scalar_type(
+    spaces: Iterable[VectorSpace], declared: ScalarType | None,
+) -> ScalarType:
+    """Retain an explicit coefficient field even when no components exist."""
+
+    if declared is not None and declared is not Rational and declared is not Eisenstein:
+        raise TypeError("scalar_type must be Rational or Eisenstein")
+    components = tuple(spaces)
+    if any(not isinstance(space, VectorSpace) for space in components):
+        raise TypeError("components must be VectorSpace instances")
+    scalar_types = {space.scalar_type for space in components}
+    if len(scalar_types) > 1:
+        raise TypeError("all components must use one scalar type")
+    inferred = next(iter(scalar_types), Rational)
+    if declared is not None:
+        if scalar_types:
+            _require_same_scalar(inferred, declared)
+        return declared
+    return inferred
+
+
 def _rank_of_vectors(vectors: Sequence[CoordinateVector], space: VectorSpace) -> int:
     for vector in vectors:
         if vector.space != space:
@@ -162,15 +183,23 @@ class VectorSpace:
 
 @dataclass(frozen=True, slots=True, init=False)
 class GradedVectorSpace:
-    """An immutable integer-graded family of explicitly based vector spaces."""
+    """An immutable integer-graded family of explicitly based vector spaces.
+
+    The field is inferred from components unless ``scalar_type`` is supplied.
+    An empty family defaults to Rational; declare Eisenstein explicitly for an
+    empty Q(omega) family. A declaration must agree with every component.
+    """
 
     name: str
     components: tuple[tuple[int, VectorSpace], ...]
+    _scalar_type: ScalarType
 
     def __init__(
         self,
         name: str,
         components: Mapping[int, VectorSpace] | Iterable[tuple[int, VectorSpace]],
+        *,
+        scalar_type: ScalarType | None = None,
     ) -> None:
         _require_space_name(name)
         pairs = tuple(components.items()) if isinstance(components, Mapping) else tuple(components)
@@ -181,11 +210,10 @@ class GradedVectorSpace:
         if any(not isinstance(space, VectorSpace) for _, space in pairs):
             raise TypeError("graded components must be VectorSpace instances")
         ordered = tuple(sorted(pairs, key=lambda pair: pair[0]))
-        scalar_types = {space.scalar_type for _, space in ordered}
-        if len(scalar_types) > 1:
-            raise TypeError("all graded components must use one scalar type")
+        coefficient_type = _common_scalar_type((space for _, space in ordered), scalar_type)
         object.__setattr__(self, "name", name)
         object.__setattr__(self, "components", ordered)
+        object.__setattr__(self, "_scalar_type", coefficient_type)
 
     @property
     def degrees(self) -> tuple[int, ...]:
@@ -195,9 +223,9 @@ class GradedVectorSpace:
 
     @property
     def scalar_type(self) -> ScalarType:
-        """Return the common scalar type, defaulting to Rational when empty."""
+        """Return the declared or inferred coefficient field, including at zero."""
 
-        return self.components[0][1].scalar_type if self.components else Rational
+        return self._scalar_type
 
     def space(self, degree: int) -> VectorSpace:
         """Return a component, or its canonical zero-dimensional component."""
@@ -214,16 +242,21 @@ class GradedVectorSpace:
         if isinstance(amount, bool) or not isinstance(amount, int):
             raise TypeError("the shift amount must be an integer")
         shifted = {degree + amount: space for degree, space in self.components}
-        return GradedVectorSpace(name or f"{self.name}[{amount}]", shifted)
+        return GradedVectorSpace(
+            name or f"{self.name}[{amount}]", shifted, scalar_type=self.scalar_type,
+        )
 
     def direct_sum(self, other: GradedVectorSpace, name: str | None = None) -> GradedVectorSpace:
         """Take the degreewise direct sum with another graded space."""
 
+        _require_same_scalar(self.scalar_type, other.scalar_type)
         degrees = sorted(set(self.degrees) | set(other.degrees))
         components = {
             degree: self.space(degree).direct_sum(other.space(degree)) for degree in degrees
         }
-        return GradedVectorSpace(name or f"{self.name}⊕{other.name}", components)
+        return GradedVectorSpace(
+            name or f"{self.name}⊕{other.name}", components, scalar_type=self.scalar_type,
+        )
 
 
 @dataclass(frozen=True, slots=True)
@@ -702,6 +735,7 @@ class ChainMap:
     ) -> None:
         if source.direction != target.direction:
             raise ValueError("chain maps require complexes of one direction")
+        _require_same_scalar(source.spaces.scalar_type, target.spaces.scalar_type)
         pairs = tuple(components.items()) if isinstance(components, Mapping) else tuple(components)
         if len({degree for degree, _ in pairs}) != len(pairs):
             raise ValueError("map component degrees must be unique")
@@ -833,6 +867,7 @@ def mapping_cone(map_: ChainMap) -> ChainComplex | CochainComplex:
             "Cone",
             {degree: target.spaces.space(degree).direct_sum(source.spaces.space(degree - 1))
              for degree in degrees},
+            scalar_type=target.spaces.scalar_type,
         )
         differentials = {}
         for degree in degrees:
@@ -856,6 +891,7 @@ def mapping_cone(map_: ChainMap) -> ChainComplex | CochainComplex:
         "Cone",
         {degree: target.spaces.space(degree).direct_sum(source.spaces.space(degree + 1))
          for degree in degrees},
+        scalar_type=target.spaces.scalar_type,
     )
     differentials = {}
     for degree in degrees:
@@ -877,12 +913,17 @@ def mapping_cone(map_: ChainMap) -> ChainComplex | CochainComplex:
 
 @dataclass(frozen=True, slots=True, init=False)
 class Bicomplex:
-    """A finite basis-aware bicomplex with commuting unsigned directions."""
+    """A finite basis-aware bicomplex with commuting unsigned directions.
+
+    Coefficients are inferred from cell spaces, or explicitly declared with
+    ``scalar_type``. Empty bicomplexes retain a declared field on totalization.
+    """
 
     name: str
     components: tuple[tuple[tuple[int, int], VectorSpace], ...]
     horizontal: tuple[tuple[tuple[int, int], LinearMap], ...]
     vertical: tuple[tuple[tuple[int, int], LinearMap], ...]
+    _scalar_type: ScalarType
 
     def __init__(
         self,
@@ -893,6 +934,8 @@ class Bicomplex:
         Iterable[tuple[tuple[int, int], LinearMap]] = (),
         vertical: Mapping[tuple[int, int], LinearMap] |
         Iterable[tuple[tuple[int, int], LinearMap]] = (),
+        *,
+        scalar_type: ScalarType | None = None,
     ) -> None:
         _require_space_name(name)
         component_pairs = (tuple(components.items()) if isinstance(components, Mapping)
@@ -901,9 +944,9 @@ class Bicomplex:
             _require_bidegree(cell)
         if len({cell for cell, _ in component_pairs}) != len(component_pairs):
             raise ValueError("bicomplex cells must be unique")
-        scalar_types = {space.scalar_type for _, space in component_pairs}
-        if len(scalar_types) > 1:
-            raise TypeError("all bicomplex components must use one scalar type")
+        coefficient_type = _common_scalar_type(
+            (space for _, space in component_pairs), scalar_type,
+        )
         horizontal_pairs = (tuple(horizontal.items()) if isinstance(horizontal, Mapping)
                             else tuple(horizontal))
         vertical_pairs = (tuple(vertical.items()) if isinstance(vertical, Mapping)
@@ -918,13 +961,14 @@ class Bicomplex:
         object.__setattr__(self, "components", tuple(sorted(component_pairs)))
         object.__setattr__(self, "horizontal", tuple(sorted(horizontal_pairs)))
         object.__setattr__(self, "vertical", tuple(sorted(vertical_pairs)))
+        object.__setattr__(self, "_scalar_type", coefficient_type)
         self._validate_maps()
 
     @property
     def scalar_type(self) -> ScalarType:
         """Return the common coefficient type."""
 
-        return self.components[0][1].scalar_type if self.components else Rational
+        return self._scalar_type
 
     def space(self, cell: tuple[int, int]) -> VectorSpace:
         """Return a cell space or the canonical zero space at an absent cell."""
@@ -986,6 +1030,7 @@ class Bicomplex:
             f"Tot({self.name})",
             {degree: self._direct_sum_spaces(cells, degree)
              for degree, cells in degree_cells.items()},
+            scalar_type=self.scalar_type,
         )
         differentials: dict[int, LinearMap] = {}
         for degree, source_cells in degree_cells.items():

@@ -607,6 +607,111 @@ def test_based_spaces_require_nonempty_identities() -> None:
 
 @pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
 @pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_empty_complex_constructions_preserve_the_declared_field(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """The zero complex remains over its field through each construction."""
+
+    spaces = GradedVectorSpace("zero", {}, scalar_type=scalar_type)
+    complex_ = complex_type(spaces, {})
+    identity = ChainMap.identity(complex_)
+    ChainHomotopy(identity, identity, {})
+    constructions = (
+        complex_, complex_.shift(-3), complex_.direct_sum(complex_), mapping_cone(identity),
+    )
+    for result in constructions:
+        assert result.degrees == ()
+        assert result.spaces.scalar_type is scalar_type
+        assert result.spaces.space(7).scalar_type is scalar_type
+        assert result.differential(7).domain.scalar_type is scalar_type
+        assert result.differential(7).codomain.scalar_type is scalar_type
+        assert result.cycles(7) == result.boundaries(7) == ()
+        assert result.cohomology_dimension(7) == 0
+        assert result.cohomology_representatives(7) == ()
+    assert identity.compose(identity) == identity
+    with pytest.raises(FrozenInstanceError):
+        spaces._scalar_type = Rational  # type: ignore[misc]
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+def test_empty_bicomplex_totalization_preserves_the_declared_field(
+    scalar_type: type[Rational] | type[Eisenstein],
+) -> None:
+    """Signed totalization cannot turn an empty Eisenstein complex rational."""
+
+    bicomplex = Bicomplex("zero", {}, scalar_type=scalar_type)
+    assert bicomplex.scalar_type is scalar_type
+    assert bicomplex.space((-1, 2)).scalar_type is scalar_type
+    total = bicomplex.totalize()
+    assert total.spaces.scalar_type is scalar_type
+    assert total.degrees == ()
+    assert total.differential(0).is_zero()
+    assert total.differential(0).domain.scalar_type is scalar_type
+    with pytest.raises(FrozenInstanceError):
+        bicomplex._scalar_type = Rational  # type: ignore[misc]
+
+
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_empty_complexes_reject_incompatible_coefficient_fields(
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """An empty tuple of maps must not bypass coefficient compatibility."""
+
+    rational = GradedVectorSpace("Q", {}, scalar_type=Rational)
+    eisenstein = GradedVectorSpace("Qomega", {}, scalar_type=Eisenstein)
+    source = complex_type(rational, {})
+    target = complex_type(eisenstein, {})
+    with pytest.raises(TypeError, match="same scalar type"):
+        rational.direct_sum(eisenstein)
+    with pytest.raises(TypeError, match="same scalar type"):
+        source.direct_sum(target)
+    with pytest.raises(TypeError, match="same scalar type"):
+        ChainMap(source, target, {})
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_empty_summands_preserve_nonempty_complex_bases_and_cohomology(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """A typed zero summand changes labels but not exact homology dimensions."""
+
+    zero = complex_type(GradedVectorSpace("zero", {}, scalar_type=scalar_type), {})
+    complex_ = _three_term_complex(scalar_type, complex_type)
+    for result in (zero.direct_sum(complex_), complex_.direct_sum(zero)):
+        assert result.spaces.scalar_type is scalar_type
+        assert result.degrees == complex_.degrees
+        for degree in result.degrees:
+            assert result.spaces.space(degree).dimension == complex_.spaces.space(degree).dimension
+            assert result.cohomology_dimension(degree) == complex_.cohomology_dimension(degree)
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+def test_coefficient_declarations_agree_with_components(
+    scalar_type: type[Rational] | type[Eisenstein],
+) -> None:
+    """Explicit fields are checked rather than coercing existing named spaces."""
+
+    space = VectorSpace("component", ("e",), scalar_type)
+    other_type = Eisenstein if scalar_type is Rational else Rational
+    assert GradedVectorSpace("C", {0: space}).scalar_type is scalar_type
+    assert Bicomplex("B", {(0, 0): space}).scalar_type is scalar_type
+    with pytest.raises(TypeError, match="same scalar type"):
+        GradedVectorSpace("C", {0: space}, scalar_type=other_type)
+    with pytest.raises(TypeError, match="same scalar type"):
+        Bicomplex("B", {(0, 0): space}, scalar_type=other_type)
+    with pytest.raises(TypeError, match="scalar_type must be"):
+        GradedVectorSpace("C", {}, scalar_type=float)  # type: ignore[arg-type]
+    with pytest.raises(TypeError, match="scalar_type must be"):
+        Bicomplex("B", {}, scalar_type=float)  # type: ignore[arg-type]
+    assert GradedVectorSpace("default", {}).scalar_type is Rational
+    assert Bicomplex("default", {}).scalar_type is Rational
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
 def test_nonidentity_cone_tracks_kernel_and_cokernel_with_exact_signs(
     scalar_type: type[Rational] | type[Eisenstein],
     complex_type: type[ChainComplex] | type[CochainComplex],

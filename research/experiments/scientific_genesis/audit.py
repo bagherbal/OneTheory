@@ -3616,8 +3616,10 @@ def _nodes() -> list[dict[str, object]]:
             "BLOCKED",
             "A deterministic complete-output writer consumes the existing "
             "bounded all-index evaluator without changing any sections. "
-            "Every original column must be produced and the entire stored "
-            "stream independently parsed before this gate can be computed. "
+            "Every original column must be produced, the entire stored "
+            "stream independently parsed, and its trusted execution digest, "
+            "parents, scope, and original probe records audited by the "
+            "read-only consumer before this gate can be computed. "
             "Passing format tests or running the writer is not evidence of "
             "completed matrix materialization. Single-domain output cannot "
             "establish sampling or metric convergence.",
@@ -7416,9 +7418,9 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             5,
             2,
-            "Use the actual residue and normalized FS measure with the complete "
-            "point evaluator and certified density/frame bounds; extend the "
-            "finite-support representation to bounded full-basis evaluation, then implement "
+            "Use the actual residue and normalized FS measure with the bounded "
+            "all-index evaluator and certified density/frame bounds; finish "
+            "complete bounded output and measure multi-point cost, then implement "
             "the SU-uniform proposal law with integration-error control; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),

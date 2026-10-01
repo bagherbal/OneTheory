@@ -10,7 +10,8 @@ Depends on:
 
 Must not:
     Present parser fixtures as computed sections, replace full-matrix execution
-    by mocked counts, or infer sampling, metrics, or physical predictions.
+    by mocked counts, treat metadata-only scope contracts as actual completed
+    artifacts, or infer sampling, metrics, or physical predictions.
 
 Phase 0:
     Research archive tests; completed scientific output needs separate evidence.
@@ -117,3 +118,65 @@ def test_scratch_files_do_not_create_domains_or_leave_partial_output(tmp_path, m
             temporary.write_bytes(b"uncertified partial stream")
             raise RuntimeError("execution failure")
     assert not temporary.exists() and not metadata.exists()
+
+
+def _scope_contract():
+    digest, parent = matrix.fiber._verified_payload(matrix.support.OUTPUT)
+    root_digest, _roots = matrix.fiber._verified_payload(matrix.bounds.roots.OUTPUT)
+    return matrix._scope_fields(digest, parent, root_digest)
+
+
+@pytest.mark.parametrize("field", (
+    "independent_all_column_full_cochain_replay_performed",
+    "practical_multi_point_integration_throughput_certified",
+    "controlled_numerical_sampling_available", "numerical_metrics_available",
+    "physical_yukawas_available", "centers_are_exact_cover_points",
+    "extension_point_selected", "vacuum_selected", "observational_inputs_used",
+))
+def test_metadata_contract_cannot_inflate_single_domain_scientific_scope(field):
+    required = _scope_contract()
+    record = dict(required)
+    record[field] = True
+    # These are descriptive metadata contracts, not output packets or matrices.
+    with pytest.raises(ValueError, match=f"scientific scope is incompatible: {field}"):
+        matrix._require_scope(record, required)
+
+
+@pytest.mark.parametrize("field,value", (
+    ("root_pair", [0, 1]), ("chart_pivots", [False, 0, 0]),
+    ("first_pivot_rows", [2, 0]), ("parameter_basis", ["a1", "a0"]),
+    ("section_count", 5345.0), ("single_certified_local_domain_only", 1),
+    ("numerical_metrics_available", 0),
+))
+def test_metadata_contract_rejects_changed_domain_and_numeric_type_aliases(field, value):
+    required = _scope_contract()
+    record = dict(required)
+    record[field] = value
+    with pytest.raises(ValueError, match=f"scientific scope is incompatible: {field}"):
+        matrix._require_scope(record, required)
+
+
+def test_consumer_requires_the_explicit_trusted_completed_execution_digest(tmp_path, monkeypatch):
+    record = _scope_contract()
+    digest = matrix.hashlib.sha256(matrix._canonical(record)).hexdigest()
+    record["artifact_digest"] = digest
+    meta = tmp_path / "metadata_only_not_a_completed_output.json"
+    meta.write_text(json.dumps(record))
+    monkeypatch.setattr(matrix, "OUTPUT", meta)
+    with pytest.raises(ValueError, match="trusted execution digest"):
+        matrix.verify_completed_output(expected_digest="0" * 64)
+
+
+def test_metadata_hash_cannot_replace_missing_completed_archive(tmp_path, monkeypatch):
+    monkeypatch.setattr(matrix, "MATRIX", tmp_path / "missing.columns.jsonl.gz")
+    monkeypatch.setattr(matrix.fiber.lifts.first, "ROOT", tmp_path)
+    record = _scope_contract()
+    record["matrix_archive_sha256"] = "0" * 64
+    record["matrix_archive_bytes"] = 0
+    digest = matrix.hashlib.sha256(matrix._canonical(record)).hexdigest()
+    record["artifact_digest"] = digest
+    meta = tmp_path / "metadata_only_not_a_completed_output.json"
+    meta.write_text(json.dumps(record))
+    monkeypatch.setattr(matrix, "OUTPUT", meta)
+    with pytest.raises(FileNotFoundError):
+        matrix.verify_completed_output(expected_digest=digest)

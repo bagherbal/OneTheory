@@ -1486,3 +1486,12 @@ The full output gate must be audited from actual completed artifacts before
 promotion to COMPUTED. Controlled sampling, practical multi-point cost,
 metric convergence, physical normalization, the common vacuum, remaining
 flavor sectors, and Genesis-to-UV remain open regardless of process status.
+
+The completed-output consumer now requires a trusted execution digest and
+actual compressed archive bytes, then checks all columns, hashes, domain
+and parameter identities, exact scope flags, and the independently checked
+original predecessor probe records. It is read-only and cannot promote a
+gate from metadata alone. Its negative tests use descriptive metadata
+contracts, not synthetic scientific matrices. The matrix claim remains
+BLOCKED until the real full run and consumer audit finish. Physical metric,
+sampling, and prediction flags remain false.

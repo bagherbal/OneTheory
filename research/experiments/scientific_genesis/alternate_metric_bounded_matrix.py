@@ -124,6 +124,93 @@ def verify_archive(path, *, bits):
             "largest_coefficient_radius": str(radius)}
 
 
+def _scope_fields(parent_digest, parent, root_digest):
+    """Expected descriptive fields, not a certificate of completed execution."""
+
+    domains = parent.get("actual_frame_probes", [])
+    matches = tuple(p for p in domains if p.get("name") == "finite_chart")
+    if len(matches) != 1 or parent.get("root_artifact_digest") != root_digest:
+        raise ValueError("the original finite-domain prerequisite is incompatible")
+    probe = matches[0]
+    required = {
+        "schema": "alternate-metric-bounded-matrix-v1",
+        "bounded_support_artifact_digest": parent_digest,
+        "root_artifact_digest": root_digest,
+        "configuration_name": "finite_chart", "root_pair": [0, 0],
+        "chart_pivots": [0, 0, 0], "first_pivot_rows": [0, 2],
+        "second_pivot_rows": [0, 1, 2], "fiber_basis_labels": probe["fiber_basis_labels"],
+        "bound_bits": 80, "parameter_basis": ["a0", "a1"],
+        "original_constituent_counts": [2655, 2690],
+        "section_count": 5345, "coefficient_entry_count": 64140,
+        "matrix_archive": str(MATRIX.relative_to(fiber.lifts.first.ROOT)),
+        "complete_bounded_5345_column_matrix_materialized": True,
+        "single_certified_local_domain_only": True,
+        "independent_full_cochain_checks_from_parent": [2655],
+    }
+    for flag in (
+        "independent_all_column_full_cochain_replay_performed",
+        "practical_multi_point_integration_throughput_certified",
+        "bounded_section_and_density_evaluation_available",
+        "controlled_numerical_sampling_available", "numerical_metrics_available",
+        "physical_yukawas_available", "centers_are_exact_cover_points",
+        "extension_point_selected", "vacuum_selected", "observational_inputs_used",
+    ):
+        required[flag] = False
+    return required
+
+
+def _require_scope(record, required):
+    for key, expected in required.items():
+        # Canonical comparison also rejects numeric aliases of booleans and
+        # integer chart/basis labels; ordinary Python equality would accept them.
+        if key not in record or _canonical(record[key]) != _canonical(expected):
+            raise ValueError(f"completed matrix scientific scope is incompatible: {key}")
+
+
+def verify_completed_output(*, expected_digest):
+    """Audit actual completed files against an explicitly trusted execution hash.
+
+    This never launches or resumes a calculation, creates output, or promotes
+    a scientific gate. A caller must obtain the hash from completed execution
+    and still perform the governing state audit before recording COMPUTED.
+    """
+
+    digest, record = fiber._verified_payload(OUTPUT)
+    if digest != expected_digest:
+        raise ValueError("completed output differs from the trusted execution digest")
+    parent_digest, parent = fiber._verified_payload(support.OUTPUT)
+    root_digest, _roots = fiber._verified_payload(bounds.roots.OUTPUT)
+    _require_scope(record, _scope_fields(parent_digest, parent, root_digest))
+    if (record.get("matrix_archive_sha256") != _file_digest(MATRIX)
+        or type(record.get("matrix_archive_bytes")) is not int
+        or record["matrix_archive_bytes"] != MATRIX.stat().st_size):
+        raise ValueError("completed matrix archive bytes or compressed hash changed")
+    verified = verify_archive(MATRIX, bits=80)
+    _require_scope(record, verified)
+    probe = next(p for p in parent["actual_frame_probes"] if p["name"] == "finite_chart")
+    expected = {p["basis_index"]: p for p in probe["actual_universal_section_probes"]}
+    observed = set()
+    with gzip.open(MATRIX, "rb") as stream:
+        for line in stream:
+            column = json.loads(line)
+            index = column["basis_index"]
+            if index in expected:
+                if column != expected[index]:
+                    raise ValueError(
+                        "completed matrix changed an independently checked parent probe",
+                    )
+                observed.add(index)
+    if observed != set(expected):
+        raise ValueError("the complete archive omitted an original independently checked probe")
+    final_hash = _file_digest(MATRIX)
+    if final_hash != record["matrix_archive_sha256"]:
+        raise ValueError("the completed matrix archive changed during verification")
+    return {"artifact_digest": digest, "matrix_archive_sha256": final_hash,
+            **verified, "original_probe_indices_checked": sorted(observed),
+            "single_certified_local_domain_only": True,
+            "numerical_metrics_available": False, "physical_yukawas_available": False}
+
+
 def _install_unchanged_or_new(temporary, destination):
     if destination.exists():
         if _file_digest(destination) != _file_digest(temporary):

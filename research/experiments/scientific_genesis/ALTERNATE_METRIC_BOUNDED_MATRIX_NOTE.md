@@ -61,6 +61,18 @@ not claim an independent full-cochain replay of every column. Successful
 execution must still be audited with its actual hashes before the state
 marks the complete-matrix gate computed.
 
+The read-only `verify_completed_output` consumer requires an explicitly
+trusted completed-execution digest. It checks the metadata hash, original
+bounded-support and root parents, named domain, frame labels, row choices,
+parameter order, and exact scientific-scope flags. It independently reads
+all stored columns, compares their hashes and summaries, and requires
+byte-identical records for predecessor probes 0, 1273, and 2655. A final
+compressed hash check rejects changes during verification. Numeric aliases
+of booleans or integer chart labels cannot pass scope checks. Neither
+metadata-only contracts nor absence of a file can establish completion.
+This consumer does not launch calculations, create artifacts, promote
+governance claims, or replace the underlying mathematical certificates.
+
 One complete matrix on a single certified local domain is not global atlas
 coverage, measured practical multi-point throughput, a controlled proposal
 law, integration-error control, Ricci-flat/HYM convergence, harmonic matter

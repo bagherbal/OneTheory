@@ -1,0 +1,41 @@
+{
+  "all_sections_full_differential_closed": true,
+  "all_sections_strictly_p_t_invariant": true,
+  "artifact_digest": "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d",
+  "basis_proof": "injective subline basis plus lifts of the full quotient basis in H0",
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "chart_encoding": "each term repeats identically on all nine P2 x P2 vertex charts",
+  "coefficient_ring": "Z[omega], omega^2+omega+1=0",
+  "common_flat_character_twist": [
+    1,
+    2
+  ],
+  "exact_section_stream_sha256": "d7d904222c8de75ad2fe5b9481e3aaf617ee00715d9293802f8004765a8d2662",
+  "expanded_full_cover_term_count": 226530,
+  "first_constituent_section_basis_available": true,
+  "full_differential_template_count": 9,
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "physical_yukawas_available": false,
+  "prerequisite_artifact_digests": {
+    "generation": "3ca16bfa116c6b5530d73e74486eb196d37dbf9c0f7e75d445e84c41176fe063",
+    "quotient": "d6d1473742b89707284f86ad65a52deac89d5d15e26fbb9f94887f679c448824",
+    "subline": "73b91e7f16496bc32f5bd03903edd6d06fb0e6dc9dd8b13811ccd62f4fff5a73"
+  },
+  "quotient_lift_count": 1540,
+  "rank_four_section_basis_available": false,
+  "schema": "alternate-metric-first-serre-lifts-v1",
+  "second_constituent_section_basis_available": false,
+  "section_archive": "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz",
+  "section_archive_sha256": "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68",
+  "section_dimension": 2655,
+  "structural_compression_answer": "Yes: the F0 extension residual is polynomial on both planes and supported only on the P1 overlap; nine exact templates transport by plane monomials.",
+  "structural_compression_question": "Do polynomial plane factors transport all actual first Serre lifts?",
+  "subline_section_count": 1115,
+  "term_encoding": "[object_index, x_u_mu_nu_exponents, P1_vertex, [a,b]] for a+b*omega",
+  "twist_cover_degree": [
+    14,
+    16,
+    1
+  ]
+}

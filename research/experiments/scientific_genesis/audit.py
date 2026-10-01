@@ -3352,13 +3352,37 @@ def _nodes() -> list[dict[str, object]]:
             ("actual coordinate-point ideal", "source-checked ideal Koszul regularity"),
         ),
         _node(
+            "alternate_metric_first_serre_lifts",
+            "actual first constituent complete invariant section basis",
+            "Normalization",
+            "COMPUTED",
+            "At H=(14,16,1), nine actual full-differential lift templates "
+            "transport by polynomial plane factors to all 1540 first "
+            "Serre-quotient sections. Together with the 1115 subline "
+            "sections they give a complete 2655-vector V1 basis. Every "
+            "archived cochain has independent exact closure, repaired "
+            "deck-invariance, and quotient-image replay. V2 and rank-four "
+            "bases and numerical metrics remain missing.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
+                "data/generated/scientific_genesis/"
+                "alternate_metric_first_serre_lifts.sections.json.gz",
+                "research/experiments/scientific_genesis/alternate_metric_first_serre_lifts.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_FIRST_SERRE_LIFTS_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_metric_first_serre_lifts.py",
+            ),
+            ("actual non-split first Serre extension", "certified H0 quotient and subline bases"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
             "BLOCKED",
             "The alternate carrier is globally generated at a declared "
-            "ample twist. Its first Serre subline and quotient have actual "
-            "invariant bases, but the non-split Serre lifts, full carrier "
+            "ample twist. Its first constituent has a complete actual "
+            "2655-vector invariant section basis, but V2 and rank-four "
             "sections, and converged "
             "Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
@@ -5612,6 +5636,37 @@ def _edges() -> list[dict[str, object]]:
             ("determinant-repaired alternate carrier",),
             True,
             ("a quotient basis is not a lifted constituent or rank-four basis",),
+        ),
+        _edge(
+            "alternate_metric_first_subline_sections",
+            "alternate_metric_first_serre_lifts",
+            "The certified 1115-vector subline basis injects into the "
+            "first constituent and supplies the kernel of its H0 quotient map.",
+            ("data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",),
+            ("exact first Serre sequence",),
+            True,
+            ("subline sections alone do not span the constituent",),
+        ),
+        _edge(
+            "alternate_metric_first_quotient_sections",
+            "alternate_metric_first_serre_lifts",
+            "Nine actual full-complex P1 lift templates transport by "
+            "global plane polynomials, producing exact invariant lifts of "
+            "every certified quotient basis vector.",
+            ("data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",),
+            ("actual repaired first constituent", "source-checked polynomial residual shape"),
+            True,
+            ("discarding the nonsplit correction destroys full closure",),
+        ),
+        _edge(
+            "alternate_metric_first_serre_lifts",
+            "visible_metrics",
+            "The complete V1 section basis supplies one genuine constituent "
+            "input for the eventual rank-four metric construction.",
+            ("data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",),
+            ("selected heterotic UV realization",),
+            True,
+            ("V2 and rank-four lifts and metric convergence remain necessary",),
         ),
         _edge(
             "computable_carrier_state",
@@ -8981,6 +9036,45 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the actual first Serre quotient basis or scope is not certified")
+    first_lifts_path = ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json"
+    )
+    first_lifts = json.loads(first_lifts_path.read_text(encoding="utf-8"))
+    first_lifts_digest = first_lifts.pop("artifact_digest", None)
+    if (
+        first_lifts_digest != _canonical_digest(first_lifts)
+        or first_lifts_digest
+        != "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d"
+        or first_lifts.get("schema") != "alternate-metric-first-serre-lifts-v1"
+        or first_lifts.get("twist_cover_degree") != [14, 16, 1]
+        or first_lifts.get("common_flat_character_twist") != [1, 2]
+        or first_lifts.get("section_dimension") != 2655
+        or first_lifts.get("subline_section_count") != 1115
+        or first_lifts.get("quotient_lift_count") != 1540
+        or first_lifts.get("full_differential_template_count") != 9
+        or first_lifts.get("expanded_full_cover_term_count") != 226530
+        or first_lifts.get("coefficient_ring") != "Z[omega], omega^2+omega+1=0"
+        or first_lifts.get("section_archive") != (
+            "data/generated/scientific_genesis/"
+            "alternate_metric_first_serre_lifts.sections.json.gz"
+        )
+        or _sha256(ROOT / first_lifts["section_archive"])
+        != first_lifts.get("section_archive_sha256")
+        or first_lifts.get("prerequisite_artifact_digests") != {
+            "subline": subline_digest, "quotient": first_quotient_digest,
+            "generation": generation_digest,
+        }
+        or any(first_lifts.get(flag) is not True for flag in (
+            "all_sections_full_differential_closed", "all_sections_strictly_p_t_invariant",
+            "first_constituent_section_basis_available",
+        ))
+        or any(first_lifts.get(flag) is not False for flag in (
+            "second_constituent_section_basis_available", "rank_four_section_basis_available",
+            "numerical_metrics_available", "physical_yukawas_available",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual complete first-constituent section basis is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9281,6 +9375,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json",
         "data/generated/scientific_genesis/"
         "alternate_metric_first_quotient_sections.relations.json.gz",
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -9523,7 +9619,11 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_first_serre_quotient_basis_count": first_quotient[
                     "quotient_section_dimension"
                 ],
-                "alternate_metric_first_serre_lifts_remaining_count": 1540,
+                "alternate_metric_first_serre_lifts_remaining_count": 0,
+                "alternate_metric_first_constituent_section_basis_count": first_lifts[
+                    "section_dimension"
+                ],
+                "alternate_metric_first_constituent_section_basis_available": True,
                 "alternate_metric_first_resolution_ambient_generator_counts": [
                     item["ambient_invariant_generator_count"] for item in ambient_blocks
                 ],
@@ -9762,10 +9862,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "at H=(14,16,1), lift the 1540 actual first Serre-quotient "
-                "sections through the non-split extension and combine them "
-                "with the 1115 subline sections; "
-                "then complete V2 and rank-four bases before controlled "
+                "at H=(14,16,1), construct the 2690 actual alternate V2 "
+                "invariant sections, then lift them through the universal "
+                "outer extension using the complete 2655-vector V1 basis; "
+                "complete the rank-four section basis before controlled "
                 "Ricci-flat/HYM convergence tests"
             ),
         },

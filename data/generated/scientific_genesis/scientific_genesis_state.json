@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "b685cb0efbb819756064dcbb83f29e9b0f72d4d866f6f3956551117789deb8be",
+  "artifact_digest": "1d26a3456d4e8c725db522653ea31df5e79945b736f699c8ecf9307953511461",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -882,6 +882,16 @@
       "sha256": "875828ab32c7647f06b1f417e7227216178015c2b128be6152e5304b914f95a1"
     },
     {
+      "bytes": 2086,
+      "path": "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
+      "sha256": "aa1569924fd4c9b5174ea04dba1ef2dcaf336f6ec228d8f8be8455d1c7a0e960"
+    },
+    {
+      "bytes": 113776,
+      "path": "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz",
+      "sha256": "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -921,8 +931,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 264,
-    "test_python_files": 248
+    "research_python_files": 265,
+    "test_python_files": 249
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3754,6 +3764,25 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "actual non-split first Serre extension",
+        "certified H0 quotient and subline bases"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz",
+        "research/experiments/scientific_genesis/alternate_metric_first_serre_lifts.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIRST_SERRE_LIFTS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_first_serre_lifts.py"
+      ],
+      "id": "alternate_metric_first_serre_lifts",
+      "label": "actual first constituent complete invariant section basis",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "At H=(14,16,1), nine actual full-differential lift templates transport by polynomial plane factors to all 1540 first Serre-quotient sections. Together with the 1115 subline sections they give a complete 2655-vector V1 basis. Every archived cochain has independent exact closure, repaired deck-invariance, and quotient-image replay. V2 and rank-four bases and numerical metrics remain missing.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -3766,7 +3795,7 @@
         "explicit alternate-carrier invariant section bases",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Its first Serre subline and quotient have actual invariant bases, but the non-split Serre lifts, full carrier sections, and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Its first constituent has a complete actual 2655-vector invariant section basis, but V2 and rank-four sections, and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -6391,6 +6420,52 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "exact first Serre sequence"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "subline sections alone do not span the constituent"
+      ],
+      "mathematical_reason": "The certified 1115-vector subline basis injects into the first constituent and supplies the kernel of its H0 quotient map.",
+      "source": "alternate_metric_first_subline_sections",
+      "target": "alternate_metric_first_serre_lifts"
+    },
+    {
+      "assumptions_required": [
+        "actual repaired first constituent",
+        "source-checked polynomial residual shape"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "discarding the nonsplit correction destroys full closure"
+      ],
+      "mathematical_reason": "Nine actual full-complex P1 lift templates transport by global plane polynomials, producing exact invariant lifts of every certified quotient basis vector.",
+      "source": "alternate_metric_first_quotient_sections",
+      "target": "alternate_metric_first_serre_lifts"
+    },
+    {
+      "assumptions_required": [
+        "selected heterotic UV realization"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "V2 and rank-four lifts and metric convergence remain necessary"
+      ],
+      "mathematical_reason": "The complete V1 section basis supplies one genuine constituent input for the eventual rank-four metric construction.",
+      "source": "alternate_metric_first_serre_lifts",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -7438,11 +7513,13 @@
       "alternate_metric_constituents_globally_generated": true,
       "alternate_metric_explicit_invariant_basis_available": false,
       "alternate_metric_first_constituent_cover_generated": true,
+      "alternate_metric_first_constituent_section_basis_available": true,
+      "alternate_metric_first_constituent_section_basis_count": 2655,
       "alternate_metric_first_resolution_ambient_generator_counts": [
         13338,
         7524
       ],
-      "alternate_metric_first_serre_lifts_remaining_count": 1540,
+      "alternate_metric_first_serre_lifts_remaining_count": 0,
       "alternate_metric_first_serre_quotient_basis_count": 1540,
       "alternate_metric_first_subline_basis_count": 1115,
       "alternate_metric_large_generating_twist": [
@@ -8122,7 +8199,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "at H=(14,16,1), lift the 1540 actual first Serre-quotient sections through the non-split extension and combine them with the 1115 subline sections; then complete V2 and rank-four bases before controlled Ricci-flat/HYM convergence tests",
+    "next_required_object": "at H=(14,16,1), construct the 2690 actual alternate V2 invariant sections, then lift them through the universal outer extension using the complete 2655-vector V1 basis; complete the rank-four section basis before controlled Ricci-flat/HYM convergence tests",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

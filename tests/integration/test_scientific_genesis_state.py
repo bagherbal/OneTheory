@@ -104,6 +104,10 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "alternate-metric-first-quotient-sections-v1", "serre_lifts_constructed",
             "the actual first Serre quotient basis or scope is not certified",
         ),
+        (
+            "alternate-metric-first-serre-lifts-v1", "rank_four_section_basis_available",
+            "the actual complete first-constituent section basis is not certified",
+        ),
     ),
 )
 def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
@@ -744,10 +748,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "at H=(14,16,1), lift the 1540 actual first Serre-quotient "
-        "sections through the non-split extension and combine them "
-        "with the 1115 subline sections; "
-        "then complete V2 and rank-four bases before controlled "
+        "at H=(14,16,1), construct the 2690 actual alternate V2 "
+        "invariant sections, then lift them through the universal "
+        "outer extension using the complete 2655-vector V1 basis; "
+        "complete the rank-four section basis before controlled "
         "Ricci-flat/HYM convergence tests"
     )
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
@@ -770,7 +774,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     ]
     assert claims["alternate_metric_first_quotient_sections"]["status"] == "COMPUTED"
     assert path["criteria"]["alternate_metric_first_serre_quotient_basis_count"] == 1540
-    assert path["criteria"]["alternate_metric_first_serre_lifts_remaining_count"] == 1540
+    assert claims["alternate_metric_first_serre_lifts"]["status"] == "COMPUTED"
+    assert path["criteria"]["alternate_metric_first_serre_lifts_remaining_count"] == 0
+    assert path["criteria"]["alternate_metric_first_constituent_section_basis_count"] == 2655
+    assert path["criteria"]["alternate_metric_first_constituent_section_basis_available"] is True
     assert path["criteria"]["alternate_metric_constituents_globally_generated"] is True
     assert path["criteria"]["alternate_metric_rank_four_globally_generated"] is True
     assert path["criteria"]["alternate_metric_explicit_invariant_basis_available"] is False

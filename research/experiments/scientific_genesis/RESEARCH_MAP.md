@@ -1216,9 +1216,9 @@ exact monomial orbit sums give 1995 invariant ambient vectors; the
 invariant relation space has rank 880, leaving an explicit 1115-vector
 quotient basis. Independent rank specialization modulo 7 verifies the
 chosen complement. See `ALTERNATE_METRIC_FIRST_SUBLINE_SECTIONS_NOTE.md`.
-This does not construct the remaining 1540 first Serre-quotient
-sections, their non-split lifts, the 2690 second-constituent sections,
-or any rank-four metric.
+This subline result alone does not construct quotient sections or non-split
+lifts. Those two first-constituent prerequisites are now closed below;
+the 2690 second-constituent sections and rank-four metric remain open.
 
 Both actual first-resolution ambient invariant blocks are now explicit:
 13,338 F0 vectors at degree `(11,17,2)` and 7,524 F1 vectors at
@@ -1229,10 +1229,9 @@ two-coordinate mixing action. Disjoint orbit supports and canonical
 orbit projection prove basis independence and spanning. Independent
 integer-pair arithmetic replays every vector and both full stream
 hashes. See `ALTERNATE_METRIC_FIRST_RESOLUTION_AMBIENT_SECTIONS_NOTE.md`.
-The next computation is the invariant Schoen/Koszul and Hilbert–Burch
-quotient, with restricted block dimensions 3,768 and 2,228, followed
-by the 1,540 quotient sections' genuine Serre lifts. Ambient vectors
-are not a complete constituent section basis or a numerical metric.
+The subsequent invariant Schoen/Koszul ideal quotient and genuine Serre
+lifts are now constructed below. Ambient vectors alone are not a complete
+constituent section basis or a numerical metric.
 
 The actual first Serre quotient now has its full 1,540-vector invariant
 section basis. Its source Hilbert–Burch map identifies the cokernel
@@ -1246,6 +1245,25 @@ vectors, 5,114 exact relation columns, and 840 syzygies. A nonzero
 complementary 1,540 exact Q(omega) orbit sections. Every relation
 image and the transposed minor are independently verified. See
 `ALTERNATE_METRIC_FIRST_QUOTIENT_SECTIONS_NOTE.md`. This is a genuine
-quotient basis, but its non-split Serre lifts remain missing. The
-next object is those 1,540 lifts combined with the existing 1,115
-subline sections; the full V1/V2/rank-four metric input is still open.
+quotient basis, whose non-split lifts are now constructed below. The
+quotient basis alone was not a full constituent or rank-four metric input.
+
+The first constituent now has its complete **2,655-vector invariant section
+basis** at `H=(14,16,1)`: 1,115 injected subline sections and 1,540 actual
+non-split quotient lifts. Ten spread probes triggered structural compression.
+The actual F0-to-subline arrows are polynomial in both plane factors and
+have only the P1-overlap pole `1/(mu*nu)`. Nine low-degree generator/P1
+templates solve the genuine full differential once; polynomial factors
+transport them to every required label. Every archived section is independently
+replayed over `Z[omega]` for exact closure, both repaired deck actions, and
+its prescribed quotient image. The H0 exact sequence proves independence
+and spanning without a large invented rank test. The two Laurent-pole
+directions and regular middle case also agree with the separate full-cover
+homotopy engine. See `ALTERNATE_METRIC_FIRST_SERRE_LIFTS_NOTE.md`.
+
+The next object is the **actual alternate V2** 2,690-vector invariant section
+basis, not the published reference constituent. Its sections must then be
+lifted through the universal outer extension and combined with V1 to obtain
+the 5,345-vector rank-four basis. Controlled Ricci-flat/HYM convergence,
+physical Yukawa normalization, common-vacuum stabilization, and the
+Genesis-to-UV derivation remain unresolved.

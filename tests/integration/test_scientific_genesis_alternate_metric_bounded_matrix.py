@@ -2,7 +2,8 @@
 
 Owns:
     Original index/parameter ordering, rational-radius validation, truncated
-    archive rejection, and preservation of different existing scientific files.
+    archive rejection, actual completed execution checks, and preservation of
+    different existing scientific files.
 
 Depends on:
     Actual predecessor section probes, the independent streaming validator,
@@ -14,7 +15,7 @@ Must not:
     artifacts, or infer sampling, metrics, or physical predictions.
 
 Phase 0:
-    Research archive tests; completed scientific output needs separate evidence.
+    Research archive tests; single-domain completion does not establish metrics.
 """
 
 import copy
@@ -180,3 +181,22 @@ def test_metadata_hash_cannot_replace_missing_completed_archive(tmp_path, monkey
     monkeypatch.setattr(matrix, "OUTPUT", meta)
     with pytest.raises(FileNotFoundError):
         matrix.verify_completed_output(expected_digest=digest)
+
+
+def test_actual_completed_execution_has_all_original_columns_and_parent_probes():
+    verified = matrix.verify_completed_output(
+        expected_digest="88cc1d553baa2a00a8f9c105d1ecab52d18d9c9a3e73042b617161253e09688a",
+    )
+    assert verified["matrix_archive_sha256"] == (
+        "3f0b600967c9b61d060c2c5d13f51d8b6e5e549bf50600ca6cd813d387e9afce"
+    )
+    assert verified["exact_column_stream_sha256"] == (
+        "88bc48fda6bdaed2368ece1f8394920a68bed0e04d318a0a5cbd7e0a6d57b53d"
+    )
+    assert verified["section_count"] == 5345
+    assert verified["coefficient_entry_count"] == 64140
+    assert verified["uncertain_entry_count"] == 21430
+    assert verified["original_probe_indices_checked"] == [0, 1273, 2655]
+    assert verified["single_certified_local_domain_only"] is True
+    assert verified["numerical_metrics_available"] is False
+    assert verified["physical_yukawas_available"] is False

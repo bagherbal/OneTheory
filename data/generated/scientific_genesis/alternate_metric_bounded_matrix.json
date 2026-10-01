@@ -1,0 +1,64 @@
+{
+  "artifact_digest": "88cc1d553baa2a00a8f9c105d1ecab52d18d9c9a3e73042b617161253e09688a",
+  "bound_bits": 80,
+  "bounded_section_and_density_evaluation_available": false,
+  "bounded_support_artifact_digest": "648135531c44d0790e19b42093b11786d8e5f387926e0dc0c261aea34f9940a8",
+  "centers_are_exact_cover_points": false,
+  "chart_pivots": [
+    0,
+    0,
+    0
+  ],
+  "coefficient_entry_count": 64140,
+  "complete_bounded_5345_column_matrix_materialized": true,
+  "configuration_name": "finite_chart",
+  "controlled_numerical_sampling_available": false,
+  "exact_column_stream_sha256": "88bc48fda6bdaed2368ece1f8394920a68bed0e04d318a0a5cbd7e0a6d57b53d",
+  "extension_point_selected": false,
+  "fiber_basis_labels": [
+    "V1:F0:0",
+    "V1:F0:2",
+    "V2:F0:2",
+    "V2:F0:3"
+  ],
+  "first_pivot_rows": [
+    0,
+    2
+  ],
+  "independent_all_column_full_cochain_replay_performed": false,
+  "independent_full_cochain_checks_from_parent": [
+    2655
+  ],
+  "largest_coefficient_radius": "841026448450145274475357975/604462909807314587353088",
+  "matrix_archive": "data/generated/scientific_genesis/alternate_metric_bounded_matrix.columns.jsonl.gz",
+  "matrix_archive_bytes": 15498391,
+  "matrix_archive_sha256": "3f0b600967c9b61d060c2c5d13f51d8b6e5e549bf50600ca6cd813d387e9afce",
+  "next_required_object": "control multi-point cost, SU-uniform proposal precision, integration error, and Ricci-flat/HYM convergence; keep the common vacuum unresolved",
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "original_constituent_counts": [
+    2655,
+    2690
+  ],
+  "parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "physical_yukawas_available": false,
+  "practical_multi_point_integration_throughput_certified": false,
+  "root_artifact_digest": "cc160262ba3ca6d389c28b1ea2b42c49372d5e47ce90af93ab00ab60cab6ebdf",
+  "root_pair": [
+    0,
+    0
+  ],
+  "schema": "alternate-metric-bounded-matrix-v1",
+  "second_pivot_rows": [
+    0,
+    1,
+    2
+  ],
+  "section_count": 5345,
+  "single_certified_local_domain_only": true,
+  "uncertain_entry_count": 21430,
+  "vacuum_selected": false
+}

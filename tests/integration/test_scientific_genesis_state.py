@@ -44,6 +44,30 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         *tuple(
+            ("alternate-metric-global-weight-bound-v1", field,
+             "the global auxiliary weight bound or its scope is not certified")
+            for field in (
+                "point_grid_used_as_proof", "practical_sampling_cost_certified",
+                "controlled_numerical_sampling_available",
+                "complete_global_input_coverage_certified",
+                "matrix_integrand_bounds_available", "numerical_metrics_available",
+                "physical_yukawas_available", "physical_kahler_class_selected", "vacuum_selected",
+                "observational_inputs_used",
+            )
+        ),
+        *tuple(
+            ("alternate-metric-bounded-matrix-v1", field,
+             "completed output differs from the trusted execution digest")
+            for field in (
+                "independent_all_column_full_cochain_replay_performed",
+                "practical_multi_point_integration_throughput_certified",
+                "bounded_section_and_density_evaluation_available",
+                "controlled_numerical_sampling_available", "numerical_metrics_available",
+                "physical_yukawas_available", "centers_are_exact_cover_points",
+                "extension_point_selected", "vacuum_selected", "observational_inputs_used",
+            )
+        ),
+        *tuple(
             ("alternate-metric-projection-free-weights-v1", field,
              "the projection-free weights or their scientific scope are not certified")
             for field in (
@@ -915,12 +939,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "certify complete bounded matrix output and practical multi-point "
-        "throughput using the actual universal quotient frames; "
-        "derive a quantitative global conormal lower bound for projection-free "
-        "positive-law weights and implement controlled independent "
+        "certify practical multi-point throughput using the actual universal "
+        "quotient frames and completed single-domain output; use the exact "
+        "global auxiliary weight bound to implement controlled independent "
         "SU-uniform proposals with certified input coverage and "
-        "integration-error control, then "
+        "actual matrix integrand bounds and integration-error control, then "
         "certify Ricci-flat/HYM "
         "convergence without choosing physical moduli by hand"
     )
@@ -954,15 +977,17 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_metric_positive_law_ideal_weight_globally_bounded"] is True
     assert path["criteria"][
         "alternate_metric_positive_law_quantitative_global_bound_available"
-    ] is False
+    ] is True
+    assert claims["alternate_metric_global_weight_bound"]["status"] == "DERIVED"
+    assert path["criteria"][
+        "alternate_metric_positive_law_quantitative_ideal_weight_variance_bound_available"
+    ] is True
     assert path["criteria"]["alternate_metric_critical_fiber_chart_enclosures_available"] is False
     assert path["criteria"]["alternate_metric_weight_second_moment_finite"] is True
     assert path["criteria"]["alternate_metric_weight_third_moment_finite"] is False
     assert path["criteria"]["alternate_metric_quantitative_variance_bound_available"] is False
-    assert claims["alternate_metric_bounded_matrix"]["status"] == "BLOCKED"
-    assert "completed content-addressed 5345-column bounded archive" in claims[
-        "alternate_metric_bounded_matrix"
-    ]["missing_prerequisites"]
+    assert claims["alternate_metric_bounded_matrix"]["status"] == "COMPUTED"
+    assert claims["alternate_metric_bounded_matrix"]["missing_prerequisites"] == []
     assert path["criteria"][
         "alternate_metric_certified_chart_and_density_enclosures_available"
     ] is True
@@ -977,7 +1002,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     ] is False
     assert path["criteria"][
         "alternate_metric_complete_bounded_5345_column_matrix_materialized"
-    ] is False
+    ] is True
     assert path["criteria"][
         "alternate_metric_certified_Qomega_intersection_roots_available"
     ] is True

@@ -28,7 +28,7 @@ fibers. These 18 domains retain exact point-line membership, explicit coordinate
 orders, signed residues, and the unchanged FS-cube density. Independent full
 wedge determinants, regular-chart overlap Jacobians, base-pivot transitions,
 and precision refinement check the calculation. Triangle-node input
-certificates, complete global coverage, a quantitative global weight bound,
+certificates and complete global numerical input coverage,
 controlled uniform proposals, integration errors, and Ricci-flat/HYM convergence
 remain open. Regression points do not select physical moduli or become samples.
 See `ALTERNATE_METRIC_CRITICAL_CHARTS_NOTE.md`.
@@ -41,8 +41,21 @@ choosing a tangent basis. Exact full ambient determinant checks and all 36
 declared regular/axis-critical domains reproduce the old weights. The formula
 applies on smooth cover charts; its numerical certification still requires
 actual input certificates and a positive full-Gram interval. A global conormal
-lower bound, controlled proposals, integration errors, and metric convergence
-remain open. See `ALTERNATE_METRIC_PROJECTION_FREE_WEIGHTS_NOTE.md`.
+lower bound is now certified separately by homogeneous polynomial identities.
+Controlled proposals, integration errors, and metric convergence remain open.
+See `ALTERNATE_METRIC_PROJECTION_FREE_WEIGHTS_NOTE.md` and
+`ALTERNATE_METRIC_GLOBAL_WEIGHT_BOUND_NOTE.md`.
+
+The global certificate saves every surface-gradient, fiber-gradient, and base
+separation multiplier. Independent Fraction-pair multiplication checks all
+identities and recomputes conservative exact weight and ideal variance bounds.
+This covers the unchanged auxiliary law globally, not missing numerical input
+certificates or matrix integrand bounds. The complete bounded matrix now stores
+all 5,345 original columns on one declared regression domain. Its read-only
+consumer checks both stream hashes, every record, and the three predecessor
+probes. Practical multi-point throughput, relative accuracy, independent
+SU-uniform proposals, integration errors, and Ricci-flat/HYM convergence remain
+unresolved; no physical parameter or vacuum is selected.
 
 The current pair-73 frontier includes exact universal extension, chain-lift,
 algebraic-locus, and necessary stability-wall artifacts. The forced subobjects

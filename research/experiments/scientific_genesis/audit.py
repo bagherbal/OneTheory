@@ -5,7 +5,8 @@ Owns:
     scoped results, structural questions, and a research-value scheduler.
 
 Depends on:
-    Standard-library inspection of repository sources and generated artifacts.
+    Standard-library inspection of repository sources and generated artifacts,
+    plus the research-only read-only consumer of completed bounded output.
 
 Must not:
     Infer scientific truth from file presence, choose an extension coordinate,
@@ -3610,6 +3611,23 @@ def _nodes() -> list[dict[str, object]]:
             ("same actual smooth cover", "unchanged positive auxiliary law"),
         ),
         _node(
+            "alternate_metric_global_weight_bound",
+            "quantitative global positive-law weight bound from polynomial identities",
+            "Normalization",
+            "DERIVED",
+            "Full homogeneous polynomial certificates for the original surface "
+            "gradients and disjoint critical supports give an explicit positive "
+            "global conormal lower bound. Independent Fraction-pair convolution "
+            "checks every saved identity. The auxiliary positive-law weight and "
+            "its ideal variance have conservative quantitative bounds, not "
+            "practical sampling costs, matrix integrand bounds, or physical metrics.",
+            ("data/generated/scientific_genesis/alternate_metric_global_weight_bound.json",
+             "research/experiments/scientific_genesis/alternate_metric_global_weight_bound.py",
+             "research/experiments/scientific_genesis/ALTERNATE_METRIC_GLOBAL_WEIGHT_BOUND_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_metric_global_weight_bound.py"),
+            ("same actual pencils", "unit homogeneous representatives for auxiliary FS norms"),
+        ),
+        _node(
             "alternate_metric_projective_roots",
             "certified complete projective intersections for exact sampling inputs",
             "Normalization",
@@ -3686,8 +3704,9 @@ def _nodes() -> list[dict[str, object]]:
             "zeros remain present and the actual finite filtration controls "
             "termination. Every original basis index is accepted. Three "
             "indices are saved on finite and infinity domains, with independent "
-            "full-cochain and exact archive checks. The complete bounded matrix, "
-            "practical multi-point throughput, sampling, and metrics remain open.",
+            "full-cochain and exact archive checks. This predecessor packet "
+            "does not materialize the complete matrix; the separate complete-output "
+            "certificate supplies that gate. Multi-point throughput remains open.",
             (
                 "data/generated/scientific_genesis/alternate_metric_bounded_support.json",
                 "research/experiments/scientific_genesis/alternate_metric_bounded_support.py",
@@ -3701,25 +3720,24 @@ def _nodes() -> list[dict[str, object]]:
             "alternate_metric_bounded_matrix",
             "complete bounded original section output on a certified local domain",
             "Normalization",
-            "BLOCKED",
-            "A deterministic complete-output writer consumes the existing "
-            "bounded all-index evaluator without changing any sections. "
-            "Every original column must be produced, the entire stored "
-            "stream independently parsed, and its trusted execution digest, "
-            "parents, scope, and original probe records audited by the "
-            "read-only consumer before this gate can be computed. "
-            "Passing format tests or running the writer is not evidence of "
-            "completed matrix materialization. Single-domain output cannot "
-            "establish sampling or metric convergence.",
+            "COMPUTED",
+            "All 5345 original bounded columns are stored on the declared "
+            "finite-chart domain at the original 80-bit radius mesh. The "
+            "read-only consumer independently parses every column, verifies "
+            "compressed and raw stream hashes, original parents and frame labels, "
+            "and exact agreement with predecessor probes 0,1273,2655. "
+            "Single-domain completion does not certify practical multi-point "
+            "throughput, requested relative accuracy, sampling, or metrics.",
             (
+                "data/generated/scientific_genesis/alternate_metric_bounded_matrix.json",
+                "data/generated/scientific_genesis/"
+                "alternate_metric_bounded_matrix.columns.jsonl.gz",
                 "research/experiments/scientific_genesis/alternate_metric_bounded_matrix.py",
                 "research/experiments/scientific_genesis/ALTERNATE_METRIC_BOUNDED_MATRIX_NOTE.md",
                 "tests/integration/test_scientific_genesis_alternate_metric_bounded_matrix.py",
             ),
             ("actual original basis ordering", "certified determinant-invertible local domain",
              "same bounded evaluator", "independent complete stream validation"),
-            missing=("completed content-addressed 5345-column bounded archive",
-                     "verified complete-output hashes and scientific scope"),
         ),
         _node(
             "visible_metrics",
@@ -3738,8 +3756,9 @@ def _nodes() -> list[dict[str, object]]:
             "and universal quotient frames now have certified bounds on declared "
             "pivot domains. Full original-cochain section evaluation is bounded "
             "on demand. The original finite-pole engine also carries certified "
-            "coefficient bounds for every archived index; three-index packets "
-            "on finite/infinity domains are not a complete bounded matrix. "
+            "coefficient bounds for every archived index. The complete bounded "
+            "matrix is certified on one declared domain, and exact polynomial "
+            "identities give a conservative global auxiliary weight bound. "
             "Practical multi-point throughput, controlled sampling "
             "and converged Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
@@ -6442,6 +6461,40 @@ def _edges() -> list[dict[str, object]]:
             ("an auxiliary integration weight is not a physical metric",),
         ),
         _edge(
+            "alternate_metric_projection_free_weights",
+            "alternate_metric_global_weight_bound",
+            "The intrinsic positive conormal denominator reduces the global "
+            "weight bound to exact lower bounds for homogeneous gradient norms.",
+            ("research/experiments/scientific_genesis/"
+             "ALTERNATE_METRIC_GLOBAL_WEIGHT_BOUND_NOTE.md",),
+            ("quantitative polynomial certificates", "unchanged residue normalization"),
+            True,
+            ("a loose certified bound may be impractical for integration",),
+        ),
+        _edge(
+            "alternate_metric_weight_moments",
+            "alternate_metric_global_weight_bound",
+            "The two coprime exact critical supports admit homogeneous Bezout "
+            "identities which quantitatively separate small fiber gradients.",
+            ("research/experiments/scientific_genesis/alternate_metric_global_weight_bound.py",),
+            ("actual homogeneous gradient identities", "exact coefficient norm estimates"),
+            True,
+            ("coprimality alone supplies no numerical lower bound",),
+        ),
+        _edge(
+            "alternate_metric_global_weight_bound",
+            "visible_metrics",
+            "An explicit global weight bound can support integration error "
+            "control only after independent proposals, certified numeric inputs, "
+            "integrand bounds, section throughput, and metric convergence.",
+            ("research/experiments/scientific_genesis/"
+             "ALTERNATE_METRIC_GLOBAL_WEIGHT_BOUND_NOTE.md",),
+            ("correct proposal law", "controlled numeric error", "actual integrand bounds",
+             "Ricci-flat/HYM convergence"),
+            True,
+            ("bounded weights alone do not certify matrix integrands or a metric",),
+        ),
+        _edge(
             "alternate_metric_bounded_support",
             "alternate_metric_bounded_matrix",
             "Complete ordered execution materializes each original section's "
@@ -7626,10 +7679,10 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             "Use the actual residue and normalized FS measure with the bounded "
-            "all-index evaluator and certified density/frame bounds; finish "
-            "complete bounded output and measure multi-point cost, then implement "
-            "the positive auxiliary SU-uniform mixture with quantitative "
-            "global weight bounds, critical-chart coverage, and error control; "
+            "all-index evaluator and certified complete single-domain output; "
+            "measure multi-point cost, then implement the positive auxiliary "
+            "SU-uniform mixture using the quantitative global weight bound, "
+            "certified inputs, actual matrix integrand bounds, and error control; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
@@ -10311,6 +10364,48 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the projection-free weights or their scientific scope are not certified")
+    global_record = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_global_weight_bound.json"
+    )).read_text(encoding="utf-8"))
+    global_digest = global_record.pop("artifact_digest", None)
+    if (
+        global_digest != _canonical_digest(global_record)
+        or global_digest != "96e3d216aa6157dab686069b095e304de5f7e9600348f42c00fff0691986c0f4"
+        or global_record.get("schema") != "alternate-metric-global-weight-bound-v1"
+        or global_record.get("projection_free_weight_artifact_digest") != weight_digest
+        or global_record.get("moment_artifact_digest") != moment_digest
+        or global_record.get("surface_coordinate_order") != ["x0", "x1", "x2", "mu", "nu"]
+        or global_record.get("base_coordinate_order") != ["mu", "nu"]
+        or global_record.get("normalized_volume_scale") != ["1", "0"]
+        or global_record.get("covering_degree") != 9
+        or global_record.get("conormal_lower_bound")
+        != "12141615721/955235133932696537923584"
+        or global_record.get("cover_weight_upper_without_pi_cubed")
+        != "11462821607192358455083008/12141615721"
+        or [(c.get("rows"), c.get("columns"), c.get("rank"), len(c.get("identities", [])))
+            for c in global_record.get("surface_certificates", [])]
+        != [(45, 54, 45, 6)] * 2
+        or [len(c.get("identities", []))
+            for c in global_record.get("fiber_gradient_certificates", [])] != [3, 3]
+        or global_record.get("base_separation_certificate", {}).get("rank") != 12
+        or global_record.get("proof") != (
+            "research/experiments/scientific_genesis/ALTERNATE_METRIC_GLOBAL_WEIGHT_BOUND_NOTE.md"
+        )
+        or global_record.get("proof_sha256") != _sha256(ROOT / global_record["proof"])
+        or any(global_record.get(flag) is not True for flag in (
+            "full_polynomial_identities_verified", "quantitative_global_weight_bound_available",
+            "quantitative_ideal_weight_variance_bound_available",
+        ))
+        or any(global_record.get(flag) is not False for flag in (
+            "point_grid_used_as_proof", "practical_sampling_cost_certified",
+            "controlled_numerical_sampling_available", "complete_global_input_coverage_certified",
+            "matrix_integrand_bounds_available", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected",
+            "physical_kahler_class_selected",
+            "vacuum_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the global auxiliary weight bound or its scope is not certified")
     root_record = json.loads((ROOT / (
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json"
     )).read_text(encoding="utf-8"))
@@ -10457,6 +10552,21 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("bounded original support evaluation or its scope is not certified")
+    # The completed execution is evidence only after consuming the actual archive.
+    # This imports research from research, never into production.
+    from . import alternate_metric_bounded_matrix as completed_matrix
+
+    complete_matrix = completed_matrix.verify_completed_output(
+        expected_digest="88cc1d553baa2a00a8f9c105d1ecab52d18d9c9a3e73042b617161253e09688a",
+    )
+    if (
+        complete_matrix["matrix_archive_sha256"]
+        != "3f0b600967c9b61d060c2c5d13f51d8b6e5e549bf50600ca6cd813d387e9afce"
+        or complete_matrix["exact_column_stream_sha256"]
+        != "88bc48fda6bdaed2368ece1f8394920a68bed0e04d318a0a5cbd7e0a6d57b53d"
+        or complete_matrix["original_probe_indices_checked"] != [0, 1273, 2655]
+    ):
+        raise ValueError("completed bounded matrix execution is not independently certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -10772,10 +10882,13 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_positive_measure.json",
         "data/generated/scientific_genesis/alternate_metric_critical_charts.json",
         "data/generated/scientific_genesis/alternate_metric_projection_free_weights.json",
+        "data/generated/scientific_genesis/alternate_metric_global_weight_bound.json",
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
         "data/generated/scientific_genesis/alternate_metric_enclosures.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_support.json",
+        "data/generated/scientific_genesis/alternate_metric_bounded_matrix.json",
+        "data/generated/scientific_genesis/alternate_metric_bounded_matrix.columns.jsonl.gz",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -11046,7 +11159,9 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_quantitative_variance_bound_available": False,
                 "alternate_metric_positive_auxiliary_law_derived": True,
                 "alternate_metric_positive_law_ideal_weight_globally_bounded": True,
-                "alternate_metric_positive_law_quantitative_global_bound_available": False,
+                "alternate_metric_positive_law_quantitative_global_bound_available": True,
+                "alternate_metric_positive_law_"
+                "quantitative_ideal_weight_variance_bound_available": True,
                 "alternate_metric_critical_fiber_chart_enclosures_available": False,
                 "alternate_metric_declared_critical_fiber_chart_enclosures_available": True,
                 "alternate_metric_complete_global_atlas_coverage_certified": False,
@@ -11059,7 +11174,7 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_bounded_universal_fiber_frame_available": True,
                 "alternate_metric_on_demand_original_cochain_section_bounds_available": True,
                 "alternate_metric_compressed_complete_section_enclosure_engine_available": True,
-                "alternate_metric_complete_bounded_5345_column_matrix_materialized": False,
+                "alternate_metric_complete_bounded_5345_column_matrix_materialized": True,
                 "alternate_metric_practical_multi_point_integration_throughput_certified": False,
                 "alternate_metric_bounded_section_and_density_evaluation_available": False,
                 "alternate_metric_controlled_numerical_sampling_available": False,
@@ -11295,12 +11410,11 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "certify complete bounded matrix output and practical multi-point "
-                "throughput using the actual universal quotient frames; "
-                "derive a quantitative global conormal lower bound for projection-free "
-                "positive-law weights and implement controlled independent "
+                "certify practical multi-point throughput using the actual universal "
+                "quotient frames and completed single-domain output; use the exact "
+                "global auxiliary weight bound to implement controlled independent "
                 "SU-uniform proposals with certified input coverage and "
-                "integration-error control, then "
+                "actual matrix integrand bounds and integration-error control, then "
                 "certify Ricci-flat/HYM "
                 "convergence without choosing physical moduli by hand"
             ),
@@ -11309,6 +11423,12 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "exact homogeneous surface-gradient and critical-support identities "
+            "give a quantitative global positive-law conormal lower bound and "
+            "ideal auxiliary weight variance bound without sampling or physical moduli selection",
+            "all 5345 original bounded columns are materialized on one declared "
+            "local domain; compressed/raw hashes, complete stream parsing, and "
+            "three predecessor probes are independently checked",
             "a Hermitian Schur-complement identity yields projection-free "
             "positive-law weights from the full ambient conormal Gram; the "
             "original sparse Jacobian has a positive three-term determinant "
@@ -11319,8 +11439,9 @@ def build_state() -> dict[str, object]:
             "or a complete global numerical atlas",
             "the positive ambient FS-cube auxiliary law has mass 72 and exact "
             "projective mixture probabilities 3/4,1/8,1/8; its ideal weights "
-            "are bounded on the unchanged compact cover without computing "
-            "a numerical bound or selecting physical Kahler moduli",
+            "are bounded on the unchanged compact cover; a separate full "
+            "polynomial certificate now gives a conservative exact bound "
+            "without selecting physical Kahler moduli",
             "the actual A/9 importance weight has finite nonnegative moments "
             "exactly below order three; its finite variance has no numerical "
             "upper bound yet, so quantitative sampling-error control remains open",
@@ -11657,7 +11778,7 @@ def build_state() -> dict[str, object]:
             "practical multi-point throughput and numerical sampling remain uncertified",
             "original finite-pole evaluation carries certified coefficient bounds "
             "for every archived index; finite/infinity three-index packets are "
-            "not a materialized complete bounded matrix or a sampling law",
+            "not a sampling law; complete single-domain output is now separately certified",
         ],
         "blocked_physical_calculations": [
             "equivariantly trivial quotient determinant with preserved Wilson spectrum",
@@ -11725,8 +11846,9 @@ def build_state() -> dict[str, object]:
                 "attack": (
                     "normalization is not implemented or certified. Its modest "
                     "key-count reduction does not justify replacing the verified "
-                    "engine before complete single-domain output is measured; "
-                    "run the genuine complete-output gate without inferring metrics"
+                    "engine for controlled integration without a certified "
+                    "cost/accuracy improvement. Complete single-domain output "
+                    "is now verified; practical multi-point throughput remains open"
                 ),
             },
             {

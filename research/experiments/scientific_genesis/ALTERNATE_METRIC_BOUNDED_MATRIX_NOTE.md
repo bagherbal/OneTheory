@@ -1,7 +1,8 @@
 # Complete bounded output on a declared local domain
 
-The next open edge is actual complete output of the existing bounded
-all-index evaluator. This experiment does not change that evaluator,
+The complete output of the existing bounded all-index evaluator is now
+materialized and independently consumed on one declared domain.
+This experiment does not change that evaluator,
 the carrier, its 5,345-section basis, the outer lifting series, the
 symbolic extension parameters, or any normalization convention.
 
@@ -80,3 +81,17 @@ metrics, or a common stabilized vacuum. It supplies none of the remaining
 holomorphic flavor sectors and does not derive Genesis-to-UV. Physical
 Yukawa, sampling, metric, moduli-selection, and observational-input flags
 remain false.
+
+## Completed execution checkpoint
+
+The original writer finished all 5,345 columns in 12,143.715 seconds on the
+local run. This timing is execution evidence, not a multi-point cost guarantee.
+Metadata digest: `88cc1d553baa2a00a8f9c105d1ecab52d18d9c9a3e73042b617161253e09688a`.
+Compressed SHA-256: `3f0b600967c9b61d060c2c5d13f51d8b6e5e549bf50600ca6cd813d387e9afce`.
+Raw stream SHA-256: `88bc48fda6bdaed2368ece1f8394920a68bed0e04d318a0a5cbd7e0a6d57b53d`.
+The consumer independently confirms 64,140 coefficient entries, 21,430 with
+nonzero radii, and unchanged predecessor records 0, 1273, and 2655. The largest
+stored radius is
+`841026448450145274475357975/604462909807314587353088`; this output does not
+certify a requested relative accuracy. Neither partial streams nor parser
+fixtures are used as completion evidence.

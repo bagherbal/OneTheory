@@ -44,6 +44,14 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         (
+            "alternate-metric-specialized-evaluation-v1", "numerical_metrics_available",
+            "complete exact section evaluation or scope is not certified",
+        ),
+        (
+            "alternate-metric-specialized-evaluation-v1", "controlled_numerical_sampling_available",
+            "complete exact section evaluation or scope is not certified",
+        ),
+        (
             "alternate-metric-fiber-evaluation-v1", "numerical_metrics_available",
             "actual local rank-four fiber evaluation or scope is not certified",
         ),
@@ -769,9 +777,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "develop controlled full-basis evaluation and sampling from the actual "
-        "rank-four evaluator, then certify Ricci-flat/HYM convergence without "
-        "choosing physical moduli by hand"
+        "develop controlled geometric sampling and reusable section evaluation "
+        "from the complete exact point matrix, then certify Ricci-flat/HYM "
+        "convergence without choosing physical moduli by hand"
     )
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_up_holomorphic_rank_three_locus"] == "a1 != 0"
@@ -814,9 +822,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_metric_local_rank_four_evaluation_available"] is True
     assert path["criteria"][
         "alternate_metric_complete_point_evaluation_matrix_materialized"
-    ] is False
+    ] is True
+    assert claims["alternate_metric_specialized_evaluation"]["status"] == "COMPUTED"
+    assert path["criteria"]["alternate_metric_controlled_numerical_sampling_available"] is False
     assert claims["visible_metrics"]["status"] == "BLOCKED"
-    assert "controlled full-basis evaluation and metric sampling" in (
+    assert "controlled numerical full-basis evaluation and metric sampling" in (
         claims["visible_metrics"]["missing_prerequisites"]
     )
     assert claims["physical_yukawas"]["status"] == "BLOCKED"

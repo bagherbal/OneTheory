@@ -1,0 +1,80 @@
+{
+  "actual_spanning_minor_all_parameters": "1/81",
+  "all_probe_coefficients_match_full_cochain_evaluation": true,
+  "artifact_digest": "3c08c1e994c3815f27800ebced9cec2dd6ee9262118d559f5e91d4950dfeb72f",
+  "cached_operator_column_count": 11820,
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "complete_5345_column_point_matrix_materialized": true,
+  "controlled_numerical_sampling_available": false,
+  "exact_column_stream_sha256": "fb21423264687fd0864bd8dce35ec6208003a26dd409bbfbf90409dfedef0c1f",
+  "extension_point_selected": false,
+  "fiber_basis_labels": [
+    "V1:F0:0",
+    "V1:F0:2",
+    "V2:F0:2",
+    "V2:F0:3"
+  ],
+  "fiber_dimension": 4,
+  "fiber_evaluation_artifact_digest": "8b603ad5bcd0c9ecf557521036c5636e35d9c8ec214f2a26750d44bd32588c86",
+  "first_pivot_rows": [
+    0,
+    2
+  ],
+  "independent_full_cochain_probe_indices": [
+    0,
+    1273,
+    2670,
+    3973
+  ],
+  "matrix_archive": "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.matrix.json.gz",
+  "matrix_archive_sha256": "4dbb85d0588b400ca1183dd963ce6a252d4898f052113bb2e1de5fba41b9b257",
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "parameter_basis": [
+    "a0",
+    "a1"
+  ],
+  "physical_yukawas_available": false,
+  "point": {
+    "chart": [
+      0,
+      0,
+      1
+    ],
+    "p": [
+      "0",
+      "1"
+    ],
+    "u": [
+      "1",
+      "1",
+      "1"
+    ],
+    "x": [
+      "1",
+      "-1",
+      "0"
+    ]
+  },
+  "prerequisite_artifact_digests": {
+    "cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+    "first": "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d",
+    "invariants": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+    "second": "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348"
+  },
+  "regularity_premises": {
+    "Koszul_equations_polynomial_in_both_planes": true,
+    "all_actual_object_arrows_polynomial_in_both_planes": true,
+    "all_target_second_plane_ambient_degrees_nonnegative": true,
+    "both_outer_coefficients_second_plane_regular": true,
+    "series_length_bound": 5,
+    "target_components_checked": 24
+  },
+  "schema": "alternate-metric-specialized-evaluation-v1",
+  "second_pivot_rows": [
+    0,
+    1,
+    2
+  ],
+  "section_count": 5345
+}

@@ -1326,8 +1326,22 @@ parameters. Independent raw-arrow specialization and polynomial products
 check the local identities and explicit frame-transition cocycles. See
 `ALTERNATE_METRIC_FIBER_EVALUATION_NOTE.md`.
 
-The next gate is controlled full-basis evaluation and metric sampling, followed
-by Ricci-flat/HYM convergence. The four-column probe is not a complete 5345-column
-sampling matrix or a Hermitian metric. Physical prediction flags remain false;
-no vacuum, mass, mixing angle, or Genesis implication has been supplied by these
-section and fiber results.
+The four-column artifact remains a historical probe, not a complete matrix.
+Its separate successor now contains all **5,345 exact point-evaluation columns**
+in the original basis order, with constant and both extension-linear
+coefficients preserved. Regular second-plane coefficient specialization
+commutes with the actual homotopy and polynomial object/equation arrows.
+Three deck channels retain the original phases and homogeneous line frames.
+Source-unit reuse replaces repeated full-cover expansion. Every coefficient
+of the four prior full-cochain probes agrees, preserving their nonzero
+all-parameter minor `1/81`. The independent evaluator also agrees on a
+nonzero actual section at a distinct complementary cover chart, without
+first-plane zero-coordinate pruning. The stream is content addressed and
+compressed deterministically. See
+`ALTERNATE_METRIC_SPECIALIZED_EVALUATION_NOTE.md`.
+
+The next gate is reusable controlled geometric sampling, followed by
+Ricci-flat/HYM convergence. A complete matrix at one algebraic point is not
+a sampling measure, an integral, or a Hermitian metric. Physical prediction
+flags remain false; no vacuum, mass, mixing angle, or Genesis implication
+has been supplied by these section and fiber results.

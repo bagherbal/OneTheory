@@ -3474,6 +3474,31 @@ def _nodes() -> list[dict[str, object]]:
              "independently certified actual universal section constructor"),
         ),
         _node(
+            "alternate_metric_specialized_evaluation",
+            "complete exact point evaluation of the universal section basis",
+            "Normalization",
+            "COMPUTED",
+            "Regular second-plane coefficient specialization commutes with "
+            "the actual raw homotopy and specialized object/equation arrows. "
+            "Three separate deck channels retain all geometric phases. "
+            "The complete 5345-column point matrix keeps both parameters "
+            "symbolic and reproduces four independent full-cochain probes. "
+            "It is not controlled numerical sampling or a metric certificate.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json",
+                "data/generated/scientific_genesis/"
+                "alternate_metric_specialized_evaluation.matrix.json.gz",
+                "research/experiments/scientific_genesis/"
+                "alternate_metric_specialized_evaluation.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_SPECIALIZED_EVALUATION_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_metric_specialized_evaluation.py",
+            ),
+            ("all actual target second-plane support stays nonnegative",
+             "actual deck coordinate phases and explicit chart line frames"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -3482,12 +3507,13 @@ def _nodes() -> list[dict[str, object]]:
             "ample twist. Both actual constituents have complete invariant "
             "section bases of sizes 2655 and 2690. Its universal rank-four "
             "lifting formula is independently certified and exact local "
-            "rank-four evaluation is available. Controlled evaluation/sampling "
+            "rank-four evaluation is available with a complete exact point "
+            "matrix. Controlled evaluation/sampling "
             "and converged Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
             missing=(
-                "controlled full-basis evaluation and metric sampling",
+                "controlled numerical full-basis evaluation and metric sampling",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -5861,6 +5887,26 @@ def _edges() -> list[dict[str, object]]:
             ("local algebraic evaluation supplies neither a measure nor a Hermitian metric",),
         ),
         _edge(
+            "alternate_metric_fiber_evaluation",
+            "alternate_metric_specialized_evaluation",
+            "Polynomial coefficient naturality and explicit deck channels "
+            "evaluate the same certified basis without repeated full-cover expansion.",
+            ("data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json",),
+            ("nonnegative second-plane support", "certified finite primitive series"),
+            True,
+            ("Laurent poles cannot be evaluated by the regular-factor specialization",),
+        ),
+        _edge(
+            "alternate_metric_specialized_evaluation",
+            "visible_metrics",
+            "The complete exact point matrix supplies an actual section-data "
+            "checkpoint for subsequent controlled geometric sampling.",
+            ("data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json",),
+            ("controlled numerical roots and sampling", "declared measure", "metric convergence"),
+            True,
+            ("a complete matrix at one point is not an integral or a Hermitian metric",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -7011,8 +7057,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             5,
             2,
-            "Develop controlled full-basis evaluation/sampling from the actual "
-            "rank-four evaluator; require Ricci-flat/HYM convergence before normalization.",
+            "Reuse the complete exact point evaluator for controlled geometric sampling; "
+            "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
             "alternate_remaining_holomorphic_sectors",
@@ -9431,6 +9477,63 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the actual local rank-four fiber evaluation or scope is not certified")
+    specialized = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json"
+    )).read_text(encoding="utf-8"))
+    specialized_digest = specialized.pop("artifact_digest", None)
+    if (
+        specialized_digest != _canonical_digest(specialized)
+        or specialized_digest != "3c08c1e994c3815f27800ebced9cec2dd6ee9262118d559f5e91d4950dfeb72f"
+        or specialized.get("schema") != "alternate-metric-specialized-evaluation-v1"
+        or specialized.get("fiber_evaluation_artifact_digest") != fiber_digest
+        or specialized.get("parameter_basis") != ["a0", "a1"]
+        or specialized.get("point") != fiber_evaluation.get("point")
+        or specialized.get("fiber_basis_labels") != fiber_evaluation.get("fiber_basis_labels")
+        or specialized.get("first_pivot_rows") != fiber_evaluation.get("first_pivot_rows")
+        or specialized.get("second_pivot_rows") != fiber_evaluation.get("second_pivot_rows")
+        or specialized.get("prerequisite_artifact_digests") != {
+            key: value for key, value in fiber_evaluation["prerequisite_artifact_digests"].items()
+            if key != "lift_certificate"
+        }
+        or specialized.get("section_count") != 5345
+        or specialized.get("fiber_dimension") != 4
+        or specialized.get("independent_full_cochain_probe_indices") != [0, 1273, 2670, 3973]
+        or specialized.get("actual_spanning_minor_all_parameters") != "1/81"
+        or specialized.get("all_probe_coefficients_match_full_cochain_evaluation") is not True
+        or specialized.get("complete_5345_column_point_matrix_materialized") is not True
+        or specialized.get("regularity_premises") != {
+            "target_components_checked": 24,
+            "all_target_second_plane_ambient_degrees_nonnegative": True,
+            "all_actual_object_arrows_polynomial_in_both_planes": True,
+            "both_outer_coefficients_second_plane_regular": True,
+            "Koszul_equations_polynomial_in_both_planes": True,
+            "series_length_bound": 5,
+        }
+        or any(specialized.get(flag) is not False for flag in (
+            "controlled_numerical_sampling_available", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the complete exact section evaluation or scope is not certified")
+    matrix_path = ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.matrix.json.gz"
+    )
+    matrix_archive = matrix_path.read_bytes()
+    matrix_raw = gzip.decompress(matrix_archive)
+    matrix_columns = json.loads(matrix_raw)
+    if (
+        specialized.get("matrix_archive") != str(matrix_path.relative_to(ROOT))
+        or specialized.get("matrix_archive_sha256") != hashlib.sha256(matrix_archive).hexdigest()
+        or specialized.get("exact_column_stream_sha256") != hashlib.sha256(matrix_raw).hexdigest()
+        or len(matrix_columns) != 5345
+        or any(len(c) != 3 or any(len(m) != 4 or any(len(row) != 1 for row in m)
+                                 for m in c) for c in matrix_columns)
+        or any(matrix_columns[index][p] != [
+            [fiber_evaluation["actual_section_coefficients_constant_a0_a1"][p][r][col]]
+            for r in range(4)
+        ] for col, index in enumerate([0, 1273, 2670, 3973]) for p in range(3))
+    ):
+        raise ValueError("the complete section column stream is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9739,6 +9842,8 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
         "data/generated/scientific_genesis/alternate_metric_lift_operator_certificate.json",
         "data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json",
+        "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json",
+        "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.matrix.json.gz",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -10002,7 +10107,8 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_rank_four_globally_generated": True,
                 "alternate_metric_explicit_invariant_basis_available": True,
                 "alternate_metric_local_rank_four_evaluation_available": True,
-                "alternate_metric_complete_point_evaluation_matrix_materialized": False,
+                "alternate_metric_complete_point_evaluation_matrix_materialized": True,
+                "alternate_metric_controlled_numerical_sampling_available": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
                 "alternate_up_ordered_exchange_consistent": all(
@@ -10235,9 +10341,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "develop controlled full-basis evaluation and sampling from the actual "
-                "rank-four evaluator, then certify Ricci-flat/HYM convergence without "
-                "choosing physical moduli by hand"
+                "develop controlled geometric sampling and reusable section evaluation "
+                "from the complete exact point matrix, then certify Ricci-flat/HYM "
+                "convergence without choosing physical moduli by hand"
             ),
         },
         "claims": _nodes(),
@@ -10355,6 +10461,11 @@ def build_state() -> dict[str, object]:
             "the actual universal rank-four bundle admits explicit local fiber "
             "evaluation with both extension parameters symbolic; four actual "
             "basis columns at an exact cover probe have determinant 1/81",
+            "regular-factor coefficient naturality and three actual deck channels "
+            "evaluate all 5345 universal sections at the exact probe without "
+            "selecting extension parameters; independent full-cochain comparisons "
+            "also pass on a distinct complementary chart, but controlled "
+            "sampling and numerical metrics remain unavailable",
             "the two physical reverse down-matter sectors lifted exactly over "
             "all six P5 directions without selecting an extension point",
             "the strict physical down-Higgs cocycle lifted over all six "
@@ -10604,6 +10715,26 @@ def build_state() -> dict[str, object]:
             },
         ],
         "structural_compression_questions": [
+            {
+                "question": (
+                    "Can regular polynomial coefficients be specialized before "
+                    "the certified lifting series rather than expanding full "
+                    "cover cochains for every metric section value?"
+                ),
+                "evidence": (
+                    "all actual target second-plane exponents are nonnegative; "
+                    "raw incidence and homotopy depend only on Laurent support "
+                    "and structural parity, while object and equation arrows "
+                    "preserve regularity"
+                ),
+                "attack": (
+                    "closed for exact point evaluation by polynomial coefficient "
+                    "naturality, operator commutation, independent full-cochain "
+                    "probes on two charts, projective rescaling, and a deliberate "
+                    "deck-phase mutation; reusable controlled numerical sampling "
+                    "is not established by a point matrix"
+                ),
+            },
             {
                 "question": (
                     "Can one degree-support and nilpotent-filtration theorem "

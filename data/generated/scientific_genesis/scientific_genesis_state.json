@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "8bb533e1644e8b0082b4d50963f99f5a830db0fd6efe579a4d993bac0bda05ff",
+  "artifact_digest": "be6d8fe50fdb95a894c27ebcaa390354460419529c8e578b6579d0a616e6bf17",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -922,6 +922,16 @@
       "sha256": "a060ea20cc01bcdb4cc6997f3d7bdad4aade08d182adda81de8e6b49ada3cf08"
     },
     {
+      "bytes": 2339,
+      "path": "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json",
+      "sha256": "fff35b9803e035dbb45595261d6963119af1a1a29c4a67c19f7b21567376dca1"
+    },
+    {
+      "bytes": 7336,
+      "path": "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.matrix.json.gz",
+      "sha256": "4dbb85d0588b400ca1183dd963ce6a252d4898f052113bb2e1de5fba41b9b257"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -961,8 +971,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 269,
-    "test_python_files": 253
+    "research_python_files": 271,
+    "test_python_files": 255
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3888,6 +3898,25 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "all actual target second-plane support stays nonnegative",
+        "actual deck coordinate phases and explicit chart line frames"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json",
+        "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.matrix.json.gz",
+        "research/experiments/scientific_genesis/alternate_metric_specialized_evaluation.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SPECIALIZED_EVALUATION_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_specialized_evaluation.py"
+      ],
+      "id": "alternate_metric_specialized_evaluation",
+      "label": "complete exact point evaluation of the universal section basis",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "Regular second-plane coefficient specialization commutes with the actual raw homotopy and specialized object/equation arrows. Three separate deck channels retain all geometric phases. The complete 5345-column point matrix keeps both parameters symbolic and reproduces four independent full-cochain probes. It is not controlled numerical sampling or a metric certificate.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -3897,10 +3926,10 @@
       "label": "Ricci-flat, HYM, and matter metric package",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "controlled full-basis evaluation and metric sampling",
+        "controlled numerical full-basis evaluation and metric sampling",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available. Controlled evaluation/sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. Controlled evaluation/sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -6713,6 +6742,39 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "nonnegative second-plane support",
+        "certified finite primitive series"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "Laurent poles cannot be evaluated by the regular-factor specialization"
+      ],
+      "mathematical_reason": "Polynomial coefficient naturality and explicit deck channels evaluate the same certified basis without repeated full-cover expansion.",
+      "source": "alternate_metric_fiber_evaluation",
+      "target": "alternate_metric_specialized_evaluation"
+    },
+    {
+      "assumptions_required": [
+        "controlled numerical roots and sampling",
+        "declared measure",
+        "metric convergence"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a complete matrix at one point is not an integral or a Hermitian metric"
+      ],
+      "mathematical_reason": "The complete exact point matrix supplies an actual section-data checkpoint for subsequent controlled geometric sampling.",
+      "source": "alternate_metric_specialized_evaluation",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -7664,6 +7726,7 @@
     "the actual alternate first constituent at descending twist (5,7,1) has cover H0=1728 and higher cohomology zero; quotient H0=192 and H1=0; this count alone is not a quotient-generation proof at that smaller twist",
     "both actual alternate constituents now have complete invariant section bases at H=(14,16,1), of sizes 2655 and 2690, with independent exact closure, repaired deck actions, and quotient image checks; their universal rank-four lift formula is certified",
     "the actual universal rank-four bundle admits explicit local fiber evaluation with both extension parameters symbolic; four actual basis columns at an exact cover probe have determinant 1/81",
+    "regular-factor coefficient naturality and three actual deck channels evaluate all 5345 universal sections at the exact probe without selecting extension parameters; independent full-cochain comparisons also pass on a distinct complementary chart, but controlled sampling and numerical metrics remain unavailable",
     "the two physical reverse down-matter sectors lifted exactly over all six P5 directions without selecting an extension point",
     "the strict physical down-Higgs cocycle lifted over all six reverse directions through exact determinant-two corrections",
     "rank-two exterior support and exact tree boundaries restrict the reverse down matrix to one unresolved parameter-linear entry",
@@ -7759,9 +7822,10 @@
         ]
       ],
       "alternate_fixed_atlas_su4_excluded": true,
-      "alternate_metric_complete_point_evaluation_matrix_materialized": false,
+      "alternate_metric_complete_point_evaluation_matrix_materialized": true,
       "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
+      "alternate_metric_controlled_numerical_sampling_available": false,
       "alternate_metric_explicit_invariant_basis_available": true,
       "alternate_metric_first_constituent_cover_generated": true,
       "alternate_metric_first_constituent_section_basis_available": true,
@@ -8457,13 +8521,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "develop controlled full-basis evaluation and sampling from the actual rank-four evaluator, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
+    "next_required_object": "develop controlled geometric sampling and reusable section evaluation from the complete exact point matrix, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Develop controlled full-basis evaluation/sampling from the actual rank-four evaluator; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Reuse the complete exact point evaluator for controlled geometric sampling; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,
@@ -8815,6 +8879,11 @@
     "the certified constituent atlases force Higgs characters (1,0), (1,1), (2,0), and (2,1), incompatible with the source-bound multiset"
   ],
   "structural_compression_questions": [
+    {
+      "attack": "closed for exact point evaluation by polynomial coefficient naturality, operator commutation, independent full-cochain probes on two charts, projective rescaling, and a deliberate deck-phase mutation; reusable controlled numerical sampling is not established by a point matrix",
+      "evidence": "all actual target second-plane exponents are nonnegative; raw incidence and homotopy depend only on Laurent support and structural parity, while object and equation arrows preserve regularity",
+      "question": "Can regular polynomial coefficients be specialized before the certified lifting series rather than expanding full cover cochains for every metric section value?"
+    },
     {
       "attack": "closed by 10816 independent signed support columns, twenty actual source-module composition columns, repaired target arrow equivariance, and a finite residual-iteration proof; full expanded coefficient replay is not required or claimed",
       "evidence": "all 24 actual ambient target components have no positive reduced degree; all mixed arrows raise a weight in [0,4]",

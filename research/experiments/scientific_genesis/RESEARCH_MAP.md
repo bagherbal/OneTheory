@@ -1219,3 +1219,17 @@ chosen complement. See `ALTERNATE_METRIC_FIRST_SUBLINE_SECTIONS_NOTE.md`.
 This does not construct the remaining 1540 first Serre-quotient
 sections, their non-split lifts, the 2690 second-constituent sections,
 or any rank-four metric.
+
+Both actual first-resolution ambient invariant blocks are now explicit:
+13,338 F0 vectors at degree `(11,17,2)` and 7,524 F1 vectors at
+`(10,17,2)`. They use the common determinant-repair character and the
+declared metric-twist linearization. The F0 block action compensates
+the noncommuting individual line lifts; F1 requires the actual
+two-coordinate mixing action. Disjoint orbit supports and canonical
+orbit projection prove basis independence and spanning. Independent
+integer-pair arithmetic replays every vector and both full stream
+hashes. See `ALTERNATE_METRIC_FIRST_RESOLUTION_AMBIENT_SECTIONS_NOTE.md`.
+The next computation is the invariant Schoen/Koszul and Hilbert–Burch
+quotient, with restricted block dimensions 3,768 and 2,228, followed
+by the 1,540 quotient sections' genuine Serre lifts. Ambient vectors
+are not a complete constituent section basis or a numerical metric.

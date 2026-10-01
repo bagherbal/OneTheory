@@ -1,0 +1,240 @@
+{
+  "artifact_digest": "c2c097a2e7a32f9fa44ba1e665756cb6cf5fb7856c57b0774039faec313511ff",
+  "blocks": [
+    {
+      "ambient_invariant_generator_count": 13338,
+      "block_rank": 3,
+      "both_generators_fix_every_section": true,
+      "first_generator": {
+        "label": [
+          0,
+          [
+            0,
+            0,
+            11,
+            0,
+            0,
+            17,
+            0,
+            2
+          ]
+        ],
+        "terms": [
+          [
+            0,
+            [
+              0,
+              0,
+              11,
+              0,
+              0,
+              17,
+              0,
+              2
+            ],
+            "1"
+          ],
+          [
+            1,
+            [
+              0,
+              11,
+              0,
+              17,
+              0,
+              0,
+              0,
+              2
+            ],
+            "omega"
+          ],
+          [
+            2,
+            [
+              11,
+              0,
+              0,
+              0,
+              17,
+              0,
+              0,
+              2
+            ],
+            "-1-omega"
+          ]
+        ]
+      },
+      "ordered_generator_stream_sha256": "f3d3b54cb4d5d2593b747cb14c9c59138fd2b5db361c3f176718725c44586a45",
+      "p_frame": [
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "omega"
+        ],
+        [
+          "-1-omega",
+          "0",
+          "0"
+        ]
+      ],
+      "role": "F0",
+      "t_frame": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "omega",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1-omega"
+        ]
+      ],
+      "twisted_line_degree": [
+        11,
+        17,
+        2
+      ]
+    },
+    {
+      "ambient_invariant_generator_count": 7524,
+      "block_rank": 2,
+      "both_generators_fix_every_section": true,
+      "first_generator": {
+        "label": [
+          0,
+          [
+            0,
+            0,
+            10,
+            0,
+            0,
+            17,
+            0,
+            2
+          ]
+        ],
+        "terms": [
+          [
+            0,
+            [
+              0,
+              0,
+              10,
+              0,
+              0,
+              17,
+              0,
+              2
+            ],
+            "1"
+          ],
+          [
+            0,
+            [
+              0,
+              10,
+              0,
+              17,
+              0,
+              0,
+              0,
+              2
+            ],
+            "-omega"
+          ],
+          [
+            1,
+            [
+              0,
+              10,
+              0,
+              17,
+              0,
+              0,
+              0,
+              2
+            ],
+            "omega"
+          ],
+          [
+            1,
+            [
+              10,
+              0,
+              0,
+              0,
+              17,
+              0,
+              0,
+              2
+            ],
+            "1+omega"
+          ]
+        ]
+      },
+      "ordered_generator_stream_sha256": "f91db919ccf664ca9435810c5211c60874feac1a27555d2bf58f9906c9e2bed7",
+      "p_frame": [
+        [
+          "0",
+          "-1-omega"
+        ],
+        [
+          "1+omega",
+          "1+omega"
+        ]
+      ],
+      "role": "F1",
+      "t_frame": [
+        [
+          "-1-omega",
+          "0"
+        ],
+        [
+          "0",
+          "-1-omega"
+        ]
+      ],
+      "twisted_line_degree": [
+        10,
+        17,
+        2
+      ]
+    }
+  ],
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "common_flat_character_twist": [
+    1,
+    2
+  ],
+  "deck_generator_names": [
+    "P",
+    "T"
+  ],
+  "first_constituent_section_basis_available": false,
+  "individual_f0_lines_descended": false,
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "prerequisite_artifact_digests": {
+    "alternate_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+    "generation": "3ca16bfa116c6b5530d73e74486eb196d37dbf9c0f7e75d445e84c41176fe063"
+  },
+  "restricted_hilbert_burch_quotient_basis_available": false,
+  "schema": "alternate-metric-first-resolution-ambient-sections-v1",
+  "twist_cover_degree": [
+    14,
+    16,
+    1
+  ],
+  "twist_linearization": "natural commuting ambient P/T coordinate lifts"
+}

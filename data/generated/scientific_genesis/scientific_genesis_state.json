@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "4adbe7266cfbab6b386c643fbb8e498df2d005265c3e58bb0f3510608bfd0ec8",
+  "artifact_digest": "6dc383242f2bcb881a8f4db38dbc3885485f601829168d843c411258a0f3c3f6",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -867,6 +867,11 @@
       "sha256": "ed291a45bf635facc60af51a04c51e9b9108b8cc658f38fbabd555c016a4e59b"
     },
     {
+      "bytes": 4449,
+      "path": "data/generated/scientific_genesis/alternate_metric_first_resolution_ambient_sections.json",
+      "sha256": "26c80337cde42c27c0fa87067a7369de9e7d9fc2c4767fc84656567a4a195b25"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -906,8 +911,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 262,
-    "test_python_files": 246
+    "research_python_files": 263,
+    "test_python_files": 247
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3702,6 +3707,24 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "frozen alternate common flat character",
+        "declared metric twist"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_first_resolution_ambient_sections.json",
+        "research/experiments/scientific_genesis/alternate_metric_first_resolution_ambient_sections.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIRST_RESOLUTION_AMBIENT_SECTIONS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_first_resolution_ambient_sections.py"
+      ],
+      "id": "alternate_metric_first_resolution_ambient_sections",
+      "label": "actual first resolution ambient invariant section bases",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "At H=(14,16,1), exact determinant-repaired block orbit sums give 13338 F0 and 7524 F1 ambient invariant sections. An independent integer-ring replay reproduces both complete stream hashes. Schoen restriction, the Hilbert-Burch quotient, and Serre lifts remain necessary for a constituent basis.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -6277,6 +6300,37 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "natural ambient twist linearization"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_first_resolution_ambient_sections.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "individual F0 lines do not descend"
+      ],
+      "mathematical_reason": "The declared generating twist and actual repaired carrier frame fix both invariant ambient block section spaces.",
+      "source": "alternate_metric_quotient_generation",
+      "target": "alternate_metric_first_resolution_ambient_sections"
+    },
+    {
+      "assumptions_required": [
+        "determinant-repaired alternate carrier"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_first_resolution_ambient_sections.json",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIRST_RESOLUTION_AMBIENT_SECTIONS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "ambient vectors alone are not restricted sections or Serre lifts"
+      ],
+      "mathematical_reason": "The actual ambient block vectors supply explicit inputs for the invariant Koszul and Hilbert-Burch section quotient.",
+      "source": "alternate_metric_first_resolution_ambient_sections",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -7324,6 +7378,10 @@
       "alternate_metric_constituents_globally_generated": true,
       "alternate_metric_explicit_invariant_basis_available": false,
       "alternate_metric_first_constituent_cover_generated": true,
+      "alternate_metric_first_resolution_ambient_generator_counts": [
+        13338,
+        7524
+      ],
       "alternate_metric_first_subline_basis_count": 1115,
       "alternate_metric_large_generating_twist": [
         14,

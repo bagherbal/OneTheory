@@ -95,6 +95,11 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "alternate-up-ff-coefficient-v1", "complete_holomorphic_up_matrix_available",
             "the complete exact a0 F-F block and natural null check are not certified",
         ),
+        (
+            "alternate-metric-first-resolution-ambient-sections-v1",
+            "first_constituent_section_basis_available",
+            "the actual ambient resolution sections or scope are not certified",
+        ),
     ),
 )
 def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
@@ -754,6 +759,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_metric_large_generating_twist"] == [14, 16, 1]
     assert path["criteria"]["alternate_metric_quotient_section_count"] == 5345
     assert path["criteria"]["alternate_metric_first_subline_basis_count"] == 1115
+    assert claims["alternate_metric_first_resolution_ambient_sections"]["status"] == "COMPUTED"
+    assert path["criteria"]["alternate_metric_first_resolution_ambient_generator_counts"] == [
+        13338, 7524,
+    ]
     assert path["criteria"]["alternate_metric_remaining_first_serre_quotient_dimension"] == 1540
     assert path["criteria"]["alternate_metric_constituents_globally_generated"] is True
     assert path["criteria"]["alternate_metric_rank_four_globally_generated"] is True

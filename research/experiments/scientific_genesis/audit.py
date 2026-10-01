@@ -3306,6 +3306,28 @@ def _nodes() -> list[dict[str, object]]:
             ("frozen alternate common flat character", "published Schoen cubics"),
         ),
         _node(
+            "alternate_metric_first_resolution_ambient_sections",
+            "actual first resolution ambient invariant section bases",
+            "Normalization",
+            "COMPUTED",
+            "At H=(14,16,1), exact determinant-repaired block orbit sums "
+            "give 13338 F0 and 7524 F1 ambient invariant sections. An "
+            "independent integer-ring replay reproduces both complete "
+            "stream hashes. Schoen restriction, the Hilbert-Burch quotient, "
+            "and Serre lifts remain necessary for a constituent basis.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_metric_first_resolution_ambient_sections.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_metric_first_resolution_ambient_sections.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_FIRST_RESOLUTION_AMBIENT_SECTIONS_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_metric_first_resolution_ambient_sections.py",
+            ),
+            ("frozen alternate common flat character", "declared metric twist"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -5510,6 +5532,34 @@ def _edges() -> list[dict[str, object]]:
             ("determinant-repaired alternate carrier",),
             True,
             ("Serre quotient lifts and complete carrier sections remain missing",),
+        ),
+        _edge(
+            "alternate_metric_quotient_generation",
+            "alternate_metric_first_resolution_ambient_sections",
+            "The declared generating twist and actual repaired carrier "
+            "frame fix both invariant ambient block section spaces.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_metric_first_resolution_ambient_sections.json",
+            ),
+            ("natural ambient twist linearization",),
+            True,
+            ("individual F0 lines do not descend",),
+        ),
+        _edge(
+            "alternate_metric_first_resolution_ambient_sections",
+            "visible_metrics",
+            "The actual ambient block vectors supply explicit inputs for "
+            "the invariant Koszul and Hilbert-Burch section quotient.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_metric_first_resolution_ambient_sections.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_FIRST_RESOLUTION_AMBIENT_SECTIONS_NOTE.md",
+            ),
+            ("determinant-repaired alternate carrier",),
+            True,
+            ("ambient vectors alone are not restricted sections or Serre lifts",),
         ),
         _edge(
             "computable_carrier_state",
@@ -8804,6 +8854,38 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the actual first-subline section basis or scope is not certified")
+    ambient_path = ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_first_resolution_ambient_sections.json"
+    )
+    ambient_sections = json.loads(ambient_path.read_text(encoding="utf-8"))
+    ambient_digest = ambient_sections.pop("artifact_digest", None)
+    ambient_blocks = ambient_sections.get("blocks", [])
+    if (
+        ambient_digest != _canonical_digest(ambient_sections)
+        or ambient_digest != "c2c097a2e7a32f9fa44ba1e665756cb6cf5fb7856c57b0774039faec313511ff"
+        or ambient_sections.get("schema")
+        != "alternate-metric-first-resolution-ambient-sections-v1"
+        or ambient_sections.get("twist_cover_degree") != [14, 16, 1]
+        or ambient_sections.get("common_flat_character_twist") != [1, 2]
+        or ambient_sections.get("twist_linearization")
+        != "natural commuting ambient P/T coordinate lifts"
+        or [item.get("role") for item in ambient_blocks] != ["F0", "F1"]
+        or [item.get("ambient_invariant_generator_count") for item in ambient_blocks]
+        != [13338, 7524]
+        or any(item.get("both_generators_fix_every_section") is not True
+               for item in ambient_blocks)
+        or ambient_sections.get("prerequisite_artifact_digests") != {
+            "generation": generation_digest,
+            "alternate_cone": alternate_cone_digest,
+        }
+        or any(ambient_sections.get(flag) is not False for flag in (
+            "individual_f0_lines_descended",
+            "restricted_hilbert_burch_quotient_basis_available",
+            "first_constituent_section_basis_available",
+            "numerical_metrics_available", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual ambient resolution sections or scope are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9100,6 +9182,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_subbundle_vanishing.json",
         "data/generated/scientific_genesis/alternate_metric_quotient_generation.json",
         "data/generated/scientific_genesis/alternate_metric_first_subline_sections.json",
+        "data/generated/scientific_genesis/alternate_metric_first_resolution_ambient_sections.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -9340,6 +9423,9 @@ def build_state() -> dict[str, object]:
                     "quotient_subline_section_count"
                 ],
                 "alternate_metric_remaining_first_serre_quotient_dimension": 1540,
+                "alternate_metric_first_resolution_ambient_generator_counts": [
+                    item["ambient_invariant_generator_count"] for item in ambient_blocks
+                ],
                 "alternate_metric_constituents_globally_generated": True,
                 "alternate_metric_rank_four_globally_generated": True,
                 "alternate_metric_explicit_invariant_basis_available": False,

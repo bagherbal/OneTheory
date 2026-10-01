@@ -1515,3 +1515,28 @@ samples, a quantitative variance bound, finite-cloud errors, numerical
 metrics, normalized Yukawas, or a common vacuum. The remaining integration
 gate needs quantitative second-moment or controlled truncation bounds;
 a finite-third-moment error theorem cannot simply be assumed.
+
+## Positive auxiliary-law route
+
+The actual cover also admits the strictly positive auxiliary form
+`beta=FS_x+FS_u+FS_p`. This is an integration convention, not a chosen
+physical Kahler class or Ricci-flat approximation. Its cube has exact
+cover mass 72 and normalized law `(3/4)A/9+(1/8)Bx/3+(1/8)Bu/3`, where
+`Bx=FS_x^2 FS_u` and `Bu=FS_x FS_u^2`. These component laws use nine,
+three, and three projective intersection roots, respectively.
+
+`alternate_metric_positive_measure.py` retains the actual asymmetric
+equations, reuses complete partner-root certificates and bounded matrix
+arithmetic, and checks positive densities on all 18 existing regression
+roots. Independent mixed-wedge and refinement tests check the density,
+factorial, probability, and quotient normalizations. The proof in
+`ALTERNATE_METRIC_POSITIVE_MEASURE_NOTE.md` shows globally bounded ideal
+weights and finite moments of every nonnegative order by positivity and
+compactness. The original A/9 tail theorem is unchanged and not contradicted.
+
+The scheduler now favors this positive mixture for integration. A numerical
+global weight bound, critical-fiber chart engine, controlled uniform
+proposals, complete section throughput, integration errors, Ricci-flat/HYM
+convergence, physical normalization, and a common vacuum remain open.
+Selecting one root per independent configuration is required when claiming
+independent draws; correlated full root batches cannot be counted as such.

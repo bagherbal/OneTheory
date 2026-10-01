@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "7c8805a0f47d9c3c1808313fd58ac00061c7e3428a4875ee1efe6851317650da",
+  "artifact_digest": "aa985525f859a64b8d55420ea9259e74ad641f554713fb4d9c1995d7de9511fc",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -942,6 +942,11 @@
       "sha256": "109cb8ed54083bdc83625f3d62907d0b0d7ef8c1275c1781a48a0e5531d7f97e"
     },
     {
+      "bytes": 34547,
+      "path": "data/generated/scientific_genesis/alternate_metric_positive_measure.json",
+      "sha256": "c2d18e5354a6458590093a30a70ab3a865f97e15eecdb35d1a521d4a1c18dc57"
+    },
+    {
       "bytes": 32583,
       "path": "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
       "sha256": "2ea43c74be1eb8ef4eda0edd5ae1cd9e093765b4ce3c128ccfe4f355edd42c52"
@@ -1001,8 +1006,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 278,
-    "test_python_files": 262
+    "research_python_files": 279,
+    "test_python_files": 263
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3983,6 +3988,24 @@
       "layer": "Normalization",
       "missing_prerequisites": [],
       "statement": "The two actual pencils have square-free degree-six critical supports with gcd one and no critical infinity fiber. Each has three axis-node fibers and three triangular fibers. The local density proof gives A comparable to squared transverse radius along the critical curves: the importance weight has finite q-moment exactly for nonnegative q below three. Its variance is finite but its third moment diverges. This is an integrability theorem for the ideal A/9 law, not a quantitative variance bound, implemented sampler, metric, or physical normalization.",
+      "status": "DERIVED"
+    },
+    {
+      "assumptions": [
+        "actual smooth compact cover",
+        "explicit auxiliary FS convention"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_positive_measure.json",
+        "research/experiments/scientific_genesis/alternate_metric_positive_measure.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_POSITIVE_MEASURE_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_positive_measure.py"
+      ],
+      "id": "alternate_metric_positive_measure",
+      "label": "positive auxiliary mixture with globally bounded importance weights",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "The positive ambient FS sum has cube mass 72 on the unchanged actual cover. Its normalized law is the exact 3/4,1/8,1/8 mixture of nine-root and two three-root projective intersection laws. Strict positivity and compactness bound its ideal importance weight globally, so all nonnegative moments are finite. Actual three-root branches and 18 regular-chart density enclosures are verified. No numerical global bound, critical-fiber chart engine, controlled sampler, physical Kahler class, or metric is supplied.",
       "status": "DERIVED"
     },
     {
@@ -7254,6 +7277,56 @@
     },
     {
       "assumptions_required": [
+        "explicit positive FS sum",
+        "exact mixed intersection masses"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_positive_measure.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "an auxiliary FS form is not the physical Ricci-flat metric"
+      ],
+      "mathematical_reason": "The same residue, ambient FS forms, and actual complete-intersection class determine a positive auxiliary law once its mass is computed.",
+      "source": "alternate_metric_measure",
+      "target": "alternate_metric_positive_measure"
+    },
+    {
+      "assumptions_required": [
+        "same actual frozen compact cover",
+        "separate positivity proof"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_POSITIVE_MEASURE_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "changing the proposal cannot change the target residue volume"
+      ],
+      "mathematical_reason": "The actual nodal-fiber proof supplies smoothness and identifies the degeneracy to remove by a strictly positive auxiliary law.",
+      "source": "alternate_metric_weight_moments",
+      "target": "alternate_metric_positive_measure"
+    },
+    {
+      "assumptions_required": [
+        "correct independent projective draws",
+        "quantitative error bounds",
+        "complete section evaluation",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_POSITIVE_MEASURE_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "existence of a finite global bound does not compute that bound"
+      ],
+      "mathematical_reason": "A positive auxiliary law can supply bounded-weight integration only after controlled proposals, quantitative bounds, section throughput, and Ricci-flat/HYM convergence are established.",
+      "source": "alternate_metric_positive_measure",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "all 5345 columns must finish",
         "complete independent stream validation"
       ],
@@ -8196,6 +8269,7 @@
     }
   ],
   "established_results": [
+    "the positive ambient FS-cube auxiliary law has mass 72 and exact projective mixture probabilities 3/4,1/8,1/8; its ideal weights are bounded on the unchanged compact cover without computing a numerical bound or selecting physical Kahler moduli",
     "the actual A/9 importance weight has finite nonnegative moments exactly below order three; its finite variance has no numerical upper bound yet, so quantitative sampling-error control remains open",
     "exact reusable arithmetic, polynomial, homological, Cech, Cox, sheaf, and geometry engines",
     "published Schoen geometry and selected one-Higgs reference carrier metadata",
@@ -8348,6 +8422,7 @@
       "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
       "alternate_metric_controlled_numerical_sampling_available": false,
+      "alternate_metric_critical_fiber_chart_enclosures_available": false,
       "alternate_metric_exact_residue_and_auxiliary_measure_available": true,
       "alternate_metric_explicit_invariant_basis_available": true,
       "alternate_metric_first_constituent_cover_generated": true,
@@ -8370,6 +8445,9 @@
       "alternate_metric_laurent_coefficient_enclosure_engine_available": true,
       "alternate_metric_local_rank_four_evaluation_available": true,
       "alternate_metric_on_demand_original_cochain_section_bounds_available": true,
+      "alternate_metric_positive_auxiliary_law_derived": true,
+      "alternate_metric_positive_law_ideal_weight_globally_bounded": true,
+      "alternate_metric_positive_law_quantitative_global_bound_available": false,
       "alternate_metric_practical_multi_point_integration_throughput_certified": false,
       "alternate_metric_quantitative_variance_bound_available": false,
       "alternate_metric_quotient_section_count": 5345,
@@ -9050,13 +9128,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "certify complete bounded matrix output and practical multi-point throughput using the actual universal quotient frames; implement the declared SU-uniform proposal law with precision and quantitative second-moment or truncation-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
+    "next_required_object": "certify complete bounded matrix output and practical multi-point throughput using the actual universal quotient frames; implement the positive auxiliary SU-uniform mixture with proposal precision, quantitative global weight bounds, critical-chart coverage, and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Use the actual residue and normalized FS measure with the bounded all-index evaluator and certified density/frame bounds; finish complete bounded output and measure multi-point cost, then implement the SU-uniform proposal law with quantitative second-moment or truncation-error control, not a finite-third-moment assumption; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Use the actual residue and normalized FS measure with the bounded all-index evaluator and certified density/frame bounds; finish complete bounded output and measure multi-point cost, then implement the positive auxiliary SU-uniform mixture with quantitative global weight bounds, critical-chart coverage, and error control; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,

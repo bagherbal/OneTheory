@@ -44,6 +44,17 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         *tuple(
+            ("alternate-metric-positive-measure-v1", field,
+             "the positive auxiliary law or its scientific scope is not certified")
+            for field in (
+                "quantitative_global_weight_bound_available",
+                "critical_fiber_chart_enclosures_available",
+                "controlled_numerical_sampling_available", "numerical_metrics_available",
+                "physical_yukawas_available", "physical_kahler_class_selected", "vacuum_selected",
+                "observational_inputs_used",
+            )
+        ),
+        *tuple(
             ("alternate-metric-weight-moments-v1", field,
              "the actual weight integrability or its scientific scope is not certified")
             for field in (
@@ -884,9 +895,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["next_required_object"] == (
         "certify complete bounded matrix output and practical multi-point "
         "throughput using the actual universal quotient frames; "
-        "implement the declared SU-uniform "
-        "proposal law with precision and quantitative second-moment or "
-        "truncation-error control, then "
+        "implement the positive auxiliary SU-uniform mixture with "
+        "proposal precision, quantitative global weight bounds, "
+        "critical-chart coverage, and integration-error control, then "
         "certify Ricci-flat/HYM "
         "convergence without choosing physical moduli by hand"
     )
@@ -900,6 +911,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_metric_bounded_fibers"]["status"] == "COMPUTED"
     assert claims["alternate_metric_bounded_support"]["status"] == "COMPUTED"
     assert claims["alternate_metric_weight_moments"]["status"] == "DERIVED"
+    assert claims["alternate_metric_positive_measure"]["status"] == "DERIVED"
+    assert path["criteria"]["alternate_metric_positive_auxiliary_law_derived"] is True
+    assert path["criteria"]["alternate_metric_positive_law_ideal_weight_globally_bounded"] is True
+    assert path["criteria"][
+        "alternate_metric_positive_law_quantitative_global_bound_available"
+    ] is False
+    assert path["criteria"]["alternate_metric_critical_fiber_chart_enclosures_available"] is False
     assert path["criteria"]["alternate_metric_weight_second_moment_finite"] is True
     assert path["criteria"]["alternate_metric_weight_third_moment_finite"] is False
     assert path["criteria"]["alternate_metric_quantitative_variance_bound_available"] is False

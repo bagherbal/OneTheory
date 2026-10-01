@@ -3545,6 +3545,27 @@ def _nodes() -> list[dict[str, object]]:
              "nonzero residue volume-form convention"),
         ),
         _node(
+            "alternate_metric_positive_measure",
+            "positive auxiliary mixture with globally bounded importance weights",
+            "Normalization",
+            "DERIVED",
+            "The positive ambient FS sum has cube mass 72 on the unchanged "
+            "actual cover. Its normalized law is the exact 3/4,1/8,1/8 "
+            "mixture of nine-root and two three-root projective intersection "
+            "laws. Strict positivity and compactness bound its ideal importance "
+            "weight globally, so all nonnegative moments are finite. Actual "
+            "three-root branches and 18 regular-chart density enclosures are "
+            "verified. No numerical global bound, critical-fiber chart engine, "
+            "controlled sampler, physical Kahler class, or metric is supplied.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_positive_measure.json",
+                "research/experiments/scientific_genesis/alternate_metric_positive_measure.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_POSITIVE_MEASURE_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_positive_measure.py",
+            ),
+            ("actual smooth compact cover", "explicit auxiliary FS convention"),
+        ),
+        _node(
             "alternate_metric_projective_roots",
             "certified complete projective intersections for exact sampling inputs",
             "Normalization",
@@ -6280,6 +6301,38 @@ def _edges() -> list[dict[str, object]]:
             ("finite variance is not a numerical variance bound or a sampler",),
         ),
         _edge(
+            "alternate_metric_measure",
+            "alternate_metric_positive_measure",
+            "The same residue, ambient FS forms, and actual complete-intersection "
+            "class determine a positive auxiliary law once its mass is computed.",
+            ("data/generated/scientific_genesis/alternate_metric_positive_measure.json",),
+            ("explicit positive FS sum", "exact mixed intersection masses"),
+            True,
+            ("an auxiliary FS form is not the physical Ricci-flat metric",),
+        ),
+        _edge(
+            "alternate_metric_weight_moments",
+            "alternate_metric_positive_measure",
+            "The actual nodal-fiber proof supplies smoothness and identifies "
+            "the degeneracy to remove by a strictly positive auxiliary law.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_POSITIVE_MEASURE_NOTE.md",),
+            ("same actual frozen compact cover", "separate positivity proof"),
+            True,
+            ("changing the proposal cannot change the target residue volume",),
+        ),
+        _edge(
+            "alternate_metric_positive_measure",
+            "visible_metrics",
+            "A positive auxiliary law can supply bounded-weight integration "
+            "only after controlled proposals, quantitative bounds, section "
+            "throughput, and Ricci-flat/HYM convergence are established.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_POSITIVE_MEASURE_NOTE.md",),
+            ("correct independent projective draws", "quantitative error bounds",
+             "complete section evaluation", "Ricci-flat/HYM convergence"),
+            True,
+            ("existence of a finite global bound does not compute that bound",),
+        ),
+        _edge(
             "alternate_metric_bounded_support",
             "alternate_metric_bounded_matrix",
             "Complete ordered execution materializes each original section's "
@@ -7466,8 +7519,8 @@ def _scheduler() -> list[dict[str, object]]:
             "Use the actual residue and normalized FS measure with the bounded "
             "all-index evaluator and certified density/frame bounds; finish "
             "complete bounded output and measure multi-point cost, then implement "
-            "the SU-uniform proposal law with quantitative second-moment or "
-            "truncation-error control, not a finite-third-moment assumption; "
+            "the positive auxiliary SU-uniform mixture with quantitative "
+            "global weight bounds, critical-chart coverage, and error control; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
@@ -10003,6 +10056,54 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the actual weight integrability or its scientific scope is not certified")
+    positive_record = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_positive_measure.json"
+    )).read_text(encoding="utf-8"))
+    positive_digest = positive_record.pop("artifact_digest", None)
+    if (
+        positive_digest != _canonical_digest(positive_record)
+        or positive_digest != "c95486f83301f30fe55906ae773981d3a18d5662b56587de769f9744638cd66e"
+        or positive_record.get("schema") != "alternate-metric-positive-measure-v1"
+        or positive_record.get("measure_artifact_digest") != measure_digest
+        or positive_record.get("moment_artifact_digest") != moment_digest
+        or positive_record.get("root_artifact_digest")
+        != "cc160262ba3ca6d389c28b1ea2b42c49372d5e47ce90af93ab00ab60cab6ebdf"
+        or positive_record.get("proof") != (
+            "research/experiments/scientific_genesis/ALTERNATE_METRIC_POSITIVE_MEASURE_NOTE.md"
+        )
+        or positive_record.get("proof_sha256") != _sha256(ROOT / (
+            "research/experiments/scientific_genesis/ALTERNATE_METRIC_POSITIVE_MEASURE_NOTE.md"
+        ))
+        or positive_record.get("positive_cover_mass") != "72"
+        or positive_record.get("component_masses") != ["9", "3", "3"]
+        or positive_record.get("component_probabilities") != ["3/4", "1/8", "1/8"]
+        or positive_record.get("component_root_counts") != [9, 3, 3]
+        or positive_record.get("bound_bits") != 80
+        or positive_record.get("covering_degree") != 9
+        or [p.get("side") for p in positive_record.get("actual_three_root_branch_probes", [])]
+        != [1, 2]
+        or any(p.get("partner_root_certificate", {}).get("total_root_count") != 3
+               for p in positive_record.get("actual_three_root_branch_probes", []))
+        or [c.get("name") for c in positive_record.get("actual_configurations", [])]
+        != ["finite_chart", "infinity_branch"]
+        or any(len(c.get("all_nine_positive_densities", [])) != 9
+               or any(Fraction(p["positive_density_times_pi_cubed"][0]) <= 0
+                      for p in c.get("all_nine_positive_densities", []))
+               for c in positive_record.get("actual_configurations", []))
+        or any(positive_record.get(flag) is not True for flag in (
+            "positive_auxiliary_law_derived", "ideal_weight_globally_bounded",
+            "all_nonnegative_weight_moments_finite",
+            "regular_chart_positive_density_enclosures_available",
+        ))
+        or any(positive_record.get(flag) is not False for flag in (
+            "quantitative_global_weight_bound_available",
+            "critical_fiber_chart_enclosures_available",
+            "controlled_numerical_sampling_available", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected", "vacuum_selected",
+            "physical_kahler_class_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the positive auxiliary law or its scientific scope is not certified")
     root_record = json.loads((ROOT / (
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json"
     )).read_text(encoding="utf-8"))
@@ -10461,6 +10562,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.matrix.json.gz",
         "data/generated/scientific_genesis/alternate_metric_measure.json",
         "data/generated/scientific_genesis/alternate_metric_weight_moments.json",
+        "data/generated/scientific_genesis/alternate_metric_positive_measure.json",
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
         "data/generated/scientific_genesis/alternate_metric_enclosures.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
@@ -10733,6 +10835,10 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_weight_second_moment_finite": True,
                 "alternate_metric_weight_third_moment_finite": False,
                 "alternate_metric_quantitative_variance_bound_available": False,
+                "alternate_metric_positive_auxiliary_law_derived": True,
+                "alternate_metric_positive_law_ideal_weight_globally_bounded": True,
+                "alternate_metric_positive_law_quantitative_global_bound_available": False,
+                "alternate_metric_critical_fiber_chart_enclosures_available": False,
                 "alternate_metric_certified_Qomega_intersection_roots_available": True,
                 "alternate_metric_certified_chart_and_density_enclosures_available": True,
                 "alternate_metric_laurent_coefficient_enclosure_engine_available": True,
@@ -10977,9 +11083,9 @@ def build_state() -> dict[str, object]:
             "next_required_object": (
                 "certify complete bounded matrix output and practical multi-point "
                 "throughput using the actual universal quotient frames; "
-                "implement the declared SU-uniform "
-                "proposal law with precision and quantitative second-moment or "
-                "truncation-error control, then "
+                "implement the positive auxiliary SU-uniform mixture with "
+                "proposal precision, quantitative global weight bounds, "
+                "critical-chart coverage, and integration-error control, then "
                 "certify Ricci-flat/HYM "
                 "convergence without choosing physical moduli by hand"
             ),
@@ -10988,6 +11094,10 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "the positive ambient FS-cube auxiliary law has mass 72 and exact "
+            "projective mixture probabilities 3/4,1/8,1/8; its ideal weights "
+            "are bounded on the unchanged compact cover without computing "
+            "a numerical bound or selecting physical Kahler moduli",
             "the actual A/9 importance weight has finite nonnegative moments "
             "exactly below order three; its finite variance has no numerical "
             "upper bound yet, so quantitative sampling-error control remains open",

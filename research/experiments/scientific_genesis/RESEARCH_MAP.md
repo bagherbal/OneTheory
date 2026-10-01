@@ -1440,3 +1440,28 @@ certified finite-pole representation rather than reimplement the sections.
 Controlled proposal precision, the SU-uniform sampling law, integration
 error, Ricci-flat/HYM convergence, the common vacuum, remaining flavor
 sectors, and Genesis-to-UV remain unresolved.
+
+The original finite-pole engine now carries circular error bounds on the
+original cochain labels. Exact homotopy, perturbation, and deck unit columns
+are extended linearly, reusing the same finite lifting series rather than
+constructing an alternate DGA. Only exact center-zero/radius-zero terms
+are discarded. Uncertain zeros remain present; the original strict
+object/Koszul filtration, not cancellation, bounds the lifting length.
+Every archived basis index is accepted in the unchanged 2655+2690 ordering,
+with constant/a0/a1 columns and the actual nonsplit quotient frames. See
+`ALTERNATE_METRIC_BOUNDED_SUPPORT_NOTE.md` and the content-addressed
+`alternate_metric_bounded_support.json`.
+
+The packet saves indices 0, 1273, and 2655 on each finite/infinity domain.
+Zero-error probes reproduce the independent exact point archive; nonzero
+root-error probes contain independent full original cochain functionals
+followed by exact five-relation Gaussian elimination. Refinement contracts
+the section error. This closes the scoped bounded all-index evaluator
+prerequisite, not complete matrix materialization or practical multi-point
+throughput. The predecessor bounded-frame packet retains its historical
+open-engine flag. Next certify complete bounded output and measured cost,
+then the SU-uniform proposal law with precision/integration-error control.
+Sampling, Ricci-flat/HYM convergence, matter metrics, physical Yukawas,
+the common stabilized vacuum, remaining holomorphic flavor sectors, and
+Genesis-to-UV remain missing. No observational or moduli-selection flag
+was enabled.

@@ -44,6 +44,29 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         (
+            "alternate-metric-bounded-support-v1",
+            "complete_bounded_5345_column_matrix_materialized",
+            "bounded original support evaluation or its scope is not certified",
+        ),
+        (
+            "alternate-metric-bounded-support-v1",
+            "practical_multi_point_integration_throughput_certified",
+            "bounded original support evaluation or its scope is not certified",
+        ),
+        (
+            "alternate-metric-bounded-support-v1",
+            "bounded_section_and_density_evaluation_available",
+            "bounded original support evaluation or its scope is not certified",
+        ),
+        (
+            "alternate-metric-bounded-support-v1", "controlled_numerical_sampling_available",
+            "bounded original support evaluation or its scope is not certified",
+        ),
+        (
+            "alternate-metric-bounded-support-v1", "numerical_metrics_available",
+            "bounded original support evaluation or its scope is not certified",
+        ),
+        (
             "alternate-metric-bounded-fibers-v1",
             "complete_bounded_5345_column_matrix_materialized",
             "bounded universal fibers or their scientific scope are not certified",
@@ -849,8 +872,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "extend the certified finite-support evaluator to bounded full-basis "
-        "evaluation using the actual universal quotient frames; "
+        "certify complete bounded matrix output and practical multi-point "
+        "throughput using the actual universal quotient frames; "
         "implement the declared SU-uniform "
         "proposal law with precision and integration-error control, then "
         "certify Ricci-flat/HYM "
@@ -864,6 +887,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_metric_projective_roots"]["status"] == "COMPUTED"
     assert claims["alternate_metric_enclosures"]["status"] == "COMPUTED"
     assert claims["alternate_metric_bounded_fibers"]["status"] == "COMPUTED"
+    assert claims["alternate_metric_bounded_support"]["status"] == "COMPUTED"
     assert path["criteria"][
         "alternate_metric_certified_chart_and_density_enclosures_available"
     ] is True
@@ -872,6 +896,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     ] is True
     assert path["criteria"][
         "alternate_metric_compressed_complete_section_enclosure_engine_available"
+    ] is True
+    assert path["criteria"][
+        "alternate_metric_practical_multi_point_integration_throughput_certified"
     ] is False
     assert path["criteria"][
         "alternate_metric_complete_bounded_5345_column_matrix_materialized"

@@ -250,18 +250,20 @@ def mixed_outer_cup_coefficient(
     return result
 
 
-def perturbed_homotopy(
-    cochain: SparseOuterCechCochain,
-    contraction: _MixedContraction,
-) -> tuple[SparseOuterCechCochain, int]:
-    """Apply the finite ``(1 + h Delta)^-1 h`` contraction series."""
+def perturbed_homotopy(cochain, contraction, *, homotopy=_homotopy):
+    """Apply the SAME finite ``(1 + h Delta)^-1 h`` contraction series.
 
-    result = SparseOuterCechCochain()
-    current = _homotopy(cochain)
+    The default uses original exact cochains. A coefficient-enclosure mode
+    can supply the same raw homotopy by its original exact unit columns;
+    no alternate lifting series or physical assumption is introduced.
+    """
+
+    result = cochain.scale(0)
+    current = homotopy(cochain)
     depth = 0
     while not current.is_zero():
         result = result + current
-        current = _homotopy(contraction.perturbation(current)).scale(-1)
+        current = homotopy(contraction.perturbation(current)).scale(-1)
         depth += 1
         if depth > 16:
             raise ValueError("mixed perturbed homotopy did not terminate")

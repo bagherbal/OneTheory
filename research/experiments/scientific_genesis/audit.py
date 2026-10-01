@@ -3588,6 +3588,28 @@ def _nodes() -> list[dict[str, object]]:
              "original nonsplit Serre and outer coefficients", "nonzero determinant enclosures"),
         ),
         _node(
+            "alternate_metric_bounded_support",
+            "bounded original section evaluation through finite pole sectors",
+            "Normalization",
+            "COMPUTED",
+            "The certified finite-pole representation now carries circular "
+            "coefficient bounds on original labels. Original exact homotopy, "
+            "perturbation, and deck unit columns extend linearly; uncertain "
+            "zeros remain present and the actual finite filtration controls "
+            "termination. Every original basis index is accepted. Three "
+            "indices are saved on finite and infinity domains, with independent "
+            "full-cochain and exact archive checks. The complete bounded matrix, "
+            "practical multi-point throughput, sampling, and metrics remain open.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_bounded_support.json",
+                "research/experiments/scientific_genesis/alternate_metric_bounded_support.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_BOUNDED_SUPPORT_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_bounded_support.py",
+            ),
+            ("certified determinant-invertible local frames", "same original finite-pole encoding",
+             "original finite filtration", "explicit outward coefficient precision"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -3603,8 +3625,10 @@ def _nodes() -> list[dict[str, object]]:
             "Actual chart, Laurent-coefficient, and density errors are bounded, "
             "and universal quotient frames now have certified bounds on declared "
             "pivot domains. Full original-cochain section evaluation is bounded "
-            "on demand; the complete bounded section matrix, practical compressed "
-            "throughput, and controlled sampling "
+            "on demand. The original finite-pole engine also carries certified "
+            "coefficient bounds for every archived index; three-index packets "
+            "on finite/infinity domains are not a complete bounded matrix. "
+            "Practical multi-point throughput, controlled sampling "
             "and converged Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
@@ -6142,6 +6166,51 @@ def _edges() -> list[dict[str, object]]:
             ("two corrected section probes are not a complete bounded matrix or metric",),
         ),
         _edge(
+            "alternate_metric_bounded_fibers",
+            "alternate_metric_bounded_support",
+            "Determinant-certified actual nonsplit quotient frames map bounded "
+            "original section coefficients to the same named universal fibers.",
+            ("data/generated/scientific_genesis/alternate_metric_bounded_support.json",),
+            ("same original generator basis and declared chart", "invertible pivot enclosures"),
+            True,
+            ("a failed determinant cannot be replaced by a guessed frame",),
+        ),
+        _edge(
+            "alternate_metric_specialized_evaluation",
+            "alternate_metric_bounded_support",
+            "The original ordered complete section streams and finite-pole "
+            "operator identities admit coefficient-enclosure evaluation without "
+            "changing sections or discarding Laurent phases.",
+            ("data/generated/scientific_genesis/alternate_metric_bounded_support.json",),
+            ("same 2655+2690 index ordering", "exact original unit operators",
+             "discard only exact zeros"),
+            True,
+            ("center-zero pruning would discard potentially nonzero section values",),
+        ),
+        _edge(
+            "alternate_metric_lift_operator_certificate",
+            "alternate_metric_bounded_support",
+            "The exact operator identities and strictly increasing finite "
+            "filtration justify the identical lifting series over enclosed "
+            "coefficients even when arithmetic cancellation is unresolved.",
+            ("data/generated/scientific_genesis/alternate_metric_bounded_support.json",),
+            ("same original component/cell labels", "same five-term filtration bound"),
+            True,
+            ("an unexpected sixth term is a failure, not a truncation rule",),
+        ),
+        _edge(
+            "alternate_metric_bounded_support",
+            "visible_metrics",
+            "The bounded all-index evaluator supplies actual section integration "
+            "inputs once complete output, practical throughput, proposal precision, "
+            "integration error, and Ricci-flat/HYM convergence are certified.",
+            ("data/generated/scientific_genesis/alternate_metric_bounded_support.json",),
+            ("complete bounded matrix and measured multi-point cost", "SU-uniform proposal law",
+             "independent integration errors", "Ricci-flat/HYM convergence"),
+            True,
+            ("three-index packets are not a complete matrix, probability law, or metric",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -7260,6 +7329,7 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
                 "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
                 "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py",
+                "research/experiments/scientific_genesis/alternate_metric_bounded_support.py",
             ),
         ),
         (
@@ -9907,6 +9977,48 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("bounded universal fibers or their scientific scope are not certified")
+    bounded_support = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_bounded_support.json"
+    )).read_text(encoding="utf-8"))
+    bounded_support_digest = bounded_support.pop("artifact_digest", None)
+    if (
+        bounded_support_digest != _canonical_digest(bounded_support)
+        or bounded_support_digest
+        != "648135531c44d0790e19b42093b11786d8e5f387926e0dc0c261aea34f9940a8"
+        or bounded_support.get("schema") != "alternate-metric-bounded-support-v1"
+        or bounded_support.get("bounded_fiber_artifact_digest") != bounded_fiber_digest
+        or bounded_support.get("root_artifact_digest") != root_digest
+        or bounded_support.get("independent_exact_matrix_artifact_digest") != specialized_digest
+        or bounded_support.get("independent_exact_matrix_archive_sha256")
+        != specialized.get("matrix_archive_sha256")
+        or bounded_support.get("parameter_basis") != ["a0", "a1"]
+        or bounded_support.get("bound_bits") != 80
+        or bounded_support.get("original_basis_count") != 5345
+        or bounded_support.get("original_constituent_counts") != [2655, 2690]
+        or bounded_support.get("filtration_length_bound") != 5
+        or bounded_support.get("zero_policy")
+        != "discard only exact center-zero radius-zero coefficients"
+        or bounded_support.get("compressed_complete_section_enclosure_engine_available") is not True
+        or [p.get("name") for p in bounded_support.get("actual_frame_probes", [])]
+        != ["finite_chart", "infinity_branch"]
+        or any(p.get("first_pivot_rows") != [0, 2]
+               or p.get("second_pivot_rows") != [0, 1, 2]
+               or p.get("fiber_basis_labels") != fiber_evaluation.get("fiber_basis_labels")
+               or [s.get("basis_index") for s in p.get("actual_universal_section_probes", [])]
+               != [0, 1273, 2655]
+               or not p.get("observed_series_depths")
+               or not all(type(d) is int and 0 <= d <= 5 for d in p["observed_series_depths"])
+               for p in bounded_support.get("actual_frame_probes", []))
+        or any(bounded_support.get(flag) is not False for flag in (
+            "complete_bounded_5345_column_matrix_materialized",
+            "practical_multi_point_integration_throughput_certified",
+            "bounded_section_and_density_evaluation_available",
+            "controlled_numerical_sampling_available", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected", "vacuum_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("bounded original support evaluation or its scope is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -10221,6 +10333,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
         "data/generated/scientific_genesis/alternate_metric_enclosures.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
+        "data/generated/scientific_genesis/alternate_metric_bounded_support.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -10491,8 +10604,9 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_laurent_coefficient_enclosure_engine_available": True,
                 "alternate_metric_bounded_universal_fiber_frame_available": True,
                 "alternate_metric_on_demand_original_cochain_section_bounds_available": True,
-                "alternate_metric_compressed_complete_section_enclosure_engine_available": False,
+                "alternate_metric_compressed_complete_section_enclosure_engine_available": True,
                 "alternate_metric_complete_bounded_5345_column_matrix_materialized": False,
+                "alternate_metric_practical_multi_point_integration_throughput_certified": False,
                 "alternate_metric_bounded_section_and_density_evaluation_available": False,
                 "alternate_metric_controlled_numerical_sampling_available": False,
                 "alternate_up_complete_tensor_comparison_available": False,
@@ -10727,8 +10841,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "extend the certified finite-support evaluator to bounded full-basis "
-                "evaluation using the actual universal quotient frames; "
+                "certify complete bounded matrix output and practical multi-point "
+                "throughput using the actual universal quotient frames; "
                 "implement the declared SU-uniform "
                 "proposal law with precision and integration-error control, then "
                 "certify Ricci-flat/HYM "
@@ -11070,6 +11184,9 @@ def build_state() -> dict[str, object]:
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
             "finite-pole point evaluation agrees with all 5345 archived exact columns; "
             "practical multi-point throughput and numerical sampling remain uncertified",
+            "original finite-pole evaluation carries certified coefficient bounds "
+            "for every archived index; finite/infinity three-index packets are "
+            "not a materialized complete bounded matrix or a sampling law",
         ],
         "blocked_physical_calculations": [
             "equivariantly trivial quotient determinant with preserved Wilson spectrum",

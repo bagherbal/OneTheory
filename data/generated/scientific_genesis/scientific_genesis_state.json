@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "fc66037401aa028e60a931503434ef79ece321a055cae57892de833c9827220b",
+  "artifact_digest": "61039e473a7f1df81f111a2ba90ee231c7c2cac1bcc44c5767b0fe1f7e0eb650",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -952,6 +952,11 @@
       "sha256": "49d0ba47c8201c55391458b1fed1619087f8b91dd2d3b5ea29d1f2f0a8717ae1"
     },
     {
+      "bytes": 51873,
+      "path": "data/generated/scientific_genesis/alternate_metric_bounded_support.json",
+      "sha256": "71bac59716cf43218dc0a3374b72e878e069e6c55befe8c8b5f9636d34a8da82"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -991,8 +996,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 275,
-    "test_python_files": 259
+    "research_python_files": 276,
+    "test_python_files": 260
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -4017,6 +4022,26 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "certified determinant-invertible local frames",
+        "same original finite-pole encoding",
+        "original finite filtration",
+        "explicit outward coefficient precision"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_bounded_support.json",
+        "research/experiments/scientific_genesis/alternate_metric_bounded_support.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_BOUNDED_SUPPORT_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_bounded_support.py"
+      ],
+      "id": "alternate_metric_bounded_support",
+      "label": "bounded original section evaluation through finite pole sectors",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "The certified finite-pole representation now carries circular coefficient bounds on original labels. Original exact homotopy, perturbation, and deck unit columns extend linearly; uncertain zeros remain present and the actual finite filtration controls termination. Every original basis index is accepted. Three indices are saved on finite and infinity domains, with independent full-cochain and exact archive checks. The complete bounded matrix, practical multi-point throughput, sampling, and metrics remain open.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -4029,7 +4054,7 @@
         "controlled numerical full-basis evaluation and metric sampling",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Actual chart, Laurent-coefficient, and density errors are bounded, and universal quotient frames now have certified bounds on declared pivot domains. Full original-cochain section evaluation is bounded on demand; the complete bounded section matrix, practical compressed throughput, and controlled sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Actual chart, Laurent-coefficient, and density errors are bounded, and universal quotient frames now have certified bounds on declared pivot domains. Full original-cochain section evaluation is bounded on demand. The original finite-pole engine also carries certified coefficient bounds for every archived index; three-index packets on finite/infinity domains are not a complete bounded matrix. Practical multi-point throughput, controlled sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -7081,6 +7106,73 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "same original generator basis and declared chart",
+        "invertible pivot enclosures"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_bounded_support.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a failed determinant cannot be replaced by a guessed frame"
+      ],
+      "mathematical_reason": "Determinant-certified actual nonsplit quotient frames map bounded original section coefficients to the same named universal fibers.",
+      "source": "alternate_metric_bounded_fibers",
+      "target": "alternate_metric_bounded_support"
+    },
+    {
+      "assumptions_required": [
+        "same 2655+2690 index ordering",
+        "exact original unit operators",
+        "discard only exact zeros"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_bounded_support.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "center-zero pruning would discard potentially nonzero section values"
+      ],
+      "mathematical_reason": "The original ordered complete section streams and finite-pole operator identities admit coefficient-enclosure evaluation without changing sections or discarding Laurent phases.",
+      "source": "alternate_metric_specialized_evaluation",
+      "target": "alternate_metric_bounded_support"
+    },
+    {
+      "assumptions_required": [
+        "same original component/cell labels",
+        "same five-term filtration bound"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_bounded_support.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "an unexpected sixth term is a failure, not a truncation rule"
+      ],
+      "mathematical_reason": "The exact operator identities and strictly increasing finite filtration justify the identical lifting series over enclosed coefficients even when arithmetic cancellation is unresolved.",
+      "source": "alternate_metric_lift_operator_certificate",
+      "target": "alternate_metric_bounded_support"
+    },
+    {
+      "assumptions_required": [
+        "complete bounded matrix and measured multi-point cost",
+        "SU-uniform proposal law",
+        "independent integration errors",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_bounded_support.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "three-index packets are not a complete matrix, probability law, or metric"
+      ],
+      "mathematical_reason": "The bounded all-index evaluator supplies actual section integration inputs once complete output, practical throughput, proposal precision, integration error, and Ricci-flat/HYM convergence are certified.",
+      "source": "alternate_metric_bounded_support",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -8085,7 +8177,8 @@
     "common-DGA and HPL machinery",
     "complete natural quotient null-scalar evaluator with both exact coefficient residues certified",
     "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
-    "finite-pole point evaluation agrees with all 5345 archived exact columns; practical multi-point throughput and numerical sampling remain uncertified"
+    "finite-pole point evaluation agrees with all 5345 archived exact columns; practical multi-point throughput and numerical sampling remain uncertified",
+    "original finite-pole evaluation carries certified coefficient bounds for every archived index; finite/infinity three-index packets are not a materialized complete bounded matrix or a sampling law"
   ],
   "fitted_inputs": [],
   "objective": {
@@ -8135,7 +8228,7 @@
       "alternate_metric_certified_chart_and_density_enclosures_available": true,
       "alternate_metric_complete_bounded_5345_column_matrix_materialized": false,
       "alternate_metric_complete_point_evaluation_matrix_materialized": true,
-      "alternate_metric_compressed_complete_section_enclosure_engine_available": false,
+      "alternate_metric_compressed_complete_section_enclosure_engine_available": true,
       "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
       "alternate_metric_controlled_numerical_sampling_available": false,
@@ -8161,6 +8254,7 @@
       "alternate_metric_laurent_coefficient_enclosure_engine_available": true,
       "alternate_metric_local_rank_four_evaluation_available": true,
       "alternate_metric_on_demand_original_cochain_section_bounds_available": true,
+      "alternate_metric_practical_multi_point_integration_throughput_certified": false,
       "alternate_metric_quotient_section_count": 5345,
       "alternate_metric_rank_four_globally_generated": true,
       "alternate_metric_rank_four_quotient_lifts_remaining_count": 0,
@@ -8837,7 +8931,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "extend the certified finite-support evaluator to bounded full-basis evaluation using the actual universal quotient frames; implement the declared SU-uniform proposal law with precision and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
+    "next_required_object": "certify complete bounded matrix output and practical multi-point throughput using the actual universal quotient frames; implement the declared SU-uniform proposal law with precision and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
@@ -9133,7 +9227,8 @@
       "locations": [
         "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
         "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
-        "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py"
+        "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py",
+        "research/experiments/scientific_genesis/alternate_metric_bounded_support.py"
       ],
       "maturity": "research-only; actual roots/charts/densities/universal frames, not sampling or metrics"
     },

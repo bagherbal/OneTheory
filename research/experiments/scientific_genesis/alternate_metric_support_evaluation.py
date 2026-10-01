@@ -34,8 +34,8 @@ def _positive(powers):
     return tuple(max(e, 0) for e in powers)
 
 
-def _encode_x_term(basis, coefficient, x, powers=None):
-    """Preserve poles; put artificial homogeneous degree at the first regular index."""
+def _x_pole_encoding(basis, powers=None):
+    """Describe the original pole encoding independently of coefficient evaluation."""
 
     powers = basis.x_monomial if powers is None else powers
     negative = tuple(min(e, 0) for e in powers)
@@ -46,14 +46,31 @@ def _encode_x_term(basis, coefficient, x, powers=None):
     dummy_degree = degree - sum(negative)
     if dummy_degree < 0:
         raise ValueError("the declared ambient degree cannot encode this pole sector")
-    coefficient *= regular._monomial(x, _positive(powers))
-    if coefficient.is_zero():
-        return ()
     encoded = list(negative)
     encoded[regular_indices[0]] = dummy_degree
-    return ((OuterCechBasis(
+    return (OuterCechBasis(
         basis.component, tuple(encoded), basis.u_monomial, basis.p_monomial, basis.cell,
-    ), coefficient),)
+    ), _positive(powers))
+
+
+def _encode_x_term(basis, coefficient, x, powers=None):
+    """Preserve poles; put artificial homogeneous degree at the first regular index."""
+
+    encoded, positive = _x_pole_encoding(basis, powers)
+    coefficient *= regular._monomial(x, positive)
+    return () if coefficient.is_zero() else ((encoded, coefficient),)
+
+
+def _original_column_terms(target, source):
+    """Compile the SAME original arrow unit before applying any point functional."""
+
+    dummy_x = _positive(source.x_monomial)
+    source_u_degree = source.component.ambient_degree[1]
+    image = target.perturbation(SparseOuterCechCochain(((source, Eisenstein(1)),)))
+    return tuple((OuterCechBasis(
+        b.component, b.x_monomial, (sum(b.u_monomial), 0, 0), b.p_monomial, b.cell,
+    ), tuple(a - d for a, d in zip(b.x_monomial, dummy_x, strict=True)),
+        (b.u_monomial[0] - source_u_degree, *b.u_monomial[1:]), c) for b, c in image.terms)
 
 
 def encode_x(cochain, x):
@@ -88,21 +105,12 @@ class _SupportPerturbation:
     def _column(self, source):
         """Compile one unit with the ORIGINAL operator; extend only by linearity."""
 
-        dummy_x = _positive(source.x_monomial)
-        source_u_degree = source.component.ambient_degree[1]
-        image = self.target.perturbation(SparseOuterCechCochain(((source, Eisenstein(1)),)))
         result = []
-        for b, c in image.terms:
-            arrow_u = (b.u_monomial[0] - source_u_degree, *b.u_monomial[1:])
+        for b, residual_x, arrow_u, c in _original_column_terms(self.target, source):
             c *= regular._monomial(self.u, arrow_u)
             if c.is_zero():
                 continue
-            encoded_u = OuterCechBasis(
-                b.component, b.x_monomial, (sum(b.u_monomial), 0, 0),
-                b.p_monomial, b.cell,
-            )
-            residual_x = tuple(a - d for a, d in zip(b.x_monomial, dummy_x, strict=True))
-            result.extend(_encode_x_term(encoded_u, c, self.x, residual_x))
+            result.extend(_encode_x_term(b, c, self.x, residual_x))
         return SparseOuterCechCochain(tuple(result))
 
 

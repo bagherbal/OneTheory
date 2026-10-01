@@ -2,8 +2,8 @@
 
 Owns:
     Strict rational values and immutable elements a + bω of Q(ω), where
-    ω² + ω + 1 = 0, including exact coercion, field operations, powers, and text
-    representations.
+    ω² + ω + 1 = 0, including exact coercion, field operations, conjugation,
+    rational field norms, powers, and text representations.
 
 Depends on:
     Python’s standard-library fraction machinery only; no physical, matrix,
@@ -186,6 +186,16 @@ class Eisenstein:
 
     def __rmul__(self, other: object) -> Eisenstein:
         return self * other
+
+    def conjugate(self) -> Eisenstein:
+        """Apply the exact involution omega -> omega squared."""
+
+        return Eisenstein(self.a - self.b, -self.b)
+
+    def norm(self) -> Rational:
+        """Return x times its conjugate as an exact nonnegative rational."""
+
+        return self.a * self.a - self.a * self.b + self.b * self.b
 
     def inverse(self) -> Eisenstein:
         """Return the exact multiplicative inverse of a nonzero element."""

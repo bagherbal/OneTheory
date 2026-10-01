@@ -170,6 +170,40 @@ def test_eisenstein_zero_inverse_and_division_fail() -> None:
         E_ZERO**-1
 
 
+def test_conjugation_and_norm_of_the_declared_field_generators() -> None:
+    """The primitive root and rational subfield fix the involution uniquely."""
+
+    assert OMEGA.conjugate() == OMEGA2
+    assert OMEGA2.conjugate() == OMEGA
+    assert E_ZERO.norm() == Rational(0)
+    assert E_ONE.norm() == OMEGA.norm() == OMEGA2.norm() == Rational(1)
+    assert Eisenstein(Rational(2, 3)).conjugate() == Eisenstein(Rational(2, 3))
+    assert Eisenstein(Rational(2, 3)).norm() == Rational(4, 9)
+
+
+@given(left=eisenstein_values(), right=eisenstein_values())
+def test_conjugation_is_an_exact_involutive_field_automorphism(
+    left: Eisenstein, right: Eisenstein,
+) -> None:
+    assert left.conjugate().conjugate() == left
+    assert (left + right).conjugate() == left.conjugate() + right.conjugate()
+    assert (left * right).conjugate() == left.conjugate() * right.conjugate()
+
+
+@given(left=eisenstein_values(), right=eisenstein_values())
+def test_field_norm_is_positive_multiplicative_and_matches_the_inverse(
+    left: Eisenstein, right: Eisenstein,
+) -> None:
+    norm = left.norm()
+    assert isinstance(norm, Rational)
+    assert norm >= 0
+    assert norm.is_zero() == left.is_zero()
+    assert left * left.conjugate() == Eisenstein(norm)
+    assert (left * right).norm() == norm * right.norm()
+    if not left.is_zero():
+        assert left.inverse() == left.conjugate() / norm
+
+
 @pytest.mark.parametrize("exponent", [True, False, 1.0, 1 + 0j])
 def test_integer_powers_reject_noninteger_exponents(exponent: object) -> None:
     with pytest.raises(TypeError):

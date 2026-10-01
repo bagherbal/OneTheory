@@ -307,6 +307,52 @@ def test_bicomplex_rejects_noncommuting_unsigned_directions() -> None:
 
 
 @pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("axis", ("horizontal", "vertical"))
+def test_bicomplex_rejects_nonzero_directional_squares(
+    scalar_type: type[Rational] | type[Eisenstein],
+    axis: str,
+) -> None:
+    """Commuting cross directions cannot excuse a nonzero directional square."""
+
+    cells = tuple((degree, 0) if axis == "horizontal" else (0, degree)
+                  for degree in range(3))
+    spaces = {cell: VectorSpace(str(cell), ("e",), scalar_type) for cell in cells}
+    coefficient = Rational(2, 3) if scalar_type is Rational else OMEGA
+    maps = {
+        cells[index]: LinearMap(spaces[cells[index]], spaces[cells[index + 1]],
+                                ((coefficient,),))
+        for index in range(2)
+    }
+
+    assert not maps[cells[1]].compose(maps[cells[0]]).is_zero()
+    with pytest.raises(ValueError, match="directional squares must vanish"):
+        Bicomplex("invalid square", spaces, **{axis: maps})
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_chain_maps_reject_noncommuting_components_in_either_direction(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """Well-typed components alone do not certify a chain map."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    first = VectorSpace("first", ("x",), scalar_type)
+    last = VectorSpace("last", ("y",), scalar_type)
+    coefficient = Rational(2, 3) if scalar_type is Rational else OMEGA
+    complex_ = complex_type(
+        GradedVectorSpace("two term", {0: first, step: last}),
+        {0: LinearMap(first, last, ((coefficient,),))},
+    )
+
+    with pytest.raises(ValueError, match="commute with the differentials"):
+        ChainMap(complex_, complex_, {0: LinearMap.identity(first)})
+    with pytest.raises(ValueError, match="commute with the differentials"):
+        ChainMap(complex_, complex_, {step: LinearMap.identity(last)})
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
 @pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
 def test_direct_sum_preserves_explicit_zero_edge_bases(
     scalar_type: type[Rational] | type[Eisenstein],

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "6dc383242f2bcb881a8f4db38dbc3885485f601829168d843c411258a0f3c3f6",
+  "artifact_digest": "b685cb0efbb819756064dcbb83f29e9b0f72d4d866f6f3956551117789deb8be",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -872,6 +872,16 @@
       "sha256": "26c80337cde42c27c0fa87067a7369de9e7d9fc2c4767fc84656567a4a195b25"
     },
     {
+      "bytes": 216335,
+      "path": "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json",
+      "sha256": "d66cda321ab8b65e134130b947df02bcb2879bd14a1b8f9f8ef6caadd8252c62"
+    },
+    {
+      "bytes": 119239,
+      "path": "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.relations.json.gz",
+      "sha256": "875828ab32c7647f06b1f417e7227216178015c2b128be6152e5304b914f95a1"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -911,8 +921,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 263,
-    "test_python_files": 247
+    "research_python_files": 264,
+    "test_python_files": 248
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3725,6 +3735,25 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "actual coordinate-point ideal",
+        "source-checked ideal Koszul regularity"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json",
+        "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.relations.json.gz",
+        "research/experiments/scientific_genesis/alternate_metric_first_quotient_sections.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIRST_QUOTIENT_SECTIONS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_first_quotient_sections.py"
+      ],
+      "id": "alternate_metric_first_quotient_sections",
+      "label": "actual first Serre quotient invariant section basis",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "The equivariant Hilbert-Burch cokernel is the coordinate-point ideal at degree (13,17,2) with frame (omega^2,omega^2). Its exact ideal Koszul presentation has 5814 target vectors, 5114 relations, and an 840-dimensional syzygy space. An independently replayed nonzero integral minor gives an explicit 1540-vector Q(omega) quotient section basis. Non-split Serre lifts and complete carrier bases remain missing.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -3737,7 +3766,7 @@
         "explicit alternate-carrier invariant section bases",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Its first Serre subline has an actual invariant basis, but full carrier sections and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Its first Serre subline and quotient have actual invariant bases, but the non-split Serre lifts, full carrier sections, and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -6331,6 +6360,37 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "source-checked regularity on the coordinate-axis quotient"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIRST_QUOTIENT_SECTIONS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "wrong ideal image character selects a different invariant space"
+      ],
+      "mathematical_reason": "The actual block frame determines the equivariant monomial ideal image; its two-equation ideal Koszul quotient and a nonzero integral minor supply the exact quotient basis.",
+      "source": "alternate_metric_first_resolution_ambient_sections",
+      "target": "alternate_metric_first_quotient_sections"
+    },
+    {
+      "assumptions_required": [
+        "determinant-repaired alternate carrier"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a quotient basis is not a lifted constituent or rank-four basis"
+      ],
+      "mathematical_reason": "The actual quotient section basis supplies all 1540 quotient inputs for the first constituent's Serre lifts.",
+      "source": "alternate_metric_first_quotient_sections",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -7382,6 +7442,8 @@
         13338,
         7524
       ],
+      "alternate_metric_first_serre_lifts_remaining_count": 1540,
+      "alternate_metric_first_serre_quotient_basis_count": 1540,
       "alternate_metric_first_subline_basis_count": 1115,
       "alternate_metric_large_generating_twist": [
         14,
@@ -7390,7 +7452,6 @@
       ],
       "alternate_metric_quotient_section_count": 5345,
       "alternate_metric_rank_four_globally_generated": true,
-      "alternate_metric_remaining_first_serre_quotient_dimension": 1540,
       "alternate_metric_subbundle_h1_vanishing": true,
       "alternate_metric_trial_twist": [
         5,
@@ -8061,7 +8122,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "at H=(14,16,1), construct the remaining 1540 invariant first Hilbert-Burch quotient sections and their Serre lifts; then complete V2 and rank-four bases before controlled Ricci-flat/HYM convergence tests",
+    "next_required_object": "at H=(14,16,1), lift the 1540 actual first Serre-quotient sections through the non-split extension and combine them with the 1115 subline sections; then complete V2 and rank-four bases before controlled Ricci-flat/HYM convergence tests",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

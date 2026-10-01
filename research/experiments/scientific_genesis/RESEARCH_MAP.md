@@ -1233,3 +1233,19 @@ The next computation is the invariant Schoen/Koszul and Hilbert–Burch
 quotient, with restricted block dimensions 3,768 and 2,228, followed
 by the 1,540 quotient sections' genuine Serre lifts. Ambient vectors
 are not a complete constituent section basis or a numerical metric.
+
+The actual first Serre quotient now has its full 1,540-vector invariant
+section basis. Its source Hilbert–Burch map identifies the cokernel
+with the monomial ideal `(x0*x1,x0*x2,x1*x2)` at degree `(13,17,2)`,
+with actual scalar frame `(omega^2,omega^2)`. A source-specific
+Cohen–Macaulay regular-sequence argument proves that restricting
+this ideal to the Schoen cover introduces no hidden Tor term.
+The ideal Koszul presentation reduces to 5,814 invariant target
+vectors, 5,114 exact relation columns, and 840 syzygies. A nonzero
+4,274-square integral minor certified modulo seven specifies the
+complementary 1,540 exact Q(omega) orbit sections. Every relation
+image and the transposed minor are independently verified. See
+`ALTERNATE_METRIC_FIRST_QUOTIENT_SECTIONS_NOTE.md`. This is a genuine
+quotient basis, but its non-split Serre lifts remain missing. The
+next object is those 1,540 lifts combined with the existing 1,115
+subline sections; the full V1/V2/rank-four metric input is still open.

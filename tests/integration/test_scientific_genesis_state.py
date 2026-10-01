@@ -100,6 +100,10 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "first_constituent_section_basis_available",
             "the actual ambient resolution sections or scope are not certified",
         ),
+        (
+            "alternate-metric-first-quotient-sections-v1", "serre_lifts_constructed",
+            "the actual first Serre quotient basis or scope is not certified",
+        ),
     ),
 )
 def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
@@ -740,8 +744,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "at H=(14,16,1), construct the remaining 1540 invariant "
-        "first Hilbert-Burch quotient sections and their Serre lifts; "
+        "at H=(14,16,1), lift the 1540 actual first Serre-quotient "
+        "sections through the non-split extension and combine them "
+        "with the 1115 subline sections; "
         "then complete V2 and rank-four bases before controlled "
         "Ricci-flat/HYM convergence tests"
     )
@@ -763,7 +768,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_metric_first_resolution_ambient_generator_counts"] == [
         13338, 7524,
     ]
-    assert path["criteria"]["alternate_metric_remaining_first_serre_quotient_dimension"] == 1540
+    assert claims["alternate_metric_first_quotient_sections"]["status"] == "COMPUTED"
+    assert path["criteria"]["alternate_metric_first_serre_quotient_basis_count"] == 1540
+    assert path["criteria"]["alternate_metric_first_serre_lifts_remaining_count"] == 1540
     assert path["criteria"]["alternate_metric_constituents_globally_generated"] is True
     assert path["criteria"]["alternate_metric_rank_four_globally_generated"] is True
     assert path["criteria"]["alternate_metric_explicit_invariant_basis_available"] is False

@@ -3328,13 +3328,38 @@ def _nodes() -> list[dict[str, object]]:
             ("frozen alternate common flat character", "declared metric twist"),
         ),
         _node(
+            "alternate_metric_first_quotient_sections",
+            "actual first Serre quotient invariant section basis",
+            "Normalization",
+            "COMPUTED",
+            "The equivariant Hilbert-Burch cokernel is the coordinate-point "
+            "ideal at degree (13,17,2) with frame (omega^2,omega^2). "
+            "Its exact ideal Koszul presentation has 5814 target vectors, "
+            "5114 relations, and an 840-dimensional syzygy space. An "
+            "independently replayed nonzero integral minor gives an explicit "
+            "1540-vector Q(omega) quotient section basis. Non-split Serre "
+            "lifts and complete carrier bases remain missing.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json",
+                "data/generated/scientific_genesis/"
+                "alternate_metric_first_quotient_sections.relations.json.gz",
+                "research/experiments/scientific_genesis/alternate_metric_first_quotient_sections.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_FIRST_QUOTIENT_SECTIONS_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_metric_first_quotient_sections.py",
+            ),
+            ("actual coordinate-point ideal", "source-checked ideal Koszul regularity"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
             "BLOCKED",
             "The alternate carrier is globally generated at a declared "
-            "ample twist. Its first Serre subline has an actual invariant "
-            "basis, but full carrier sections and converged "
+            "ample twist. Its first Serre subline and quotient have actual "
+            "invariant bases, but the non-split Serre lifts, full carrier "
+            "sections, and converged "
             "Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
@@ -5560,6 +5585,33 @@ def _edges() -> list[dict[str, object]]:
             ("determinant-repaired alternate carrier",),
             True,
             ("ambient vectors alone are not restricted sections or Serre lifts",),
+        ),
+        _edge(
+            "alternate_metric_first_resolution_ambient_sections",
+            "alternate_metric_first_quotient_sections",
+            "The actual block frame determines the equivariant monomial "
+            "ideal image; its two-equation ideal Koszul quotient and a "
+            "nonzero integral minor supply the exact quotient basis.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_FIRST_QUOTIENT_SECTIONS_NOTE.md",
+            ),
+            ("source-checked regularity on the coordinate-axis quotient",),
+            True,
+            ("wrong ideal image character selects a different invariant space",),
+        ),
+        _edge(
+            "alternate_metric_first_quotient_sections",
+            "visible_metrics",
+            "The actual quotient section basis supplies all 1540 "
+            "quotient inputs for the first constituent's Serre lifts.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json",
+            ),
+            ("determinant-repaired alternate carrier",),
+            True,
+            ("a quotient basis is not a lifted constituent or rank-four basis",),
         ),
         _edge(
             "computable_carrier_state",
@@ -8886,6 +8938,49 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the actual ambient resolution sections or scope are not certified")
+    first_quotient_path = ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json"
+    )
+    first_quotient = json.loads(first_quotient_path.read_text(encoding="utf-8"))
+    first_quotient_digest = first_quotient.pop("artifact_digest", None)
+    if (
+        first_quotient_digest != _canonical_digest(first_quotient)
+        or first_quotient_digest
+        != "d6d1473742b89707284f86ad65a52deac89d5d15e26fbb9f94887f679c448824"
+        or first_quotient.get("schema") != "alternate-metric-first-quotient-sections-v1"
+        or first_quotient.get("twist_cover_degree") != [14, 16, 1]
+        or first_quotient.get("ideal_image_degree") != [13, 17, 2]
+        or first_quotient.get("actual_ideal_image_frame_p_t_exponents") != [2, 2]
+        or first_quotient.get("ambient_ideal_invariant_dimension") != 5814
+        or first_quotient.get("ideal_koszul_source_dimensions") != [2394, 2720]
+        or first_quotient.get("ideal_koszul_syzygy_dimension") != 840
+        or first_quotient.get("structural_relation_rank_upper_bound") != 4274
+        or first_quotient.get("certified_relation_minor_rank") != 4274
+        or first_quotient.get("certificate_prime") != 7
+        or first_quotient.get("certificate_omega_residue") != 2
+        or first_quotient.get("quotient_section_dimension") != 1540
+        or len(first_quotient.get("quotient_basis_canonical_monomials", [])) != 1540
+        or first_quotient.get("relation_archive") != (
+            "data/generated/scientific_genesis/"
+            "alternate_metric_first_quotient_sections.relations.json.gz"
+        )
+        or _sha256(ROOT / first_quotient["relation_archive"])
+        != first_quotient.get("relation_archive_sha256")
+        or first_quotient.get("prerequisite_artifact_digests") != {
+            "ambient": ambient_digest, "generation": generation_digest,
+        }
+        or any(first_quotient.get(flag) is not True for flag in (
+            "hilbert_burch_ideal_identification_equivariant",
+            "exact_equation_images_in_invariant_span",
+            "schoen_sequence_regular_on_coordinate_axis_quotient",
+        ))
+        or any(first_quotient.get(flag) is not False for flag in (
+            "serre_lifts_constructed", "full_constituent_section_basis_available",
+            "rank_four_section_basis_available", "numerical_metrics_available",
+            "physical_yukawas_available", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual first Serre quotient basis or scope is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9183,6 +9278,9 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_quotient_generation.json",
         "data/generated/scientific_genesis/alternate_metric_first_subline_sections.json",
         "data/generated/scientific_genesis/alternate_metric_first_resolution_ambient_sections.json",
+        "data/generated/scientific_genesis/alternate_metric_first_quotient_sections.json",
+        "data/generated/scientific_genesis/"
+        "alternate_metric_first_quotient_sections.relations.json.gz",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -9422,7 +9520,10 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_first_subline_basis_count": subline[
                     "quotient_subline_section_count"
                 ],
-                "alternate_metric_remaining_first_serre_quotient_dimension": 1540,
+                "alternate_metric_first_serre_quotient_basis_count": first_quotient[
+                    "quotient_section_dimension"
+                ],
+                "alternate_metric_first_serre_lifts_remaining_count": 1540,
                 "alternate_metric_first_resolution_ambient_generator_counts": [
                     item["ambient_invariant_generator_count"] for item in ambient_blocks
                 ],
@@ -9661,8 +9762,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "at H=(14,16,1), construct the remaining 1540 invariant "
-                "first Hilbert-Burch quotient sections and their Serre lifts; "
+                "at H=(14,16,1), lift the 1540 actual first Serre-quotient "
+                "sections through the non-split extension and combine them "
+                "with the 1115 subline sections; "
                 "then complete V2 and rank-four bases before controlled "
                 "Ricci-flat/HYM convergence tests"
             ),

@@ -285,6 +285,17 @@ def _higgs(parameter: int) -> tuple[
 ]:
     """Use the already archived actual Higgs primitive with unchanged sign."""
 
+    _, _, kappa, _ = load_alternate_up_pairing_cochains(parameter)
+    return checked_coupled_higgs(parameter, alternate_higgs_quotient_covector(), kappa)
+
+
+def checked_coupled_higgs(
+    parameter: int, covector: SparseOuterCechCochain, primitive: SparseOuterCechCochain,
+) -> tuple[SparseOuterCechCochain, SparseOuterCechCochain, MixedExteriorSquare]:
+    """Retarget explicitly supplied actual Higgs witnesses and check every order."""
+
+    if type(parameter) is not int or parameter not in (0, 1):
+        raise ValueError("the actual coupled Higgs parameter is unavailable")
     model = alternate_coupled_quotient(parameter)
     unit = mixed_schoen_unit()
     indices, exterior_indices = quotient_block_indices(model)
@@ -293,13 +304,13 @@ def _higgs(parameter: int) -> tuple[
     ))
     dual = _MixedContraction(unit, model.quotient)
     dual_zero = _MixedContraction(unit, zero_model)
-    _, _, kappa, _ = load_alternate_up_pairing_cochains(parameter)
-    h = retarget_quotient_block(alternate_higgs_quotient_covector(), dual, indices, dual=True)
-    kappa = retarget_quotient_block(kappa, dual, exterior_indices, dual=True)
+    h = retarget_quotient_block(covector, dual, indices, dual=True)
+    kappa = retarget_quotient_block(primitive, dual, exterior_indices, dual=True)
     _require_zero(dual_zero.differential(h), "the actual constant Higgs is not closed")
-    _require_zero(dual_zero.differential(kappa) + dual.differential(h),
+    constant_kappa_differential = dual_zero.differential(kappa)
+    _require_zero(constant_kappa_differential + dual.differential(h),
                   "the complete formal Higgs identity failed")
-    _require_zero(dual.differential(kappa) + dual_zero.differential(kappa).scale(-1),
+    _require_zero(dual.differential(kappa) + constant_kappa_differential.scale(-1),
                   "a quadratic Higgs action survived")
     return h, kappa, zero_model
 

@@ -20,6 +20,8 @@ Phase 0:
 from __future__ import annotations
 
 import json
+from concurrent.futures import ProcessPoolExecutor
+from hashlib import sha256
 from pathlib import Path
 
 from onetheory.math.linear import Matrix
@@ -145,26 +147,79 @@ def _verified_entry(parameter: int, row: int, column: int, directory: Path, *, l
     return result
 
 
-def write_full_neutrino_matrix(path: Path = OUTPUT):
-    """Require all sixteen source files before assembling any physical-model matrix."""
+def _lift_replay_job(job):
+    """Run the original full lift validator, returning its actual typed witness."""
 
-    directory = path.parent
+    parameter, side, family, directory = job
+    print(f"neutrino replay: lift a{parameter} side {side} family {family}", flush=True)
+    return (parameter, side, family), _verified_lift(parameter, side, family, Path(directory))
+
+
+def _entry_replay_job(job):
+    """Return only the exact residue after complete literal entry replay succeeds."""
+
+    parameter, row, column, directory, left, right = job
+    print(f"neutrino replay: scalar a{parameter} ({row},{column})", flush=True)
+    result = _verified_entry(parameter, row, column, Path(directory), lifts={
+        (parameter, 0, row): left, (parameter, 1, column): right,
+    })
+    return (parameter, row, column), result.cover_residue
+
+
+def _source_snapshot(required):
+    """Pin all metadata and literal archive bytes for one read-only assembly."""
+
+    return {source.stem: {
+        "artifact_digest": _verified_payload(source)[0],
+        "archive_sha256": sha256(source.with_suffix(".cochains.json.gz").read_bytes()).hexdigest(),
+    } for source in required}
+
+
+def _replay_blocks(directory: Path, workers: int):
+    """Schedule unchanged validators; memoization lasts only for this assembly."""
+
+    lift_jobs = [(parameter, side, family, str(directory))
+                 for parameter in (0, 1) for side in (0, 1) for family in (1, 2)]
+    if workers == 1:
+        lifts = dict(_lift_replay_job(job) for job in lift_jobs)
+        return dict(_entry_replay_job((
+            parameter, row, column, str(directory), lifts[parameter, 0, row],
+            lifts[parameter, 1, column],
+        )) for parameter in (0, 1) for row in (1, 2) for column in (1, 2))
+    with ProcessPoolExecutor(max_workers=workers) as pool:
+        lifts = dict(pool.map(_lift_replay_job, lift_jobs))
+        jobs = [(parameter, row, column, str(directory), lifts[parameter, 0, row],
+                 lifts[parameter, 1, column])
+                for parameter in (0, 1) for row in (1, 2) for column in (1, 2)]
+        return dict(pool.map(_entry_replay_job, jobs))
+
+
+def _required_sources(directory: Path):
+    """Name the sixteen actual sector-specific inputs, never a partial matrix."""
+
     required = [coefficients.lift_path(parameter, side, family, directory)
                 for parameter in (0, 1) for side in (0, 1) for family in (1, 2)]
     required.extend(directory / f"alternate_neutrino_ff_a{parameter}_r{row}_c{column}.json"
                     for parameter in (0, 1) for row in (1, 2) for column in (1, 2))
+    return required
+
+
+def write_full_neutrino_matrix(path: Path = OUTPUT, *, workers: int = 1):
+    """Require all sixteen source files before assembling any physical-model matrix."""
+
+    if type(workers) is not int or workers not in (1, 2):
+        raise ValueError("full neutrino replay requires exactly one or two workers")
+    directory = path.parent
+    required = _required_sources(directory)
     for source in required:
         if not source.is_file():
             raise FileNotFoundError(
                 f"actual neutrino coefficient prerequisite is missing: {source}",
             )
-    # Memoization is scoped to one assembly; another call rereads changed artifacts.
-    lifts = {(parameter, side, family): _verified_lift(parameter, side, family, directory)
-             for parameter in (0, 1) for side in (0, 1) for family in (1, 2)}
-    blocks = {(parameter, row, column): _verified_entry(
-        parameter, row, column, directory, lifts=lifts,
-    )
-              for parameter in (0, 1) for row in (1, 2) for column in (1, 2)}
+    snapshot = _source_snapshot(required)
+    blocks = _replay_blocks(directory, workers)
+    if _source_snapshot(required) != snapshot:
+        raise ValueError("actual neutrino sources changed during full scalar replay")
     packet, _ = mixed.load_mixed_pairing(expected_digest=coefficients.MIXED_DIGEST)
     entries = {(0, 0): Polynomial.zero(2, scalar_type=Eisenstein)}
     for item in packet["evaluated_entries"]:
@@ -175,7 +230,7 @@ def write_full_neutrino_matrix(path: Path = OUTPUT):
         for column in (1, 2):
             entries[row, column] = Polynomial(
                 tuple((tuple(int(i == parameter) for i in (0, 1)),
-                       blocks[parameter, row, column].cover_residue * Rational(1, 9))
+                       blocks[parameter, row, column] * Rational(1, 9))
                       for parameter in (0, 1)), variable_count=2, scalar_type=Eisenstein,
             )
     matrix = PolynomialMatrix(tuple(tuple(entries[row, column] for column in range(3))
@@ -210,7 +265,10 @@ def write_full_neutrino_matrix(path: Path = OUTPUT):
         "extension_point_selected": False, "observational_inputs_used": False,
         "prerequisite_artifact_digests": {
             "constant_mixed_pairing": coefficients.MIXED_DIGEST,
-            **{source.stem: _verified_payload(source)[0] for source in required},
+            **{name: item["artifact_digest"] for name, item in snapshot.items()},
+        },
+        "prerequisite_full_archive_sha256": {
+            name: item["archive_sha256"] for name, item in snapshot.items()
         },
     }
     record["artifact_digest"] = _canonical_digest(record)
@@ -221,6 +279,48 @@ def write_full_neutrino_matrix(path: Path = OUTPUT):
     return record
 
 
+def load_full_neutrino_matrix(path: Path = OUTPUT, *, expected_digest: str):
+    """Read an established output with pinned sources; do not solve or select moduli."""
+
+    digest, record = _verified_payload(path)
+    if digest != expected_digest:
+        raise ValueError("the completed neutrino matrix changed its trusted output digest")
+    snapshot = _source_snapshot(_required_sources(path.parent))
+    if (record.get("schema") != "alternate-neutrino-full-holomorphic-matrix-v1"
+        or record.get("carrier_status") != "conditional on the selected heterotic UV realization"
+        or record.get("coefficient_field") != "Q(omega)"
+        or record.get("outer_parameter_basis") != ["a0", "a1"]
+        or record.get("cover_to_quotient_trace_factor") != "1/9"
+        or record.get("scalar_order") != "Higgs first in the fixed quotient volume frame"
+        or record.get("basis_order") != {
+            "rows": ["E(2,1):seed0", "F(2,1):seed2", "F(2,1):seed4"],
+            "columns": ["E(2,2):seed1", "F(2,2):seed1", "F(2,2):seed3"],
+        }
+        or record.get("prerequisite_artifact_digests") != {
+            "constant_mixed_pairing": coefficients.MIXED_DIGEST,
+            **{name: item["artifact_digest"] for name, item in snapshot.items()},
+        }
+        or record.get("prerequisite_full_archive_sha256") != {
+            name: item["archive_sha256"] for name, item in snapshot.items()
+        }
+        or any(record.get(flag) is not True for flag in (
+            "all_nine_entries_derived_from_actual_carrier",
+            "all_eight_formal_coefficient_scalars_replayed", "holomorphic_matrix_available",
+        ))
+        or any(record.get(flag) is not False for flag in (
+            "physical_yukawa_matrix_available", "canonical_matter_metrics_available",
+            "majorana_mechanism_derived", "common_vacuum_stabilized",
+            "extension_point_selected", "observational_inputs_used",
+        ))):
+        raise ValueError("the completed neutrino matrix changed its sources, basis, or scope")
+    mixed.load_mixed_pairing(expected_digest=coefficients.MIXED_DIGEST)
+    return {"artifact_digest": digest, **record}
+
+
 if __name__ == "__main__":
-    result = write_full_neutrino_matrix()
+    import argparse
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--workers", type=int, choices=(1, 2), default=1)
+    result = write_full_neutrino_matrix(workers=parser.parse_args().workers)
     print(result["artifact_digest"], result["determinant"], flush=True)

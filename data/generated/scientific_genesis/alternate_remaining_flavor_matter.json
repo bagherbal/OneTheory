@@ -1,0 +1,297 @@
+{
+  "actual_constituent_inputs_computed": true,
+  "artifact_digest": "363c8bc51e58fd6177943b89fdac08b760c5059bf09b1ba7e64b84414a53a8dc",
+  "basis_convention": "unchanged original reduced seed order and atlas frames",
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "coefficient_field": "Q(omega)",
+  "common_flat_twist": [
+    1,
+    2
+  ],
+  "complete_charged_lepton_matrix_available": false,
+  "complete_down_matrix_available": false,
+  "existing_Q_and_L_recomputed": false,
+  "extension_point_selected": false,
+  "first_constituent_classes": [
+    {
+      "character": [
+        1,
+        1
+      ],
+      "cohomology_coordinates": [
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "-1/3-1/3*omega",
+        "0",
+        "0",
+        "0",
+        "1/3*omega"
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "c0178cec92238ec0be180e2e5a212666444d7e1e598cc9d91654ba4ef355fd03",
+      "full_term_count": 360,
+      "seed_index": 0,
+      "strict_alternate_character_exact": true
+    },
+    {
+      "character": [
+        2,
+        0
+      ],
+      "cohomology_coordinates": [
+        "0",
+        "0",
+        "1/3",
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0"
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "a2a1b67a4854a95832cf3543bfa1e742e60bc32d9e94af1b01ffd0ab149c65a7",
+      "full_term_count": 360,
+      "seed_index": 2,
+      "strict_alternate_character_exact": true
+    }
+  ],
+  "full_cochain_archive_name": "alternate_remaining_flavor_matter.cochains.json.gz",
+  "full_cochain_archive_sha256": "f51ad2e1ddfb1b9942af4104a5ed386fde0d1b67cff1abaf5d4812339d40f870",
+  "full_cochain_payload_digest": "8f0671408974266467e119af1b4ad72f4b87d7a531f4948805769d8930745f91",
+  "full_cone_matter_corrections_computed": false,
+  "matter_pair_native_character": [
+    1,
+    1
+  ],
+  "missing_sector_labels": [
+    "d^c",
+    "e^c"
+  ],
+  "native_down_higgs_hom_character": [
+    2,
+    2
+  ],
+  "native_matter_characters": [
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "next_required_object": "independently verify actual full constituent witnesses, then derive the remaining same-carrier matter lifts and complete scalar products",
+  "observational_inputs_used": false,
+  "physical_yukawas_available": false,
+  "prerequisite_artifact_digests": {
+    "actual_down_higgs_hom": "476e48e981ab66382b43d2510d7a271b2fa3f82468f885b7050edb9af3cd9276",
+    "alternate_hom_actions": "b72aa878323cc9dd2e4fc503b51191742ade124ef67a74de18b0efff88172d14",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "published_wilson_source": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "source_character_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241",
+    "structural_spectrum": "cbf2f4c78e15d140bbfd1cc11e98e0eeba473b59ca48f7090096807ad2aee1bd",
+    "universal_cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+  },
+  "proof_sha256": "69a56afe422cedf011a6fcaa1d3f7e69a3e4a23e9588417787c2ebebbc1fd6bf",
+  "schema": "alternate-remaining-flavor-matter-v1",
+  "second_boundary_dimension": 189,
+  "second_constituent_classes": [
+    {
+      "cohomology_coordinates": [
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "-2/21+1/21*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/3-1/3*omega",
+        "1/7+2/21*omega",
+        "0"
+      ],
+      "constituent_character": [
+        1,
+        1
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "d5d2a4bab0db8d9555fc431c0f99642d22644feeeae6dff07b6f06eece945f14",
+      "full_term_count": 378,
+      "inclusion_depth": 3,
+      "projection_depth": 1,
+      "repaired_carrier_character": [
+        2,
+        0
+      ],
+      "seed_index": 2,
+      "strict_alternate_character_exact": true
+    },
+    {
+      "cohomology_coordinates": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "1/3-2/3*omega",
+        "0",
+        "0",
+        "1/3-2/3*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/3-1/3*omega",
+        "0"
+      ],
+      "constituent_character": [
+        1,
+        1
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "c6ed06e1e0fe67fa576dd0c2ef0989fe7262c7e8ad10f76d7089f6d15da01eee",
+      "full_term_count": 378,
+      "inclusion_depth": 3,
+      "projection_depth": 1,
+      "repaired_carrier_character": [
+        2,
+        0
+      ],
+      "seed_index": 4,
+      "strict_alternate_character_exact": true
+    },
+    {
+      "cohomology_coordinates": [
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/3*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/3-1/3*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3+1/3*omega"
+      ],
+      "constituent_character": [
+        2,
+        0
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "cf24420badb1311c1ba247187cff65ad113f92abe54fafb7947767823dc276a8",
+      "full_term_count": 378,
+      "inclusion_depth": 3,
+      "projection_depth": 1,
+      "repaired_carrier_character": [
+        0,
+        2
+      ],
+      "seed_index": 0,
+      "strict_alternate_character_exact": true
+    },
+    {
+      "cohomology_coordinates": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "1/7+2/21*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-2/21+1/21*omega",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3*omega"
+      ],
+      "constituent_character": [
+        2,
+        0
+      ],
+      "full_cycle_exact": true,
+      "full_digest": "2e0809c85feb6abd9e6f336fb8d0dd3382523facf7d0669ebba442cd3d75305b",
+      "full_term_count": 378,
+      "inclusion_depth": 3,
+      "projection_depth": 1,
+      "repaired_carrier_character": [
+        0,
+        2
+      ],
+      "seed_index": 5,
+      "strict_alternate_character_exact": true
+    }
+  ],
+  "second_reduced_h1_dimension": 18,
+  "source": {
+    "arxiv_id": "hep-th/0512177",
+    "higgs_locator": "equation (28)",
+    "matter_locator": "equation (24)",
+    "url": "https://arxiv.org/html/hep-th/0512177v3",
+    "version": "v3"
+  },
+  "wilson_weights": [
+    [
+      2,
+      0
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "witnesses": {
+    "first_sector0": {
+      "cochain_digest": "c0178cec92238ec0be180e2e5a212666444d7e1e598cc9d91654ba4ef355fd03",
+      "term_count": 360
+    },
+    "first_sector1": {
+      "cochain_digest": "a2a1b67a4854a95832cf3543bfa1e742e60bc32d9e94af1b01ffd0ab149c65a7",
+      "term_count": 360
+    },
+    "second_sector0_family1": {
+      "cochain_digest": "d5d2a4bab0db8d9555fc431c0f99642d22644feeeae6dff07b6f06eece945f14",
+      "term_count": 378
+    },
+    "second_sector0_family2": {
+      "cochain_digest": "c6ed06e1e0fe67fa576dd0c2ef0989fe7262c7e8ad10f76d7089f6d15da01eee",
+      "term_count": 378
+    },
+    "second_sector1_family1": {
+      "cochain_digest": "cf24420badb1311c1ba247187cff65ad113f92abe54fafb7947767823dc276a8",
+      "term_count": 378
+    },
+    "second_sector1_family2": {
+      "cochain_digest": "2e0809c85feb6abd9e6f336fb8d0dd3382523facf7d0669ebba442cd3d75305b",
+      "term_count": 378
+    }
+  },
+  "yukawa_entries_assigned": false
+}

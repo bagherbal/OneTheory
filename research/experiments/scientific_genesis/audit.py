@@ -3832,10 +3832,12 @@ def _nodes() -> list[dict[str, object]]:
             "derived from its own actual matter characters in the same carrier.",
             ("research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",
              "research/experiments/scientific_genesis/alternate_neutrino_ff_entries.py",
-             "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py"),
+             "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py",
+             "research/experiments/scientific_genesis/ALTERNATE_NEUTRINO_FULL_MATRIX_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_neutrino_full_matrix.py"),
             ("conditional heterotic realization", "unchanged frozen carrier"),
-            missing=("complete eight parameter-linear F-F scalar evaluations",
-                     "independent all-entry scalar and representative checks"),
+            missing=("independent full replay of eight actual parameter-linear F-F scalars",
+                     "all-entry matrix assembly and representative checks"),
         ),
         _node(
             "alternate_down_higgs_hom_representative",
@@ -3867,11 +3869,37 @@ def _nodes() -> list[dict[str, object]]:
             "then require exact primitives in the existing exterior complex. "
             "Up-sector primitives cannot be relabelled as down-sector data.",
             ("research/experiments/scientific_genesis/alternate_down_higgs_quotient_cone.py",
+             "research/experiments/scientific_genesis/ALTERNATE_DOWN_HIGGS_QUOTIENT_CONE_NOTE.md",
+             "data/generated/scientific_genesis/alternate_down_higgs_quotient_cone.json",
+             "data/generated/scientific_genesis/alternate_down_higgs_quotient_cone.cochains.json.gz",
+             "tests/integration/test_scientific_genesis_alternate_down_higgs_quotient_cone.py",
              "research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",
              "research/experiments/scientific_genesis/alternate_up_exterior_higgs_action.py"),
             ("fixed frozen carrier", "actual native down-Higgs Hom input"),
             missing=("full down-Higgs quotient covector",
                      "two independently checked actual exterior primitives"),
+        ),
+        _node(
+            "alternate_down_lepton_matter",
+            "actual remaining down and charged-lepton constituent classes",
+            "Flavor",
+            "COMPUTED",
+            "The published d^c and e^c Wilson weights require native matter "
+            "characters (1,1) and (2,0) after the fixed common twist. Existing "
+            "Q and L classes remain distinct. The two E and four F classes "
+            "are now archived in the original exact bases. Independent replay "
+            "checks full closure, both atlas actions, nonboundary coordinates, "
+            "character-subspace rank, and literal producer reproduction. These "
+            "are constituent inputs, not corrected matter states or matrices.",
+            ("research/experiments/scientific_genesis/"
+             "alternate_remaining_flavor_matter.py",
+             "research/experiments/scientific_genesis/ALTERNATE_REMAINING_FLAVOR_MATTER_NOTE.md",
+             "data/generated/scientific_genesis/alternate_remaining_flavor_matter.json",
+             "data/generated/scientific_genesis/alternate_remaining_flavor_matter.cochains.json.gz",
+             "tests/integration/test_scientific_genesis_alternate_remaining_flavor_matter.py",
+             "research/experiments/scientific_genesis/"
+             "alternate_constituent_up_cone_matter_lifts.py"),
+            ("same frozen carrier and source-pinned Wilson action",),
         ),
         _node(
             "physical_pfaffians",
@@ -6688,6 +6716,25 @@ def _edges() -> list[dict[str, object]]:
             ("research/experiments/scientific_genesis/alternate_up_higgs_quotient_cone.py",),
             ("actual sector-specific matter products", "all entries", "metrics", "common vacuum"),
             True, ("a Higgs cocycle alone does not determine any Yukawa scalar",),
+        ),
+        _edge(
+            "alternate_constituent_carrier_state", "alternate_down_lepton_matter",
+            "Source Wilson weights and the fixed twist determine two new "
+            "constituent character sectors in the original carrier complexes.",
+            ("research/experiments/scientific_genesis/"
+             "alternate_constituent_up_matter_representatives.py",),
+            ("original reduced bases", "full strict deck projections"), True,
+            ("character support does not construct a representative",),
+        ),
+        _edge(
+            "alternate_down_lepton_matter", "physical_yukawas",
+            "Actual d^c and e^c classes complement the already archived Q "
+            "and L inputs for the remaining down-Higgs flavor products.",
+            ("research/experiments/scientific_genesis/"
+             "alternate_constituent_up_matter_representatives.py",),
+            ("full cone matter lifts", "actual down-Higgs cocycle", "all scalar entries",
+             "canonical metrics", "common vacuum"), True,
+            ("neither a constituent class nor a gauge weight supplies a coupling",),
         ),
         _edge(
             "computable_carrier_state",
@@ -10840,6 +10887,16 @@ def build_state() -> dict[str, object]:
         or down_packet.get("full_cochain_archive_sha256")
         != "7f03d8421c911ce0ad124b29a50ecc7e620f0e9df9f443c1b0a1d8a6a4ead1a2"):
         raise ValueError("the independently verified down-Higgs Hom input changed")
+    from . import alternate_remaining_flavor_matter as remaining_flavor
+
+    remaining_packet, remaining_witnesses = remaining_flavor.load_remaining_flavor_matter(
+        expected_digest="363c8bc51e58fd6177943b89fdac08b760c5059bf09b1ba7e64b84414a53a8dc",
+    )
+    if (remaining_packet.get("full_cochain_archive_sha256")
+        != "f51ad2e1ddfb1b9942af4104a5ed386fde0d1b67cff1abaf5d4812339d40f870"
+        or [len(value.terms) for value in remaining_witnesses.values()]
+        != [360, 360, 378, 378, 378, 378]):
+        raise ValueError("the independently verified remaining flavor constituent inputs changed")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -11167,6 +11224,15 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_down_higgs_hom_representative.json",
         "data/generated/scientific_genesis/"
         "alternate_down_higgs_hom_representative.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_remaining_flavor_matter.json",
+        "data/generated/scientific_genesis/alternate_remaining_flavor_matter.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_higgs_quotient_cone.json",
+        "data/generated/scientific_genesis/alternate_down_higgs_quotient_cone.cochains.json.gz",
+        *(f"data/generated/scientific_genesis/alternate_neutrino_ff_a{parameter}_r{row}_c{column}.json"
+          for parameter in (0, 1) for row in (1, 2) for column in (1, 2)),
+        *("data/generated/scientific_genesis/"
+          f"alternate_neutrino_ff_a{parameter}_r{row}_c{column}.cochains.json.gz"
+          for parameter in (0, 1) for row in (1, 2) for column in (1, 2)),
         *(str(neutrino_lifts.lift_path(parameter, side, family).relative_to(ROOT))
           for parameter in (0, 1) for side in (0, 1) for family in (1, 2)),
         *(str(neutrino_lifts.lift_path(parameter, side, family).with_suffix(
@@ -11197,7 +11263,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2611,
+            "collected_tests_at_audit": 2646,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -11700,9 +11766,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "derive the eight actual neutrino F-F coefficients with the existing "
-                "constituent-lift and coupled-product engines, then independently "
-                "verify and assemble the complete holomorphic matrix; metric sampling, "
+                "independently replay all eight completed actual neutrino F-F "
+                "coefficients and assemble the complete holomorphic matrix; verify "
+                "the completed down-Higgs cone before remaining flavor traces; metric sampling, "
                 "Ricci-flat/HYM convergence, other sectors, and the common vacuum "
                 "remain required before physical normalization"
             ),
@@ -11711,6 +11777,10 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "two actual E and four actual F classes for d^c and e^c are archived "
+            "in the original bases; independent full closure, atlas characters, "
+            "nonboundary coordinates, character ranks, and exact producer "
+            "reproduction pass without recalculating existing Q or L inputs",
             "six strict alternate neutrino constituent classes and four actual "
             "constant mixed scalars have complete archived witnesses; independent "
             "Hom composition gives literal scalar equality, with fixed quotient "

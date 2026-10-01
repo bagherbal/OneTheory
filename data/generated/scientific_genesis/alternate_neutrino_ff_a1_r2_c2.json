@@ -1,0 +1,61 @@
+{
+  "actual_matter_lift_digests": [
+    "4002b844a63e4a3de0d909f6b232bc4ad645ce7c835fdf4cbb733ef665ee8245",
+    "e26c664effe33ed3ca157b0d357062b119b24c3bbc08a3b74cde43cb15691bde"
+  ],
+  "artifact_digest": "e325c129ac8ad049cfa42ccbeac94ef2ef835193af779c0bd4857432a261b174",
+  "column": 2,
+  "column_character": [
+    2,
+    2
+  ],
+  "column_seed_index": 3,
+  "complete_holomorphic_neutrino_matrix_available": false,
+  "cover_residue": "-41+625/2*omega",
+  "direct_transferred_and_inverse_convolution_traces_equal": true,
+  "extension_point_selected": false,
+  "exterior_filtration_parameter_degree": 1,
+  "full_cochain_archive_name": "alternate_neutrino_ff_a1_r2_c2.cochains.json.gz",
+  "full_cochain_archive_sha256": "8f14ac35312fc94cbaaac4dd0da767dac3496ad318c1305e52e0a95de214cb9f",
+  "full_cochain_payload_digest": "01a5433008111a196364f4244bc43b67e86caedc23a92e621739bc38cd9423b3",
+  "full_coefficientwise_product_identity_exact": true,
+  "full_scalar_closed_exact": true,
+  "parameter": "a1",
+  "physical_yukawa_matrix_available": false,
+  "prerequisite_artifact_digests": {
+    "actual_neutrino_mixed_pairing": "1bc8020db27e9f7a3c7ee7a7abf4ab0c456903c993eab27b0038cad5e12e6049",
+    "canonical_up_pairing": "6f475e7551bf00b13cfea5207293ffb517fdbd09d94e8b97264cd2edae941591",
+    "coupled_product_presentation": "6f26314328265adfd2878100e70babdcfce78dfee0ce09304a9e4efd34a17626",
+    "frozen_carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+    "higgs_primitive_archive": "26eeab0fd42d246dbc514b103cab7f7cf4854fd84c1f2e1d94769db4f2d47adc",
+    "published_wilson_source": "ad4ea10b3d765553ccdd072922a6bda619866ea814c532b8ffe74ddafc7fe73f",
+    "quotient_trace": "5d51f9fcb7d877ba5d66f4ae38bf231d6f777e3ed1dcdc28776a20a64c38a67c",
+    "shared_up_higgs": "1e829fafc0ff0dfbef7442decbc2259b4f8889647f4576a4e937846ebbdf729d",
+    "source_character_convention": "0fea398b94ab48da7fc0e2172b6b13fced369c62ee035f0014735cccef1fe241",
+    "structural_spectrum": "cbf2f4c78e15d140bbfd1cc11e98e0eeba473b59ca48f7090096807ad2aee1bd"
+  },
+  "projection_depth": 3,
+  "quotient_residue": "-41/9+625/18*omega",
+  "row": 2,
+  "row_character": [
+    2,
+    1
+  ],
+  "row_seed_index": 4,
+  "scalar_order": "h_K cup P1 + kappa cup P0",
+  "schema": "alternate-neutrino-ff-entry-v1",
+  "witnesses": {
+    "product_constant": {
+      "cochain_digest": "fec85ed97e5f3905478da349ad8548f19d7f23ef71f560129978de8bef3afa8e",
+      "term_count": 2343
+    },
+    "product_linear": {
+      "cochain_digest": "0a136666f79ff66850f1f88f36463eb2cb8e05d67410e3a4d859c3e4f369ab49",
+      "term_count": 106108
+    },
+    "scalar": {
+      "cochain_digest": "a114de7582db62676048b0737c7d2846fe280623a30e9f45144e7f217c3f4c27",
+      "term_count": 50358
+    }
+  }
+}

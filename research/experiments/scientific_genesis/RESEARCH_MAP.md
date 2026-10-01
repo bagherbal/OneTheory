@@ -1569,8 +1569,12 @@ the common vacuum, physical observables, and Genesis-to-UV remain unresolved.
 All eight actual neutrino F-family correction archives have now passed independent
 full constituent equations, strict atlas actions, and literal quotient-pushout
 replay. This closes `alternate_neutrino_matter_lifts` as COMPUTED, not the missing
-eight scalar coefficients or the complete neutrino matrix. The original two
-coefficient jobs continue through their four actual scalar entries each.
+eight scalar coefficients or the complete neutrino matrix. Both coefficient
+jobs have now completed all four scalar entries each. Full independent replay
+continues with at most two workers, using the original validators and immutable
+source snapshots. A separate exact determinant expansion gives
+`(3/2+3ω/4) a0`; the matrix node cannot close until all full scalar identities
+and literal witnesses pass replay.
 
 The down-Higgs native Hom input is also COMPUTED: character `(2,2)`, seed 1,
 351 full terms, coordinates `(0,(1-omega)/3,0,(2+omega)/3)` in the original basis.
@@ -1586,3 +1590,12 @@ equations. The experiment reuses the existing engines with an explicit class,
 not up-sector coefficient values. This node remains BLOCKED until both witnesses
 exist and are independently checked. The down and charged-lepton matter products
 must subsequently be calculated in their own actual character sectors.
+
+The missing constituent inputs are now COMPUTED as
+`alternate_down_lepton_matter`: native d/e characters `(1,1)` / `(2,0)`, E
+seeds `0,2`, F seeds `2,4` / `0,5`. All six full cycles are archived in their
+original bases. Ten independent checks establish full closure, both atlas
+characters, nonboundary coordinates, rank-two F character spaces, exact producer
+reproduction, and rejection of scope/routing attacks. Existing Q/L sectors are
+not regenerated. Their corrected carrier states and remaining scalar traces
+are still missing. See `ALTERNATE_REMAINING_FLAVOR_MATTER_NOTE.md`.

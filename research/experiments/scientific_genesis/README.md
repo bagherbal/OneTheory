@@ -673,7 +673,11 @@ pushout, coupled-product, and trace engines on these actual neutrino inputs.
 Its explicit execution either derives corrections or requires saved checkpoints;
 it does not synthesize missing ones. `alternate_neutrino_full_matrix.py` checks
 all sixteen required input files before replay and assembly; this successor
-remains unavailable until the actual coefficient jobs and independent replay finish.
+remains unavailable until independent full scalar replay finishes. All eight
+coefficient jobs have finished; the one- or two-worker replay uses the unchanged
+full validators and pins every metadata and literal archive byte before and
+after evaluation. A separate scalar determinant expansion gives
+`(3/2+3ω/4) a0`, but this cannot certify the matrix before full replay succeeds.
 The current graph prioritizes this flavor
 slice while controlled metric integration remains open. The 5345-column bounded
 matrix and a conservative global auxiliary weight bound are certified inputs,
@@ -696,3 +700,10 @@ class. Both new coefficient identities must pass independent replay before this
 next graph node is established. No up primitive is relabelled as a down result.
 Neither down-quark nor charged-lepton matrices, metrics, or physical masses follow
 from the Hom input alone.
+
+The remaining `d^c` and `e^c` constituent sectors are independently checked:
+native characters `(1,1)` and `(2,0)`, two E classes and four F classes, with
+unchanged reduced coordinates and strict full atlas characters. Ten regressions
+check literal reproduction, nonboundaries, and character-space ranks. Existing
+Q and L classes are not recomputed. These inputs do not supply missing cone
+corrections or scalar products. See `ALTERNATE_REMAINING_FLAVOR_MATTER_NOTE.md`.

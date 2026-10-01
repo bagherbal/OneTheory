@@ -48,6 +48,11 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "the independently replayed actual neutrino matter lift changed",
         ),
         *tuple(
+            ("alternate-remaining-flavor-matter-v1", field,
+             "the remaining flavor input changed its expected content digest")
+            for field in ("physical_yukawas_available", "full_cone_matter_corrections_computed")
+        ),
+        *tuple(
             ("alternate-down-higgs-hom-class-v1", field,
              "the down-Higgs Hom input changed its expected content digest")
             for field in (
@@ -960,9 +965,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "derive the eight actual neutrino F-F coefficients with the existing "
-        "constituent-lift and coupled-product engines, then independently "
-        "verify and assemble the complete holomorphic matrix; metric sampling, "
+        "independently replay all eight completed actual neutrino F-F "
+        "coefficients and assemble the complete holomorphic matrix; verify "
+        "the completed down-Higgs cone before remaining flavor traces; metric sampling, "
         "Ricci-flat/HYM convergence, other sectors, and the common vacuum "
         "remain required before physical normalization"
     )
@@ -1198,6 +1203,7 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert scheduler[0]["task"] == "alternate_complete_neutrino_matrix"
     assert claims["alternate_neutrino_mixed_pairing"]["status"] == "COMPUTED"
     assert claims["alternate_neutrino_matrix"]["status"] == "BLOCKED"
+    assert claims["alternate_down_lepton_matter"]["status"] == "COMPUTED"
     assert path["criteria"]["alternate_neutrino_constant_mixed_entry_count"] == 4
     assert path["criteria"]["alternate_neutrino_complete_holomorphic_matrix_available"] is False
     assert path["criteria"]["alternate_neutrino_majorana_mechanism_derived"] is False

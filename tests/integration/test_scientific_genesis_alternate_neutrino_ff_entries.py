@@ -68,8 +68,9 @@ def test_lift_derivation_must_be_explicit() -> None:
         coefficients.write_ff_coefficient(0, derive_lifts=1)  # type: ignore[arg-type]
 
 
+@pytest.mark.parametrize("workers", (1, 2))
 def test_incomplete_neutrino_coefficients_do_not_produce_a_partial_matrix(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, workers: int,
 ) -> None:
     """Check prerequisites before any replay, matrix construction, or artifact write."""
 
@@ -79,8 +80,37 @@ def test_incomplete_neutrino_coefficients_do_not_produce_a_partial_matrix(
     monkeypatch.setattr(assembly, "_verified_entry", forbidden_replay)
     destination = tmp_path / "matrix.json"
     with pytest.raises(FileNotFoundError, match="actual neutrino coefficient prerequisite"):
-        assembly.write_full_neutrino_matrix(destination)
+        assembly.write_full_neutrino_matrix(destination, workers=workers)
     assert not destination.exists()
+
+
+@pytest.mark.parametrize("workers", (-1, 0, 3, True, 1.0, None))
+def test_full_replay_worker_limit_is_explicit_and_canonical(
+    tmp_path: Path, workers: object,
+) -> None:
+    """Execution resources cannot be inferred from numeric aliases or absent values."""
+
+    with pytest.raises(ValueError, match="exactly one or two workers"):
+        assembly.write_full_neutrino_matrix(
+            tmp_path / "matrix.json", workers=workers,  # type: ignore[arg-type]
+        )
+
+
+def test_replay_snapshot_binds_the_actual_lift_archive_bytes(tmp_path: Path) -> None:
+    """A source change cannot retain the identity of an independently checked input."""
+
+    original = coefficients.lift_path(0, 0, 1)
+    path = tmp_path / original.name
+    path.write_bytes(original.read_bytes())
+    archive = path.with_suffix(".cochains.json.gz")
+    archive.write_bytes(original.with_suffix(".cochains.json.gz").read_bytes())
+    snapshot = assembly._source_snapshot([path])
+    assert snapshot[path.stem]["artifact_digest"] == (
+        "ffc2ff3bdab420bfc9b16ffd1892aa4b84c2896808f976a09ffbca604d6a1379"
+    )
+    contents = archive.read_bytes()
+    archive.write_bytes(contents[:-1] + bytes((contents[-1] ^ 1,)))
+    assert assembly._source_snapshot([path]) != snapshot
 
 
 def _replay_lift(indices):

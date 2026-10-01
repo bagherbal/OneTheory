@@ -23,7 +23,7 @@ from .alternate_up_exterior_higgs_action import (
     alternate_up_exterior_context,
     exact_exterior_primitive,
 )
-from .alternate_up_ff_entries import _write_witnesses
+from .alternate_up_ff_entries import _read_witnesses, _write_witnesses
 from .alternate_up_higgs_covector_comparison import QUOTIENT_LINE, alternate_outer_coefficient
 from .alternate_up_higgs_quotient_cone import (
     alternate_higgs_quotient_connecting_arrow,
@@ -33,12 +33,16 @@ from .alternate_up_higgs_quotient_cone import (
 from .mixed_constituent_schoen_arrows import MixedConstituentObject
 from .mixed_schoen_common_dga import mixed_outer_cup
 from .mixed_schoen_exterior_square import reciprocal_covector_wedge
+from .mixed_schoen_matter_representatives import _cochain_digest
 from .mixed_schoen_outer_actions import _MixedContraction
 from .mixed_schoen_outer_transfer import MixedSchoenUnit
 from .mixed_schoen_outer_universal_cone import _verified_payload
 
 OUTPUT = hom.ROOT / "data/generated/scientific_genesis/alternate_down_higgs_quotient_cone.json"
 HOM_DIGEST = "476e48e981ab66382b43d2510d7a271b2fa3f82468f885b7050edb9af3cd9276"
+SCHEMA = "alternate-down-higgs-quotient-cone-v1"
+WITNESS_NAMES = ("quotient_covector", *(f"{name}_a{index}" for index in (0, 1)
+    for name in ("action", "ordered_product", "correction")))
 
 
 def write_down_higgs_quotient_cone(path=OUTPUT):
@@ -82,7 +86,7 @@ def write_down_higgs_quotient_cone(path=OUTPUT):
         witnesses[f"correction_a{index}"] = primitive.primitive
         print(f"down Higgs a{index}: full identity verified", flush=True)
     return _write_witnesses(path, {
-        "schema": "alternate-down-higgs-quotient-cone-v1",
+        "schema": SCHEMA,
         "carrier_status": "conditional on the selected heterotic UV realization",
         "coefficient_field": "Q(omega)", "outer_parameter_basis": ["a0", "a1"],
         "native_hom_character": [2, 2], "repaired_higgs_forward_character": [0, 1],
@@ -107,6 +111,62 @@ def write_down_higgs_quotient_cone(path=OUTPUT):
             "charged-lepton matter products and complete scalar traces"
         ),
     }, witnesses)
+
+
+def load_down_higgs_quotient_cone(path=OUTPUT, *, expected_digest: str):
+    """Read pinned literal identities without invoking a preimage search."""
+
+    digest, record = _verified_payload(path)
+    if digest != expected_digest:
+        raise ValueError("the actual down-Higgs cone changed its expected content digest")
+    source, _ = hom.load_down_higgs_hom(expected_digest=HOM_DIGEST)
+    parents = {
+        "actual_down_higgs_hom": HOM_DIGEST,
+        "frozen_carrier": source["prerequisite_artifact_digests"]["frozen_carrier"],
+        "outer_invariants": _verified_payload(hom.ROOT / (
+            "data/generated/scientific_genesis/alternate_constituent_outer_invariants.json"
+        ))[0],
+    }
+    if (record.get("schema") != SCHEMA or record.get("coefficient_field") != "Q(omega)"
+        or record.get("carrier_status") != "conditional on the selected heterotic UV realization"
+        or record.get("outer_parameter_basis") != ["a0", "a1"]
+        or record.get("native_hom_character") != [2, 2]
+        or record.get("repaired_higgs_forward_character") != [0, 1]
+        or record.get("source") != source["source"]
+        or record.get("higgs_input_proof_sha256") != source["proof_sha256"]
+        or record.get("prerequisite_artifact_digests") != parents
+        or record.get("quotient_object_count") != 7
+        or record.get("scalar_order")
+        != "Higgs first; unchanged original quotient and determinant frames"
+        or record.get("full_quotient_covector_closed_exact") is not True
+        or record.get("quotient_higgs_lift_computed") is not True
+        or any(record.get(flag) is not False for flag in (
+            "quotient_is_a_vector_bundle", "up_sector_primitive_values_reused",
+            "full_exterior_square_higgs_constructed", "complete_down_matrix_available",
+            "complete_charged_lepton_matrix_available", "physical_yukawas_available",
+            "extension_point_selected", "observational_inputs_used",
+        ))):
+        raise ValueError("the actual down-Higgs cone changed its basis, parents, or scope")
+    identities = record.get("coefficient_identities", [])
+    if len(identities) != 2:
+        raise ValueError("the down-Higgs cone needs both actual coefficient identities")
+    record, witnesses = _read_witnesses(path, SCHEMA, WITNESS_NAMES)
+    for index, item in enumerate(identities):
+        product = witnesses[f"ordered_product_a{index}"]
+        primitive = witnesses[f"correction_a{index}"]
+        if (item.get("parameter") != f"a{index}"
+            or item.get("product_digest") != _cochain_digest((product,))
+            or item.get("primitive_digest") != _cochain_digest((primitive,))
+            or item.get("product_term_count") != len(product.terms)
+            or item.get("primitive_term_count") != len(primitive.terms)
+            or item.get("primitive_sign_convention") != "D primitive = ordered h wedge q(e)"
+            or item.get("candidate_operator_globally_certified") is not False
+            or any(item.get(flag) is not True for flag in (
+                "full_product_cycle_exact", "full_primitive_identity_exact",
+                "negative_action_equals_ordered_wedge_exact", "full_down_higgs_cone_identity_exact",
+            ))):
+            raise ValueError("an actual down-Higgs coefficient changed its full witness identity")
+    return {"artifact_digest": digest, **record}, witnesses
 
 
 if __name__ == "__main__":

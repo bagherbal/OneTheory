@@ -643,6 +643,72 @@ def test_nonidentity_cone_tracks_kernel_and_cokernel_with_exact_signs(
             ).rows
 
 
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_cone_exact_sequence_and_canonical_nullhomotopy(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """The cone realizes 0 -> target -> cone -> shifted source -> 0 exactly."""
+
+    source = _three_term_complex(scalar_type, complex_type)
+    target = source.direct_sum(source)
+    step = -1 if complex_type is ChainComplex else 1
+    map_ = ChainMap(source, target, {
+        degree: LinearMap(source.spaces.space(degree), target.spaces.space(degree), (
+            tuple(int(row == column) for column in range(source.spaces.space(degree).dimension))
+            for row in range(target.spaces.space(degree).dimension)
+        ))
+        for degree in source.degrees
+    })
+    cone = mapping_cone(map_)
+    shifted_source = source.shift(-step)
+    degrees = sorted(set(cone.degrees) | set(target.degrees) | set(shifted_source.degrees))
+
+    inclusion = ChainMap(target, cone, {
+        degree: LinearMap(target.spaces.space(degree), cone.spaces.space(degree), (
+            tuple(int(row == column) for column in range(target.spaces.space(degree).dimension))
+            for row in range(cone.spaces.space(degree).dimension)
+        ))
+        for degree in degrees
+    })
+    projection = ChainMap(cone, shifted_source, {
+        degree: LinearMap(cone.spaces.space(degree), shifted_source.spaces.space(degree), (
+            tuple(int(column == target.spaces.space(degree).dimension + row)
+                  for column in range(cone.spaces.space(degree).dimension))
+            for row in range(shifted_source.spaces.space(degree).dimension)
+        ))
+        for degree in degrees
+    })
+
+    for degree in degrees:
+        inject = inclusion.component(degree)
+        project = projection.component(degree)
+        assert inject.rank() == target.spaces.space(degree).dimension
+        assert project.rank() == shifted_source.spaces.space(degree).dimension
+        assert project.compose(inject).is_zero()
+        assert inject.rank() + project.rank() == cone.spaces.space(degree).dimension
+
+    # h(x) = (0, x) witnesses that the original map becomes nullhomotopic
+    # after inclusion into its cone. The negative source differential is
+    # essential for the lower block of d h + h d to cancel.
+    nullhomotopy = ChainHomotopy(
+        inclusion.compose(map_), ChainMap(source, cone, {}), {
+            degree: LinearMap(source.spaces.space(degree), cone.spaces.space(degree - step), (
+                tuple(int(row == target.spaces.space(degree - step).dimension + column)
+                      for column in range(source.spaces.space(degree).dimension))
+                for row in range(cone.spaces.space(degree - step).dimension)
+            ))
+            for degree in degrees
+        },
+    )
+    assert nullhomotopy.first == inclusion.compose(map_)
+    assert all(
+        cone.cohomology_dimension(degree) == source.cohomology_dimension(degree)
+        for degree in degrees
+    )
+
+
 def test_dga_leibniz_commutator_pairing_and_maurer_cartan() -> None:
     degree_zero = VectorSpace("A0", ("1",))
     graded = GradedVectorSpace("A", {0: degree_zero})

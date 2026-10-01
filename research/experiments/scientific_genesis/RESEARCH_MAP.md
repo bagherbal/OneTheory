@@ -1648,3 +1648,15 @@ metadata/archive bytes, and saves each completed literal product and scalar.
 It does not solve missing inputs or present partial matrices. Twenty-four
 execution-control regressions are not evidence that an absent coefficient
 has been computed. See `ALTERNATE_DOWN_LEPTON_FF_NOTE.md`.
+
+The complete down/lepton assembly now has a fail-closed owner,
+`alternate_down_lepton_full_matrices.py`. All thirty-four actual input packets
+and literal archives must exist before replay; no missing coefficient is
+inferred. It schedules unchanged full lift and scalar validators with at most
+two workers, then reuses the exact established one-plus-two-family matrix
+constructor. Eighty-four assembly regressions reproduce the known up/neutrino
+matrices and guard every prerequisite, but are not evidence of remaining
+scientific coefficients or ranks. The matrix node stays BLOCKED until all
+sixteen actual scalar replays and independent determinant checks complete.
+`ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md` states the conditional gate;
+physical metrics, a common vacuum, and Genesis-to-UV remain unresolved.

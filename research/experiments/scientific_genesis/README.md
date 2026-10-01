@@ -752,3 +752,15 @@ permits only one or two workers. Twenty-four execution guards verify source
 routing, indices, missing checkpoints, and bounded scheduling. These guards
 do not certify any absent coefficient or complete matrix. Independent full
 replay remains required; metrics and the common vacuum remain missing.
+
+`alternate_down_lepton_full_matrices.py` is the gated complete assembler,
+not evidence that either remaining matrix has been computed. It requires
+sixteen scalar packets, sixteen original matter-lift packets, and the two
+shared down-Higgs/mixed packets, each with its full archive, before any
+replay begins. It reuses the original full validators and the extracted
+neutrino matrix constructor. Eighty-four regressions preserve all nine
+entries and exact ranks of both established matrices and reject every
+missing metadata/archive prerequisite before execution. No partial matrix
+is written. Actual full scalar replay must finish before either complete
+down/lepton matrix or its four-sector common rank condition is available.
+See `ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md` for the execution gate.

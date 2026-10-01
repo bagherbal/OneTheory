@@ -172,25 +172,27 @@ def _required_sources(directory: Path):
     return required
 
 
-def write_full_neutrino_matrix(path: Path = OUTPUT, *, workers: int = 1):
-    """Require all sixteen source files before assembling any physical-model matrix."""
+def assemble_actual_flavor_matrix(mixed_entries, blocks):
+    """Reuse the exact original one-plus-two family template on complete inputs.
 
-    if type(workers) is not int or workers not in (1, 2):
-        raise ValueError("full neutrino replay requires exactly one or two workers")
-    directory = path.parent
-    required = _required_sources(directory)
-    for source in required:
-        if not source.is_file():
-            raise FileNotFoundError(
-                f"actual neutrino coefficient prerequisite is missing: {source}",
-            )
-    snapshot = _source_snapshot(required)
-    blocks = _replay_blocks(directory, workers)
-    if _source_snapshot(required) != snapshot:
-        raise ValueError("actual neutrino sources changed during full scalar replay")
-    packet, _ = mixed.load_mixed_pairing(expected_digest=coefficients.MIXED_DIGEST)
+    The E-E entry is zero by the certified rank-one exterior relation. This
+    routine does not supply missing mixed or F-F scalars, choose a family basis,
+    or certify their physical provenance; callers must replay actual inputs.
+    """
+
+    if ([(item.get("row"), item.get("column")) for item in mixed_entries]
+        != [(0, 1), (0, 2), (1, 0), (2, 0)]
+        or any(type(item.get(key)) is not int
+               for item in mixed_entries for key in ("row", "column"))
+        or set(blocks) != {(p, r, c) for p in (0, 1) for r in (1, 2) for c in (1, 2)}
+        or any(not isinstance(key, tuple) or len(key) != 3
+               or any(type(index) is not int for index in key) for key in blocks)
+        or any(not isinstance(value, Eisenstein) for value in blocks.values())):
+        raise ValueError(
+            "actual matrix assembly requires four ordered mixed and eight exact coefficients",
+        )
     entries = {(0, 0): Polynomial.zero(2, scalar_type=Eisenstein)}
-    for item in packet["evaluated_entries"]:
+    for item in mixed_entries:
         entries[item["row"], item["column"]] = Polynomial.constant(
             _parse_eisenstein_text(item["quotient_residue"]), 2, scalar_type=Eisenstein,
         )
@@ -210,11 +212,32 @@ def write_full_neutrino_matrix(path: Path = OUTPUT, *, workers: int = 1):
                                      - entries[1, 1] * entries[2, 0]))
     if det != independent or any(sum(powers) != 1 for powers, _ in det.terms):
         raise ValueError(
-            "the complete neutrino determinant fails its exact linear support identity",
+            "the complete actual determinant fails its exact linear support identity",
         )
     minor = -entries[0, 1] * entries[1, 0]
     if minor.is_zero():
-        raise ValueError("the established neutrino mixed rank-two minor vanished")
+        raise ValueError("the declared actual mixed rank-two minor vanished")
+    return matrix, det, minor
+
+
+def write_full_neutrino_matrix(path: Path = OUTPUT, *, workers: int = 1):
+    """Require all sixteen source files before assembling any physical-model matrix."""
+
+    if type(workers) is not int or workers not in (1, 2):
+        raise ValueError("full neutrino replay requires exactly one or two workers")
+    directory = path.parent
+    required = _required_sources(directory)
+    for source in required:
+        if not source.is_file():
+            raise FileNotFoundError(
+                f"actual neutrino coefficient prerequisite is missing: {source}",
+            )
+    snapshot = _source_snapshot(required)
+    blocks = _replay_blocks(directory, workers)
+    if _source_snapshot(required) != snapshot:
+        raise ValueError("actual neutrino sources changed during full scalar replay")
+    packet, _ = mixed.load_mixed_pairing(expected_digest=coefficients.MIXED_DIGEST)
+    matrix, det, minor = assemble_actual_flavor_matrix(packet["evaluated_entries"], blocks)
     record = {
         "schema": "alternate-neutrino-full-holomorphic-matrix-v1",
         "carrier_status": "conditional on the selected heterotic UV realization",

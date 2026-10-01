@@ -242,13 +242,16 @@ def load_ff_entry(parameter, sector, row, column, *, expected_digest,
 
 
 def replay_ff_entry(parameter, sector, row, column, *, expected_digest,
-                    directory=engine.GENERATED):
+                    directory=engine.GENERATED, verified_inputs=None):
     """Check all three actual scalar witnesses literally without any solver."""
 
     record, witnesses = load_ff_entry(parameter, sector, row, column,
                                       expected_digest=expected_digest, directory=directory)
-    left, right = (verified_lift(parameter, sector, side, family)
-                   for side, family in ((0, row), (1, column)))
+    left, right = (tuple(verified_lift(parameter, sector, side, family)
+                        for side, family in ((0, row), (1, column)))
+                   if verified_inputs is None else verified_inputs)
+    if [left.checkpoint_digest, right.checkpoint_digest] != record["actual_matter_lift_digests"]:
+        raise ValueError("actual replay inputs differ from the entry's pinned matter checkpoints")
     result = engine._evaluate_entry(parameter, row, column, left, right, *actual_higgs(parameter))
     if (any(getattr(result, name) != witnesses[name]
             for name in ("product_constant", "product_linear", "scalar"))

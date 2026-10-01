@@ -3955,11 +3955,19 @@ def _nodes() -> list[dict[str, object]]:
             "BLOCKED",
             "All scalar entries must come from actual Q/d and L/e matter "
             "states paired with the actual down-Higgs cocycle. Existing up "
-            "and neutrino values cannot fill these two missing matrices.",
+            "and neutrino values cannot fill these two missing matrices. "
+            "The complete assembler gates all thirty-four literal inputs "
+            "before replay. Eighty-four assembly regressions preserve the "
+            "established up/neutrino construction and reject missing inputs; "
+            "they do not certify the remaining actual coefficients or ranks.",
             ("research/experiments/scientific_genesis/alternate_up_ff_entries.py",
              "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py",
              "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FF_NOTE.md",
              "tests/integration/test_scientific_genesis_alternate_down_lepton_ff_entries.py",
+             "research/experiments/scientific_genesis/alternate_down_lepton_full_matrices.py",
+             "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_down_lepton_full_matrices.py",
+             "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py",
              "research/experiments/scientific_genesis/alternate_remaining_flavor_matter_lifts.py",
              "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py"),
             ("conditional heterotic realization", "original formal outer basis"),
@@ -7978,8 +7986,9 @@ def _engines() -> list[dict[str, object]]:
         ),
         (
             "same-carrier strict character projection and remaining flavor execution",
-            "research-only; six neutrino constituent cycles and four constant "
-            "mixed scalars independently checked; full coefficients still pending",
+            "research-only; complete up/neutrino holomorphic matrices and "
+            "eight actual down/lepton mixed entries checked; remaining full "
+            "matrices require all sixteen actual scalar replays",
             (
                 "research/experiments/scientific_genesis/"
                 "alternate_constituent_up_matter_representatives.py",
@@ -7988,6 +7997,9 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_neutrino_mixed_pairing.py",
                 "research/experiments/scientific_genesis/alternate_neutrino_ff_entries.py",
                 "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py",
+                "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py",
+                "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py",
+                "research/experiments/scientific_genesis/alternate_down_lepton_full_matrices.py",
             ),
         ),
         (
@@ -11483,7 +11495,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2746,
+            "collected_tests_at_audit": 2830,
             "original_sources_unchanged": True,
         },
         "artifacts": [

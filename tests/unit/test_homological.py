@@ -103,6 +103,30 @@ def test_chain_exactness_cycles_boundaries_and_nontrivial_homology() -> None:
         ChainComplex(spaces, {1: d1, 2: bad_d2})
 
 
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_complex_direction_cannot_be_overridden_through_an_instance_dictionary(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """Frozen complexes must not inherit writable metadata from their mixin."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    first = VectorSpace("first", ("x",), scalar_type)
+    last = VectorSpace("last", ("y",), scalar_type)
+    spaces = GradedVectorSpace("C", {0: first, step: last})
+    complex_ = complex_type(spaces, {0: LinearMap(first, last, ((1,),))})
+
+    with pytest.raises(TypeError, match="__dict__"):
+        vars(complex_)["_direction"] = "cochain" if step == -1 else "chain"
+    with pytest.raises(FrozenInstanceError):
+        complex_._spaces = GradedVectorSpace("replacement", {})  # type: ignore[misc]
+    assert not hasattr(complex_, "__dict__")
+    assert complex_.direction == ("chain" if step == -1 else "cochain")
+    assert complex_.differential(0).codomain == last
+    assert all(complex_.cohomology_dimension(degree) == 0 for degree in complex_.degrees)
+
+
 def test_cochain_complex_uses_the_opposite_degree_direction() -> None:
     c0 = VectorSpace("C^0", ("e0",))
     c1 = VectorSpace("C^1", ("e1a", "e1b"))

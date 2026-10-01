@@ -507,6 +507,8 @@ def _complex_data(
 
 
 class _ComplexMixin:
+    __slots__ = ()
+
     _direction: str
     _spaces: GradedVectorSpace
     _differentials: tuple[tuple[int, LinearMap], ...]

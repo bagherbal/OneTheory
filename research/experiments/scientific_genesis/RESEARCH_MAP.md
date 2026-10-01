@@ -1465,3 +1465,24 @@ Sampling, Ricci-flat/HYM convergence, matter metrics, physical Yukawas,
 the common stabilized vacuum, remaining holomorphic flavor sectors, and
 Genesis-to-UV remain missing. No observational or moduli-selection flag
 was enabled.
+
+Complete bounded matrix output is now an explicit BLOCKED successor gate,
+not a claim inferred from the existence of its writer. The writer calls
+the existing bounded evaluator for every original index and produces a
+deterministic compressed JSON-line stream on the declared finite regression
+domain. A separate parser reads the entire completed stream, checks index
+ordering, all three parameter columns, dimensions, exact outward radius
+mesh, injected V1 parameter zeros, and hashes. Partial streams cannot be
+installed as certified output, and different existing outputs cannot be
+overwritten. See `ALTERNATE_METRIC_BOUNDED_MATRIX_NOTE.md`.
+
+The measured ten-column probe found a 72-second initial correction solve
+followed by nine roughly 0.1-second cached evaluations. Static common
+regular-monomial factoring would reduce source keys from 1972 to 1477
+per parameter; this modest count reduction is not an implemented theorem
+or justification to replace the verified engine before its complete output
+is measured. A structural-compression question records that possibility.
+The full output gate must be audited from actual completed artifacts before
+promotion to COMPUTED. Controlled sampling, practical multi-point cost,
+metric convergence, physical normalization, the common vacuum, remaining
+flavor sectors, and Genesis-to-UV remain open regardless of process status.

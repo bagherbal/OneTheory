@@ -888,6 +888,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_metric_enclosures"]["status"] == "COMPUTED"
     assert claims["alternate_metric_bounded_fibers"]["status"] == "COMPUTED"
     assert claims["alternate_metric_bounded_support"]["status"] == "COMPUTED"
+    assert claims["alternate_metric_bounded_matrix"]["status"] == "BLOCKED"
+    assert "completed content-addressed 5345-column bounded archive" in claims[
+        "alternate_metric_bounded_matrix"
+    ]["missing_prerequisites"]
     assert path["criteria"][
         "alternate_metric_certified_chart_and_density_enclosures_available"
     ] is True

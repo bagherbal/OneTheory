@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "61039e473a7f1df81f111a2ba90ee231c7c2cac1bcc44c5767b0fe1f7e0eb650",
+  "artifact_digest": "634de1182e807e7d3c2be23a56ad2a24e596e8e37175e4b9fdcc0f4e3c9e3fb5",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -996,8 +996,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 276,
-    "test_python_files": 260
+    "research_python_files": 277,
+    "test_python_files": 261
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -4040,6 +4040,28 @@
       "missing_prerequisites": [],
       "statement": "The certified finite-pole representation now carries circular coefficient bounds on original labels. Original exact homotopy, perturbation, and deck unit columns extend linearly; uncertain zeros remain present and the actual finite filtration controls termination. Every original basis index is accepted. Three indices are saved on finite and infinity domains, with independent full-cochain and exact archive checks. The complete bounded matrix, practical multi-point throughput, sampling, and metrics remain open.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "actual original basis ordering",
+        "certified determinant-invertible local domain",
+        "same bounded evaluator",
+        "independent complete stream validation"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_metric_bounded_matrix.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_BOUNDED_MATRIX_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_bounded_matrix.py"
+      ],
+      "id": "alternate_metric_bounded_matrix",
+      "label": "complete bounded original section output on a certified local domain",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "completed content-addressed 5345-column bounded archive",
+        "verified complete-output hashes and scientific scope"
+      ],
+      "statement": "A deterministic complete-output writer consumes the existing bounded all-index evaluator without changing any sections. Every original column must be produced and the entire stored stream independently parsed before this gate can be computed. Passing format tests or running the writer is not evidence of completed matrix materialization. Single-domain output cannot establish sampling or metric convergence.",
+      "status": "BLOCKED"
     },
     {
       "assumptions": [],
@@ -7173,6 +7195,41 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "all 5345 columns must finish",
+        "complete independent stream validation"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_metric_bounded_matrix.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a live process, partial stream, or format test does not prove completion"
+      ],
+      "mathematical_reason": "Complete ordered execution materializes each original section's three coefficient enclosures without introducing new physical data.",
+      "source": "alternate_metric_bounded_support",
+      "target": "alternate_metric_bounded_matrix"
+    },
+    {
+      "assumptions_required": [
+        "certified complete output",
+        "measured multi-point cost",
+        "SU-uniform proposal law",
+        "independent integration errors",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_metric_bounded_matrix.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "one certified local domain is not global sampling or a Hermitian metric"
+      ],
+      "mathematical_reason": "Complete bounded columns supply a local bundle-evaluation input only after practical multi-point cost, controlled proposals, integration errors, and Ricci-flat/HYM convergence are established.",
+      "source": "alternate_metric_bounded_matrix",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -9299,6 +9356,11 @@
     "the certified constituent atlases force Higgs characters (1,0), (1,1), (2,0), and (2,1), incompatible with the source-bound multiset"
   ],
   "structural_compression_questions": [
+    {
+      "attack": "normalization is not implemented or certified. Its modest key-count reduction does not justify replacing the verified engine before complete single-domain output is measured; run the genuine complete-output gate without inferring metrics",
+      "evidence": "the first outer column took about 72 seconds after setup; the next nine reused 36 correction units and 4707 original operator columns at roughly 0.1 seconds each. Actual V2 source keys number 1972; common-monomial normalization would reduce that static count to 1477 per parameter",
+      "question": "Can common regular monomials make all bounded section corrections reuse a small set of finite-pole responses?"
+    },
     {
       "attack": "closed for exact point evaluation by polynomial coefficient naturality, operator commutation, independent full-cochain probes on two charts, projective rescaling, and a deliberate deck-phase mutation; reusable controlled numerical sampling is not established by a point matrix",
       "evidence": "all actual target second-plane exponents are nonnegative; raw incidence and homotopy depend only on Laurent support and structural parity, while object and equation arrows preserve regularity",

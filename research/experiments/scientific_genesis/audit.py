@@ -3610,6 +3610,28 @@ def _nodes() -> list[dict[str, object]]:
              "original finite filtration", "explicit outward coefficient precision"),
         ),
         _node(
+            "alternate_metric_bounded_matrix",
+            "complete bounded original section output on a certified local domain",
+            "Normalization",
+            "BLOCKED",
+            "A deterministic complete-output writer consumes the existing "
+            "bounded all-index evaluator without changing any sections. "
+            "Every original column must be produced and the entire stored "
+            "stream independently parsed before this gate can be computed. "
+            "Passing format tests or running the writer is not evidence of "
+            "completed matrix materialization. Single-domain output cannot "
+            "establish sampling or metric convergence.",
+            (
+                "research/experiments/scientific_genesis/alternate_metric_bounded_matrix.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_BOUNDED_MATRIX_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_bounded_matrix.py",
+            ),
+            ("actual original basis ordering", "certified determinant-invertible local domain",
+             "same bounded evaluator", "independent complete stream validation"),
+            missing=("completed content-addressed 5345-column bounded archive",
+                     "verified complete-output hashes and scientific scope"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -6209,6 +6231,28 @@ def _edges() -> list[dict[str, object]]:
              "independent integration errors", "Ricci-flat/HYM convergence"),
             True,
             ("three-index packets are not a complete matrix, probability law, or metric",),
+        ),
+        _edge(
+            "alternate_metric_bounded_support",
+            "alternate_metric_bounded_matrix",
+            "Complete ordered execution materializes each original section's "
+            "three coefficient enclosures without introducing new physical data.",
+            ("research/experiments/scientific_genesis/alternate_metric_bounded_matrix.py",),
+            ("all 5345 columns must finish", "complete independent stream validation"),
+            True,
+            ("a live process, partial stream, or format test does not prove completion",),
+        ),
+        _edge(
+            "alternate_metric_bounded_matrix",
+            "visible_metrics",
+            "Complete bounded columns supply a local bundle-evaluation input "
+            "only after practical multi-point cost, controlled proposals, "
+            "integration errors, and Ricci-flat/HYM convergence are established.",
+            ("research/experiments/scientific_genesis/alternate_metric_bounded_matrix.py",),
+            ("certified complete output", "measured multi-point cost", "SU-uniform proposal law",
+             "independent integration errors", "Ricci-flat/HYM convergence"),
+            True,
+            ("one certified local domain is not global sampling or a Hermitian metric",),
         ),
         _edge(
             "computable_carrier_state",
@@ -11223,6 +11267,25 @@ def build_state() -> dict[str, object]:
             },
         ],
         "structural_compression_questions": [
+            {
+                "question": (
+                    "Can common regular monomials make all bounded section "
+                    "corrections reuse a small set of finite-pole responses?"
+                ),
+                "evidence": (
+                    "the first outer column took about 72 seconds after setup; "
+                    "the next nine reused 36 correction units and 4707 original "
+                    "operator columns at roughly 0.1 seconds each. Actual V2 "
+                    "source keys number 1972; common-monomial normalization "
+                    "would reduce that static count to 1477 per parameter"
+                ),
+                "attack": (
+                    "normalization is not implemented or certified. Its modest "
+                    "key-count reduction does not justify replacing the verified "
+                    "engine before complete single-domain output is measured; "
+                    "run the genuine complete-output gate without inferring metrics"
+                ),
+            },
             {
                 "question": (
                     "Can regular polynomial coefficients be specialized before "

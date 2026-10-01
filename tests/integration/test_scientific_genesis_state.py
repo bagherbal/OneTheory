@@ -43,6 +43,16 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
 @pytest.mark.parametrize(
     "schema,field,error",
     (
+        *tuple(
+            ("alternate-metric-weight-moments-v1", field,
+             "the actual weight integrability or its scientific scope is not certified")
+            for field in (
+                "weight_third_moment_finite", "quantitative_variance_bound_available",
+                "standard_finite_third_absolute_moment_error_bound_applicable_to_weight",
+                "controlled_numerical_sampling_available", "numerical_metrics_available",
+                "physical_yukawas_available", "vacuum_selected", "observational_inputs_used",
+            )
+        ),
         (
             "alternate-metric-bounded-support-v1",
             "complete_bounded_5345_column_matrix_materialized",
@@ -875,7 +885,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "certify complete bounded matrix output and practical multi-point "
         "throughput using the actual universal quotient frames; "
         "implement the declared SU-uniform "
-        "proposal law with precision and integration-error control, then "
+        "proposal law with precision and quantitative second-moment or "
+        "truncation-error control, then "
         "certify Ricci-flat/HYM "
         "convergence without choosing physical moduli by hand"
     )
@@ -888,6 +899,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_metric_enclosures"]["status"] == "COMPUTED"
     assert claims["alternate_metric_bounded_fibers"]["status"] == "COMPUTED"
     assert claims["alternate_metric_bounded_support"]["status"] == "COMPUTED"
+    assert claims["alternate_metric_weight_moments"]["status"] == "DERIVED"
+    assert path["criteria"]["alternate_metric_weight_second_moment_finite"] is True
+    assert path["criteria"]["alternate_metric_weight_third_moment_finite"] is False
+    assert path["criteria"]["alternate_metric_quantitative_variance_bound_available"] is False
     assert claims["alternate_metric_bounded_matrix"]["status"] == "BLOCKED"
     assert "completed content-addressed 5345-column bounded archive" in claims[
         "alternate_metric_bounded_matrix"

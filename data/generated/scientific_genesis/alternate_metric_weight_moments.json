@@ -1,0 +1,367 @@
+{
+  "actual_equations": [
+    "mu*F(x)+nu*G(x)",
+    "2*nu*F(u)+mu*G(u)"
+  ],
+  "artifact_digest": "bae6172a3208f92f6bd954c8a4124bfce84da09cf08a2d66dc44e7305165ee41",
+  "auxiliary_density_transverse_order": 2,
+  "base_chart": "t = mu/nu",
+  "controlled_numerical_sampling_available": false,
+  "critical_infinity_fibers": false,
+  "critical_locus_complex_codimension": 2,
+  "extension_point_selected": false,
+  "measure_artifact_digest": "eefa94d3f7b368cc13f4bad2659393129063345ef97097a9e7e0db32ad1ac488",
+  "next_required_object": "correct controlled projective proposal law, quantitative second-moment or truncation bounds, integration error, and Ricci-flat/HYM convergence",
+  "nonnegative_moment_integrability": "finite exactly for 0 <= q < 3",
+  "normalized_probability_law": "A/9; A = FS_x wedge FS_u wedge FS_p",
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "pencils": [
+    {
+      "axis_nodal_fiber_count": 3,
+      "critical_mixed_gcd_degree": 0,
+      "critical_support_degree": 6,
+      "critical_support_monic": [
+        [
+          [
+            6
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ],
+        [
+          [
+            3
+          ],
+          [
+            "30",
+            "60"
+          ]
+        ],
+        [
+          [
+            0
+          ],
+          [
+            "-243",
+            "0"
+          ]
+        ]
+      ],
+      "full_discriminant_monic": [
+        [
+          [
+            12
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ],
+        [
+          [
+            9
+          ],
+          [
+            "84",
+            "168"
+          ]
+        ],
+        [
+          [
+            6
+          ],
+          [
+            "-7290",
+            "0"
+          ]
+        ],
+        [
+          [
+            3
+          ],
+          [
+            "-78732",
+            "-157464"
+          ]
+        ],
+        [
+          [
+            0
+          ],
+          [
+            "531441",
+            "0"
+          ]
+        ]
+      ],
+      "infinity_product": [
+        "27",
+        "0"
+      ],
+      "infinity_triangle": [
+        "729",
+        "0"
+      ],
+      "mixed_coefficient_polynomial": [
+        [
+          [
+            0
+          ],
+          [
+            "36",
+            "18"
+          ]
+        ]
+      ],
+      "nodal_critical_point_count": 12,
+      "pure_coefficient_polynomials": [
+        [
+          [
+            [
+              1
+            ],
+            [
+              "-3",
+              "-3"
+            ]
+          ],
+          [
+            [
+              0
+            ],
+            [
+              "-3",
+              "-6"
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              1
+            ],
+            [
+              "3",
+              "0"
+            ]
+          ],
+          [
+            [
+              0
+            ],
+            [
+              "-3",
+              "-6"
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              1
+            ],
+            [
+              "0",
+              "3"
+            ]
+          ],
+          [
+            [
+              0
+            ],
+            [
+              "-3",
+              "-6"
+            ]
+          ]
+        ]
+      ],
+      "pure_triangle_gcd_degree": 0,
+      "squarefree_gcd_degree": 0,
+      "triangle_fiber_count": 3
+    },
+    {
+      "axis_nodal_fiber_count": 3,
+      "critical_mixed_gcd_degree": 0,
+      "critical_support_degree": 6,
+      "critical_support_monic": [
+        [
+          [
+            6
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ],
+        [
+          [
+            3
+          ],
+          [
+            "-80/81",
+            "-160/81"
+          ]
+        ],
+        [
+          [
+            0
+          ],
+          [
+            "-64/243",
+            "0"
+          ]
+        ]
+      ],
+      "full_discriminant_monic": [
+        [
+          [
+            12
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ],
+        [
+          [
+            9
+          ],
+          [
+            "-32/27",
+            "-64/27"
+          ]
+        ],
+        [
+          [
+            6
+          ],
+          [
+            "-640/729",
+            "0"
+          ]
+        ],
+        [
+          [
+            3
+          ],
+          [
+            "14336/177147",
+            "28672/177147"
+          ]
+        ],
+        [
+          [
+            0
+          ],
+          [
+            "4096/531441",
+            "0"
+          ]
+        ]
+      ],
+      "infinity_product": [
+        "81",
+        "162"
+      ],
+      "infinity_triangle": [
+        "19683",
+        "39366"
+      ],
+      "mixed_coefficient_polynomial": [
+        [
+          [
+            1
+          ],
+          [
+            "36",
+            "18"
+          ]
+        ]
+      ],
+      "nodal_critical_point_count": 12,
+      "pure_coefficient_polynomials": [
+        [
+          [
+            [
+              1
+            ],
+            [
+              "-3",
+              "-6"
+            ]
+          ],
+          [
+            [
+              0
+            ],
+            [
+              "-6",
+              "-6"
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              1
+            ],
+            [
+              "-3",
+              "-6"
+            ]
+          ],
+          [
+            [
+              0
+            ],
+            [
+              "6",
+              "0"
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              1
+            ],
+            [
+              "-3",
+              "-6"
+            ]
+          ],
+          [
+            [
+              0
+            ],
+            [
+              "0",
+              "6"
+            ]
+          ]
+        ]
+      ],
+      "pure_triangle_gcd_degree": 0,
+      "squarefree_gcd_degree": 0,
+      "triangle_fiber_count": 3
+    }
+  ],
+  "physical_yukawas_available": false,
+  "proof": "research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md",
+  "proof_sha256": "0989a77341c6d8c6f64f7a580f6799f92538c1831d341d7005ec883e72ef2d61",
+  "quantitative_variance_bound_available": false,
+  "radial_q_moment_power": "5 - 2*q",
+  "reference_for_triangle_factorization": "https://arxiv.org/abs/math/0611590",
+  "schema": "alternate-metric-weight-moments-v1",
+  "standard_finite_third_absolute_moment_error_bound_applicable_to_weight": false,
+  "target_volume": "nonzero smooth residue volume on the actual compact cover",
+  "two_critical_supports_gcd_degree": 0,
+  "vacuum_selected": false,
+  "weight_second_moment_finite": true,
+  "weight_third_moment_finite": false,
+  "weight_transverse_order": -2
+}

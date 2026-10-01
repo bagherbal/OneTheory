@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "2a449d12a7f08894097a5b8cf28343828b6e8f4736adc41e12cb3d570b0f3a01",
+  "artifact_digest": "7c8805a0f47d9c3c1808313fd58ac00061c7e3428a4875ee1efe6851317650da",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -937,6 +937,11 @@
       "sha256": "6d814718d09fda64d1e37a07707edeb317a892d9890520019cd2664ffadbd76b"
     },
     {
+      "bytes": 6815,
+      "path": "data/generated/scientific_genesis/alternate_metric_weight_moments.json",
+      "sha256": "109cb8ed54083bdc83625f3d62907d0b0d7ef8c1275c1781a48a0e5531d7f97e"
+    },
+    {
       "bytes": 32583,
       "path": "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
       "sha256": "2ea43c74be1eb8ef4eda0edd5ae1cd9e093765b4ce3c128ccfe4f355edd42c52"
@@ -996,8 +1001,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 277,
-    "test_python_files": 261
+    "research_python_files": 278,
+    "test_python_files": 262
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3960,6 +3965,25 @@
       "missing_prerequisites": [],
       "statement": "The actual cubic pencils give an explicitly oriented double residue and exact affine tangent frames. The normalized FS auxiliary form has cover mass nine; quotient importance weights divide separately by the declared free covering degree. Both actual deck generators preserve the residue and FS forms. Independent mixed-wedge and chart-transition checks support this integration prerequisite, not a numerical sampler or a converged metric.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "actual frozen cubic pencils",
+        "auxiliary probability law A/9",
+        "nonzero residue volume-form convention"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_weight_moments.json",
+        "research/experiments/scientific_genesis/alternate_metric_weight_moments.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_weight_moments.py"
+      ],
+      "id": "alternate_metric_weight_moments",
+      "label": "actual auxiliary-law importance-weight integrability",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "The two actual pencils have square-free degree-six critical supports with gcd one and no critical infinity fiber. Each has three axis-node fibers and three triangular fibers. The local density proof gives A comparable to squared transverse radius along the critical curves: the importance weight has finite q-moment exactly for nonnegative q below three. Its variance is finite but its third moment diverges. This is an integrability theorem for the ideal A/9 law, not a quantitative variance bound, implemented sampler, metric, or physical normalization.",
+      "status": "DERIVED"
     },
     {
       "assumptions": [
@@ -7196,6 +7220,40 @@
     },
     {
       "assumptions_required": [
+        "actual critical-fiber algebra",
+        "local density comparability proof"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_weight_moments.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a finite weight at sampled probes does not establish finite moments"
+      ],
+      "mathematical_reason": "The actual residue and auxiliary form determine the importance weight whose singular-set moments must be established analytically.",
+      "source": "alternate_metric_measure",
+      "target": "alternate_metric_weight_moments"
+    },
+    {
+      "assumptions_required": [
+        "controlled independent draws from A/9",
+        "bounded tested integrands",
+        "quantitative error control",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "finite variance is not a numerical variance bound or a sampler"
+      ],
+      "mathematical_reason": "Moment integrability constrains admissible statistical error methods once the correct probability law, bounded integrands, quantitative bounds, and metric convergence are also established.",
+      "source": "alternate_metric_weight_moments",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "all 5345 columns must finish",
         "complete independent stream validation"
       ],
@@ -8138,6 +8196,7 @@
     }
   ],
   "established_results": [
+    "the actual A/9 importance weight has finite nonnegative moments exactly below order three; its finite variance has no numerical upper bound yet, so quantitative sampling-error control remains open",
     "exact reusable arithmetic, polynomial, homological, Cech, Cox, sheaf, and geometry engines",
     "published Schoen geometry and selected one-Higgs reference carrier metadata",
     "exact fiber-sensitive dP9 Serre complexes deriving the published constituent Ext-one dimensions 2 and 5",
@@ -8312,6 +8371,7 @@
       "alternate_metric_local_rank_four_evaluation_available": true,
       "alternate_metric_on_demand_original_cochain_section_bounds_available": true,
       "alternate_metric_practical_multi_point_integration_throughput_certified": false,
+      "alternate_metric_quantitative_variance_bound_available": false,
       "alternate_metric_quotient_section_count": 5345,
       "alternate_metric_rank_four_globally_generated": true,
       "alternate_metric_rank_four_quotient_lifts_remaining_count": 0,
@@ -8324,6 +8384,8 @@
         1
       ],
       "alternate_metric_universal_section_constructor_available": true,
+      "alternate_metric_weight_second_moment_finite": true,
+      "alternate_metric_weight_third_moment_finite": false,
       "alternate_other_linearisations_excluded": false,
       "alternate_ray_0_1_all_nonzero_p1_stable_in_sufficient_chamber": true,
       "alternate_ray_0_1_charged_structural_spectrum_passes": true,
@@ -8988,13 +9050,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "certify complete bounded matrix output and practical multi-point throughput using the actual universal quotient frames; implement the declared SU-uniform proposal law with precision and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
+    "next_required_object": "certify complete bounded matrix output and practical multi-point throughput using the actual universal quotient frames; implement the declared SU-uniform proposal law with precision and quantitative second-moment or truncation-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Use the actual residue and normalized FS measure with the bounded all-index evaluator and certified density/frame bounds; finish complete bounded output and measure multi-point cost, then implement the SU-uniform proposal law with integration-error control; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Use the actual residue and normalized FS measure with the bounded all-index evaluator and certified density/frame bounds; finish complete bounded output and measure multi-point cost, then implement the SU-uniform proposal law with quantitative second-moment or truncation-error control, not a finite-third-moment assumption; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,

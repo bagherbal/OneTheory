@@ -1495,3 +1495,23 @@ gate from metadata alone. Its negative tests use descriptive metadata
 contracts, not synthetic scientific matrices. The matrix claim remains
 BLOCKED until the real full run and consumer audit finish. Physical metric,
 sampling, and prediction flags remain false.
+
+## Actual integration-weight moments
+
+The exact critical-fiber calculation in `alternate_metric_weight_moments.py`
+uses the frozen F/G equations. Both reduced critical supports have degree
+six, are square-free, are coprime to each other, and have no infinity
+critical value. Axis singularities are ordinary nodes; the other singular
+fibers are nonconcurrent triangles. The smooth fiber product's critical
+locus consists of disjoint codimension-two curves.
+
+The independent gradient/Hessian tests and
+`ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md` establish that A is comparable
+to transverse radius squared and W to its inverse. Under the ideal A/9
+law, nonnegative q-moments are finite exactly for q below three: second
+moment finite, third moment divergent. This constrains statistical error
+methods, not physical family multiplicity. It does not provide independent
+samples, a quantitative variance bound, finite-cloud errors, numerical
+metrics, normalized Yukawas, or a common vacuum. The remaining integration
+gate needs quantitative second-moment or controlled truncation bounds;
+a finite-third-moment error theorem cannot simply be assumed.

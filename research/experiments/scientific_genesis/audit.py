@@ -3522,6 +3522,29 @@ def _nodes() -> list[dict[str, object]]:
              "free ninefold quotient for descended invariant integrands"),
         ),
         _node(
+            "alternate_metric_weight_moments",
+            "actual auxiliary-law importance-weight integrability",
+            "Normalization",
+            "DERIVED",
+            "The two actual pencils have square-free degree-six critical "
+            "supports with gcd one and no critical infinity fiber. Each has "
+            "three axis-node fibers and three triangular fibers. The local "
+            "density proof gives A comparable to squared transverse radius "
+            "along the critical curves: the importance weight has finite "
+            "q-moment exactly for nonnegative q below three. Its variance is "
+            "finite but its third moment diverges. This is an integrability "
+            "theorem for the ideal A/9 law, not a quantitative variance bound, "
+            "implemented sampler, metric, or physical normalization.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_weight_moments.json",
+                "research/experiments/scientific_genesis/alternate_metric_weight_moments.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_weight_moments.py",
+            ),
+            ("actual frozen cubic pencils", "auxiliary probability law A/9",
+             "nonzero residue volume-form convention"),
+        ),
+        _node(
             "alternate_metric_projective_roots",
             "certified complete projective intersections for exact sampling inputs",
             "Normalization",
@@ -6235,6 +6258,28 @@ def _edges() -> list[dict[str, object]]:
             ("three-index packets are not a complete matrix, probability law, or metric",),
         ),
         _edge(
+            "alternate_metric_measure",
+            "alternate_metric_weight_moments",
+            "The actual residue and auxiliary form determine the importance "
+            "weight whose singular-set moments must be established analytically.",
+            ("data/generated/scientific_genesis/alternate_metric_weight_moments.json",),
+            ("actual critical-fiber algebra", "local density comparability proof"),
+            True,
+            ("a finite weight at sampled probes does not establish finite moments",),
+        ),
+        _edge(
+            "alternate_metric_weight_moments",
+            "visible_metrics",
+            "Moment integrability constrains admissible statistical error "
+            "methods once the correct probability law, bounded integrands, "
+            "quantitative bounds, and metric convergence are also established.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md",),
+            ("controlled independent draws from A/9", "bounded tested integrands",
+             "quantitative error control", "Ricci-flat/HYM convergence"),
+            True,
+            ("finite variance is not a numerical variance bound or a sampler",),
+        ),
+        _edge(
             "alternate_metric_bounded_support",
             "alternate_metric_bounded_matrix",
             "Complete ordered execution materializes each original section's "
@@ -7421,7 +7466,8 @@ def _scheduler() -> list[dict[str, object]]:
             "Use the actual residue and normalized FS measure with the bounded "
             "all-index evaluator and certified density/frame bounds; finish "
             "complete bounded output and measure multi-point cost, then implement "
-            "the SU-uniform proposal law with integration-error control; "
+            "the SU-uniform proposal law with quantitative second-moment or "
+            "truncation-error control, not a finite-third-moment assumption; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
@@ -9919,6 +9965,44 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the exact geometric measure or its scientific scope is not certified")
+    moment_record = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_weight_moments.json"
+    )).read_text(encoding="utf-8"))
+    moment_digest = moment_record.pop("artifact_digest", None)
+    if (
+        moment_digest != _canonical_digest(moment_record)
+        or moment_digest != "bae6172a3208f92f6bd954c8a4124bfce84da09cf08a2d66dc44e7305165ee41"
+        or moment_record.get("schema") != "alternate-metric-weight-moments-v1"
+        or moment_record.get("measure_artifact_digest") != measure_digest
+        or moment_record.get("actual_equations") != measure_record.get("actual_equations")
+        or moment_record.get("proof") != (
+            "research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md"
+        )
+        or moment_record.get("proof_sha256") != _sha256(ROOT / (
+            "research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md"
+        ))
+        or moment_record.get("two_critical_supports_gcd_degree") != 0
+        or moment_record.get("critical_infinity_fibers") is not False
+        or len(moment_record.get("pencils", [])) != 2
+        or any(p.get("critical_support_degree") != 6
+               or p.get("squarefree_gcd_degree") != 0
+               or p.get("axis_nodal_fiber_count") != 3
+               or p.get("triangle_fiber_count") != 3
+               or p.get("nodal_critical_point_count") != 12
+               for p in moment_record.get("pencils", []))
+        or moment_record.get("weight_second_moment_finite") is not True
+        or moment_record.get("weight_third_moment_finite") is not False
+        or moment_record.get("nonnegative_moment_integrability")
+        != "finite exactly for 0 <= q < 3"
+        or any(moment_record.get(flag) is not False for flag in (
+            "quantitative_variance_bound_available",
+            "standard_finite_third_absolute_moment_error_bound_applicable_to_weight",
+            "controlled_numerical_sampling_available", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected", "vacuum_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the actual weight integrability or its scientific scope is not certified")
     root_record = json.loads((ROOT / (
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json"
     )).read_text(encoding="utf-8"))
@@ -10376,6 +10460,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json",
         "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.matrix.json.gz",
         "data/generated/scientific_genesis/alternate_metric_measure.json",
+        "data/generated/scientific_genesis/alternate_metric_weight_moments.json",
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
         "data/generated/scientific_genesis/alternate_metric_enclosures.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
@@ -10645,6 +10730,9 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_local_rank_four_evaluation_available": True,
                 "alternate_metric_complete_point_evaluation_matrix_materialized": True,
                 "alternate_metric_exact_residue_and_auxiliary_measure_available": True,
+                "alternate_metric_weight_second_moment_finite": True,
+                "alternate_metric_weight_third_moment_finite": False,
+                "alternate_metric_quantitative_variance_bound_available": False,
                 "alternate_metric_certified_Qomega_intersection_roots_available": True,
                 "alternate_metric_certified_chart_and_density_enclosures_available": True,
                 "alternate_metric_laurent_coefficient_enclosure_engine_available": True,
@@ -10890,7 +10978,8 @@ def build_state() -> dict[str, object]:
                 "certify complete bounded matrix output and practical multi-point "
                 "throughput using the actual universal quotient frames; "
                 "implement the declared SU-uniform "
-                "proposal law with precision and integration-error control, then "
+                "proposal law with precision and quantitative second-moment or "
+                "truncation-error control, then "
                 "certify Ricci-flat/HYM "
                 "convergence without choosing physical moduli by hand"
             ),
@@ -10899,6 +10988,9 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "the actual A/9 importance weight has finite nonnegative moments "
+            "exactly below order three; its finite variance has no numerical "
+            "upper bound yet, so quantitative sampling-error control remains open",
             "exact reusable arithmetic, polynomial, homological, Cech, Cox, "
             "sheaf, and geometry engines",
             "published Schoen geometry and selected one-Higgs reference carrier metadata",

@@ -1372,3 +1372,23 @@ Next: controlled projective roots and branch-complete samples from the
 declared projective law, independent integration-error checks, then
 Ricci-flat/HYM convergence. Uniform free-affine-coordinate samples would
 not have that law. The new exact measure does not close any of those gates.
+
+The actual projective intersection roots now have exact inclusion
+certificates for declared Q(omega) input configurations. Existing field,
+polynomial, derivative, GCD, and rank engines are reused. Quantized
+Durand--Kerner proposals are admitted only after rational Taylor/Rouche
+inequalities prove one root in each disk; disjointness and exact degree
+prove completeness. A simple parameter-chart infinity root is retained,
+so accepted line/point/line configurations have all nine intersection
+points. Independent binomial reconstruction verifies Taylor coefficients
+and squared modulus bounds. Finer certificates uniquely nest in coarser
+ones; repeated intersections and exhausted work fail explicitly. See
+`ALTERNATE_METRIC_PROJECTIVE_ROOTS_NOTE.md` and the content-addressed
+`alternate_metric_projective_roots.json`.
+
+This is not yet an implementation of the SU-uniform proposal law. The
+saved configurations are declared regression probes, and disk centers
+are not exact cover points. Next, propagate certified parameter-root
+uncertainty through explicit cover charts, section values, and measure
+densities, then control proposal precision and integration error before
+Ricci-flat/HYM convergence. All physical prediction flags remain false.

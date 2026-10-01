@@ -44,6 +44,23 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         (
+            "alternate-metric-projective-roots-v1", "centers_are_exact_cover_points",
+            "certified projective roots or their scientific scope is not certified",
+        ),
+        (
+            "alternate-metric-projective-roots-v1", "projective_uniform_sampling_law_implemented",
+            "certified projective roots or their scientific scope is not certified",
+        ),
+        (
+            "alternate-metric-projective-roots-v1",
+            "bounded_section_and_density_evaluation_available",
+            "certified projective roots or their scientific scope is not certified",
+        ),
+        (
+            "alternate-metric-projective-roots-v1", "numerical_metrics_available",
+            "certified projective roots or their scientific scope is not certified",
+        ),
+        (
             "alternate-metric-measure-v1", "controlled_numerical_sampling_available",
             "exact geometric measure or its scientific scope is not certified",
         ),
@@ -789,9 +806,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "certify controlled projective roots and branch-complete sampling "
-        "using the actual residue, normalized auxiliary measure, and complete "
-        "exact point matrix, then certify Ricci-flat/HYM "
+        "propagate certified projective-root uncertainty through explicit "
+        "section and density evaluations; implement the declared SU-uniform "
+        "proposal law with precision and integration-error control, then "
+        "certify Ricci-flat/HYM "
         "convergence without choosing physical moduli by hand"
     )
     assert path["criteria"][
@@ -799,6 +817,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     ] is True
     assert path["criteria"]["alternate_metric_controlled_numerical_sampling_available"] is False
     assert claims["alternate_metric_measure"]["status"] == "COMPUTED"
+    assert claims["alternate_metric_projective_roots"]["status"] == "COMPUTED"
+    assert path["criteria"][
+        "alternate_metric_certified_Qomega_intersection_roots_available"
+    ] is True
+    assert path["criteria"][
+        "alternate_metric_bounded_section_and_density_evaluation_available"
+    ] is False
     assert claims["visible_metrics"]["status"] == "BLOCKED"
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_up_holomorphic_rank_three_locus"] == "a1 != 0"

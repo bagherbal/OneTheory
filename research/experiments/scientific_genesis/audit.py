@@ -3521,6 +3521,27 @@ def _nodes() -> list[dict[str, object]]:
              "free ninefold quotient for descended invariant integrands"),
         ),
         _node(
+            "alternate_metric_projective_roots",
+            "certified complete projective intersections for exact sampling inputs",
+            "Normalization",
+            "COMPUTED",
+            "Declared Q(omega) line/point/line configurations restrict the actual "
+            "pencils to homogeneous cubics. Exact Taylor/Rouche inequalities "
+            "give one-root disks; disjointness and degree prove completeness. "
+            "Simple infinity roots are retained explicitly, so each accepted "
+            "configuration has all nine algebraic intersection points. "
+            "Proposal centers are not exact cover points. The SU-uniform "
+            "sampling law and bounded section/density evaluation remain open.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
+                "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_PROJECTIVE_ROOTS_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_projective_roots.py",
+            ),
+            ("exact Q(omega) configuration inputs", "explicit line bases and parameter charts",
+             "transverse cubic intersections", "declared precision and work-cap policy"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -3531,7 +3552,9 @@ def _nodes() -> list[dict[str, object]]:
             "lifting formula is independently certified and exact local "
             "rank-four evaluation is available with a complete exact point "
             "matrix. The actual residue and normalized auxiliary integration "
-            "measure are explicit. Controlled evaluation/sampling "
+            "measure are explicit. Complete projective roots have exact "
+            "inclusion certificates for declared Q(omega) configurations. "
+            "Controlled evaluation/sampling "
             "and converged Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
@@ -5955,6 +5978,31 @@ def _edges() -> list[dict[str, object]]:
              "uniform affine-coordinate sampling has the wrong point law"),
         ),
         _edge(
+            "alternate_metric_measure",
+            "alternate_metric_projective_roots",
+            "The declared projective intersection scheme requires both actual "
+            "restricted cubics to be solved completely, including the excluded "
+            "point in each parameter chart.",
+            ("data/generated/scientific_genesis/alternate_metric_projective_roots.json",),
+            ("exact Q(omega) line bases and shared P1 input", "transverse restrictions"),
+            True,
+            ("a small residual proves neither root existence nor completeness",
+             "discarding infinity or repeated roots changes the geometric sample law"),
+        ),
+        _edge(
+            "alternate_metric_projective_roots",
+            "visible_metrics",
+            "Complete algebraic root descriptions supply geometric integration "
+            "inputs only after their uncertainty is propagated into chart, "
+            "section, and measure evaluations.",
+            ("data/generated/scientific_genesis/alternate_metric_projective_roots.json",),
+            ("bounded section and density evaluation", "controlled SU-uniform proposal law",
+             "independent integration-error control", "Ricci-flat/HYM convergence"),
+            True,
+            ("disk centers do not exactly satisfy the cover equations",
+             "regression configurations are not SU-uniform samples"),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -7106,7 +7154,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             "Use the actual residue and normalized FS measure with the complete "
-            "point evaluator; certify branch-complete projective roots and sampling; "
+            "point evaluator; propagate certified root uncertainty and implement "
+            "the SU-uniform proposal law with integration-error control; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
@@ -9604,6 +9653,33 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the exact geometric measure or its scientific scope is not certified")
+    root_record = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_projective_roots.json"
+    )).read_text(encoding="utf-8"))
+    root_digest = root_record.pop("artifact_digest", None)
+    if (
+        root_digest != _canonical_digest(root_record)
+        or root_digest != "cc160262ba3ca6d389c28b1ea2b42c49372d5e47ce90af93ab00ab60cab6ebdf"
+        or root_record.get("schema") != "alternate-metric-projective-roots-v1"
+        or root_record.get("measure_artifact_digest") != measure_digest
+        or root_record.get("coefficient_field") != "Q(omega), omega^2+omega+1=0"
+        or root_record.get("exact_Qomega_input_intersection_roots_certified") is not True
+        or [item.get("name") for item in root_record.get("actual_configurations", [])]
+        != ["finite_chart", "infinity_branch"]
+        or any(len(item.get("all_nine_root_pairs", [])) != 9
+               or any(item[side].get("total_root_count") != 3 for side in ("first", "second"))
+               for item in root_record.get("actual_configurations", []))
+        or any(root_record.get(flag) is not False for flag in (
+            "centers_are_exact_cover_points", "projective_uniform_sampling_law_implemented",
+            "controlled_numerical_sampling_available",
+            "bounded_section_and_density_evaluation_available",
+            "numerical_metrics_available", "physical_yukawas_available",
+            "extension_point_selected", "vacuum_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError(
+            "the certified projective roots or their scientific scope is not certified"
+        )
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9915,6 +9991,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json",
         "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.matrix.json.gz",
         "data/generated/scientific_genesis/alternate_metric_measure.json",
+        "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -10180,6 +10257,8 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_local_rank_four_evaluation_available": True,
                 "alternate_metric_complete_point_evaluation_matrix_materialized": True,
                 "alternate_metric_exact_residue_and_auxiliary_measure_available": True,
+                "alternate_metric_certified_Qomega_intersection_roots_available": True,
+                "alternate_metric_bounded_section_and_density_evaluation_available": False,
                 "alternate_metric_controlled_numerical_sampling_available": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
@@ -10413,9 +10492,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "certify controlled projective roots and branch-complete sampling "
-                "using the actual residue, normalized auxiliary measure, and complete "
-                "exact point matrix, then certify Ricci-flat/HYM "
+                "propagate certified projective-root uncertainty through explicit "
+                "section and density evaluations; implement the declared SU-uniform "
+                "proposal law with precision and integration-error control, then "
+                "certify Ricci-flat/HYM "
                 "convergence without choosing physical moduli by hand"
             ),
         },

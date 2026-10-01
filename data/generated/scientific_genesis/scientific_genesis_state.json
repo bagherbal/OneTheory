@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "ebb6c93b0cd3dc5f53a7839e84ab67d8c25ffad61eff59b0455b03ab3e622dea",
+  "artifact_digest": "4076285c56417e342f22cccaa66b482189359c90e6d604fd913c8bf867a5aafd",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -937,6 +937,11 @@
       "sha256": "6d814718d09fda64d1e37a07707edeb317a892d9890520019cd2664ffadbd76b"
     },
     {
+      "bytes": 32583,
+      "path": "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
+      "sha256": "2ea43c74be1eb8ef4eda0edd5ae1cd9e093765b4ce3c128ccfe4f355edd42c52"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -976,8 +981,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 272,
-    "test_python_files": 256
+    "research_python_files": 273,
+    "test_python_files": 257
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3942,6 +3947,26 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "exact Q(omega) configuration inputs",
+        "explicit line bases and parameter charts",
+        "transverse cubic intersections",
+        "declared precision and work-cap policy"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
+        "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_PROJECTIVE_ROOTS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_projective_roots.py"
+      ],
+      "id": "alternate_metric_projective_roots",
+      "label": "certified complete projective intersections for exact sampling inputs",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "Declared Q(omega) line/point/line configurations restrict the actual pencils to homogeneous cubics. Exact Taylor/Rouche inequalities give one-root disks; disjointness and degree prove completeness. Simple infinity roots are retained explicitly, so each accepted configuration has all nine algebraic intersection points. Proposal centers are not exact cover points. The SU-uniform sampling law and bounded section/density evaluation remain open.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -3954,7 +3979,7 @@
         "controlled numerical full-basis evaluation and metric sampling",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Controlled evaluation/sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Controlled evaluation/sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -6835,6 +6860,42 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "exact Q(omega) line bases and shared P1 input",
+        "transverse restrictions"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_projective_roots.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a small residual proves neither root existence nor completeness",
+        "discarding infinity or repeated roots changes the geometric sample law"
+      ],
+      "mathematical_reason": "The declared projective intersection scheme requires both actual restricted cubics to be solved completely, including the excluded point in each parameter chart.",
+      "source": "alternate_metric_measure",
+      "target": "alternate_metric_projective_roots"
+    },
+    {
+      "assumptions_required": [
+        "bounded section and density evaluation",
+        "controlled SU-uniform proposal law",
+        "independent integration-error control",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_projective_roots.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "disk centers do not exactly satisfy the cover equations",
+        "regression configurations are not SU-uniform samples"
+      ],
+      "mathematical_reason": "Complete algebraic root descriptions supply geometric integration inputs only after their uncertainty is propagated into chart, section, and measure evaluations.",
+      "source": "alternate_metric_projective_roots",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -7883,6 +7944,8 @@
         ]
       ],
       "alternate_fixed_atlas_su4_excluded": true,
+      "alternate_metric_bounded_section_and_density_evaluation_available": false,
+      "alternate_metric_certified_Qomega_intersection_roots_available": true,
       "alternate_metric_complete_point_evaluation_matrix_materialized": true,
       "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
@@ -8583,13 +8646,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "certify controlled projective roots and branch-complete sampling using the actual residue, normalized auxiliary measure, and complete exact point matrix, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
+    "next_required_object": "propagate certified projective-root uncertainty through explicit section and density evaluations; implement the declared SU-uniform proposal law with precision and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Use the actual residue and normalized FS measure with the complete point evaluator; certify branch-complete projective roots and sampling; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Use the actual residue and normalized FS measure with the complete point evaluator; propagate certified root uncertainty and implement the SU-uniform proposal law with integration-error control; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,

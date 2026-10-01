@@ -44,6 +44,10 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         (
+            "alternate-down-lepton-ff-entry-v1", "physical_yukawas_available",
+            "an independently trace-checked actual down a0 checkpoint changed",
+        ),
+        (
             "alternate-neutrino-ff-matter-lift-v1", "extension_point_selected",
             "the independently replayed actual neutrino matter lift changed",
         ),
@@ -1236,6 +1240,11 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_neutrino_constant_mixed_entry_count"] == 4
     assert path["criteria"]["alternate_down_lepton_constant_mixed_entry_count"] == 8
     assert path["criteria"]["alternate_down_lepton_mixed_blocks_available"] is True
+    assert path["criteria"]["alternate_down_a0_archived_coefficient_count"] == 4
+    assert path["criteria"]["alternate_down_a0_determinant_coefficient"] == "1/42-2/21*omega"
+    assert path["criteria"][
+        "alternate_down_lepton_all_sixteen_fresh_entry_replays_complete"
+    ] is False
     assert path["criteria"][
         "alternate_down_lepton_complete_holomorphic_matrices_available"
     ] is False

@@ -1654,9 +1654,19 @@ The complete down/lepton assembly now has a fail-closed owner,
 and literal archives must exist before replay; no missing coefficient is
 inferred. It schedules unchanged full lift and scalar validators with at most
 two workers, then reuses the exact established one-plus-two-family matrix
-constructor. Eighty-four assembly regressions reproduce the known up/neutrino
-matrices and guard every prerequisite, but are not evidence of remaining
-scientific coefficients or ranks. The matrix node stays BLOCKED until all
+constructor. Eighty-nine assembly regressions reproduce the known up/neutrino
+matrices, guard every prerequisite, and prove the mixed null-channel rank
+identity with formal indeterminates rather than assigned physical coefficients.
+The matrix node stays BLOCKED until all
 sixteen actual scalar replays and independent determinant checks complete.
 `ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md` states the conditional gate;
 physical metrics, a common vacuum, and Genesis-to-UV remain unresolved.
+
+The actual a0 down F-F block is now archived, with all four scalar traces
+checked from the literal witnesses by direct closure/residue, transferred
+projection, and inverse convolution. Its determinant coefficient is
+`1/42-2*omega/21`, derived independently by scalar expansion. The associated
+mixed null-channel coefficient is `-36-18*omega`; its nonzero fixed minor
+is `1/756+omega/252`. This is one coefficient on the original formal family,
+not a selected parameter point or either complete matrix. Final fresh
+matter/product/scalar replay must still finish on all sixteen inputs.

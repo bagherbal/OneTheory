@@ -758,9 +758,19 @@ not evidence that either remaining matrix has been computed. It requires
 sixteen scalar packets, sixteen original matter-lift packets, and the two
 shared down-Higgs/mixed packets, each with its full archive, before any
 replay begins. It reuses the original full validators and the extracted
-neutrino matrix constructor. Eighty-four regressions preserve all nine
-entries and exact ranks of both established matrices and reject every
-missing metadata/archive prerequisite before execution. No partial matrix
+neutrino matrix constructor. Eighty-nine regressions preserve all nine
+entries of both established matrices, reject every missing prerequisite,
+and verify the exact mixed null-channel rank identity. No partial matrix
 is written. Actual full scalar replay must finish before either complete
 down/lepton matrix or its four-sector common rank condition is available.
 See `ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md` for the execution gate.
+
+Four actual a0 down-sector F-F archives are now checkpointed. Separate exact
+scalar expansion gives determinant coefficient `1/42-2*omega/21`; the mixed
+null-channel coefficient is `-36-18*omega`. All four full scalar archives
+pass direct closure/residue, transferred projection, and inverse-convolution
+trace checks in the unchanged quotient frame. These checks reuse certified
+down-Higgs inputs; they do not replace the final fresh product/matter replay.
+Seven adversarial metadata checks reject rehashed scope inflation. The a1
+block, complete charged-lepton matrix, and all-sixteen fresh replay remain
+unresolved; a holomorphic coefficient is not a physical mass prediction.

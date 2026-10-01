@@ -39,6 +39,30 @@ in rows 0,1 and columns 0,1 is nonzero for the already checked mixed inputs,
 so each matrix has a rank-two floor. An identically zero determinant remains
 a rank-deficient result; the assembler must not force a rank-three locus.
 
+The remaining rank test compresses to the mixed null channel. Write the fixed
+mixed row as `(r1,r2)`, the column as `(c1,c2)`, and the unknown F-F block as A.
+Set `u=c2/c1` and `v=r2/r1`. Direct expansion gives, for every block A,
+
+```text
+det Y = (-r1*c1) * (A22 - u*A12 - v*A21 + u*v*A11).
+```
+
+Independent exact polynomial tests with four formal indeterminates prove this
+identity without inserting physical F-F values. In both original remaining
+bases the fixed minor is `1/756+omega/252`. The down ratios are
+`u=-(3+2*omega)/7`, `v=7*omega`; the charged-lepton ratios are `u=7`,
+`v=(2-omega)/7`. Equal coordinate minors do not identify the two family bases.
+
+The first completed actual down coefficient block, a0, has cover entries
+`-1399/42-4216*omega/21`, `17-89*omega`,
+`-7631/147+3392*omega/147`, `-1756/7-1541*omega/14` in row-major order.
+Each quotient entry divides by nine. These give null-channel coefficient
+`-36-18*omega` and determinant coefficient `1/42-2*omega/21`. Archive trace
+checks compare full scalar closure, transferred projection, and inverse
+convolution using the actual certified Higgs inputs. This coefficient test
+is not a replacement for fresh complete product replay and does not supply
+the missing a1 or charged-lepton matrices.
+
 The product of the four actual holomorphic determinants describes their common
 rank-three locus on the original projective parameter space. Over this infinite
 field a nonzero homogeneous product has a nonempty open complement. No root,

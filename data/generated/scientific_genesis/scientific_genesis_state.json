@@ -1,6 +1,46 @@
 {
-  "artifact_digest": "80209c62d2e18474a8437b53cdd494ee1d413ae53c4fd70a28a044063b05dd40",
+  "artifact_digest": "1b77686421c65ea37fe7fe8cf853fcbc0bb2cca6058de407ed7d9d24f379183a",
   "artifacts": [
+    {
+      "bytes": 4606,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c1.json",
+      "sha256": "8936646f7dc317b139b6c5aa2b31d972b7acc2080b69dad32a5f36b7b8de3f9b"
+    },
+    {
+      "bytes": 4586,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c2.json",
+      "sha256": "95ba794291b7a65aa29e674e79326b04e71e8259a9aa6d5c6aad5f5de99afd35"
+    },
+    {
+      "bytes": 4610,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c1.json",
+      "sha256": "4dd6d7ca302a2956e27589b8ebcc67a84ce8961f9dd94a3b9feed43ce66790c9"
+    },
+    {
+      "bytes": 4604,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c2.json",
+      "sha256": "0409357d5cd64127e4755209fd3c9a7a734a6883b4162669fecd61f997471a18"
+    },
+    {
+      "bytes": 1694196,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c1.cochains.json.gz",
+      "sha256": "d72617dcee047efeeffff1ff68f995af6c9982f1181f0c8e57846f7d722d8e6d"
+    },
+    {
+      "bytes": 1654999,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c2.cochains.json.gz",
+      "sha256": "ff15e1564e7ffda8258661baaf52096a33ad3f72a0afa580a320afdb82e56a88"
+    },
+    {
+      "bytes": 1865051,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c1.cochains.json.gz",
+      "sha256": "681003b2decc83535a0832f40c0594bb8fcb7b54baa0665b69ef4dc348ec40c5"
+    },
+    {
+      "bytes": 1714954,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c2.cochains.json.gz",
+      "sha256": "720f871cc9601bd1867c2ae17beb823b7230c16458f60d6a52e45f7d6d15396b"
+    },
     {
       "bytes": 16555,
       "path": "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.json",
@@ -1323,7 +1363,7 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2830,
+    "collected_tests_at_audit": 2847,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 292,
@@ -4703,6 +4743,14 @@
         "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md",
         "tests/integration/test_scientific_genesis_alternate_down_lepton_full_matrices.py",
         "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c1.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c2.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c1.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c2.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c2.cochains.json.gz",
         "research/experiments/scientific_genesis/alternate_remaining_flavor_matter_lifts.py",
         "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py"
       ],
@@ -4713,7 +4761,7 @@
         "sixteen actual F-F coefficient scalars",
         "independent all-entry replay and exact matrix rank loci"
       ],
-      "statement": "All scalar entries must come from actual Q/d and L/e matter states paired with the actual down-Higgs cocycle. Existing up and neutrino values cannot fill these two missing matrices. The complete assembler gates all thirty-four literal inputs before replay. Eighty-four assembly regressions preserve the established up/neutrino construction and reject missing inputs; they do not certify the remaining actual coefficients or ranks.",
+      "statement": "All scalar entries must come from actual Q/d and L/e matter states paired with the actual down-Higgs cocycle. Existing up and neutrino values cannot fill these two missing matrices. The complete assembler gates all thirty-four literal inputs before replay. Eighty-nine assembly regressions preserve the established matrices, reject missing inputs, and verify the exact mixed null-channel rank identity. Four actual down a0 archives have independently checked scalar traces and a nonzero determinant coefficient 1/42-2*omega/21. These are not either complete two-parameter matrix; all sixteen fresh entry replays remain required.",
       "status": "BLOCKED"
     },
     {
@@ -9471,6 +9519,9 @@
       "all_neutrino_matter_lifts_exact": true,
       "all_published_yukawa_character_products_invariant": true,
       "all_reverse_down_matter_lifts_exact": true,
+      "alternate_down_a0_archived_coefficient_count": 4,
+      "alternate_down_a0_determinant_coefficient": "1/42-2/21*omega",
+      "alternate_down_lepton_all_sixteen_fresh_entry_replays_complete": false,
       "alternate_down_lepton_complete_holomorphic_matrices_available": false,
       "alternate_down_lepton_constant_mixed_entry_count": 8,
       "alternate_down_lepton_mixed_blocks_available": true,

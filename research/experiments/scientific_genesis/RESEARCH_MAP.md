@@ -1392,3 +1392,27 @@ are not exact cover points. Next, propagate certified parameter-root
 uncertainty through explicit cover charts, section values, and measure
 densities, then control proposal precision and integration error before
 Ricci-flat/HYM convergence. All physical prediction flags remain false.
+
+Root uncertainty now propagates rigorously through explicit actual-cover
+charts and local geometric densities. Exact Q(omega) centers and outward
+rational circular error bounds keep approximate centers out of the exact
+`CoverPoint` path. Every homogeneous pivot and projection denominator must
+exclude zero; a failed chart is rejected without automatic fallback. The
+original residue/FS conventions, symbolic pi cubed, auxiliary cover mass,
+and separate covering degree are preserved. Both saved complete nine-root
+configurations have positive density and quotient-weight intervals,
+including the infinity branch. Independent exact Gram evaluation and
+precision refinement attack the arithmetic bounds. See
+`ALTERNATE_METRIC_ENCLOSURES_NOTE.md` and the content-addressed
+`alternate_metric_enclosures.json`.
+
+Actual local Laurent generator coefficients can also be enclosed from
+their original compatible cochains, with independent compact-archive
+checks at both zero-error and nonzero-error functionals. Four constituent
+coefficient probes per configuration are saved. The V2 coefficients here
+are not their universal outer lifts. These bounds do not yet furnish the
+actual universal quotient frame or complete bounded 5,345-column fiber
+matrix. That next gate remains explicit, as do the controlled SU-uniform
+proposal law, integration errors, Ricci-flat/HYM convergence, common vacuum,
+remaining flavor sectors, and Genesis-to-UV implication. No physical
+prediction or moduli-selection flag was enabled.

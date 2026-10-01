@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "4076285c56417e342f22cccaa66b482189359c90e6d604fd913c8bf867a5aafd",
+  "artifact_digest": "2c3da9d3fe6c0a26db6a71ca45d8c51f2a01896ae8f30bda755de72bc7de4969",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -942,6 +942,11 @@
       "sha256": "2ea43c74be1eb8ef4eda0edd5ae1cd9e093765b4ce3c128ccfe4f355edd42c52"
     },
     {
+      "bytes": 80370,
+      "path": "data/generated/scientific_genesis/alternate_metric_enclosures.json",
+      "sha256": "cff1c995ae479549b49d1f83cf47bce0617262dd5d9f82fc7f9821b133c9d52e"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -981,8 +986,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 273,
-    "test_python_files": 257
+    "research_python_files": 274,
+    "test_python_files": 258
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3963,7 +3968,27 @@
       "label": "certified complete projective intersections for exact sampling inputs",
       "layer": "Normalization",
       "missing_prerequisites": [],
-      "statement": "Declared Q(omega) line/point/line configurations restrict the actual pencils to homogeneous cubics. Exact Taylor/Rouche inequalities give one-root disks; disjointness and degree prove completeness. Simple infinity roots are retained explicitly, so each accepted configuration has all nine algebraic intersection points. Proposal centers are not exact cover points. The SU-uniform sampling law and bounded section/density evaluation remain open.",
+      "statement": "Declared Q(omega) line/point/line configurations restrict the actual pencils to homogeneous cubics. Exact Taylor/Rouche inequalities give one-root disks; disjointness and degree prove completeness. Simple infinity roots are retained explicitly, so each accepted configuration has all nine algebraic intersection points. Proposal centers are not exact cover points. The SU-uniform sampling law and complete bounded section evaluation remain open.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "certified actual-pencil roots",
+        "explicit nonzero pivots and projection Jacobians",
+        "declared outward bound precision",
+        "unchanged residue/FS conventions"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_enclosures.json",
+        "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_ENCLOSURES_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_enclosures.py"
+      ],
+      "id": "alternate_metric_enclosures",
+      "label": "certified actual chart, coefficient, and geometric density enclosures",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "Exact rational circular bounds propagate actual root certificates through declared homogeneous pivots, projection derivatives, residue, and FS densities. Both complete nine-root probes have positive importance bounds, including infinity. Actual local Laurent constituent coefficients have independent archive checks. These are ambient generator bounds, not the universal rank-four quotient or a complete bounded section matrix. No sampling law or metric convergence has been supplied.",
       "status": "COMPUTED"
     },
     {
@@ -3979,7 +4004,7 @@
         "controlled numerical full-basis evaluation and metric sampling",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Controlled evaluation/sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Actual chart, Laurent-coefficient, and density errors are bounded, but the universal quotient frames, complete bounded section matrix, and controlled sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -6896,6 +6921,74 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "explicit invertible homogeneous pivots",
+        "unramified projection enclosure",
+        "declared rational error precision"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_enclosures.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a possible zero denominator must reject this enclosure",
+        "a residual containing zero is not a membership proof"
+      ],
+      "mathematical_reason": "Certified roots of the actual line restrictions determine geometric points; outward bounds propagate their uncertainty without replacing them by centers that do not satisfy the equations.",
+      "source": "alternate_metric_projective_roots",
+      "target": "alternate_metric_enclosures"
+    },
+    {
+      "assumptions_required": [
+        "compatible component and chart bases",
+        "declared local line frames"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_enclosures.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "ambient generators are not a rank-four bundle quotient"
+      ],
+      "mathematical_reason": "The actual invariant constituent section cochains supply exact Laurent coefficients for bounded local-generator evaluation.",
+      "source": "alternate_metric_first_serre_lifts",
+      "target": "alternate_metric_enclosures"
+    },
+    {
+      "assumptions_required": [
+        "same actual constituent archive",
+        "compatible local generator basis"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_enclosures.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "V2 constituent coefficients alone do not evaluate the universal bundle"
+      ],
+      "mathematical_reason": "The second constituent's actual archived sections provide coefficient data, without replacing their universal outer lifts.",
+      "source": "alternate_metric_second_sections",
+      "target": "alternate_metric_enclosures"
+    },
+    {
+      "assumptions_required": [
+        "bounded universal quotient frames and complete section matrix",
+        "controlled SU-uniform proposal law",
+        "independent integration-error control",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_enclosures.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "certified local densities do not give a sampling law or Hermitian metric"
+      ],
+      "mathematical_reason": "Bounded densities and local coefficients are integration inputs once the actual universal fiber quotients, complete section evaluation, and proposal/integration errors are also controlled.",
+      "source": "alternate_metric_enclosures",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -7945,7 +8038,9 @@
       ],
       "alternate_fixed_atlas_su4_excluded": true,
       "alternate_metric_bounded_section_and_density_evaluation_available": false,
+      "alternate_metric_bounded_universal_fiber_frame_available": false,
       "alternate_metric_certified_Qomega_intersection_roots_available": true,
+      "alternate_metric_certified_chart_and_density_enclosures_available": true,
       "alternate_metric_complete_point_evaluation_matrix_materialized": true,
       "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
@@ -7969,6 +8064,7 @@
         16,
         1
       ],
+      "alternate_metric_laurent_coefficient_enclosure_engine_available": true,
       "alternate_metric_local_rank_four_evaluation_available": true,
       "alternate_metric_quotient_section_count": 5345,
       "alternate_metric_rank_four_globally_generated": true,
@@ -8646,13 +8742,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "propagate certified projective-root uncertainty through explicit section and density evaluations; implement the declared SU-uniform proposal law with precision and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
+    "next_required_object": "bound the actual universal quotient frames and complete section evaluator using certified chart, coefficient, and density enclosures; implement the declared SU-uniform proposal law with precision and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Use the actual residue and normalized FS measure with the complete point evaluator; propagate certified root uncertainty and implement the SU-uniform proposal law with integration-error control; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Use the actual residue and normalized FS measure with the complete point evaluator and certified density bounds; bound the universal quotient frames and complete section matrix, then implement the SU-uniform proposal law with integration-error control; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,
@@ -8936,6 +9032,14 @@
         "research/experiments/visible_metrics/audit.py"
       ],
       "maturity": "generic numerical laws and carrier boundary only"
+    },
+    {
+      "capability": "certified metric integration input enclosures",
+      "locations": [
+        "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
+        "research/experiments/scientific_genesis/alternate_metric_enclosures.py"
+      ],
+      "maturity": "research-only; actual roots/charts/coefficients/densities, not sampling or metrics"
     },
     {
       "capability": "instantons",

@@ -44,6 +44,26 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         (
+            "alternate-metric-enclosures-v1", "bounded_universal_fiber_frame_available",
+            "local enclosure inputs or their scientific scope are not certified",
+        ),
+        (
+            "alternate-metric-enclosures-v1", "centers_are_exact_cover_points",
+            "local enclosure inputs or their scientific scope are not certified",
+        ),
+        (
+            "alternate-metric-enclosures-v1", "bounded_section_and_density_evaluation_available",
+            "local enclosure inputs or their scientific scope are not certified",
+        ),
+        (
+            "alternate-metric-enclosures-v1", "controlled_numerical_sampling_available",
+            "local enclosure inputs or their scientific scope are not certified",
+        ),
+        (
+            "alternate-metric-enclosures-v1", "numerical_metrics_available",
+            "local enclosure inputs or their scientific scope are not certified",
+        ),
+        (
             "alternate-metric-projective-roots-v1", "centers_are_exact_cover_points",
             "certified projective roots or their scientific scope is not certified",
         ),
@@ -806,8 +826,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "propagate certified projective-root uncertainty through explicit "
-        "section and density evaluations; implement the declared SU-uniform "
+        "bound the actual universal quotient frames and complete section "
+        "evaluator using certified chart, coefficient, and density enclosures; "
+        "implement the declared SU-uniform "
         "proposal law with precision and integration-error control, then "
         "certify Ricci-flat/HYM "
         "convergence without choosing physical moduli by hand"
@@ -818,6 +839,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_metric_controlled_numerical_sampling_available"] is False
     assert claims["alternate_metric_measure"]["status"] == "COMPUTED"
     assert claims["alternate_metric_projective_roots"]["status"] == "COMPUTED"
+    assert claims["alternate_metric_enclosures"]["status"] == "COMPUTED"
+    assert path["criteria"][
+        "alternate_metric_certified_chart_and_density_enclosures_available"
+    ] is True
+    assert path["criteria"][
+        "alternate_metric_bounded_universal_fiber_frame_available"
+    ] is False
     assert path["criteria"][
         "alternate_metric_certified_Qomega_intersection_roots_available"
     ] is True

@@ -21,6 +21,7 @@ from __future__ import annotations
 import gzip
 import hashlib
 import json
+from fractions import Fraction
 from itertools import combinations
 from pathlib import Path
 from typing import Final, cast
@@ -3531,7 +3532,7 @@ def _nodes() -> list[dict[str, object]]:
             "Simple infinity roots are retained explicitly, so each accepted "
             "configuration has all nine algebraic intersection points. "
             "Proposal centers are not exact cover points. The SU-uniform "
-            "sampling law and bounded section/density evaluation remain open.",
+            "sampling law and complete bounded section evaluation remain open.",
             (
                 "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
                 "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
@@ -3540,6 +3541,28 @@ def _nodes() -> list[dict[str, object]]:
             ),
             ("exact Q(omega) configuration inputs", "explicit line bases and parameter charts",
              "transverse cubic intersections", "declared precision and work-cap policy"),
+        ),
+        _node(
+            "alternate_metric_enclosures",
+            "certified actual chart, coefficient, and geometric density enclosures",
+            "Normalization",
+            "COMPUTED",
+            "Exact rational circular bounds propagate actual root certificates "
+            "through declared homogeneous pivots, projection derivatives, residue, "
+            "and FS densities. Both complete nine-root probes have positive "
+            "importance bounds, including infinity. Actual local Laurent "
+            "constituent coefficients have independent archive checks. These "
+            "are ambient generator bounds, not the universal rank-four quotient "
+            "or a complete bounded section matrix. No sampling law or metric "
+            "convergence has been supplied.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_enclosures.json",
+                "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_ENCLOSURES_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_enclosures.py",
+            ),
+            ("certified actual-pencil roots", "explicit nonzero pivots and projection Jacobians",
+             "declared outward bound precision", "unchanged residue/FS conventions"),
         ),
         _node(
             "visible_metrics",
@@ -3554,7 +3577,9 @@ def _nodes() -> list[dict[str, object]]:
             "matrix. The actual residue and normalized auxiliary integration "
             "measure are explicit. Complete projective roots have exact "
             "inclusion certificates for declared Q(omega) configurations. "
-            "Controlled evaluation/sampling "
+            "Actual chart, Laurent-coefficient, and density errors are bounded, "
+            "but the universal quotient frames, complete bounded section matrix, "
+            "and controlled sampling "
             "and converged Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
@@ -6003,6 +6028,52 @@ def _edges() -> list[dict[str, object]]:
              "regression configurations are not SU-uniform samples"),
         ),
         _edge(
+            "alternate_metric_projective_roots",
+            "alternate_metric_enclosures",
+            "Certified roots of the actual line restrictions determine geometric "
+            "points; outward bounds propagate their uncertainty without replacing "
+            "them by centers that do not satisfy the equations.",
+            ("data/generated/scientific_genesis/alternate_metric_enclosures.json",),
+            ("explicit invertible homogeneous pivots", "unramified projection enclosure",
+             "declared rational error precision"),
+            True,
+            ("a possible zero denominator must reject this enclosure",
+             "a residual containing zero is not a membership proof"),
+        ),
+        _edge(
+            "alternate_metric_first_serre_lifts",
+            "alternate_metric_enclosures",
+            "The actual invariant constituent section cochains supply exact "
+            "Laurent coefficients for bounded local-generator evaluation.",
+            ("data/generated/scientific_genesis/alternate_metric_enclosures.json",),
+            ("compatible component and chart bases", "declared local line frames"),
+            True,
+            ("ambient generators are not a rank-four bundle quotient",),
+        ),
+        _edge(
+            "alternate_metric_second_sections",
+            "alternate_metric_enclosures",
+            "The second constituent's actual archived sections provide "
+            "coefficient data, without replacing their universal outer lifts.",
+            ("data/generated/scientific_genesis/alternate_metric_enclosures.json",),
+            ("same actual constituent archive", "compatible local generator basis"),
+            True,
+            ("V2 constituent coefficients alone do not evaluate the universal bundle",),
+        ),
+        _edge(
+            "alternate_metric_enclosures",
+            "visible_metrics",
+            "Bounded densities and local coefficients are integration inputs "
+            "once the actual universal fiber quotients, complete section "
+            "evaluation, and proposal/integration errors are also controlled.",
+            ("data/generated/scientific_genesis/alternate_metric_enclosures.json",),
+            ("bounded universal quotient frames and complete section matrix",
+             "controlled SU-uniform proposal law", "independent integration-error control",
+             "Ricci-flat/HYM convergence"),
+            True,
+            ("certified local densities do not give a sampling law or Hermitian metric",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -7114,6 +7185,14 @@ def _engines() -> list[dict[str, object]]:
             ),
         ),
         (
+            "certified metric integration input enclosures",
+            "research-only; actual roots/charts/coefficients/densities, not sampling or metrics",
+            (
+                "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
+                "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
+            ),
+        ),
+        (
             "instantons",
             "carrier boundary and input audit only",
             (
@@ -7154,7 +7233,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             "Use the actual residue and normalized FS measure with the complete "
-            "point evaluator; propagate certified root uncertainty and implement "
+            "point evaluator and certified density bounds; bound the universal "
+            "quotient frames and complete section matrix, then implement "
             "the SU-uniform proposal law with integration-error control; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
@@ -9680,6 +9760,44 @@ def build_state() -> dict[str, object]:
         raise ValueError(
             "the certified projective roots or their scientific scope is not certified"
         )
+    enclosures = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_enclosures.json"
+    )).read_text(encoding="utf-8"))
+    enclosure_digest = enclosures.pop("artifact_digest", None)
+    if (
+        enclosure_digest != _canonical_digest(enclosures)
+        or enclosure_digest != "1c01dfa26f84061180030c386b2307a9cf7cb8566e77512a051b9c2d774e261d"
+        or enclosures.get("schema") != "alternate-metric-enclosures-v1"
+        or enclosures.get("root_artifact_digest") != root_digest
+        or enclosures.get("section_prerequisite_artifact_digests")
+        != specialized.get("prerequisite_artifact_digests")
+        or enclosures.get("bound_bits") != 80
+        or enclosures.get("covering_degree") != 9
+        or enclosures.get("certified_chart_and_density_enclosures_available") is not True
+        or enclosures.get("laurent_coefficient_enclosure_engine_available") is not True
+        or [item.get("name") for item in enclosures.get("actual_configurations", [])]
+        != ["finite_chart", "infinity_branch"]
+        or any([row.get("root_pair") for row in item.get("all_nine_bounded_densities", [])]
+               != root_record["actual_configurations"][i]["all_nine_root_pairs"]
+               for i, item in enumerate(enclosures.get("actual_configurations", [])))
+        or any(not 0 < Fraction(row[key][0]) <= Fraction(row[key][1])
+               for item in enclosures.get("actual_configurations", [])
+               for row in item.get("all_nine_bounded_densities", [])
+               for key in ("omega_density", "auxiliary_density_times_pi_cubed",
+                           "quotient_weight_without_pi_cubed"))
+        or any([row.get("constituent_basis_index") for row in item.get(
+            "constituent_coefficient_probe", {},
+        ).get("actual_constituent_coefficients", [])] != [0, 1273, 15, 1318]
+               for item in enclosures.get("actual_configurations", []))
+        or any(enclosures.get(flag) is not False for flag in (
+            "bounded_universal_fiber_frame_available", "centers_are_exact_cover_points",
+            "bounded_section_and_density_evaluation_available",
+            "controlled_numerical_sampling_available", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected", "vacuum_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("local enclosure inputs or their scientific scope are not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9992,6 +10110,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.matrix.json.gz",
         "data/generated/scientific_genesis/alternate_metric_measure.json",
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
+        "data/generated/scientific_genesis/alternate_metric_enclosures.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -10258,6 +10377,9 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_complete_point_evaluation_matrix_materialized": True,
                 "alternate_metric_exact_residue_and_auxiliary_measure_available": True,
                 "alternate_metric_certified_Qomega_intersection_roots_available": True,
+                "alternate_metric_certified_chart_and_density_enclosures_available": True,
+                "alternate_metric_laurent_coefficient_enclosure_engine_available": True,
+                "alternate_metric_bounded_universal_fiber_frame_available": False,
                 "alternate_metric_bounded_section_and_density_evaluation_available": False,
                 "alternate_metric_controlled_numerical_sampling_available": False,
                 "alternate_up_complete_tensor_comparison_available": False,
@@ -10492,8 +10614,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "propagate certified projective-root uncertainty through explicit "
-                "section and density evaluations; implement the declared SU-uniform "
+                "bound the actual universal quotient frames and complete section "
+                "evaluator using certified chart, coefficient, and density enclosures; "
+                "implement the declared SU-uniform "
                 "proposal law with precision and integration-error control, then "
                 "certify Ricci-flat/HYM "
                 "convergence without choosing physical moduli by hand"

@@ -571,10 +571,19 @@ class _ComplexMixin:
             raise TypeError("the shift amount must be an integer")
         shifted_spaces = self.spaces.shift(amount)
         factor = -1 if amount % 2 else 1
-        shifted_differentials = {
-            degree + amount: differential.scale(factor)
-            for degree, differential in self.differentials
-        }
+        step = -1 if self._direction == "chain" else 1
+        shifted_differentials = {}
+        for degree, differential in self.differentials:
+            shifted_degree = degree + amount
+            if degree not in self.spaces.degrees or degree + step not in self.spaces.degrees:
+                # Absent components acquire the shifted complex's canonical
+                # zero-space names, unlike explicitly represented components.
+                shifted_differentials[shifted_degree] = LinearMap.zero(
+                    shifted_spaces.space(shifted_degree),
+                    shifted_spaces.space(shifted_degree + step),
+                )
+            else:
+                shifted_differentials[shifted_degree] = differential.scale(factor)
         if self._direction == "chain":
             return ChainComplex(shifted_spaces, shifted_differentials)
         return CochainComplex(shifted_spaces, shifted_differentials)

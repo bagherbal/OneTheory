@@ -316,6 +316,58 @@ def test_direct_sum_preserves_explicit_zero_edge_bases(
     assert summed.cohomology_dimension(-step) == 0
 
 
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+@pytest.mark.parametrize("amount", (-3, -2, 0, 1, 2, 3))
+def test_shift_preserves_explicit_zero_edge_bases(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+    amount: int,
+) -> None:
+    """Shifting incoming and outgoing zero maps retains their exact typing."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    space = VectorSpace("middle", ("m",), scalar_type)
+    spaces = GradedVectorSpace("C", {0: space})
+    complex_ = complex_type(spaces, {
+        -step: LinearMap.zero(spaces.space(-step), space),
+        0: LinearMap.zero(space, spaces.space(step)),
+    })
+
+    shifted = complex_.shift(amount)
+    assert shifted.spaces.space(amount) == space
+    assert shifted.cohomology_dimension(amount) == 1
+    for degree in (amount - step, amount):
+        differential = shifted.differential(degree)
+        assert differential.domain == shifted.spaces.space(degree)
+        assert differential.codomain == shifted.spaces.space(degree + step)
+        assert differential.domain.scalar_type is scalar_type
+        assert differential.codomain.scalar_type is scalar_type
+        assert differential.is_zero()
+        assert shifted.differential(degree + step).compose(differential).is_zero()
+
+
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_shift_retains_explicitly_named_zero_components(
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """Declared zero-dimensional bases remain declared rather than canonicalized."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    space = VectorSpace("middle", ("m",), Eisenstein)
+    zero = VectorSpace("named zero", (), Eisenstein)
+    complex_ = complex_type(
+        GradedVectorSpace("C", {0: space, step: zero}),
+        {0: LinearMap.zero(space, zero)},
+    )
+    shifted = complex_.shift(-1)
+
+    assert shifted.spaces.space(step - 1) == zero
+    assert shifted.differential(-1).codomain == zero
+    assert shifted.differential(-1) == -complex_.differential(0)
+    assert shifted.cohomology_dimension(-1) == 1
+
+
 def _three_term_complex(
     scalar_type: type[Rational] | type[Eisenstein],
     complex_type: type[ChainComplex] | type[CochainComplex],

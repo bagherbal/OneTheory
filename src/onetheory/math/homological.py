@@ -36,6 +36,15 @@ Scalar = Rational | Eisenstein
 type ScalarType = type[Rational] | type[Eisenstein]
 
 
+def _require_space_name(name: object) -> None:
+    """Require an immutable, explicit string identity for a based space."""
+
+    if not isinstance(name, str):
+        raise TypeError("space names must be strings")
+    if not name:
+        raise ValueError("a nonempty space name is required")
+
+
 def _require_integer_degree(degree: object) -> None:
     """Reject numeric aliases of an integer grading, including booleans."""
 
@@ -122,8 +131,7 @@ class VectorSpace:
         basis: Iterable[str],
         scalar_type: ScalarType = Rational,
     ) -> None:
-        if not name:
-            raise ValueError("a vector-space name is required")
+        _require_space_name(name)
         labels = tuple(basis)
         if any(not isinstance(label, str) or not label for label in labels):
             raise TypeError("basis labels must be nonempty strings")
@@ -164,8 +172,7 @@ class GradedVectorSpace:
         name: str,
         components: Mapping[int, VectorSpace] | Iterable[tuple[int, VectorSpace]],
     ) -> None:
-        if not name:
-            raise ValueError("a graded-space name is required")
+        _require_space_name(name)
         pairs = tuple(components.items()) if isinstance(components, Mapping) else tuple(components)
         if len({degree for degree, _ in pairs}) != len(pairs):
             raise ValueError("graded degrees must be unique")
@@ -885,6 +892,7 @@ class Bicomplex:
         vertical: Mapping[tuple[int, int], LinearMap] |
         Iterable[tuple[tuple[int, int], LinearMap]] = (),
     ) -> None:
+        _require_space_name(name)
         component_pairs = (tuple(components.items()) if isinstance(components, Mapping)
                            else tuple(components))
         for cell, _ in component_pairs:

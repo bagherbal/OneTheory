@@ -558,6 +558,67 @@ def test_bicomplexes_reject_malformed_bidegrees(cell: object) -> None:
         Bicomplex("invalid", [(cell, space)])  # type: ignore[list-item]
 
 
+@pytest.mark.parametrize("invalid_name", (None, True, 1, ["mutable"], {"mutable": 1}))
+def test_based_spaces_reject_nonstring_identities(invalid_name: object) -> None:
+    """Mutable or numeric names cannot become part of a typed basis identity."""
+
+    with pytest.raises(TypeError, match="names must be strings"):
+        VectorSpace(invalid_name, ("e",))  # type: ignore[arg-type]
+    with pytest.raises(TypeError, match="names must be strings"):
+        GradedVectorSpace(invalid_name, {})  # type: ignore[arg-type]
+    with pytest.raises(TypeError, match="names must be strings"):
+        Bicomplex(invalid_name, {})  # type: ignore[arg-type]
+
+
+def test_based_spaces_require_nonempty_identities() -> None:
+    """Zero-dimensional spaces still require an explicit identity."""
+
+    with pytest.raises(ValueError, match="nonempty space name"):
+        VectorSpace("", ())
+    with pytest.raises(ValueError, match="nonempty space name"):
+        GradedVectorSpace("", {})
+    with pytest.raises(ValueError, match="nonempty space name"):
+        Bicomplex("", {})
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_nonidentity_cone_tracks_kernel_and_cokernel_with_exact_signs(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """A nonzero nullhomotopic map has both kernel and cokernel in its cone."""
+
+    complex_ = _three_term_complex(scalar_type, complex_type)
+    step = -1 if complex_type is ChainComplex else 1
+    middle = complex_.spaces.space(step)
+    projection = ChainMap(complex_, complex_, {
+        0: LinearMap.identity(complex_.spaces.space(0)),
+        step: LinearMap(middle, middle, ((1, 0, 0), (0, 1, 0), (0, 0, 0))),
+        2 * step: LinearMap.identity(complex_.spaces.space(2 * step)),
+    })
+    # This contracts the exact two-term part while killing the surviving class.
+    half = Rational(1, 2)
+    ChainHomotopy(projection, ChainMap(complex_, complex_, {}), {
+        step: LinearMap(middle, complex_.spaces.space(0), ((half, 0, 0),)),
+        2 * step: LinearMap(complex_.spaces.space(2 * step), middle,
+                           ((0,), (half,), (0,))),
+    })
+    cone = mapping_cone(projection)
+    assert isinstance(cone, complex_type)
+    for degree in cone.degrees:
+        assert cone.cohomology_dimension(degree) == int(degree in (0, step))
+        assert len(cone.cohomology_representatives(degree)) == int(degree in (0, step))
+        differential = cone.differential(degree)
+        assert cone.differential(degree + step).compose(differential).is_zero()
+        target_rows = complex_.spaces.space(degree + step).dimension
+        target_columns = complex_.spaces.space(degree).dimension
+        if degree + step in cone.spaces.degrees:
+            assert tuple(row[target_columns:] for row in differential.rows[target_rows:]) == (
+                -complex_.differential(degree + step)
+            ).rows
+
+
 def test_dga_leibniz_commutator_pairing_and_maurer_cartan() -> None:
     degree_zero = VectorSpace("A0", ("1",))
     graded = GradedVectorSpace("A", {0: degree_zero})

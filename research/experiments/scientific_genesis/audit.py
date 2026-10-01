@@ -3587,6 +3587,29 @@ def _nodes() -> list[dict[str, object]]:
             ("same actual pencils", "nonzero declared eliminated-coordinate Jacobians"),
         ),
         _node(
+            "alternate_metric_projection_free_weights",
+            "projection-free positive-law weights from the ambient conormal Gram",
+            "Normalization",
+            "DERIVED",
+            "The Hermitian Schur-complement identity cancels the tangent-chart "
+            "Jacobian from the residue-to-FS-cube ratio. The original sparse "
+            "equation Jacobian gives a positive three-term conormal determinant "
+            "with no individual fiber-gradient inverse. Full ambient inverse "
+            "and determinant checks, original exact points, and all 36 declared "
+            "regular/axis-critical domain enclosures agree. The formula is valid "
+            "on smooth cover charts, including critical fibers; no global input "
+            "atlas, quantitative bound, controlled sampler, or metric is supplied.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_projection_free_weights.json",
+                "research/experiments/scientific_genesis/alternate_metric_projection_free_weights.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_PROJECTION_FREE_WEIGHTS_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_metric_projection_free_weights.py",
+            ),
+            ("same actual smooth cover", "unchanged positive auxiliary law"),
+        ),
+        _node(
             "alternate_metric_projective_roots",
             "certified complete projective intersections for exact sampling inputs",
             "Normalization",
@@ -6384,6 +6407,39 @@ def _edges() -> list[dict[str, object]]:
              "actual complete section evaluation", "Ricci-flat/HYM convergence"),
             True,
             ("axis-node probes do not certify all triangle-node input domains",),
+        ),
+        _edge(
+            "alternate_metric_positive_measure",
+            "alternate_metric_projection_free_weights",
+            "The positive FS-cube law determines the ambient Hermitian form "
+            "and normalization for a residue-to-volume ratio.",
+            ("research/experiments/scientific_genesis/alternate_metric_positive_measure.py",),
+            ("full-rank equation Jacobian", "independent determinant identity"),
+            True,
+            ("a tangent-chart cancellation must be proved before using it",),
+        ),
+        _edge(
+            "alternate_metric_weight_moments",
+            "alternate_metric_projection_free_weights",
+            "Disjoint critical supports establish smoothness of the actual "
+            "cover, so the full two-equation conormal Gram is positive there.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md",),
+            ("actual unchanged cubic pencils", "positive ambient FS form"),
+            True,
+            ("pointwise positivity is not a computed global lower bound",),
+        ),
+        _edge(
+            "alternate_metric_projection_free_weights",
+            "visible_metrics",
+            "Projection-free weights can remove critical-fiber tangent "
+            "inversions from integration only after certified inputs, "
+            "quantitative errors, section throughput, and metric convergence.",
+            ("research/experiments/scientific_genesis/"
+             "ALTERNATE_METRIC_PROJECTION_FREE_WEIGHTS_NOTE.md",),
+            ("controlled independent proposals", "quantitative error bounds",
+             "actual section evaluations", "Ricci-flat/HYM convergence"),
+            True,
+            ("an auxiliary integration weight is not a physical metric",),
         ),
         _edge(
             "alternate_metric_bounded_support",
@@ -10207,6 +10263,54 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the declared critical charts or their scientific scope is not certified")
+    weight_record = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_projection_free_weights.json"
+    )).read_text(encoding="utf-8"))
+    weight_digest = weight_record.pop("artifact_digest", None)
+    if (
+        weight_digest != _canonical_digest(weight_record)
+        or weight_digest != "cb4eb886edf94ab72b737bc8e3c23a25d2355243557fee40dfe62d24c7cf1e97"
+        or weight_record.get("schema") != "alternate-metric-projection-free-weights-v1"
+        or weight_record.get("positive_measure_artifact_digest") != positive_digest
+        or weight_record.get("critical_chart_artifact_digest") != critical_digest
+        or weight_record.get("moment_artifact_digest") != moment_digest
+        or weight_record.get("proof") != (
+            "research/experiments/scientific_genesis/ALTERNATE_METRIC_PROJECTION_FREE_WEIGHTS_NOTE.md"
+        )
+        or weight_record.get("proof_sha256") != _sha256(ROOT / (
+            "research/experiments/scientific_genesis/ALTERNATE_METRIC_PROJECTION_FREE_WEIGHTS_NOTE.md"
+        ))
+        or weight_record.get("ambient_coordinate_order") != ["s", "z", "r", "w", "t"]
+        or weight_record.get("denominator_rule") != "D=det(G)*det(J*inverse(G)*adjoint(J))"
+        or weight_record.get("positive_conormal_rule") != "Ax*Au+Ax*Bp+Au*Ap"
+        or weight_record.get("cover_weight_rule") != "72*norm(scale)/(6*D); pi^3 factored out"
+        or weight_record.get("bound_bits") != 80
+        or weight_record.get("covering_degree") != 9
+        or weight_record.get("actual_domain_count") != 36
+        or [(p.get("kind"), len(p.get("records", [])))
+            for p in weight_record.get("actual_domain_probes", [])]
+        != [("finite_chart", 9), ("infinity_branch", 9)] + [("axis_critical", 3)] * 6
+        or [(p.get("source_side"), p.get("source_axis"))
+            for p in weight_record.get("actual_domain_probes", [])[2:]]
+        != [(s, a) for s in (1, 2) for a in range(3)]
+        or any(Fraction(r["positive_denominator"][0]) <= 0
+               or Fraction(r["cover_weight_without_pi_cubed"][0]) <= 0
+               for p in weight_record.get("actual_domain_probes", []) for r in p.get("records", []))
+        or any(weight_record.get(flag) is not True for flag in (
+            "projection_free_weight_identity_derived",
+            "weight_formula_valid_on_all_smooth_cover_charts",
+            "declared_projection_free_weight_enclosures_available",
+        ))
+        or any(weight_record.get(flag) is not False for flag in (
+            "individual_projection_inverses_required", "all_triangle_node_inputs_certified",
+            "complete_global_input_coverage_certified",
+            "quantitative_global_weight_bound_available",
+            "controlled_numerical_sampling_available", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected", "vacuum_selected",
+            "physical_kahler_class_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the projection-free weights or their scientific scope are not certified")
     root_record = json.loads((ROOT / (
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json"
     )).read_text(encoding="utf-8"))
@@ -10667,6 +10771,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_weight_moments.json",
         "data/generated/scientific_genesis/alternate_metric_positive_measure.json",
         "data/generated/scientific_genesis/alternate_metric_critical_charts.json",
+        "data/generated/scientific_genesis/alternate_metric_projection_free_weights.json",
         "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
         "data/generated/scientific_genesis/alternate_metric_enclosures.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
@@ -10695,7 +10800,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2071,
+            "collected_tests_at_audit": 2501,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -10945,6 +11050,9 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_critical_fiber_chart_enclosures_available": False,
                 "alternate_metric_declared_critical_fiber_chart_enclosures_available": True,
                 "alternate_metric_complete_global_atlas_coverage_certified": False,
+                "alternate_metric_projection_free_positive_weight_engine_available": True,
+                "alternate_metric_weight_individual_projection_inverses_required": False,
+                "alternate_metric_complete_global_weight_input_coverage_certified": False,
                 "alternate_metric_certified_Qomega_intersection_roots_available": True,
                 "alternate_metric_certified_chart_and_density_enclosures_available": True,
                 "alternate_metric_laurent_coefficient_enclosure_engine_available": True,
@@ -11189,9 +11297,10 @@ def build_state() -> dict[str, object]:
             "next_required_object": (
                 "certify complete bounded matrix output and practical multi-point "
                 "throughput using the actual universal quotient frames; "
-                "implement the positive auxiliary SU-uniform mixture with "
-                "proposal precision, quantitative global weight bounds, "
-                "critical-chart coverage, and integration-error control, then "
+                "derive a quantitative global conormal lower bound for projection-free "
+                "positive-law weights and implement controlled independent "
+                "SU-uniform proposals with certified input coverage and "
+                "integration-error control, then "
                 "certify Ricci-flat/HYM "
                 "convergence without choosing physical moduli by hand"
             ),
@@ -11200,6 +11309,10 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "a Hermitian Schur-complement identity yields projection-free "
+            "positive-law weights from the full ambient conormal Gram; the "
+            "original sparse Jacobian has a positive three-term determinant "
+            "and all 36 declared domain enclosures agree with the old charts",
             "base-eliminating signed residue and positive-density bounds cover "
             "all three partner roots of the six actual axis-critical fibers; "
             "these 18 declared domains do not certify all triangle-node inputs "
@@ -11581,6 +11694,22 @@ def build_state() -> dict[str, object]:
             },
         ],
         "structural_compression_questions": [
+            {
+                "question": (
+                    "Can the ambient conormal Gram eliminate individual "
+                    "projection inverses from all positive-law weights?"
+                ),
+                "evidence": (
+                    "18 regular and 18 axis-critical domains use the same "
+                    "residue-to-FS-cube ratio in different free frames"
+                ),
+                "attack": (
+                    "closed by the Hermitian Schur-complement proof, independent "
+                    "full ambient inverse/determinant checks, exact source points, "
+                    "and all 36 declared domains. Global input coverage, quantitative "
+                    "lower bounds, and sampling error remain separate open gates"
+                ),
+            },
             {
                 "question": (
                     "Can common regular monomials make all bounded section "

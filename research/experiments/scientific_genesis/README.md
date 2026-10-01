@@ -33,6 +33,17 @@ controlled uniform proposals, integration errors, and Ricci-flat/HYM convergence
 remain open. Regression points do not select physical moduli or become samples.
 See `ALTERNATE_METRIC_CRITICAL_CHARTS_NOTE.md`.
 
+A Hermitian Schur-complement identity now cancels the free-coordinate residue
+Jacobian from the positive-law weight. The original sparse equation Jacobian
+reduces its full conormal Gram determinant to three nonnegative terms. This
+avoids individual fiber-gradient inverses, including at critical fibers, without
+choosing a tangent basis. Exact full ambient determinant checks and all 36
+declared regular/axis-critical domains reproduce the old weights. The formula
+applies on smooth cover charts; its numerical certification still requires
+actual input certificates and a positive full-Gram interval. A global conormal
+lower bound, controlled proposals, integration errors, and metric convergence
+remain open. See `ALTERNATE_METRIC_PROJECTION_FREE_WEIGHTS_NOTE.md`.
+
 The current pair-73 frontier includes exact universal extension, chain-lift,
 algebraic-locus, and necessary stability-wall artifacts. The forced subobjects
 exclude the family at the published polarization, but the complete Kähler cone

@@ -44,6 +44,17 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         *tuple(
+            ("alternate-metric-projection-free-weights-v1", field,
+             "the projection-free weights or their scientific scope are not certified")
+            for field in (
+                "individual_projection_inverses_required", "all_triangle_node_inputs_certified",
+                "complete_global_input_coverage_certified",
+                "quantitative_global_weight_bound_available",
+                "controlled_numerical_sampling_available", "numerical_metrics_available",
+                "physical_yukawas_available", "vacuum_selected", "observational_inputs_used",
+            )
+        ),
+        *tuple(
             ("alternate-metric-critical-charts-v1", field,
              "the declared critical charts or their scientific scope is not certified")
             for field in (
@@ -906,9 +917,10 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["next_required_object"] == (
         "certify complete bounded matrix output and practical multi-point "
         "throughput using the actual universal quotient frames; "
-        "implement the positive auxiliary SU-uniform mixture with "
-        "proposal precision, quantitative global weight bounds, "
-        "critical-chart coverage, and integration-error control, then "
+        "derive a quantitative global conormal lower bound for projection-free "
+        "positive-law weights and implement controlled independent "
+        "SU-uniform proposals with certified input coverage and "
+        "integration-error control, then "
         "certify Ricci-flat/HYM "
         "convergence without choosing physical moduli by hand"
     )
@@ -924,6 +936,16 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_metric_weight_moments"]["status"] == "DERIVED"
     assert claims["alternate_metric_positive_measure"]["status"] == "DERIVED"
     assert claims["alternate_metric_critical_charts"]["status"] == "COMPUTED"
+    assert claims["alternate_metric_projection_free_weights"]["status"] == "DERIVED"
+    assert path["criteria"][
+        "alternate_metric_projection_free_positive_weight_engine_available"
+    ] is True
+    assert path["criteria"][
+        "alternate_metric_weight_individual_projection_inverses_required"
+    ] is False
+    assert path["criteria"][
+        "alternate_metric_complete_global_weight_input_coverage_certified"
+    ] is False
     assert path["criteria"][
         "alternate_metric_declared_critical_fiber_chart_enclosures_available"
     ] is True

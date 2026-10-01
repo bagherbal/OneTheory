@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "155dfe1d4d2304c5abe516e94c4abea6af904c32a25f56c9da6cec85ffc3b111",
+  "artifact_digest": "7d609c5ea4b238c39d510f8d6846b1dfb20f83a90be7eebc54b6e21d19c03ee0",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -952,6 +952,11 @@
       "sha256": "8cc81e68ede78d23fa00072df2bbfd6d915af449516d642167d12705698ef769"
     },
     {
+      "bytes": 48777,
+      "path": "data/generated/scientific_genesis/alternate_metric_projection_free_weights.json",
+      "sha256": "edf109d1bb8c3aab417c4a4c3e2ec5e6378970bce5225eda87379212b0cc682a"
+    },
+    {
       "bytes": 32583,
       "path": "data/generated/scientific_genesis/alternate_metric_projective_roots.json",
       "sha256": "2ea43c74be1eb8ef4eda0edd5ae1cd9e093765b4ce3c128ccfe4f355edd42c52"
@@ -1008,11 +1013,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2071,
+    "collected_tests_at_audit": 2501,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 280,
-    "test_python_files": 264
+    "research_python_files": 281,
+    "test_python_files": 265
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -4030,6 +4035,24 @@
       "missing_prerequisites": [],
       "statement": "Base-eliminating charts enclose signed residues and the unchanged positive FS-cube density on all three partner roots of each of the six actual axis-critical fibers. Complete point-line root certificates preserve exact source membership. Independent full wedge determinants, regular-chart overlap Jacobians, and base pivot transitions verify the coordinate conventions. These 18 declared domains are not all triangle-node input certificates, global atlas coverage, a quantitative global bound, or a sampler.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "same actual smooth cover",
+        "unchanged positive auxiliary law"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_projection_free_weights.json",
+        "research/experiments/scientific_genesis/alternate_metric_projection_free_weights.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_PROJECTION_FREE_WEIGHTS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_projection_free_weights.py"
+      ],
+      "id": "alternate_metric_projection_free_weights",
+      "label": "projection-free positive-law weights from the ambient conormal Gram",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "The Hermitian Schur-complement identity cancels the tangent-chart Jacobian from the residue-to-FS-cube ratio. The original sparse equation Jacobian gives a positive three-term conormal determinant with no individual fiber-gradient inverse. Full ambient inverse and determinant checks, original exact points, and all 36 declared regular/axis-critical domain enclosures agree. The formula is valid on smooth cover charts, including critical fibers; no global input atlas, quantitative bound, controlled sampler, or metric is supplied.",
+      "status": "DERIVED"
     },
     {
       "assumptions": [
@@ -7400,6 +7423,56 @@
     },
     {
       "assumptions_required": [
+        "full-rank equation Jacobian",
+        "independent determinant identity"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_metric_positive_measure.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a tangent-chart cancellation must be proved before using it"
+      ],
+      "mathematical_reason": "The positive FS-cube law determines the ambient Hermitian form and normalization for a residue-to-volume ratio.",
+      "source": "alternate_metric_positive_measure",
+      "target": "alternate_metric_projection_free_weights"
+    },
+    {
+      "assumptions_required": [
+        "actual unchanged cubic pencils",
+        "positive ambient FS form"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_WEIGHT_MOMENTS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "pointwise positivity is not a computed global lower bound"
+      ],
+      "mathematical_reason": "Disjoint critical supports establish smoothness of the actual cover, so the full two-equation conormal Gram is positive there.",
+      "source": "alternate_metric_weight_moments",
+      "target": "alternate_metric_projection_free_weights"
+    },
+    {
+      "assumptions_required": [
+        "controlled independent proposals",
+        "quantitative error bounds",
+        "actual section evaluations",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_PROJECTION_FREE_WEIGHTS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "an auxiliary integration weight is not a physical metric"
+      ],
+      "mathematical_reason": "Projection-free weights can remove critical-fiber tangent inversions from integration only after certified inputs, quantitative errors, section throughput, and metric convergence.",
+      "source": "alternate_metric_projection_free_weights",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "all 5345 columns must finish",
         "complete independent stream validation"
       ],
@@ -8342,6 +8415,7 @@
     }
   ],
   "established_results": [
+    "a Hermitian Schur-complement identity yields projection-free positive-law weights from the full ambient conormal Gram; the original sparse Jacobian has a positive three-term determinant and all 36 declared domain enclosures agree with the old charts",
     "base-eliminating signed residue and positive-density bounds cover all three partner roots of the six actual axis-critical fibers; these 18 declared domains do not certify all triangle-node inputs or a complete global numerical atlas",
     "the positive ambient FS-cube auxiliary law has mass 72 and exact projective mixture probabilities 3/4,1/8,1/8; its ideal weights are bounded on the unchanged compact cover without computing a numerical bound or selecting physical Kahler moduli",
     "the actual A/9 importance weight has finite nonnegative moments exactly below order three; its finite variance has no numerical upper bound yet, so quantitative sampling-error control remains open",
@@ -8492,6 +8566,7 @@
       "alternate_metric_certified_chart_and_density_enclosures_available": true,
       "alternate_metric_complete_bounded_5345_column_matrix_materialized": false,
       "alternate_metric_complete_global_atlas_coverage_certified": false,
+      "alternate_metric_complete_global_weight_input_coverage_certified": false,
       "alternate_metric_complete_point_evaluation_matrix_materialized": true,
       "alternate_metric_compressed_complete_section_enclosure_engine_available": true,
       "alternate_metric_constituent_section_bases_available": true,
@@ -8525,6 +8600,7 @@
       "alternate_metric_positive_law_ideal_weight_globally_bounded": true,
       "alternate_metric_positive_law_quantitative_global_bound_available": false,
       "alternate_metric_practical_multi_point_integration_throughput_certified": false,
+      "alternate_metric_projection_free_positive_weight_engine_available": true,
       "alternate_metric_quantitative_variance_bound_available": false,
       "alternate_metric_quotient_section_count": 5345,
       "alternate_metric_rank_four_globally_generated": true,
@@ -8538,6 +8614,7 @@
         1
       ],
       "alternate_metric_universal_section_constructor_available": true,
+      "alternate_metric_weight_individual_projection_inverses_required": false,
       "alternate_metric_weight_second_moment_finite": true,
       "alternate_metric_weight_third_moment_finite": false,
       "alternate_other_linearisations_excluded": false,
@@ -9204,7 +9281,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "certify complete bounded matrix output and practical multi-point throughput using the actual universal quotient frames; implement the positive auxiliary SU-uniform mixture with proposal precision, quantitative global weight bounds, critical-chart coverage, and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
+    "next_required_object": "certify complete bounded matrix output and practical multi-point throughput using the actual universal quotient frames; derive a quantitative global conormal lower bound for projection-free positive-law weights and implement controlled independent SU-uniform proposals with certified input coverage and integration-error control, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
@@ -9572,6 +9649,11 @@
     "the certified constituent atlases force Higgs characters (1,0), (1,1), (2,0), and (2,1), incompatible with the source-bound multiset"
   ],
   "structural_compression_questions": [
+    {
+      "attack": "closed by the Hermitian Schur-complement proof, independent full ambient inverse/determinant checks, exact source points, and all 36 declared domains. Global input coverage, quantitative lower bounds, and sampling error remain separate open gates",
+      "evidence": "18 regular and 18 axis-critical domains use the same residue-to-FS-cube ratio in different free frames",
+      "question": "Can the ambient conormal Gram eliminate individual projection inverses from all positive-law weights?"
+    },
     {
       "attack": "normalization is not implemented or certified. Its modest key-count reduction does not justify replacing the verified engine before complete single-domain output is measured; run the genuine complete-output gate without inferring metrics",
       "evidence": "the first outer column took about 72 seconds after setup; the next nine reused 36 correction units and 4707 original operator columns at roughly 0.1 seconds each. Actual V2 source keys number 1972; common-monomial normalization would reduce that static count to 1477 per parameter",

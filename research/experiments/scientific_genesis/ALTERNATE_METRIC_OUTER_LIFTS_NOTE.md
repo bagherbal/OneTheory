@@ -87,10 +87,14 @@ by suffix-cell composition, without using the common cup implementation.
 They independently recompute every ambient component and attack the mixed
 Koszul contribution to the filtration bound.
 
-Complete independent replay of all 2,690 universal lifts has **not** been
-performed. The machine-readable scope keeps `rank_four_section_basis_available`
-false until independent full-formula certification or complete coefficient
-replay closes that gate. Neither existence of the constructor nor probe
+Complete independent expanded replay of all 2,690 universal lifts has **not**
+been performed. The original constructor artifact retains that limited scope.
+The later `alternate_metric_lift_operator_certificate` independently certifies
+the full formula through all 256 Laurent support patterns, both structural
+parities, twenty actual module columns, and the repaired target operators.
+See `ALTERNATE_METRIC_LIFT_OPERATOR_CERTIFICATE_NOTE.md`. The current state
+therefore records the constructive rank-four section basis as available,
+without claiming expanded coefficient replay. Neither this basis nor probe
 agreement establishes a numerical metric. Local rank-four fiber evaluation,
 Ricci-flat/HYM convergence, normalized Yukawas, a common stabilized vacuum,
 the other flavor sectors, and Genesis-to-UV derivation remain unresolved.

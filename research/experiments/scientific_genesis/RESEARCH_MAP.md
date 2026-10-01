@@ -1303,9 +1303,18 @@ quotient probes retain all correction terms and pass full identities.
 Independent tests reconstruct their products by suffix cells and recompute
 all ambient degrees. See `ALTERNATE_METRIC_OUTER_LIFTS_NOTE.md`.
 
-This is a constructive formula, not completed independent replay of all
-2,690 lifts. The next gate is independent full-formula certification or
-coefficient replay, followed by local rank-four fiber evaluation and controlled
-metric convergence. The rank-four basis availability and physical prediction
-flags remain false; no vacuum, mass, mixing angle, or Genesis implication has
-been supplied by the formula.
+The full universal formula is now independently certified. All 256 Laurent
+support patterns in both structural parities yield 10,816 integer operator
+columns with independent signed-incidence and raw contraction identities.
+A finite residual-iteration proof recovers the exact primitive series.
+All twenty actual source-module generator columns verify both outer
+composition identities, agreeing with the constructor's cup implementation.
+The complete 288-term actual target object operator, both equation units,
+and repaired group relations certify strict averaging. The resulting
+5,345-vector universal invariant basis is available constructively; expanded
+replay of 5,380 coefficients has neither been required nor claimed.
+See `ALTERNATE_METRIC_LIFT_OPERATOR_CERTIFICATE_NOTE.md`.
+
+The next gate is actual local rank-four fiber evaluation, followed by controlled
+metric convergence. Physical prediction flags remain false; no vacuum, mass,
+mixing angle, or Genesis implication has been supplied by the section proof.

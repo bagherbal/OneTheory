@@ -3361,8 +3361,9 @@ def _nodes() -> list[dict[str, object]]:
             "Serre-quotient sections. Together with the 1115 subline "
             "sections they give a complete 2655-vector V1 basis. Every "
             "archived cochain has independent exact closure, repaired "
-            "deck-invariance, and quotient-image replay. Universal rank-four "
-            "lifts and numerical metrics remain missing.",
+            "deck-invariance, and quotient-image replay. The separately "
+            "certified universal outer constructor consumes this basis; "
+            "local rank-four evaluation and numerical metrics remain missing.",
             (
                 "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
                 "data/generated/scientific_genesis/"
@@ -3387,7 +3388,8 @@ def _nodes() -> list[dict[str, object]]:
             "an independently verified exact 4337-rank minor. Twelve "
             "full-differential templates transport the lifts. Every "
             "section and relation has independent coefficient replay. "
-            "Universal rank-four lifts and metric convergence remain open.",
+            "The separately certified universal outer constructor consumes "
+            "this basis; local evaluation and metric convergence remain open.",
             (
                 "data/generated/scientific_genesis/alternate_metric_second_sections.json",
                 "data/generated/scientific_genesis/"
@@ -3423,19 +3425,47 @@ def _nodes() -> list[dict[str, object]]:
             ("actual target differential", "standard cover contraction identities"),
         ),
         _node(
+            "alternate_metric_lift_operator_certificate",
+            "independently certified universal metric-section lift operators",
+            "Normalization",
+            "DERIVED",
+            "All 256 Laurent support patterns in both grading parities "
+            "pass independent integer incidence and raw contraction checks. "
+            "Twenty actual source-module columns certify both outer "
+            "composition identities, agreeing with the constructor's cup. "
+            "The actual repaired target arrows and equation units certify "
+            "averaging. A finite residual-iteration proof establishes the "
+            "5345-vector universal invariant section construction without "
+            "expanded coefficient replay or an extension-point choice. "
+            "Actual local rank-four fiber evaluation and metrics remain open.",
+            (
+                "data/generated/scientific_genesis/"
+                "alternate_metric_lift_operator_certificate.json",
+                "research/experiments/scientific_genesis/"
+                "alternate_metric_lift_operator_certificate.py",
+                "research/experiments/scientific_genesis/"
+                "ALTERNATE_METRIC_LIFT_OPERATOR_CERTIFICATE_NOTE.md",
+                "tests/integration/"
+                "test_scientific_genesis_alternate_metric_lift_operator_certificate.py",
+            ),
+            ("established actual constituent differentials square to zero",
+             "complete independently certified constituent section bases"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
             "BLOCKED",
             "The alternate carrier is globally generated at a declared "
             "ample twist. Both actual constituents have complete invariant "
-            "section bases of sizes 2655 and 2690, but universal rank-four "
-            "lifts and converged "
+            "section bases of sizes 2655 and 2690. Its universal rank-four "
+            "lifting formula is independently certified, but local fiber "
+            "evaluation and converged "
             "Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
             missing=(
-                "independent full universal section-formula certification or coefficient replay",
+                "actual rank-four local fiber evaluation",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -5766,6 +5796,29 @@ def _edges() -> list[dict[str, object]]:
             ("a formal section basis is not a converged Ricci-flat or HYM metric",),
         ),
         _edge(
+            "alternate_metric_outer_lift_formula",
+            "alternate_metric_lift_operator_certificate",
+            "Independent support incidence, actual module operators, and "
+            "repaired arrow equivariance certify the complete finite "
+            "universal lifting formula rather than only its coefficient probes.",
+            ("data/generated/scientific_genesis/"
+             "alternate_metric_lift_operator_certificate.json",),
+            ("actual target D squared equals zero", "complete constituent H0 bases"),
+            True,
+            ("raw contraction alone does not certify outer composition or averaging",),
+        ),
+        _edge(
+            "alternate_metric_lift_operator_certificate",
+            "visible_metrics",
+            "The certified universal invariant section constructor supplies "
+            "the actual nonsplit rank-four basis for subsequent fiber evaluation.",
+            ("data/generated/scientific_genesis/"
+             "alternate_metric_lift_operator_certificate.json",),
+            ("explicit local fiber evaluation", "controlled metric convergence"),
+            True,
+            ("a certified section constructor is not a numerical metric",),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -6908,18 +6961,6 @@ def _scheduler() -> list[dict[str, object]]:
     """Return value-ranked tasks under the Scientific Genesis criterion."""
 
     tasks = [
-        (
-            "certify_universal_metric_lift_formula",
-            5,
-            4,
-            5,
-            5,
-            2,
-            1,
-            "Independently certify the finite full-cover contraction and "
-            "composition identities, bypassing 5380 separate outer solves "
-            "without treating the four probes as full basis replay.",
-        ),
         (
             "rank_four_local_fiber_evaluation",
             5,
@@ -9273,6 +9314,57 @@ def build_state() -> dict[str, object]:
         ))
     ):
         raise ValueError("the finite universal outer lifting formula or scope is not certified")
+    lift_operator = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_lift_operator_certificate.json"
+    )).read_text(encoding="utf-8"))
+    lift_operator_digest = lift_operator.pop("artifact_digest", None)
+    raw_operator = lift_operator.get("raw_contraction", {})
+    module_operator = lift_operator.get("outer_composition", {})
+    averaging = lift_operator.get("repaired_averaging", {})
+    if (
+        lift_operator_digest != _canonical_digest(lift_operator)
+        or lift_operator_digest
+        != "6870cdf9bc875777e8ded58e6b434d865204b8aa9aa69c6194e5b5463d55eb82"
+        or lift_operator.get("schema") != "alternate-metric-lift-operator-certificate-v1"
+        or lift_operator.get("outer_lift_artifact_digest") != outer_lifts_digest
+        or raw_operator.get("support_pattern_count") != 256
+        or raw_operator.get("verified_basis_column_count") != 10816
+        or raw_operator.get("structural_parities") != [0, 1]
+        or any(raw_operator.get(flag) is not True for flag in (
+            "d_h_plus_h_d_equals_identity_minus_Q", "h_squared_zero", "Q_h_and_h_Q_zero",
+            "Q_squared_equals_Q", "d_Q_and_Q_d_zero",
+            "observed_raw_d_matches_independent_incidence",
+        ))
+        or module_operator.get("verified_module_column_count") != 20
+        or module_operator.get("source_basis_count") != 2690
+        or module_operator.get("all_saved_V2_sections_in_declared_module") is not True
+        or module_operator.get("D1_E_plus_E_D2_zero_on_entire_section_module") is not True
+        or [
+            (c.get("source_object"), c.get("p1_chart"), c.get("parameter"))
+            for c in module_operator.get("columns", [])
+        ] != [(i, c, p) for i in range(5) for c in range(2) for p in range(2)]
+        or any(c.get("D1_E_plus_E_D2_zero") is not True
+               or c.get("constructor_product_matches_independent_suffix_operator") is not True
+               for c in module_operator.get("columns", []))
+        or averaging.get("all_24_homogeneous_components_satisfy_group_relations") is not True
+        or averaging.get("Schoen_equation_units_independently_reconstructed") is not True
+        or averaging.get("independent_coordinate_relations", {}).get(
+            "commutation_phase_depends_only_on_multidegree"
+        ) is not True
+        or averaging.get("actual_target_operator", {}).get(
+            "all_resolution_and_extension_arrows_P_and_T_fixed"
+        ) is not True
+        or any(lift_operator.get(flag) is not True for flag in (
+            "closed_degree_one_residual_primitive_rule_certified",
+            "all_outer_section_products_independently_certified",
+            "full_universal_lift_formula_certified", "rank_four_section_basis_available",
+        ))
+        or any(lift_operator.get(flag) is not False for flag in (
+            "complete_expanded_coefficient_replay", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected", "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the independent universal lift operator certificate is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9579,6 +9671,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz",
         "data/generated/scientific_genesis/alternate_metric_second_sections.relations.json.gz",
         "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
+        "data/generated/scientific_genesis/alternate_metric_lift_operator_certificate.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -9831,15 +9924,17 @@ def build_state() -> dict[str, object]:
                 ],
                 "alternate_metric_second_constituent_section_basis_available": True,
                 "alternate_metric_constituent_section_bases_available": True,
-                "alternate_metric_rank_four_quotient_lifts_remaining_count": 2690,
+                "alternate_metric_rank_four_quotient_lifts_remaining_count": 0,
                 "alternate_metric_universal_section_constructor_available": True,
+                "alternate_metric_full_lift_formula_independently_certified": True,
                 "alternate_metric_full_independent_rank_four_replay_completed": False,
                 "alternate_metric_first_resolution_ambient_generator_counts": [
                     item["ambient_invariant_generator_count"] for item in ambient_blocks
                 ],
                 "alternate_metric_constituents_globally_generated": True,
                 "alternate_metric_rank_four_globally_generated": True,
-                "alternate_metric_explicit_invariant_basis_available": False,
+                "alternate_metric_explicit_invariant_basis_available": True,
+                "alternate_metric_local_rank_four_evaluation_available": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
                 "alternate_up_ordered_exchange_consistent": all(
@@ -10072,9 +10167,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "independently certify the finite universal lift formula "
-                "or replay all 2690 V2 lifts; obtain actual rank-four fiber "
-                "evaluation from the 5345-section basis before controlled "
+                "obtain actual local rank-four fiber evaluation from the "
+                "independently certified 5345-section universal basis before controlled "
                 "Ricci-flat/HYM convergence tests"
             ),
         },
@@ -10449,10 +10543,10 @@ def build_state() -> dict[str, object]:
                     "reduced degree; all mixed arrows raise a weight in [0,4]"
                 ),
                 "attack": (
-                    "independently replay the full contraction and composition "
-                    "identities, including mixed Koszul wedges and both outer "
-                    "parameters; four literal coefficients already close, "
-                    "but complete independent basis replay is not claimed"
+                    "closed by 10816 independent signed support columns, twenty "
+                    "actual source-module composition columns, repaired target "
+                    "arrow equivariance, and a finite residual-iteration proof; "
+                    "full expanded coefficient replay is not required or claimed"
                 ),
             },
             {

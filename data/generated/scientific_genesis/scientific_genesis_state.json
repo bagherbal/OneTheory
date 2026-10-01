@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "73737ba44ea0255a5373337a9d44afc3e4a60941fb6879deffc0d41707c71c22",
+  "artifact_digest": "e7f03972053ae751fd0c204d835d3bca9de63481eee9a4a7c488149689226d96",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -912,6 +912,11 @@
       "sha256": "db79450dc54178b2af7058fabb3e85f519c109868cd5cd5312f5da67cd52fac7"
     },
     {
+      "bytes": 12589,
+      "path": "data/generated/scientific_genesis/alternate_metric_lift_operator_certificate.json",
+      "sha256": "58afb865e7ef06e4b476005106016173fee1c738c7050a63e17fc21803d75180"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -951,8 +956,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 267,
-    "test_python_files": 251
+    "research_python_files": 268,
+    "test_python_files": 252
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3799,7 +3804,7 @@
       "label": "actual first constituent complete invariant section basis",
       "layer": "Normalization",
       "missing_prerequisites": [],
-      "statement": "At H=(14,16,1), nine actual full-differential lift templates transport by polynomial plane factors to all 1540 first Serre-quotient sections. Together with the 1115 subline sections they give a complete 2655-vector V1 basis. Every archived cochain has independent exact closure, repaired deck-invariance, and quotient-image replay. Universal rank-four lifts and numerical metrics remain missing.",
+      "statement": "At H=(14,16,1), nine actual full-differential lift templates transport by polynomial plane factors to all 1540 first Serre-quotient sections. Together with the 1115 subline sections they give a complete 2655-vector V1 basis. Every archived cochain has independent exact closure, repaired deck-invariance, and quotient-image replay. The separately certified universal outer constructor consumes this basis; local rank-four evaluation and numerical metrics remain missing.",
       "status": "COMPUTED"
     },
     {
@@ -3819,7 +3824,7 @@
       "label": "actual alternate second constituent complete invariant section basis",
       "layer": "Normalization",
       "missing_prerequisites": [],
-      "statement": "The actual I6 ray (0,1) at H=(14,16,1) has a complete 2690-vector V2 basis: 1135 subline sections plus 1555 nonsplit quotient lifts. Stabilizer-normalized orbits include fixed monomials; the fat-axis ideal Koszul presentation has an independently verified exact 4337-rank minor. Twelve full-differential templates transport the lifts. Every section and relation has independent coefficient replay. Universal rank-four lifts and metric convergence remain open.",
+      "statement": "The actual I6 ray (0,1) at H=(14,16,1) has a complete 2690-vector V2 basis: 1135 subline sections plus 1555 nonsplit quotient lifts. Stabilizer-normalized orbits include fixed monomials; the fat-axis ideal Koszul presentation has an independently verified exact 4337-rank minor. Twelve full-differential templates transport the lifts. Every section and relation has independent coefficient replay. The separately certified universal outer constructor consumes this basis; local evaluation and metric convergence remain open.",
       "status": "COMPUTED"
     },
     {
@@ -3841,6 +3846,24 @@
       "status": "DERIVED"
     },
     {
+      "assumptions": [
+        "established actual constituent differentials square to zero",
+        "complete independently certified constituent section bases"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_lift_operator_certificate.json",
+        "research/experiments/scientific_genesis/alternate_metric_lift_operator_certificate.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_LIFT_OPERATOR_CERTIFICATE_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_lift_operator_certificate.py"
+      ],
+      "id": "alternate_metric_lift_operator_certificate",
+      "label": "independently certified universal metric-section lift operators",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "All 256 Laurent support patterns in both grading parities pass independent integer incidence and raw contraction checks. Twenty actual source-module columns certify both outer composition identities, agreeing with the constructor's cup. The actual repaired target arrows and equation units certify averaging. A finite residual-iteration proof establishes the 5345-vector universal invariant section construction without expanded coefficient replay or an extension-point choice. Actual local rank-four fiber evaluation and metrics remain open.",
+      "status": "DERIVED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -3850,10 +3873,10 @@
       "label": "Ricci-flat, HYM, and matter metric package",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "independent full universal section-formula certification or coefficient replay",
+        "actual rank-four local fiber evaluation",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690, but universal rank-four lifts and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified, but local fiber evaluation and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -6601,6 +6624,38 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "actual target D squared equals zero",
+        "complete constituent H0 bases"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_lift_operator_certificate.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "raw contraction alone does not certify outer composition or averaging"
+      ],
+      "mathematical_reason": "Independent support incidence, actual module operators, and repaired arrow equivariance certify the complete finite universal lifting formula rather than only its coefficient probes.",
+      "source": "alternate_metric_outer_lift_formula",
+      "target": "alternate_metric_lift_operator_certificate"
+    },
+    {
+      "assumptions_required": [
+        "explicit local fiber evaluation",
+        "controlled metric convergence"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_lift_operator_certificate.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a certified section constructor is not a numerical metric"
+      ],
+      "mathematical_reason": "The certified universal invariant section constructor supplies the actual nonsplit rank-four basis for subsequent fiber evaluation.",
+      "source": "alternate_metric_lift_operator_certificate",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -7648,7 +7703,7 @@
       "alternate_fixed_atlas_su4_excluded": true,
       "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
-      "alternate_metric_explicit_invariant_basis_available": false,
+      "alternate_metric_explicit_invariant_basis_available": true,
       "alternate_metric_first_constituent_cover_generated": true,
       "alternate_metric_first_constituent_section_basis_available": true,
       "alternate_metric_first_constituent_section_basis_count": 2655,
@@ -7660,14 +7715,16 @@
       "alternate_metric_first_serre_quotient_basis_count": 1540,
       "alternate_metric_first_subline_basis_count": 1115,
       "alternate_metric_full_independent_rank_four_replay_completed": false,
+      "alternate_metric_full_lift_formula_independently_certified": true,
       "alternate_metric_large_generating_twist": [
         14,
         16,
         1
       ],
+      "alternate_metric_local_rank_four_evaluation_available": false,
       "alternate_metric_quotient_section_count": 5345,
       "alternate_metric_rank_four_globally_generated": true,
-      "alternate_metric_rank_four_quotient_lifts_remaining_count": 2690,
+      "alternate_metric_rank_four_quotient_lifts_remaining_count": 0,
       "alternate_metric_second_constituent_section_basis_available": true,
       "alternate_metric_second_constituent_section_basis_count": 2690,
       "alternate_metric_subbundle_h1_vanishing": true,
@@ -8341,23 +8398,10 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "independently certify the finite universal lift formula or replay all 2690 V2 lifts; obtain actual rank-four fiber evaluation from the 5345-section basis before controlled Ricci-flat/HYM convergence tests",
+    "next_required_object": "obtain actual local rank-four fiber evaluation from the independently certified 5345-section universal basis before controlled Ricci-flat/HYM convergence tests",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
-    {
-      "priority_score": 64.5,
-      "rationale": "Independently certify the finite full-cover contraction and composition identities, bypassing 5380 separate outer solves without treating the four probes as full basis replay.",
-      "scores": {
-        "computational_cost": 2,
-        "distance_to_observable": 5,
-        "foundational_importance": 4,
-        "probability_of_discriminating_theory": 5,
-        "risk_of_local_rabbit_hole": 1,
-        "structural_reuse": 5
-      },
-      "task": "certify_universal_metric_lift_formula"
-    },
     {
       "priority_score": 34.333,
       "rationale": "Convert the actual universal section cochains to local rank-four fiber evaluations before Ricci-flat/HYM approximation.",
@@ -8726,7 +8770,7 @@
   ],
   "structural_compression_questions": [
     {
-      "attack": "independently replay the full contraction and composition identities, including mixed Koszul wedges and both outer parameters; four literal coefficients already close, but complete independent basis replay is not claimed",
+      "attack": "closed by 10816 independent signed support columns, twenty actual source-module composition columns, repaired target arrow equivariance, and a finite residual-iteration proof; full expanded coefficient replay is not required or claimed",
       "evidence": "all 24 actual ambient target components have no positive reduced degree; all mixed arrows raise a weight in [0,4]",
       "question": "Can one degree-support and nilpotent-filtration theorem replace 5380 independent outer coefficient solves?"
     },

@@ -1,0 +1,330 @@
+{
+  "all_outer_section_products_independently_certified": true,
+  "artifact_digest": "6870cdf9bc875777e8ded58e6b434d865204b8aa9aa69c6194e5b5463d55eb82",
+  "carrier_premises": {
+    "Q_vanishes_on_total_degree_one": true,
+    "all_resolution_and_mixed_arrow_gains_positive": true,
+    "ambient_component_count": 24,
+    "closed_residual_iteration_bound": 5,
+    "equation_gain": 1,
+    "filtration_range": [
+      0,
+      4
+    ],
+    "minimum_checked_arrow_gain": 1,
+    "raw_h_preserves_object_and_koszul_component": true,
+    "raw_reduced_dimensions": [
+      [
+        -3,
+        8640
+      ],
+      [
+        -2,
+        72504
+      ],
+      [
+        -1,
+        177966
+      ],
+      [
+        0,
+        137997
+      ]
+    ]
+  },
+  "closed_degree_one_residual_primitive_rule_certified": true,
+  "complete_expanded_coefficient_replay": false,
+  "extension_point_selected": false,
+  "full_universal_lift_formula_certified": true,
+  "independent_derivation": "r_0=r; r_(j+1)=r_j-D h r_j; D r_j=0; Q r_j=0; r_(j+1)=-(h Delta+Delta h)r_j; r_5=0; h r_(j+1)=-h Delta h r_j; D sum(j=0..4)h r_j=r",
+  "next_required_object": "obtain actual local rank-four fiber evaluation from the certified universal section construction before controlled Ricci-flat/HYM convergence",
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "outer_composition": {
+    "D1_E_plus_E_D2_zero_on_entire_section_module": true,
+    "all_saved_V2_sections_in_declared_module": true,
+    "coefficient_transport_reason": "all differentials and suffix products are Laurent-monomial linear; the ten generators span plane-global, P1-vertex cochains over the formal Laurent coefficient module; admissible actual sections restrict it",
+    "columns": [
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "0ec9e5b95679f2dfb52cc2bfcbc2f675c2ee7106f41756b0c771e3aab21cb33e",
+        "image_term_count": 639,
+        "p1_chart": 0,
+        "parameter": 0,
+        "source_differential_term_count": 9,
+        "source_object": 0
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "a2996501b9347085446e6ba48585f9217d988035514fa63924715c335cc8d77d",
+        "image_term_count": 639,
+        "p1_chart": 0,
+        "parameter": 1,
+        "source_differential_term_count": 9,
+        "source_object": 0
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "642e076f9452592a8be6d0ef2f47b5113e74fa2c11fb432882f2d63f8ffcc817",
+        "image_term_count": 954,
+        "p1_chart": 1,
+        "parameter": 0,
+        "source_differential_term_count": 9,
+        "source_object": 0
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "b48cc68b2396d2f9ee6d20925bffcbe269b7f6f54b13e791cc648c020b4aff9a",
+        "image_term_count": 954,
+        "p1_chart": 1,
+        "parameter": 1,
+        "source_differential_term_count": 9,
+        "source_object": 0
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "a5bb9cbc8c4c0e7bd6d6586996f234765e47f5e746b415d22c3c7970916e5a91",
+        "image_term_count": 2133,
+        "p1_chart": 0,
+        "parameter": 0,
+        "source_differential_term_count": 9,
+        "source_object": 1
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "431b1b9eefaf50a1a1706e7ee134f08bbb74b61e6ea15da8c5bfe0bfe46b948b",
+        "image_term_count": 1782,
+        "p1_chart": 0,
+        "parameter": 1,
+        "source_differential_term_count": 9,
+        "source_object": 1
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "037b4c9df0e0fd1d5c93a3587803bde5ad8cb29de14a83e41a248fecdda1d5ba",
+        "image_term_count": 3576,
+        "p1_chart": 1,
+        "parameter": 0,
+        "source_differential_term_count": 36,
+        "source_object": 1
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "d86781e54cd3f7d89042d249c2993e9f6425f905085fb84ffed2a9f187da7f3e",
+        "image_term_count": 3051,
+        "p1_chart": 1,
+        "parameter": 1,
+        "source_differential_term_count": 36,
+        "source_object": 1
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "0267ed1ec593deba640acb474fb05a724f9efc81188eb08c4815ae6d1d8cb25e",
+        "image_term_count": 2124,
+        "p1_chart": 0,
+        "parameter": 0,
+        "source_differential_term_count": 9,
+        "source_object": 2
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "e4eb870020f58ec21f2adda20f1c1fe6bce33232140e2f9cfcf96dc2ad7a1faa",
+        "image_term_count": 1788,
+        "p1_chart": 0,
+        "parameter": 1,
+        "source_differential_term_count": 9,
+        "source_object": 2
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "b70af4ae9588bdbe94606b3cdce30b556b4335b0959d6927941c224c1d844d61",
+        "image_term_count": 3567,
+        "p1_chart": 1,
+        "parameter": 0,
+        "source_differential_term_count": 36,
+        "source_object": 2
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "6f227a88bff9b49a3e931af5fd9753f6db7d157ef1cd609ccd17bf7c25850fe7",
+        "image_term_count": 3057,
+        "p1_chart": 1,
+        "parameter": 1,
+        "source_differential_term_count": 36,
+        "source_object": 2
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "97e17433867cfa418a803b425333f4fe8eb8f4e5422661fb2abd2aa5503ebac6",
+        "image_term_count": 2091,
+        "p1_chart": 0,
+        "parameter": 0,
+        "source_differential_term_count": 9,
+        "source_object": 3
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "d6426f83b70e0a1447ef0297b22abc103bb56cae97801902a2ee11699e44dfa6",
+        "image_term_count": 1170,
+        "p1_chart": 0,
+        "parameter": 1,
+        "source_differential_term_count": 9,
+        "source_object": 3
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "f6616c81fcb55c82bee9974ae8fcaf36017756c2f65d2e7a7560381767851091",
+        "image_term_count": 3432,
+        "p1_chart": 1,
+        "parameter": 0,
+        "source_differential_term_count": 36,
+        "source_object": 3
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "4aff5f609b6ce957754887a2b26a3ad05d7804502a04352df4b9f56905bec020",
+        "image_term_count": 1845,
+        "p1_chart": 1,
+        "parameter": 1,
+        "source_differential_term_count": 36,
+        "source_object": 3
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "bdd87601421dc9463be015d545f79df04b3846af59bd5f50559683e9ec07ccbd",
+        "image_term_count": 2130,
+        "p1_chart": 0,
+        "parameter": 0,
+        "source_differential_term_count": 9,
+        "source_object": 4
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "20b76a2259477e9552aa172ef4c41da4a21dff89ffa79eeb141141e82634e089",
+        "image_term_count": 1782,
+        "p1_chart": 0,
+        "parameter": 1,
+        "source_differential_term_count": 9,
+        "source_object": 4
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "5351a1d3511d04231625ae244cecf155a9044856cda54728915f5b2ee85af4bc",
+        "image_term_count": 3573,
+        "p1_chart": 1,
+        "parameter": 0,
+        "source_differential_term_count": 36,
+        "source_object": 4
+      },
+      {
+        "D1_E_plus_E_D2_zero": true,
+        "constructor_product_matches_independent_suffix_operator": true,
+        "generator_term_count": 9,
+        "image_digest": "308a18ab50c363ee45443743cad92b77ba539ecd35d4955ad756871e9a97a375",
+        "image_term_count": 3051,
+        "p1_chart": 1,
+        "parameter": 1,
+        "source_differential_term_count": 36,
+        "source_object": 4
+      }
+    ],
+    "p1_chart_count": 2,
+    "parameter_count": 2,
+    "source_basis_count": 2690,
+    "source_object_count": 5,
+    "verified_module_column_count": 20
+  },
+  "outer_lift_artifact_digest": "3708b3f7757ec12080daa98d09315ed53a2c7d0e0ead61ff3a55777bb00aaa4c",
+  "physical_yukawas_available": false,
+  "primitive_formula": "sum(j=0..4) (-h Delta)^j h r",
+  "rank_four_section_basis_available": true,
+  "raw_contraction": {
+    "Q_h_and_h_Q_zero": true,
+    "Q_squared_equals_Q": true,
+    "coefficient_arithmetic": "integer incidence; scalar extension to Q(omega)",
+    "complete_operator_transcript_sha256": "a2a2899d70ff459677a9957c5e6f6756dafe5b54c80a848958cfb470d01ac6e9",
+    "d_Q_and_Q_d_zero": true,
+    "d_h_plus_h_d_equals_identity_minus_Q": true,
+    "h_squared_zero": true,
+    "infinite_monomial_scope_reason": "raw d and h depend only on negative support and structural parity; each monomial/component is preserved",
+    "observed_raw_d_matches_independent_incidence": true,
+    "structural_parities": [
+      0,
+      1
+    ],
+    "support_pattern_count": 256,
+    "verified_basis_column_count": 10816
+  },
+  "repaired_averaging": {
+    "P_and_T_preserve_p1_chart_vertices": true,
+    "Schoen_equation_units_independently_reconstructed": true,
+    "T_commutes_with_raw_h_by_preserved_component_and_monomial": true,
+    "T_diagonal_on_actual_objects_and_monomials": true,
+    "actual_target_operator": {
+      "actual_object_operator_digest": "8c9b565e6492d8c333041a38329fca4d256ff0e51b4b412e688c193d83b9d239",
+      "actual_object_operator_term_count": 288,
+      "all_extension_coefficients_polynomial_and_plane_global": true,
+      "all_resolution_and_extension_arrows_P_and_T_fixed": true,
+      "cover_signs_and_equation_units": "established signed cover and Schoen deck action"
+    },
+    "all_24_homogeneous_components_satisfy_group_relations": true,
+    "both_outer_coefficients_rechecked_strictly_P_and_T_fixed": true,
+    "independent_coordinate_relations": {
+      "P_cubed_and_T_cubed_identity_on_each_coordinate": true,
+      "P_then_T_over_T_then_P_units_by_factor": [
+        "omega",
+        "omega",
+        "1"
+      ],
+      "commutation_phase_depends_only_on_multidegree": true
+    },
+    "outer_suffix_product_equivariant_on_plane_global_source_module": true,
+    "reynolds_factor": "1/3",
+    "reynolds_operator": "identity+P+P^2"
+  },
+  "schema": "alternate-metric-lift-operator-certificate-v1",
+  "theorem_hypotheses": [
+    "D=d+Delta is a differential (D squared equals zero)",
+    "the input residual has total degree one and D r equals zero",
+    "Q vanishes on total degree one",
+    "raw h preserves a finite filtration raised strictly by Delta"
+  ]
+}

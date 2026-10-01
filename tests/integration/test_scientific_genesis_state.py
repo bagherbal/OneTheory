@@ -116,6 +116,10 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
             "alternate-metric-outer-lift-formula-v1", "rank_four_section_basis_available",
             "the finite universal outer lifting formula or scope is not certified",
         ),
+        (
+            "alternate-metric-lift-operator-certificate-v1", "physical_yukawas_available",
+            "the independent universal lift operator certificate is not certified",
+        ),
     ),
 )
 def test_audit_rejects_scope_inflation_even_with_a_recomputed_digest(
@@ -756,9 +760,8 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "independently certify the finite universal lift formula "
-        "or replay all 2690 V2 lifts; obtain actual rank-four fiber "
-        "evaluation from the 5345-section basis before controlled "
+        "obtain actual local rank-four fiber evaluation from the "
+        "independently certified 5345-section universal basis before controlled "
         "Ricci-flat/HYM convergence tests"
     )
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
@@ -789,15 +792,18 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert path["criteria"]["alternate_metric_second_constituent_section_basis_count"] == 2690
     assert path["criteria"]["alternate_metric_second_constituent_section_basis_available"] is True
     assert path["criteria"]["alternate_metric_constituent_section_bases_available"] is True
-    assert path["criteria"]["alternate_metric_rank_four_quotient_lifts_remaining_count"] == 2690
+    assert path["criteria"]["alternate_metric_rank_four_quotient_lifts_remaining_count"] == 0
     assert claims["alternate_metric_outer_lift_formula"]["status"] == "DERIVED"
+    assert claims["alternate_metric_lift_operator_certificate"]["status"] == "DERIVED"
     assert path["criteria"]["alternate_metric_universal_section_constructor_available"] is True
+    assert path["criteria"]["alternate_metric_full_lift_formula_independently_certified"] is True
     assert path["criteria"]["alternate_metric_full_independent_rank_four_replay_completed"] is False
     assert path["criteria"]["alternate_metric_constituents_globally_generated"] is True
     assert path["criteria"]["alternate_metric_rank_four_globally_generated"] is True
-    assert path["criteria"]["alternate_metric_explicit_invariant_basis_available"] is False
+    assert path["criteria"]["alternate_metric_explicit_invariant_basis_available"] is True
+    assert path["criteria"]["alternate_metric_local_rank_four_evaluation_available"] is False
     assert claims["visible_metrics"]["status"] == "BLOCKED"
-    assert "independent full universal section-formula certification or coefficient replay" in (
+    assert "actual rank-four local fiber evaluation" in (
         claims["visible_metrics"]["missing_prerequisites"]
     )
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
@@ -918,8 +924,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     scheduler = state["research_value_scheduler"]
-    assert scheduler[0]["task"] == "certify_universal_metric_lift_formula"
-    assert scheduler[1]["task"] == "rank_four_local_fiber_evaluation"
+    assert scheduler[0]["task"] == "rank_four_local_fiber_evaluation"
+    assert scheduler[1]["task"] == "alternate_metric_convergence"
     assert not {"alternate_physical_quotient_pairing", "alternate_complete_up_matrix",
-                "lawful_carrier_global_generation"} & {task["task"] for task in scheduler}
+                "lawful_carrier_global_generation", "certify_universal_metric_lift_formula"
+                } & {task["task"] for task in scheduler}
     assert state["fitted_inputs"] == []

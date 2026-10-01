@@ -1,0 +1,247 @@
+{
+  "FS_convention": "(i/2pi) partial bar-partial log(sum |Z|^2); integral_CP1 FS = 1",
+  "actual_equations": [
+    "mu*F(x)+nu*G(x)",
+    "2*nu*F(u)+mu*G(u)"
+  ],
+  "actual_plane_cubics": {
+    "F": [
+      [
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          "-3",
+          "-3"
+        ]
+      ],
+      [
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          "3",
+          "0"
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          3
+        ],
+        [
+          "0",
+          "3"
+        ]
+      ]
+    ],
+    "G": [
+      [
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          "-3",
+          "-6"
+        ]
+      ],
+      [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          "36",
+          "18"
+        ]
+      ],
+      [
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          "-3",
+          "-6"
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          3
+        ],
+        [
+          "-3",
+          "-6"
+        ]
+      ]
+    ]
+  },
+  "ambient_coordinate_order": [
+    "s",
+    "z",
+    "r",
+    "w",
+    "t"
+  ],
+  "artifact_digest": "eefa94d3f7b368cc13f4bad2659393129063345ef97097a9e7e0db32ad1ac488",
+  "auxiliary_cover_mass": "9",
+  "auxiliary_form": "A = omega_FS_x wedge omega_FS_u wedge omega_FS_p restricted to X",
+  "controlled_numerical_sampling_available": false,
+  "covering_degree": 9,
+  "deck_residue_characters": {
+    "P": "1",
+    "T": "1"
+  },
+  "exact_geometric_probes": [
+    {
+      "auxiliary_density_times_pi_cubed": "1/8",
+      "cover_importance_weight_without_pi_cubed": "1/4374",
+      "eliminated_coordinates": [
+        2,
+        2
+      ],
+      "omega_lebesgue_density": "1/314928",
+      "point": {
+        "p": [
+          0,
+          1
+        ],
+        "pivots": [
+          0,
+          0,
+          1
+        ],
+        "u": [
+          1,
+          1,
+          1
+        ],
+        "x": [
+          1,
+          -1,
+          0
+        ]
+      },
+      "quotient_importance_weight_without_pi_cubed": "1/39366",
+      "residue_coefficient": "1/486+1/972*omega",
+      "tangent_rows": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "-1/2-1/2*omega",
+          "0",
+          "-1/6"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1+omega",
+          "3/2+3/2*omega"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ]
+    },
+    {
+      "auxiliary_density_times_pi_cubed": "1/8",
+      "cover_importance_weight_without_pi_cubed": "2/2187",
+      "eliminated_coordinates": [
+        2,
+        2
+      ],
+      "omega_lebesgue_density": "1/78732",
+      "point": {
+        "p": [
+          1,
+          0
+        ],
+        "pivots": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          1,
+          -1,
+          0
+        ],
+        "x": [
+          1,
+          1,
+          1
+        ]
+      },
+      "quotient_importance_weight_without_pi_cubed": "2/19683",
+      "residue_coefficient": "-1/243-1/486*omega",
+      "tangent_rows": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1+omega",
+          "0",
+          "3+3*omega"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "-1/2-1/2*omega",
+          "-1/3"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "exact_residue_and_auxiliary_measure_available": true,
+  "extension_point_selected": false,
+  "free_coordinate_order": [
+    "s",
+    "r",
+    "t"
+  ],
+  "mass_derivation": "coefficient Hx^2 Hu^2 Hp in Hx Hu Hp (3Hx+Hp)(3Hu+Hp)",
+  "next_required_object": "controlled complete-intersection roots for the declared projective sampling law, then independent integration-error and Ricci-flat/HYM convergence checks",
+  "normalized_point_law": "A / integral_cover A",
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "physical_yukawas_available": false,
+  "positive_volume_convention": "(i/8) Omega wedge conjugate(Omega)",
+  "probe_volume_scale": "1 (declared form convention, not a physical modulus)",
+  "published_method": "https://arxiv.org/abs/0712.3563v2",
+  "quotient_weight_rule": "pi^3 * integral_cover(A) * rho_Omega / (degree * auxiliary_density_times_pi_cubed); only for descended invariant integrands under the declared free covering",
+  "required_point_generator": "independent SU-uniform first-plane line, P1 point, second-plane line; all nine transverse intersection roots equally, with multiplicity",
+  "residue_convention": "df wedge dg wedge Omega = sigma_x wedge sigma_u wedge sigma_p",
+  "schema": "alternate-metric-measure-v1",
+  "vacuum_selected": false
+}

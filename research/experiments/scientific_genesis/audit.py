@@ -3499,6 +3499,28 @@ def _nodes() -> list[dict[str, object]]:
              "actual deck coordinate phases and explicit chart line frames"),
         ),
         _node(
+            "alternate_metric_measure",
+            "actual-cover residue and normalized auxiliary integration measure",
+            "Normalization",
+            "COMPUTED",
+            "The actual cubic pencils give an explicitly oriented double residue "
+            "and exact affine tangent frames. The normalized FS auxiliary form "
+            "has cover mass nine; quotient importance weights divide separately "
+            "by the declared free covering degree. Both actual deck generators "
+            "preserve the residue and FS forms. Independent mixed-wedge and "
+            "chart-transition checks support this integration prerequisite, "
+            "not a numerical sampler or a converged metric.",
+            (
+                "data/generated/scientific_genesis/alternate_metric_measure.json",
+                "research/experiments/scientific_genesis/alternate_metric_measure.py",
+                "research/experiments/scientific_genesis/ALTERNATE_METRIC_MEASURE_NOTE.md",
+                "tests/integration/test_scientific_genesis_alternate_metric_measure.py",
+            ),
+            ("actual frozen Schoen equations", "explicit chart and volume-form conventions",
+             "independent SU-uniform projective intersection sampling law",
+             "free ninefold quotient for descended invariant integrands"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -3508,7 +3530,8 @@ def _nodes() -> list[dict[str, object]]:
             "section bases of sizes 2655 and 2690. Its universal rank-four "
             "lifting formula is independently certified and exact local "
             "rank-four evaluation is available with a complete exact point "
-            "matrix. Controlled evaluation/sampling "
+            "matrix. The actual residue and normalized auxiliary integration "
+            "measure are explicit. Controlled evaluation/sampling "
             "and converged Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
@@ -5907,6 +5930,31 @@ def _edges() -> list[dict[str, object]]:
             ("a complete matrix at one point is not an integral or a Hermitian metric",),
         ),
         _edge(
+            "schoen_geometry",
+            "alternate_metric_measure",
+            "The actual complete-intersection equations determine the double "
+            "residue and the FS auxiliary topological mass; deck determinants "
+            "and equation units certify their descent.",
+            ("data/generated/scientific_genesis/alternate_metric_measure.json",),
+            ("explicit affine chart and form scale", "normalized ambient FS forms"),
+            True,
+            ("ramified projections require another explicit chart",
+             "omitting equation units changes the residue character"),
+        ),
+        _edge(
+            "alternate_metric_measure",
+            "visible_metrics",
+            "Explicit residue densities and normalized auxiliary weights give "
+            "geometric integration inputs without changing the carrier or "
+            "selecting physical moduli.",
+            ("data/generated/scientific_genesis/alternate_metric_measure.json",),
+            ("controlled projective roots and branch-complete sampling",
+             "independent integration-error control", "Ricci-flat/HYM convergence"),
+            True,
+            ("a correct measure alone is not a converged metric",
+             "uniform affine-coordinate sampling has the wrong point law"),
+        ),
+        _edge(
             "computable_carrier_state",
             "common_dga_package",
             "The frozen P1 component determines a universal parameter-dependent "
@@ -7057,7 +7105,8 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             5,
             2,
-            "Reuse the complete exact point evaluator for controlled geometric sampling; "
+            "Use the actual residue and normalized FS measure with the complete "
+            "point evaluator; certify branch-complete projective roots and sampling; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
@@ -9534,6 +9583,27 @@ def build_state() -> dict[str, object]:
         ] for col, index in enumerate([0, 1273, 2670, 3973]) for p in range(3))
     ):
         raise ValueError("the complete section column stream is not certified")
+    measure_record = json.loads((ROOT / (
+        "data/generated/scientific_genesis/alternate_metric_measure.json"
+    )).read_text(encoding="utf-8"))
+    measure_digest = measure_record.pop("artifact_digest", None)
+    if (
+        measure_digest != _canonical_digest(measure_record)
+        or measure_digest != "eefa94d3f7b368cc13f4bad2659393129063345ef97097a9e7e0db32ad1ac488"
+        or measure_record.get("schema") != "alternate-metric-measure-v1"
+        or measure_record.get("actual_equations")
+        != ["mu*F(x)+nu*G(x)", "2*nu*F(u)+mu*G(u)"]
+        or measure_record.get("auxiliary_cover_mass") != "9"
+        or measure_record.get("covering_degree") != 9
+        or measure_record.get("deck_residue_characters") != {"P": "1", "T": "1"}
+        or measure_record.get("exact_residue_and_auxiliary_measure_available") is not True
+        or any(measure_record.get(flag) is not False for flag in (
+            "controlled_numerical_sampling_available", "numerical_metrics_available",
+            "physical_yukawas_available", "extension_point_selected", "vacuum_selected",
+            "observational_inputs_used",
+        ))
+    ):
+        raise ValueError("the exact geometric measure or its scientific scope is not certified")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -9844,6 +9914,7 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_fiber_evaluation.json",
         "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.json",
         "data/generated/scientific_genesis/alternate_metric_specialized_evaluation.matrix.json.gz",
+        "data/generated/scientific_genesis/alternate_metric_measure.json",
         "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
         "data/generated/scientific_genesis/"
         "alternate_up_yukawa_support.json",
@@ -10108,6 +10179,7 @@ def build_state() -> dict[str, object]:
                 "alternate_metric_explicit_invariant_basis_available": True,
                 "alternate_metric_local_rank_four_evaluation_available": True,
                 "alternate_metric_complete_point_evaluation_matrix_materialized": True,
+                "alternate_metric_exact_residue_and_auxiliary_measure_available": True,
                 "alternate_metric_controlled_numerical_sampling_available": False,
                 "alternate_up_complete_tensor_comparison_available": False,
                 "alternate_up_complete_comparison_indeterminacy_eliminated": False,
@@ -10341,8 +10413,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "develop controlled geometric sampling and reusable section evaluation "
-                "from the complete exact point matrix, then certify Ricci-flat/HYM "
+                "certify controlled projective roots and branch-complete sampling "
+                "using the actual residue, normalized auxiliary measure, and complete "
+                "exact point matrix, then certify Ricci-flat/HYM "
                 "convergence without choosing physical moduli by hand"
             ),
         },
@@ -10679,6 +10752,8 @@ def build_state() -> dict[str, object]:
             "complete natural quotient null-scalar evaluator with both "
             "exact coefficient residues certified",
             "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
+            "finite-pole point evaluation agrees with all 5345 archived exact columns; "
+            "practical multi-point throughput and numerical sampling remain uncertified",
         ],
         "blocked_physical_calculations": [
             "equivariantly trivial quotient determinant with preserved Wilson spectrum",

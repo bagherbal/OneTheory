@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "be6d8fe50fdb95a894c27ebcaa390354460419529c8e578b6579d0a616e6bf17",
+  "artifact_digest": "ebb6c93b0cd3dc5f53a7839e84ab67d8c25ffad61eff59b0455b03ab3e622dea",
   "artifacts": [
     {
       "bytes": 20014451,
@@ -932,6 +932,11 @@
       "sha256": "4dbb85d0588b400ca1183dd963ce6a252d4898f052113bb2e1de5fba41b9b257"
     },
     {
+      "bytes": 4895,
+      "path": "data/generated/scientific_genesis/alternate_metric_measure.json",
+      "sha256": "6d814718d09fda64d1e37a07707edeb317a892d9890520019cd2664ffadbd76b"
+    },
+    {
       "bytes": 1534,
       "path": "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json",
       "sha256": "684d4e3fc5cef7be4e13e2333cb7ae7f792336869f3708a07da486a2409983b8"
@@ -971,8 +976,8 @@
     "collected_tests_at_audit": 2071,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 271,
-    "test_python_files": 255
+    "research_python_files": 272,
+    "test_python_files": 256
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -3917,6 +3922,26 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "actual frozen Schoen equations",
+        "explicit chart and volume-form conventions",
+        "independent SU-uniform projective intersection sampling law",
+        "free ninefold quotient for descended invariant integrands"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/alternate_metric_measure.json",
+        "research/experiments/scientific_genesis/alternate_metric_measure.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_MEASURE_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_measure.py"
+      ],
+      "id": "alternate_metric_measure",
+      "label": "actual-cover residue and normalized auxiliary integration measure",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "The actual cubic pencils give an explicitly oriented double residue and exact affine tangent frames. The normalized FS auxiliary form has cover mass nine; quotient importance weights divide separately by the declared free covering degree. Both actual deck generators preserve the residue and FS forms. Independent mixed-wedge and chart-transition checks support this integration prerequisite, not a numerical sampler or a converged metric.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "src/onetheory/math/sections.py",
@@ -3929,7 +3954,7 @@
         "controlled numerical full-basis evaluation and metric sampling",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. Controlled evaluation/sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Controlled evaluation/sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -6775,6 +6800,41 @@
       "target": "visible_metrics"
     },
     {
+      "assumptions_required": [
+        "explicit affine chart and form scale",
+        "normalized ambient FS forms"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_measure.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "ramified projections require another explicit chart",
+        "omitting equation units changes the residue character"
+      ],
+      "mathematical_reason": "The actual complete-intersection equations determine the double residue and the FS auxiliary topological mass; deck determinants and equation units certify their descent.",
+      "source": "schoen_geometry",
+      "target": "alternate_metric_measure"
+    },
+    {
+      "assumptions_required": [
+        "controlled projective roots and branch-complete sampling",
+        "independent integration-error control",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_measure.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a correct measure alone is not a converged metric",
+        "uniform affine-coordinate sampling has the wrong point law"
+      ],
+      "mathematical_reason": "Explicit residue densities and normalized auxiliary weights give geometric integration inputs without changing the carrier or selecting physical moduli.",
+      "source": "alternate_metric_measure",
+      "target": "visible_metrics"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "data/generated/scientific_genesis/computable_one_theory_carrier_state.json",
@@ -7778,7 +7838,8 @@
     "rank-four transition and horseshoe constructors",
     "common-DGA and HPL machinery",
     "complete natural quotient null-scalar evaluator with both exact coefficient residues certified",
-    "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits"
+    "metric, conic-Pfaffian, hidden-bundle, and low-energy sufficiency audits",
+    "finite-pole point evaluation agrees with all 5345 archived exact columns; practical multi-point throughput and numerical sampling remain uncertified"
   ],
   "fitted_inputs": [],
   "objective": {
@@ -7826,6 +7887,7 @@
       "alternate_metric_constituent_section_bases_available": true,
       "alternate_metric_constituents_globally_generated": true,
       "alternate_metric_controlled_numerical_sampling_available": false,
+      "alternate_metric_exact_residue_and_auxiliary_measure_available": true,
       "alternate_metric_explicit_invariant_basis_available": true,
       "alternate_metric_first_constituent_cover_generated": true,
       "alternate_metric_first_constituent_section_basis_available": true,
@@ -8521,13 +8583,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "develop controlled geometric sampling and reusable section evaluation from the complete exact point matrix, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
+    "next_required_object": "certify controlled projective roots and branch-complete sampling using the actual residue, normalized auxiliary measure, and complete exact point matrix, then certify Ricci-flat/HYM convergence without choosing physical moduli by hand",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Reuse the complete exact point evaluator for controlled geometric sampling; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Use the actual residue and normalized FS measure with the complete point evaluator; certify branch-complete projective roots and sampling; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,

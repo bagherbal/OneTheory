@@ -1340,8 +1340,35 @@ first-plane zero-coordinate pruning. The stream is content addressed and
 compressed deterministically. See
 `ALTERNATE_METRIC_SPECIALIZED_EVALUATION_NOTE.md`.
 
+A finite-pole representation now retains all negative first-plane powers
+while evaluating only regular factors as coefficients. Actual polynomial
+arrows and raw homotopy obey the encoding naturality identities. All
+constant/a0/a1 coefficients agree with the separate original archive for
+all 5,345 section indices; four full-cochain probes and a complementary
+chart also agree. This is a verified research representation, not a claim
+of practical multi-point throughput or numerical sampling. See
+`ALTERNATE_METRIC_SUPPORT_EVALUATION_NOTE.md`.
+
 The next gate is reusable controlled geometric sampling, followed by
 Ricci-flat/HYM convergence. A complete matrix at one algebraic point is not
 a sampling measure, an integral, or a Hermitian metric. Physical prediction
 flags remain false; no vacuum, mass, mixing angle, or Genesis implication
 has been supplied by these section and fiber results.
+
+The actual geometric integration prerequisite is now explicit. The frozen
+cubic pencils determine the double residue in declared affine projection
+charts, with a nonzero caller-supplied volume-form scale. Exact implicit
+tangents, homogeneous-ratio chart changes, and a separate mixed Hermitian
+matrix-pencil determinant verify the residue orientation and FS auxiliary
+density. The complete-intersection class gives auxiliary cover mass nine.
+The normalized projective line/point/line law is therefore A/9, while
+quotient integration separately divides by the free covering degree nine.
+Both actual deck generators preserve the residue and FS forms after their
+equation units are included. Pi remains symbolic; no physical normalization
+or moduli point is inferred. See `ALTERNATE_METRIC_MEASURE_NOTE.md` and the
+content-addressed `alternate_metric_measure.json`.
+
+Next: controlled projective roots and branch-complete samples from the
+declared projective law, independent integration-error checks, then
+Ricci-flat/HYM convergence. Uniform free-affine-coordinate samples would
+not have that law. The new exact measure does not close any of those gates.

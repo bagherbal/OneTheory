@@ -44,6 +44,18 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     "schema,field,error",
     (
         (
+            "alternate-metric-measure-v1", "controlled_numerical_sampling_available",
+            "exact geometric measure or its scientific scope is not certified",
+        ),
+        (
+            "alternate-metric-measure-v1", "numerical_metrics_available",
+            "exact geometric measure or its scientific scope is not certified",
+        ),
+        (
+            "alternate-metric-measure-v1", "vacuum_selected",
+            "exact geometric measure or its scientific scope is not certified",
+        ),
+        (
             "alternate-metric-specialized-evaluation-v1", "numerical_metrics_available",
             "complete exact section evaluation or scope is not certified",
         ),
@@ -777,10 +789,17 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "develop controlled geometric sampling and reusable section evaluation "
-        "from the complete exact point matrix, then certify Ricci-flat/HYM "
+        "certify controlled projective roots and branch-complete sampling "
+        "using the actual residue, normalized auxiliary measure, and complete "
+        "exact point matrix, then certify Ricci-flat/HYM "
         "convergence without choosing physical moduli by hand"
     )
+    assert path["criteria"][
+        "alternate_metric_exact_residue_and_auxiliary_measure_available"
+    ] is True
+    assert path["criteria"]["alternate_metric_controlled_numerical_sampling_available"] is False
+    assert claims["alternate_metric_measure"]["status"] == "COMPUTED"
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
     assert path["criteria"]["alternate_up_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_up_holomorphic_rank_three_locus"] == "a1 != 0"
     assert path["criteria"]["alternate_up_physical_yukawa_matrix_available"] is False

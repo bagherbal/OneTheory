@@ -862,6 +862,60 @@ def test_cone_exact_sequence_and_canonical_nullhomotopy(
 
 @pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
 @pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_homotopic_maps_have_explicitly_isomorphic_signed_cones(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """The shear (y, x) -> (y + h(x), x) intertwines the cone differentials."""
+
+    complex_ = _three_term_complex(scalar_type, complex_type)
+    step = -1 if complex_type is ChainComplex else 1
+    middle = complex_.spaces.space(step)
+    projection = ChainMap(complex_, complex_, {
+        0: LinearMap.identity(complex_.spaces.space(0)),
+        step: LinearMap(middle, middle, ((1, 0, 0), (0, 1, 0), (0, 0, 0))),
+        2 * step: LinearMap.identity(complex_.spaces.space(2 * step)),
+    })
+    zero = ChainMap(complex_, complex_, {})
+    homotopy = ChainHomotopy(projection, zero, {
+        step: LinearMap(middle, complex_.spaces.space(0), ((Rational(1, 2), 0, 0),)),
+        2 * step: LinearMap(complex_.spaces.space(2 * step), middle,
+                           ((0,), (Rational(1, 2),), (0,))),
+    })
+    first = mapping_cone(projection)
+    second = mapping_cone(zero)
+
+    def shear(sign: int) -> dict[int, LinearMap]:
+        components = {}
+        for degree in first.degrees:
+            space = first.spaces.space(degree)
+            target_width = complex_.spaces.space(degree).dimension
+            h = homotopy.component(degree + step).scale(sign)
+            rows = tuple(
+                tuple(
+                    h.rows[row][column - target_width]
+                    if row < target_width <= column else scalar_type(int(row == column))
+                    for column in range(space.dimension)
+                )
+                for row in range(space.dimension)
+            )
+            components[degree] = LinearMap(space, second.spaces.space(degree), rows)
+        return components
+
+    forward = ChainMap(first, second, shear(1))
+    inverse = ChainMap(second, first, shear(-1))
+    assert inverse.compose(forward) == ChainMap.identity(first)
+    assert forward.compose(inverse) == ChainMap.identity(second)
+    assert all(
+        first.cohomology_dimension(degree) == second.cohomology_dimension(degree)
+        for degree in first.degrees
+    )
+    with pytest.raises(ValueError, match="commute"):
+        ChainMap(first, second, shear(-1))
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
 def test_complexes_snapshot_mutable_constructor_inputs(
     scalar_type: type[Rational] | type[Eisenstein],
     complex_type: type[ChainComplex] | type[CochainComplex],

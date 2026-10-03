@@ -602,7 +602,12 @@ class _ComplexMixin:
         return len(cycles) - _rank_of_vectors(boundaries, self.spaces.space(degree))
 
     def cohomology_representatives(self, degree: int) -> tuple[CoordinateVector, ...]:
-        """Return cycle representatives extending the boundary span."""
+        """Return cycle representatives extending the boundary span.
+
+        Pivot columns of the ordered boundary-then-cycle matrix determine the
+        representatives exactly. This is a deterministic coordinate convention,
+        not a preferred geometric basis for the quotient space.
+        """
 
         space = self.spaces.space(degree)
         boundaries = self.boundaries(degree)
@@ -796,7 +801,12 @@ class ChainMap:
 
 @dataclass(frozen=True, slots=True, init=False)
 class ChainHomotopy:
-    """An exact chain or cochain homotopy between two typed maps."""
+    """An exact chain or cochain homotopy between two typed maps.
+
+    Components satisfy ``first - second = d_target h + h d_source``.
+    The homotopy raises chain degree by one and lowers cochain degree by one;
+    every term is checked in its explicit source and target bases.
+    """
 
     first: ChainMap
     second: ChainMap
@@ -856,7 +866,13 @@ class ChainHomotopy:
 
 
 def mapping_cone(map_: ChainMap) -> ChainComplex | CochainComplex:
-    """Construct the signed mapping cone of a chain or cochain map."""
+    """Construct the signed mapping cone of a chain or cochain map.
+
+    For a map from A to B, chain degree n is B_n plus A_(n-1), whereas
+    cochain degree n is B^n plus A^(n+1). In this ordered direct-sum basis
+    the differential is ``((d_B, f), (0, -d_A))``. Equivalently, the source
+    summand is shifted by +1 for chains and -1 for cochains using ``shift``.
+    """
 
     source = map_.source
     target = map_.target

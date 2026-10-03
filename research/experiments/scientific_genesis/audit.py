@@ -3880,9 +3880,35 @@ def _nodes() -> list[dict[str, object]]:
              "data/generated/scientific_genesis/alternate_section_covariance.json"),
             ("complete original section matrix", "explicit positive Hermitian section input",
              "unchanged original local basis", "explicit uncertainty precision"),
-            ("HYM inverse kernel", "line metric and untwisting", "global integrand bounds",
+            ("nonunit-H trial kernels", "line metric and untwisting",
              "controlled independent integration", "Ricci-flat/HYM convergence",
              "harmonic matter metrics", "common stabilized vacuum"),
+        ),
+        _node(
+            "alternate_metric_trial_kernel",
+            "Complete unit-initializer trial kernel and global integrand bound",
+            "Normalization",
+            "COMPUTED",
+            "All original columns feed an admitted four-by-four inverse and "
+            "complete factorized unit-H kernel on explicit complex parameter "
+            "disks. Exact denominator/adjugate rescaling preserves the declared "
+            "precision. Independent full-archive Gaussian elimination checks "
+            "every action output. Quotient global generation and the universal "
+            "invariant lifts make the unit kernel a rank-four projection: its "
+            "operator norm is one and Frobenius norm squared is four. The "
+            "existing weight certificate bounds the whole integrand and gives "
+            "a conditional sample-mean error estimate for each fixed parameter "
+            "and independent ideal draws, not a realized integral or HYM metric.",
+            ("research/experiments/scientific_genesis/alternate_metric_trial_kernel.py",
+             "research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_metric_trial_kernel.py",
+             "data/generated/scientific_genesis/alternate_metric_trial_kernel.json"),
+            ("complete original invariant section basis", "explicit unit computational input",
+             "quotient global generation", "unchanged positive auxiliary measure"),
+            ("complete new-domain section evaluation", "independent input cloud",
+             "controlled integration", "nonunit-H iteration", "Ricci-flat/HYM convergence",
+             "line metric for untwisting", "harmonic matter/Higgs metrics",
+             "common stabilized vacuum"),
         ),
         _node(
             "visible_metrics",
@@ -3904,6 +3930,8 @@ def _nodes() -> list[dict[str, object]]:
             "coefficient bounds for every archived index. The complete bounded "
             "matrix is certified on one declared domain, and exact polynomial "
             "identities give a conservative global auxiliary weight bound. "
+            "The full unit trial kernel and its global projection integrand "
+            "bound are available, but no independent integral or iteration is. "
             "Practical multi-point throughput, controlled sampling "
             "and converged Ricci-flat/HYM matter metrics are not yet available. The "
             "published reference still lacks complete carrier cocycles.",
@@ -7075,6 +7103,36 @@ def _edges() -> list[dict[str, object]]:
             True,
             ("unit section form is not derived physics or a harmonic matter metric",),
         ),
+        *tuple(_edge(
+            source,
+            "alternate_metric_trial_kernel",
+            reason,
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md",),
+            ("complete original invariant section basis", "explicit unit computational input"),
+            True,
+            ("a projection-bound theorem is not an integral or a converged physical metric",),
+        ) for source, reason in (
+            ("alternate_section_covariance",
+             "The complete covariance and certified denominator supply the full local inverse."),
+            ("alternate_metric_quotient_generation",
+             "Global fiberwise surjectivity makes the full unit kernel a rank-four projection."),
+            ("alternate_metric_lift_operator_certificate",
+             "The universal invariant section basis realizes the generating family, not probes."),
+            ("alternate_metric_global_weight_bound",
+             "The unchanged global positive weight bounds the whole projection integrand."),
+        )),
+        _edge(
+            "alternate_metric_trial_kernel",
+            "visible_metrics",
+            "The factorized trial integrand supplies controlled integration only after "
+            "independent proposals, complete per-draw evaluations and integral error control; "
+            "physical normalization additionally requires metric and twist convergence.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md",),
+            ("independent input cloud", "controlled integral errors", "metric refinement",
+             "line metric for untwisting", "harmonic representatives"),
+            True,
+            ("unit trial input is not a stabilized metric or derived physical coefficient",),
+        ),
         _edge(
             "alternate_metric_bounded_matrix",
             "visible_metrics",
@@ -8399,6 +8457,7 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/uncertain_cover_weights.py",
                 "research/experiments/scientific_genesis/auxiliary_cover_draws.py",
                 "research/experiments/scientific_genesis/alternate_section_covariance.py",
+                "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py",
             ),
         ),
         (
@@ -8465,8 +8524,10 @@ def _scheduler() -> list[dict[str, object]]:
             "admitted-cell root/weight bounds. Use the same-prefix draw workflow "
             "without dropping pending draws; justify external independence and "
             "complete section/frame integrands on those domains with integral errors; "
-            "reuse the full trial covariance and family determinant bound before "
-            "implementing the controlled inverse/HYM kernel and line untwisting; "
+            "reuse the complete factorized unit kernel and global projection-error "
+            "bound for each fixed parameter, not a uniform probability claim over "
+            "moduli. Control every draw's numerical enclosure, then implement "
+            "nonunit-H iteration, twist refinement and line untwisting; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
@@ -8550,6 +8611,7 @@ def build_state() -> dict[str, object]:
     """Inspect authoritative artifacts and assemble the deterministic state."""
 
     from .alternate_down_lepton_full_matrices import load_full_matrices
+    from .alternate_metric_trial_kernel import read_kernel
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
     from .alternate_section_covariance import read_covariance
     from .auxiliary_cover_draws import read_draws
@@ -8563,6 +8625,13 @@ def build_state() -> dict[str, object]:
         "93cdd93105e5723fe7312c574cbe436333414c1593ba5ff1fe58c85fea448988"
     ):
         raise ValueError("the complete original section covariance changed its trusted digest")
+
+    trial_kernel = read_kernel()
+    trial_kernel_digest = _canonical_digest(trial_kernel)
+    if trial_kernel_digest != (
+        "7da6b80e9694fb1f9f3f6249c5652fbb8a28d2c691bde4f1b49ac6de73da96b3"
+    ):
+        raise ValueError("the complete unit trial kernel changed its trusted output or scope")
 
     auxiliary_draws = read_draws()
     if _canonical_digest(auxiliary_draws) != (
@@ -12034,6 +12103,10 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/alternate_section_covariance.py",
         "research/experiments/scientific_genesis/ALTERNATE_SECTION_COVARIANCE_NOTE.md",
         "tests/integration/test_scientific_genesis_alternate_section_covariance.py",
+        "data/generated/scientific_genesis/alternate_metric_trial_kernel.json",
+        "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_trial_kernel.py",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_neutrino_full_holomorphic_matrix.json",
@@ -12089,7 +12162,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3179,
+            "collected_tests_at_audit": 3248,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12626,11 +12699,28 @@ def build_state() -> dict[str, object]:
         "uncertain_cover_frames": uncertain_frames,
         "auxiliary_cover_draws": auxiliary_draws,
         "alternate_section_covariance": section_covariance,
+        "alternate_metric_trial_kernel": {
+            **{key: value for key, value in trial_kernel.items() if key not in (
+                "complete_action", "cover_weighted_complete_action_without_pi_cubed",
+                "quotient_weighted_complete_action_without_pi_cubed",
+            )},
+            "complete_action_reference": {
+                "path": "data/generated/scientific_genesis/alternate_metric_trial_kernel.json",
+                "artifact_digest": trial_kernel_digest,
+                "each_original_action_array_length": len(trial_kernel["complete_action"]),
+                "description": "all three full action arrays are verified in the referenced packet",
+            },
+        },
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "the complete original unit-H trial kernel has an admitted whole-region "
+            "inverse and all 5345 factorized action outputs; the global rank-four "
+            "projection identity controls the weighted integrand with conditional "
+            "fixed-parameter independent-law error estimates, not an integral, "
+            "simultaneous moduli probability bound or a physical metric",
             "all 5345 original columns contribute to complete formal trial covariance "
             "and unchanged auxiliary-weighted blocks on the original domain; "
             "exact triangular structure and positive constituent minor bounds "

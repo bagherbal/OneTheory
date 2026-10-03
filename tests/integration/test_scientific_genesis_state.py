@@ -79,6 +79,35 @@ def test_full_section_covariance_is_not_physical_normalization() -> None:
     assert record["unit_family_determinant_certificate"]["extension_parameter_choice_used"] is False
 
 
+def test_complete_trial_kernel_keeps_independent_integration_and_physics_unresolved() -> None:
+    """A global projector bound is not a metric or a uniform stochastic moduli claim."""
+
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    record = stored["alternate_metric_trial_kernel"]
+    assert claims["alternate_metric_trial_kernel"]["status"] == "COMPUTED"
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+    assert record["section_count"] == 5345
+    assert record["complete_action_reference"]["each_original_action_array_length"] == 5345
+    assert record["full_factorized_trial_kernel_available"] is True
+    assert record["global_unit_kernel_integrand_bound_available"] is True
+    assert record["line_metric_required_for_trial_kernel"] is False
+    assert record["line_twist_removed"] is False
+    assert record["nonunit_kernel_execution_available"] is False
+    assert record["uniform_simultaneous_parameter_family_probability_bound_available"] is False
+    assert record["independent_cloud_available"] is False
+    assert record["controlled_integral_available"] is False
+    assert record["ricci_flat_or_hym_metric_available"] is False
+    assert record["physical_yukawas_available"] is False
+    assert record["common_stabilized_vacuum_available"] is False
+    assert {edge["source"] for edge in stored["dependencies"]
+            if edge["target"] == "alternate_metric_trial_kernel"} == {
+        "alternate_section_covariance", "alternate_metric_quotient_generation",
+        "alternate_metric_lift_operator_certificate", "alternate_metric_global_weight_bound",
+    }
+
+
 @pytest.mark.parametrize(
     "schema,field,error",
     (

@@ -1,5 +1,21 @@
 # Scientific Genesis audit
 
+`alternate_metric_trial_kernel.py` uses the complete original section archive
+and explicit parameter disks to admit a four-by-four inverse and apply the
+factorized trial kernel to all 5,345 coordinates. Exact denominator rescaling
+is recorded; it neither changes physical normalization nor increases precision.
+Independent Fraction-pair Gaussian elimination checks the complete action.
+
+The rank-four projection identity bounds the whole unit-H integrand globally
+using the existing auxiliary weight certificate. It also supplies a conditional
+sample-mean error bound for each fixed parameter and independent ideal draws,
+not a simultaneous probability claim over moduli or a realized cloud.
+Scalar-coordinate variance refers to Re/Im of complex matrix entries, not the
+two coefficient components in Q(omega). Local line trivializations cancel in
+the kernel; physical fiber metrics still need
+untwisting. No integral, balanced iteration, HYM metric, harmonic matter metric
+or stabilized vacuum follows. See `ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md`.
+
 `alternate_section_covariance.py` consumes all 5,345 original columns with an
 explicit positive exact LDL section input. Its nine complex-parameter blocks
 and auxiliary-weighted versions are trial covariance, not harmonic matter

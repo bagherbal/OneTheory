@@ -1,4 +1,477 @@
 {
+  "alternate_metric_trial_kernel": {
+    "action_input": {
+      "nonzero_coordinates": [
+        [
+          0,
+          [
+            "1",
+            "0"
+          ]
+        ]
+      ],
+      "role": "computational section-coordinate witness only"
+    },
+    "admitted_real_determinant_interval": [
+      "4230371948037957638400671109898753279214225834949613166513139192742414287086816289695/1208925819614629174706176",
+      "79232153041076082711183291431339437821167325482248437928836643181859371620453762721109509973915/302231454903657293676544"
+    ],
+    "all_original_action_coordinates_produced": true,
+    "all_original_columns_consumed": true,
+    "balanced_iteration_performed": false,
+    "bound_bits": 80,
+    "common_stabilized_vacuum_available": false,
+    "complete_action_reference": {
+      "artifact_digest": "7da6b80e9694fb1f9f3f6249c5652fbb8a28d2c691bde4f1b49ac6de73da96b3",
+      "description": "all three full action arrays are verified in the referenced packet",
+      "each_original_action_array_length": 5345,
+      "path": "data/generated/scientific_genesis/alternate_metric_trial_kernel.json"
+    },
+    "conditional_error_assumptions": [
+      "fixed unit input",
+      "fixed extension parameters independent of the sampling cloud",
+      "independent draws",
+      "unchanged ideal positive auxiliary law",
+      "certified complete per-draw evaluation"
+    ],
+    "controlled_integral_available": false,
+    "covariance_parent_digest": "93cdd93105e5723fe7312c574cbe436333414c1593ba5ff1fe58c85fea448988",
+    "error_probability_bound_rule": "4 B^2/(n epsilon^2) for each fixed a; pi^3 factored out",
+    "exact_arithmetic_denominator_scale": "79232153041076082711183291431339437821167325482248437928836643181859371620453762721109509973915/302231454903657293676544",
+    "extension_point_selected": false,
+    "fiber_basis_labels": [
+      "V1:F0:0",
+      "V1:F0:2",
+      "V2:F0:2",
+      "V2:F0:3"
+    ],
+    "fiber_rank": 4,
+    "full_factorized_trial_kernel_available": true,
+    "generation_and_lift_proof_sha256": {
+      "ALTERNATE_METRIC_LIFT_OPERATOR_CERTIFICATE_NOTE.md": "fd34381d477f91bcd912771dbefcc9b39f95c5499850e19b427b5673433e7820",
+      "ALTERNATE_METRIC_QUOTIENT_GENERATION_NOTE.md": "f900fbd7433d6f624b13ba8065cd0a6b396b13757428e7fbd551dbabde01f726"
+    },
+    "global_fiber_inverse_norm_bound_available": false,
+    "global_scope": "complete original quotient-generating alternate P1 family",
+    "global_unit_kernel_bounds": {
+      "cover": {
+        "conditional_real_coordinate_variance_upper_without_pi_to_six": "32849069799579000939866571984287408401568042582016/147418832316434349841",
+        "conditional_sample_mean_squared_frobenius_error_numerator_without_pi_to_six": "525585116793264015037865151748598534425088681312256/147418832316434349841",
+        "diagonal_upper_without_pi_cubed": "11462821607192358455083008/12141615721",
+        "frobenius_squared_upper_without_pi_to_six": "525585116793264015037865151748598534425088681312256/147418832316434349841",
+        "off_diagonal_modulus_upper_without_pi_cubed": "5731410803596179227541504/12141615721",
+        "operator_norm_upper_without_pi_cubed": "11462821607192358455083008/12141615721"
+      },
+      "quotient": {
+        "conditional_real_coordinate_variance_upper_without_pi_to_six": "405544071599740752344031752892437140760099291136/147418832316434349841",
+        "conditional_sample_mean_squared_frobenius_error_numerator_without_pi_to_six": "6488705145595852037504508046278994252161588658176/147418832316434349841",
+        "diagonal_upper_without_pi_cubed": "1273646845243595383898112/12141615721",
+        "frobenius_squared_upper_without_pi_to_six": "6488705145595852037504508046278994252161588658176/147418832316434349841",
+        "off_diagonal_modulus_upper_without_pi_cubed": "636823422621797691949056/12141615721",
+        "operator_norm_upper_without_pi_cubed": "1273646845243595383898112/12141615721"
+      }
+    },
+    "global_unit_kernel_integrand_bound_available": true,
+    "gram": [
+      [
+        {
+          "center": [
+            "42014255266722473025722264643460286668193/302231454903657293676544",
+            "0"
+          ],
+          "radius": "503539063266784388877014516356164178499463091/75557863725914323419136"
+        },
+        {
+          "center": [
+            "156720259664659639745737309133210836397615/1208925819614629174706176",
+            "234644238148500700258000241148843310479271/1208925819614629174706176"
+          ],
+          "radius": "6257855911492036318793382231200681584029533547/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "287717175258141064079231034324473974069383/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "267912271277637872421310269098015736627857/604462909807314587353088"
+        }
+      ],
+      [
+        {
+          "center": [
+            "-9740497310480132564032866501954059260207/151115727451828646838272",
+            "-234644238148500700258000241148843310479271/1208925819614629174706176"
+          ],
+          "radius": "6257855911492036318793382231200681584029533547/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "408217005387760459231834150829451834653043/1208925819614629174706176",
+            "0"
+          ],
+          "radius": "3323704815708227105395106367020103733096459955/604462909807314587353088"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "188852330946899179995559505552349568527975/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "491044185761148833506229188003069817851541/1208925819614629174706176"
+        }
+      ],
+      [
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "287717175258141064079231034324473974069383/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "188852330946899179995559505552349568527975/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "4038967050317369847655010191796392023/302231454903657293676544",
+            "0"
+          ],
+          "radius": "277086982868688091786709214539/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "-5528041152366107583979079776049158475/302231454903657293676544",
+            "2218809820752947004279959755162008857/604462909807314587353088"
+          ],
+          "radius": "233738693649405938142170559291/604462909807314587353088"
+        }
+      ],
+      [
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "267912271277637872421310269098015736627857/604462909807314587353088"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "491044185761148833506229188003069817851541/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "-13274892125485162172238119307260325807/604462909807314587353088",
+            "-2218809820752947004279959755162008857/604462909807314587353088"
+          ],
+          "radius": "233738693649405938142170559291/604462909807314587353088"
+        },
+        {
+          "center": [
+            "13879532246596680259717109477030489941/302231454903657293676544",
+            "0"
+          ],
+          "radius": "1002463367458350428172659449497/1208925819614629174706176"
+        }
+      ]
+    ],
+    "harmonic_matter_or_higgs_metrics_available": false,
+    "independent_cloud_available": false,
+    "inverse": [
+      [
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "4045541448149/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "4495046053499/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "44416186852809977/604462909807314587353088"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "44818980437920559/1208925819614629174706176"
+        }
+      ],
+      [
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "4495046053499/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "5693725001099/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "48337065690408303/604462909807314587353088"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "26366441801137931/604462909807314587353088"
+        }
+      ],
+      [
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "44416186852809977/604462909807314587353088"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "48337065690408303/604462909807314587353088"
+        },
+        {
+          "center": [
+            "37458717113/302231454903657293676544",
+            "0"
+          ],
+          "radius": "1201782362381387595747/604462909807314587353088"
+        },
+        {
+          "center": [
+            "37458717113/1208925819614629174706176",
+            "0"
+          ],
+          "radius": "1089797351634186893615/1208925819614629174706176"
+        }
+      ],
+      [
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "44818980437920559/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "0",
+            "0"
+          ],
+          "radius": "26366441801137931/604462909807314587353088"
+        },
+        {
+          "center": [
+            "37458717113/1208925819614629174706176",
+            "0"
+          ],
+          "radius": "1089797351634186893615/1208925819614629174706176"
+        },
+        {
+          "center": [
+            "37458717113/1208925819614629174706176",
+            "0"
+          ],
+          "radius": "589684129073744134341/1208925819614629174706176"
+        }
+      ]
+    ],
+    "inverse_rule": "(adjugate/M)/(determinant/M); M=certified determinant upper bound",
+    "kernel_rule": "Sdagger (S Sdagger)^-1 S; full original invariant section basis",
+    "line_metric_required_for_trial_kernel": false,
+    "line_twist_removed": false,
+    "new_all_column_cochain_replay_performed": false,
+    "new_geometric_domain_section_calculation_performed": false,
+    "nonunit_kernel_execution_available": false,
+    "observations_used": false,
+    "parameter_order": [
+      "a0",
+      "a1"
+    ],
+    "parameter_region_role": "computational full-polydisk enclosure only; no point selection",
+    "parameter_regions": [
+      {
+        "center": [
+          "0",
+          "0"
+        ],
+        "radius": "1"
+      },
+      {
+        "center": [
+          "0",
+          "0"
+        ],
+        "radius": "1"
+      }
+    ],
+    "physical_yukawas_available": false,
+    "practical_sample_cost_certified": false,
+    "prerequisite_digests": {
+      "alternate_metric_global_weight_bound.json": "96e3d216aa6157dab686069b095e304de5f7e9600348f42c00fff0691986c0f4",
+      "alternate_metric_lift_operator_certificate.json": "6870cdf9bc875777e8ded58e6b434d865204b8aa9aa69c6194e5b5463d55eb82",
+      "alternate_metric_quotient_generation.json": "3ca16bfa116c6b5530d73e74486eb196d37dbf9c0f7e75d445e84c41176fe063"
+    },
+    "projection_rank": 4,
+    "proof_sha256": "e572c4cb0e676a62b13707d32fa048eec5cf7638e82c2ec70bf686573089c1a4",
+    "ricci_flat_or_hym_metric_available": false,
+    "schema": "alternate-metric-trial-kernel-v1",
+    "section_basis_digest": "88bc48fda6bdaed2368ece1f8394920a68bed0e04d318a0a5cbd7e0a6d57b53d",
+    "section_count": 5345,
+    "section_form": "explicit unit-H computational initializer; not a physical metric",
+    "source_identity": [
+      {
+        "artifact_digest": "88cc1d553baa2a00a8f9c105d1ecab52d18d9c9a3e73042b617161253e09688a",
+        "coefficient_entry_count": 64140,
+        "exact_column_stream_sha256": "88bc48fda6bdaed2368ece1f8394920a68bed0e04d318a0a5cbd7e0a6d57b53d",
+        "largest_coefficient_radius": "841026448450145274475357975/604462909807314587353088",
+        "matrix_archive_sha256": "3f0b600967c9b61d060c2c5d13f51d8b6e5e549bf50600ca6cd813d387e9afce",
+        "numerical_metrics_available": false,
+        "original_probe_indices_checked": [
+          0,
+          1273,
+          2655
+        ],
+        "physical_yukawas_available": false,
+        "section_count": 5345,
+        "single_certified_local_domain_only": true,
+        "uncertain_entry_count": 21430
+      },
+      {
+        "bound_bits": 80,
+        "bounded_section_and_density_evaluation_available": false,
+        "bounded_support_artifact_digest": "648135531c44d0790e19b42093b11786d8e5f387926e0dc0c261aea34f9940a8",
+        "centers_are_exact_cover_points": false,
+        "chart_pivots": [
+          0,
+          0,
+          0
+        ],
+        "coefficient_entry_count": 64140,
+        "complete_bounded_5345_column_matrix_materialized": true,
+        "configuration_name": "finite_chart",
+        "controlled_numerical_sampling_available": false,
+        "exact_column_stream_sha256": "88bc48fda6bdaed2368ece1f8394920a68bed0e04d318a0a5cbd7e0a6d57b53d",
+        "extension_point_selected": false,
+        "fiber_basis_labels": [
+          "V1:F0:0",
+          "V1:F0:2",
+          "V2:F0:2",
+          "V2:F0:3"
+        ],
+        "first_pivot_rows": [
+          0,
+          2
+        ],
+        "independent_all_column_full_cochain_replay_performed": false,
+        "independent_full_cochain_checks_from_parent": [
+          2655
+        ],
+        "largest_coefficient_radius": "841026448450145274475357975/604462909807314587353088",
+        "matrix_archive": "data/generated/scientific_genesis/alternate_metric_bounded_matrix.columns.jsonl.gz",
+        "matrix_archive_bytes": 15498391,
+        "matrix_archive_sha256": "3f0b600967c9b61d060c2c5d13f51d8b6e5e549bf50600ca6cd813d387e9afce",
+        "next_required_object": "control multi-point cost, SU-uniform proposal precision, integration error, and Ricci-flat/HYM convergence; keep the common vacuum unresolved",
+        "numerical_metrics_available": false,
+        "observational_inputs_used": false,
+        "original_constituent_counts": [
+          2655,
+          2690
+        ],
+        "parameter_basis": [
+          "a0",
+          "a1"
+        ],
+        "physical_yukawas_available": false,
+        "practical_multi_point_integration_throughput_certified": false,
+        "root_artifact_digest": "cc160262ba3ca6d389c28b1ea2b42c49372d5e47ce90af93ab00ab60cab6ebdf",
+        "root_pair": [
+          0,
+          0
+        ],
+        "schema": "alternate-metric-bounded-matrix-v1",
+        "second_pivot_rows": [
+          0,
+          1,
+          2
+        ],
+        "section_count": 5345,
+        "single_certified_local_domain_only": true,
+        "uncertain_entry_count": 21430,
+        "vacuum_selected": false
+      },
+      "c95486f83301f30fe55906ae773981d3a18d5662b56587de769f9744638cd66e",
+      [
+        {
+          "data/generated/scientific_genesis/alternate_constituent_outer_invariants.json": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+          "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+          "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json": "d9e320a952cc6d5fc843ea2f9c0254823d8d9a49b8d6dbd1d2dda0dd2d61f01c",
+          "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json": "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d",
+          "data/generated/scientific_genesis/alternate_metric_outer_lifts.json": "3708b3f7757ec12080daa98d09315ed53a2c7d0e0ead61ff3a55777bb00aaa4c",
+          "data/generated/scientific_genesis/alternate_metric_second_sections.json": "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348",
+          "data/generated/scientific_genesis/projective_uncertain_intersections.json": "97981cfe6a6d67fd40287c8902a99f4ce3a73729fea6a64b4f133fdce82c0d26",
+          "data/generated/scientific_genesis/uncertain_cover_weights.json": "5be593ab1bfa8d1200b72a944d127cde33343158f1be79236ed5bcef51934429"
+        },
+        {
+          "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz": "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68",
+          "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz": "cce0f3f00f7a61fb870087e21249af02ddd2b48c23b67e36bf0d67f8ee6a37e3"
+        }
+      ]
+    ],
+    "source_publication": "https://arxiv.org/pdf/1103.3041",
+    "source_publication_equations": [
+      "3.18",
+      "3.19"
+    ],
+    "structural_determinant_lower_bound": "1278551468639130850053391284099709313432739979326128227686751597055498819427902494433677382311330892427007935/365375409332725729550921208179070754913983135744",
+    "uncertain_center_bits": 80,
+    "uniform_simultaneous_parameter_family_probability_bound_available": false,
+    "unit_form_is_physical_or_canonical": false,
+    "unweighted_frobenius_squared": "4",
+    "unweighted_operator_norm": "1"
+  },
   "alternate_section_covariance": {
     "all_original_columns_consumed": true,
     "bound_bits": 80,
@@ -14140,7 +14613,7 @@
       ]
     ]
   },
-  "artifact_digest": "d89ac0f8b314f7d515f60bf0906c3ba72b455d40ad9458a4cfb203730edbbacf",
+  "artifact_digest": "5fc5409422d0328f9a704b36e9acf7f9bb1763d5a2f8b8d23fc628dd3da2939e",
   "artifacts": [
     {
       "bytes": 3337,
@@ -15503,6 +15976,26 @@
       "sha256": "1d49394e805b66bed1d094dd71eae725205011c2c31bef7a25f11c87dedef05e"
     },
     {
+      "bytes": 2066607,
+      "path": "data/generated/scientific_genesis/alternate_metric_trial_kernel.json",
+      "sha256": "adc7ba6b11ab5d7bb17ef4e98874ee37a3b9a83dd7786f945314e2ab30e47200"
+    },
+    {
+      "bytes": 21617,
+      "path": "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py",
+      "sha256": "7c605e8155146b79609db8a8d562e387d2a0f7bd662e4666de6a6635af56bfd0"
+    },
+    {
+      "bytes": 7160,
+      "path": "research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md",
+      "sha256": "e572c4cb0e676a62b13707d32fa048eec5cf7638e82c2ec70bf686573089c1a4"
+    },
+    {
+      "bytes": 17980,
+      "path": "tests/integration/test_scientific_genesis_alternate_metric_trial_kernel.py",
+      "sha256": "64016a3ff4add0c74dda6ee55b96b7ca6f83324f6588ce9ac8e513b5f815a5c9"
+    },
+    {
       "bytes": 13010,
       "path": "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
       "sha256": "b634077922c0a7d2ed8c4fb3886ff562412d4f2c12b61fc00a57cea98418ea10"
@@ -15794,11 +16287,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3179,
+    "collected_tests_at_audit": 3248,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 299,
-    "test_python_files": 285
+    "research_python_files": 300,
+    "test_python_files": 286
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -20678,15 +21171,43 @@
       "label": "complete trial covariance from the original full section matrix",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "HYM inverse kernel",
+        "nonunit-H trial kernels",
         "line metric and untwisting",
-        "global integrand bounds",
         "controlled independent integration",
         "Ricci-flat/HYM convergence",
         "harmonic matter metrics",
         "common stabilized vacuum"
       ],
       "statement": "The original affine section matrix and an explicitly supplied positive exact LDL section covariance give all nine Hermitian coefficient blocks with formal a0,a1 and their conjugates. Complete streaming contraction supports non-diagonal inputs, retains uncertain zeros and explicit precision. The declared unit-H input is a computational initializer, not a physical or canonical metric. Existing auxiliary weights provide a weighted trial-covariance integrand only on its original domain. The exact full-column triangular pattern and positive constituent minors give a uniform determinant lower bound for every complex extension parameter, without selection. Independent full-archive Fraction-pair contraction and determinant expansion verify it.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "complete original invariant section basis",
+        "explicit unit computational input",
+        "quotient global generation",
+        "unchanged positive auxiliary measure"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_trial_kernel.py",
+        "data/generated/scientific_genesis/alternate_metric_trial_kernel.json"
+      ],
+      "id": "alternate_metric_trial_kernel",
+      "label": "Complete unit-initializer trial kernel and global integrand bound",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "complete new-domain section evaluation",
+        "independent input cloud",
+        "controlled integration",
+        "nonunit-H iteration",
+        "Ricci-flat/HYM convergence",
+        "line metric for untwisting",
+        "harmonic matter/Higgs metrics",
+        "common stabilized vacuum"
+      ],
+      "statement": "All original columns feed an admitted four-by-four inverse and complete factorized unit-H kernel on explicit complex parameter disks. Exact denominator/adjugate rescaling preserves the declared precision. Independent full-archive Gaussian elimination checks every action output. Quotient global generation and the universal invariant lifts make the unit kernel a rank-four projection: its operator norm is one and Frobenius norm squared is four. The existing weight certificate bounds the whole integrand and gives a conditional sample-mean error estimate for each fixed parameter and independent ideal draws, not a realized integral or HYM metric.",
       "status": "COMPUTED"
     },
     {
@@ -20702,7 +21223,7 @@
         "controlled numerical full-basis evaluation and metric sampling",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Actual chart, Laurent-coefficient, and density errors are bounded, and universal quotient frames now have certified bounds on declared pivot domains. Full original-cochain section evaluation is bounded on demand. The original finite-pole engine also carries certified coefficient bounds for every archived index. The complete bounded matrix is certified on one declared domain, and exact polynomial identities give a conservative global auxiliary weight bound. Practical multi-point throughput, controlled sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Actual chart, Laurent-coefficient, and density errors are bounded, and universal quotient frames now have certified bounds on declared pivot domains. Full original-cochain section evaluation is bounded on demand. The original finite-pole engine also carries certified coefficient bounds for every archived index. The complete bounded matrix is certified on one declared domain, and exact polynomial identities give a conservative global auxiliary weight bound. The full unit trial kernel and its global projection integrand bound are available, but no independent integral or iteration is. Practical multi-point throughput, controlled sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
       "status": "BLOCKED"
     },
     {
@@ -25140,6 +25661,89 @@
     },
     {
       "assumptions_required": [
+        "complete original invariant section basis",
+        "explicit unit computational input"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a projection-bound theorem is not an integral or a converged physical metric"
+      ],
+      "mathematical_reason": "The complete covariance and certified denominator supply the full local inverse.",
+      "source": "alternate_section_covariance",
+      "target": "alternate_metric_trial_kernel"
+    },
+    {
+      "assumptions_required": [
+        "complete original invariant section basis",
+        "explicit unit computational input"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a projection-bound theorem is not an integral or a converged physical metric"
+      ],
+      "mathematical_reason": "Global fiberwise surjectivity makes the full unit kernel a rank-four projection.",
+      "source": "alternate_metric_quotient_generation",
+      "target": "alternate_metric_trial_kernel"
+    },
+    {
+      "assumptions_required": [
+        "complete original invariant section basis",
+        "explicit unit computational input"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a projection-bound theorem is not an integral or a converged physical metric"
+      ],
+      "mathematical_reason": "The universal invariant section basis realizes the generating family, not probes.",
+      "source": "alternate_metric_lift_operator_certificate",
+      "target": "alternate_metric_trial_kernel"
+    },
+    {
+      "assumptions_required": [
+        "complete original invariant section basis",
+        "explicit unit computational input"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a projection-bound theorem is not an integral or a converged physical metric"
+      ],
+      "mathematical_reason": "The unchanged global positive weight bounds the whole projection integrand.",
+      "source": "alternate_metric_global_weight_bound",
+      "target": "alternate_metric_trial_kernel"
+    },
+    {
+      "assumptions_required": [
+        "independent input cloud",
+        "controlled integral errors",
+        "metric refinement",
+        "line metric for untwisting",
+        "harmonic representatives"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "unit trial input is not a stabilized metric or derived physical coefficient"
+      ],
+      "mathematical_reason": "The factorized trial integrand supplies controlled integration only after independent proposals, complete per-draw evaluations and integral error control; physical normalization additionally requires metric and twist convergence.",
+      "source": "alternate_metric_trial_kernel",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "certified complete output",
         "measured multi-point cost",
         "SU-uniform proposal law",
@@ -26465,6 +27069,7 @@
     }
   ],
   "established_results": [
+    "the complete original unit-H trial kernel has an admitted whole-region inverse and all 5345 factorized action outputs; the global rank-four projection identity controls the weighted integrand with conditional fixed-parameter independent-law error estimates, not an integral, simultaneous moduli probability bound or a physical metric",
     "all 5345 original columns contribute to complete formal trial covariance and unchanged auxiliary-weighted blocks on the original domain; exact triangular structure and positive constituent minor bounds give a uniform determinant lower bound for every complex parameter; unit H is a declared initializer, not a physical or harmonic matter metric",
     "the auxiliary mixture has a conditional same-prefix draw workflow with unbiased exact selectors, native actual roots and weights, certified branch continuation and retained unresolved requests; deterministic probes are not an IID cloud or a controlled integral",
     "all fifteen declared uncertain cover domains admit the original universal quotient and full cochain section probes 0/2655; explicit center rounding bounds coefficient growth without approximating exact singleton inputs; no independent cloud, full integrand, physical metric or stabilized vacuum is supplied",
@@ -29139,7 +29744,7 @@
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Use the actual residue and normalized FS measure with the bounded all-index evaluator and certified complete single-domain output; measure multi-point cost, then implement the positive auxiliary SU-uniform mixture using the quantitative global weight bound and admitted-cell root/weight bounds. Use the same-prefix draw workflow without dropping pending draws; justify external independence and complete section/frame integrands on those domains with integral errors; reuse the full trial covariance and family determinant bound before implementing the controlled inverse/HYM kernel and line untwisting; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Use the actual residue and normalized FS measure with the bounded all-index evaluator and certified complete single-domain output; measure multi-point cost, then implement the positive auxiliary SU-uniform mixture using the quantitative global weight bound and admitted-cell root/weight bounds. Use the same-prefix draw workflow without dropping pending draws; justify external independence and complete section/frame integrands on those domains with integral errors; reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Control every draw's numerical enclosure, then implement nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,
@@ -29422,7 +30027,8 @@
         "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
         "research/experiments/scientific_genesis/uncertain_cover_weights.py",
         "research/experiments/scientific_genesis/auxiliary_cover_draws.py",
-        "research/experiments/scientific_genesis/alternate_section_covariance.py"
+        "research/experiments/scientific_genesis/alternate_section_covariance.py",
+        "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py"
       ],
       "maturity": "research-only; actual roots/charts/densities/universal frames, not sampling or metrics"
     },

@@ -1,5 +1,32 @@
 # Scientific Genesis research map
 
+## Complete factorized trial kernel and global projection bound
+
+`alternate_metric_trial_kernel` closes the complete original covariance's
+controlled inverse and factorized unit-H kernel on an explicit parameter
+polydisk, without selecting a point. All 5,345 original columns and all action
+outputs are retained. Independent full-archive Fraction-pair Gaussian
+elimination, not the producer's adjugate algorithm, checks the complete action.
+The tiny inverse determinant revealed an absolute-mesh precision deficiency;
+explicit exact denominator/adjugate rescaling removes that unnecessary loss
+without changing inputs or increasing precision.
+
+Global generation and the certified invariant universal lifts make the unit
+kernel an orthogonal rank-four projection throughout the quotient family.
+Its operator norm is one and its squared Frobenius norm is four. The existing
+global positive weight bound therefore controls the entire weighted kernel,
+not just selected entries or the one executed geometric domain. For each fixed
+parameter and independent ideal draws, the sample-mean squared Frobenius error
+is at most `4 B^2/n`, with pi cubed factored out. This is not a uniform
+simultaneous probability bound over parameters or an actual independent cloud.
+
+The kernel is invariant under local fiber and line-trivialization changes;
+physical metric untwisting remains a separate condition. Unit H is explicit
+computational input, not physical normalization. Complete new-domain section
+throughput, controlled independent integration, nonunit-H iteration, metric
+refinement, harmonic matter/Higgs metrics and the common vacuum remain open.
+See `ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md` for the derivation and source pins.
+
 ## Full original trial section covariance
 
 `alternate_section_covariance` consumes all 5,345 original columns from the

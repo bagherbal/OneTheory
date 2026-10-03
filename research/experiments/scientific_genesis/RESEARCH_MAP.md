@@ -1559,6 +1559,23 @@ convergence, physical normalization, and a common vacuum remain open.
 Selecting one root per independent configuration is required when claiming
 independent draws; correlated full root batches cannot be counted as such.
 
+## Controlled auxiliary projective input cells
+
+The auxiliary projective-input precision prerequisite now has a reusable
+research converter, `projective_uniform_input_cells.py`. Ordered uniform
+spacings and independent phases derive the normalized FS point/dual-hyperplane
+law on CP1 and CP2; finite dyadic input cells propagate as coupled unit-vector
+enclosures. Exact simplex moments and independent Chudnovsky/complex-series
+checks attack its law and bounds. Tied bins, zero weights, and coarse precision
+are retained, not rejected or silently refined. The content-addressed boundary
+probes are descriptive input enclosures, not uniform draws or a cover cloud.
+Its probability statement is conditional on independent uniform input bits.
+There is no RNG or claim of total-variation convergence of rational centers.
+The direct DAG edge records uncertain-input branch-complete roots, actual
+integrand bounds, independent cloud errors and metric convergence as remaining
+requirements. See `PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md`. This does not alter
+the ongoing complete down/lepton replay or any physical completion flag.
+
 ## Same-carrier Dirac-neutrino vertical slice
 
 The source-pinned L/nu^c/H_u Wilson weights route to constituent characters

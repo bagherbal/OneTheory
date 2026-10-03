@@ -3589,6 +3589,27 @@ def _nodes() -> list[dict[str, object]]:
             ("same actual pencils", "nonzero declared eliminated-coordinate Jacobians"),
         ),
         _node(
+            "projective_uniform_input_cells",
+            "controlled coupled input cells for the auxiliary projective law",
+            "Normalization",
+            "DERIVED",
+            "Uniform simplex spacings and independent phases give normalized FS "
+            "point and dual-hyperplane laws on CP1 and CP2. Exact rational "
+            "analytic remainders enclose each complete supplied dyadic input "
+            "cell in coupled homogeneous-coordinate disks, including tied bins "
+            "and zero weights. Independent simplex moments and Chudnovsky "
+            "endpoint checks attack the construction. This is conditional "
+            "on independent uniform input bits: no RNG, uncertain-input "
+            "intersection roots, cover cloud, or numerical metric is supplied.",
+            ("research/experiments/scientific_genesis/projective_uniform_input_cells.py",
+             "research/experiments/scientific_genesis/PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md",
+             "tests/integration/test_scientific_genesis_projective_uniform_input_cells.py",
+             "data/generated/scientific_genesis/projective_uniform_input_cells.json"),
+            ("explicit auxiliary FS convention", "independent uniform input cell indices"),
+            ("branch-complete roots for uncertain inputs", "independent cover draws",
+             "integrand error control", "Ricci-flat/HYM convergence"),
+        ),
+        _node(
             "alternate_metric_projection_free_weights",
             "projection-free positive-law weights from the ambient conormal Gram",
             "Normalization",
@@ -6632,6 +6653,30 @@ def _edges() -> list[dict[str, object]]:
             ("uniform sampling cannot be inferred from exact regression inputs",),
         ),
         _edge(
+            "alternate_metric_positive_measure",
+            "projective_uniform_input_cells",
+            "Each auxiliary mixture component requires uniform projective "
+            "point or dual-hyperplane inputs; simplex spacings and phase cells "
+            "retain the precision error of that same probability law.",
+            ("research/experiments/scientific_genesis/PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md",),
+            ("normalized FS convention", "independent uniform input bits"),
+            True,
+            ("rounded centers alone are not continuous uniform draws",),
+        ),
+        _edge(
+            "projective_uniform_input_cells",
+            "visible_metrics",
+            "Coupled projective input bounds can feed the unchanged intersection "
+            "law only after uncertain coefficient root completeness, chart and "
+            "section bounds, independent integration errors, and metric convergence.",
+            ("research/experiments/scientific_genesis/projective_uniform_input_cells.py",),
+            ("independent uniform inputs", "branch-complete roots for uncertain inputs",
+             "actual integrand bounds", "Ricci-flat/HYM convergence"),
+            True,
+            ("input-space chordal error is not an intersection integrand error",
+             "rejecting difficult configurations can bias the probability law"),
+        ),
+        _edge(
             "alternate_metric_weight_moments",
             "alternate_metric_critical_charts",
             "The nodal-fiber proof establishes a nonzero base derivative on the "
@@ -8049,6 +8094,7 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
                 "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py",
                 "research/experiments/scientific_genesis/alternate_metric_bounded_support.py",
+                "research/experiments/scientific_genesis/projective_uniform_input_cells.py",
             ),
         ),
         (
@@ -8212,6 +8258,13 @@ def build_state() -> dict[str, object]:
     """Inspect authoritative artifacts and assemble the deterministic state."""
 
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
+    from .projective_uniform_input_cells import read_input_cells
+
+    uniform_input_cells = read_input_cells()
+    if _canonical_digest(uniform_input_cells) != (
+        "b8db32fa76846ebbc8fba44ff5fcb67b1a92f9961d05f8b61355141d8fd7cade"
+    ):
+        raise ValueError("the coupled projective input cells changed their trusted digest")
 
     hidden_chamber = read_hidden_chamber()
     if _canonical_digest(hidden_chamber) != (
@@ -11624,6 +11677,10 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_measure.json",
         "data/generated/scientific_genesis/alternate_metric_weight_moments.json",
         "data/generated/scientific_genesis/alternate_metric_positive_measure.json",
+        "data/generated/scientific_genesis/projective_uniform_input_cells.json",
+        "research/experiments/scientific_genesis/projective_uniform_input_cells.py",
+        "research/experiments/scientific_genesis/PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md",
+        "tests/integration/test_scientific_genesis_projective_uniform_input_cells.py",
         "data/generated/scientific_genesis/alternate_metric_critical_charts.json",
         "data/generated/scientific_genesis/alternate_metric_projection_free_weights.json",
         "data/generated/scientific_genesis/alternate_metric_global_weight_bound.json",
@@ -11678,7 +11735,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2886,
+            "collected_tests_at_audit": 2942,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12205,6 +12262,7 @@ def build_state() -> dict[str, object]:
             ),
         },
         "necessary_hidden_chamber": hidden_chamber,
+        "projective_uniform_input_cells": uniform_input_cells,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),

@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "f4b2bae7252393cce5a4e9d17676675682874ffb7c92287bc581ba8a68eade96",
+  "artifact_digest": "1e1ebccd3f51615d4d9a021bfa63d065ad2d442d251888e385828095433eb106",
   "artifacts": [
     {
       "bytes": 3337,
@@ -1217,6 +1217,26 @@
       "sha256": "c2d18e5354a6458590093a30a70ab3a865f97e15eecdb35d1a521d4a1c18dc57"
     },
     {
+      "bytes": 5432,
+      "path": "data/generated/scientific_genesis/projective_uniform_input_cells.json",
+      "sha256": "f480abb0133f9339090297bf59f9b310a38ca572d3c5bd4bb8fcbf07da2c4144"
+    },
+    {
+      "bytes": 11087,
+      "path": "research/experiments/scientific_genesis/projective_uniform_input_cells.py",
+      "sha256": "d34ba5de58afe9556ec6d21d1418d00b7d9c7fe5b7e9bb0657a011d7f9e9d78c"
+    },
+    {
+      "bytes": 4579,
+      "path": "research/experiments/scientific_genesis/PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md",
+      "sha256": "c127ca83ed756b71d6a016dc81d51411c0716a6337349ac50d0666d181941e02"
+    },
+    {
+      "bytes": 11784,
+      "path": "tests/integration/test_scientific_genesis_projective_uniform_input_cells.py",
+      "sha256": "9ad37ceaa92ca404ae7d83b0f74933ae7c14916a4a2acf3d88376c17ec142bc0"
+    },
+    {
       "bytes": 82519,
       "path": "data/generated/scientific_genesis/alternate_metric_critical_charts.json",
       "sha256": "8cc81e68ede78d23fa00072df2bbfd6d915af449516d642167d12705698ef769"
@@ -1503,11 +1523,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2886,
+    "collected_tests_at_audit": 2942,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 293,
-    "test_python_files": 277
+    "research_python_files": 294,
+    "test_python_files": 278
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -4525,6 +4545,29 @@
       "missing_prerequisites": [],
       "statement": "Base-eliminating charts enclose signed residues and the unchanged positive FS-cube density on all three partner roots of each of the six actual axis-critical fibers. Complete point-line root certificates preserve exact source membership. Independent full wedge determinants, regular-chart overlap Jacobians, and base pivot transitions verify the coordinate conventions. These 18 declared domains are not all triangle-node input certificates, global atlas coverage, a quantitative global bound, or a sampler.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "explicit auxiliary FS convention",
+        "independent uniform input cell indices"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/projective_uniform_input_cells.py",
+        "research/experiments/scientific_genesis/PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md",
+        "tests/integration/test_scientific_genesis_projective_uniform_input_cells.py",
+        "data/generated/scientific_genesis/projective_uniform_input_cells.json"
+      ],
+      "id": "projective_uniform_input_cells",
+      "label": "controlled coupled input cells for the auxiliary projective law",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "branch-complete roots for uncertain inputs",
+        "independent cover draws",
+        "integrand error control",
+        "Ricci-flat/HYM convergence"
+      ],
+      "statement": "Uniform simplex spacings and independent phases give normalized FS point and dual-hyperplane laws on CP1 and CP2. Exact rational analytic remainders enclose each complete supplied dyadic input cell in coupled homogeneous-coordinate disks, including tied bins and zero weights. Independent simplex moments and Chudnovsky endpoint checks attack the construction. This is conditional on independent uniform input bits: no RNG, uncertain-input intersection roots, cover cloud, or numerical metric is supplied.",
+      "status": "DERIVED"
     },
     {
       "assumptions": [
@@ -8146,6 +8189,41 @@
     },
     {
       "assumptions_required": [
+        "normalized FS convention",
+        "independent uniform input bits"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "rounded centers alone are not continuous uniform draws"
+      ],
+      "mathematical_reason": "Each auxiliary mixture component requires uniform projective point or dual-hyperplane inputs; simplex spacings and phase cells retain the precision error of that same probability law.",
+      "source": "alternate_metric_positive_measure",
+      "target": "projective_uniform_input_cells"
+    },
+    {
+      "assumptions_required": [
+        "independent uniform inputs",
+        "branch-complete roots for uncertain inputs",
+        "actual integrand bounds",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/projective_uniform_input_cells.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "input-space chordal error is not an intersection integrand error",
+        "rejecting difficult configurations can bias the probability law"
+      ],
+      "mathematical_reason": "Coupled projective input bounds can feed the unchanged intersection law only after uncertain coefficient root completeness, chart and section bounds, independent integration errors, and metric convergence.",
+      "source": "projective_uniform_input_cells",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "actual nodal critical loci",
         "declared compatible projection pivots"
       ],
@@ -9901,6 +9979,200 @@
     "Schoen compactification and published one-Higgs model as selected realization data",
     "three families and one Higgs pair as selection constraints rather than predictions"
   ],
+  "projective_uniform_input_cells": {
+    "atan_terms": 30,
+    "bound_bits": 60,
+    "centers_are_exact_cover_points": false,
+    "coupled_projective_input_cell_enclosures_available": true,
+    "declared_boundary_probes": [
+      {
+        "center_distance_bound": "58408003029503595/1152921504606846976",
+        "coordinate_disks": [
+          {
+            "center": [
+              "1/32",
+              "0"
+            ],
+            "radius": "1/32"
+          },
+          {
+            "center": [
+              "2620642122452505194655114565149873277/2658455991569831745807614120560689152",
+              "-18835096718231473202202775285836675/1329227995784915872903807060280344576"
+            ],
+            "radius": "22379206010539627/1152921504606846976"
+          }
+        ],
+        "phase_indices": [
+          255
+        ],
+        "projective_chordal_diameter_bound": "58408003029503595/576460752303423488",
+        "spacing_indices": [
+          0
+        ],
+        "spacing_intervals": [
+          [
+            "0",
+            "1/256"
+          ],
+          [
+            "255/256",
+            "1"
+          ]
+        ]
+      },
+      {
+        "center_distance_bound": "38040078309178831/1152921504606846976",
+        "coordinate_disks": [
+          {
+            "center": [
+              "2303589006071271339/2305843009213693952",
+              "0"
+            ],
+            "radius": "1127001571211307/1152921504606846976"
+          },
+          {
+            "center": [
+              "168507886562893417098382032627047597/5316911983139663491615228241121378304",
+              "2354387089778932985406150092004525/2658455991569831745807614120560689152"
+            ],
+            "radius": "9228269184491881/288230376151711744"
+          }
+        ],
+        "phase_indices": [
+          0
+        ],
+        "projective_chordal_diameter_bound": "38040078309178831/576460752303423488",
+        "spacing_indices": [
+          255
+        ],
+        "spacing_intervals": [
+          [
+            "255/256",
+            "1"
+          ],
+          [
+            "0",
+            "1/256"
+          ]
+        ]
+      },
+      {
+        "center_distance_bound": "55174048293760251/1152921504606846976",
+        "coordinate_disks": [
+          {
+            "center": [
+              "813643229069010755/1152921504606846976",
+              "0"
+            ],
+            "radius": "797692507144067/576460752303423488"
+          },
+          {
+            "center": [
+              "168507886562893417098382032627047597/5316911983139663491615228241121378304",
+              "2354387089778932985406150092004525/2658455991569831745807614120560689152"
+            ],
+            "radius": "9228269184491881/288230376151711744"
+          },
+          {
+            "center": [
+              "464625279786666785316557036662164977/664613997892457936451903530140172288",
+              "-3342587123347501914716387885314575/332306998946228968225951765070086144"
+            ],
+            "radius": "16665586541504593/1152921504606846976"
+          }
+        ],
+        "phase_indices": [
+          0,
+          255
+        ],
+        "projective_chordal_diameter_bound": "55174048293760251/576460752303423488",
+        "spacing_indices": [
+          127,
+          127
+        ],
+        "spacing_intervals": [
+          [
+            "127/256",
+            "1/2"
+          ],
+          [
+            "0",
+            "1/256"
+          ],
+          [
+            "1/2",
+            "129/256"
+          ]
+        ]
+      },
+      {
+        "center_distance_bound": "5820933256804139/144115188075855872",
+        "coordinate_disks": [
+          {
+            "center": [
+              "292665723748983007/1152921504606846976",
+              "0"
+            ],
+            "radius": "4435347597271263/1152921504606846976"
+          },
+          {
+            "center": [
+              "5717723030973479892427173786389773081/5316911983139663491615228241121378304",
+              "1195836775845050251578057822716230425/2658455991569831745807614120560689152"
+            ],
+            "radius": "14830197058898259/576460752303423488"
+          },
+          {
+            "center": [
+              "-432446551594560068859255043532547985/5316911983139663491615228241121378304",
+              "-734958135284790593300388923964942225/2658455991569831745807614120560689152"
+            ],
+            "radius": "12471724339365331/1152921504606846976"
+          }
+        ],
+        "phase_indices": [
+          17,
+          201
+        ],
+        "projective_chordal_diameter_bound": "5820933256804139/72057594037927936",
+        "spacing_indices": [
+          240,
+          16
+        ],
+        "spacing_intervals": [
+          [
+            "1/16",
+            "17/256"
+          ],
+          [
+            "223/256",
+            "225/256"
+          ],
+          [
+            "15/256",
+            "1/16"
+          ]
+        ]
+      }
+    ],
+    "extension_point_selected": false,
+    "ideal_uniform_input_law_derived": true,
+    "independent_cover_sampling_cloud_available": false,
+    "input_cell_bits": 8,
+    "law": "normalized FS on CP^1 or CP^2; dual hyperplane covectors use the same law",
+    "numerical_metrics_available": false,
+    "observational_inputs_used": false,
+    "physical_yukawas_available": false,
+    "probability_assumption": "all spacing and phase cell indices independent uniform",
+    "proof_sha256": "c127ca83ed756b71d6a016dc81d51411c0716a6337349ac50d0666d181941e02",
+    "random_generator_implemented": false,
+    "schema": "projective-uniform-input-cells-v1",
+    "taylor_terms": 40,
+    "total_variation_convergence_claimed": false,
+    "uncertain_input_intersection_roots_certified": false,
+    "vacuum_selected": false
+  },
   "recommended_vertical_path": {
     "automorphism_certificate_digest": "a27d5be53029344c1bec7a6e532ecb9fa4b532054b27e17f6ac3080c2e326178",
     "candidate_pair": null,
@@ -10980,7 +11252,8 @@
         "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
         "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
         "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py",
-        "research/experiments/scientific_genesis/alternate_metric_bounded_support.py"
+        "research/experiments/scientific_genesis/alternate_metric_bounded_support.py",
+        "research/experiments/scientific_genesis/projective_uniform_input_cells.py"
       ],
       "maturity": "research-only; actual roots/charts/densities/universal frames, not sampling or metrics"
     },

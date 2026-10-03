@@ -1,0 +1,195 @@
+{
+  "artifact_digest": "b8db32fa76846ebbc8fba44ff5fcb67b1a92f9961d05f8b61355141d8fd7cade",
+  "atan_terms": 30,
+  "bound_bits": 60,
+  "centers_are_exact_cover_points": false,
+  "coupled_projective_input_cell_enclosures_available": true,
+  "declared_boundary_probes": [
+    {
+      "center_distance_bound": "58408003029503595/1152921504606846976",
+      "coordinate_disks": [
+        {
+          "center": [
+            "1/32",
+            "0"
+          ],
+          "radius": "1/32"
+        },
+        {
+          "center": [
+            "2620642122452505194655114565149873277/2658455991569831745807614120560689152",
+            "-18835096718231473202202775285836675/1329227995784915872903807060280344576"
+          ],
+          "radius": "22379206010539627/1152921504606846976"
+        }
+      ],
+      "phase_indices": [
+        255
+      ],
+      "projective_chordal_diameter_bound": "58408003029503595/576460752303423488",
+      "spacing_indices": [
+        0
+      ],
+      "spacing_intervals": [
+        [
+          "0",
+          "1/256"
+        ],
+        [
+          "255/256",
+          "1"
+        ]
+      ]
+    },
+    {
+      "center_distance_bound": "38040078309178831/1152921504606846976",
+      "coordinate_disks": [
+        {
+          "center": [
+            "2303589006071271339/2305843009213693952",
+            "0"
+          ],
+          "radius": "1127001571211307/1152921504606846976"
+        },
+        {
+          "center": [
+            "168507886562893417098382032627047597/5316911983139663491615228241121378304",
+            "2354387089778932985406150092004525/2658455991569831745807614120560689152"
+          ],
+          "radius": "9228269184491881/288230376151711744"
+        }
+      ],
+      "phase_indices": [
+        0
+      ],
+      "projective_chordal_diameter_bound": "38040078309178831/576460752303423488",
+      "spacing_indices": [
+        255
+      ],
+      "spacing_intervals": [
+        [
+          "255/256",
+          "1"
+        ],
+        [
+          "0",
+          "1/256"
+        ]
+      ]
+    },
+    {
+      "center_distance_bound": "55174048293760251/1152921504606846976",
+      "coordinate_disks": [
+        {
+          "center": [
+            "813643229069010755/1152921504606846976",
+            "0"
+          ],
+          "radius": "797692507144067/576460752303423488"
+        },
+        {
+          "center": [
+            "168507886562893417098382032627047597/5316911983139663491615228241121378304",
+            "2354387089778932985406150092004525/2658455991569831745807614120560689152"
+          ],
+          "radius": "9228269184491881/288230376151711744"
+        },
+        {
+          "center": [
+            "464625279786666785316557036662164977/664613997892457936451903530140172288",
+            "-3342587123347501914716387885314575/332306998946228968225951765070086144"
+          ],
+          "radius": "16665586541504593/1152921504606846976"
+        }
+      ],
+      "phase_indices": [
+        0,
+        255
+      ],
+      "projective_chordal_diameter_bound": "55174048293760251/576460752303423488",
+      "spacing_indices": [
+        127,
+        127
+      ],
+      "spacing_intervals": [
+        [
+          "127/256",
+          "1/2"
+        ],
+        [
+          "0",
+          "1/256"
+        ],
+        [
+          "1/2",
+          "129/256"
+        ]
+      ]
+    },
+    {
+      "center_distance_bound": "5820933256804139/144115188075855872",
+      "coordinate_disks": [
+        {
+          "center": [
+            "292665723748983007/1152921504606846976",
+            "0"
+          ],
+          "radius": "4435347597271263/1152921504606846976"
+        },
+        {
+          "center": [
+            "5717723030973479892427173786389773081/5316911983139663491615228241121378304",
+            "1195836775845050251578057822716230425/2658455991569831745807614120560689152"
+          ],
+          "radius": "14830197058898259/576460752303423488"
+        },
+        {
+          "center": [
+            "-432446551594560068859255043532547985/5316911983139663491615228241121378304",
+            "-734958135284790593300388923964942225/2658455991569831745807614120560689152"
+          ],
+          "radius": "12471724339365331/1152921504606846976"
+        }
+      ],
+      "phase_indices": [
+        17,
+        201
+      ],
+      "projective_chordal_diameter_bound": "5820933256804139/72057594037927936",
+      "spacing_indices": [
+        240,
+        16
+      ],
+      "spacing_intervals": [
+        [
+          "1/16",
+          "17/256"
+        ],
+        [
+          "223/256",
+          "225/256"
+        ],
+        [
+          "15/256",
+          "1/16"
+        ]
+      ]
+    }
+  ],
+  "extension_point_selected": false,
+  "ideal_uniform_input_law_derived": true,
+  "independent_cover_sampling_cloud_available": false,
+  "input_cell_bits": 8,
+  "law": "normalized FS on CP^1 or CP^2; dual hyperplane covectors use the same law",
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "physical_yukawas_available": false,
+  "probability_assumption": "all spacing and phase cell indices independent uniform",
+  "proof_sha256": "c127ca83ed756b71d6a016dc81d51411c0716a6337349ac50d0666d181941e02",
+  "random_generator_implemented": false,
+  "schema": "projective-uniform-input-cells-v1",
+  "taylor_terms": 40,
+  "total_variation_convergence_claimed": false,
+  "uncertain_input_intersection_roots_certified": false,
+  "vacuum_selected": false
+}

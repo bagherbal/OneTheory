@@ -1,5 +1,13 @@
 # Scientific Genesis audit
 
+Auxiliary uniform projective input precision is available as coupled dyadic
+cell enclosures in `projective_uniform_input_cells.py`. The simplex/phase law
+is independently derived, with exact moments and separate high-precision
+endpoint checks. These deterministic boundary probes are not random draws:
+independent uniform bit inputs remain an explicit assumption. Uncertain-input
+intersection roots, independent cover sampling, integration error and physical
+metrics remain missing. See `PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md`.
+
 This experiment reconstructs OneTheory's current scientific state before new
 research is scheduled. It owns the epistemic dependency graph, evidence map,
 reusable-engine inventory, scoped no-go ledger, structural-compression

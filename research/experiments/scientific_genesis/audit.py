@@ -3652,24 +3652,35 @@ def _nodes() -> list[dict[str, object]]:
              "data/generated/scientific_genesis/uncertain_cover_weights.json"),
             ("actual coupled root certificates", "positive norm and conormal bounds",
              "declared residue scale and covering degree"),
-            ("independent law-preserving draws", "section and frame bounds",
+            ("independent law-preserving draws", "complete original section integrands",
              "controlled integration errors", "Ricci-flat/HYM convergence", "common vacuum"),
         ),
         _node(
             "uncertain_cover_frames",
             "original universal bundle frames on uncertain-input cover domains",
             "Normalization",
-            "BLOCKED",
-            "Native uniform root-family membership can use the existing bounded "
-            "cover-point normalization and original quotient engines. Actual "
-            "admitted-domain determinant and section replay is required before "
-            "this frame input edge is established; no second bundle is supplied.",
+            "COMPUTED",
+            "All fifteen declared coupled input families admit the original "
+            "nine-generator/five-relation quotient with named free basis and "
+            "nonzero determinant enclosures. The original full cochain sections "
+            "0 and 2655 are bounded on each domain, retaining both 3663-term "
+            "outer corrections and formal a0/a1. Explicit 100-bit uncertain "
+            "center rounding adds a certified displacement error; exact singleton "
+            "inputs remain exact and the old default is unchanged. Independent "
+            "raw-arrow Gaussian quotients check every branch; full corrected "
+            "affine-polynomial functionals check each mixture component and "
+            "the existing finite-support evaluator. Input/root refinement "
+            "contracts actual outer-section error. These declared probe domains "
+            "are not independent samples or complete section integrands.",
             ("research/experiments/scientific_genesis/UNCERTAIN_COVER_FRAMES_NOTE.md",
              "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
-             "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py"),
-            ("actual coupled root family", "explicit homogeneous and relation pivots"),
-            ("actual domain and section verification", "independent integration errors",
-             "Ricci-flat/HYM convergence", "common stabilized vacuum"),
+             "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py",
+             "research/experiments/scientific_genesis/uncertain_cover_frames.py",
+             "tests/integration/test_scientific_genesis_uncertain_cover_frames.py",
+             "tests/integration/test_scientific_genesis_rounded_centers.py",
+             "data/generated/scientific_genesis/uncertain_cover_frames.json"),
+            ("actual coupled root family", "explicit homogeneous and relation pivots",
+             "explicit radius and uncertain-center precisions"),
         ),
         _node(
             "alternate_metric_projection_free_weights",
@@ -8411,6 +8422,7 @@ def build_state() -> dict[str, object]:
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
     from .projective_uncertain_intersections import read_uncertain_intersections
     from .projective_uniform_input_cells import read_input_cells
+    from .uncertain_cover_frames import read_frames
     from .uncertain_cover_weights import read_weights
 
     uncertain_weights = read_weights()
@@ -11515,6 +11527,11 @@ def build_state() -> dict[str, object]:
     completed_flavor = load_full_matrices(
         expected_digest="c7892263e1429ff614c121f991c6fc9fe863c96236bca03422779f1f4291381a",
     )
+    uncertain_frames = read_frames()
+    if _canonical_digest(uncertain_frames) != (
+        "84cae656206db888478fef6988e43e8f4228f69f225915bd3e6c8bf45b281b58"
+    ):
+        raise ValueError("the original uncertain-domain frames changed their trusted digest")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -11873,6 +11890,10 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/UNCERTAIN_COVER_FRAMES_NOTE.md",
         "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
         "tests/integration/test_scientific_genesis_uncertain_cover_points.py",
+        "data/generated/scientific_genesis/uncertain_cover_frames.json",
+        "research/experiments/scientific_genesis/uncertain_cover_frames.py",
+        "tests/integration/test_scientific_genesis_uncertain_cover_frames.py",
+        "tests/integration/test_scientific_genesis_rounded_centers.py",
         "data/generated/scientific_genesis/alternate_down_higgs_hom_representative.json",
         "data/generated/scientific_genesis/"
         "alternate_down_higgs_hom_representative.cochains.json.gz",
@@ -11915,7 +11936,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3040,
+            "collected_tests_at_audit": 3081,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12449,11 +12470,17 @@ def build_state() -> dict[str, object]:
         "projective_uniform_input_cells": uniform_input_cells,
         "projective_uncertain_intersections": uncertain_intersections,
         "uncertain_cover_weights": uncertain_weights,
+        "uncertain_cover_frames": uncertain_frames,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "all fifteen declared uncertain cover domains admit the original "
+            "universal quotient and full cochain section probes 0/2655; explicit "
+            "center rounding bounds coefficient growth without approximating "
+            "exact singleton inputs; no independent cloud, full integrand, "
+            "physical metric or stabilized vacuum is supplied",
             "all four complete actual holomorphic matrices have a nonempty common "
             "rank-three open locus without parameter selection; successful down/lepton "
             "all-witness replay and independent scalar/rank arithmetic do not supply "

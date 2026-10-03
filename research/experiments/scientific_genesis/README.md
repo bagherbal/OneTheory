@@ -1,5 +1,17 @@
 # Scientific Genesis audit
 
+`uncertain_cover_frames.py` executes the original universal quotient on all
+9/3/3 declared coupled input families, with nonzero relation-minor enclosures.
+Original full-cochain indices 0 and 2655 retain both formal outer corrections;
+the packet is not a complete 5345-column matrix on these domains. Independent
+raw-arrow Gaussian solves check every branch, and full corrected cochains test
+each mixture component against the existing support engine. Explicit uncertain
+center rounding adds a certified displacement error and preserves exact
+singleton inputs; default exact-center behavior is unchanged. The former
+unrounded probe executed, but exceeded the rational-text serialization limit.
+No root center, physical moduli, independent cloud, metric or vacuum is selected.
+See `UNCERTAIN_COVER_FRAMES_NOTE.md` for the scoped execution and precision proof.
+
 All four complete **holomorphic** Yukawa sectors are now available on the same
 frozen alternate carrier. The corrected down/lepton replay succeeded on all
 sixteen original matter lifts and sixteen literal scalar products, with all
@@ -15,8 +27,9 @@ the unchanged auxiliary conormal weights on all 9/3/3 admitted branches.
 Independent full FS determinants, Fraction-pair coefficient calculations and
 input-prefix refinement check the bounds. The residue scale, symbolic pi cubed
 and covering degree stay explicit. This is not an independent cover cloud,
-section integrand, integral or metric. Section/frame bounds on these domains,
-law-preserving independent streams and controlled integration remain open.
+section integrand, integral or metric. The successor verifies original frame and
+section probes on these domains; complete section integrands, law-preserving
+independent streams and controlled integration remain open.
 See `UNCERTAIN_COVER_WEIGHTS_NOTE.md`.
 
 Uncertain input cells now propagate through the actual cubic intersections on

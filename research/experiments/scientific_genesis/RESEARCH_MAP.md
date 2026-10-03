@@ -1,5 +1,30 @@
 # Scientific Genesis research map
 
+## Original uncertain-domain sections with explicit center precision
+
+The `uncertain_cover_frames` node is now COMPUTED for the entire declared 9/3/3
+input-family probe set. All fifteen original quotient minors exclude zero, and
+full-cochain indices 0 and 2655 retain the nonsplit formal a0/a1 corrections.
+Independent raw-arrow Gaussian solves cover every branch; independent corrected
+affine-polynomial functionals and the existing support evaluator cover each
+mixture component. No probe center is asserted to be an exact cover point.
+
+The first unrounded run evaluated the full section, but failed output because its
+rational center text exceeded Python's 4300-digit limit. Its finite-support
+comparison completed with identical exact centers after about 605 seconds.
+This is a demonstrated arithmetic representation deficiency, not a failed bundle.
+An explicit optional center precision now augments the existing circular engine:
+positive-radius centers are recentered dyadically with a certified displacement
+added to the error. Exact singleton inputs and the old default are untouched.
+The successor packet explicitly declares 100 radius bits and 100 center bits.
+
+`uncertain_cover_frames.json` pins all executed domains, original section/archive
+digests, named bases and bounds. It contains **two probe columns per domain**,
+not new complete 5345-column matrices or an independent input cloud. The next
+metric edge still requires complete original integrands, independent law-preserving
+input generation, controlled integration and Ricci-flat/HYM convergence. A common
+stabilized vacuum and Genesis-to-UV remain missing. No observations enter the work.
+
 ## Necessary hidden-sector chamber on the frozen alternate branch
 
 The published no-five-brane hidden Bogomolov wall is now explicitly connected

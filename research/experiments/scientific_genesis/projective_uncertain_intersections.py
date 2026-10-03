@@ -332,6 +332,7 @@ class UncertainCoverPoint(BoundedCoverPoint):
     """
 
     intersection: LineBaseLineConfiguration | PointLineConfiguration
+    center_bits: int | None = None
 
     def __post_init__(self):
         configuration = self.intersection
@@ -348,6 +349,9 @@ class UncertainCoverPoint(BoundedCoverPoint):
         groups = configuration.points[configuration.root_pairs.index(self.root_pair)]
         if type(self.bits) is not int or self.bits != groups[0][0].bits:
             raise ValueError("point precision must equal the original input/root bound precision")
+        if self.center_bits is not None:
+            groups = tuple(tuple(Ball(c.center, c.radius, self.bits, self.center_bits)
+                                 for c in group) for group in groups)
         self._normalize_groups(groups)
 
 

@@ -125,35 +125,52 @@ class Interval:
 class Ball:
     """Circular complex enclosure with exact Q(omega) center and rational radius.
 
-    Center arithmetic is exact. Positive error radii are rounded upward onto
-    the declared dyadic mesh. Radius zero retains exact scalar input exactly.
+    Center arithmetic is exact by default. An explicit center_bits policy
+    rounds uncertain centers to that dyadic mesh and adds the certified norm
+    of the displacement to the radius. Radius-zero values stay exact.
     """
 
     center: Eisenstein
     radius: Rational
     bits: int
+    center_bits: int | None = None
 
     def __post_init__(self):
         _bits(self.bits)
         radius = coerce_rational(self.radius)
         if radius < 0:
             raise ValueError("ball radii must be nonnegative")
-        object.__setattr__(self, "center", Eisenstein.coerce(self.center))
+        center = Eisenstein.coerce(self.center)
+        if self.center_bits is not None:
+            _bits(self.center_bits)
+            if radius:
+                mesh = 1 << self.center_bits
+                rounded = Eisenstein(Rational(round(center.a * mesh), mesh),
+                                     Rational(round(center.b * mesh), mesh))
+                displacement = roots.modulus_bounds(center - rounded, self.bits)[1]
+                center, radius = rounded, radius + displacement
+        object.__setattr__(self, "center", center)
         object.__setattr__(self, "radius", _up(radius, self.bits))
 
     def _coerce(self, other):
         if isinstance(other, Ball):
             if other.bits != self.bits:
                 raise ValueError("incompatible declared bound precisions")
+            if other.center_bits != self.center_bits:
+                if other.radius == 0:
+                    return Ball(other.center, other.radius, self.bits, self.center_bits)
+                if self.radius != 0 or self.center_bits is not None:
+                    raise ValueError("incompatible declared uncertain-center precisions")
             return other
-        return Ball(Eisenstein.coerce(other), Rational(0), self.bits)
+        return Ball(Eisenstein.coerce(other), Rational(0), self.bits, self.center_bits)
 
     def __add__(self, other):
         other = self._coerce(other)
-        return Ball(self.center + other.center, self.radius + other.radius, self.bits)
+        policy = self.center_bits if self.center_bits is not None else other.center_bits
+        return Ball(self.center + other.center, self.radius + other.radius, self.bits, policy)
 
     def __neg__(self):
-        return Ball(-self.center, self.radius, self.bits)
+        return Ball(-self.center, self.radius, self.bits, self.center_bits)
 
     def __sub__(self, other):
         return self + -self._coerce(other)
@@ -163,16 +180,17 @@ class Ball:
         left = roots.modulus_bounds(self.center, self.bits)[1]
         right = roots.modulus_bounds(other.center, self.bits)[1]
         radius = left * other.radius + right * self.radius + self.radius * other.radius
-        return Ball(self.center * other.center, radius, self.bits)
+        policy = self.center_bits if self.center_bits is not None else other.center_bits
+        return Ball(self.center * other.center, radius, self.bits, policy)
 
     def inverse(self):
         if self.radius == 0:
-            return Ball(self.center.inverse(), Rational(0), self.bits)
+            return Ball(self.center.inverse(), Rational(0), self.bits, self.center_bits)
         lower = roots.modulus_bounds(self.center, self.bits)[0]
         if lower <= self.radius:
             raise ZeroDivisionError("the denominator ball may contain zero")
         radius = self.radius / (lower * (lower - self.radius))
-        return Ball(self.center.inverse(), radius, self.bits)
+        return Ball(self.center.inverse(), radius, self.bits, self.center_bits)
 
     def __truediv__(self, other):
         return self * self._coerce(other).inverse()
@@ -192,7 +210,7 @@ class Ball:
         return result
 
     def conjugate(self):
-        return Ball(self.center.conjugate(), self.radius, self.bits)
+        return Ball(self.center.conjugate(), self.radius, self.bits, self.center_bits)
 
     def norm_interval(self):
         if self.radius == 0:

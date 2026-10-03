@@ -1003,6 +1003,15 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["alternate_metric_enclosures"]["status"] == "COMPUTED"
     assert claims["alternate_metric_bounded_fibers"]["status"] == "COMPUTED"
     assert claims["alternate_metric_bounded_support"]["status"] == "COMPUTED"
+    assert claims["uncertain_cover_frames"]["status"] == "COMPUTED"
+    assert claims["uncertain_cover_frames"]["missing_prerequisites"] == []
+    domains = state["uncertain_cover_frames"]
+    assert domains["uncertain_center_bits"] == domains["bound_bits"] == 100
+    assert len(domains["actual_domain_probes"]) == 15
+    assert domains["complete_5345_column_matrix_on_new_domains_available"] is False
+    assert domains["independent_sampling_cloud_available"] is False
+    assert domains["controlled_integral_available"] is False
+    assert domains["physical_yukawas_available"] is False
     assert claims["alternate_metric_weight_moments"]["status"] == "DERIVED"
     assert claims["alternate_metric_positive_measure"]["status"] == "DERIVED"
     assert claims["alternate_metric_critical_charts"]["status"] == "COMPUTED"

@@ -29,7 +29,7 @@ from onetheory.math.polynomials import Polynomial
 from onetheory.models.heterotic_schoen.geometry import schoen_geometry
 
 from . import alternate_metric_projective_roots as roots
-from .alternate_metric_enclosures import Ball, polynomial_value
+from .alternate_metric_enclosures import Ball, BoundedCoverPoint, polynomial_value
 
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / "data/generated/scientific_genesis/projective_uncertain_intersections.json"
@@ -270,6 +270,10 @@ class LineBaseLineConfiguration:
         object.__setattr__(self, "base", base)
 
     @property
+    def root_pairs(self):
+        return tuple(product(range(3), repeat=2))
+
+    @property
     def points(self):
         return tuple((self.first_line.point_bounds(a.parameter_bounds),
                       self.second_line.point_bounds(b.parameter_bounds), self.base)
@@ -306,12 +310,45 @@ class PointLineConfiguration:
         return base
 
     @property
+    def root_pairs(self):
+        return tuple(("fixed", i) if self.source_side == 1 else (i, "fixed") for i in range(3))
+
+    @property
     def points(self):
         base = self.base
         return tuple((self.source_point, self.partner_line.point_bounds(d.parameter_bounds), base)
                      if self.source_side == 1 else
                      (self.partner_line.point_bounds(d.parameter_bounds), self.source_point, base)
                      for d in self.partner.disks)
+
+
+@dataclass(frozen=True, slots=True)
+class UncertainCoverPoint(BoundedCoverPoint):
+    """One actual coupled cover branch, normalized in caller-declared chart pivots.
+
+    This is the existing bounded cover representation with a uniform native
+    family membership certificate. Coordinate centers are never exact points.
+    The same monomial, local-cochain and quotient engines consume this subtype.
+    """
+
+    intersection: LineBaseLineConfiguration | PointLineConfiguration
+
+    def __post_init__(self):
+        configuration = self.intersection
+        if not isinstance(configuration, (LineBaseLineConfiguration, PointLineConfiguration)):
+            raise TypeError("an actual coupled uncertain cover configuration is required")
+        if (not isinstance(self.root_pair, tuple) or len(self.root_pair) != 2
+            or any(type(i) is not int and i != "fixed" for i in self.root_pair)
+            or self.root_pair not in configuration.root_pairs):
+            raise ValueError("an explicit complete-family root pair is required")
+        if (not isinstance(self.chart, tuple) or len(self.chart) != 3
+            or any(type(i) is not int or not 0 <= i < size
+                   for i, size in zip(self.chart, (3, 3, 2), strict=True))):
+            raise ValueError("three explicit homogeneous chart pivots are required")
+        groups = configuration.points[configuration.root_pairs.index(self.root_pair)]
+        if type(self.bits) is not int or self.bits != groups[0][0].bits:
+            raise ValueError("point precision must equal the original input/root bound precision")
+        self._normalize_groups(groups)
 
 
 def line_base_line(first_line, second_line, base, *, parameter_pivots, policy):

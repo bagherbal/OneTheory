@@ -282,6 +282,11 @@ class BoundedCoverPoint:
                             self.root_pair[1], self.bits),
             )
         groups = (*planes, tuple(Ball(c, Rational(0), self.bits) for c in self.intersection.p))
+        self._normalize_groups(groups)
+
+    def _normalize_groups(self, groups):
+        """Reuse explicit chart normalization after actual membership is certified."""
+
         for name, group, pivot in zip(("x", "u", "p"), groups, self.chart, strict=True):
             # The normalized pivot is identically one, not an uncertain q/q.
             inverse = group[pivot].inverse()

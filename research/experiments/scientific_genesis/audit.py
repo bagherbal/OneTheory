@@ -3858,6 +3858,33 @@ def _nodes() -> list[dict[str, object]]:
              "same bounded evaluator", "independent complete stream validation"),
         ),
         _node(
+            "alternate_section_covariance",
+            "complete trial covariance from the original full section matrix",
+            "Normalization",
+            "COMPUTED",
+            "The original affine section matrix and an explicitly supplied "
+            "positive exact LDL section covariance give all nine Hermitian "
+            "coefficient blocks with formal a0,a1 and their conjugates. "
+            "Complete streaming contraction supports non-diagonal inputs, "
+            "retains uncertain zeros and explicit precision. The declared "
+            "unit-H input is a computational initializer, not a physical "
+            "or canonical metric. Existing auxiliary weights provide a "
+            "weighted trial-covariance integrand only on its original domain. "
+            "The exact full-column triangular pattern and positive constituent "
+            "minors give a uniform determinant lower bound for every complex "
+            "extension parameter, without selection. Independent full-archive "
+            "Fraction-pair contraction and determinant expansion verify it.",
+            ("research/experiments/scientific_genesis/alternate_section_covariance.py",
+             "research/experiments/scientific_genesis/ALTERNATE_SECTION_COVARIANCE_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_section_covariance.py",
+             "data/generated/scientific_genesis/alternate_section_covariance.json"),
+            ("complete original section matrix", "explicit positive Hermitian section input",
+             "unchanged original local basis", "explicit uncertainty precision"),
+            ("HYM inverse kernel", "line metric and untwisting", "global integrand bounds",
+             "controlled independent integration", "Ricci-flat/HYM convergence",
+             "harmonic matter metrics", "common stabilized vacuum"),
+        ),
+        _node(
             "visible_metrics",
             "Ricci-flat, HYM, and matter metric package",
             "Normalization",
@@ -7018,6 +7045,38 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "alternate_metric_bounded_matrix",
+            "alternate_section_covariance",
+            "Every original constant/a0/a1 column contributes to S H S^dagger "
+            "with explicit positive LDL input and conjugate parameter routing.",
+            ("research/experiments/scientific_genesis/ALTERNATE_SECTION_COVARIANCE_NOTE.md",),
+            ("full original column stream", "explicit section and local fiber bases"),
+            True,
+            ("a small section subset does not replace the complete trial covariance",),
+        ),
+        _edge(
+            "alternate_metric_positive_measure",
+            "alternate_section_covariance",
+            "The unchanged positive auxiliary weight bounds each complete "
+            "trial-covariance coefficient on the same certified original domain.",
+            ("research/experiments/scientific_genesis/alternate_section_covariance.py",),
+            ("same actual root family", "explicit residue and quotient conventions"),
+            True,
+            ("a pointwise weighted expression is not an integral or a physical metric",),
+        ),
+        _edge(
+            "alternate_section_covariance",
+            "visible_metrics",
+            "Full trial covariance is an input to bundle metric iterations "
+            "only after controlled inversion, twist normalization, independent "
+            "integration and Ricci-flat/HYM convergence.",
+            ("research/experiments/scientific_genesis/ALTERNATE_SECTION_COVARIANCE_NOTE.md",),
+            ("admitted inverse kernel", "line metric", "controlled integral errors",
+             "Ricci-flat/HYM convergence"),
+            True,
+            ("unit section form is not derived physics or a harmonic matter metric",),
+        ),
+        _edge(
+            "alternate_metric_bounded_matrix",
             "visible_metrics",
             "Complete bounded columns supply a local bundle-evaluation input "
             "only after practical multi-point cost, controlled proposals, "
@@ -8339,6 +8398,7 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
                 "research/experiments/scientific_genesis/uncertain_cover_weights.py",
                 "research/experiments/scientific_genesis/auxiliary_cover_draws.py",
+                "research/experiments/scientific_genesis/alternate_section_covariance.py",
             ),
         ),
         (
@@ -8405,6 +8465,8 @@ def _scheduler() -> list[dict[str, object]]:
             "admitted-cell root/weight bounds. Use the same-prefix draw workflow "
             "without dropping pending draws; justify external independence and "
             "complete section/frame integrands on those domains with integral errors; "
+            "reuse the full trial covariance and family determinant bound before "
+            "implementing the controlled inverse/HYM kernel and line untwisting; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
@@ -8489,11 +8551,18 @@ def build_state() -> dict[str, object]:
 
     from .alternate_down_lepton_full_matrices import load_full_matrices
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
+    from .alternate_section_covariance import read_covariance
     from .auxiliary_cover_draws import read_draws
     from .projective_uncertain_intersections import read_uncertain_intersections
     from .projective_uniform_input_cells import read_input_cells
     from .uncertain_cover_frames import read_frames
     from .uncertain_cover_weights import read_weights
+
+    section_covariance = read_covariance()
+    if _canonical_digest(section_covariance) != (
+        "93cdd93105e5723fe7312c574cbe436333414c1593ba5ff1fe58c85fea448988"
+    ):
+        raise ValueError("the complete original section covariance changed its trusted digest")
 
     auxiliary_draws = read_draws()
     if _canonical_digest(auxiliary_draws) != (
@@ -11961,6 +12030,10 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_bounded_support.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_matrix.json",
         "data/generated/scientific_genesis/alternate_metric_bounded_matrix.columns.jsonl.gz",
+        "data/generated/scientific_genesis/alternate_section_covariance.json",
+        "research/experiments/scientific_genesis/alternate_section_covariance.py",
+        "research/experiments/scientific_genesis/ALTERNATE_SECTION_COVARIANCE_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_section_covariance.py",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_neutrino_full_holomorphic_matrix.json",
@@ -12016,7 +12089,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3129,
+            "collected_tests_at_audit": 3179,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12552,11 +12625,17 @@ def build_state() -> dict[str, object]:
         "uncertain_cover_weights": uncertain_weights,
         "uncertain_cover_frames": uncertain_frames,
         "auxiliary_cover_draws": auxiliary_draws,
+        "alternate_section_covariance": section_covariance,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "all 5345 original columns contribute to complete formal trial covariance "
+            "and unchanged auxiliary-weighted blocks on the original domain; "
+            "exact triangular structure and positive constituent minor bounds "
+            "give a uniform determinant lower bound for every complex parameter; "
+            "unit H is a declared initializer, not a physical or harmonic matter metric",
             "the auxiliary mixture has a conditional same-prefix draw workflow "
             "with unbiased exact selectors, native actual roots and weights, "
             "certified branch continuation and retained unresolved requests; "

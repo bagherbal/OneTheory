@@ -1,5 +1,32 @@
 # Scientific Genesis research map
 
+## Full original trial section covariance
+
+`alternate_section_covariance` consumes all 5,345 original columns from the
+completed bounded archive, retaining both formal complex extension parameters,
+their conjugates, every uncertainty and the named section/fiber bases. Exact
+positive LDL input supports general non-diagonal Hermitian section forms; no
+unit form is silently chosen. The executed unit-H initializer is explicitly
+computational and not a physical metric or a canonical normalization.
+
+All nine 4-by-4 blocks and their unchanged auxiliary-weighted versions are
+assembled on the original single domain. Independent Fraction-pair arithmetic
+reconstructs the complete archive contraction and checks non-diagonal inputs
+against dense multiplication. The original cochain/section engines are not
+reimplemented or rerun. Fresh archive guards surround cached covariance values.
+
+The entire archive has the exact injected/lifted triangular block pattern.
+Both constituent Gram blocks have positive bounded principal minors. A positive
+Schur-complement identity then gives a quantitative determinant lower bound for
+EVERY complex a0,a1 on this domain, without scanning or selecting parameters.
+Independent principal-minor expansion and complex-parameter attacks check the
+calculation; the family-level proof is in `ALTERNATE_SECTION_COVARIANCE_NOTE.md`.
+
+This closes full trial covariance and a local uniform denominator, not an HYM
+inverse kernel, line untwisting, multi-point integration, global integrand
+bounds, converged metrics or a common stabilized vacuum. Physical Yukawas and
+Genesis-to-UV remain unresolved. No observation enters this computation.
+
 ## Law-preserving auxiliary draw refinement
 
 `auxiliary_cover_draws` is DERIVED conditional on mutually independent infinite

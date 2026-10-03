@@ -61,6 +61,24 @@ def test_same_prefix_draw_workflow_preserves_conditional_metric_boundary() -> No
     assert record["failed_draws_resampled_or_dropped"] is False
 
 
+def test_full_section_covariance_is_not_physical_normalization() -> None:
+    """Full execution and an all-parameter local denominator do not imply HYM."""
+
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    assert claims["alternate_section_covariance"]["status"] == "COMPUTED"
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    record = stored["alternate_section_covariance"]
+    assert record["section_count"] == 5345
+    assert record["all_original_columns_consumed"] is True
+    assert record["extension_parameters_specialized"] is False
+    assert record["unit_form_is_physical_or_canonical"] is False
+    assert record["hym_inverse_kernel_available"] is False
+    assert record["controlled_integral_available"] is False
+    assert record["physical_yukawas_available"] is False
+    assert record["unit_family_determinant_certificate"]["extension_parameter_choice_used"] is False
+
+
 @pytest.mark.parametrize(
     "schema,field,error",
     (

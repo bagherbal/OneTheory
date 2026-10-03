@@ -1,5 +1,13 @@
 # Scientific Genesis audit
 
+`alternate_section_covariance.py` consumes all 5,345 original columns with an
+explicit positive exact LDL section input. Its nine complex-parameter blocks
+and auxiliary-weighted versions are trial covariance, not harmonic matter
+metrics. The full original block pattern supplies a positive determinant bound
+for every complex extension parameter on the declared domain, without selecting
+one. The unit-H input is an explicit computational initializer, not derived
+physics. See `ALTERNATE_SECTION_COVARIANCE_NOTE.md`.
+
 `auxiliary_cover_draws.py` retains caller-supplied bit-prefix addresses across
 numerical failures and precision refinement. Exact selectors realize the
 auxiliary mixture conditional on independent fair input streams; native roots,

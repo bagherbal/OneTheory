@@ -37,6 +37,101 @@ PARENT_DIGESTS = {
     "up": "5dca3368f127ddf90eb8e263b403e6ca74f8857a3e505930194c51a67120884f",
     "neutrino": "40e5e45b6be980d49c432dbc707c496be56728731cd9b6f9d71d4cf08d8909eb",
 }
+ACTUAL_COEFFICIENT_DIGESTS = (
+    "ab590cef3f36b64d7636c200f163a69cedaba3e878e8493f95d8695286b5ca6b",
+    "c570612d6c3246000c70e03439a54ab8a950b2f9d6fa0ed29805e602316c0246",
+    "abd2e360c41591ed88a24c08c43d0d385ab544e5377a80fda2914aa9cd56cca2",
+    "471aaa5ce5c3b9e7b5e3d694b895711a2f3679f0919833ff6f5936b6c4a318bd",
+    "cc169decddb441780b5558a46cfc08873b0877063ba073c134bfcf152e36a4a2",
+    "483a57dc975323f2a689eda4a9d0eca564c277c9c412e5c9255d3375197c1eff",
+    "8ae36d456eb8622f4621f6b334f701f780fbbe16bdf1ab3cb278951140bdc6a6",
+    "5173a49b0460c88c35582b1194803e8d30f02cad850151737bb05ce090ddba58",
+    "8ee8676a63a43fa0ac6c33a2647c2b5fd1355b3fafe0b5b1b57b1010af0c5ed9",
+    "53aeb4763a0102ac808fdeb7b26ca0852b5e7a8fa9bb8dcb87b0e8595bc481ab",
+    "ee64ef1b5529fec7f6fc578fc19fdd769bf7471aeaff743b4bc084b4b682d31c",
+    "be715b5bc83368be3394e10c911dd618d7fccdc99c183962629b74115624b9e7",
+    "0cb4a84f02e31ebefffbc0b69a64a78ef18c71a1609772ccf316f3ef96041882",
+    "93d7e4037fa1b3f37f26d5d230b6c9ae9cf35c786092a85e3d1635057fdc41d4",
+    "fb89c73981feb1696fb0583eee3aa51c581ee17f69cbe6cc1463b6db573d128c",
+    "c302473b42759452ebac5001ccd8dca24fbb958d7162e07b768ed579c9a9280a",
+)
+
+
+def _actual_remaining_rank_coefficients(sector):
+    """Independently expand actual scalar metadata, not the assembler output.
+
+    This arithmetic check does not replay the complete matter or products.
+    The live full-matrix gate must still validate every literal witness.
+    """
+
+    digest, packet = _verified_payload(matrices.coefficients.mixed.OUTPUT)
+    assert digest == matrices.coefficients.MIXED_DIGEST
+    mixed = {(item["row"], item["column"]): exact(item["quotient_residue"])
+             for item in packet["sectors"][sector]["evaluated_entries"]}
+    r1, r2, c1, c2 = (mixed[key] for key in ((0, 1), (0, 2), (1, 0), (2, 0)))
+    results = []
+    for parameter in (0, 1):
+        block = {}
+        for index, (row, column) in enumerate((r, c) for r in (1, 2) for c in (1, 2)):
+            digest, item = _verified_payload(matrices.coefficients.entry_path(
+                parameter, sector, row, column,
+            ))
+            assert digest == ACTUAL_COEFFICIENT_DIGESTS[8*parameter + 4*sector + index]
+            assert item["schema"] == matrices.coefficients.SCHEMA
+            assert (item["parameter"], item["sector"], item["row"], item["column"]) == (
+                f"a{parameter}", sector, row, column,
+            )
+            assert item["quotient_residue"] == str(exact(item["cover_residue"])/9)
+            block[row, column] = exact(item["quotient_residue"])
+        expanded = (-r1*c1*block[2, 2] + r1*c2*block[1, 2]
+                    + r2*c1*block[2, 1] - r2*c2*block[1, 1])
+        null = (block[2, 2] - (c2/c1)*block[1, 2] - (r2/r1)*block[2, 1]
+                + (c2/c1)*(r2/r1)*block[1, 1])
+        assert expanded == -r1*c1*null
+        results.append((expanded, null))
+    return tuple(results)
+
+
+@pytest.mark.parametrize("sector,parameter,coefficient,null", (
+    (0, 0, "1/42-2/21*omega", "-36-18*omega"),
+    (0, 1, "-1/21-5/84*omega", "-9+9*omega"),
+    (1, 0, "-1/84+1/21*omega", "18+9*omega"),
+    (1, 1, "-1/21-5/84*omega", "-9+9*omega"),
+))
+def test_all_remaining_actual_rank_coefficients_match_separate_scalar_expansion(
+    sector, parameter, coefficient, null,
+):
+    assert _actual_remaining_rank_coefficients(sector)[parameter] == (
+        exact(coefficient), exact(null),
+    )
+
+
+def test_actual_four_sector_rank_forms_have_distinct_projective_exceptions():
+    """Prove the exact arithmetic locus, not an uncompleted physical matrix."""
+
+    down = tuple(item[0] for item in _actual_remaining_rank_coefficients(0))
+    lepton = tuple(item[0] for item in _actual_remaining_rank_coefficients(1))
+    assert down[0] == -2*lepton[0]
+    assert down[1] == lepton[1]
+    assert all(not coefficient.is_zero() for row in (down, lepton) for coefficient in row)
+    assert not (down[0]*lepton[1] - down[1]*lepton[0]).is_zero()
+    # The established up and neutrino zero sets are the two coordinate axes.
+    for sector, powers in (("up", (0, 1)), ("neutrino", (1, 0))):
+        path = matrices.coefficients.engine.GENERATED / (
+            f"alternate_{sector}_full_holomorphic_matrix.json"
+        )
+        digest, parent = _verified_payload(path)
+        assert digest == PARENT_DIGESTS[sector]
+        assert len(parent["determinant"]) == 1
+        assert tuple(parent["determinant"][0]["powers"]) == powers
+        assert not exact(parent["determinant"][0]["coefficient"]).is_zero()
+    a0, a1 = (Polynomial.monomial(powers, scalar_type=Eisenstein)
+              for powers in ((1, 0), (0, 1)))
+    down_form = a0.scale(down[0]) + a1.scale(down[1])
+    lepton_form = a0.scale(lepton[0]) + a1.scale(lepton[1])
+    common_open = a0*a1*down_form*lepton_form
+    assert not common_open.is_zero()
+    assert all(sum(powers) == 4 for powers, _ in common_open.terms)
 
 
 def _actual_inputs(sector):

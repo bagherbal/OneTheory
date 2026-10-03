@@ -758,7 +758,7 @@ not evidence that either remaining matrix has been computed. It requires
 sixteen scalar packets, sixteen original matter-lift packets, and the two
 shared down-Higgs/mixed packets, each with its full archive, before any
 replay begins. It reuses the original full validators and the extracted
-neutrino matrix constructor. Eighty-nine regressions preserve all nine
+neutrino matrix constructor. Ninety-four regressions preserve all nine
 entries of both established matrices, reject every missing prerequisite,
 and verify the exact mixed null-channel rank identity. No partial matrix
 is written. Actual full scalar replay must finish before either complete
@@ -771,6 +771,17 @@ null-channel coefficient is `-36-18*omega`. All four full scalar archives
 pass direct closure/residue, transferred projection, and inverse-convolution
 trace checks in the unchanged quotient frame. These checks reuse certified
 down-Higgs inputs; they do not replace the final fresh product/matter replay.
-Seven adversarial metadata checks reject rehashed scope inflation. The a1
-block, complete charged-lepton matrix, and all-sixteen fresh replay remain
+Seven adversarial metadata checks reject rehashed scope inflation. Both
+complete two-parameter matrices and all-sixteen fresh replay remain
 unresolved; a holomorphic coefficient is not a physical mass prediction.
+
+The original coefficient producer has now completed all sixteen scalar
+checkpoints. Every required archive is present with its literal byte identity;
+the complete-input replay is running with two workers. The source set is
+available, but both matrix nodes remain unresolved until that replay finishes.
+Separate exact scalar arithmetic gives down coefficients
+`(1/42-2*omega/21, -1/21-5*omega/84)` and charged-lepton coefficients
+`(-1/84+omega/21, -1/21-5*omega/84)` in original `(a0,a1)` order. Their rank
+forms have distinct projective zero sets, separate from the established
+up/neutrino coordinate axes. This arithmetic diagnostic does not certify
+the unfinished full matrix witnesses, physical metrics, or a vacuum.

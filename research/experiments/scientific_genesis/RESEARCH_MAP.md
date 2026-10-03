@@ -1639,8 +1639,8 @@ producers also reproduce their prior packets unchanged after extracting the
 explicit-input scalar evaluator. The original unarchived Q E class is
 reproduced and pinned to its whole previous certificate, not newly selected.
 
-`alternate_down_lepton_matrices` stays BLOCKED on sixteen actual F-F coefficient
-scalars and independent complete matrix replay. The declared experiment
+`alternate_down_lepton_matrices` stays BLOCKED on independent complete matrix
+replay; its sixteen actual F-F coefficient archives are now produced. The experiment
 `alternate_down_lepton_ff_entries.py` consumes the sixteen existing Q/L/d/e
 correction packets and actual down-Higgs primitives. It schedules the unchanged
 full validators and scalar engine with at most two workers, snapshots source
@@ -1654,7 +1654,7 @@ The complete down/lepton assembly now has a fail-closed owner,
 and literal archives must exist before replay; no missing coefficient is
 inferred. It schedules unchanged full lift and scalar validators with at most
 two workers, then reuses the exact established one-plus-two-family matrix
-constructor. Eighty-nine assembly regressions reproduce the known up/neutrino
+constructor. Ninety-four assembly regressions reproduce the known up/neutrino
 matrices, guard every prerequisite, and prove the mixed null-channel rank
 identity with formal indeterminates rather than assigned physical coefficients.
 The matrix node stays BLOCKED until all
@@ -1670,3 +1670,14 @@ mixed null-channel coefficient is `-36-18*omega`; its nonzero fixed minor
 is `1/756+omega/252`. This is one coefficient on the original formal family,
 not a selected parameter point or either complete matrix. Final fresh
 matter/product/scalar replay must still finish on all sixteen inputs.
+
+All sixteen coefficient checkpoints are now produced and byte-pinned; the
+two-worker complete replay consumes the thirty-four declared input packets.
+No coefficient search is needed. Independent scalar expansion gives the
+remaining determinant forms
+`(1/42-2*omega/21)*a0 + (-1/21-5*omega/84)*a1` and
+`(-1/84+omega/21)*a0 + (-1/21-5*omega/84)*a1`. Their two projective zero sets
+are distinct from one another and the up/neutrino axes, without selecting
+a point. This is an exact arithmetic diagnostic of the archived coefficients,
+not a completed full-witness matrix gate. The full replay must finish before
+matrix availability is changed; normalization and the common vacuum remain open.

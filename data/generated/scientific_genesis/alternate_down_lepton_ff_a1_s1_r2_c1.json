@@ -1,0 +1,99 @@
+{
+  "Q_and_L_matter_corrections_recomputed": false,
+  "actual_matter_lift_digests": [
+    "4002b844a63e4a3de0d909f6b232bc4ad645ce7c835fdf4cbb733ef665ee8245",
+    "572637f5986124caece4159531611e592e6177f9166b1d2806f048ed65e91c86"
+  ],
+  "artifact_digest": "fb89c73981feb1696fb0583eee3aa51c581ee17f69cbe6cc1463b6db573d128c",
+  "carrier_status": "conditional on the selected heterotic UV realization",
+  "coefficient_field": "Q(omega)",
+  "column": 1,
+  "column_character": [
+    2,
+    0
+  ],
+  "column_seed_index": 0,
+  "complete_charged_lepton_matrix_available": false,
+  "complete_down_matrix_available": false,
+  "cover_residue": "-983/6-287/3*omega",
+  "direct_transferred_and_inverse_convolution_traces_equal": true,
+  "extension_point_selected": false,
+  "exterior_filtration_parameter_degree": 1,
+  "full_cochain_archive_name": "alternate_down_lepton_ff_a1_s1_r2_c1.cochains.json.gz",
+  "full_cochain_archive_sha256": "8c1c93f94a2adb24e8dc3be2411fda2382ecbbab0bd75cfe848bd0c4d9d966c9",
+  "full_cochain_payload_digest": "f8242f60c876cf55c49c57e2477504c7ff4e2af317f877806e6ce04bfbc40d8a",
+  "full_coefficientwise_product_identity_exact": true,
+  "full_scalar_closed_exact": true,
+  "observational_inputs_used": false,
+  "parameter": "a1",
+  "physical_yukawas_available": false,
+  "projection_depth": 3,
+  "proof_sha256": "343a4105dfcff87dff3805b3e022b9cb8982a77266e5d132635b037b1d75dc0c",
+  "quotient_residue": "-983/54-287/27*omega",
+  "row": 2,
+  "row_character": [
+    2,
+    1
+  ],
+  "row_seed_index": 4,
+  "scalar_order": "h_down cup P1 + kappa_down cup P0",
+  "schema": "alternate-down-lepton-ff-entry-v1",
+  "sector": 1,
+  "source_snapshot": {
+    "alternate_down_higgs_quotient_cone": {
+      "archive_sha256": "b8d5f6ceefe1582ea3c168a3e3e48d762cfa912aa3ada0aff0a43bc7772381e0",
+      "artifact_digest": "50d0a3f0f2547f5c1eb05444765b2322075dc03fd56b2b65cf7874534044274f"
+    },
+    "alternate_down_lepton_mixed_pairing": {
+      "archive_sha256": "473ba7c6b1d4a04f9b61f4d459232dfd688178d9f4cb8ae411bf5073d45517a6",
+      "artifact_digest": "ae7f62edaf3621af9b8dc8142f597218cd5426b8b922fd9b6b1e8ae2cb1ed1b1"
+    },
+    "alternate_neutrino_ff_lift_a1_side0_family1": {
+      "archive_sha256": "bcf383629c44fcfa97d8801f7b06db0744a00512e00c27f63cbe3aab987eef47",
+      "artifact_digest": "d20d9d68689a66e769a4c637efc8abb365fcb4021990dc021126302e8824004d"
+    },
+    "alternate_neutrino_ff_lift_a1_side0_family2": {
+      "archive_sha256": "dd0087ea31dab42723531270da35f4d6d9adc7f8b168dcbb020f5b2f7d6c236f",
+      "artifact_digest": "4002b844a63e4a3de0d909f6b232bc4ad645ce7c835fdf4cbb733ef665ee8245"
+    },
+    "alternate_remaining_flavor_lift_a1_sector0_family1": {
+      "archive_sha256": "536c8ae7acbdedeab4bb2a62c3e64d6bb652796ad7540bfcba2de5af67ee1891",
+      "artifact_digest": "eb3f71dec8372883e3b132fc877e2870c271a5d58628f2941c59b059e2a983da"
+    },
+    "alternate_remaining_flavor_lift_a1_sector0_family2": {
+      "archive_sha256": "781604109d4864d1a340fef36974e99b901f541ec157539c7a8e822f9ea18f15",
+      "artifact_digest": "09aaa371e465124fd344fb3a4fc421d51d1164fbf7e8330a45fcbffd31df9b52"
+    },
+    "alternate_remaining_flavor_lift_a1_sector1_family1": {
+      "archive_sha256": "b489eb264bb28bdced66f01a98be59039f49ce935b6f05c80b177a965819fe3f",
+      "artifact_digest": "572637f5986124caece4159531611e592e6177f9166b1d2806f048ed65e91c86"
+    },
+    "alternate_remaining_flavor_lift_a1_sector1_family2": {
+      "archive_sha256": "ea8cc6d88642eae800ee5c1b203b6dd8a6c46a2c2317211ba670f1073713425f",
+      "artifact_digest": "064e7fd324f2ba23dff2a51dddd7969397b083de6061ba338dc2301218c5ad44"
+    },
+    "alternate_up_ff_lift_a1_side0_family1": {
+      "archive_sha256": "79b46c23df8c2c2b59de8ce201c0770d41cc0e6a4c21ee80b5f7fbbbcd3a9342",
+      "artifact_digest": "77f04729847dc58ec78314fc1c6fb92017c5a999475dd7047e6f50ee2b837526"
+    },
+    "alternate_up_ff_lift_a1_side0_family2": {
+      "archive_sha256": "f75277293ba38b432deb958590121b06f8811880c28f2ed4024542b4973c3f0a",
+      "artifact_digest": "b32e6cc80c8492e01ffd896c2d77edb5e74a0967a4c962daf0263e64a84c5d03"
+    }
+  },
+  "up_Higgs_primitives_used": false,
+  "witnesses": {
+    "product_constant": {
+      "cochain_digest": "976a53ae05768ef0cd71f4a9fb583f207e77900026ebfcec92d0511f654c6874",
+      "term_count": 2367
+    },
+    "product_linear": {
+      "cochain_digest": "a40adb42af79c8b6e36b6e052f8f041a01a8e2f80ca134840f591fa48e41584b",
+      "term_count": 108072
+    },
+    "scalar": {
+      "cochain_digest": "d1120bead4089271ab83069d688ecf03af09d851d021deaea7657fab224d11ed",
+      "term_count": 52158
+    }
+  }
+}

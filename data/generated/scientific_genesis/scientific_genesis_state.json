@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "1b77686421c65ea37fe7fe8cf853fcbc0bb2cca6058de407ed7d9d24f379183a",
+  "artifact_digest": "ea7d381fb5af5e11c9db612b3fa31747479104b767e290493f77f020a5935a0a",
   "artifacts": [
     {
       "bytes": 4606,
@@ -22,6 +22,66 @@
       "sha256": "0409357d5cd64127e4755209fd3c9a7a734a6883b4162669fecd61f997471a18"
     },
     {
+      "bytes": 4598,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r1_c1.json",
+      "sha256": "e6e9aa8b3908e162a5553858933e204fdb7de3284ea2f200a44eee083a44e31e"
+    },
+    {
+      "bytes": 4610,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r1_c2.json",
+      "sha256": "36a5214a58d7ac326f08d5567bda2a7bbab8138ae6fc0827a5132f371a4c4fcb"
+    },
+    {
+      "bytes": 4592,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r2_c1.json",
+      "sha256": "daac7ad54ed80196d3ea16cd0b6cdf3fb30493ae5562d160217959ca42b9e191"
+    },
+    {
+      "bytes": 4598,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r2_c2.json",
+      "sha256": "a287440899fc993c113713f71701b9286c87cff284c1880af781847f4b0a7034"
+    },
+    {
+      "bytes": 4602,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r1_c1.json",
+      "sha256": "09de91e1f6833de061ba0c145f5b06c26947bbd9fddeecc8a659fe7be88cf34a"
+    },
+    {
+      "bytes": 4596,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r1_c2.json",
+      "sha256": "b35b7be13146919d3a5c417fdb3b04ec4e2f8485cc26faa316756ad0d24e64da"
+    },
+    {
+      "bytes": 4600,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r2_c1.json",
+      "sha256": "c98b7eaa615f1a4365122ed7936cc1f20d31f254a4a87ca9d13c931820e35ae4"
+    },
+    {
+      "bytes": 4600,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r2_c2.json",
+      "sha256": "ba3fa946ec68bcf8990dfcc866ab0adac19ada7d6420566ddca0b6aa844792f2"
+    },
+    {
+      "bytes": 4604,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r1_c1.json",
+      "sha256": "94805a4e541b66685f2d481bba7f055a4cc1913a092da93183fe44efdec80dd5"
+    },
+    {
+      "bytes": 4598,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r1_c2.json",
+      "sha256": "2086a0ed6b7e57e4208fb6847ed7cdb45070ccdd92c5fed5db4901f8b0b83c55"
+    },
+    {
+      "bytes": 4598,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r2_c1.json",
+      "sha256": "5fabadf0496553cf7ea3dfeb4f4d2800a9da9931a13aa4839cac776aa77e9412"
+    },
+    {
+      "bytes": 4602,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r2_c2.json",
+      "sha256": "c31d537762240698489b4fe74722490f1df319399e2feaea1f816cf7ffa27a87"
+    },
+    {
       "bytes": 1694196,
       "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c1.cochains.json.gz",
       "sha256": "d72617dcee047efeeffff1ff68f995af6c9982f1181f0c8e57846f7d722d8e6d"
@@ -40,6 +100,66 @@
       "bytes": 1714954,
       "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c2.cochains.json.gz",
       "sha256": "720f871cc9601bd1867c2ae17beb823b7230c16458f60d6a52e45f7d6d15396b"
+    },
+    {
+      "bytes": 1699903,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r1_c1.cochains.json.gz",
+      "sha256": "ecdd3731b923a5932a20a20134859ffaffd75c6d35cff53e2e44b9138819af72"
+    },
+    {
+      "bytes": 1866632,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r1_c2.cochains.json.gz",
+      "sha256": "32558086a5fbd6483b95ab6b18266827377115d66dbc9dde6943955da959b73f"
+    },
+    {
+      "bytes": 1654583,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r2_c1.cochains.json.gz",
+      "sha256": "23405a7eb85569338fe395344028eab3d7d8627a06199f4faebb477e97ab2026"
+    },
+    {
+      "bytes": 1716573,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r2_c2.cochains.json.gz",
+      "sha256": "5458928f9d00a23ec488640e7c66c1a7ac538c68b0945ecd84c2e38d05c85d72"
+    },
+    {
+      "bytes": 1624192,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r1_c1.cochains.json.gz",
+      "sha256": "01c5c55720214a5222e6d8a70086caeec43f19e13a25d812c8e229d2f5c3def4"
+    },
+    {
+      "bytes": 1504853,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r1_c2.cochains.json.gz",
+      "sha256": "b649552f414330e2d616232aaa2a8b676ea8feadf75a7221ac91df69b88afdd4"
+    },
+    {
+      "bytes": 1780646,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r2_c1.cochains.json.gz",
+      "sha256": "f98c8afc803bc0d8781cc6866b9576e90eea2372ba35174300c9e1eb09ecb81d"
+    },
+    {
+      "bytes": 1587086,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r2_c2.cochains.json.gz",
+      "sha256": "88d7e9147e64336a330f8dfe14f0d6d9cd6f7ae05dd95db94576d8d47ca9f6b2"
+    },
+    {
+      "bytes": 1630656,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r1_c1.cochains.json.gz",
+      "sha256": "b0fa3c60e8e4b4cc225c54905c773822bbbd0dcf484f5bf96021f445f9a209ec"
+    },
+    {
+      "bytes": 1782826,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r1_c2.cochains.json.gz",
+      "sha256": "d2518c4e252daca75e41f0873126407e518778170b0b0fd797c48f732c691794"
+    },
+    {
+      "bytes": 1511584,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r2_c1.cochains.json.gz",
+      "sha256": "8c1c93f94a2adb24e8dc3be2411fda2382ecbbab0bd75cfe848bd0c4d9d966c9"
+    },
+    {
+      "bytes": 1593428,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r2_c2.cochains.json.gz",
+      "sha256": "66ec7c306ebaab204f2db747aafcb6b93cc1edc431a4a9080dc60fe138ad2e11"
     },
     {
       "bytes": 16555,
@@ -1363,7 +1483,7 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2847,
+    "collected_tests_at_audit": 2852,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 292,
@@ -4751,6 +4871,30 @@
         "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c1.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c2.json",
         "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r2_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r1_c1.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r1_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r1_c2.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r1_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r2_c1.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r2_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r2_c2.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s1_r2_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r1_c1.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r1_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r1_c2.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r1_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r2_c1.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r2_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r2_c2.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s0_r2_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r1_c1.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r1_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r1_c2.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r1_c2.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r2_c1.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r2_c1.cochains.json.gz",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r2_c2.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_ff_a1_s1_r2_c2.cochains.json.gz",
         "research/experiments/scientific_genesis/alternate_remaining_flavor_matter_lifts.py",
         "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py"
       ],
@@ -4758,10 +4902,9 @@
       "label": "complete actual down and charged-lepton holomorphic matrices",
       "layer": "Flavor",
       "missing_prerequisites": [
-        "sixteen actual F-F coefficient scalars",
-        "independent all-entry replay and exact matrix rank loci"
+        "independent all-entry replay and exact complete matrix rank loci"
       ],
-      "statement": "All scalar entries must come from actual Q/d and L/e matter states paired with the actual down-Higgs cocycle. Existing up and neutrino values cannot fill these two missing matrices. The complete assembler gates all thirty-four literal inputs before replay. Eighty-nine assembly regressions preserve the established matrices, reject missing inputs, and verify the exact mixed null-channel rank identity. Four actual down a0 archives have independently checked scalar traces and a nonzero determinant coefficient 1/42-2*omega/21. These are not either complete two-parameter matrix; all sixteen fresh entry replays remain required.",
+      "statement": "All scalar entries must come from actual Q/d and L/e matter states paired with the actual down-Higgs cocycle. Existing up and neutrino values cannot fill these two missing matrices. The complete assembler gates all thirty-four literal inputs before replay. Ninety-four assembly regressions preserve the established matrices, reject missing inputs, and verify the exact mixed null-channel rank identity. Four actual down a0 archives have independently checked scalar traces and a nonzero determinant coefficient 1/42-2*omega/21. These are not either complete two-parameter matrix; all sixteen fresh entry replays remain required. All sixteen metadata/archive pairs are now present with pinned byte identities. The two-worker complete matter and scalar replay is the remaining matrix gate, not another coefficient search.",
       "status": "BLOCKED"
     },
     {
@@ -9522,10 +9665,22 @@
       "alternate_down_a0_archived_coefficient_count": 4,
       "alternate_down_a0_determinant_coefficient": "1/42-2/21*omega",
       "alternate_down_lepton_all_sixteen_fresh_entry_replays_complete": false,
+      "alternate_down_lepton_arithmetic_rank_coefficients": [
+        [
+          "1/42-2/21*omega",
+          "-1/21-5/84*omega"
+        ],
+        [
+          "-1/84+1/21*omega",
+          "-1/21-5/84*omega"
+        ]
+      ],
       "alternate_down_lepton_complete_holomorphic_matrices_available": false,
+      "alternate_down_lepton_complete_scalar_source_set_available": true,
       "alternate_down_lepton_constant_mixed_entry_count": 8,
       "alternate_down_lepton_mixed_blocks_available": true,
       "alternate_down_lepton_physical_yukawa_matrices_available": false,
+      "alternate_down_lepton_scalar_archive_count": 16,
       "alternate_fixed_atlas_determinant_characters": [
         [
           2,
@@ -10276,7 +10431,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "compute and independently replay all sixteen actual down/lepton F-F coefficients using verified mixed blocks, down-Higgs primitives, and archived Q/L/d/e lifts, then assemble both complete holomorphic matrices; metric sampling, Ricci-flat/HYM convergence, other sectors, and the common vacuum remain required before physical normalization",
+    "next_required_object": "independently replay all sixteen completed actual down/lepton F-F coefficients using verified mixed blocks, down-Higgs primitives, and archived Q/L/d/e lifts, then assemble both complete holomorphic matrices; metric sampling, Ricci-flat/HYM convergence, other sectors, and the common vacuum remain required before physical normalization",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [

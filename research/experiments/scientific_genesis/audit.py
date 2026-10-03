@@ -3957,13 +3957,16 @@ def _nodes() -> list[dict[str, object]]:
             "states paired with the actual down-Higgs cocycle. Existing up "
             "and neutrino values cannot fill these two missing matrices. "
             "The complete assembler gates all thirty-four literal inputs "
-            "before replay. Eighty-nine assembly regressions preserve the "
+            "before replay. Ninety-four assembly regressions preserve the "
             "established matrices, reject missing inputs, and verify the exact "
             "mixed null-channel rank identity. Four actual down a0 archives "
             "have independently checked scalar traces and a nonzero "
             "determinant coefficient 1/42-2*omega/21. These are not either "
             "complete two-parameter matrix; all sixteen fresh entry replays "
-            "remain required.",
+            "remain required. All sixteen metadata/archive pairs are now "
+            "present with pinned byte identities. The two-worker complete "
+            "matter and scalar replay is the remaining matrix gate, not "
+            "another coefficient search.",
             ("research/experiments/scientific_genesis/alternate_up_ff_entries.py",
              "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py",
              "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FF_NOTE.md",
@@ -3972,14 +3975,14 @@ def _nodes() -> list[dict[str, object]]:
              "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md",
              "tests/integration/test_scientific_genesis_alternate_down_lepton_full_matrices.py",
              "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py",
-             *(f"data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r{r}_c{c}{suffix}"
-               for r in (1, 2) for c in (1, 2)
+             *(f"data/generated/scientific_genesis/"
+               f"alternate_down_lepton_ff_a{p}_s{s}_r{r}_c{c}{suffix}"
+               for p in (0, 1) for s in (0, 1) for r in (1, 2) for c in (1, 2)
                for suffix in (".json", ".cochains.json.gz")),
              "research/experiments/scientific_genesis/alternate_remaining_flavor_matter_lifts.py",
              "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py"),
             ("conditional heterotic realization", "original formal outer basis"),
-            missing=("sixteen actual F-F coefficient scalars",
-                     "independent all-entry replay and exact matrix rank loci"),
+            missing=("independent all-entry replay and exact complete matrix rank loci",),
         ),
         _node(
             "physical_pfaffians",
@@ -11167,6 +11170,68 @@ def build_state() -> dict[str, object]:
         raise ValueError(
             "the independently expanded actual down a0 determinant coefficient changed",
         )
+    remaining_scalar_pins = (
+        (0, 1, (
+            "cc169decddb441780b5558a46cfc08873b0877063ba073c134bfcf152e36a4a2",
+            "483a57dc975323f2a689eda4a9d0eca564c277c9c412e5c9255d3375197c1eff",
+            "8ae36d456eb8622f4621f6b334f701f780fbbe16bdf1ab3cb278951140bdc6a6",
+            "5173a49b0460c88c35582b1194803e8d30f02cad850151737bb05ce090ddba58",
+        )),
+        (1, 0, (
+            "8ee8676a63a43fa0ac6c33a2647c2b5fd1355b3fafe0b5b1b57b1010af0c5ed9",
+            "53aeb4763a0102ac808fdeb7b26ca0852b5e7a8fa9bb8dcb87b0e8595bc481ab",
+            "ee64ef1b5529fec7f6fc578fc19fdd769bf7471aeaff743b4bc084b4b682d31c",
+            "be715b5bc83368be3394e10c911dd618d7fccdc99c183962629b74115624b9e7",
+        )),
+        (1, 1, (
+            "0cb4a84f02e31ebefffbc0b69a64a78ef18c71a1609772ccf316f3ef96041882",
+            "93d7e4037fa1b3f37f26d5d230b6c9ae9cf35c786092a85e3d1635057fdc41d4",
+            "fb89c73981feb1696fb0583eee3aa51c581ee17f69cbe6cc1463b6db573d128c",
+            "c302473b42759452ebac5001ccd8dca24fbb958d7162e07b768ed579c9a9280a",
+        )),
+    )
+    flavor_scalar_sources = list(initial_down_sources)
+    scalar_values = {(0, 0, r, c): value for (r, c), value in down_a0.items()}
+    for parameter, sector, pins in remaining_scalar_pins:
+        snapshot = down_ff._snapshot(parameter)
+        for index, (row, column) in enumerate((r, c) for r in (1, 2) for c in (1, 2)):
+            source = down_ff.entry_path(parameter, sector, row, column)
+            digest, entry = _verified_payload(source)
+            archive = source.with_suffix(".cochains.json.gz")
+            if (digest != pins[index] or entry.get("schema") != down_ff.SCHEMA
+                or entry.get("source_snapshot") != snapshot
+                or entry.get("proof_sha256") != _sha256(down_ff.PROOF)
+                or _sha256(archive) != entry.get("full_cochain_archive_sha256")
+                or any(entry.get(flag) is not False for flag in (
+                    "complete_down_matrix_available", "complete_charged_lepton_matrix_available",
+                    "physical_yukawas_available", "extension_point_selected",
+                    "observational_inputs_used", "up_Higgs_primitives_used",
+                    "Q_and_L_matter_corrections_recomputed",
+                ))):
+                raise ValueError(
+                    "a completed remaining scalar checkpoint changed its source or scope",
+                )
+            value = down_ff._parse_eisenstein_text(entry["cover_residue"])/9
+            if entry.get("quotient_residue") != str(value):
+                raise ValueError("a completed remaining scalar changed its quotient normalization")
+            scalar_values[parameter, sector, row, column] = value
+            flavor_scalar_sources.append(source)
+    arithmetic_rank_coefficients = []
+    for sector in (0, 1):
+        mixed = {(item["row"], item["column"]): down_ff._parse_eisenstein_text(
+            item["quotient_residue"],
+        ) for item in actual_mixed["sectors"][sector]["evaluated_entries"]}
+        r1, r2, c1, c2 = (mixed[key] for key in ((0, 1), (0, 2), (1, 0), (2, 0)))
+        arithmetic_rank_coefficients.append([
+            str(-r1*c1*scalar_values[p, sector, 2, 2] + r1*c2*scalar_values[p, sector, 1, 2]
+                + r2*c1*scalar_values[p, sector, 2, 1] - r2*c2*scalar_values[p, sector, 1, 1])
+            for p in (0, 1)
+        ])
+    if arithmetic_rank_coefficients != [
+        ["1/42-2/21*omega", "-1/21-5/84*omega"],
+        ["-1/84+1/21*omega", "-1/21-5/84*omega"],
+    ]:
+        raise ValueError("the independently expanded remaining scalar rank coefficients changed")
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -11240,9 +11305,9 @@ def build_state() -> dict[str, object]:
         raise ValueError("the same-constituent Wilson obstruction is not certified")
 
     artifact_paths = (
-        *(str(source.relative_to(ROOT)) for source in initial_down_sources),
+        *(str(source.relative_to(ROOT)) for source in flavor_scalar_sources),
         *(str(source.with_suffix(".cochains.json.gz").relative_to(ROOT))
-          for source in initial_down_sources),
+          for source in flavor_scalar_sources),
         "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.json",
         "data/generated/scientific_genesis/alternate_down_lepton_mixed_pairing.cochains.json.gz",
         *(str(remaining_lifts.lift_path(parameter, sector, family).relative_to(ROOT))
@@ -11545,7 +11610,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2847,
+            "collected_tests_at_audit": 2852,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -11762,6 +11827,9 @@ def build_state() -> dict[str, object]:
                 "alternate_down_lepton_mixed_blocks_available": True,
                 "alternate_down_a0_archived_coefficient_count": len(down_a0),
                 "alternate_down_a0_determinant_coefficient": str(down_a0_det),
+                "alternate_down_lepton_scalar_archive_count": len(scalar_values),
+                "alternate_down_lepton_complete_scalar_source_set_available": True,
+                "alternate_down_lepton_arithmetic_rank_coefficients": arithmetic_rank_coefficients,
                 "alternate_down_lepton_all_sixteen_fresh_entry_replays_complete": False,
                 "alternate_down_lepton_complete_holomorphic_matrices_available": False,
                 "alternate_down_lepton_physical_yukawa_matrices_available": False,
@@ -12060,7 +12128,7 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "compute and independently replay all sixteen actual down/lepton F-F "
+                "independently replay all sixteen completed actual down/lepton F-F "
                 "coefficients using verified mixed blocks, down-Higgs primitives, and "
                 "archived Q/L/d/e lifts, then assemble both complete holomorphic matrices; "
                 "metric sampling, "

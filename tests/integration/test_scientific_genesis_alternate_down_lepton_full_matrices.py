@@ -3,7 +3,8 @@
 Owns:
     All actual prerequisite paths, fail-closed execution boundaries, and
     all-entry regression against the established up and neutrino matrices,
-    and exact fixed mixed rank floors in the remaining original bases.
+    exact source-to-position assembly checks for the remaining scalar packets,
+    and fixed mixed rank floors in the remaining original bases.
 
 Depends on:
     Pinned original scalar packets, the shared exact matrix constructor,
@@ -55,6 +56,56 @@ ACTUAL_COEFFICIENT_DIGESTS = (
     "fb89c73981feb1696fb0583eee3aa51c581ee17f69cbe6cc1463b6db573d128c",
     "c302473b42759452ebac5001ccd8dca24fbb958d7162e07b768ed579c9a9280a",
 )
+
+
+@pytest.mark.parametrize("sector", (0, 1))
+def test_remaining_constructor_routes_every_actual_scalar_to_its_original_position(sector):
+    """Check all nine polynomials without claiming completed witness replay.
+
+    The expected entries are read independently from pinned actual sources.
+    This checks assembly only; it does not create a complete output artifact
+    or replace the mandatory constituent, product, and scalar replay gate.
+    """
+
+    digest, packet = _verified_payload(matrices.coefficients.mixed.OUTPUT)
+    assert digest == matrices.coefficients.MIXED_DIGEST
+    assert packet["first_first_entry_zero_by_B_wedge_B"] is True
+    mixed = packet["sectors"][sector]["evaluated_entries"]
+    assert [(entry["row"], entry["column"]) for entry in mixed] == [
+        (0, 1), (0, 2), (1, 0), (2, 0),
+    ]
+    expected = {(entry["row"], entry["column"]): Polynomial.constant(
+        exact(entry["quotient_residue"]), 2, scalar_type=Eisenstein,
+    ) for entry in mixed}
+    for entry in mixed:
+        assert exact(entry["cover_residue"])/9 == exact(entry["quotient_residue"])
+    expected[0, 0] = Polynomial.zero(2, scalar_type=Eisenstein)
+    blocks = {}
+    for index, (row, column) in enumerate((r, c) for r in (1, 2) for c in (1, 2)):
+        terms = []
+        for parameter, powers in ((0, (1, 0)), (1, (0, 1))):
+            digest, entry = _verified_payload(matrices.coefficients.entry_path(
+                parameter, sector, row, column,
+            ))
+            assert digest == ACTUAL_COEFFICIENT_DIGESTS[8*parameter + 4*sector + index]
+            assert entry["schema"] == matrices.coefficients.SCHEMA
+            assert (entry["parameter"], entry["sector"], entry["row"], entry["column"]) == (
+                f"a{parameter}", sector, row, column,
+            )
+            cover, quotient = exact(entry["cover_residue"]), exact(entry["quotient_residue"])
+            assert cover/9 == quotient
+            blocks[parameter, row, column] = cover
+            terms.append((powers, quotient))
+        expected[row, column] = Polynomial(terms, variable_count=2, scalar_type=Eisenstein)
+    actual, det, minor = matrices.established.assemble_actual_flavor_matrix(mixed, blocks)
+    assert actual.rows == tuple(tuple(expected[row, column] for column in range(3))
+                                for row in range(3))
+    # Expand the actual sparse matrix independently of the determinant engine.
+    r1, r2, c1, c2 = (expected[key] for key in ((0, 1), (0, 2), (1, 0), (2, 0)))
+    separate = (-r1*c1*expected[2, 2] + r1*c2*expected[1, 2]
+                + r2*c1*expected[2, 1] - r2*c2*expected[1, 1])
+    assert det == separate
+    assert minor == -r1*c1
 
 
 def _actual_remaining_rank_coefficients(sector):
@@ -235,7 +286,7 @@ def test_remaining_rank_lifting_is_exactly_the_actual_mixed_null_channel(sector)
 
 
 def test_actual_down_a0_block_has_a_nonzero_exact_determinant_coefficient():
-    """Check the completed coefficient only; a1 and leptons stay unavailable."""
+    """Check the completed coefficient, not the still-unreplayed full matrices."""
 
     pins = (
         "ab590cef3f36b64d7636c200f163a69cedaba3e878e8493f95d8695286b5ca6b",

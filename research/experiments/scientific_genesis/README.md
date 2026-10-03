@@ -758,10 +758,12 @@ not evidence that either remaining matrix has been computed. It requires
 sixteen scalar packets, sixteen original matter-lift packets, and the two
 shared down-Higgs/mixed packets, each with its full archive, before any
 replay begins. It reuses the original full validators and the extracted
-neutrino matrix constructor. Ninety-four regressions preserve all nine
+neutrino matrix constructor. Ninety-six regressions preserve all nine
 entries of both established matrices, reject every missing prerequisite,
-and verify the exact mixed null-channel rank identity. No partial matrix
-is written. Actual full scalar replay must finish before either complete
+check all eighteen remaining source-to-position polynomials independently,
+and verify the exact mixed null-channel rank identity. The source-position
+checks do not replay the full witnesses or certify either matrix. No partial
+matrix is written. Actual full scalar replay must finish before either complete
 down/lepton matrix or its four-sector common rank condition is available.
 See `ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md` for the execution gate.
 

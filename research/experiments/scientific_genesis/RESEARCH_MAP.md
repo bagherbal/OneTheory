@@ -1654,9 +1654,13 @@ The complete down/lepton assembly now has a fail-closed owner,
 and literal archives must exist before replay; no missing coefficient is
 inferred. It schedules unchanged full lift and scalar validators with at most
 two workers, then reuses the exact established one-plus-two-family matrix
-constructor. Ninety-four assembly regressions reproduce the known up/neutrino
+constructor. Ninety-six assembly regressions reproduce the known up/neutrino
 matrices, guard every prerequisite, and prove the mixed null-channel rank
 identity with formal indeterminates rather than assigned physical coefficients.
+Assembly for each remaining sector also matches all nine independently
+reconstructed polynomials from the pinned mixed and scalar sources, including the quotient
+factor and parameter ordering. This checks position routing and exact polynomial
+arithmetic, not the fresh full-witness replay or physical normalization.
 The matrix node stays BLOCKED until all
 sixteen actual scalar replays and independent determinant checks complete.
 `ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md` states the conditional gate;

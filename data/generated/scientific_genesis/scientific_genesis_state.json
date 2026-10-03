@@ -1,6 +1,26 @@
 {
-  "artifact_digest": "a1fd1845d0e9e47e106b532dd13d40db60e2f680a1e9e36909642137c9ed8cd3",
+  "artifact_digest": "f2ea21ccd90f5a6eb80876d7274d6b1b2a4c052fe6bb59b092aa0cbcd0c84db9",
   "artifacts": [
+    {
+      "bytes": 3337,
+      "path": "data/generated/scientific_genesis/alternate_necessary_hidden_chamber.json",
+      "sha256": "46c80fc7fd383f22e941715b06fcecf20ada51acf8577554c48ebfcaf27f2deb"
+    },
+    {
+      "bytes": 8794,
+      "path": "research/experiments/scientific_genesis/alternate_necessary_hidden_chamber.py",
+      "sha256": "fb023c40ce512aa2a2def04f05d20404c54b9674d2e6608388986b3118dddd4a"
+    },
+    {
+      "bytes": 4005,
+      "path": "research/experiments/scientific_genesis/ALTERNATE_NECESSARY_HIDDEN_CHAMBER_NOTE.md",
+      "sha256": "9788116204fae5a44767c4e1853e35cbc4cd0147d316843b353bfcb515c59b66"
+    },
+    {
+      "bytes": 9763,
+      "path": "tests/integration/test_scientific_genesis_alternate_necessary_hidden_chamber.py",
+      "sha256": "df417de1db22a8a3390d21f6ff78de3dc546147205e5d7201173a471c347329b"
+    },
     {
       "bytes": 4606,
       "path": "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c1.json",
@@ -1483,11 +1503,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2854,
+    "collected_tests_at_audit": 2882,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 292,
-    "test_python_files": 276
+    "research_python_files": 293,
+    "test_python_files": 277
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -4904,7 +4924,7 @@
       "missing_prerequisites": [
         "independent all-entry replay and exact complete matrix rank loci"
       ],
-      "statement": "All scalar entries must come from actual Q/d and L/e matter states paired with the actual down-Higgs cocycle. Existing up and neutrino values cannot fill these two missing matrices. The complete assembler gates all thirty-four literal inputs before replay. Ninety-four assembly regressions preserve the established matrices, reject missing inputs, and verify the exact mixed null-channel rank identity. Four actual down a0 archives have independently checked scalar traces and a nonzero determinant coefficient 1/42-2*omega/21. These are not either complete two-parameter matrix; all sixteen fresh entry replays remain required. All sixteen metadata/archive pairs are now present with pinned byte identities. The two-worker complete matter and scalar replay is the remaining matrix gate, not another coefficient search.",
+      "statement": "All scalar entries must come from actual Q/d and L/e matter states paired with the actual down-Higgs cocycle. Existing up and neutrino values cannot fill these two missing matrices. The complete assembler gates all thirty-four literal inputs before replay. Ninety-six assembly regressions preserve the established matrices, reject missing inputs, and verify the exact mixed null-channel rank identity. Four actual down a0 archives have independently checked scalar traces and a nonzero determinant coefficient 1/42-2*omega/21. These are not either complete two-parameter matrix; all sixteen fresh entry replays remain required. All sixteen metadata/archive pairs are now present with pinned byte identities. The two-worker complete matter and scalar replay is the remaining matrix gate, not another coefficient search.",
       "status": "BLOCKED"
     },
     {
@@ -4923,6 +4943,25 @@
       ],
       "statement": "Seed conic embeddings, restrictions, determinant-line maps, and normalization are absent.",
       "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
+        "conditional heterotic realization",
+        "no additional Bianchi sources",
+        "trace-free unitary hidden HYM connection on a compact Kahler threefold"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_necessary_hidden_chamber.py",
+        "research/experiments/scientific_genesis/ALTERNATE_NECESSARY_HIDDEN_CHAMBER_NOTE.md",
+        "data/generated/scientific_genesis/alternate_necessary_hidden_chamber.json",
+        "tests/integration/test_scientific_genesis_alternate_necessary_hidden_chamber.py"
+      ],
+      "id": "alternate_necessary_hidden_chamber",
+      "label": "necessary hidden HYM wall for the frozen alternate carrier",
+      "layer": "Vacuum",
+      "missing_prerequisites": [],
+      "statement": "The published Bogomolov wall applies to the alternate carrier's identical rational Chern target in the no-five-brane, c1=0 Kahler HYM branch. An exact open box survives; a whole symbolic visible-stable subfamily is excluded. This is necessary only, not a hidden bundle, integral anomaly certificate, or vacuum.",
+      "status": "DERIVED"
     },
     {
       "assumptions": [],
@@ -9414,6 +9453,68 @@
       "target": "hidden_bundle"
     },
     {
+      "assumptions_required": [
+        "no-five-brane c1=0 Kahler HYM branch"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_NECESSARY_HIDDEN_CHAMBER_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "changed rational Chern target or extra Bianchi sources"
+      ],
+      "mathematical_reason": "The actual cone fixes the parameter-independent rational residual c2.",
+      "source": "alternate_constituent_outer_universal_cone",
+      "target": "alternate_necessary_hidden_chamber"
+    },
+    {
+      "assumptions_required": [
+        "no-five-brane c1=0 Kahler HYM branch"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_NECESSARY_HIDDEN_CHAMBER_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "changed rational Chern target or extra Bianchi sources"
+      ],
+      "mathematical_reason": "The nine sufficient slope bounds define the visible stable chamber.",
+      "source": "alternate_constituent_outer_stability_locus",
+      "target": "alternate_necessary_hidden_chamber"
+    },
+    {
+      "assumptions_required": [
+        "same frozen alternate carrier",
+        "no additional Bianchi sources"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_necessary_hidden_chamber.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "hidden maps, descent, full stability, or stabilization may fail"
+      ],
+      "mathematical_reason": "A compatible hidden HYM bundle and common vacuum must lie inside the necessary wall; positivity is not an existence proof.",
+      "source": "alternate_necessary_hidden_chamber",
+      "target": "hidden_bundle"
+    },
+    {
+      "assumptions_required": [
+        "same frozen alternate carrier",
+        "no additional Bianchi sources"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_necessary_hidden_chamber.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "hidden maps, descent, full stability, or stabilization may fail"
+      ],
+      "mathematical_reason": "A compatible hidden HYM bundle and common vacuum must lie inside the necessary wall; positivity is not an existence proof.",
+      "source": "alternate_necessary_hidden_chamber",
+      "target": "controlled_vacuum"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "src/onetheory/models/heterotic_schoen/vacuum.py"
@@ -9632,6 +9733,157 @@
     "original finite-pole evaluation carries certified coefficient bounds for every archived index; finite/infinity three-index packets are not a sampling law; complete single-domain output is now separately certified"
   ],
   "fitted_inputs": [],
+  "necessary_hidden_chamber": {
+    "assumptions": [
+      "compact Kahler threefold",
+      "no additional Bianchi sources",
+      "determinant-trivial unitary hidden HYM bundle",
+      "nonzero real c2"
+    ],
+    "c2_coordinate_convention": "dual to divisor basis under quotient integration",
+    "c2_tangent": [
+      "4",
+      "4",
+      "0"
+    ],
+    "c2_visible": [
+      "8/3",
+      "5/3",
+      "4"
+    ],
+    "common_open_box": {
+      "all_nonzero_outer_parameters": true,
+      "center": [
+        "6",
+        "9",
+        "3"
+      ],
+      "coordinate_radius": "1/32",
+      "hidden_quotient_pairing_at_center": "17",
+      "hidden_quotient_pairing_lower_bound": "1609/96",
+      "physical_polarization_selected": false,
+      "visible_cover_slope_upper_bounds": [
+        "-623151/1024",
+        "-184557/512",
+        "-690477/1024",
+        "-1512453/1024",
+        "-322113/256",
+        "-148011/256",
+        "-920367/1024",
+        "-5637/1024",
+        "-170337/256"
+      ]
+    },
+    "cover_pairing_multiplier": 9,
+    "covering_degree": 9,
+    "divisor_basis": [
+      "tau1",
+      "tau2",
+      "phi"
+    ],
+    "extension_point_selected": false,
+    "full_common_stability_chamber_computed": false,
+    "hidden_bundle_constructed": false,
+    "hidden_stability_proved": false,
+    "integral_or_torsion_anomaly_cancelled": false,
+    "necessary_wall": "4*x1+7*x2-12*y > 0",
+    "numerical_metrics_available": false,
+    "observational_inputs_used": false,
+    "physical_yukawas_available": false,
+    "prerequisite_artifact_digests": {
+      "cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+      "stability": "570132144ddccead002f9e5957de29bce23d0f73fb94d0e97230e34ba706346f"
+    },
+    "proof_sha256": "9788116204fae5a44767c4e1853e35cbc4cd0147d316843b353bfcb515c59b66",
+    "quotient_pairing_coefficients": [
+      "4/3",
+      "7/3",
+      "-4"
+    ],
+    "required_rational_hidden_c2": [
+      "4/3",
+      "7/3",
+      "-4"
+    ],
+    "schema": "alternate-necessary-hidden-chamber-v1",
+    "source": {
+      "arxiv_id": "hep-th/0602073",
+      "equations": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "source_archive_sha256": "8e38123b9d2de8751deecbf295015497ab2ed891244215455fffe756bebf0aea",
+      "version": "v1"
+    },
+    "status": "necessary conditional chamber constraint only; hidden existence unresolved",
+    "symbolic_slice": {
+      "definition": "J=s*(3,4,t), s>0",
+      "excluded_visible_stable_interval": {
+        "lower_inclusive": "10/3",
+        "upper_exclusive": "29/6"
+      },
+      "hidden_pairing_coefficients_after_scale_removed": [
+        "40/3",
+        "-4"
+      ],
+      "necessary_common_interval_open": [
+        "13/12",
+        "10/3"
+      ],
+      "parameters": [
+        "s",
+        "t"
+      ],
+      "squared_scale_removed_from_visible_slopes": true,
+      "visible_affine_coefficients_constant_linear": [
+        [
+          "114",
+          "-180"
+        ],
+        [
+          "-174",
+          "36"
+        ],
+        [
+          "-39",
+          "-126"
+        ],
+        [
+          "51",
+          "-234"
+        ],
+        [
+          "-237",
+          "-18"
+        ],
+        [
+          "-42",
+          "-36"
+        ],
+        [
+          "93",
+          "-198"
+        ],
+        [
+          "156",
+          "-144"
+        ],
+        [
+          "-195",
+          "18"
+        ]
+      ],
+      "visible_sufficient_interval_open": [
+        "13/12",
+        "29/6"
+      ]
+    },
+    "vacuum_selected": false
+  },
   "objective": {
     "directive_sha256": "c03f5b3713625bc4430559137414e4f7778539fb3a79d29483196d4e33725768",
     "governing_criterion": "minimize distance to the next genuine derived physical result",

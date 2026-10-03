@@ -1,5 +1,22 @@
 # Scientific Genesis research map
 
+## Necessary hidden-sector chamber on the frozen alternate branch
+
+The published no-five-brane hidden Bogomolov wall is now explicitly connected
+to the alternate cone's actual rational target `(4/3,7/3,-4)` and sufficient
+visible stability chamber. It narrows the prospective common vacuum domain
+without supplying a hidden bundle. The whole existing rational open box
+survives, with quotient Chern pairing at least `1609/96`. On the declared
+symbolic slice `J=s*(3,4,t)`, all nine sufficient visible inequalities give
+`13/12<t<29/6`, whereas necessary hidden HYM positivity requires `t<10/3`.
+Thus `10/3<=t<29/6` is excluded throughout this slice, not at selected points.
+This is an application of published knowledge with independent exact checks,
+not a new physical law. The four direct graph edges retain the no-extra-Bianchi
+source assumption. Hidden construction, integral/torsion cancellation, full
+common stability, metrics and stabilization remain unresolved. Twenty-eight
+regressions verify arithmetic, source pins and fail-closed governance. See
+`ALTERNATE_NECESSARY_HIDDEN_CHAMBER_NOTE.md`.
+
 OneTheory currently has a strong exact-mathematics base and a conditional
 heterotic realization, but it does not yet have an end-to-end derivation of
 reality. Quantum phase, Lorentzian causality, Einstein gravity, and the

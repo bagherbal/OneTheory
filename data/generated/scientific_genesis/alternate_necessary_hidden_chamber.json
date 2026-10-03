@@ -1,0 +1,152 @@
+{
+  "artifact_digest": "997326fc92fc908d2781268b8c438795e3d19548b8d4c65fb560a9f18acb98c6",
+  "assumptions": [
+    "compact Kahler threefold",
+    "no additional Bianchi sources",
+    "determinant-trivial unitary hidden HYM bundle",
+    "nonzero real c2"
+  ],
+  "c2_coordinate_convention": "dual to divisor basis under quotient integration",
+  "c2_tangent": [
+    "4",
+    "4",
+    "0"
+  ],
+  "c2_visible": [
+    "8/3",
+    "5/3",
+    "4"
+  ],
+  "common_open_box": {
+    "all_nonzero_outer_parameters": true,
+    "center": [
+      "6",
+      "9",
+      "3"
+    ],
+    "coordinate_radius": "1/32",
+    "hidden_quotient_pairing_at_center": "17",
+    "hidden_quotient_pairing_lower_bound": "1609/96",
+    "physical_polarization_selected": false,
+    "visible_cover_slope_upper_bounds": [
+      "-623151/1024",
+      "-184557/512",
+      "-690477/1024",
+      "-1512453/1024",
+      "-322113/256",
+      "-148011/256",
+      "-920367/1024",
+      "-5637/1024",
+      "-170337/256"
+    ]
+  },
+  "cover_pairing_multiplier": 9,
+  "covering_degree": 9,
+  "divisor_basis": [
+    "tau1",
+    "tau2",
+    "phi"
+  ],
+  "extension_point_selected": false,
+  "full_common_stability_chamber_computed": false,
+  "hidden_bundle_constructed": false,
+  "hidden_stability_proved": false,
+  "integral_or_torsion_anomaly_cancelled": false,
+  "necessary_wall": "4*x1+7*x2-12*y > 0",
+  "numerical_metrics_available": false,
+  "observational_inputs_used": false,
+  "physical_yukawas_available": false,
+  "prerequisite_artifact_digests": {
+    "cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+    "stability": "570132144ddccead002f9e5957de29bce23d0f73fb94d0e97230e34ba706346f"
+  },
+  "proof_sha256": "9788116204fae5a44767c4e1853e35cbc4cd0147d316843b353bfcb515c59b66",
+  "quotient_pairing_coefficients": [
+    "4/3",
+    "7/3",
+    "-4"
+  ],
+  "required_rational_hidden_c2": [
+    "4/3",
+    "7/3",
+    "-4"
+  ],
+  "schema": "alternate-necessary-hidden-chamber-v1",
+  "source": {
+    "arxiv_id": "hep-th/0602073",
+    "equations": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "source_archive_sha256": "8e38123b9d2de8751deecbf295015497ab2ed891244215455fffe756bebf0aea",
+    "version": "v1"
+  },
+  "status": "necessary conditional chamber constraint only; hidden existence unresolved",
+  "symbolic_slice": {
+    "definition": "J=s*(3,4,t), s>0",
+    "excluded_visible_stable_interval": {
+      "lower_inclusive": "10/3",
+      "upper_exclusive": "29/6"
+    },
+    "hidden_pairing_coefficients_after_scale_removed": [
+      "40/3",
+      "-4"
+    ],
+    "necessary_common_interval_open": [
+      "13/12",
+      "10/3"
+    ],
+    "parameters": [
+      "s",
+      "t"
+    ],
+    "squared_scale_removed_from_visible_slopes": true,
+    "visible_affine_coefficients_constant_linear": [
+      [
+        "114",
+        "-180"
+      ],
+      [
+        "-174",
+        "36"
+      ],
+      [
+        "-39",
+        "-126"
+      ],
+      [
+        "51",
+        "-234"
+      ],
+      [
+        "-237",
+        "-18"
+      ],
+      [
+        "-42",
+        "-36"
+      ],
+      [
+        "93",
+        "-198"
+      ],
+      [
+        "156",
+        "-144"
+      ],
+      [
+        "-195",
+        "18"
+      ]
+    ],
+    "visible_sufficient_interval_open": [
+      "13/12",
+      "29/6"
+    ]
+  },
+  "vacuum_selected": false
+}

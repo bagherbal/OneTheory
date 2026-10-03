@@ -22,6 +22,18 @@ certificate, and scientific review are explicit. Run `python -m
 research.experiments.scientific_genesis.audit` to regenerate and validate the
 machine-readable state.
 
+The frozen alternate carrier now has a source-pinned **necessary** hidden-HYM
+chamber constraint in the no-five-brane, determinant-trivial Kahler branch.
+The already-published wall `4*x1+7*x2-12*y>0` follows from its unchanged
+rational Chern target. The existing open visible-stability box remains inside
+this wall; a symbolic visible-stable family also straddles it, so an entire
+subfamily is excluded. Twenty-eight regressions check independent cover-ring
+integration, affine interval and box arithmetic, direct governance edges,
+normalization, and rehashed scope attacks. Positivity does not construct a
+hidden bundle or solve integral anomaly cancellation, actual hidden stability,
+metrics or the common vacuum. No physical polarization is selected. See
+`ALTERNATE_NECESSARY_HIDDEN_CHAMBER_NOTE.md`.
+
 The positive auxiliary integration law now has certified base-eliminating
 charts on all three partner roots of each of the six actual axis-critical
 fibers. These 18 domains retain exact point-line membership, explicit coordinate

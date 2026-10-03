@@ -3957,7 +3957,7 @@ def _nodes() -> list[dict[str, object]]:
             "states paired with the actual down-Higgs cocycle. Existing up "
             "and neutrino values cannot fill these two missing matrices. "
             "The complete assembler gates all thirty-four literal inputs "
-            "before replay. Ninety-four assembly regressions preserve the "
+            "before replay. Ninety-six assembly regressions preserve the "
             "established matrices, reject missing inputs, and verify the exact "
             "mixed null-channel rank identity. Four actual down a0 archives "
             "have independently checked scalar traces and a nonzero "
@@ -3998,6 +3998,23 @@ def _nodes() -> list[dict[str, object]]:
                 "relative-duality maps",
                 "Quillen normalization",
             ),
+        ),
+        _node(
+            "alternate_necessary_hidden_chamber",
+            "necessary hidden HYM wall for the frozen alternate carrier",
+            "Vacuum",
+            "DERIVED",
+            "The published Bogomolov wall applies to the alternate carrier's "
+            "identical rational Chern target in the no-five-brane, c1=0 "
+            "Kahler HYM branch. An exact open box survives; a whole symbolic "
+            "visible-stable subfamily is excluded. This is necessary only, "
+            "not a hidden bundle, integral anomaly certificate, or vacuum.",
+            ("research/experiments/scientific_genesis/alternate_necessary_hidden_chamber.py",
+             "research/experiments/scientific_genesis/ALTERNATE_NECESSARY_HIDDEN_CHAMBER_NOTE.md",
+             "data/generated/scientific_genesis/alternate_necessary_hidden_chamber.json",
+             "tests/integration/test_scientific_genesis_alternate_necessary_hidden_chamber.py"),
+            ("conditional heterotic realization", "no additional Bianchi sources",
+             "trace-free unitary hidden HYM connection on a compact Kahler threefold"),
         ),
         _node(
             "hidden_bundle",
@@ -7748,6 +7765,38 @@ def _edges() -> list[dict[str, object]]:
             True,
             ("compatible hidden bundle may not exist",),
         ),
+        *[
+            _edge(
+                source,
+                "alternate_necessary_hidden_chamber",
+                reason,
+                ("research/experiments/scientific_genesis/"
+                 "ALTERNATE_NECESSARY_HIDDEN_CHAMBER_NOTE.md",),
+                ("no-five-brane c1=0 Kahler HYM branch",),
+                True,
+                ("changed rational Chern target or extra Bianchi sources",),
+            )
+            for source, reason in (
+                ("alternate_constituent_outer_universal_cone",
+                 "The actual cone fixes the parameter-independent rational residual c2."),
+                ("alternate_constituent_outer_stability_locus",
+                 "The nine sufficient slope bounds define the visible stable chamber."),
+            )
+        ],
+        *[
+            _edge(
+                "alternate_necessary_hidden_chamber",
+                target,
+                "A compatible hidden HYM bundle and common vacuum must lie "
+                "inside the necessary wall; positivity is not an existence proof.",
+                ("research/experiments/scientific_genesis/"
+                 "alternate_necessary_hidden_chamber.py",),
+                ("same frozen alternate carrier", "no additional Bianchi sources"),
+                True,
+                ("hidden maps, descent, full stability, or stabilization may fail",),
+            )
+            for target in ("hidden_bundle", "controlled_vacuum")
+        ],
         _edge(
             "physical_pfaffians",
             "controlled_vacuum",
@@ -8154,6 +8203,13 @@ def _scheduler() -> list[dict[str, object]]:
 def build_state() -> dict[str, object]:
     """Inspect authoritative artifacts and assemble the deterministic state."""
 
+    from .alternate_necessary_hidden_chamber import read_hidden_chamber
+
+    hidden_chamber = read_hidden_chamber()
+    if _canonical_digest(hidden_chamber) != (
+        "997326fc92fc908d2781268b8c438795e3d19548b8d4c65fb560a9f18acb98c6"
+    ):
+        raise ValueError("the conditional necessary hidden chamber changed its trusted digest")
     ray_path = (
         ROOT
         / "data/generated/scientific_genesis/"
@@ -11305,6 +11361,10 @@ def build_state() -> dict[str, object]:
         raise ValueError("the same-constituent Wilson obstruction is not certified")
 
     artifact_paths = (
+        "data/generated/scientific_genesis/alternate_necessary_hidden_chamber.json",
+        "research/experiments/scientific_genesis/alternate_necessary_hidden_chamber.py",
+        "research/experiments/scientific_genesis/ALTERNATE_NECESSARY_HIDDEN_CHAMBER_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_necessary_hidden_chamber.py",
         *(str(source.relative_to(ROOT)) for source in flavor_scalar_sources),
         *(str(source.with_suffix(".cochains.json.gz").relative_to(ROOT))
           for source in flavor_scalar_sources),
@@ -11610,7 +11670,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2854,
+            "collected_tests_at_audit": 2882,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12136,6 +12196,7 @@ def build_state() -> dict[str, object]:
                 "remain required before physical normalization"
             ),
         },
+        "necessary_hidden_chamber": hidden_chamber,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),

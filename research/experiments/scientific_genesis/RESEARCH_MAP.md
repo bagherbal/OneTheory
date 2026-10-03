@@ -1576,6 +1576,22 @@ integrand bounds, independent cloud errors and metric convergence as remaining
 requirements. See `PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md`. This does not alter
 the ongoing complete down/lepton replay or any physical completion flag.
 
+## Uniform roots on admitted uncertain-input cells
+
+The projective input-cell successor now retains the full input error through
+actual cubic restrictions. `projective_uncertain_intersections.py` reuses the
+exact center-root proposals and adds uniform coefficient-error Rouche margins.
+All three auxiliary mixture components are executed on declared cells, with
+complete root counts 9/3/3 and coupled cover-coordinate bounds. An actual
+leading-zero branch is enclosed by a positive reciprocal-chart disk so its
+root can move away from infinity. Fraction-pair binomial Taylor reconstruction,
+original exact substitutions, actual input corners, and mixed-chart duplicate
+attacks independently check the critical arithmetic. See
+`PROJECTIVE_UNCERTAIN_INTERSECTIONS_NOTE.md`. These are admitted-cell family
+certificates, not an independent sampling cloud or global numeric coverage.
+Density/frame and section bounds on these new domains, law-preserving bit-stream
+refinement, finite-cloud errors and Ricci-flat/HYM convergence remain open.
+
 ## Same-carrier Dirac-neutrino vertical slice
 
 The source-pinned L/nu^c/H_u Wilson weights route to constituent characters

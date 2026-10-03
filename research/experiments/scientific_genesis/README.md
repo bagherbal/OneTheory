@@ -1,5 +1,13 @@
 # Scientific Genesis audit
 
+Uncertain input cells now propagate through the actual cubic intersections on
+admitted domains. `projective_uncertain_intersections.py` retains all 9/3/3
+mixture branches and a moving infinity branch via uniform coefficient-error
+root certificates. Its coupled cover bounds are not exact field points or
+independent samples. New-domain integrand bounds, global input coverage,
+law-preserving stream refinement, cloud errors and metric convergence remain
+missing. See `PROJECTIVE_UNCERTAIN_INTERSECTIONS_NOTE.md`.
+
 Auxiliary uniform projective input precision is available as coupled dyadic
 cell enclosures in `projective_uniform_input_cells.py`. The simplex/phase law
 is independently derived, with exact moments and separate high-precision

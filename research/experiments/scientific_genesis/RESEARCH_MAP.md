@@ -1706,8 +1706,8 @@ producers also reproduce their prior packets unchanged after extracting the
 explicit-input scalar evaluator. The original unarchived Q E class is
 reproduced and pinned to its whole previous certificate, not newly selected.
 
-`alternate_down_lepton_matrices` stays BLOCKED on independent complete matrix
-replay; its sixteen actual F-F coefficient archives are now produced. The experiment
+`alternate_down_lepton_matrices` is now COMPUTED after successful independent
+complete replay of its sixteen actual F-F coefficient archives. The experiment
 `alternate_down_lepton_ff_entries.py` consumes the sixteen existing Q/L/d/e
 correction packets and actual down-Higgs primitives. It schedules the unchanged
 full validators and scalar engine with at most two workers, snapshots source
@@ -1728,8 +1728,8 @@ Assembly for each remaining sector also matches all nine independently
 reconstructed polynomials from the pinned mixed and scalar sources, including the quotient
 factor and parameter ordering. This checks position routing and exact polynomial
 arithmetic, not the fresh full-witness replay or physical normalization.
-The matrix node stays BLOCKED until all
-sixteen actual scalar replays and independent determinant checks complete.
+The corrected complete invocation has passed all sixteen original matter-lift
+and all sixteen full scalar replays and written the actual complete packet.
 `ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md` states the conditional gate;
 physical metrics, a common vacuum, and Genesis-to-UV remain unresolved.
 
@@ -1740,7 +1740,7 @@ projection, and inverse convolution. Its determinant coefficient is
 mixed null-channel coefficient is `-36-18*omega`; its nonzero fixed minor
 is `1/756+omega/252`. This is one coefficient on the original formal family,
 not a selected parameter point or either complete matrix. Final fresh
-matter/product/scalar replay must still finish on all sixteen inputs.
+matter/product/scalar replay subsequently passed on all sixteen inputs.
 
 All sixteen coefficient checkpoints are now produced and byte-pinned; the
 two-worker complete replay consumes the thirty-four declared input packets.
@@ -1750,13 +1750,13 @@ remaining determinant forms
 `(-1/84+omega/21)*a0 + (-1/21-5*omega/84)*a1`. Their two projective zero sets
 are distinct from one another and the up/neutrino axes, without selecting
 a point. This is an exact arithmetic diagnostic of the archived coefficients,
-not a completed full-witness matrix gate. The full replay must finish before
-matrix availability is changed; normalization and the common vacuum remain open.
+now confirmed by the completed full-witness matrix gate. Normalization and the
+common vacuum remain open.
 Three regressions independently decode the actual strings to pairs of standard
 Fractions, reduce products by `omega^2=-1-omega`, and expand all six Leibniz
 permutation terms. They recover all four archived determinant coefficients
 and distinct projective walls without the OneTheory scalar, polynomial or
-determinant engines. This independent algebra path does not replace the live
+determinant engines. This independent algebra path does not replace the completed
 full cochain verification and does not supply physical normalization.
 
 A read-only actual-parent check exposed a final-serialization defect: the
@@ -1766,7 +1766,13 @@ verified digest, with a regression against both actual parents. This changes
 provenance bookkeeping only, not the coefficients or cochain validation.
 The original invocation reached final provenance serialization and terminated
 with `KeyError: 'artifact_digest'`, without writing a matrix packet. The
-corrected complete invocation is now running with the same two-worker bound,
-unchanged input archives and unchanged scientific validation. Matrix
-availability remains false; no replay step is skipped or inferred from the
-failed export.
+corrected complete invocation terminated successfully with the same two-worker
+bound, unchanged input archives and unchanged scientific validation. Its pinned
+output digest is `c7892263e1429ff614c121f991c6fc9fe863c96236bca03422779f1f4291381a`.
+Every completed matrix entry matches its actual source position. Independent
+Fraction-pair arithmetic reproduces both determinants and the three-term common
+quartic without OneTheory's scalar or polynomial arithmetic. The common open
+rank-three locus requires no selected point in the original projective family.
+The read-only consumer reassembles every entry/minor/rank invariant from original
+scalar packets and rejects rehashed science or scope changes. All four sectors
+are holomorphic only; metrics, a common vacuum and Genesis-to-UV remain missing.

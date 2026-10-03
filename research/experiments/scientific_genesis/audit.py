@@ -3656,6 +3656,22 @@ def _nodes() -> list[dict[str, object]]:
              "controlled integration errors", "Ricci-flat/HYM convergence", "common vacuum"),
         ),
         _node(
+            "uncertain_cover_frames",
+            "original universal bundle frames on uncertain-input cover domains",
+            "Normalization",
+            "BLOCKED",
+            "Native uniform root-family membership can use the existing bounded "
+            "cover-point normalization and original quotient engines. Actual "
+            "admitted-domain determinant and section replay is required before "
+            "this frame input edge is established; no second bundle is supplied.",
+            ("research/experiments/scientific_genesis/UNCERTAIN_COVER_FRAMES_NOTE.md",
+             "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
+             "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py"),
+            ("actual coupled root family", "explicit homogeneous and relation pivots"),
+            ("actual domain and section verification", "independent integration errors",
+             "Ricci-flat/HYM convergence", "common stabilized vacuum"),
+        ),
+        _node(
             "alternate_metric_projection_free_weights",
             "projection-free positive-law weights from the ambient conormal Gram",
             "Normalization",
@@ -3842,11 +3858,10 @@ def _nodes() -> list[dict[str, object]]:
             "Normalization",
             "BLOCKED",
             "Canonical-normalization laws and complete alternate holomorphic "
-            "up/neutrino matrices exist, but positive carrier metrics, "
-            "down/lepton matrices, and a common stabilized context do not.",
+            "up/down/lepton/neutrino matrices exist in the same frozen carrier, "
+            "but positive carrier metrics and a common stabilized context do not.",
             ("src/onetheory/physics/observables.py", "src/onetheory/physics/matter.py"),
             missing=(
-                "all holomorphic Yukawa sectors",
                 "positive matter and Higgs metrics",
                 "stabilized common vacuum",
             ),
@@ -4019,29 +4034,20 @@ def _nodes() -> list[dict[str, object]]:
             "alternate_down_lepton_matrices",
             "complete actual down and charged-lepton holomorphic matrices",
             "Flavor",
-            "BLOCKED",
-            "All scalar entries must come from actual Q/d and L/e matter "
-            "states paired with the actual down-Higgs cocycle. Existing up "
-            "and neutrino values cannot fill these two missing matrices. "
-            "The complete assembler gates all thirty-four literal inputs "
-            "before replay. One hundred assembly regressions preserve the "
-            "established matrices, reject missing inputs, and verify the exact "
-            "mixed null-channel rank identity. Four actual down a0 archives "
-            "have independently checked scalar traces and a nonzero "
-            "determinant coefficient 1/42-2*omega/21. These are not either "
-            "complete two-parameter matrix; all sixteen fresh entry replays "
-            "remain required. All sixteen metadata/archive pairs are now "
-            "present with pinned byte identities. The two-worker complete "
-            "matter and scalar replay is the remaining matrix gate, not "
-            "another coefficient search. Independent Fraction-pair six-term "
-            "Leibniz expansion also verifies all four archived determinant "
-            "coefficients and their distinct projective walls without using "
-            "the OneTheory scalar or determinant arithmetic. The verified up "
-            "parent digest is now retained for final provenance serialization. "
-            "The original invocation reached that stage and terminated with "
-            "KeyError: 'artifact_digest', without writing a matrix packet. "
-            "The corrected complete invocation is running; no scientific "
-            "validation has been skipped or promoted from the failed export.",
+            "COMPUTED",
+            "The corrected complete invocation terminated successfully after "
+            "replaying all sixteen actual matter lifts and all sixteen F-F "
+            "scalar products, with literal constant/linear/scalar witnesses, "
+            "original atlas and coupled equations, direct/transferred/inverse "
+            "traces, and unchanged thirty-four-source archive snapshots. Both "
+            "complete 3x3 matrices retain distinct original family bases and "
+            "the quotient volume factor 1/9. Independent Fraction-pair arithmetic "
+            "checks all eighteen entries, both linear determinants, the nonzero "
+            "rank-two minors and the common four-sector quartic. Its nonempty "
+            "open complement requires no extension-point selection. Read-only "
+            "consumption rechecks actual source positions and matrix arithmetic. "
+            "These are holomorphic matrices only; canonical metrics and a common "
+            "stabilized vacuum remain missing.",
             ("research/experiments/scientific_genesis/alternate_up_ff_entries.py",
              "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py",
              "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FF_NOTE.md",
@@ -4049,6 +4055,7 @@ def _nodes() -> list[dict[str, object]]:
              "research/experiments/scientific_genesis/alternate_down_lepton_full_matrices.py",
              "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md",
              "tests/integration/test_scientific_genesis_alternate_down_lepton_full_matrices.py",
+             "data/generated/scientific_genesis/alternate_down_lepton_full_holomorphic_matrices.json",
              "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py",
              *(f"data/generated/scientific_genesis/"
                f"alternate_down_lepton_ff_a{p}_s{s}_r{r}_c{c}{suffix}"
@@ -4057,7 +4064,6 @@ def _nodes() -> list[dict[str, object]]:
              "research/experiments/scientific_genesis/alternate_remaining_flavor_matter_lifts.py",
              "research/experiments/scientific_genesis/alternate_down_lepton_mixed_pairing.py"),
             ("conditional heterotic realization", "original formal outer basis"),
-            missing=("independent all-entry replay and exact complete matrix rank loci",),
         ),
         _node(
             "physical_pfaffians",
@@ -6791,6 +6797,38 @@ def _edges() -> list[dict[str, object]]:
             ("positive auxiliary weight intervals are not a physical Hermitian metric",),
         ),
         _edge(
+            "projective_uncertain_intersections",
+            "uncertain_cover_frames",
+            "The native actual root-family certificate admits each branch into "
+            "the same bounded homogeneous chart representation with input error intact.",
+            ("research/experiments/scientific_genesis/UNCERTAIN_COVER_FRAMES_NOTE.md",),
+            ("explicit root branch", "nonzero declared homogeneous pivots"),
+            True,
+            ("raw coordinate balls and root centers are not membership certificates",),
+        ),
+        _edge(
+            "alternate_metric_bounded_fibers",
+            "uncertain_cover_frames",
+            "The original relation cochains and determinant-certified block "
+            "elimination apply unchanged to these actual coordinate enclosures.",
+            ("research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py",),
+            ("nonzero declared relation minors", "same original constituent and outer data"),
+            True,
+            ("admitting a point type alone does not verify a new domain or section",),
+        ),
+        _edge(
+            "uncertain_cover_frames",
+            "visible_metrics",
+            "Original section bounds on uncertain-input domains can feed metrics "
+            "only after complete integrand, independent law-preserving input and "
+            "integration convergence checks.",
+            ("research/experiments/scientific_genesis/UNCERTAIN_COVER_FRAMES_NOTE.md",),
+            ("complete actual section integrands", "controlled independent integration",
+             "Ricci-flat/HYM convergence"),
+            True,
+            ("a few section probes are not a full section matrix or a metric",),
+        ),
+        _edge(
             "alternate_metric_global_weight_bound",
             "uncertain_cover_weights",
             "The unit-homogeneous conormal proof gives explicit normalization "
@@ -8226,9 +8264,8 @@ def _engines() -> list[dict[str, object]]:
         ),
         (
             "same-carrier strict character projection and remaining flavor execution",
-            "research-only; complete up/neutrino holomorphic matrices and "
-            "eight actual down/lepton mixed entries checked; remaining full "
-            "matrices require all sixteen actual scalar replays",
+            "research-only; all four complete holomorphic matrices checked; "
+            "physical normalization still requires controlled metrics and a common vacuum",
             (
                 "research/experiments/scientific_genesis/"
                 "alternate_constituent_up_matter_representatives.py",
@@ -8274,22 +8311,6 @@ def _scheduler() -> list[dict[str, object]]:
     """Return value-ranked tasks under the Scientific Genesis criterion."""
 
     tasks = [
-        (
-            "alternate_complete_down_lepton_matrices",
-            5,
-            4,
-            5,
-            5,
-            3,
-            2,
-            "Complete up and neutrino matrices and the actual down-Higgs cone "
-            "are independently checked, as are all eight actual d/e corrections "
-            "and all eight actual down/lepton mixed scalars. Independently replay "
-            "the sixteen archived F-F coefficients in the same carrier, then "
-            "assemble both complete matrices only after every literal replay. "
-            "The existing exact engines provide this remaining vertical slice; "
-            "physical normalization still needs controlled metrics and a common vacuum.",
-        ),
         (
             "alternate_metric_convergence",
             5,
@@ -8386,6 +8407,7 @@ def _scheduler() -> list[dict[str, object]]:
 def build_state() -> dict[str, object]:
     """Inspect authoritative artifacts and assemble the deterministic state."""
 
+    from .alternate_down_lepton_full_matrices import load_full_matrices
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
     from .projective_uncertain_intersections import read_uncertain_intersections
     from .projective_uniform_input_cells import read_input_cells
@@ -11490,6 +11512,9 @@ def build_state() -> dict[str, object]:
         ["-1/84+1/21*omega", "-1/21-5/84*omega"],
     ]:
         raise ValueError("the independently expanded remaining scalar rank coefficients changed")
+    completed_flavor = load_full_matrices(
+        expected_digest="c7892263e1429ff614c121f991c6fc9fe863c96236bca03422779f1f4291381a",
+    )
     shortcut = json.loads((
         ROOT / "data/generated/scientific_genesis/alternate_up_null_shortcut_screen.json"
     ).read_text(encoding="utf-8"))
@@ -11842,6 +11867,12 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_neutrino_full_holomorphic_matrix.json",
+        "data/generated/scientific_genesis/alternate_down_lepton_full_holomorphic_matrices.json",
+        "research/experiments/scientific_genesis/alternate_down_lepton_full_matrices.py",
+        "tests/integration/test_scientific_genesis_alternate_down_lepton_full_matrices.py",
+        "research/experiments/scientific_genesis/UNCERTAIN_COVER_FRAMES_NOTE.md",
+        "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
+        "tests/integration/test_scientific_genesis_uncertain_cover_points.py",
         "data/generated/scientific_genesis/alternate_down_higgs_hom_representative.json",
         "data/generated/scientific_genesis/"
         "alternate_down_higgs_hom_representative.cochains.json.gz",
@@ -11884,7 +11915,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3008,
+            "collected_tests_at_audit": 3040,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12104,8 +12135,15 @@ def build_state() -> dict[str, object]:
                 "alternate_down_lepton_scalar_archive_count": len(scalar_values),
                 "alternate_down_lepton_complete_scalar_source_set_available": True,
                 "alternate_down_lepton_arithmetic_rank_coefficients": arithmetic_rank_coefficients,
-                "alternate_down_lepton_all_sixteen_fresh_entry_replays_complete": False,
-                "alternate_down_lepton_complete_holomorphic_matrices_available": False,
+                "alternate_down_lepton_all_sixteen_fresh_entry_replays_complete":
+                completed_flavor["all_sixteen_formal_coefficient_scalars_replayed"],
+                "alternate_down_lepton_complete_holomorphic_matrices_available":
+                completed_flavor["complete_holomorphic_matrices_available"],
+                "alternate_all_four_holomorphic_sectors_available": True,
+                "alternate_four_sector_common_rank_three_locus":
+                completed_flavor["four_sector_common_rank_three_locus_polynomial"],
+                "alternate_four_sector_common_rank_three_locus_nonempty":
+                completed_flavor["four_sector_common_rank_three_locus_nonempty"],
                 "alternate_down_lepton_physical_yukawa_matrices_available": False,
                 "alternate_neutrino_majorana_mechanism_derived": False,
                 "alternate_metric_trial_twist": metric["twist_cover_degree"],
@@ -12402,22 +12440,24 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "independently replay all sixteen completed actual down/lepton F-F "
-                "coefficients using verified mixed blocks, down-Higgs primitives, and "
-                "archived Q/L/d/e lifts, then assemble both complete holomorphic matrices; "
-                "metric sampling, "
-                "Ricci-flat/HYM convergence, other sectors, and the common vacuum "
-                "remain required before physical normalization"
+                "close controlled independent metric integration with original complete "
+                "section data, verify Ricci-flat/HYM convergence and stabilize one common "
+                "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
         },
         "necessary_hidden_chamber": hidden_chamber,
         "projective_uniform_input_cells": uniform_input_cells,
         "projective_uncertain_intersections": uncertain_intersections,
         "uncertain_cover_weights": uncertain_weights,
+        "completed_down_lepton_holomorphic_matrices": completed_flavor,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "all four complete actual holomorphic matrices have a nonempty common "
+            "rank-three open locus without parameter selection; successful down/lepton "
+            "all-witness replay and independent scalar/rank arithmetic do not supply "
+            "canonical metrics, a common stabilized vacuum or physical masses/mixing",
             "all 9/3/3 admitted uncertain cover branches have positive unchanged "
             "auxiliary weight intervals with native actual coupling, full source/root "
             "error and independent coefficient/determinant checks; no independent "
@@ -12428,7 +12468,7 @@ def build_state() -> dict[str, object]:
             "all eight actual d^c/e^c parameter corrections pass independent "
             "original full differential, atlas, literal quotient-pushout, and "
             "coupled-identity replay; Q/L inputs and original bases are unchanged, "
-            "while down and charged-lepton scalar matrices remain missing",
+            "with no import of up/neutrino coupling values into those scalar matrices",
             "the complete actual neutrino matrix has full all-entry scalar "
             "replay and fixed quotient trace; its determinant is "
             "(3/2+3*omega/4)*a0, and its rank-three locus meets the certified "

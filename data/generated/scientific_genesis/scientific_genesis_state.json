@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "867c0fe66e7d46741388c9dbdabcd42b402f83b751fad66726d94509dd0168e2",
+  "artifact_digest": "9333c6f3e97f1b654c69efc33748ea48464121f5df0a6838ff2a375f32f6396d",
   "artifacts": [
     {
       "bytes": 3337,
@@ -1247,9 +1247,9 @@
       "sha256": "2036fe11f062a3533a0e879257f4f75a557748eb10eb765f963aa437fac8242f"
     },
     {
-      "bytes": 21246,
+      "bytes": 23124,
       "path": "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
-      "sha256": "466f21d1f8cc42b6dcae069cd6c3ef9413aec7f2fee78c94b70d36b596387f3e"
+      "sha256": "b96dfed155e64dd619d22696eab91d32d19fde61ab5e9387ebcc3e172b15cba1"
     },
     {
       "bytes": 4178,
@@ -1335,6 +1335,36 @@
       "bytes": 6827,
       "path": "data/generated/scientific_genesis/alternate_neutrino_full_holomorphic_matrix.json",
       "sha256": "dc7fbf0a271ed4e006f2f55ffea0915a76485aba56c18f80b5e657421670aa3e"
+    },
+    {
+      "bytes": 15949,
+      "path": "data/generated/scientific_genesis/alternate_down_lepton_full_holomorphic_matrices.json",
+      "sha256": "886d05af55ae9be60e39efa4407f95b64f4c554af8ac568c45ffe770a0b6ac3b"
+    },
+    {
+      "bytes": 12333,
+      "path": "research/experiments/scientific_genesis/alternate_down_lepton_full_matrices.py",
+      "sha256": "634f67dee98ea05b080faa854ba1a4f0ff65dcef22aab49dcc4948f8eb123c7e"
+    },
+    {
+      "bytes": 29330,
+      "path": "tests/integration/test_scientific_genesis_alternate_down_lepton_full_matrices.py",
+      "sha256": "816e7d7020d1d9ea7db6977330ec2f23227d902e76cb2c092db481febc401ca4"
+    },
+    {
+      "bytes": 3032,
+      "path": "research/experiments/scientific_genesis/UNCERTAIN_COVER_FRAMES_NOTE.md",
+      "sha256": "9f36d624cddbe782eef3268b7075a3875debbfcc9a9ca2805dd3b6ebbd6fc426"
+    },
+    {
+      "bytes": 22840,
+      "path": "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
+      "sha256": "60077b2f731806b319783726ef2e3ecc6774b9a72055bb28e0de05c678c39e5b"
+    },
+    {
+      "bytes": 4488,
+      "path": "tests/integration/test_scientific_genesis_uncertain_cover_points.py",
+      "sha256": "41672c1e72850744eee6742a3029bcbb485437399a688784f2ddbba656261558"
     },
     {
       "bytes": 2672,
@@ -1563,11 +1593,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3008,
+    "collected_tests_at_audit": 3040,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 296,
-    "test_python_files": 280
+    "test_python_files": 281
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -4661,6 +4691,28 @@
     },
     {
       "assumptions": [
+        "actual coupled root family",
+        "explicit homogeneous and relation pivots"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/UNCERTAIN_COVER_FRAMES_NOTE.md",
+        "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
+        "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py"
+      ],
+      "id": "uncertain_cover_frames",
+      "label": "original universal bundle frames on uncertain-input cover domains",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "actual domain and section verification",
+        "independent integration errors",
+        "Ricci-flat/HYM convergence",
+        "common stabilized vacuum"
+      ],
+      "statement": "Native uniform root-family membership can use the existing bounded cover-point normalization and original quotient engines. Actual admitted-domain determinant and section replay is required before this frame input edge is established; no second bundle is supplied.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
         "same actual smooth cover",
         "unchanged positive auxiliary law"
       ],
@@ -4822,11 +4874,10 @@
       "label": "canonically normalized physical Yukawas",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "all holomorphic Yukawa sectors",
         "positive matter and Higgs metrics",
         "stabilized common vacuum"
       ],
-      "statement": "Canonical-normalization laws and complete alternate holomorphic up/neutrino matrices exist, but positive carrier metrics, down/lepton matrices, and a common stabilized context do not.",
+      "statement": "Canonical-normalization laws and complete alternate holomorphic up/down/lepton/neutrino matrices exist in the same frozen carrier, but positive carrier metrics and a common stabilized context do not.",
       "status": "BLOCKED"
     },
     {
@@ -5015,6 +5066,7 @@
         "research/experiments/scientific_genesis/alternate_down_lepton_full_matrices.py",
         "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md",
         "tests/integration/test_scientific_genesis_alternate_down_lepton_full_matrices.py",
+        "data/generated/scientific_genesis/alternate_down_lepton_full_holomorphic_matrices.json",
         "research/experiments/scientific_genesis/alternate_neutrino_full_matrix.py",
         "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c1.json",
         "data/generated/scientific_genesis/alternate_down_lepton_ff_a0_s0_r1_c1.cochains.json.gz",
@@ -5054,11 +5106,9 @@
       "id": "alternate_down_lepton_matrices",
       "label": "complete actual down and charged-lepton holomorphic matrices",
       "layer": "Flavor",
-      "missing_prerequisites": [
-        "independent all-entry replay and exact complete matrix rank loci"
-      ],
-      "statement": "All scalar entries must come from actual Q/d and L/e matter states paired with the actual down-Higgs cocycle. Existing up and neutrino values cannot fill these two missing matrices. The complete assembler gates all thirty-four literal inputs before replay. One hundred assembly regressions preserve the established matrices, reject missing inputs, and verify the exact mixed null-channel rank identity. Four actual down a0 archives have independently checked scalar traces and a nonzero determinant coefficient 1/42-2*omega/21. These are not either complete two-parameter matrix; all sixteen fresh entry replays remain required. All sixteen metadata/archive pairs are now present with pinned byte identities. The two-worker complete matter and scalar replay is the remaining matrix gate, not another coefficient search. Independent Fraction-pair six-term Leibniz expansion also verifies all four archived determinant coefficients and their distinct projective walls without using the OneTheory scalar or determinant arithmetic. The verified up parent digest is now retained for final provenance serialization. The original invocation reached that stage and terminated with KeyError: 'artifact_digest', without writing a matrix packet. The corrected complete invocation is running; no scientific validation has been skipped or promoted from the failed export.",
-      "status": "BLOCKED"
+      "missing_prerequisites": [],
+      "statement": "The corrected complete invocation terminated successfully after replaying all sixteen actual matter lifts and all sixteen F-F scalar products, with literal constant/linear/scalar witnesses, original atlas and coupled equations, direct/transferred/inverse traces, and unchanged thirty-four-source archive snapshots. Both complete 3x3 matrices retain distinct original family bases and the quotient volume factor 1/9. Independent Fraction-pair arithmetic checks all eighteen entries, both linear determinants, the nonzero rank-two minors and the common four-sector quartic. Its nonempty open complement requires no extension-point selection. Read-only consumption rechecks actual source positions and matrix arithmetic. These are holomorphic matrices only; canonical metrics and a common stabilized vacuum remain missing.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [],
@@ -5167,6 +5217,507 @@
       "status": "BLOCKED"
     }
   ],
+  "completed_down_lepton_holomorphic_matrices": {
+    "all_eighteen_entries_derived_from_actual_carrier": true,
+    "all_sixteen_formal_coefficient_scalars_replayed": true,
+    "artifact_digest": "c7892263e1429ff614c121f991c6fc9fe863c96236bca03422779f1f4291381a",
+    "canonical_matter_metrics_available": false,
+    "carrier_status": "conditional on the selected heterotic UV realization",
+    "coefficient_field": "Q(omega)",
+    "common_vacuum_stabilized": false,
+    "complete_holomorphic_matrices_available": true,
+    "cover_to_quotient_trace_factor": "1/9",
+    "established_rank_parent_digests": [
+      "5dca3368f127ddf90eb8e263b403e6ca74f8857a3e505930194c51a67120884f",
+      "40e5e45b6be980d49c432dbc707c496be56728731cd9b6f9d71d4cf08d8909eb"
+    ],
+    "extension_point_selected": false,
+    "four_sector_common_rank_three_locus_nonempty": true,
+    "four_sector_common_rank_three_locus_polynomial": [
+      {
+        "coefficient": "495/307328+351/307328*omega",
+        "powers": [
+          3,
+          1
+        ]
+      },
+      {
+        "coefficient": "-351/614656+9/38416*omega",
+        "powers": [
+          2,
+          2
+        ]
+      },
+      {
+        "coefficient": "9/38416+495/614656*omega",
+        "powers": [
+          1,
+          3
+        ]
+      }
+    ],
+    "matrices": [
+      {
+        "basis_order": {
+          "columns": [
+            "E(1,1):seed0",
+            "F(1,1):seed2",
+            "F(1,1):seed4"
+          ],
+          "rows": [
+            "E(0,0):seed2",
+            "F(0,0):seed0",
+            "F(0,0):seed5"
+          ]
+        },
+        "coupling": [
+          "Q",
+          "d^c",
+          "H_d"
+        ],
+        "determinant": [
+          {
+            "coefficient": "1/42-2/21*omega",
+            "powers": [
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "-1/21-5/84*omega",
+            "powers": [
+              0,
+              1
+            ]
+          }
+        ],
+        "matrix_entries": [
+          [
+            [],
+            [
+              {
+                "coefficient": "5/126+1/126*omega",
+                "powers": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1/18+2/9*omega",
+                "powers": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "-1/18-1/9*omega",
+                "powers": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1399/378-4216/189*omega",
+                "powers": [
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "-2629/378+79/378*omega",
+                "powers": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "17/9-89/9*omega",
+                "powers": [
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "719/27-218/27*omega",
+                "powers": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "-1/126+2/63*omega",
+                "powers": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-7631/1323+3392/1323*omega",
+                "powers": [
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "250/441-580/441*omega",
+                "powers": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-1756/63-1541/126*omega",
+                "powers": [
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "71/378+1538/189*omega",
+                "powers": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          ]
+        ],
+        "rank_floor": 2,
+        "rank_three_locus_nonempty": true,
+        "rank_two_minor": [
+          {
+            "coefficient": "1/756+1/252*omega",
+            "powers": [
+              0,
+              0
+            ]
+          }
+        ],
+        "sector": 0
+      },
+      {
+        "basis_order": {
+          "columns": [
+            "E(2,0):seed2",
+            "F(2,0):seed0",
+            "F(2,0):seed5"
+          ],
+          "rows": [
+            "E(2,1):seed0",
+            "F(2,1):seed2",
+            "F(2,1):seed4"
+          ]
+        },
+        "coupling": [
+          "L",
+          "e^c",
+          "H_d"
+        ],
+        "determinant": [
+          {
+            "coefficient": "-1/84+1/21*omega",
+            "powers": [
+              1,
+              0
+            ]
+          },
+          {
+            "coefficient": "-1/21-5/84*omega",
+            "powers": [
+              0,
+              1
+            ]
+          }
+        ],
+        "matrix_entries": [
+          [
+            [],
+            [
+              {
+                "coefficient": "1/9+1/18*omega",
+                "powers": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "5/126+1/126*omega",
+                "powers": [
+                  0,
+                  0
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "-2/63-5/126*omega",
+                "powers": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "317/378+13/378*omega",
+                "powers": [
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "-2125/378-181/189*omega",
+                "powers": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-8807/1323+2815/2646*omega",
+                "powers": [
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "190/147-13/49*omega",
+                "powers": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "coefficient": "-2/9-5/18*omega",
+                "powers": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "88/3+113/2*omega",
+                "powers": [
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "-983/54-287/27*omega",
+                "powers": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            [
+              {
+                "coefficient": "-97/7+2344/63*omega",
+                "powers": [
+                  1,
+                  0
+                ]
+              },
+              {
+                "coefficient": "1045/189+461/189*omega",
+                "powers": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          ]
+        ],
+        "rank_floor": 2,
+        "rank_three_locus_nonempty": true,
+        "rank_two_minor": [
+          {
+            "coefficient": "1/756+1/252*omega",
+            "powers": [
+              0,
+              0
+            ]
+          }
+        ],
+        "sector": 1
+      }
+    ],
+    "observational_inputs_used": false,
+    "outer_parameter_basis": [
+      "a0",
+      "a1"
+    ],
+    "physical_yukawa_matrices_available": false,
+    "proof_sha256": "997274836eacb5166d9de3734b320e4a96005c449d8b03ff363c216125c65b74",
+    "scalar_order": "Higgs first in the fixed quotient volume frame",
+    "schema": "alternate-down-lepton-full-holomorphic-matrices-v1",
+    "source_snapshot": {
+      "alternate_down_higgs_quotient_cone": {
+        "archive_sha256": "b8d5f6ceefe1582ea3c168a3e3e48d762cfa912aa3ada0aff0a43bc7772381e0",
+        "artifact_digest": "50d0a3f0f2547f5c1eb05444765b2322075dc03fd56b2b65cf7874534044274f"
+      },
+      "alternate_down_lepton_ff_a0_s0_r1_c1": {
+        "archive_sha256": "d72617dcee047efeeffff1ff68f995af6c9982f1181f0c8e57846f7d722d8e6d",
+        "artifact_digest": "ab590cef3f36b64d7636c200f163a69cedaba3e878e8493f95d8695286b5ca6b"
+      },
+      "alternate_down_lepton_ff_a0_s0_r1_c2": {
+        "archive_sha256": "ff15e1564e7ffda8258661baaf52096a33ad3f72a0afa580a320afdb82e56a88",
+        "artifact_digest": "c570612d6c3246000c70e03439a54ab8a950b2f9d6fa0ed29805e602316c0246"
+      },
+      "alternate_down_lepton_ff_a0_s0_r2_c1": {
+        "archive_sha256": "681003b2decc83535a0832f40c0594bb8fcb7b54baa0665b69ef4dc348ec40c5",
+        "artifact_digest": "abd2e360c41591ed88a24c08c43d0d385ab544e5377a80fda2914aa9cd56cca2"
+      },
+      "alternate_down_lepton_ff_a0_s0_r2_c2": {
+        "archive_sha256": "720f871cc9601bd1867c2ae17beb823b7230c16458f60d6a52e45f7d6d15396b",
+        "artifact_digest": "471aaa5ce5c3b9e7b5e3d694b895711a2f3679f0919833ff6f5936b6c4a318bd"
+      },
+      "alternate_down_lepton_ff_a0_s1_r1_c1": {
+        "archive_sha256": "ecdd3731b923a5932a20a20134859ffaffd75c6d35cff53e2e44b9138819af72",
+        "artifact_digest": "cc169decddb441780b5558a46cfc08873b0877063ba073c134bfcf152e36a4a2"
+      },
+      "alternate_down_lepton_ff_a0_s1_r1_c2": {
+        "archive_sha256": "32558086a5fbd6483b95ab6b18266827377115d66dbc9dde6943955da959b73f",
+        "artifact_digest": "483a57dc975323f2a689eda4a9d0eca564c277c9c412e5c9255d3375197c1eff"
+      },
+      "alternate_down_lepton_ff_a0_s1_r2_c1": {
+        "archive_sha256": "23405a7eb85569338fe395344028eab3d7d8627a06199f4faebb477e97ab2026",
+        "artifact_digest": "8ae36d456eb8622f4621f6b334f701f780fbbe16bdf1ab3cb278951140bdc6a6"
+      },
+      "alternate_down_lepton_ff_a0_s1_r2_c2": {
+        "archive_sha256": "5458928f9d00a23ec488640e7c66c1a7ac538c68b0945ecd84c2e38d05c85d72",
+        "artifact_digest": "5173a49b0460c88c35582b1194803e8d30f02cad850151737bb05ce090ddba58"
+      },
+      "alternate_down_lepton_ff_a1_s0_r1_c1": {
+        "archive_sha256": "01c5c55720214a5222e6d8a70086caeec43f19e13a25d812c8e229d2f5c3def4",
+        "artifact_digest": "8ee8676a63a43fa0ac6c33a2647c2b5fd1355b3fafe0b5b1b57b1010af0c5ed9"
+      },
+      "alternate_down_lepton_ff_a1_s0_r1_c2": {
+        "archive_sha256": "b649552f414330e2d616232aaa2a8b676ea8feadf75a7221ac91df69b88afdd4",
+        "artifact_digest": "53aeb4763a0102ac808fdeb7b26ca0852b5e7a8fa9bb8dcb87b0e8595bc481ab"
+      },
+      "alternate_down_lepton_ff_a1_s0_r2_c1": {
+        "archive_sha256": "f98c8afc803bc0d8781cc6866b9576e90eea2372ba35174300c9e1eb09ecb81d",
+        "artifact_digest": "ee64ef1b5529fec7f6fc578fc19fdd769bf7471aeaff743b4bc084b4b682d31c"
+      },
+      "alternate_down_lepton_ff_a1_s0_r2_c2": {
+        "archive_sha256": "88d7e9147e64336a330f8dfe14f0d6d9cd6f7ae05dd95db94576d8d47ca9f6b2",
+        "artifact_digest": "be715b5bc83368be3394e10c911dd618d7fccdc99c183962629b74115624b9e7"
+      },
+      "alternate_down_lepton_ff_a1_s1_r1_c1": {
+        "archive_sha256": "b0fa3c60e8e4b4cc225c54905c773822bbbd0dcf484f5bf96021f445f9a209ec",
+        "artifact_digest": "0cb4a84f02e31ebefffbc0b69a64a78ef18c71a1609772ccf316f3ef96041882"
+      },
+      "alternate_down_lepton_ff_a1_s1_r1_c2": {
+        "archive_sha256": "d2518c4e252daca75e41f0873126407e518778170b0b0fd797c48f732c691794",
+        "artifact_digest": "93d7e4037fa1b3f37f26d5d230b6c9ae9cf35c786092a85e3d1635057fdc41d4"
+      },
+      "alternate_down_lepton_ff_a1_s1_r2_c1": {
+        "archive_sha256": "8c1c93f94a2adb24e8dc3be2411fda2382ecbbab0bd75cfe848bd0c4d9d966c9",
+        "artifact_digest": "fb89c73981feb1696fb0583eee3aa51c581ee17f69cbe6cc1463b6db573d128c"
+      },
+      "alternate_down_lepton_ff_a1_s1_r2_c2": {
+        "archive_sha256": "66ec7c306ebaab204f2db747aafcb6b93cc1edc431a4a9080dc60fe138ad2e11",
+        "artifact_digest": "c302473b42759452ebac5001ccd8dca24fbb958d7162e07b768ed579c9a9280a"
+      },
+      "alternate_down_lepton_mixed_pairing": {
+        "archive_sha256": "473ba7c6b1d4a04f9b61f4d459232dfd688178d9f4cb8ae411bf5073d45517a6",
+        "artifact_digest": "ae7f62edaf3621af9b8dc8142f597218cd5426b8b922fd9b6b1e8ae2cb1ed1b1"
+      },
+      "alternate_neutrino_ff_lift_a0_side0_family1": {
+        "archive_sha256": "40eb7d0467c3393b15d4263b8b31567612f26db4ccba5d2183203710ee5e0a1e",
+        "artifact_digest": "ffc2ff3bdab420bfc9b16ffd1892aa4b84c2896808f976a09ffbca604d6a1379"
+      },
+      "alternate_neutrino_ff_lift_a0_side0_family2": {
+        "archive_sha256": "0b1604d44525848e2708547ea231dd84dcbb167008dd5259e5c26b8699c0468a",
+        "artifact_digest": "7da302ec452f693ced8a436b29bed9402257428ce85576e2f36c9b0e3cbeab62"
+      },
+      "alternate_neutrino_ff_lift_a1_side0_family1": {
+        "archive_sha256": "bcf383629c44fcfa97d8801f7b06db0744a00512e00c27f63cbe3aab987eef47",
+        "artifact_digest": "d20d9d68689a66e769a4c637efc8abb365fcb4021990dc021126302e8824004d"
+      },
+      "alternate_neutrino_ff_lift_a1_side0_family2": {
+        "archive_sha256": "dd0087ea31dab42723531270da35f4d6d9adc7f8b168dcbb020f5b2f7d6c236f",
+        "artifact_digest": "4002b844a63e4a3de0d909f6b232bc4ad645ce7c835fdf4cbb733ef665ee8245"
+      },
+      "alternate_remaining_flavor_lift_a0_sector0_family1": {
+        "archive_sha256": "4873a9785ed595c3ede962de4670f2910d5b206ebc53f7431dd11d4b4c619e34",
+        "artifact_digest": "1d4a931761d341544ee256e0d1550be434bde41ac3d0a51588b02540d02b6d29"
+      },
+      "alternate_remaining_flavor_lift_a0_sector0_family2": {
+        "archive_sha256": "8c49a5e4f31ff9c4cbe8b537ea565a9582391a874fac3442c66ea4907c4a4b4d",
+        "artifact_digest": "3b508c5e6b9c24d5eb433b9cf187d06c767fe13d5ec7d5afd977a9b8d4afb1c4"
+      },
+      "alternate_remaining_flavor_lift_a0_sector1_family1": {
+        "archive_sha256": "619fe38e791f3ec319931fc6e976f9a9aa56e7d3696d013a3412ac75046ccf9a",
+        "artifact_digest": "8b7644c50e4ea0e2d4ff89ba35c111d0c5611599f63e289fac506c58b76202a7"
+      },
+      "alternate_remaining_flavor_lift_a0_sector1_family2": {
+        "archive_sha256": "b15a71a05845a4212917d4bf0682cac8f8c5d55014a2e1edd7d4675e77228874",
+        "artifact_digest": "1683484cb1a51168f7c3506adf38a831fad65e87485906fa2873501544e3c631"
+      },
+      "alternate_remaining_flavor_lift_a1_sector0_family1": {
+        "archive_sha256": "536c8ae7acbdedeab4bb2a62c3e64d6bb652796ad7540bfcba2de5af67ee1891",
+        "artifact_digest": "eb3f71dec8372883e3b132fc877e2870c271a5d58628f2941c59b059e2a983da"
+      },
+      "alternate_remaining_flavor_lift_a1_sector0_family2": {
+        "archive_sha256": "781604109d4864d1a340fef36974e99b901f541ec157539c7a8e822f9ea18f15",
+        "artifact_digest": "09aaa371e465124fd344fb3a4fc421d51d1164fbf7e8330a45fcbffd31df9b52"
+      },
+      "alternate_remaining_flavor_lift_a1_sector1_family1": {
+        "archive_sha256": "b489eb264bb28bdced66f01a98be59039f49ce935b6f05c80b177a965819fe3f",
+        "artifact_digest": "572637f5986124caece4159531611e592e6177f9166b1d2806f048ed65e91c86"
+      },
+      "alternate_remaining_flavor_lift_a1_sector1_family2": {
+        "archive_sha256": "ea8cc6d88642eae800ee5c1b203b6dd8a6c46a2c2317211ba670f1073713425f",
+        "artifact_digest": "064e7fd324f2ba23dff2a51dddd7969397b083de6061ba338dc2301218c5ad44"
+      },
+      "alternate_up_ff_lift_a0_side0_family1": {
+        "archive_sha256": "7778b2376a38ddf82a3b386c6e02da6c36e62fa87123a40bcbac27a4cdbef2a4",
+        "artifact_digest": "b2fd30e6b26c8140ff52c41604e161d7fe39e83fd5edbafd63a224e0489094ea"
+      },
+      "alternate_up_ff_lift_a0_side0_family2": {
+        "archive_sha256": "8df6a005c076f30ff6818a96725d1bd5a6eb33f26cb337e21269d501b0a3a0a0",
+        "artifact_digest": "d76441a381f99bee8419ce380a06e1786c7d8eb4347543b2535b96f35df7673d"
+      },
+      "alternate_up_ff_lift_a1_side0_family1": {
+        "archive_sha256": "79b46c23df8c2c2b59de8ce201c0770d41cc0e6a4c21ee80b5f7fbbbcd3a9342",
+        "artifact_digest": "77f04729847dc58ec78314fc1c6fb92017c5a999475dd7047e6f50ee2b837526"
+      },
+      "alternate_up_ff_lift_a1_side0_family2": {
+        "archive_sha256": "f75277293ba38b432deb958590121b06f8811880c28f2ed4024542b4973c3f0a",
+        "artifact_digest": "b32e6cc80c8492e01ffd896c2d77edb5e74a0967a4c962daf0263e64a84c5d03"
+      }
+    }
+  },
   "dependencies": [
     {
       "assumptions_required": [],
@@ -8416,6 +8967,55 @@
     },
     {
       "assumptions_required": [
+        "explicit root branch",
+        "nonzero declared homogeneous pivots"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/UNCERTAIN_COVER_FRAMES_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "raw coordinate balls and root centers are not membership certificates"
+      ],
+      "mathematical_reason": "The native actual root-family certificate admits each branch into the same bounded homogeneous chart representation with input error intact.",
+      "source": "projective_uncertain_intersections",
+      "target": "uncertain_cover_frames"
+    },
+    {
+      "assumptions_required": [
+        "nonzero declared relation minors",
+        "same original constituent and outer data"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "admitting a point type alone does not verify a new domain or section"
+      ],
+      "mathematical_reason": "The original relation cochains and determinant-certified block elimination apply unchanged to these actual coordinate enclosures.",
+      "source": "alternate_metric_bounded_fibers",
+      "target": "uncertain_cover_frames"
+    },
+    {
+      "assumptions_required": [
+        "complete actual section integrands",
+        "controlled independent integration",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/UNCERTAIN_COVER_FRAMES_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a few section probes are not a full section matrix or a metric"
+      ],
+      "mathematical_reason": "Original section bounds on uncertain-input domains can feed metrics only after complete integrand, independent law-preserving input and integration convergence checks.",
+      "source": "uncertain_cover_frames",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "actual cover Euler identities",
         "unchanged cubic multidegrees"
       ],
@@ -9907,9 +10507,10 @@
     }
   ],
   "established_results": [
+    "all four complete actual holomorphic matrices have a nonempty common rank-three open locus without parameter selection; successful down/lepton all-witness replay and independent scalar/rank arithmetic do not supply canonical metrics, a common stabilized vacuum or physical masses/mixing",
     "all 9/3/3 admitted uncertain cover branches have positive unchanged auxiliary weight intervals with native actual coupling, full source/root error and independent coefficient/determinant checks; no independent cloud, section integrand, metric or physical normalization is supplied",
     "all eight actual down/lepton mixed scalars equal independent full Hom composition in the original bases and Higgs-first quotient volume frame; no Q/L correction solve or F-F scalar is substituted",
-    "all eight actual d^c/e^c parameter corrections pass independent original full differential, atlas, literal quotient-pushout, and coupled-identity replay; Q/L inputs and original bases are unchanged, while down and charged-lepton scalar matrices remain missing",
+    "all eight actual d^c/e^c parameter corrections pass independent original full differential, atlas, literal quotient-pushout, and coupled-identity replay; Q/L inputs and original bases are unchanged, with no import of up/neutrino coupling values into those scalar matrices",
     "the complete actual neutrino matrix has full all-entry scalar replay and fixed quotient trace; its determinant is (3/2+3*omega/4)*a0, and its rank-three locus meets the certified up locus on D(a0*a1) without parameter selection or physical normalization",
     "both actual down-Higgs quotient actions equal independent signed reciprocal wedges; full archived primitive equations and both coupled-input constant/linear/quadratic checks pass in the original differential, without relabelled up data or a complete flavor matrix",
     "two actual E and four actual F classes for d^c and e^c are archived in the original bases; independent full closure, atlas characters, nonboundary coordinates, character ranks, and exact producer reproduction pass without recalculating existing Q or L inputs",
@@ -11777,9 +12378,10 @@
       "all_neutrino_matter_lifts_exact": true,
       "all_published_yukawa_character_products_invariant": true,
       "all_reverse_down_matter_lifts_exact": true,
+      "alternate_all_four_holomorphic_sectors_available": true,
       "alternate_down_a0_archived_coefficient_count": 4,
       "alternate_down_a0_determinant_coefficient": "1/42-2/21*omega",
-      "alternate_down_lepton_all_sixteen_fresh_entry_replays_complete": false,
+      "alternate_down_lepton_all_sixteen_fresh_entry_replays_complete": true,
       "alternate_down_lepton_arithmetic_rank_coefficients": [
         [
           "1/42-2/21*omega",
@@ -11790,7 +12392,7 @@
           "-1/21-5/84*omega"
         ]
       ],
-      "alternate_down_lepton_complete_holomorphic_matrices_available": false,
+      "alternate_down_lepton_complete_holomorphic_matrices_available": true,
       "alternate_down_lepton_complete_scalar_source_set_available": true,
       "alternate_down_lepton_constant_mixed_entry_count": 8,
       "alternate_down_lepton_mixed_blocks_available": true,
@@ -11807,6 +12409,30 @@
         ]
       ],
       "alternate_fixed_atlas_su4_excluded": true,
+      "alternate_four_sector_common_rank_three_locus": [
+        {
+          "coefficient": "495/307328+351/307328*omega",
+          "powers": [
+            3,
+            1
+          ]
+        },
+        {
+          "coefficient": "-351/614656+9/38416*omega",
+          "powers": [
+            2,
+            2
+          ]
+        },
+        {
+          "coefficient": "9/38416+495/614656*omega",
+          "powers": [
+            1,
+            3
+          ]
+        }
+      ],
+      "alternate_four_sector_common_rank_three_locus_nonempty": true,
       "alternate_metric_bounded_section_and_density_evaluation_available": false,
       "alternate_metric_bounded_universal_fiber_frame_available": true,
       "alternate_metric_certified_Qomega_intersection_roots_available": true,
@@ -12546,23 +13172,10 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "independently replay all sixteen completed actual down/lepton F-F coefficients using verified mixed blocks, down-Higgs primitives, and archived Q/L/d/e lifts, then assemble both complete holomorphic matrices; metric sampling, Ricci-flat/HYM convergence, other sectors, and the common vacuum remain required before physical normalization",
+    "next_required_object": "close controlled independent metric integration with original complete section data, verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
-    {
-      "priority_score": 21.5,
-      "rationale": "Complete up and neutrino matrices and the actual down-Higgs cone are independently checked, as are all eight actual d/e corrections and all eight actual down/lepton mixed scalars. Independently replay the sixteen archived F-F coefficients in the same carrier, then assemble both complete matrices only after every literal replay. The existing exact engines provide this remaining vertical slice; physical normalization still needs controlled metrics and a common vacuum.",
-      "scores": {
-        "computational_cost": 3,
-        "distance_to_observable": 5,
-        "foundational_importance": 4,
-        "probability_of_discriminating_theory": 5,
-        "risk_of_local_rabbit_hole": 2,
-        "structural_reuse": 5
-      },
-      "task": "alternate_complete_down_lepton_matrices"
-    },
     {
       "priority_score": 12.9,
       "rationale": "Use the actual residue and normalized FS measure with the bounded all-index evaluator and certified complete single-domain output; measure multi-point cost, then implement the positive auxiliary SU-uniform mixture using the quantitative global weight bound and admitted-cell root/weight bounds. Close law-preserving independent streams, section/frame bounds on those same domains and integral errors; require Ricci-flat/HYM convergence before normalization.",
@@ -12862,7 +13475,7 @@
         "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py",
         "research/experiments/scientific_genesis/alternate_down_lepton_full_matrices.py"
       ],
-      "maturity": "research-only; complete up/neutrino holomorphic matrices and eight actual down/lepton mixed entries checked; remaining full matrices require all sixteen actual scalar replays"
+      "maturity": "research-only; all four complete holomorphic matrices checked; physical normalization still requires controlled metrics and a common vacuum"
     },
     {
       "capability": "instantons",

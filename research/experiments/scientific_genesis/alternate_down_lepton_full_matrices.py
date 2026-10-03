@@ -109,21 +109,9 @@ def _rank_parents():
     return {"artifact_digest": up_digest, **up}, neutrino
 
 
-def write_full_matrices(path=OUTPUT, *, workers=1):
-    """Replay every actual prerequisite before returning either complete matrix."""
+def _assembled_outputs(mixed, blocks, up, neutrino):
+    """Reuse the established constructor; retain all original entries and formal parameters."""
 
-    if type(workers) is not int or workers not in (1, 2):
-        raise ValueError("complete flavor replay requires exactly one or two workers")
-    required = required_sources(path.parent)
-    for source in required:
-        if not source.is_file() or not source.with_suffix(".cochains.json.gz").is_file():
-            raise FileNotFoundError(f"an actual complete flavor prerequisite is missing: {source}")
-    snapshot = established._source_snapshot(required)
-    mixed, _ = coefficients.mixed.load_mixed_pairing(expected_digest=coefficients.MIXED_DIGEST)
-    up, neutrino = _rank_parents()
-    blocks = _replay(path.parent, snapshot, workers)
-    if established._source_snapshot(required) != snapshot:
-        raise ValueError("actual flavor sources changed during complete scalar replay")
     matrices, determinants = [], []
     for sector, inputs in enumerate(mixed["sectors"]):
         matrix, det, minor = established.assemble_actual_flavor_matrix(
@@ -140,6 +128,25 @@ def write_full_matrices(path=OUTPUT, *, workers=1):
     common = _polynomial(up["determinant"]) * _polynomial(neutrino["determinant"])
     for det in determinants:
         common *= det
+    return matrices, common
+
+
+def write_full_matrices(path=OUTPUT, *, workers=1):
+    """Replay every actual prerequisite before returning either complete matrix."""
+
+    if type(workers) is not int or workers not in (1, 2):
+        raise ValueError("complete flavor replay requires exactly one or two workers")
+    required = required_sources(path.parent)
+    for source in required:
+        if not source.is_file() or not source.with_suffix(".cochains.json.gz").is_file():
+            raise FileNotFoundError(f"an actual complete flavor prerequisite is missing: {source}")
+    snapshot = established._source_snapshot(required)
+    mixed, _ = coefficients.mixed.load_mixed_pairing(expected_digest=coefficients.MIXED_DIGEST)
+    up, neutrino = _rank_parents()
+    blocks = _replay(path.parent, snapshot, workers)
+    if established._source_snapshot(required) != snapshot:
+        raise ValueError("actual flavor sources changed during complete scalar replay")
+    matrices, common = _assembled_outputs(mixed, blocks, up, neutrino)
     record = {
         "schema": SCHEMA, "carrier_status": "conditional on the selected heterotic UV realization",
         "coefficient_field": "Q(omega)", "outer_parameter_basis": ["a0", "a1"],
@@ -198,6 +205,34 @@ def load_full_matrices(path=OUTPUT, *, expected_digest):
         for sector, item in enumerate(matrices)
     ):
         raise ValueError("the complete down/lepton matrices changed their ordered family bases")
+    mixed_digest, mixed = _verified_payload(coefficients.mixed.OUTPUT)
+    if mixed_digest != coefficients.MIXED_DIGEST:
+        raise ValueError("the actual mixed scalar prerequisite changed its trusted digest")
+    blocks = {}
+    for p in (0, 1):
+        for s in (0, 1):
+            for r in (1, 2):
+                for c in (1, 2):
+                    source = coefficients.entry_path(p, s, r, c, path.parent)
+                    entry_digest, entry = _verified_payload(source)
+                    if (entry_digest != record["source_snapshot"][source.stem]["artifact_digest"]
+                        or entry.get("schema") != coefficients.SCHEMA
+                        or any(type(entry.get(key)) is not int
+                               for key in ("sector", "row", "column"))
+                        or (entry.get("parameter"), entry.get("sector"), entry.get("row"),
+                            entry.get("column")) != (f"a{p}", s, r, c)):
+                        raise ValueError("a matrix coefficient changed its source position")
+                    cover = _parse_eisenstein_text(entry["cover_residue"])
+                    if str(cover / 9) != entry.get("quotient_residue"):
+                        raise ValueError("a matrix coefficient changed quotient normalization")
+                    blocks[p, s, r, c] = cover
+    expected, common = _assembled_outputs(mixed, blocks, up, neutrino)
+    if (matrices != expected
+        or record.get("four_sector_common_rank_three_locus_polynomial")
+        != _polynomial_record(common)
+        or record.get("four_sector_common_rank_three_locus_nonempty")
+        is not (not common.is_zero())):
+        raise ValueError("the matrices changed actual entries, minors, or common rank locus")
     return {"artifact_digest": digest, **record}
 
 

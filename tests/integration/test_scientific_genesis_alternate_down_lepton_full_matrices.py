@@ -21,6 +21,7 @@ Phase 0:
 
 from copy import deepcopy
 from fractions import Fraction
+from functools import cache
 from itertools import permutations
 from pathlib import Path
 from re import fullmatch
@@ -60,6 +61,117 @@ ACTUAL_COEFFICIENT_DIGESTS = (
     "fb89c73981feb1696fb0583eee3aa51c581ee17f69cbe6cc1463b6db573d128c",
     "c302473b42759452ebac5001ccd8dca24fbb958d7162e07b768ed579c9a9280a",
 )
+COMPLETE_DIGEST = "c7892263e1429ff614c121f991c6fc9fe863c96236bca03422779f1f4291381a"
+
+
+@cache
+def _completed():
+    """Read only the actual successful all-witness output, not a synthetic packet."""
+
+    return matrices.load_full_matrices(expected_digest=COMPLETE_DIGEST)
+
+
+def _fraction_polynomial(terms):
+    return {tuple(term["powers"]): _fraction_pair(term["coefficient"]) for term in terms}
+
+
+def _fraction_product(left, right):
+    result = {}
+    for e, (a, b) in left.items():
+        for f, (c, d) in right.items():
+            powers = tuple(x + y for x, y in zip(e, f, strict=True))
+            previous = result.get(powers, (Fraction(0), Fraction(0)))
+            value = a*c-b*d, a*d+b*c-b*d
+            result[powers] = previous[0]+value[0], previous[1]+value[1]
+    return {e: c for e, c in result.items() if c != (0, 0)}
+
+
+@pytest.mark.parametrize("sector", (0, 1))
+def test_actual_completed_matrices_keep_every_source_entry_and_independent_determinant(sector):
+    packet = _completed()
+    actual = packet["matrices"][sector]
+    _, mixed = _verified_payload(matrices.coefficients.mixed.OUTPUT)
+    expected = {(e["row"], e["column"]): {(0, 0): _fraction_pair(e["quotient_residue"])}
+                for e in mixed["sectors"][sector]["evaluated_entries"]}
+    expected[0, 0] = {}
+    for r in (1, 2):
+        for c in (1, 2):
+            expected[r, c] = {}
+            for p, powers in ((0, (1, 0)), (1, (0, 1))):
+                _, entry = _verified_payload(matrices.coefficients.entry_path(p, sector, r, c))
+                expected[r, c][powers] = _fraction_pair(entry["quotient_residue"])
+    assert [[_fraction_polynomial(e) for e in row] for row in actual["matrix_entries"]] == (
+        [[expected[r, c] for c in range(3)] for r in range(3)]
+    )
+    assert _fraction_polynomial(actual["determinant"]) == _independent_fraction_determinant(sector)
+    minor = {powers: (-a, -b) for powers, (a, b) in
+             _fraction_product(expected[0, 1], expected[1, 0]).items()}
+    assert _fraction_polynomial(actual["rank_two_minor"]) == minor
+    assert _fraction_polynomial(actual["rank_two_minor"]) == {
+        (0, 0): (Fraction(1, 756), Fraction(1, 252)),
+    }
+    assert actual["rank_floor"] == 2
+
+
+def test_actual_completed_four_sector_locus_by_independent_fraction_product():
+    packet = _completed()
+    product = {(0, 0): (Fraction(1), Fraction(0))}
+    for path in (matrices.UP_OUTPUT, matrices.established.OUTPUT):
+        _, parent = _verified_payload(path)
+        product = _fraction_product(product, _fraction_polynomial(parent["determinant"]))
+    for sector in (0, 1):
+        product = _fraction_product(product, _independent_fraction_determinant(sector))
+    assert _fraction_polynomial(packet["four_sector_common_rank_three_locus_polynomial"]) == product
+    assert len(product) == 3
+    assert all(sum(powers) == 4 for powers in product)
+    assert packet["four_sector_common_rank_three_locus_nonempty"]
+    assert len(packet["source_snapshot"]) == 34
+    assert packet["source_snapshot"] == matrices.established._source_snapshot(
+        matrices.required_sources(),
+    )
+    assert not packet["physical_yukawa_matrices_available"]
+    assert not packet["common_vacuum_stabilized"]
+    assert not packet["extension_point_selected"]
+
+
+@pytest.mark.parametrize("attack", (
+    "entry", "determinant", "minor", "rank_floor", "common_polynomial", "common_flag",
+    "basis", "scope", "snapshot",
+))
+def test_rehashed_actual_completed_packet_cannot_change_science_or_scope(monkeypatch, attack):
+    packet = deepcopy(_completed())
+    packet.pop("artifact_digest")
+    if attack == "entry":
+        packet["matrices"][0]["matrix_entries"][1][1][0]["coefficient"] = "0"
+    elif attack == "determinant":
+        packet["matrices"][0]["determinant"][0]["coefficient"] = "0"
+    elif attack == "minor":
+        packet["matrices"][1]["rank_two_minor"] = []
+    elif attack == "rank_floor":
+        packet["matrices"][0]["rank_floor"] = 3
+    elif attack == "common_polynomial":
+        packet["four_sector_common_rank_three_locus_polynomial"][0]["coefficient"] = "1"
+    elif attack == "common_flag":
+        packet["four_sector_common_rank_three_locus_nonempty"] = False
+    elif attack == "basis":
+        packet["matrices"][0]["basis_order"]["rows"].reverse()
+    elif attack == "scope":
+        packet["physical_yukawa_matrices_available"] = True
+    else:
+        packet["source_snapshot"].pop(next(iter(packet["source_snapshot"])))
+    changed_digest = matrices._canonical_digest(packet)
+    original = matrices._verified_payload
+
+    def changed_metadata(path):
+        if path == matrices.OUTPUT:
+            return changed_digest, packet
+        return original(path)
+
+    # Fault injection changes a copy of the real completed metadata only;
+    # every scalar/cochain source remains the actual successful input.
+    monkeypatch.setattr(matrices, "_verified_payload", changed_metadata)
+    with pytest.raises(ValueError):
+        matrices.load_full_matrices(expected_digest=changed_digest)
 
 
 def _fraction_pair(text):

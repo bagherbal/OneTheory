@@ -990,12 +990,9 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
         "frozen only for chain-level physics"
     )
     assert path["next_required_object"] == (
-        "independently replay all sixteen completed actual down/lepton F-F "
-        "coefficients using verified mixed blocks, down-Higgs primitives, and "
-        "archived Q/L/d/e lifts, then assemble both complete holomorphic matrices; "
-        "metric sampling, "
-        "Ricci-flat/HYM convergence, other sectors, and the common vacuum "
-        "remain required before physical normalization"
+        "close controlled independent metric integration with original complete "
+        "section data, verify Ricci-flat/HYM convergence and stabilize one common "
+        "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
     )
     assert path["criteria"][
         "alternate_metric_exact_residue_and_auxiliary_measure_available"
@@ -1226,13 +1223,18 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     assert claims["published_chain_reconstruction"]["status"] == "BLOCKED"
     assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
     scheduler = state["research_value_scheduler"]
-    assert scheduler[0]["task"] == "alternate_complete_down_lepton_matrices"
+    assert scheduler[0]["task"] == "alternate_metric_convergence"
     assert claims["alternate_neutrino_mixed_pairing"]["status"] == "COMPUTED"
     assert claims["alternate_neutrino_matrix"]["status"] == "COMPUTED"
     assert claims["alternate_down_lepton_matter"]["status"] == "COMPUTED"
     assert claims["alternate_down_higgs_quotient_cone"]["status"] == "COMPUTED"
     assert claims["alternate_down_lepton_mixed_pairing"]["status"] == "COMPUTED"
-    assert claims["alternate_down_lepton_matrices"]["status"] == "BLOCKED"
+    assert claims["alternate_down_lepton_matrices"]["status"] == "COMPUTED"
+    assert claims["alternate_down_lepton_matrices"]["missing_prerequisites"] == []
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+    assert "all holomorphic Yukawa sectors" not in (
+        claims["physical_yukawas"]["missing_prerequisites"]
+    )
     assert claims["alternate_remaining_flavor_matter_lifts"]["status"] == "COMPUTED"
     assert claims["alternate_remaining_flavor_matter_lifts"]["missing_prerequisites"] == []
     assert len([path for path in claims["alternate_remaining_flavor_matter_lifts"]["evidence"]
@@ -1250,10 +1252,13 @@ def test_vertical_path_uses_a_universal_family_without_selecting_a_point() -> No
     ]
     assert path["criteria"][
         "alternate_down_lepton_all_sixteen_fresh_entry_replays_complete"
-    ] is False
+    ] is True
     assert path["criteria"][
         "alternate_down_lepton_complete_holomorphic_matrices_available"
-    ] is False
+    ] is True
+    assert path["criteria"]["alternate_all_four_holomorphic_sectors_available"] is True
+    assert path["criteria"]["alternate_four_sector_common_rank_three_locus_nonempty"] is True
+    assert len(path["criteria"]["alternate_four_sector_common_rank_three_locus"]) == 3
     assert path["criteria"]["alternate_down_lepton_physical_yukawa_matrices_available"] is False
     assert path["criteria"]["alternate_neutrino_complete_holomorphic_matrix_available"] is True
     assert path["criteria"]["alternate_neutrino_holomorphic_rank_three_locus"] == "a0 != 0"

@@ -1,5 +1,15 @@
 # Scientific Genesis audit
 
+All four complete **holomorphic** Yukawa sectors are now available on the same
+frozen alternate carrier. The corrected down/lepton replay succeeded on all
+sixteen original matter lifts and sixteen literal scalar products, with all
+thirty-four input snapshots unchanged. The completed packet is
+`alternate_down_lepton_full_holomorphic_matrices.json`. Independent Fraction-pair
+checks reproduce all eighteen entries, both remaining determinants and the
+common four-sector rank-three quartic. No extension point, matter metric or
+vacuum is selected. Controlled metrics and a common stabilized vacuum remain
+required before physical masses or mixing; the scheduler now prioritizes them.
+
 `uncertain_cover_weights.py` consumes actual coupled root families and encloses
 the unchanged auxiliary conormal weights on all 9/3/3 admitted branches.
 Independent full FS determinants, Fraction-pair coefficient calculations and
@@ -790,50 +800,20 @@ routing, indices, missing checkpoints, and bounded scheduling. These guards
 do not certify any absent coefficient or complete matrix. Independent full
 replay remains required; metrics and the common vacuum remain missing.
 
-`alternate_down_lepton_full_matrices.py` is the gated complete assembler,
-not evidence that either remaining matrix has been computed. It requires
-sixteen scalar packets, sixteen original matter-lift packets, and the two
-shared down-Higgs/mixed packets, each with its full archive, before any
-replay begins. It reuses the original full validators and the extracted
-neutrino matrix constructor. One hundred regressions preserve all nine
-entries of both established matrices, reject every missing prerequisite,
-check all eighteen remaining source-to-position polynomials independently,
-and verify the exact mixed null-channel rank identity. The source-position
-checks do not replay the full witnesses or certify either matrix. No partial
-matrix is written. Actual full scalar replay must finish before either complete
-down/lepton matrix or its four-sector common rank condition is available.
-See `ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md` for the execution gate.
+`alternate_down_lepton_full_matrices.py` has now completed the actual all-input
+replay. No missing coefficient or partial matrix is supplied. The sealed proof
+`ALTERNATE_DOWN_LEPTON_FULL_MATRICES_NOTE.md` defines this gate. The successful
+output retains the distinct original bases, formal `(a0,a1)` order and quotient
+trace factor 1/9. Its read-only consumer rechecks every source snapshot, position,
+entry, determinant, minor and common rank polynomial; even rehashed alterations
+are rejected. Assembly regressions use the real completed output, not synthetic
+physical fixtures or the earlier unsuccessful export.
 
-Four actual a0 down-sector F-F archives are now checkpointed. Separate exact
-scalar expansion gives determinant coefficient `1/42-2*omega/21`; the mixed
-null-channel coefficient is `-36-18*omega`. All four full scalar archives
-pass direct closure/residue, transferred projection, and inverse-convolution
-trace checks in the unchanged quotient frame. These checks reuse certified
-down-Higgs inputs; they do not replace the final fresh product/matter replay.
-Seven adversarial metadata checks reject rehashed scope inflation. Both
-complete two-parameter matrices and all-sixteen fresh replay remain
-unresolved; a holomorphic coefficient is not a physical mass prediction.
-
-The original coefficient producer has now completed all sixteen scalar
-checkpoints. Every required archive is present with its literal byte identity;
-the complete-input replay is running with two workers. The source set is
-available, but both matrix nodes remain unresolved until that replay finishes.
-Separate exact scalar arithmetic gives down coefficients
-`(1/42-2*omega/21, -1/21-5*omega/84)` and charged-lepton coefficients
-`(-1/84+omega/21, -1/21-5*omega/84)` in original `(a0,a1)` order. Their rank
-forms have distinct projective zero sets, separate from the established
-up/neutrino coordinate axes. Three of the regressions now use a separate
-Fraction-pair parser and all six Leibniz permutation terms: neither OneTheory's
-Eisenstein arithmetic nor its polynomial determinant computes their result.
-This arithmetic diagnostic does not certify the unfinished full matrix
-witnesses, physical metrics, or a vacuum.
-
-The complete assembler now retains the verified up-parent digest alongside
-its unsigned body. The common input reader removes the digest during checking,
-so the old handoff otherwise fails at final provenance serialization. An
-actual-parent regression covers both hashes without mocking scalar replay.
-The original invocation reached final provenance serialization and terminated
-with `KeyError: 'artifact_digest'`; it wrote no matrix packet. The corrected
-complete invocation is now running with the same two-worker bound. No input
-archive, cochain algorithm, mathematical coefficient, or proof note has changed.
-No validation is skipped or matrix availability inferred from the failed export.
+The determinants are
+`(1/42-2*omega/21)*a0+(-1/21-5*omega/84)*a1` for down and
+`(-1/84+omega/21)*a0+(-1/21-5*omega/84)*a1` for charged leptons.
+Both retain the fixed rank-two minor `1/756+omega/252`. Their distinct projective
+zero sets, together with the up/neutrino coordinate axes, leave a nonempty common
+rank-three open locus. A separate Fraction-pair parser and six-term Leibniz
+expansion establish the critical algebra independently. This is not canonical
+normalization, moduli stabilization, a physical hierarchy or a prediction.

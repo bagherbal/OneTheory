@@ -3656,6 +3656,29 @@ def _nodes() -> list[dict[str, object]]:
              "controlled integration errors", "Ricci-flat/HYM convergence", "common vacuum"),
         ),
         _node(
+            "auxiliary_cover_draws",
+            "law-preserving prefix refinement for auxiliary cover draws",
+            "Normalization",
+            "DERIVED",
+            "Independent fair bit streams conditionally realize the exact "
+            "3/4,1/8,1/8 auxiliary mixture and uniform complete-root choices. "
+            "Whole projective input cells feed the native coupled restrictions. "
+            "Prefix exhaustion or numerical failure retains the same request; "
+            "admitted root refinement requires bijective projective disk "
+            "containment, not the order of sorted centers. This conditional "
+            "workflow does not prove its input independence, global numerical "
+            "coverage, complete section integrands or a controlled integral.",
+            ("research/experiments/scientific_genesis/auxiliary_cover_draws.py",
+             "research/experiments/scientific_genesis/AUXILIARY_COVER_DRAWS_NOTE.md",
+             "tests/integration/test_scientific_genesis_auxiliary_cover_draws.py",
+             "data/generated/scientific_genesis/auxiliary_cover_draws.json"),
+            ("mutually independent infinite fair named bit streams",
+             "actual coupled root certificates", "explicit unchanged line frames"),
+            ("externally justified independent draws", "global numerical input coverage",
+             "complete section integrands", "controlled integration errors",
+             "Ricci-flat/HYM convergence", "common stabilized vacuum"),
+        ),
+        _node(
             "uncertain_cover_frames",
             "original universal bundle frames on uncertain-input cover domains",
             "Normalization",
@@ -6728,6 +6751,50 @@ def _edges() -> list[dict[str, object]]:
         ),
         _edge(
             "projective_uniform_input_cells",
+            "auxiliary_cover_draws",
+            "Nested bit prefixes enclose the same continuous projective inputs; "
+            "independent discrete selectors realize the derived auxiliary mixture.",
+            ("research/experiments/scientific_genesis/AUXILIARY_COVER_DRAWS_NOTE.md",),
+            ("mutually independent infinite fair named bit streams",),
+            True,
+            ("deterministic finite addresses do not establish IID",),
+        ),
+        _edge(
+            "projective_uncertain_intersections",
+            "auxiliary_cover_draws",
+            "Existing complete uniform root certificates and strict projective "
+            "containment identify the same actual branch under input refinement.",
+            ("research/experiments/scientific_genesis/auxiliary_cover_draws.py",),
+            ("whole-cell restrictions", "complete disjoint roots",
+             "same input prefixes and explicitly declared frames"),
+            True,
+            ("resampling a numerical failure biases the proposed law",
+             "sorted root-center positions need not persist under refinement"),
+        ),
+        _edge(
+            "alternate_metric_positive_measure",
+            "auxiliary_cover_draws",
+            "The intersection-derived FS cube fixes mixture probabilities and "
+            "complete-root multiplicities, without choosing physical moduli.",
+            ("research/experiments/scientific_genesis/AUXILIARY_COVER_DRAWS_NOTE.md",),
+            ("same actual smooth cover", "normalized auxiliary FS convention"),
+            True,
+            ("an auxiliary proposal is not a Ricci-flat metric",),
+        ),
+        _edge(
+            "auxiliary_cover_draws",
+            "visible_metrics",
+            "Admitted same-draw refinements can supply native point and weight "
+            "bounds to original metric integrands once independent inputs, "
+            "complete sections and controlled integral errors are available.",
+            ("research/experiments/scientific_genesis/auxiliary_cover_draws.py",),
+            ("externally justified independent inputs", "complete original integrands",
+             "controlled integration errors", "Ricci-flat/HYM convergence"),
+            True,
+            ("selecting only successfully admitted numerical draws biases an integral",),
+        ),
+        _edge(
+            "projective_uniform_input_cells",
             "visible_metrics",
             "Coupled projective input bounds can feed the unchanged intersection "
             "law only after uncertain coefficient root completeness, chart and "
@@ -8271,6 +8338,7 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/projective_uniform_input_cells.py",
                 "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
                 "research/experiments/scientific_genesis/uncertain_cover_weights.py",
+                "research/experiments/scientific_genesis/auxiliary_cover_draws.py",
             ),
         ),
         (
@@ -8334,8 +8402,9 @@ def _scheduler() -> list[dict[str, object]]:
             "all-index evaluator and certified complete single-domain output; "
             "measure multi-point cost, then implement the positive auxiliary "
             "SU-uniform mixture using the quantitative global weight bound and "
-            "admitted-cell root/weight bounds. Close law-preserving independent "
-            "streams, section/frame bounds on those same domains and integral errors; "
+            "admitted-cell root/weight bounds. Use the same-prefix draw workflow "
+            "without dropping pending draws; justify external independence and "
+            "complete section/frame integrands on those domains with integral errors; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
@@ -8420,10 +8489,17 @@ def build_state() -> dict[str, object]:
 
     from .alternate_down_lepton_full_matrices import load_full_matrices
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
+    from .auxiliary_cover_draws import read_draws
     from .projective_uncertain_intersections import read_uncertain_intersections
     from .projective_uniform_input_cells import read_input_cells
     from .uncertain_cover_frames import read_frames
     from .uncertain_cover_weights import read_weights
+
+    auxiliary_draws = read_draws()
+    if _canonical_digest(auxiliary_draws) != (
+        "bd942525f05b8d94696bf76b7cec146f52ca437d218f3c55fdbfa80a6411b33b"
+    ):
+        raise ValueError("the conditional same-prefix draw workflow changed its trusted digest")
 
     uncertain_weights = read_weights()
     if _canonical_digest(uncertain_weights) != (
@@ -11863,6 +11939,10 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/projective_uniform_input_cells.json",
         "data/generated/scientific_genesis/projective_uncertain_intersections.json",
         "data/generated/scientific_genesis/uncertain_cover_weights.json",
+        "data/generated/scientific_genesis/auxiliary_cover_draws.json",
+        "research/experiments/scientific_genesis/auxiliary_cover_draws.py",
+        "research/experiments/scientific_genesis/AUXILIARY_COVER_DRAWS_NOTE.md",
+        "tests/integration/test_scientific_genesis_auxiliary_cover_draws.py",
         "research/experiments/scientific_genesis/uncertain_cover_weights.py",
         "research/experiments/scientific_genesis/UNCERTAIN_COVER_WEIGHTS_NOTE.md",
         "tests/integration/test_scientific_genesis_uncertain_cover_weights.py",
@@ -11936,7 +12016,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3081,
+            "collected_tests_at_audit": 3129,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12471,11 +12551,16 @@ def build_state() -> dict[str, object]:
         "projective_uncertain_intersections": uncertain_intersections,
         "uncertain_cover_weights": uncertain_weights,
         "uncertain_cover_frames": uncertain_frames,
+        "auxiliary_cover_draws": auxiliary_draws,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "the auxiliary mixture has a conditional same-prefix draw workflow "
+            "with unbiased exact selectors, native actual roots and weights, "
+            "certified branch continuation and retained unresolved requests; "
+            "deterministic probes are not an IID cloud or a controlled integral",
             "all fifteen declared uncertain cover domains admit the original "
             "universal quotient and full cochain section probes 0/2655; explicit "
             "center rounding bounds coefficient growth without approximating "

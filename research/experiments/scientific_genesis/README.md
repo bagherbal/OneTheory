@@ -1,5 +1,13 @@
 # Scientific Genesis audit
 
+`auxiliary_cover_draws.py` retains caller-supplied bit-prefix addresses across
+numerical failures and precision refinement. Exact selectors realize the
+auxiliary mixture conditional on independent fair input streams; native roots,
+same-branch disk containment and unchanged weights are executed on three
+declared regression addresses. These are not an IID cloud or an integral.
+Pending draws remain prerequisites, never replacement draws. See
+`AUXILIARY_COVER_DRAWS_NOTE.md`.
+
 `uncertain_cover_frames.py` executes the original universal quotient on all
 9/3/3 declared coupled input families, with nonzero relation-minor enclosures.
 Original full-cochain indices 0 and 2655 retain both formal outer corrections;

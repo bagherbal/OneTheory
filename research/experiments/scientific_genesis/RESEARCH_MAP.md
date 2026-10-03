@@ -1,5 +1,28 @@
 # Scientific Genesis research map
 
+## Law-preserving auxiliary draw refinement
+
+`auxiliary_cover_draws` is DERIVED conditional on mutually independent infinite
+fair named bit streams. Three exact component bits give the intersection-derived
+mixture `(3/4,1/8,1/8)`; same-stream ternary selectors choose uniformly among all
+complete 9/3/3 roots. Whole input cells feed the existing actual restrictions.
+No random generator or independence claim is inferred from the deterministic
+regression addresses. Source-point components retain their actual derived base.
+
+Prefix exhaustion and numerical failure retain the same pending request.
+Refinement must extend every original prefix, and strict bijective projective
+disk containment retains an admitted ideal branch even when center sorting
+changes. An unresolved continuation retains its admitted parent for retry.
+Independent exact probability enumeration and Fraction-pair disk containment
+checks attack the law and actual refinements. Actual weights reuse the unchanged
+homogeneous conormal engine. See `AUXILIARY_COVER_DRAWS_NOTE.md`.
+
+The executed three-component packet is not an independent cover cloud. Global
+numerical input coverage, externally justified IID input streams, complete
+original section integrands, controlled integration, Ricci-flat/HYM convergence
+and a common stabilized vacuum remain unresolved. Pending geometric failures
+must not be dropped or redrawn to obtain a convenient numerical sample.
+
 ## Original uncertain-domain sections with explicit center precision
 
 The `uncertain_cover_frames` node is now COMPUTED for the entire declared 9/3/3

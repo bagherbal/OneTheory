@@ -40,6 +40,27 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     assert stored == rebuilt
 
 
+def test_same_prefix_draw_workflow_preserves_conditional_metric_boundary() -> None:
+    """A declared law workflow is not IID evidence or a normalized physical result."""
+
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    node = claims["auxiliary_cover_draws"]
+    assert node["status"] == "DERIVED"
+    assert "mutually independent infinite fair named bit streams" in node["assumptions"]
+    assert "controlled integration errors" in node["missing_prerequisites"]
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    edges = [edge for edge in stored["dependencies"] if edge["target"] == "auxiliary_cover_draws"]
+    assert {edge["source"] for edge in edges} == {
+        "projective_uniform_input_cells", "projective_uncertain_intersections",
+        "alternate_metric_positive_measure",
+    }
+    record = stored["auxiliary_cover_draws"]
+    assert record["independent_cover_cloud_available"] is False
+    assert record["controlled_integral_available"] is False
+    assert record["failed_draws_resampled_or_dropped"] is False
+
+
 @pytest.mark.parametrize(
     "schema,field,error",
     (

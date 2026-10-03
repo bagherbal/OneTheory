@@ -1,10 +1,19 @@
 # Scientific Genesis audit
 
+`uncertain_cover_weights.py` consumes actual coupled root families and encloses
+the unchanged auxiliary conormal weights on all 9/3/3 admitted branches.
+Independent full FS determinants, Fraction-pair coefficient calculations and
+input-prefix refinement check the bounds. The residue scale, symbolic pi cubed
+and covering degree stay explicit. This is not an independent cover cloud,
+section integrand, integral or metric. Section/frame bounds on these domains,
+law-preserving independent streams and controlled integration remain open.
+See `UNCERTAIN_COVER_WEIGHTS_NOTE.md`.
+
 Uncertain input cells now propagate through the actual cubic intersections on
 admitted domains. `projective_uncertain_intersections.py` retains all 9/3/3
 mixture branches and a moving infinity branch via uniform coefficient-error
 root certificates. Its coupled cover bounds are not exact field points or
-independent samples. New-domain integrand bounds, global input coverage,
+independent samples. New-domain section integrand bounds, global input coverage,
 law-preserving stream refinement, cloud errors and metric convergence remain
 missing. See `PROJECTIVE_UNCERTAIN_INTERSECTIONS_NOTE.md`.
 
@@ -12,9 +21,9 @@ Auxiliary uniform projective input precision is available as coupled dyadic
 cell enclosures in `projective_uniform_input_cells.py`. The simplex/phase law
 is independently derived, with exact moments and separate high-precision
 endpoint checks. These deterministic boundary probes are not random draws:
-independent uniform bit inputs remain an explicit assumption. Uncertain-input
-intersection roots, independent cover sampling, integration error and physical
-metrics remain missing. See `PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md`.
+independent uniform bit inputs remain an explicit assumption. Admitted-cell
+roots and auxiliary weight bounds do not certify independent cover sampling,
+integration error or physical metrics. See `PROJECTIVE_UNIFORM_INPUT_CELLS_NOTE.md`.
 
 This experiment reconstructs OneTheory's current scientific state before new
 research is scheduled. It owns the epistemic dependency graph, evidence map,

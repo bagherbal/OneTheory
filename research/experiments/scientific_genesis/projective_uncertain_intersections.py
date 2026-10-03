@@ -250,6 +250,70 @@ def complete_uncertain_roots(cubic, *, parameter_pivot, policy):
     return CompleteUncertainRoots(cubic, tuple(disks))
 
 
+@dataclass(frozen=True, slots=True)
+class LineBaseLineConfiguration:
+    """A coupled cover family whose two root sets use the same actual bounded base."""
+
+    first_line: BoundedLine
+    second_line: BoundedLine
+    base: tuple[Ball, ...]
+    first: CompleteUncertainRoots
+    second: CompleteUncertainRoots
+
+    def __post_init__(self):
+        base = _balls(self.base, 2)
+        for side, line, root_set in ((1, self.first_line, self.first),
+                                     (2, self.second_line, self.second)):
+            if (not isinstance(root_set, CompleteUncertainRoots)
+                or root_set.cubic != actual_restriction(line, base, side=side)):
+                raise ValueError("the root family is not the actual same-base line restriction")
+        object.__setattr__(self, "base", base)
+
+    @property
+    def points(self):
+        return tuple((self.first_line.point_bounds(a.parameter_bounds),
+                      self.second_line.point_bounds(b.parameter_bounds), self.base)
+                     for a, b in product(self.first.disks, self.second.disks))
+
+
+@dataclass(frozen=True, slots=True)
+class PointLineConfiguration:
+    """A coupled source-point/partner-root family with its actual derived base."""
+
+    source_point: tuple[Ball, ...]
+    source_side: int
+    partner_line: BoundedLine
+    partner: CompleteUncertainRoots
+
+    def __post_init__(self):
+        source = _balls(self.source_point, 3)
+        if type(self.source_side) is not int or self.source_side not in (1, 2):
+            raise ValueError("the source plane must be explicitly first or second")
+        object.__setattr__(self, "source_point", source)
+        if (not isinstance(self.partner, CompleteUncertainRoots)
+            or self.partner.cubic != actual_restriction(self.partner_line, self.base,
+                                                        side=3-self.source_side)):
+            raise ValueError("the partner roots are not the actual source-derived base restriction")
+
+    @property
+    def base(self):
+        cox = schoen_geometry().cover.cox
+        f, g = (polynomial_value(polynomial, self.source_point)
+                for polynomial in (cox.cubic_f, cox.cubic_g))
+        base = (-g, f) if self.source_side == 1 else (-f * 2, g)
+        if not _nonzero(base):
+            raise ValueError("the source input cell may meet a pencil base point")
+        return base
+
+    @property
+    def points(self):
+        base = self.base
+        return tuple((self.source_point, self.partner_line.point_bounds(d.parameter_bounds), base)
+                     if self.source_side == 1 else
+                     (self.partner_line.point_bounds(d.parameter_bounds), self.source_point, base)
+                     for d in self.partner.disks)
+
+
 def line_base_line(first_line, second_line, base, *, parameter_pivots, policy):
     """Keep all nine coupled uncertain intersections in explicitly declared charts."""
 
@@ -259,9 +323,8 @@ def line_base_line(first_line, second_line, base, *, parameter_pivots, policy):
     first, second = (complete_uncertain_roots(actual_restriction(line, base, side=side),
         parameter_pivot=pivot, policy=policy) for side, line, pivot in
         zip((1, 2), (first_line, second_line), parameter_pivots, strict=True))
-    return tuple((first_line.point_bounds(a.parameter_bounds),
-                  second_line.point_bounds(b.parameter_bounds), base)
-                 for a, b in product(first.disks, second.disks)), (first, second)
+    configuration = LineBaseLineConfiguration(first_line, second_line, base, first, second)
+    return configuration.points, (first, second)
 
 
 def point_line(source_point, partner_line, *, source_side, parameter_pivot, policy):
@@ -277,11 +340,8 @@ def point_line(source_point, partner_line, *, source_side, parameter_pivot, poli
         raise ValueError("the source input cell may meet a pencil base point")
     partner = complete_uncertain_roots(actual_restriction(partner_line, base, side=3-source_side),
                                       parameter_pivot=parameter_pivot, policy=policy)
-    points = tuple((source, partner_line.point_bounds(disk.parameter_bounds), base)
-                   if source_side == 1 else
-                   (partner_line.point_bounds(disk.parameter_bounds), source, base)
-                   for disk in partner.disks)
-    return points, partner
+    configuration = PointLineConfiguration(source, source_side, partner_line, partner)
+    return configuration.points, partner
 
 
 def declared_probes():

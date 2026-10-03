@@ -3634,6 +3634,28 @@ def _nodes() -> list[dict[str, object]]:
              "integration error control", "Ricci-flat/HYM convergence"),
         ),
         _node(
+            "uncertain_cover_weights",
+            "unchanged auxiliary weights on actual coupled uncertain cover families",
+            "Normalization",
+            "COMPUTED",
+            "Actual same-base or source-derived root restrictions certify coupled "
+            "cover families on the admitted input cells. The established homogeneous "
+            "conormal identity encloses all 9/3/3 auxiliary weights, retaining source "
+            "and root error with positive full denominators. Independent full FS "
+            "determinants at exact cover points and Fraction-pair coordinate "
+            "functionals check the arithmetic. Raw coordinate balls are not "
+            "membership certificates. These bounds are not an independent cloud, "
+            "a section integrand, an integral, a metric or a stabilized prediction.",
+            ("research/experiments/scientific_genesis/uncertain_cover_weights.py",
+             "research/experiments/scientific_genesis/UNCERTAIN_COVER_WEIGHTS_NOTE.md",
+             "tests/integration/test_scientific_genesis_uncertain_cover_weights.py",
+             "data/generated/scientific_genesis/uncertain_cover_weights.json"),
+            ("actual coupled root certificates", "positive norm and conormal bounds",
+             "declared residue scale and covering degree"),
+            ("independent law-preserving draws", "section and frame bounds",
+             "controlled integration errors", "Ricci-flat/HYM convergence", "common vacuum"),
+        ),
+        _node(
             "alternate_metric_projection_free_weights",
             "projection-free positive-law weights from the ambient conormal Gram",
             "Normalization",
@@ -6735,6 +6757,51 @@ def _edges() -> list[dict[str, object]]:
             ("admitted regression cells are not an independent cover cloud",),
         ),
         _edge(
+            "projective_uncertain_intersections",
+            "uncertain_cover_weights",
+            "Complete actual root families with their same bounded base or "
+            "source-derived base supply coupled cover-coordinate enclosures.",
+            ("research/experiments/scientific_genesis/uncertain_cover_weights.py",),
+            ("actual original pencil restrictions", "complete uniform root certificates"),
+            True,
+            ("an arbitrary tuple of coordinate balls does not certify cover membership",),
+        ),
+        _edge(
+            "alternate_metric_projection_free_weights",
+            "uncertain_cover_weights",
+            "The existing positive-law weight has a homogeneous conormal "
+            "identity; outward arithmetic propagates source and root errors "
+            "without tangent-chart or individual fiber-gradient inversion.",
+            ("research/experiments/scientific_genesis/UNCERTAIN_COVER_WEIGHTS_NOTE.md",),
+            ("positive homogeneous norms", "positive full conormal denominator",
+             "explicit unchanged normalization convention"),
+            True,
+            ("off-cover coordinate functionals test arithmetic, not membership",),
+        ),
+        _edge(
+            "uncertain_cover_weights",
+            "visible_metrics",
+            "Admitted-family auxiliary weights can feed the same physical "
+            "metric computation only with law-preserving independent inputs, "
+            "section/frame bounds, integration errors and metric convergence.",
+            ("research/experiments/scientific_genesis/UNCERTAIN_COVER_WEIGHTS_NOTE.md",),
+            ("independent cover draws", "actual complete section integrands",
+             "controlled integration errors", "Ricci-flat/HYM convergence"),
+            True,
+            ("positive auxiliary weight intervals are not a physical Hermitian metric",),
+        ),
+        _edge(
+            "alternate_metric_global_weight_bound",
+            "uncertain_cover_weights",
+            "The unit-homogeneous conormal proof gives explicit normalization "
+            "factors for arbitrary nonzero homogeneous representatives.",
+            ("research/experiments/scientific_genesis/"
+             "ALTERNATE_METRIC_GLOBAL_WEIGHT_BOUND_NOTE.md",),
+            ("actual cover Euler identities", "unchanged cubic multidegrees"),
+            True,
+            ("off-cover Euler cancellation cannot be used as a membership proof",),
+        ),
+        _edge(
             "alternate_metric_weight_moments",
             "alternate_metric_critical_charts",
             "The nodal-fiber proof establishes a nonzero base derivative on the "
@@ -8154,6 +8221,7 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_metric_bounded_support.py",
                 "research/experiments/scientific_genesis/projective_uniform_input_cells.py",
                 "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
+                "research/experiments/scientific_genesis/uncertain_cover_weights.py",
             ),
         ),
         (
@@ -8216,8 +8284,9 @@ def _scheduler() -> list[dict[str, object]]:
             2,
             "Complete up and neutrino matrices and the actual down-Higgs cone "
             "are independently checked, as are all eight actual d/e corrections "
-            "and all eight actual down/lepton mixed scalars. Compute the "
-            "sixteen remaining F-F coefficients with full replay in the same carrier. "
+            "and all eight actual down/lepton mixed scalars. Independently replay "
+            "the sixteen archived F-F coefficients in the same carrier, then "
+            "assemble both complete matrices only after every literal replay. "
             "The existing exact engines provide this remaining vertical slice; "
             "physical normalization still needs controlled metrics and a common vacuum.",
         ),
@@ -8232,8 +8301,9 @@ def _scheduler() -> list[dict[str, object]]:
             "Use the actual residue and normalized FS measure with the bounded "
             "all-index evaluator and certified complete single-domain output; "
             "measure multi-point cost, then implement the positive auxiliary "
-            "SU-uniform mixture using the quantitative global weight bound, "
-            "certified inputs, actual matrix integrand bounds, and error control; "
+            "SU-uniform mixture using the quantitative global weight bound and "
+            "admitted-cell root/weight bounds. Close law-preserving independent "
+            "streams, section/frame bounds on those same domains and integral errors; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
@@ -8319,7 +8389,13 @@ def build_state() -> dict[str, object]:
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
     from .projective_uncertain_intersections import read_uncertain_intersections
     from .projective_uniform_input_cells import read_input_cells
+    from .uncertain_cover_weights import read_weights
 
+    uncertain_weights = read_weights()
+    if _canonical_digest(uncertain_weights) != (
+        "5be593ab1bfa8d1200b72a944d127cde33343158f1be79236ed5bcef51934429"
+    ):
+        raise ValueError("the actual coupled uncertain weight bounds changed their trusted digest")
     uncertain_intersections = read_uncertain_intersections()
     if _canonical_digest(uncertain_intersections) != (
         "97981cfe6a6d67fd40287c8902a99f4ce3a73729fea6a64b4f133fdce82c0d26"
@@ -11744,6 +11820,10 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/alternate_metric_positive_measure.json",
         "data/generated/scientific_genesis/projective_uniform_input_cells.json",
         "data/generated/scientific_genesis/projective_uncertain_intersections.json",
+        "data/generated/scientific_genesis/uncertain_cover_weights.json",
+        "research/experiments/scientific_genesis/uncertain_cover_weights.py",
+        "research/experiments/scientific_genesis/UNCERTAIN_COVER_WEIGHTS_NOTE.md",
+        "tests/integration/test_scientific_genesis_uncertain_cover_weights.py",
         "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
         "research/experiments/scientific_genesis/PROJECTIVE_UNCERTAIN_INTERSECTIONS_NOTE.md",
         "tests/integration/test_scientific_genesis_projective_uncertain_intersections.py",
@@ -11804,7 +11884,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2977,
+            "collected_tests_at_audit": 3008,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12333,10 +12413,15 @@ def build_state() -> dict[str, object]:
         "necessary_hidden_chamber": hidden_chamber,
         "projective_uniform_input_cells": uniform_input_cells,
         "projective_uncertain_intersections": uncertain_intersections,
+        "uncertain_cover_weights": uncertain_weights,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "all 9/3/3 admitted uncertain cover branches have positive unchanged "
+            "auxiliary weight intervals with native actual coupling, full source/root "
+            "error and independent coefficient/determinant checks; no independent "
+            "cloud, section integrand, metric or physical normalization is supplied",
             "all eight actual down/lepton mixed scalars equal independent full "
             "Hom composition in the original bases and Higgs-first quotient "
             "volume frame; no Q/L correction solve or F-F scalar is substituted",

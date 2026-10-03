@@ -1589,8 +1589,25 @@ original exact substitutions, actual input corners, and mixed-chart duplicate
 attacks independently check the critical arithmetic. See
 `PROJECTIVE_UNCERTAIN_INTERSECTIONS_NOTE.md`. These are admitted-cell family
 certificates, not an independent sampling cloud or global numeric coverage.
-Density/frame and section bounds on these new domains, law-preserving bit-stream
+Section/frame bounds on these new domains, law-preserving bit-stream
 refinement, finite-cloud errors and Ricci-flat/HYM convergence remain open.
+
+## Auxiliary weights on actual uncertain cover families
+
+The same-base and source-derived restrictions now carry immutable coupling
+certificates. `uncertain_cover_weights.py` rejects bare coordinate bounds, checks
+these certificates, and evaluates the previously derived homogeneous conormal
+identity without selecting projective pivots or inverting critical fiber
+gradients. All 9/3/3 admitted branches retain input and root error, with positive
+coordinate norms and full conormal denominators. Scale, covering degree and
+symbolic pi cubed remain distinct declared conventions. Independent full
+ambient FS determinants check exact actual points; separate Fraction-pair
+literal original coefficients check arithmetic bounds, not the membership of
+off-cover functionals. Refinement contracts weights without resampling.
+See `UNCERTAIN_COVER_WEIGHTS_NOTE.md`. The packet reader replays actual coupling,
+all bounds, pinned parents and scope, rejecting even rehashed alterations.
+These certificates do not supply an independent cover cloud, actual section
+integrands, integrals, Ricci-flat/HYM metrics, or a stabilized common vacuum.
 
 ## Same-carrier Dirac-neutrino vertical slice
 

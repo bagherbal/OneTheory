@@ -770,7 +770,7 @@ not evidence that either remaining matrix has been computed. It requires
 sixteen scalar packets, sixteen original matter-lift packets, and the two
 shared down-Higgs/mixed packets, each with its full archive, before any
 replay begins. It reuses the original full validators and the extracted
-neutrino matrix constructor. Ninety-nine regressions preserve all nine
+neutrino matrix constructor. One hundred regressions preserve all nine
 entries of both established matrices, reject every missing prerequisite,
 check all eighteen remaining source-to-position polynomials independently,
 and verify the exact mixed null-channel rank identity. The source-position
@@ -802,3 +802,13 @@ Fraction-pair parser and all six Leibniz permutation terms: neither OneTheory's
 Eisenstein arithmetic nor its polynomial determinant computes their result.
 This arithmetic diagnostic does not certify the unfinished full matrix
 witnesses, physical metrics, or a vacuum.
+
+The complete assembler now retains the verified up-parent digest alongside
+its unsigned body. The common input reader removes the digest during checking,
+so the old handoff otherwise fails at final provenance serialization. An
+actual-parent regression covers both hashes without mocking scalar replay.
+The original invocation reached final provenance serialization and terminated
+with `KeyError: 'artifact_digest'`; it wrote no matrix packet. The corrected
+complete invocation is now running with the same two-worker bound. No input
+archive, cochain algorithm, mathematical coefficient, or proof note has changed.
+No validation is skipped or matrix availability inferred from the failed export.

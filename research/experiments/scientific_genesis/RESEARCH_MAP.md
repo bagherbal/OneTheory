@@ -1671,7 +1671,7 @@ The complete down/lepton assembly now has a fail-closed owner,
 and literal archives must exist before replay; no missing coefficient is
 inferred. It schedules unchanged full lift and scalar validators with at most
 two workers, then reuses the exact established one-plus-two-family matrix
-constructor. Ninety-nine assembly regressions reproduce the known up/neutrino
+constructor. One hundred assembly regressions reproduce the known up/neutrino
 matrices, guard every prerequisite, and prove the mixed null-channel rank
 identity with formal indeterminates rather than assigned physical coefficients.
 Assembly for each remaining sector also matches all nine independently
@@ -1708,3 +1708,15 @@ permutation terms. They recover all four archived determinant coefficients
 and distinct projective walls without the OneTheory scalar, polynomial or
 determinant engines. This independent algebra path does not replace the live
 full cochain verification and does not supply physical normalization.
+
+A read-only actual-parent check exposed a final-serialization defect: the
+generic verified reader returns an unsigned up record, but the writer expects
+its `artifact_digest` header. The handoff now explicitly retains that already
+verified digest, with a regression against both actual parents. This changes
+provenance bookkeeping only, not the coefficients or cochain validation.
+The original invocation reached final provenance serialization and terminated
+with `KeyError: 'artifact_digest'`, without writing a matrix packet. The
+corrected complete invocation is now running with the same two-worker bound,
+unchanged input archives and unchanged scientific validation. Matrix
+availability remains false; no replay step is skipped or inferred from the
+failed export.

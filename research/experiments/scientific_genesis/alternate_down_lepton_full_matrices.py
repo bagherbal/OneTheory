@@ -106,7 +106,7 @@ def _rank_parents():
     neutrino = established.load_full_neutrino_matrix(
         expected_digest="40e5e45b6be980d49c432dbc707c496be56728731cd9b6f9d71d4cf08d8909eb",
     )
-    return up, neutrino
+    return {"artifact_digest": up_digest, **up}, neutrino
 
 
 def write_full_matrices(path=OUTPUT, *, workers=1):

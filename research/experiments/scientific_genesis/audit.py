@@ -3957,7 +3957,7 @@ def _nodes() -> list[dict[str, object]]:
             "states paired with the actual down-Higgs cocycle. Existing up "
             "and neutrino values cannot fill these two missing matrices. "
             "The complete assembler gates all thirty-four literal inputs "
-            "before replay. Ninety-nine assembly regressions preserve the "
+            "before replay. One hundred assembly regressions preserve the "
             "established matrices, reject missing inputs, and verify the exact "
             "mixed null-channel rank identity. Four actual down a0 archives "
             "have independently checked scalar traces and a nonzero "
@@ -3969,7 +3969,12 @@ def _nodes() -> list[dict[str, object]]:
             "another coefficient search. Independent Fraction-pair six-term "
             "Leibniz expansion also verifies all four archived determinant "
             "coefficients and their distinct projective walls without using "
-            "the OneTheory scalar or determinant arithmetic.",
+            "the OneTheory scalar or determinant arithmetic. The verified up "
+            "parent digest is now retained for final provenance serialization. "
+            "The original invocation reached that stage and terminated with "
+            "KeyError: 'artifact_digest', without writing a matrix packet. "
+            "The corrected complete invocation is running; no scientific "
+            "validation has been skipped or promoted from the failed export.",
             ("research/experiments/scientific_genesis/alternate_up_ff_entries.py",
              "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py",
              "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FF_NOTE.md",
@@ -11673,7 +11678,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2885,
+            "collected_tests_at_audit": 2886,
             "original_sources_unchanged": True,
         },
         "artifacts": [

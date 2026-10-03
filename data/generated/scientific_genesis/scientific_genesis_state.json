@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "d0f25df45b31c25797ab6564a218e9b83a5c3fb54fd21a63da97f362af07b9e1",
+  "artifact_digest": "f4b2bae7252393cce5a4e9d17676675682874ffb7c92287bc581ba8a68eade96",
   "artifacts": [
     {
       "bytes": 3337,
@@ -1503,7 +1503,7 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 2885,
+    "collected_tests_at_audit": 2886,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 293,
@@ -4924,7 +4924,7 @@
       "missing_prerequisites": [
         "independent all-entry replay and exact complete matrix rank loci"
       ],
-      "statement": "All scalar entries must come from actual Q/d and L/e matter states paired with the actual down-Higgs cocycle. Existing up and neutrino values cannot fill these two missing matrices. The complete assembler gates all thirty-four literal inputs before replay. Ninety-nine assembly regressions preserve the established matrices, reject missing inputs, and verify the exact mixed null-channel rank identity. Four actual down a0 archives have independently checked scalar traces and a nonzero determinant coefficient 1/42-2*omega/21. These are not either complete two-parameter matrix; all sixteen fresh entry replays remain required. All sixteen metadata/archive pairs are now present with pinned byte identities. The two-worker complete matter and scalar replay is the remaining matrix gate, not another coefficient search. Independent Fraction-pair six-term Leibniz expansion also verifies all four archived determinant coefficients and their distinct projective walls without using the OneTheory scalar or determinant arithmetic.",
+      "statement": "All scalar entries must come from actual Q/d and L/e matter states paired with the actual down-Higgs cocycle. Existing up and neutrino values cannot fill these two missing matrices. The complete assembler gates all thirty-four literal inputs before replay. One hundred assembly regressions preserve the established matrices, reject missing inputs, and verify the exact mixed null-channel rank identity. Four actual down a0 archives have independently checked scalar traces and a nonzero determinant coefficient 1/42-2*omega/21. These are not either complete two-parameter matrix; all sixteen fresh entry replays remain required. All sixteen metadata/archive pairs are now present with pinned byte identities. The two-worker complete matter and scalar replay is the remaining matrix gate, not another coefficient search. Independent Fraction-pair six-term Leibniz expansion also verifies all four archived determinant coefficients and their distinct projective walls without using the OneTheory scalar or determinant arithmetic. The verified up parent digest is now retained for final provenance serialization. The original invocation reached that stage and terminated with KeyError: 'artifact_digest', without writing a matrix packet. The corrected complete invocation is running; no scientific validation has been skipped or promoted from the failed export.",
       "status": "BLOCKED"
     },
     {

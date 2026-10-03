@@ -329,6 +329,18 @@ def _actual_inputs(sector):
     return parent, packet["evaluated_entries"], blocks
 
 
+def test_actual_rank_parent_handoff_retains_both_verified_digest_headers():
+    """Final serialization needs both actual hashes, not unsigned parent bodies."""
+
+    up, neutrino = matrices._rank_parents()
+    up_digest, unsigned_up = _verified_payload(matrices.UP_OUTPUT)
+    assert up_digest == PARENT_DIGESTS["up"]
+    assert up == {"artifact_digest": up_digest, **unsigned_up}
+    assert [up["artifact_digest"], neutrino["artifact_digest"]] == [
+        PARENT_DIGESTS["up"], PARENT_DIGESTS["neutrino"],
+    ]
+
+
 @pytest.mark.parametrize("sector", ("up", "neutrino"))
 def test_shared_constructor_reproduces_every_established_actual_matrix_entry(sector):
     """Extraction preserves all nine polynomials, determinants, and fixed minors."""

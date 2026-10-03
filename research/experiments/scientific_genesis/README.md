@@ -770,7 +770,7 @@ not evidence that either remaining matrix has been computed. It requires
 sixteen scalar packets, sixteen original matter-lift packets, and the two
 shared down-Higgs/mixed packets, each with its full archive, before any
 replay begins. It reuses the original full validators and the extracted
-neutrino matrix constructor. Ninety-six regressions preserve all nine
+neutrino matrix constructor. Ninety-nine regressions preserve all nine
 entries of both established matrices, reject every missing prerequisite,
 check all eighteen remaining source-to-position polynomials independently,
 and verify the exact mixed null-channel rank identity. The source-position
@@ -797,5 +797,8 @@ Separate exact scalar arithmetic gives down coefficients
 `(1/42-2*omega/21, -1/21-5*omega/84)` and charged-lepton coefficients
 `(-1/84+omega/21, -1/21-5*omega/84)` in original `(a0,a1)` order. Their rank
 forms have distinct projective zero sets, separate from the established
-up/neutrino coordinate axes. This arithmetic diagnostic does not certify
-the unfinished full matrix witnesses, physical metrics, or a vacuum.
+up/neutrino coordinate axes. Three of the regressions now use a separate
+Fraction-pair parser and all six Leibniz permutation terms: neither OneTheory's
+Eisenstein arithmetic nor its polynomial determinant computes their result.
+This arithmetic diagnostic does not certify the unfinished full matrix
+witnesses, physical metrics, or a vacuum.

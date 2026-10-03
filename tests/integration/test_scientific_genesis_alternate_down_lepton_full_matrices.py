@@ -4,7 +4,8 @@ Owns:
     All actual prerequisite paths, fail-closed execution boundaries, and
     all-entry regression against the established up and neutrino matrices,
     exact source-to-position assembly checks for the remaining scalar packets,
-    and fixed mixed rank floors in the remaining original bases.
+    fixed mixed rank floors in the remaining original bases, and independent
+    Fraction-pair Leibniz determinants of the archived scalar metadata.
 
 Depends on:
     Pinned original scalar packets, the shared exact matrix constructor,
@@ -19,7 +20,10 @@ Phase 0:
 """
 
 from copy import deepcopy
+from fractions import Fraction
+from itertools import permutations
 from pathlib import Path
+from re import fullmatch
 
 import pytest
 
@@ -56,6 +60,107 @@ ACTUAL_COEFFICIENT_DIGESTS = (
     "fb89c73981feb1696fb0583eee3aa51c581ee17f69cbe6cc1463b6db573d128c",
     "c302473b42759452ebac5001ccd8dca24fbb958d7162e07b768ed579c9a9280a",
 )
+
+
+def _fraction_pair(text):
+    """Decode exact scalar strings without OneTheory's coefficient parser."""
+
+    rational = r"[+-]?\d+(?:/\d+)?"
+    if "omega" not in text:
+        assert fullmatch(rational, text), text
+        return Fraction(text), Fraction(0)
+    match = fullmatch(rf"({rational})?([+-](?:\d+(?:/\d+)?)?)\*?omega", text)
+    if match:
+        constant, linear = match.groups()
+        return Fraction(constant or 0), Fraction(
+            linear + "1" if linear in ("+", "-") else linear,
+        )
+    match = fullmatch(r"([+-]?(?:\d+(?:/\d+)?)?)\*?omega", text)
+    assert match, text
+    linear = match[1]
+    return Fraction(0), Fraction(linear + "1" if linear in ("", "+", "-") else linear)
+
+
+def _independent_fraction_determinant(sector):
+    """Use six permutation terms and omega^2=-1-omega outside the engine.
+
+    The two formal parameters remain formal. Only the archived scalar
+    metadata are checked here; no complete cochain replay is asserted.
+    """
+
+    zero = (Fraction(0), Fraction(0))
+
+    def add(a, b):
+        return a[0]+b[0], a[1]+b[1]
+
+    def multiply(left, right):
+        result = {}
+        for e, (a, b) in left.items():
+            for f, (c, d) in right.items():
+                powers = tuple(x+y for x, y in zip(e, f, strict=True))
+                # Reduction is independent of Eisenstein.__mul__.
+                coefficient = (a*c-b*d, a*d+b*c-b*d)
+                result[powers] = add(result.get(powers, zero), coefficient)
+        return {e: c for e, c in result.items() if c != zero}
+
+    digest, packet = _verified_payload(matrices.coefficients.mixed.OUTPUT)
+    assert digest == matrices.coefficients.MIXED_DIGEST
+    assert packet["first_first_entry_zero_by_B_wedge_B"] is True
+    mixed = packet["sectors"][sector]["evaluated_entries"]
+    assert [(entry["row"], entry["column"]) for entry in mixed] == [
+        (0, 1), (0, 2), (1, 0), (2, 0),
+    ]
+    # The sole empty entry is justified by the actual certified B exterior relation.
+    matrix = [[{} for _ in range(3)] for _ in range(3)]
+    for entry in mixed:
+        coefficient = _fraction_pair(entry["quotient_residue"])
+        assert tuple(v/9 for v in _fraction_pair(entry["cover_residue"])) == coefficient
+        matrix[entry["row"]][entry["column"]] = {(0, 0): coefficient}
+    for index, (r, c) in enumerate((r, c) for r in (1, 2) for c in (1, 2)):
+        for p, powers in ((0, (1, 0)), (1, (0, 1))):
+            digest, entry = _verified_payload(matrices.coefficients.entry_path(p, sector, r, c))
+            assert digest == ACTUAL_COEFFICIENT_DIGESTS[8*p+4*sector+index]
+            assert (entry["parameter"], entry["sector"], entry["row"], entry["column"]) == (
+                f"a{p}", sector, r, c,
+            )
+            coefficient = _fraction_pair(entry["quotient_residue"])
+            assert tuple(v/9 for v in _fraction_pair(entry["cover_residue"])) == coefficient
+            matrix[r][c][powers] = coefficient
+    result = {}
+    for perm in permutations(range(3)):
+        parity = sum(perm[i] > perm[j] for i in range(3) for j in range(i+1, 3))
+        term = {(0, 0): (Fraction((-1)**parity), Fraction(0))}
+        for r, c in enumerate(perm):
+            term = multiply(term, matrix[r][c])
+        for powers, coefficient in term.items():
+            result[powers] = add(result.get(powers, zero), coefficient)
+    return {e: c for e, c in result.items() if c != zero}
+
+
+@pytest.mark.parametrize("sector,expected", (
+    (0, {(1, 0): (Fraction(1, 42), Fraction(-2, 21)),
+         (0, 1): (Fraction(-1, 21), Fraction(-5, 84))}),
+    (1, {(1, 0): (Fraction(-1, 84), Fraction(1, 21)),
+         (0, 1): (Fraction(-1, 21), Fraction(-5, 84))}),
+))
+def test_archived_remaining_determinants_by_independent_fraction_leibniz(sector, expected):
+    """Neither the four-term formula nor the exact engine computes this expectation."""
+
+    assert _independent_fraction_determinant(sector) == expected
+
+
+def test_archived_remaining_projective_walls_are_independent_over_fraction_pairs():
+    """Prove distinct zeros without choosing a parameter or reading a future matrix."""
+
+    down, lepton = (_independent_fraction_determinant(sector) for sector in (0, 1))
+    a, b = down[1, 0]
+    c, d = lepton[0, 1]
+    first = (a*c-b*d, a*d+b*c-b*d)
+    a, b = down[0, 1]
+    c, d = lepton[1, 0]
+    second = (a*c-b*d, a*d+b*c-b*d)
+    assert first != second
+    assert all(pair != (0, 0) for row in (down, lepton) for pair in row.values())
 
 
 @pytest.mark.parametrize("sector", (0, 1))

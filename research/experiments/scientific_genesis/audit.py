@@ -3957,7 +3957,7 @@ def _nodes() -> list[dict[str, object]]:
             "states paired with the actual down-Higgs cocycle. Existing up "
             "and neutrino values cannot fill these two missing matrices. "
             "The complete assembler gates all thirty-four literal inputs "
-            "before replay. Ninety-six assembly regressions preserve the "
+            "before replay. Ninety-nine assembly regressions preserve the "
             "established matrices, reject missing inputs, and verify the exact "
             "mixed null-channel rank identity. Four actual down a0 archives "
             "have independently checked scalar traces and a nonzero "
@@ -3966,7 +3966,10 @@ def _nodes() -> list[dict[str, object]]:
             "remain required. All sixteen metadata/archive pairs are now "
             "present with pinned byte identities. The two-worker complete "
             "matter and scalar replay is the remaining matrix gate, not "
-            "another coefficient search.",
+            "another coefficient search. Independent Fraction-pair six-term "
+            "Leibniz expansion also verifies all four archived determinant "
+            "coefficients and their distinct projective walls without using "
+            "the OneTheory scalar or determinant arithmetic.",
             ("research/experiments/scientific_genesis/alternate_up_ff_entries.py",
              "research/experiments/scientific_genesis/alternate_down_lepton_ff_entries.py",
              "research/experiments/scientific_genesis/ALTERNATE_DOWN_LEPTON_FF_NOTE.md",
@@ -11670,7 +11673,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 2882,
+            "collected_tests_at_audit": 2885,
             "original_sources_unchanged": True,
         },
         "artifacts": [

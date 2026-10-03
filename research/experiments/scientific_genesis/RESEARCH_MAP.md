@@ -1671,7 +1671,7 @@ The complete down/lepton assembly now has a fail-closed owner,
 and literal archives must exist before replay; no missing coefficient is
 inferred. It schedules unchanged full lift and scalar validators with at most
 two workers, then reuses the exact established one-plus-two-family matrix
-constructor. Ninety-six assembly regressions reproduce the known up/neutrino
+constructor. Ninety-nine assembly regressions reproduce the known up/neutrino
 matrices, guard every prerequisite, and prove the mixed null-channel rank
 identity with formal indeterminates rather than assigned physical coefficients.
 Assembly for each remaining sector also matches all nine independently
@@ -1702,3 +1702,9 @@ are distinct from one another and the up/neutrino axes, without selecting
 a point. This is an exact arithmetic diagnostic of the archived coefficients,
 not a completed full-witness matrix gate. The full replay must finish before
 matrix availability is changed; normalization and the common vacuum remain open.
+Three regressions independently decode the actual strings to pairs of standard
+Fractions, reduce products by `omega^2=-1-omega`, and expand all six Leibniz
+permutation terms. They recover all four archived determinant coefficients
+and distinct projective walls without the OneTheory scalar, polynomial or
+determinant engines. This independent algebra path does not replace the live
+full cochain verification and does not supply physical normalization.

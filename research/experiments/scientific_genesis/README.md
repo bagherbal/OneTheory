@@ -1,5 +1,17 @@
 # Scientific Genesis audit
 
+The parallel foundational audit `canonical_representation_constraints.py`
+separates symbolic canonical-relation declarations from actual representations.
+A universal trace proof excludes exact nonzero canonical commutators on finite
+characteristic-zero spaces. Positive-characteristic and finite CAR witnesses
+attack the premises and prevent an overbroad exclusion of finite quantum
+systems. No unital finite-field scalar embedding into characteristic zero is
+available, but complex representations of finite groups remain possible.
+This supplies necessary constraints, not quantum emergence or a physical
+state. See `CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md`. Production quantum
+contracts, the original source artifacts and the live metric compiler are
+unchanged; no physical model is fabricated to satisfy an unresolved edge.
+
 `alternate_metric_symbolic_columns.py` compiles the original finite lifting
 expression over exact regular-coordinate polynomials in an explicitly named
 chart. Independent exact-archive and full-cochain/Gaussian probes attack this

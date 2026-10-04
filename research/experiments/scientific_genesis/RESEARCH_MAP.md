@@ -1,5 +1,33 @@
 # Scientific Genesis research map
 
+## Foundational canonical-representation constraints
+
+The production quantum layer currently supplies symbolic state, operator and
+evolution contracts, not a derivation or a certified operator realization.
+The parallel foundational track now has a universal necessary-condition proof:
+finite exact characteristic-zero endomorphisms cannot satisfy
+`AB-BA=lambda I` when `lambda != 0`. Differentiation and projected multiplication
+in the explicitly stated finite polynomial basis have boundary defect
+`n P_last`. In characteristic zero this derivative is not a derivation of
+`K[t]/(t^n)`; no quotient-algebra identity is silently assumed.
+
+Positive characteristic deliberately defeats the unqualified finite-dimension
+claim: the corresponding operators on `F_p[t]/(t^p)` satisfy the exact relation.
+But no unital scalar-ring map identifies that field with a characteristic-zero
+field. This does not prohibit complex representations of finite groups, which
+do not identify their finite coefficient field with complex scalar arithmetic.
+Finite CAR witnesses likewise defeat a blanket no-go for finite quantum systems.
+
+Independent Fraction-pair products and modular integer sums check the witnesses
+over both supported characteristic-zero fields and primes 2,3,5. The analytic
+trace proof covers all finite dimensions; witness enumeration is not the proof.
+Only the stated exact substitutions are excluded, not controlled approximations,
+unbounded operators, nonlinear emergence or continuum limits. Quantum postulates,
+Lorentzian causality, gravitational coupling, constants and Genesis-to-UV remain
+assumed or unresolved. No physical particle or state is constructed. See
+`CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md` and the source-bound
+`canonical_representation_constraints.json` mathematical packet.
+
 ## Original polynomial compilation and section identity
 
 The current representation extends the existing finite lifting expression over

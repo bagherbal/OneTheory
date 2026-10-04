@@ -14771,7 +14771,7 @@
       ]
     ]
   },
-  "artifact_digest": "734dae33e4286fc9f6bc3d3357f9910596adb2b49304f66b6b916f1b8c9f9e0b",
+  "artifact_digest": "52b7cef46a0dc5b53d2fff88e45722da6bb31f5f49dcb58b4468d873c8cc55ae",
   "artifacts": [
     {
       "bytes": 3337,
@@ -16209,6 +16209,26 @@
       "sha256": "1b7a351594fa5c57ce9e5e5b772dcc246bf535cb9d20aeae95f07a4a7d09b3d9"
     },
     {
+      "bytes": 11169,
+      "path": "research/experiments/scientific_genesis/canonical_representation_constraints.py",
+      "sha256": "15183a23fb278404ea681d2200585b63296f251409ae4c23c11ed6d701f8fd54"
+    },
+    {
+      "bytes": 3654,
+      "path": "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
+      "sha256": "6effb15991ac820fa595b97a94c218c24c07733fb8fd2d4063fe697cd960c40a"
+    },
+    {
+      "bytes": 11699,
+      "path": "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
+      "sha256": "31acda047b7b6e25d19d80d51ab6658e0c2147234ef97708dc62a3f87215a27a"
+    },
+    {
+      "bytes": 6550,
+      "path": "data/generated/scientific_genesis/canonical_representation_constraints.json",
+      "sha256": "1c8447bb8dfabd38300a80141d7d8c3622f796aec9a987556e048b2a8b417c53"
+    },
+    {
       "bytes": 13010,
       "path": "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
       "sha256": "b634077922c0a7d2ed8c4fb3886ff562412d4f2c12b61fc00a57cea98418ea10"
@@ -16500,11 +16520,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3329,
+    "collected_tests_at_audit": 3366,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 303,
-    "test_python_files": 289
+    "research_python_files": 304,
+    "test_python_files": 290
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -18113,6 +18133,377 @@
     "canonically normalized physical Yukawas, running and low-energy predictions",
     "the Genesis-to-UV derivation; quantum, causal and gravitational primitives remain assumptions rather than derived reality"
   ],
+  "canonical_representation_constraints": {
+    "actual_symbolic_contract": {
+      "accepted_bracket": "commutator",
+      "accepted_right_hand_side": "\u03b4",
+      "finite_dimension": 2,
+      "matrix_representation_supplied": false
+    },
+    "all_finite_quantum_theories_excluded": false,
+    "artifact_digest": "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf",
+    "causal_geometry_derived": false,
+    "controlled_truncation_convergence_certified": false,
+    "dimensional_constants_derived": false,
+    "finite_car_counterexamples_to_all_finite_quantum_no_go": [
+      {
+        "basis": [
+          "e0",
+          "e1"
+        ],
+        "field": "Rational",
+        "nilpotence_and_car_identity_exact": true
+      },
+      {
+        "basis": [
+          "e0",
+          "e1"
+        ],
+        "field": "Eisenstein",
+        "nilpotence_and_car_identity_exact": true
+      }
+    ],
+    "finite_truncation_witnesses": [
+      {
+        "basis": [
+          "1"
+        ],
+        "commutator_rows": [
+          [
+            "0"
+          ]
+        ],
+        "dimension": 1,
+        "field": "Rational",
+        "identity_defect_rows": [
+          [
+            "1"
+          ]
+        ],
+        "nonzero_boundary_defect": true
+      },
+      {
+        "basis": [
+          "1",
+          "t^1"
+        ],
+        "commutator_rows": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "-1"
+          ]
+        ],
+        "dimension": 2,
+        "field": "Rational",
+        "identity_defect_rows": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "2"
+          ]
+        ],
+        "nonzero_boundary_defect": true
+      },
+      {
+        "basis": [
+          "1",
+          "t^1",
+          "t^2",
+          "t^3"
+        ],
+        "commutator_rows": [
+          [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-3"
+          ]
+        ],
+        "dimension": 4,
+        "field": "Rational",
+        "identity_defect_rows": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "4"
+          ]
+        ],
+        "nonzero_boundary_defect": true
+      },
+      {
+        "basis": [
+          "1"
+        ],
+        "commutator_rows": [
+          [
+            "0"
+          ]
+        ],
+        "dimension": 1,
+        "field": "Eisenstein",
+        "identity_defect_rows": [
+          [
+            "1"
+          ]
+        ],
+        "nonzero_boundary_defect": true
+      },
+      {
+        "basis": [
+          "1",
+          "t^1"
+        ],
+        "commutator_rows": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "-1"
+          ]
+        ],
+        "dimension": 2,
+        "field": "Eisenstein",
+        "identity_defect_rows": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "2"
+          ]
+        ],
+        "nonzero_boundary_defect": true
+      },
+      {
+        "basis": [
+          "1",
+          "t^1",
+          "t^2",
+          "t^3"
+        ],
+        "commutator_rows": [
+          [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-3"
+          ]
+        ],
+        "dimension": 4,
+        "field": "Eisenstein",
+        "identity_defect_rows": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "4"
+          ]
+        ],
+        "nonzero_boundary_defect": true
+      }
+    ],
+    "genesis_to_uv_derivation_available": false,
+    "gravitational_coupling_derived": false,
+    "nonlinear_or_continuum_emergence_excluded": false,
+    "observations_used": false,
+    "physical_quantum_state_generated": false,
+    "positive_characteristic_counterexamples": [
+      {
+        "characteristic_zero_p_times_one": "2",
+        "commutator_rows": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "complex_hilbert_representation_asserted": false,
+        "dimension": 2,
+        "finite_field_p_times_one": 0,
+        "monomial_basis": [
+          "1",
+          "t^1"
+        ],
+        "prime": 2
+      },
+      {
+        "characteristic_zero_p_times_one": "3",
+        "commutator_rows": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "complex_hilbert_representation_asserted": false,
+        "dimension": 3,
+        "finite_field_p_times_one": 0,
+        "monomial_basis": [
+          "1",
+          "t^1",
+          "t^2"
+        ],
+        "prime": 3
+      },
+      {
+        "characteristic_zero_p_times_one": "5",
+        "commutator_rows": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "complex_hilbert_representation_asserted": false,
+        "dimension": 5,
+        "finite_field_p_times_one": 0,
+        "monomial_basis": [
+          "1",
+          "t^1",
+          "t^2",
+          "t^3",
+          "t^4"
+        ],
+        "prime": 5
+      }
+    ],
+    "proof_is_universal_not_witness_enumeration": true,
+    "proof_sha256": "6effb15991ac820fa595b97a94c218c24c07733fb8fd2d4063fe697cd960c40a",
+    "quantum_contract_source_sha256": "b2ba819fddcb8e95c83ff0b172c1a21b269ac934ab35f1d01692ffb17494525d",
+    "quantum_postulates_derived": false,
+    "schema": "canonical-representation-constraints-v1",
+    "theorem_scope": [
+      "finite endomorphisms over a characteristic-zero commutative field",
+      "AB-BA=lambda I with lambda nonzero cannot hold exactly",
+      "no unital scalar-ring homomorphism from F_p into a characteristic-zero field"
+    ]
+  },
   "claims": [
     {
       "assumptions": [
@@ -18126,8 +18517,27 @@
       "label": "quantum phase and Hilbert-space structure",
       "layer": "Genesis",
       "missing_prerequisites": [],
-      "statement": "Quantum state, operator, and unitary-evolution laws are executable, but their deeper origin is not derived.",
+      "statement": "Quantum state, operator and unitary-evolution postulates are represented by symbolic contracts. These declarations do not construct operator representations or derive their deeper origin.",
       "status": "ASSUMED"
+    },
+    {
+      "assumptions": [
+        "finite exact endomorphisms over a commutative field",
+        "characteristic zero and nonzero scalar for the commutator no-go",
+        "unital scalar-ring map for the characteristic obstruction"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/canonical_representation_constraints.py",
+        "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
+        "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
+        "data/generated/scientific_genesis/canonical_representation_constraints.json"
+      ],
+      "id": "canonical_representation_constraints",
+      "label": "exact canonical operator and scalar representability constraints",
+      "layer": "Genesis",
+      "missing_prerequisites": [],
+      "statement": "Finite characteristic-zero endomorphisms have zero commutator trace, excluding AB-BA=lambda I for nonzero lambda. Positive characteristic admits counterexamples but no unital scalar-ring embedding into characteristic zero. Finite CAR and complex finite-group representations are not excluded. These necessary constraints do not derive quantum postulates or prohibit controlled approximations.",
+      "status": "PROVED"
     },
     {
       "assumptions": [
@@ -22373,6 +22783,25 @@
     }
   },
   "dependencies": [
+    {
+      "assumptions_required": [
+        "exact nonzero canonical commutator on the full finite space",
+        "unital coefficient identification when a scalar-ring map is proposed"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "unbounded/infinite representations require separate domain control",
+        "controlled truncations and nonlinear/continuum emergence are not excluded",
+        "finite CAR and complex representations of finite groups remain possible",
+        "a necessary obstruction does not derive the quantum postulates"
+      ],
+      "mathematical_reason": "Any exact canonical quantum realization must supply valid operator representations, not only relation labels. The finite trace and scalar-characteristic constraints rule out the stated exact substitutions.",
+      "source": "canonical_representation_constraints",
+      "target": "genesis_to_uv_bridge"
+    },
     {
       "assumptions_required": [],
       "implementation_or_artifact": [
@@ -27524,6 +27953,7 @@
     }
   ],
   "established_results": [
+    "universal trace and scalar-characteristic arguments constrain exact canonical quantum realizations; independently checked boundary defects, positive-characteristic and finite CAR counterexamples prevent overbroad no-go claims; quantum phase, causality, gravity and UV emergence remain open",
     "transposed original finite-pole functionals produced all 5345 columns on one predeclared uncertain-input A domain; exact archive and independent full-cochain/raw-arrow Gaussian checks validate the evaluation order, not practical throughput or a metric",
     "the complete original unit-H trial kernel has an admitted whole-region inverse and all 5345 factorized action outputs; the global rank-four projection identity controls the weighted integrand with conditional fixed-parameter independent-law error estimates, not an integral, simultaneous moduli probability bound or a physical metric",
     "all 5345 original columns contribute to complete formal trial covariance and unchanged auxiliary-weighted blocks on the original domain; exact triangular structure and positive constituent minor bounds give a uniform determinant lower bound for every complex parameter; unit H is a declared initializer, not a physical or harmonic matter metric",

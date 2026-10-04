@@ -121,6 +121,31 @@ def test_pending_symbolic_execution_uses_the_actual_point_independent_section_id
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
 
 
+def test_proved_representation_constraints_do_not_relabel_quantum_or_uv_assumptions() -> None:
+    """An exact scoped obstruction is neither quantum emergence nor a physical model."""
+
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    assert claims["canonical_representation_constraints"]["status"] == "PROVED"
+    assert claims["quantum_phase_structure"]["status"] == "ASSUMED"
+    assert "symbolic contracts" in claims["quantum_phase_structure"]["statement"]
+    assert claims["genesis_to_uv_bridge"]["status"] == "BLOCKED"
+    record = stored["canonical_representation_constraints"]
+    assert record["artifact_digest"] == (
+        "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
+    )
+    assert record["actual_symbolic_contract"]["matrix_representation_supplied"] is False
+    for flag in ("all_finite_quantum_theories_excluded",
+                 "nonlinear_or_continuum_emergence_excluded",
+                 "quantum_postulates_derived", "causal_geometry_derived",
+                 "gravitational_coupling_derived", "dimensional_constants_derived",
+                 "genesis_to_uv_derivation_available", "physical_quantum_state_generated",
+                 "observations_used"):
+        assert record[flag] is False
+    assert any(edge["source"] == "canonical_representation_constraints"
+               and edge["target"] == "genesis_to_uv_bridge" for edge in stored["dependencies"])
+
+
 def test_complete_trial_kernel_keeps_independent_integration_and_physics_unresolved() -> None:
     """A global projector bound is not a metric or a uniform stochastic moduli claim."""
 

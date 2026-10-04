@@ -1,0 +1,371 @@
+{
+  "actual_symbolic_contract": {
+    "accepted_bracket": "commutator",
+    "accepted_right_hand_side": "\u03b4",
+    "finite_dimension": 2,
+    "matrix_representation_supplied": false
+  },
+  "all_finite_quantum_theories_excluded": false,
+  "artifact_digest": "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf",
+  "causal_geometry_derived": false,
+  "controlled_truncation_convergence_certified": false,
+  "dimensional_constants_derived": false,
+  "finite_car_counterexamples_to_all_finite_quantum_no_go": [
+    {
+      "basis": [
+        "e0",
+        "e1"
+      ],
+      "field": "Rational",
+      "nilpotence_and_car_identity_exact": true
+    },
+    {
+      "basis": [
+        "e0",
+        "e1"
+      ],
+      "field": "Eisenstein",
+      "nilpotence_and_car_identity_exact": true
+    }
+  ],
+  "finite_truncation_witnesses": [
+    {
+      "basis": [
+        "1"
+      ],
+      "commutator_rows": [
+        [
+          "0"
+        ]
+      ],
+      "dimension": 1,
+      "field": "Rational",
+      "identity_defect_rows": [
+        [
+          "1"
+        ]
+      ],
+      "nonzero_boundary_defect": true
+    },
+    {
+      "basis": [
+        "1",
+        "t^1"
+      ],
+      "commutator_rows": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "-1"
+        ]
+      ],
+      "dimension": 2,
+      "field": "Rational",
+      "identity_defect_rows": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "2"
+        ]
+      ],
+      "nonzero_boundary_defect": true
+    },
+    {
+      "basis": [
+        "1",
+        "t^1",
+        "t^2",
+        "t^3"
+      ],
+      "commutator_rows": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-3"
+        ]
+      ],
+      "dimension": 4,
+      "field": "Rational",
+      "identity_defect_rows": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "4"
+        ]
+      ],
+      "nonzero_boundary_defect": true
+    },
+    {
+      "basis": [
+        "1"
+      ],
+      "commutator_rows": [
+        [
+          "0"
+        ]
+      ],
+      "dimension": 1,
+      "field": "Eisenstein",
+      "identity_defect_rows": [
+        [
+          "1"
+        ]
+      ],
+      "nonzero_boundary_defect": true
+    },
+    {
+      "basis": [
+        "1",
+        "t^1"
+      ],
+      "commutator_rows": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "-1"
+        ]
+      ],
+      "dimension": 2,
+      "field": "Eisenstein",
+      "identity_defect_rows": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "2"
+        ]
+      ],
+      "nonzero_boundary_defect": true
+    },
+    {
+      "basis": [
+        "1",
+        "t^1",
+        "t^2",
+        "t^3"
+      ],
+      "commutator_rows": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-3"
+        ]
+      ],
+      "dimension": 4,
+      "field": "Eisenstein",
+      "identity_defect_rows": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "4"
+        ]
+      ],
+      "nonzero_boundary_defect": true
+    }
+  ],
+  "genesis_to_uv_derivation_available": false,
+  "gravitational_coupling_derived": false,
+  "nonlinear_or_continuum_emergence_excluded": false,
+  "observations_used": false,
+  "physical_quantum_state_generated": false,
+  "positive_characteristic_counterexamples": [
+    {
+      "characteristic_zero_p_times_one": "2",
+      "commutator_rows": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "complex_hilbert_representation_asserted": false,
+      "dimension": 2,
+      "finite_field_p_times_one": 0,
+      "monomial_basis": [
+        "1",
+        "t^1"
+      ],
+      "prime": 2
+    },
+    {
+      "characteristic_zero_p_times_one": "3",
+      "commutator_rows": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "complex_hilbert_representation_asserted": false,
+      "dimension": 3,
+      "finite_field_p_times_one": 0,
+      "monomial_basis": [
+        "1",
+        "t^1",
+        "t^2"
+      ],
+      "prime": 3
+    },
+    {
+      "characteristic_zero_p_times_one": "5",
+      "commutator_rows": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "complex_hilbert_representation_asserted": false,
+      "dimension": 5,
+      "finite_field_p_times_one": 0,
+      "monomial_basis": [
+        "1",
+        "t^1",
+        "t^2",
+        "t^3",
+        "t^4"
+      ],
+      "prime": 5
+    }
+  ],
+  "proof_is_universal_not_witness_enumeration": true,
+  "proof_sha256": "6effb15991ac820fa595b97a94c218c24c07733fb8fd2d4063fe697cd960c40a",
+  "quantum_contract_source_sha256": "b2ba819fddcb8e95c83ff0b172c1a21b269ac934ab35f1d01692ffb17494525d",
+  "quantum_postulates_derived": false,
+  "schema": "canonical-representation-constraints-v1",
+  "theorem_scope": [
+    "finite endomorphisms over a characteristic-zero commutative field",
+    "AB-BA=lambda I with lambda nonzero cannot hold exactly",
+    "no unital scalar-ring homomorphism from F_p into a characteristic-zero field"
+  ]
+}

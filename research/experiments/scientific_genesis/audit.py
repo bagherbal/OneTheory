@@ -117,10 +117,30 @@ def _nodes() -> list[dict[str, object]]:
             "quantum phase and Hilbert-space structure",
             "Genesis",
             "ASSUMED",
-            "Quantum state, operator, and unitary-evolution laws are executable, "
-            "but their deeper origin is not derived.",
+            "Quantum state, operator and unitary-evolution postulates are "
+            "represented by symbolic contracts. These declarations do not "
+            "construct operator representations or derive their deeper origin.",
             ("src/onetheory/physics/quantum.py", "tests/integration/test_established_laws.py"),
             ("standard quantum postulates",),
+        ),
+        _node(
+            "canonical_representation_constraints",
+            "exact canonical operator and scalar representability constraints",
+            "Genesis",
+            "PROVED",
+            "Finite characteristic-zero endomorphisms have zero commutator "
+            "trace, excluding AB-BA=lambda I for nonzero lambda. Positive "
+            "characteristic admits counterexamples but no unital scalar-ring "
+            "embedding into characteristic zero. Finite CAR and complex finite-group "
+            "representations are not excluded. These necessary constraints "
+            "do not derive quantum postulates or prohibit controlled approximations.",
+            ("research/experiments/scientific_genesis/canonical_representation_constraints.py",
+             "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
+             "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
+             "data/generated/scientific_genesis/canonical_representation_constraints.json"),
+            ("finite exact endomorphisms over a commutative field",
+             "characteristic zero and nonzero scalar for the commutator no-go",
+             "unital scalar-ring map for the characteristic obstruction"),
         ),
         _node(
             "lorentzian_causal_structure",
@@ -4315,6 +4335,20 @@ def _edges() -> list[dict[str, object]]:
 
     exact_law = ("established law used conditionally",)
     return [
+        _edge(
+            "canonical_representation_constraints", "genesis_to_uv_bridge",
+            "Any exact canonical quantum realization must supply valid operator "
+            "representations, not only relation labels. The finite trace and "
+            "scalar-characteristic constraints rule out the stated exact substitutions.",
+            ("research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",),
+            ("exact nonzero canonical commutator on the full finite space",
+             "unital coefficient identification when a scalar-ring map is proposed"),
+            True,
+            ("unbounded/infinite representations require separate domain control",
+             "controlled truncations and nonlinear/continuum emergence are not excluded",
+             "finite CAR and complex representations of finite groups remain possible",
+             "a necessary obstruction does not derive the quantum postulates"),
+        ),
         _edge(
             "quantum_phase_structure",
             "genesis_to_uv_bridge",
@@ -8755,6 +8789,7 @@ def build_state() -> dict[str, object]:
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
     from .alternate_section_covariance import read_covariance
     from .auxiliary_cover_draws import read_draws
+    from .canonical_representation_constraints import read_constraints
     from .projective_uncertain_intersections import read_uncertain_intersections
     from .projective_uniform_input_cells import read_input_cells
     from .uncertain_cover_frames import read_frames
@@ -8782,6 +8817,10 @@ def build_state() -> dict[str, object]:
         "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c"
     ):
         raise ValueError("the point-independent original section identity changed")
+
+    canonical_constraints = read_constraints(expected_digest=(
+        "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
+    ))
 
     auxiliary_draws = read_draws()
     if _canonical_digest(auxiliary_draws) != (
@@ -12268,6 +12307,10 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
         "tests/integration/test_scientific_genesis_alternate_metric_symbolic_columns.py",
         "tests/integration/test_scientific_genesis_alternate_metric_symbolic_evaluation.py",
+        "research/experiments/scientific_genesis/canonical_representation_constraints.py",
+        "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
+        "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
+        "data/generated/scientific_genesis/canonical_representation_constraints.json",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_neutrino_full_holomorphic_matrix.json",
@@ -12323,7 +12366,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3329,
+            "collected_tests_at_audit": 3366,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12874,11 +12917,16 @@ def build_state() -> dict[str, object]:
         },
         "alternate_metric_fiber_functionals": fiber_functionals,
         "original_metric_section_basis_identity": section_identity,
+        "canonical_representation_constraints": canonical_constraints,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "universal trace and scalar-characteristic arguments constrain exact "
+            "canonical quantum realizations; independently checked boundary defects, "
+            "positive-characteristic and finite CAR counterexamples prevent overbroad "
+            "no-go claims; quantum phase, causality, gravity and UV emergence remain open",
             "transposed original finite-pole functionals produced all 5345 "
             "columns on one predeclared uncertain-input A domain; exact archive "
             "and independent full-cochain/raw-arrow Gaussian checks validate "

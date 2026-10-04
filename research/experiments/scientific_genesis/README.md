@@ -1,5 +1,20 @@
 # Scientific Genesis audit
 
+`alternate_metric_symbolic_columns.py` compiles the original finite lifting
+expression over exact regular-coordinate polynomials in an explicitly named
+chart. Independent exact-archive and full-cochain/Gaussian probes attack this
+representation. The source-bound section identity is derived from the original
+cochain archives and universal lift certificate, without numerical point or
+chart inputs. It is not the hash of a numerical matrix at one point.
+
+The full compilation is in progress: no completed polynomial packet or new
+numerical execution is asserted at this checkpoint. The direct consumer
+`alternate_metric_symbolic_evaluation.py` requires trusted complete input and
+has no numerical fallback. Its declared domain is a regression, not an IID
+draw. Complete execution, measured repeated-point cost, independent integration
+and physical metrics remain separate gates. See
+`ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md` for the coefficient-ring argument.
+
 `alternate_metric_fiber_functionals.py` reorders the existing finite lifting
 functional onto encoded unit columns. Complete execution produced all 5,345
 original columns on one predeclared uncertain-input domain. It took about

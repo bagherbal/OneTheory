@@ -102,6 +102,19 @@ def bounded_homotopy(cochain):
     return _linear_columns(cochain, _homotopy_column)
 
 
+def _artificial_deck_phase(basis, power, action):
+    """Return the original phase of the dummy homogeneous degree, not its poles."""
+
+    dummy_x, dummy_u = support._positive(basis.x_monomial), basis.u_monomial
+    scalar = Eisenstein(1)
+    for _ in range(power):
+        unit, dummy_x = _monomial_action(dummy_x, action.x_images)
+        scalar *= unit
+        unit, dummy_u = _monomial_action(dummy_u, action.u_images)
+        scalar *= unit
+    return scalar
+
+
 @cache
 def _monomial(coordinates, powers):
     result = coordinates[0]._coerce(1)
@@ -228,13 +241,7 @@ class BoundedSupportEvaluator:
         self.series_depths.add(depth)
         corrected = []
         for basis, c in primitive.terms:
-            dummy_x, dummy_u = support._positive(basis.x_monomial), basis.u_monomial
-            scalar = Eisenstein(1)
-            for _ in range(power):
-                unit, dummy_x = _monomial_action(dummy_x, self.p.x_images)
-                scalar *= unit
-                unit, dummy_u = _monomial_action(dummy_u, self.p.u_images)
-                scalar *= unit
+            scalar = _artificial_deck_phase(basis, power, self.p)
             corrected.append((basis, c / scalar))
         pulled = BoundedCoefficients(tuple(corrected), bits=self.frame.point.bits)
         for _ in range(power):

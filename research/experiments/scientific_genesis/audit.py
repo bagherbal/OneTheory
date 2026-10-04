@@ -3881,6 +3881,44 @@ def _nodes() -> list[dict[str, object]]:
              "controlled integration", "Ricci-flat/HYM convergence", "common vacuum"),
         ),
         _node(
+            "alternate_metric_symbolic_columns",
+            "Point-independent original polynomial section columns",
+            "Normalization",
+            "CONJECTURED",
+            "Compilation over the exact regular coefficient ring reuses the "
+            "original pole encoding, unit operators and finite lifting series. "
+            "Five exact archived columns and independent full-cochain/raw-arrow "
+            "Gaussian probes on all three native components check the representation. "
+            "Complete symbolic output and measured multi-point throughput "
+            "require execution; a lazy index range is not a full archive.",
+            ("research/experiments/scientific_genesis/alternate_metric_symbolic_columns.py",
+             "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_metric_symbolic_columns.py"),
+            ("original regular coefficient ring", "certified finite lifting",
+             "explicit normalized chart", "original named section source identity"),
+            ("full compilation execution", "measured full-domain cost",
+             "multi-point throughput", "controlled integration", "metric convergence"),
+        ),
+        _node(
+            "alternate_metric_symbolic_evaluation",
+            "Full bounded evaluation from compiled original section polynomials",
+            "Normalization",
+            "CONJECTURED",
+            "The direct consumer evaluates original raw generator polynomials "
+            "in actual certified cover bounds, then applies the original "
+            "named quotient projections. Complete execution, trusted output "
+            "and per-domain cost require measurement; no sampling is inferred. "
+            "The actual source-only section identity is separate from numerical "
+            "output; missing compilation cannot be replaced by a fallback.",
+            ("research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py",
+             "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_metric_symbolic_evaluation.py"),
+            ("complete original polynomial compilation", "certified actual quotient frame",
+             "outward arithmetic", "unchanged source and basis identity"),
+            ("complete domain execution", "trusted numerical stream",
+             "independent cloud", "controlled integration", "metric convergence"),
+        ),
+        _node(
             "alternate_section_covariance",
             "complete trial covariance from the original full section matrix",
             "Normalization",
@@ -7094,6 +7132,51 @@ def _edges() -> list[dict[str, object]]:
             True,
             ("a live process, partial stream, or format test does not prove completion",),
         ),
+        *tuple(_edge(
+            source, "alternate_metric_symbolic_columns", reason,
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",),
+            ("same original carrier and section space", "explicit original chart"),
+            True,
+            ("formal polynomial naturality does not prove complete execution or throughput",),
+        ) for source, reason in (
+            ("alternate_metric_fiber_functionals",
+             "The finite linear functional can be formed before point evaluation."),
+            ("alternate_metric_lift_operator_certificate",
+             "Original finite-series filtration is unchanged under coefficient-ring extension."),
+        )),
+        _edge(
+            "alternate_metric_symbolic_columns", "visible_metrics",
+            "Compiled original columns may reduce repeated integration work; "
+            "physical metrics still require independent draws and controlled convergence.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",),
+            ("complete original basis execution", "controlled integration",
+             "Ricci-flat/HYM convergence"),
+            False,
+            ("a symbolic evaluator is neither a sampling law nor a physical metric",),
+        ),
+        *tuple(_edge(
+            source, "alternate_metric_symbolic_evaluation", reason,
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",),
+            ("same original section space", "explicit actual quotient frame"),
+            True,
+            ("archive availability does not prove numerical execution or an integral",),
+        ) for source, reason in (
+            ("alternate_metric_symbolic_columns",
+             "Raw original polynomial columns specialize directly, "
+             "preserving original basis order."),
+            ("uncertain_cover_frames",
+             "Original determinant-certified frames provide the actual quotient projection."),
+        )),
+        _edge(
+            "alternate_metric_symbolic_evaluation", "visible_metrics",
+            "Reusable full-basis numerical evaluation is an integration prerequisite; "
+            "independence, integral errors and metric convergence remain separate gates.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",),
+            ("complete independent per-draw execution", "controlled integration",
+             "Ricci-flat/HYM convergence"),
+            True,
+            ("a complete regression domain is not a controlled physical metric",),
+        ),
         _edge(
             "alternate_metric_bounded_matrix",
             "alternate_section_covariance",
@@ -8508,6 +8591,8 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_section_covariance.py",
                 "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py",
                 "research/experiments/scientific_genesis/alternate_metric_fiber_functionals.py",
+                "research/experiments/scientific_genesis/alternate_metric_symbolic_columns.py",
+                "research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py",
             ),
         ),
         (
@@ -8665,6 +8750,7 @@ def build_state() -> dict[str, object]:
 
     from .alternate_down_lepton_full_matrices import load_full_matrices
     from .alternate_metric_fiber_functionals import verify_completed_domain
+    from .alternate_metric_symbolic_columns import section_basis_identity
     from .alternate_metric_trial_kernel import read_kernel
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
     from .alternate_section_covariance import read_covariance
@@ -8690,6 +8776,12 @@ def build_state() -> dict[str, object]:
     fiber_functionals = verify_completed_domain(expected_digest=(
         "dcb30fb238c2e4414bd89285a7d9ed4c1e36d0e2299ca8ce40a399ae7671d13a"
     ))
+
+    section_identity = section_basis_identity()
+    if section_identity["artifact_digest"] != (
+        "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c"
+    ):
+        raise ValueError("the point-independent original section identity changed")
 
     auxiliary_draws = read_draws()
     if _canonical_digest(auxiliary_draws) != (
@@ -12171,6 +12263,11 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md",
         "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_EXECUTION.md",
         "tests/integration/test_scientific_genesis_alternate_metric_fiber_functionals.py",
+        "research/experiments/scientific_genesis/alternate_metric_symbolic_columns.py",
+        "research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_symbolic_columns.py",
+        "tests/integration/test_scientific_genesis_alternate_metric_symbolic_evaluation.py",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_neutrino_full_holomorphic_matrix.json",
@@ -12226,7 +12323,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3285,
+            "collected_tests_at_audit": 3329,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12776,6 +12873,7 @@ def build_state() -> dict[str, object]:
             },
         },
         "alternate_metric_fiber_functionals": fiber_functionals,
+        "original_metric_section_basis_identity": section_identity,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
         "claims": _nodes(),
         "dependencies": _edges(),

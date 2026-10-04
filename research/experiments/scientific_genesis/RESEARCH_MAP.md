@@ -1,5 +1,32 @@
 # Scientific Genesis research map
 
+## Original polynomial compilation and section identity
+
+The current representation extends the existing finite lifting expression over
+Q(omega)[x0,x1,x2,u0,u1,u2,p0,p1], with explicit chart pivots normalized to one.
+Original homotopy, perturbation and deck columns remain unchanged. Five exact
+archive probes include both ends of the original basis; independent full
+corrected-cochain and raw-arrow Gaussian checks attack all three native mixture
+components. These probes and a coefficient-ring derivation do not establish a
+completed 5,345-column polynomial archive or practical integration throughput.
+
+The full compiler remains in progress at this checkpoint. Its temporary stream
+is not an input certificate. The numerical consumer requires a trusted complete
+archive and evaluates original quotient projections with unchanged uncertainty;
+it never substitutes a partial matrix, center-only evaluation or fabricated
+fallback for missing input.
+
+The global section basis is identified by the actual original constituent
+cochain archives and certified universal lift, not a point-dependent numerical
+stream digest. Its source-only identity is
+`71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c`.
+Existing generic covariance contraction can consume that identity explicitly;
+the previous single-domain covariance packet is not silently reinterpreted.
+The next execution gate is the complete original polynomial archive followed
+by measured full-domain evaluation. No IID cloud, controlled integral,
+Ricci-flat/HYM convergence, normalized Yukawa matrix or stabilized vacuum is
+supplied. This remains conditional on the chosen heterotic realization.
+
 ## Complete original section output on a new uncertain-input domain
 
 The transposed evaluator reuses the original five-term lifting functional,

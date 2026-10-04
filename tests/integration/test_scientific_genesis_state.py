@@ -100,6 +100,27 @@ def test_complete_new_domain_functionals_keep_throughput_and_physics_unresolved(
     }
 
 
+def test_pending_symbolic_execution_uses_the_actual_point_independent_section_identity() -> None:
+    """Verified section provenance is not evidence of complete numerical execution."""
+
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    identity = stored["original_metric_section_basis_identity"]
+    assert identity["artifact_digest"] == (
+        "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c"
+    )
+    assert identity["constituent_counts"] == [2655, 2690]
+    assert identity["section_count"] == 5345
+    assert identity["numeric_point_or_chart_input"] is False
+    assert "chart_pivots" not in identity
+    assert "exact_column_stream_sha256" not in identity
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    for name in ("alternate_metric_symbolic_columns", "alternate_metric_symbolic_evaluation"):
+        assert claims[name]["status"] == "CONJECTURED"
+        assert name not in stored
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+
+
 def test_complete_trial_kernel_keeps_independent_integration_and_physics_unresolved() -> None:
     """A global projector bound is not a metric or a uniform stochastic moduli claim."""
 

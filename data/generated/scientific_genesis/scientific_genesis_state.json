@@ -14771,7 +14771,7 @@
       ]
     ]
   },
-  "artifact_digest": "bd26ffd871c552701b93572b8e5cd4e4bd6efa21f741ad8019bb44fb199565bf",
+  "artifact_digest": "734dae33e4286fc9f6bc3d3357f9910596adb2b49304f66b6b916f1b8c9f9e0b",
   "artifacts": [
     {
       "bytes": 3337,
@@ -16184,6 +16184,31 @@
       "sha256": "23336a5e44186a0cbec7c75f71e46bb9228aa0e9eb03d6f6c1562c7dbb8dfa1a"
     },
     {
+      "bytes": 31574,
+      "path": "research/experiments/scientific_genesis/alternate_metric_symbolic_columns.py",
+      "sha256": "283af84228313895d8bb9affa13c0e9fbdcefc804f7780a503460c79c3c02a6f"
+    },
+    {
+      "bytes": 7295,
+      "path": "research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py",
+      "sha256": "d898699659260c483882992d5ab3c666fd2c02261048ee7748afe3967b0abc4a"
+    },
+    {
+      "bytes": 3257,
+      "path": "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
+      "sha256": "c9a020749747a01a7c0ee6d4817b194ce0e25312701fd460ee4dc81102719ff6"
+    },
+    {
+      "bytes": 14549,
+      "path": "tests/integration/test_scientific_genesis_alternate_metric_symbolic_columns.py",
+      "sha256": "98c8733c55c6bfe945e1485a0e91bf4643af5eeeac078b0bd9c1b6c3e334c905"
+    },
+    {
+      "bytes": 3173,
+      "path": "tests/integration/test_scientific_genesis_alternate_metric_symbolic_evaluation.py",
+      "sha256": "1b7a351594fa5c57ce9e5e5b772dcc246bf535cb9d20aeae95f07a4a7d09b3d9"
+    },
+    {
       "bytes": 13010,
       "path": "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
       "sha256": "b634077922c0a7d2ed8c4fb3886ff562412d4f2c12b61fc00a57cea98418ea10"
@@ -16475,11 +16500,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3285,
+    "collected_tests_at_audit": 3329,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 301,
-    "test_python_files": 287
+    "research_python_files": 303,
+    "test_python_files": 289
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -21373,6 +21398,56 @@
     },
     {
       "assumptions": [
+        "original regular coefficient ring",
+        "certified finite lifting",
+        "explicit normalized chart",
+        "original named section source identity"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_metric_symbolic_columns.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_symbolic_columns.py"
+      ],
+      "id": "alternate_metric_symbolic_columns",
+      "label": "Point-independent original polynomial section columns",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "full compilation execution",
+        "measured full-domain cost",
+        "multi-point throughput",
+        "controlled integration",
+        "metric convergence"
+      ],
+      "statement": "Compilation over the exact regular coefficient ring reuses the original pole encoding, unit operators and finite lifting series. Five exact archived columns and independent full-cochain/raw-arrow Gaussian probes on all three native components check the representation. Complete symbolic output and measured multi-point throughput require execution; a lazy index range is not a full archive.",
+      "status": "CONJECTURED"
+    },
+    {
+      "assumptions": [
+        "complete original polynomial compilation",
+        "certified actual quotient frame",
+        "outward arithmetic",
+        "unchanged source and basis identity"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_symbolic_evaluation.py"
+      ],
+      "id": "alternate_metric_symbolic_evaluation",
+      "label": "Full bounded evaluation from compiled original section polynomials",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "complete domain execution",
+        "trusted numerical stream",
+        "independent cloud",
+        "controlled integration",
+        "metric convergence"
+      ],
+      "statement": "The direct consumer evaluates original raw generator polynomials in actual certified cover bounds, then applies the original named quotient projections. Complete execution, trusted output and per-domain cost require measurement; no sampling is inferred. The actual source-only section identity is separate from numerical output; missing compilation cannot be replaced by a fallback.",
+      "status": "CONJECTURED"
+    },
+    {
+      "assumptions": [
         "complete original section matrix",
         "explicit positive Hermitian section input",
         "unchanged original local basis",
@@ -25828,6 +25903,104 @@
     },
     {
       "assumptions_required": [
+        "same original carrier and section space",
+        "explicit original chart"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "formal polynomial naturality does not prove complete execution or throughput"
+      ],
+      "mathematical_reason": "The finite linear functional can be formed before point evaluation.",
+      "source": "alternate_metric_fiber_functionals",
+      "target": "alternate_metric_symbolic_columns"
+    },
+    {
+      "assumptions_required": [
+        "same original carrier and section space",
+        "explicit original chart"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "formal polynomial naturality does not prove complete execution or throughput"
+      ],
+      "mathematical_reason": "Original finite-series filtration is unchanged under coefficient-ring extension.",
+      "source": "alternate_metric_lift_operator_certificate",
+      "target": "alternate_metric_symbolic_columns"
+    },
+    {
+      "assumptions_required": [
+        "complete original basis execution",
+        "controlled integration",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "a symbolic evaluator is neither a sampling law nor a physical metric"
+      ],
+      "mathematical_reason": "Compiled original columns may reduce repeated integration work; physical metrics still require independent draws and controlled convergence.",
+      "source": "alternate_metric_symbolic_columns",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
+        "same original section space",
+        "explicit actual quotient frame"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "archive availability does not prove numerical execution or an integral"
+      ],
+      "mathematical_reason": "Raw original polynomial columns specialize directly, preserving original basis order.",
+      "source": "alternate_metric_symbolic_columns",
+      "target": "alternate_metric_symbolic_evaluation"
+    },
+    {
+      "assumptions_required": [
+        "same original section space",
+        "explicit actual quotient frame"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "archive availability does not prove numerical execution or an integral"
+      ],
+      "mathematical_reason": "Original determinant-certified frames provide the actual quotient projection.",
+      "source": "uncertain_cover_frames",
+      "target": "alternate_metric_symbolic_evaluation"
+    },
+    {
+      "assumptions_required": [
+        "complete independent per-draw execution",
+        "controlled integration",
+        "Ricci-flat/HYM convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a complete regression domain is not a controlled physical metric"
+      ],
+      "mathematical_reason": "Reusable full-basis numerical evaluation is an integration prerequisite; independence, integral errors and metric convergence remain separate gates.",
+      "source": "alternate_metric_symbolic_evaluation",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "full original column stream",
         "explicit section and local fiber bases"
       ],
@@ -27639,6 +27812,38 @@
     "Schoen compactification and published one-Higgs model as selected realization data",
     "three families and one Higgs pair as selection constraints rather than predictions"
   ],
+  "original_metric_section_basis_identity": {
+    "artifact_digest": "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c",
+    "basis_order": "original injected V1 then original universal outer-lifted V2",
+    "constituent_counts": [
+      2655,
+      2690
+    ],
+    "numeric_point_or_chart_input": false,
+    "parameter_order": [
+      "a0",
+      "a1"
+    ],
+    "parameter_ring": "Q(omega)[a0,a1]",
+    "schema": "original-metric-section-basis-identity-v1",
+    "section_count": 5345,
+    "source_archive_sha256": {
+      "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz": "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68",
+      "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz": "cce0f3f00f7a61fb870087e21249af02ddd2b48c23b67e36bf0d67f8ee6a37e3"
+    },
+    "source_artifact_digests": {
+      "cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+      "first": "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d",
+      "invariants": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+      "second": "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348"
+    },
+    "twist_cover_degree": [
+      14,
+      16,
+      1
+    ],
+    "universal_lift_certificate_digest": "6870cdf9bc875777e8ded58e6b434d865204b8aa9aa69c6194e5b5463d55eb82"
+  },
   "projective_uncertain_intersections": {
     "actual_equations": [
       "mu*F(x)+nu*G(x)",
@@ -30313,7 +30518,9 @@
         "research/experiments/scientific_genesis/auxiliary_cover_draws.py",
         "research/experiments/scientific_genesis/alternate_section_covariance.py",
         "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py",
-        "research/experiments/scientific_genesis/alternate_metric_fiber_functionals.py"
+        "research/experiments/scientific_genesis/alternate_metric_fiber_functionals.py",
+        "research/experiments/scientific_genesis/alternate_metric_symbolic_columns.py",
+        "research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py"
       ],
       "maturity": "research-only; actual roots/charts/densities/universal frames, not sampling or metrics"
     },

@@ -152,6 +152,28 @@ def test_completed_symbolic_execution_preserves_global_identity_and_metric_gates
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
 
 
+def test_generic_frame_null_locus_does_not_claim_algorithmic_or_physical_completion() -> None:
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    assert claims["alternate_metric_generic_frame"]["status"] == "PROVED"
+    record = stored["alternate_metric_generic_frame"]
+    assert record["artifact_digest"] == (
+        "4a3f35677039b12aa0239fbab79047b23b07d79ecd79288d7a9f0b0832c21b8f"
+    )
+    assert record["homogeneous_numerator_degrees"] == [4, 5, 0]
+    assert record["fixed_chart_and_frame_failure_is_auxiliary_null"] is True
+    assert record["full_five_relation_minor_is_product_for_all_parameters"] is True
+    for flag in ("native_solver_almost_sure_termination_proved",
+                 "finite_prefix_failures_discardable", "single_named_frame_claimed_deck_invariant",
+                 "fixed_frame_failure_is_physical_bundle_singularity",
+                 "global_numerical_input_coverage_certified", "independent_cover_cloud_available",
+                 "controlled_integral_available", "ricci_flat_or_hym_metric_available",
+                 "physical_yukawas_available", "common_stabilized_vacuum_available"):
+        assert record[flag] is False
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+
+
 def test_proved_representation_constraints_do_not_relabel_quantum_or_uv_assumptions() -> None:
     """An exact scoped obstruction is neither quantum emergence nor a physical model."""
 

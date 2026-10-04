@@ -1,5 +1,20 @@
 # Scientific Genesis audit
 
+`alternate_metric_generic_frame.py` proves a conditional full-measure statement
+for the original named chart and relation pivots. Actual local differential
+columns yield small exact minors, independent of the outer parameters. A native
+coupled nonvanishing witness makes their homogeneous zero locus proper on the
+selected smooth irreducible cover, hence null under the positive auxiliary law.
+The quotient statement uses the finite deck union, not an invariant single frame.
+Independent raw-arrow Fraction determinants and a genuine zero-minor family
+with an explicitly declared regular alternative frame attack the result.
+
+Null exceptional geometry does not prove native root-proposer convergence or
+authorize discarding positive-mass unresolved finite-prefix cells. Independent
+inputs, controlled integration, physical metrics and a common vacuum remain
+missing. See `ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md`. The original source
+artifacts and all production code remain unchanged.
+
 `alternate_section_curve_restrictions.py` closes an actual visible restriction
 prerequisite on the frozen alternate carrier, conditional on the selected
 heterotic realization. The two independent nine-point pencil algebras describe

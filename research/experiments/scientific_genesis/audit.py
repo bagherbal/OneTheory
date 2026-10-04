@@ -3726,6 +3726,33 @@ def _nodes() -> list[dict[str, object]]:
              "explicit radius and uncertain-center precisions"),
         ),
         _node(
+            "alternate_metric_generic_frame",
+            "full-measure named chart and relation frame on the selected cover",
+            "Normalization",
+            "PROVED",
+            "Original local differential columns give a four-term first minor "
+            "and a three-term second minor. Their homogeneous product has "
+            "degrees (4,5,0) and twelve exact terms. The full five-relation "
+            "minor equals this product for every formal outer parameter. "
+            "A native whole-cell nonvanishing certificate proves that the "
+            "chart/frame failure locus is proper on the selected irreducible "
+            "smooth cover, hence null for its positive auxiliary law. The "
+            "quotient conclusion uses the finite union of deck translates, "
+            "not an invariant single frame. Independent raw-arrow Fraction "
+            "determinants and an actual zero-minor family with a regular "
+            "alternative frame attack the algebra. This removes a demand to "
+            "admit every exceptional point; it proves neither native solver "
+            "termination nor permission to discard positive-mass finite cells.",
+            ("research/experiments/scientific_genesis/alternate_metric_generic_frame.py",
+             "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_metric_generic_frame.py",
+             "data/generated/scientific_genesis/alternate_metric_generic_frame.json"),
+            ("selected smooth compact irreducible cover", "positive auxiliary beta^3 law",
+             "actual original relations and native coupled nonvanishing witness"),
+            ("native almost-sure algorithmic admission", "independent inputs",
+             "controlled integration errors", "Ricci-flat/HYM convergence", "common vacuum"),
+        ),
+        _node(
             "alternate_metric_projection_free_weights",
             "projection-free positive-law weights from the ambient conormal Gram",
             "Normalization",
@@ -7084,6 +7111,34 @@ def _edges() -> list[dict[str, object]]:
             True,
             ("admitting a point type alone does not verify a new domain or section",),
         ),
+        *tuple(_edge(
+            source, "alternate_metric_generic_frame", reason,
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md",),
+            ("same selected smooth compact irreducible cover", "actual original named frame"),
+            True,
+            ("one witness does not exclude an identically zero component on a reducible cover",),
+        ) for source, reason in (
+            ("schoen_geometry",
+             "The selected smooth irreducible cover supports the null-set theorem."),
+            ("alternate_metric_bounded_fibers",
+             "Original differential columns give the exact parameter-independent relation minors."),
+            ("uncertain_cover_frames",
+             "Native whole-cell nonvanishing proves the actual excluded numerator is proper."),
+            ("alternate_metric_positive_measure",
+             "The derived positive auxiliary law is absolutely continuous with smooth volume."),
+        )),
+        _edge(
+            "alternate_metric_generic_frame", "visible_metrics",
+            "A proper named chart/frame failure locus is auxiliary-null for the "
+            "whole outer family, so ideal bounded integrals do not require "
+            "numerical admission at every exceptional point.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md",),
+            ("same law", "bounded trial integrand", "separately controlled numerical admission",
+             "independent inputs", "integration errors", "actual metric convergence"),
+            True,
+            ("finite-prefix numerical failure is not a null event",
+             "properness does not prove convergence of the finite-work root proposer"),
+        ),
         _edge(
             "uncertain_cover_frames",
             "visible_metrics",
@@ -8847,6 +8902,7 @@ def build_state() -> dict[str, object]:
 
     from .alternate_down_lepton_full_matrices import load_full_matrices
     from .alternate_metric_fiber_functionals import verify_completed_domain
+    from .alternate_metric_generic_frame import read_generic_frame
     from .alternate_metric_symbolic_columns import section_basis_identity, verify_completed_chart
     from .alternate_metric_symbolic_evaluation import (
         verify_completed_domain as verify_symbolic_evaluation,
@@ -8892,6 +8948,9 @@ def build_state() -> dict[str, object]:
         expected_digest="b439fab56d1095001f6f7ec5bb795d2606c55f4e51beb8b8e66959023c4318d9",
         expected_compilation_digest=symbolic_columns["artifact_digest"],
     )
+    generic_frame = read_generic_frame(expected_digest=(
+        "4a3f35677039b12aa0239fbab79047b23b07d79ecd79288d7a9f0b0832c21b8f"
+    ))
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
@@ -12392,6 +12451,10 @@ def build_state() -> dict[str, object]:
         "tests/integration/test_scientific_genesis_completed_symbolic_evaluation.py",
         "data/generated/scientific_genesis/alternate_metric_symbolic_evaluation.json",
         "data/generated/scientific_genesis/alternate_metric_symbolic_evaluation.columns.jsonl.gz",
+        "research/experiments/scientific_genesis/alternate_metric_generic_frame.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_generic_frame.py",
+        "data/generated/scientific_genesis/alternate_metric_generic_frame.json",
         "research/experiments/scientific_genesis/canonical_representation_constraints.py",
         "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
         "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
@@ -12455,7 +12518,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3438,
+            "collected_tests_at_audit": 3456,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -13008,6 +13071,7 @@ def build_state() -> dict[str, object]:
         "original_metric_section_basis_identity": section_identity,
         "alternate_metric_symbolic_columns": symbolic_columns,
         "alternate_metric_symbolic_evaluation": symbolic_evaluation,
+        "alternate_metric_generic_frame": generic_frame,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -13015,6 +13079,11 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "the original named chart/frame fails only on a proper auxiliary-null "
+            "locus of the selected smooth irreducible cover for all outer parameters; "
+            "actual zero-minor geometry has a regular alternative frame. Native "
+            "solver termination, independent inputs and finite-cell errors remain "
+            "separate requirements; no pending requests may be discarded",
             "the unchanged complete polynomial consumer and fresh source-bound "
             "verifier completed all 5345 original sections and 64140 outward "
             "coefficients on one declared uncertain A domain at 100-bit "

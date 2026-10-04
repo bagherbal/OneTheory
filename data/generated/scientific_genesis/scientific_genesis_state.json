@@ -157,6 +157,516 @@
     "uncertain_center_bits": 100,
     "uncertain_entry_count": 21430
   },
+  "alternate_metric_generic_frame": {
+    "all_cover_points_in_named_chart": false,
+    "artifact_digest": "4a3f35677039b12aa0239fbab79047b23b07d79ecd79288d7a9f0b0832c21b8f",
+    "assumptions": [
+      "the selected cover is smooth, compact and irreducible",
+      "the derived auxiliary law is beta^3/72 with beta positive",
+      "the original constituent and universal outer relation data"
+    ],
+    "chart_pivots": [
+      0,
+      0,
+      0
+    ],
+    "common_stabilized_vacuum_available": false,
+    "controlled_integral_available": false,
+    "excluded_set": "x0*u0*p0=0 or homogeneous_failure_numerator=0 on the cover",
+    "finite_prefix_failures_discardable": false,
+    "first_pivot_rows": [
+      0,
+      2
+    ],
+    "first_relation_minor": [
+      [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          "9",
+          "0"
+        ]
+      ],
+      [
+        [
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          "0",
+          "54"
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          "9",
+          "0"
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          "9",
+          "0"
+        ]
+      ]
+    ],
+    "fixed_chart_and_frame_failure_is_auxiliary_null": true,
+    "fixed_frame_failure_is_physical_bundle_singularity": false,
+    "full_five_relation_minor_is_product_for_all_parameters": true,
+    "global_numerical_input_coverage_certified": false,
+    "homogeneous_failure_numerator": [
+      [
+        [
+          3,
+          1,
+          0,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          "-36",
+          "36"
+        ]
+      ],
+      [
+        [
+          3,
+          1,
+          0,
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        [
+          "-36",
+          "-72"
+        ]
+      ],
+      [
+        [
+          3,
+          1,
+          0,
+          0,
+          2,
+          3,
+          0,
+          0
+        ],
+        [
+          "72",
+          "36"
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          1,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          "-216",
+          "-432"
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          1,
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        [
+          "432",
+          "216"
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          1,
+          0,
+          2,
+          3,
+          0,
+          0
+        ],
+        [
+          "-216",
+          "216"
+        ]
+      ],
+      [
+        [
+          0,
+          4,
+          0,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          "-36",
+          "36"
+        ]
+      ],
+      [
+        [
+          0,
+          4,
+          0,
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        [
+          "-36",
+          "-72"
+        ]
+      ],
+      [
+        [
+          0,
+          4,
+          0,
+          0,
+          2,
+          3,
+          0,
+          0
+        ],
+        [
+          "72",
+          "36"
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          3,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          "-36",
+          "36"
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          3,
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        [
+          "-36",
+          "-72"
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          3,
+          0,
+          2,
+          3,
+          0,
+          0
+        ],
+        [
+          "72",
+          "36"
+        ]
+      ]
+    ],
+    "homogeneous_numerator_degrees": [
+      4,
+      5,
+      0
+    ],
+    "independent_cover_cloud_available": false,
+    "native_solver_almost_sure_termination_proved": false,
+    "nonvanishing_native_witness": {
+      "component": "A",
+      "coordinate_bounds": [
+        [
+          {
+            "center": [
+              "1",
+              "0"
+            ],
+            "radius": "0"
+          },
+          {
+            "center": [
+              "-243033723246769008742303423245/633825300114114700748351602688",
+              "-565261828262686813968777524955/1267650600228229401496703205376"
+            ],
+            "radius": "6766173621845729252455523/158456325028528675187087900672"
+          },
+          {
+            "center": [
+              "-1049203018270748409065999051687/1267650600228229401496703205376",
+              "-841344265575341372792065010721/633825300114114700748351602688"
+            ],
+            "radius": "279739795704545872822267911/1267650600228229401496703205376"
+          }
+        ],
+        [
+          {
+            "center": [
+              "1",
+              "0"
+            ],
+            "radius": "0"
+          },
+          {
+            "center": [
+              "398854367729781401720028770761/316912650057057350374175801344",
+              "2234658542834718579924091809643/1267650600228229401496703205376"
+            ],
+            "radius": "21395416285119958973064149/79228162514264337593543950336"
+          },
+          {
+            "center": [
+              "-170215940490590786602043251037/633825300114114700748351602688",
+              "136371483131904850275768935957/1267650600228229401496703205376"
+            ],
+            "radius": "559807933334663943013463425/1267650600228229401496703205376"
+          }
+        ],
+        [
+          {
+            "center": [
+              "1",
+              "0"
+            ],
+            "radius": "0"
+          },
+          {
+            "center": [
+              "-257232263626879036126219901797/633825300114114700748351602688",
+              "10106435056897302214932978357/39614081257132168796771975168"
+            ],
+            "radius": "1318479100855911725/316912650057057350374175801344"
+          }
+        ]
+      ],
+      "minor_bounds_first_second_product": [
+        {
+          "center": [
+            "-12229416291966820515538920851607/1267650600228229401496703205376",
+            "-2727102687838767350232528187143/633825300114114700748351602688"
+          ],
+          "radius": "2783511475548183431335734543/316912650057057350374175801344"
+        },
+        {
+          "center": [
+            "-3672069372118921395819236810885/316912650057057350374175801344",
+            "-28293053391044226969712411009861/316912650057057350374175801344"
+          ],
+          "radius": "83530895790646350608552428693/1267650600228229401496703205376"
+        },
+        {
+          "center": [
+            "-86308371467219205813118288278213/316912650057057350374175801344",
+            "167017334793445470300772503069819/316912650057057350374175801344"
+          ],
+          "radius": "1343082617393002609880803587501/633825300114114700748351602688"
+        }
+      ],
+      "role": "whole coupled geometric regression; not a chosen physical point",
+      "root_pair": [
+        0,
+        0
+      ]
+    },
+    "observations_used": false,
+    "original_section_basis_digest": "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c",
+    "physical_moduli_selected": false,
+    "physical_yukawas_available": false,
+    "positive_auxiliary_law_digest": "c95486f83301f30fe55906ae773981d3a18d5662b56587de769f9744638cd66e",
+    "positive_auxiliary_law_proof_sha256": "1ab904231fec5253698af5de26156aa5eed6ee3cc11a6702df449a761f2027e7",
+    "proof_sha256": "8184fc05874189c7cf26247930bf6dda17eadfc976b23e084aed882d762ce63f",
+    "quotient_excluded_set": "image of the excluded set; pullback is the finite deck union",
+    "ricci_flat_or_hym_metric_available": false,
+    "schema": "alternate-metric-generic-frame-v1",
+    "second_pivot_rows": [
+      0,
+      1,
+      2
+    ],
+    "second_relation_minor": [
+      [
+        [
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        [
+          "-4",
+          "-8"
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          3,
+          0,
+          0
+        ],
+        [
+          "8",
+          "4"
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          "-4",
+          "4"
+        ]
+      ]
+    ],
+    "single_named_frame_claimed_deck_invariant": false,
+    "source_signature": [
+      [
+        [
+          "data/generated/scientific_genesis/alternate_constituent_outer_invariants.json",
+          "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json",
+          "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
+          "d9e320a952cc6d5fc843ea2f9c0254823d8d9a49b8d6dbd1d2dda0dd2d61f01c"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
+          "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
+          "3708b3f7757ec12080daa98d09315ed53a2c7d0e0ead61ff3a55777bb00aaa4c"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_second_sections.json",
+          "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348"
+        ],
+        [
+          "data/generated/scientific_genesis/projective_uncertain_intersections.json",
+          "97981cfe6a6d67fd40287c8902a99f4ce3a73729fea6a64b4f133fdce82c0d26"
+        ],
+        [
+          "data/generated/scientific_genesis/uncertain_cover_weights.json",
+          "5be593ab1bfa8d1200b72a944d127cde33343158f1be79236ed5bcef51934429"
+        ]
+      ],
+      [
+        [
+          "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz",
+          "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz",
+          "cce0f3f00f7a61fb870087e21249af02ddd2b48c23b67e36bf0d67f8ee6a37e3"
+        ]
+      ]
+    ],
+    "variable_order": [
+      "x0",
+      "x1",
+      "x2",
+      "u0",
+      "u1",
+      "u2",
+      "p0",
+      "p1"
+    ]
+  },
   "alternate_metric_symbolic_columns": {
     "artifact_digest": "63dcc3ff50a8cf3aadbd896dd20a732774efbc460d714daeb2ee8ce41c44a488",
     "chart_pivots": [
@@ -16235,7 +16745,7 @@
     "visible_spin_twisted_h1": 0,
     "whole_frozen_outer_parameter_family": true
   },
-  "artifact_digest": "07fd959ce5f5b8162414c9826beeb8c944930c9074ea1b1ad70334de0ab69b3a",
+  "artifact_digest": "c9164ff23c2f00776f16478bc721426eab7b67214092f3feda6be642e9d900c1",
   "artifacts": [
     {
       "bytes": 3337,
@@ -17708,6 +18218,26 @@
       "sha256": "794217a2df51b0eca496d9396d5d8cae470079fbbaa43631e3c69183cb78f322"
     },
     {
+      "bytes": 9992,
+      "path": "research/experiments/scientific_genesis/alternate_metric_generic_frame.py",
+      "sha256": "3f375a5aa36ddd258654b2576309c4df1a8bae2e435acd348b7f0db8b64123fe"
+    },
+    {
+      "bytes": 5888,
+      "path": "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md",
+      "sha256": "8184fc05874189c7cf26247930bf6dda17eadfc976b23e084aed882d762ce63f"
+    },
+    {
+      "bytes": 8824,
+      "path": "tests/integration/test_scientific_genesis_alternate_metric_generic_frame.py",
+      "sha256": "ff75f10b934d12360eebc527ef3925fe957a2b84838039ba9052db290ec232a4"
+    },
+    {
+      "bytes": 9908,
+      "path": "data/generated/scientific_genesis/alternate_metric_generic_frame.json",
+      "sha256": "c12f9bf9ad7bf862a9a8568a4345ff1a47362bc13f28e7383f223ca8197670c7"
+    },
+    {
       "bytes": 11169,
       "path": "research/experiments/scientific_genesis/canonical_representation_constraints.py",
       "sha256": "15183a23fb278404ea681d2200585b63296f251409ae4c23c11ed6d701f8fd54"
@@ -18039,11 +18569,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3438,
+    "collected_tests_at_audit": 3456,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 305,
-    "test_python_files": 293
+    "research_python_files": 306,
+    "test_python_files": 294
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -23162,6 +23692,31 @@
     },
     {
       "assumptions": [
+        "selected smooth compact irreducible cover",
+        "positive auxiliary beta^3 law",
+        "actual original relations and native coupled nonvanishing witness"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_metric_generic_frame.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_generic_frame.py",
+        "data/generated/scientific_genesis/alternate_metric_generic_frame.json"
+      ],
+      "id": "alternate_metric_generic_frame",
+      "label": "full-measure named chart and relation frame on the selected cover",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "native almost-sure algorithmic admission",
+        "independent inputs",
+        "controlled integration errors",
+        "Ricci-flat/HYM convergence",
+        "common vacuum"
+      ],
+      "statement": "Original local differential columns give a four-term first minor and a three-term second minor. Their homogeneous product has degrees (4,5,0) and twelve exact terms. The full five-relation minor equals this product for every formal outer parameter. A native whole-cell nonvanishing certificate proves that the chart/frame failure locus is proper on the selected irreducible smooth cover, hence null for its positive auxiliary law. The quotient conclusion uses the finite union of deck translates, not an invariant single frame. Independent raw-arrow Fraction determinants and an actual zero-minor family with a regular alternative frame attack the algebra. This removes a demand to admit every exceptional point; it proves neither native solver termination nor permission to discard positive-mass finite cells.",
+      "status": "PROVED"
+    },
+    {
+      "assumptions": [
         "same actual smooth cover",
         "unchanged positive auxiliary law"
       ],
@@ -27697,6 +28252,91 @@
     },
     {
       "assumptions_required": [
+        "same selected smooth compact irreducible cover",
+        "actual original named frame"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "one witness does not exclude an identically zero component on a reducible cover"
+      ],
+      "mathematical_reason": "The selected smooth irreducible cover supports the null-set theorem.",
+      "source": "schoen_geometry",
+      "target": "alternate_metric_generic_frame"
+    },
+    {
+      "assumptions_required": [
+        "same selected smooth compact irreducible cover",
+        "actual original named frame"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "one witness does not exclude an identically zero component on a reducible cover"
+      ],
+      "mathematical_reason": "Original differential columns give the exact parameter-independent relation minors.",
+      "source": "alternate_metric_bounded_fibers",
+      "target": "alternate_metric_generic_frame"
+    },
+    {
+      "assumptions_required": [
+        "same selected smooth compact irreducible cover",
+        "actual original named frame"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "one witness does not exclude an identically zero component on a reducible cover"
+      ],
+      "mathematical_reason": "Native whole-cell nonvanishing proves the actual excluded numerator is proper.",
+      "source": "uncertain_cover_frames",
+      "target": "alternate_metric_generic_frame"
+    },
+    {
+      "assumptions_required": [
+        "same selected smooth compact irreducible cover",
+        "actual original named frame"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "one witness does not exclude an identically zero component on a reducible cover"
+      ],
+      "mathematical_reason": "The derived positive auxiliary law is absolutely continuous with smooth volume.",
+      "source": "alternate_metric_positive_measure",
+      "target": "alternate_metric_generic_frame"
+    },
+    {
+      "assumptions_required": [
+        "same law",
+        "bounded trial integrand",
+        "separately controlled numerical admission",
+        "independent inputs",
+        "integration errors",
+        "actual metric convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "finite-prefix numerical failure is not a null event",
+        "properness does not prove convergence of the finite-work root proposer"
+      ],
+      "mathematical_reason": "A proper named chart/frame failure locus is auxiliary-null for the whole outer family, so ideal bounded integrals do not require numerical admission at every exceptional point.",
+      "source": "alternate_metric_generic_frame",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "complete actual section integrands",
         "controlled independent integration",
         "Ricci-flat/HYM convergence"
@@ -29546,6 +30186,7 @@
     }
   ],
   "established_results": [
+    "the original named chart/frame fails only on a proper auxiliary-null locus of the selected smooth irreducible cover for all outer parameters; actual zero-minor geometry has a regular alternative frame. Native solver termination, independent inputs and finite-cell errors remain separate requirements; no pending requests may be discarded",
     "the unchanged complete polynomial consumer and fresh source-bound verifier completed all 5345 original sections and 64140 outward coefficients on one declared uncertain A domain at 100-bit precision; measured whole-process wall time was 32m48.32s, not proof of repeated-point throughput, independent sampling or a physical metric",
     "the full exact original polynomial compiler and independent archive verifier completed all 5345 ordered sections with 90865 polynomials and 3621141 terms in one explicit chart; about 335 setup-excluded minutes of compilation do not certify numerical throughput, an independent cloud, an integral or a physical metric",
     "actual exceptional-section embeddings yield 81 isolated cover curves and nine quotient orbits; independently checked full Serre classes give trivial visible restriction for the whole frozen alternate family and acyclic spin twists, not conic seeds, physical Pfaffians, hidden restrictions, instanton cancellation or a common vacuum",

@@ -1,5 +1,25 @@
 # Scientific Genesis research map
 
+## Generic named-frame admission, not solver termination
+
+The actual original four-by-two and five-by-three differential blocks give
+four-term and three-term named minors. Their twelve-term homogeneous product
+has coordinate degrees (4,5,0); block triangularity makes the full five-relation
+minor independent of every outer parameter. A native whole-cell nonvanishing
+certificate proves the excluded numerator is proper on the selected smooth
+irreducible cover. Its union with the chart boundary is null for beta^3/72.
+The quotient null set uses the finite union of deck translates. This does not
+claim the particular frame is globally deck invariant.
+
+Independent raw-arrow Fraction-pair determinants check the algebra. An actual
+x1=0 root family makes the old pivot fail while a separately declared alternate
+frame remains regular: frame failure is not singular bundle geometry.
+Ideal bounded integration need not admit every exceptional point, but every
+unresolved finite-prefix request must remain in the workload. The finite-work
+root proposer still has no almost-sure termination theorem; a realized cloud,
+integration errors, physical metrics and a common vacuum remain unestablished.
+See `ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md` and its source-bound packet.
+
 ## Actual exceptional-section restrictions and visible zero modes
 
 The frozen alternate carrier now has exact visible restrictions on its
@@ -92,8 +112,8 @@ stream digest. Its source-only identity is
 `71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c`.
 Existing generic covariance contraction can consume that identity explicitly;
 the previous single-domain covariance packet is not silently reinterpreted.
-The next execution gate is the complete original polynomial archive followed
-by measured full-domain evaluation. No IID cloud, controlled integral,
+The complete original polynomial archive and measured full-domain evaluation
+have now closed those execution gates. No IID cloud, controlled integral,
 Ricci-flat/HYM convergence, normalized Yukawa matrix or stabilized vacuum is
 supplied. This remains conditional on the chosen heterotic realization.
 

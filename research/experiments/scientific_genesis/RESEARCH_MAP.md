@@ -1,5 +1,29 @@
 # Scientific Genesis research map
 
+## Original full-section trial integrands on retained native roots
+
+The retained-root controller now composes with the original named quotient
+frame, source-bound complete polynomial archive and existing full Hermitian
+contraction. The frame policy keeps its chart, ordered quotient rows and
+normalization fixed. Frame failures retain both the successful root and the
+last admitted frame; a frame-only retry does not propose another root family.
+
+Finite rational-expression continuity gives conditional eventual frame
+admission and convergence of all 64,140 original coefficient enclosures,
+followed by all trial covariance blocks. Parameter-polynomial convergence is
+uniform on each fixed compact extension-parameter set, without selecting a
+parameter point. Complete execution on one A continuation produces all 5,345
+sections, 64,140 coefficients and every weighted trial-covariance block.
+Source-bound full-stream replay and independent Fraction-pair contraction and
+saved-polynomial/raw-arrow Gaussian probes check this actual output.
+
+This is an explicit nonphysical unit-H initializer. It is not inverse-kernel
+admission, a numerical stopping tolerance, practical multi-point throughput,
+an independent cloud, integration error control, untwisting, Ricci-flat/HYM
+convergence or a common vacuum. The next step extends this same original
+factorization through inverse-kernel admission and controlled integration.
+See `NATIVE_SECTION_CONTINUATION_NOTE.md`.
+
 ## Constructive native root admission under same-stream refinement
 
 The next numerical admission edge now has an explicitly chosen subdivision
@@ -18,9 +42,10 @@ All unresolved finite-prefix addresses remain prerequisites. A root index after
 first admission is not a branch identity: the controller retains its native
 parent and applies the existing containment bijection before refinement. Actual
 levels 8 to 12 execute through a failed cap, retaining that parent. Extending
-this executed root controller through complete section integrands and
-integration-error control is the next
-metric prerequisite, not another root-case enumeration. Physical metrics,
+this executed root controller through complete trial section integrands is
+the current native continuation experiment; inverse-kernel admission and
+integration-error control remain metric prerequisites, not another root-case
+enumeration. Physical metrics,
 canonical Yukawas and the common vacuum remain unresolved. See
 `PROJECTIVE_SUBDIVISION_ROOTS_NOTE.md` and its source-bound execution packet.
 

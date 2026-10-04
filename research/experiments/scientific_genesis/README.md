@@ -1,5 +1,22 @@
 # Scientific Genesis audit
 
+`native_section_continuation.py` carries retained native roots through the
+original named quotient frame and complete polynomial-column archive. A failed
+root or frame request retains its admitted parents. An identical-root frame-only
+retry reuses the existing certificate; it does not resample an index. The
+conditional continuity proof covers all original coefficient enclosures and
+weighted trial-covariance blocks on compact extension-parameter sets.
+
+The complete A continuation run produced all 5,345 original sections and 64,140
+coefficient enclosures, followed by every weighted trial-covariance block.
+Fresh source-bound replay and independent full-stream Fraction-pair/Gaussian
+checks validate the completed packet. The computational unit-H form is
+explicit and nonphysical. Full inverse-kernel admission, numerical
+stopping tolerances, controlled integration, Ricci-flat/HYM convergence and a
+common vacuum remain separate requirements. See
+`NATIVE_SECTION_CONTINUATION_NOTE.md`. Production and original sources are
+unchanged. A numerical stream hash is not the global section identity.
+
 `projective_subdivision_roots.py` supplies an explicitly selected, certified
 two-chart alternative to the bounded simultaneous root proposer. Exact whole-cell
 exclusion and the existing uniform Rouche certificates retain all projective
@@ -13,8 +30,9 @@ streams and simple limiting intersections. This does not prove convergence
 of the old proposer, certify entropy inputs, or authorize dropping finite
 cells. The same-root native containment controller now executes levels 8 to 12
 through a failed work cap without losing the admitted parent. Complete frame
-and section integrands, controlled integration, physical metrics and a common
-vacuum remain open. See
+and trial section integrands are composed by the new continuation experiment;
+inverse kernels, controlled integration, physical metrics and a common vacuum
+remain open. The root packet alone does not assert those computations. See
 `PROJECTIVE_SUBDIVISION_ROOTS_NOTE.md`. Production and original sources are
 unchanged.
 

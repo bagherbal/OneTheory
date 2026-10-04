@@ -3749,7 +3749,8 @@ def _nodes() -> list[dict[str, object]]:
              "data/generated/scientific_genesis/alternate_metric_generic_frame.json"),
             ("selected smooth compact irreducible cover", "positive auxiliary beta^3 law",
              "actual original relations and native coupled nonvanishing witness"),
-            ("same-branch full frame/integrand admission controller", "independent inputs",
+            ("full inverse trial-kernel continuation", "certified numerical stopping tolerance",
+             "independent inputs",
              "controlled integration errors", "Ricci-flat/HYM convergence", "common vacuum"),
         ),
         _node(
@@ -3779,9 +3780,42 @@ def _nodes() -> list[dict[str, object]]:
              "unchanged actual pencils and generic simple limiting intersections",
              "source prefixes expose 4j bits; root selectors expose up to 2j until termination",
              "explicit same-prefix refinement schedule and unchanged ordered line bases"),
-            ("full frame/section admission controller", "full section integrands",
+            ("full inverse trial-kernel continuation", "certified numerical stopping tolerance",
              "independent input cloud", "controlled integration errors",
              "Ricci-flat/HYM convergence", "common vacuum"),
+        ),
+        _node(
+            "native_section_continuation",
+            "conditional retained-root original frame and full trial-covariance continuation",
+            "Normalization",
+            "PROVED",
+            "The existing retained-parent root controller composes directly with "
+            "the original named quotient frame, complete polynomial archive and "
+            "full Hermitian contraction. Root and frame failures retain their "
+            "last admitted parents; an identical-root frame-only retry reuses "
+            "that certificate instead of demanding strict self-containment. "
+            "Away from the proper named-frame locus, finite original Laurent "
+            "relations, all 5345 polynomial sections, quotient inverses and "
+            "homogeneous weights admit finite evaluation and convergent "
+            "coefficient enclosures under the growing same-stream precision "
+            "schedule. Complete constant/a0/a1 trial covariance coefficients "
+            "converge uniformly on compact extension-parameter sets. The actual "
+            "A continuation consumes all 64140 original coefficients and all "
+            "weighted trial-covariance blocks without parameter specialization. "
+            "This is not a full inverse kernel, stopping tolerance, independent "
+            "cloud, integral, physical metric or stabilized vacuum.",
+            ("research/experiments/scientific_genesis/native_section_continuation.py",
+             "research/experiments/scientific_genesis/NATIVE_SECTION_CONTINUATION_NOTE.md",
+             "tests/integration/test_scientific_genesis_native_section_continuation.py",
+             "data/generated/scientific_genesis/native_section_continuation.json",
+             "data/generated/scientific_genesis/native_section_continuation.columns.jsonl.gz"),
+            ("selected smooth heterotic cover and frozen original section sources",
+             "same original chart, quotient rows and normalization conventions",
+             "independent fair streams with growing prefixes for the almost-sure statement",
+             "growing input, root and uncertain-center precision; explicit nonphysical trial form"),
+            ("full inverse trial-kernel continuation", "certified numerical stopping tolerance",
+             "controlled integration", "nonunit-H iteration and line untwisting",
+             "Ricci-flat/HYM convergence", "common stabilized vacuum"),
         ),
         _node(
             "alternate_metric_projection_free_weights",
@@ -7191,10 +7225,38 @@ def _edges() -> list[dict[str, object]]:
             "Constructive eventual root admission replaces an unproved global "
             "root-iteration prerequisite without dropping unresolved draws.",
             ("research/experiments/scientific_genesis/PROJECTIVE_SUBDIVISION_ROOTS_NOTE.md",),
-            ("certified retained-parent root continuation", "full frame/section admission",
+            ("certified retained-parent root continuation", "full inverse trial-kernel admission",
              "independent inputs", "integration error control", "actual metric convergence"),
             True,
             ("root admission is not integrand admission or a practical expected-work bound",),
+        ),
+        *tuple(_edge(
+            source, "native_section_continuation", reason,
+            ("research/experiments/scientific_genesis/NATIVE_SECTION_CONTINUATION_NOTE.md",),
+            ("unchanged original section and carrier sources", "same named normalized frame"),
+            True,
+            ("unresolved finite-prefix input or denominator must remain pending",),
+        ) for source, reason in (
+            ("projective_subdivision_roots",
+             "Retained native parents certify the same branch through root failures."),
+            ("alternate_metric_generic_frame",
+             "The named chart and relation pivots fail only on a proper auxiliary-null locus."),
+            ("alternate_metric_symbolic_columns",
+             "The complete coefficient-ring archive retains all original ordered sections."),
+            ("alternate_section_covariance",
+             "The original complete Hermitian contraction uses every declared section."),
+            ("uncertain_cover_weights",
+             "Actual member weights retain the full homogeneous conormal denominator."),
+        )),
+        _edge(
+            "native_section_continuation", "visible_metrics",
+            "Same-root full trial covariance supplies an actual numerical "
+            "prerequisite, not the inverse kernel or a physical metric.",
+            ("research/experiments/scientific_genesis/NATIVE_SECTION_CONTINUATION_NOTE.md",),
+            ("full inverse trial-kernel admission", "controlled coefficient and integration errors",
+             "nonunit-H iteration", "untwisting", "Ricci-flat/HYM convergence"),
+            True,
+            ("trial form is not physical; convergence or a common vacuum may fail",),
         ),
         _edge(
             "uncertain_cover_frames",
@@ -8796,6 +8858,7 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/projective_uniform_input_cells.py",
                 "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
                 "research/experiments/scientific_genesis/projective_subdivision_roots.py",
+                "research/experiments/scientific_genesis/native_section_continuation.py",
                 "research/experiments/scientific_genesis/uncertain_cover_weights.py",
                 "research/experiments/scientific_genesis/auxiliary_cover_draws.py",
                 "research/experiments/scientific_genesis/alternate_section_covariance.py",
@@ -8862,16 +8925,14 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             5,
             2,
-            "Use the actual residue and normalized FS measure with the bounded "
-            "all-index evaluator and certified complete new-domain output; "
-            "the measured 74-minute domain requires structural numerator "
-            "compilation or another rigorously cheaper representation before "
-            "a large integration campaign. Do not treat cache reuse as throughput. "
-            "measure multi-point cost, then implement the positive auxiliary "
-            "SU-uniform mixture using the quantitative global weight bound and "
-            "admitted-cell root/weight bounds. Use the same-prefix draw workflow "
-            "without dropping pending draws; justify external independence and "
-            "complete section/frame integrands on those domains with integral errors; "
+            "Reuse the complete original coefficient-ring archive and retained-root "
+            "full-section trial covariance controller. Extend the original inverse "
+            "kernel to those actual frames with certified numerical stopping "
+            "tolerances before a large integration campaign. Do not treat an "
+            "unmatched domain runtime or cache reuse as throughput. Use the "
+            "positive auxiliary law and quantitative global weight/kernel bound. "
+            "Retain every pending same-stream request; justify external independence "
+            "or a certified deterministic cubature with integral error control. "
             "reuse the complete factorized unit kernel and global projection-error "
             "bound for each fixed parameter, not a uniform probability claim over "
             "moduli. Control every draw's numerical enclosure, then implement "
@@ -8971,6 +9032,7 @@ def build_state() -> dict[str, object]:
     from .alternate_section_curve_restrictions import read_restrictions
     from .auxiliary_cover_draws import read_draws
     from .canonical_representation_constraints import read_constraints
+    from .native_section_continuation import read_complete_continuation
     from .projective_subdivision_roots import read_subdivision
     from .projective_uncertain_intersections import read_uncertain_intersections
     from .projective_uniform_input_cells import read_input_cells
@@ -9012,6 +9074,9 @@ def build_state() -> dict[str, object]:
     ))
     subdivision_roots = read_subdivision(expected_digest=(
         "27169bb7b404a863bee7791512169e03ab9ad3790596cd3baf1736c0f58ff768"
+    ))
+    native_sections = read_complete_continuation(expected_digest=(
+        "7584936b3d0d5c310b0bb402e1c210ff76df8e01fd9b8a1e0321e06d098bccb1"
     ))
 
     canonical_constraints = read_constraints(expected_digest=(
@@ -12521,6 +12586,11 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/PROJECTIVE_SUBDIVISION_ROOTS_NOTE.md",
         "tests/integration/test_scientific_genesis_projective_subdivision_roots.py",
         "data/generated/scientific_genesis/projective_subdivision_roots.json",
+        "research/experiments/scientific_genesis/native_section_continuation.py",
+        "research/experiments/scientific_genesis/NATIVE_SECTION_CONTINUATION_NOTE.md",
+        "tests/integration/test_scientific_genesis_native_section_continuation.py",
+        "data/generated/scientific_genesis/native_section_continuation.json",
+        "data/generated/scientific_genesis/native_section_continuation.columns.jsonl.gz",
         "research/experiments/scientific_genesis/canonical_representation_constraints.py",
         "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
         "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
@@ -13109,8 +13179,8 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "extend the constructive same-root controller through full original frame "
-                "and section integrands with independent inputs and controlled integration "
+                "extend retained-root full-section trial covariance through the original "
+                "inverse kernel with certified stopping tolerances and controlled integration "
                 "errors, verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
@@ -13140,6 +13210,7 @@ def build_state() -> dict[str, object]:
         "alternate_metric_symbolic_evaluation": symbolic_evaluation,
         "alternate_metric_generic_frame": generic_frame,
         "projective_subdivision_roots": subdivision_roots,
+        "native_section_continuation": native_sections,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -13147,6 +13218,12 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "retained-root refinement composes with the original named frame and "
+            "all 5345 sections; finite rational-expression continuity gives conditional "
+            "coefficient convergence on the proper-locus complement, uniformly on "
+            "compact extension-parameter sets; one actual A continuation executes "
+            "complete weighted trial covariance, not an inverse kernel, certified "
+            "stopping tolerance, integral or physical metric",
             "explicit two-chart subdivision admits complete native 9/3/3 "
             "regression families; a Taylor-margin theorem gives eventual root "
             "admission under same-stream refinement conditional on fair inputs "
@@ -13157,7 +13234,7 @@ def build_state() -> dict[str, object]:
             "the original named chart/frame fails only on a proper auxiliary-null "
             "locus of the selected smooth irreducible cover for all outer parameters; "
             "actual zero-minor geometry has a regular alternative frame. Complete "
-            "frame/integrand admission, independent inputs and finite-cell errors remain "
+            "inverse-kernel admission, input law and finite-cell error control remain "
             "separate requirements; no pending requests may be discarded",
             "the unchanged complete polynomial consumer and fresh source-bound "
             "verifier completed all 5345 original sections and 64140 outward "

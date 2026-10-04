@@ -203,6 +203,36 @@ def test_subdivision_admission_theorem_keeps_remaining_metric_dependencies_expli
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
 
 
+def test_native_full_section_continuation_does_not_complete_inverse_kernel_or_metrics() -> None:
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    node = claims["native_section_continuation"]
+    assert node["status"] == "PROVED"
+    assert "full inverse trial-kernel continuation" in node["missing_prerequisites"]
+    record = stored["native_section_continuation"]
+    assert record["artifact_digest"] == (
+        "7584936b3d0d5c310b0bb402e1c210ff76df8e01fd9b8a1e0321e06d098bccb1")
+    assert record["all_original_columns_consumed"] is True
+    assert record["native_same_root_frame_continuation_executed"] is True
+    assert record["full_trial_covariance_integrands_executed"] is True
+    assert record["section_count"] == 5345 and record["coefficient_entry_count"] == 64140
+    assert record["retained_failed_refinement"]["status"] == "unresolved"
+    assert record["continued_frame"]["admitted_frame_parent_retained"] is True
+    for field in ("unit_form_is_physical_or_canonical", "line_twist_removed",
+                  "full_inverse_trial_kernel_executed", "requested_numerical_accuracy_certified",
+                  "independent_cover_cloud_available", "controlled_integral_available",
+                  "ricci_flat_or_hym_metric_available", "physical_yukawas_available",
+                  "common_stabilized_vacuum_available", "extension_parameters_specialized"):
+        assert record[field] is False
+    assert {e["source"] for e in stored["dependencies"]
+            if e["target"] == "native_section_continuation"} == {
+        "projective_subdivision_roots", "alternate_metric_generic_frame",
+        "alternate_metric_symbolic_columns", "alternate_section_covariance",
+        "uncertain_cover_weights"}
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+
+
 def test_proved_representation_constraints_do_not_relabel_quantum_or_uv_assumptions() -> None:
     """An exact scoped obstruction is neither quantum emergence nor a physical model."""
 

@@ -146,6 +146,36 @@ def test_proved_representation_constraints_do_not_relabel_quantum_or_uv_assumpti
                and edge["target"] == "genesis_to_uv_bridge" for edge in stored["dependencies"])
 
 
+def test_section_restrictions_do_not_complete_physical_instanton_data() -> None:
+    """Acyclic visible restrictions are not a normalized worldsheet amplitude."""
+
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    assert claims["alternate_section_curve_restrictions"]["status"] == "COMPUTED"
+    for name in ("physical_pfaffians", "hidden_bundle", "controlled_vacuum",
+                 "physical_yukawas", "genesis_to_uv_bridge"):
+        assert claims[name]["status"] == "BLOCKED"
+    record = stored["alternate_section_curve_restrictions"]
+    assert record["artifact_digest"] == (
+        "be61e8b06310006085f889b4f6cffe6c80d0810997f38703890ebd0988a63f2e"
+    )
+    assert (record["cover_curve_count"], record["quotient_curve_count"]) == (81, 9)
+    assert record["quotient_map_degree_on_each_cover_curve"] == 1
+    assert record["whole_frozen_outer_parameter_family"] is True
+    assert record["visible_restricted_splitting_degrees"] == [0] * 4
+    assert record["visible_spin_twisted_h0"] == record["visible_spin_twisted_h1"] == 0
+    for flag in ("physical_pfaffian_amplitude_available", "instanton_sum_available",
+                 "missing_seed_conic_embeddings_supplied", "outer_extension_point_selected",
+                 "hidden_restrictions_available", "quillen_normalization_available",
+                 "common_stabilized_vacuum_available", "physical_yukawas_available",
+                 "genesis_to_uv_derivation_available", "observations_used"):
+        assert record[flag] is False
+    assert {edge["source"] for edge in stored["dependencies"]
+            if edge["target"] == "alternate_section_curve_restrictions"} == {
+        "schoen_geometry", "alternate_constituent_carrier_state",
+    }
+
+
 def test_complete_trial_kernel_keeps_independent_integration_and_physics_unresolved() -> None:
     """A global projector bound is not a metric or a uniform stochastic moduli claim."""
 

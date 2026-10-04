@@ -1,5 +1,33 @@
 # Scientific Genesis research map
 
+## Actual exceptional-section restrictions and visible zero modes
+
+The frozen alternate carrier now has exact visible restrictions on its
+exceptional-section curves. The existing reduced transverse degree-nine pencil
+algebra is used twice, independently, to describe all 81 cover embeddings.
+The actual two Schoen equations vanish on these embeddings. Their normal
+sequence reduces to two Euler kernels, giving O(-1) + O(-1). Eight exact
+fixed-point ideals and the original factor-specific deck substitutions prove
+that the 81 components form nine free quotient orbits. The quotient map on
+each component has degree one, not nine.
+
+Original full Hilbert--Burch/Koszul/Čech cochains, not fitted coefficients,
+give two unit Serre extension classes. All three plane gauges and every
+original ideal-generator splitting agree. Independent Fraction-pair polynomial
+reduction and matrix elimination check the critical arithmetic; ideal-span
+ranks independently check the fixed-point gcd result. The analytic Euler
+extension argument gives O^2 for each constituent, while H1(P1,O)=0 gives
+O^4 on every section for every member of the frozen outer family.
+
+This closes the actual carrier -> visible restriction -> spin-twisted
+zero-mode prerequisite. H0=H1=0 does not construct a physical Pfaffian,
+hidden factor, determinant-line phase, cancellation sum, Quillen normalization
+or stabilized vacuum. These are exceptional sections, not the missing conic
+seed embeddings. The calculation is conditional on the selected heterotic
+realization; no production object or observational input is introduced.
+See `ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md` and the trusted completed
+`alternate_section_curve_restrictions.json` mathematical packet.
+
 ## Foundational canonical-representation constraints
 
 The production quantum layer currently supplies symbolic state, operator and

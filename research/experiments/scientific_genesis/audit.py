@@ -4236,16 +4236,37 @@ def _nodes() -> list[dict[str, object]]:
             ("conditional heterotic realization", "original formal outer basis"),
         ),
         _node(
+            "alternate_section_curve_restrictions",
+            "actual exceptional-section restrictions of the frozen alternate family",
+            "Vacuum",
+            "COMPUTED",
+            "Exact independent basepoint factors give 81 isolated cover curves "
+            "and nine free quotient orbits. Actual full Serre classes are units "
+            "on every base point, giving O^2 for both constituents and O^4 for "
+            "the entire frozen outer family. The spin twist has H0=H1=0. "
+            "This is a visible zero-mode prerequisite, not a physical amplitude.",
+            ("research/experiments/scientific_genesis/alternate_section_curve_restrictions.py",
+             "research/experiments/scientific_genesis/ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md",
+             "tests/integration/test_scientific_genesis_alternate_section_curve_restrictions.py",
+             "data/generated/scientific_genesis/alternate_section_curve_restrictions.json"),
+            ("conditional heterotic realization", "frozen alternate carrier component"),
+            ("physical determinant-line normalization", "hidden restrictions",
+             "torsion or B-field cancellation", "complete instanton sum"),
+        ),
+        _node(
             "physical_pfaffians",
             "physical worldsheet Pfaffians",
             "Vacuum",
             "BLOCKED",
-            "Seed conic embeddings, restrictions, determinant-line maps, and "
-            "normalization are absent.",
+            "Actual exceptional-section visible restrictions are established "
+            "for the frozen alternate family. Seed conic embeddings and their "
+            "restrictions, determinant-line maps, hidden factors and physical "
+            "normalization remain absent.",
             ("research/experiments/conic_pfaffians/audit.py",),
             missing=(
                 "seed embeddings",
-                "restricted resolutions",
+                "conic restricted resolutions",
+                "hidden restrictions and cancellation data",
                 "relative-duality maps",
                 "Quillen normalization",
             ),
@@ -8324,6 +8345,29 @@ def _edges() -> list[dict[str, object]]:
             True,
             ("metric approximation may not converge",),
         ),
+        *[
+            _edge(
+                source, "alternate_section_curve_restrictions", reason,
+                ("research/experiments/scientific_genesis/"
+                 "ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md",),
+                ("frozen alternate carrier and exact pencil equations",), True,
+                ("changed curve type or carrier; nonunit Serre class",),
+            )
+            for source, reason in (
+                ("schoen_geometry", "The two actual pencils determine the section embeddings."),
+                ("alternate_constituent_carrier_state",
+                 "The actual constituent cochains determine restrictions of the entire family."),
+            )
+        ],
+        _edge(
+            "alternate_section_curve_restrictions", "physical_pfaffians",
+            "Acyclic visible spin twists close one zero-mode prerequisite on "
+            "these exceptional sections, not a normalized determinant or instanton sum.",
+            ("research/experiments/scientific_genesis/"
+             "ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md",),
+            ("selected heterotic realization",), True,
+            ("hidden zero modes; determinant phases; cancellation among curves",),
+        ),
         _edge(
             "computable_carrier_state",
             "physical_pfaffians",
@@ -8788,6 +8832,7 @@ def build_state() -> dict[str, object]:
     from .alternate_metric_trial_kernel import read_kernel
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
     from .alternate_section_covariance import read_covariance
+    from .alternate_section_curve_restrictions import read_restrictions
     from .auxiliary_cover_draws import read_draws
     from .canonical_representation_constraints import read_constraints
     from .projective_uncertain_intersections import read_uncertain_intersections
@@ -8820,6 +8865,9 @@ def build_state() -> dict[str, object]:
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
+    ))
+    section_restrictions = read_restrictions(expected_digest=(
+        "be61e8b06310006085f889b4f6cffe6c80d0810997f38703890ebd0988a63f2e"
     ))
 
     auxiliary_draws = read_draws()
@@ -12311,6 +12359,10 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
         "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
         "data/generated/scientific_genesis/canonical_representation_constraints.json",
+        "research/experiments/scientific_genesis/alternate_section_curve_restrictions.py",
+        "research/experiments/scientific_genesis/ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_section_curve_restrictions.py",
+        "data/generated/scientific_genesis/alternate_section_curve_restrictions.json",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_neutrino_full_holomorphic_matrix.json",
@@ -12366,7 +12418,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3366,
+            "collected_tests_at_audit": 3410,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12918,11 +12970,17 @@ def build_state() -> dict[str, object]:
         "alternate_metric_fiber_functionals": fiber_functionals,
         "original_metric_section_basis_identity": section_identity,
         "canonical_representation_constraints": canonical_constraints,
+        "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "actual exceptional-section embeddings yield 81 isolated cover curves "
+            "and nine quotient orbits; independently checked full Serre classes "
+            "give trivial visible restriction for the whole frozen alternate "
+            "family and acyclic spin twists, not conic seeds, physical Pfaffians, "
+            "hidden restrictions, instanton cancellation or a common vacuum",
             "universal trace and scalar-characteristic arguments constrain exact "
             "canonical quantum realizations; independently checked boundary defects, "
             "positive-characteristic and finite CAR counterexamples prevent overbroad "

@@ -14771,7 +14771,1176 @@
       ]
     ]
   },
-  "artifact_digest": "52b7cef46a0dc5b53d2fff88e45722da6bb31f5f49dcb58b4468d873c8cc55ae",
+  "alternate_section_curve_restrictions": {
+    "actual_schoen_deck_identification": [
+      {
+        "actual_generator": "P",
+        "first_factor": {
+          "image_x": [
+            [
+              7,
+              [
+                "-1/6",
+                "1/6"
+              ]
+            ],
+            [
+              4,
+              [
+                "1/2",
+                "13"
+              ]
+            ],
+            [
+              1,
+              [
+                "38/3",
+                "1/3"
+              ]
+            ]
+          ],
+          "image_y": [
+            [
+              8,
+              [
+                "-1",
+                "-1"
+              ]
+            ],
+            [
+              5,
+              [
+                "-51",
+                "-24"
+              ]
+            ],
+            [
+              2,
+              [
+                "24",
+                "51"
+              ]
+            ]
+          ],
+          "pencil_exponents": [
+            1,
+            0
+          ]
+        },
+        "second_factor": {
+          "image_x": [
+            [
+              7,
+              [
+                "1/12",
+                "1/12"
+              ]
+            ],
+            [
+              4,
+              [
+                "25/6",
+                "2"
+              ]
+            ],
+            [
+              1,
+              [
+                "-4",
+                "-25/12"
+              ]
+            ]
+          ],
+          "image_y": [
+            [
+              8,
+              [
+                "0",
+                "-1/12"
+              ]
+            ],
+            [
+              5,
+              [
+                "-13/6",
+                "-25/6"
+              ]
+            ],
+            [
+              2,
+              [
+                "23/12",
+                "4"
+              ]
+            ]
+          ],
+          "pencil_exponents": [
+            2,
+            0
+          ]
+        }
+      },
+      {
+        "actual_generator": "T",
+        "first_factor": {
+          "image_x": [
+            [
+              1,
+              [
+                "0",
+                "1"
+              ]
+            ]
+          ],
+          "image_y": [
+            [
+              8,
+              [
+                "-1/6",
+                "-1/3"
+              ]
+            ],
+            [
+              5,
+              [
+                "-13",
+                "-25/2"
+              ]
+            ],
+            [
+              2,
+              [
+                "-1/3",
+                "37/3"
+              ]
+            ]
+          ],
+          "pencil_exponents": [
+            0,
+            1
+          ]
+        },
+        "second_factor": {
+          "image_x": [
+            [
+              1,
+              [
+                "-1",
+                "-1"
+              ]
+            ]
+          ],
+          "image_y": [
+            [
+              8,
+              [
+                "-1/6",
+                "1/6"
+              ]
+            ],
+            [
+              5,
+              [
+                "1/2",
+                "13"
+              ]
+            ],
+            [
+              2,
+              [
+                "38/3",
+                "1/3"
+              ]
+            ]
+          ],
+          "pencil_exponents": [
+            0,
+            2
+          ]
+        }
+      }
+    ],
+    "artifact_digest": "be61e8b06310006085f889b4f6cffe6c80d0810997f38703890ebd0988a63f2e",
+    "both_frozen_equations_vanish_identically": true,
+    "coefficient_algebra_basis": [
+      "1",
+      "z^1",
+      "z^2",
+      "z^3",
+      "z^4",
+      "z^5",
+      "z^6",
+      "z^7",
+      "z^8"
+    ],
+    "common_stabilized_vacuum_available": false,
+    "conditional_on": "selected heterotic realization and frozen alternate carrier",
+    "constituents": [
+      {
+        "actual_ext_coefficient_row": [
+          [
+            [
+              3,
+              [
+                "3",
+                "6"
+              ]
+            ],
+            [
+              0,
+              [
+                "-3",
+                "-6"
+              ]
+            ]
+          ],
+          [
+            [
+              7,
+              [
+                "3/4",
+                "3/4"
+              ]
+            ],
+            [
+              4,
+              [
+                "75/2",
+                "18"
+              ]
+            ],
+            [
+              1,
+              [
+                "-18",
+                "-75/4"
+              ]
+            ]
+          ],
+          [
+            [
+              8,
+              [
+                "-3",
+                "-6"
+              ]
+            ],
+            [
+              5,
+              [
+                "-234",
+                "-225"
+              ]
+            ],
+            [
+              2,
+              [
+                "-6",
+                "231"
+              ]
+            ]
+          ]
+        ],
+        "actual_ideal_generators": [
+          [
+            [
+              3,
+              [
+                "1/6",
+                "1/3"
+              ]
+            ],
+            [
+              0,
+              [
+                "1/3",
+                "1/6"
+              ]
+            ]
+          ],
+          [
+            [
+              1,
+              [
+                "1",
+                "0"
+              ]
+            ]
+          ],
+          [
+            [
+              8,
+              [
+                "1/3",
+                "1/6"
+              ]
+            ],
+            [
+              5,
+              [
+                "25/2",
+                "-1/2"
+              ]
+            ],
+            [
+              2,
+              [
+                "-37/3",
+                "-38/3"
+              ]
+            ]
+          ]
+        ],
+        "all_three_plane_charts_agree": true,
+        "constituent": "V1",
+        "full_cochain_sha256": "3215402b69dcfb8a2bf4e6611c65ebb76131572660fe345ace166e2212ee001f",
+        "multiplication_determinant": [
+          "282429536481",
+          "0"
+        ],
+        "plane_vertex": 2,
+        "quotient_generator_index": 0,
+        "restricted_ext_class": [
+          [
+            6,
+            [
+              "3/4",
+              "3/4"
+            ]
+          ],
+          [
+            3,
+            [
+              "75/2",
+              "18"
+            ]
+          ],
+          [
+            0,
+            [
+              "-18",
+              "-75/4"
+            ]
+          ]
+        ],
+        "restricted_ext_inverse": [
+          [
+            6,
+            [
+              "-1/486",
+              "-1/486"
+            ]
+          ],
+          [
+            3,
+            [
+              "-26/243",
+              "-25/486"
+            ]
+          ],
+          [
+            0,
+            [
+              "-1/486",
+              "13/243"
+            ]
+          ]
+        ],
+        "restricted_splitting_degrees": [
+          0,
+          0
+        ],
+        "source_character": [
+          "omega",
+          "1"
+        ],
+        "surface_factor": 1
+      },
+      {
+        "actual_ext_coefficient_row": [
+          [
+            [
+              8,
+              [
+                "-13/2",
+                "-10"
+              ]
+            ],
+            [
+              5,
+              [
+                "-425",
+                "-334"
+              ]
+            ],
+            [
+              2,
+              [
+                "143/2",
+                "841/2"
+              ]
+            ]
+          ],
+          [
+            [
+              8,
+              [
+                "5/2",
+                "-1"
+              ]
+            ],
+            [
+              5,
+              [
+                "34",
+                "-118"
+              ]
+            ],
+            [
+              2,
+              [
+                "-253/2",
+                "-95/2"
+              ]
+            ]
+          ],
+          [
+            [
+              7,
+              [
+                "1",
+                "1/2"
+              ]
+            ],
+            [
+              4,
+              [
+                "37",
+                "-4"
+              ]
+            ],
+            [
+              1,
+              [
+                "-67/2",
+                "-28"
+              ]
+            ]
+          ],
+          [
+            [
+              8,
+              [
+                "1",
+                "1/2"
+              ]
+            ],
+            [
+              5,
+              [
+                "37",
+                "-4"
+              ]
+            ],
+            [
+              2,
+              [
+                "-67/2",
+                "-28"
+              ]
+            ]
+          ]
+        ],
+        "actual_ideal_generators": [
+          [
+            [
+              7,
+              [
+                "1/12",
+                "1/12"
+              ]
+            ],
+            [
+              4,
+              [
+                "25/6",
+                "2"
+              ]
+            ],
+            [
+              1,
+              [
+                "-2",
+                "-49/12"
+              ]
+            ]
+          ],
+          [
+            [
+              1,
+              [
+                "1",
+                "0"
+              ]
+            ]
+          ],
+          [
+            [
+              3,
+              [
+                "1/6",
+                "1/3"
+              ]
+            ],
+            [
+              0,
+              [
+                "1/3",
+                "1/6"
+              ]
+            ]
+          ],
+          [
+            [
+              4,
+              [
+                "1/6",
+                "1/3"
+              ]
+            ],
+            [
+              1,
+              [
+                "1/3",
+                "1/6"
+              ]
+            ]
+          ]
+        ],
+        "all_three_plane_charts_agree": true,
+        "constituent": "I6-ray-0-1",
+        "full_cochain_sha256": "2a1458eb53f53c36c9124261186d110454bcf7f971759c325d05f13c3dc2862a",
+        "multiplication_determinant": [
+          "16067102519808",
+          "32134205039616"
+        ],
+        "plane_vertex": 2,
+        "quotient_generator_index": 0,
+        "restricted_ext_class": [
+          [
+            7,
+            [
+              "5/2",
+              "-1"
+            ]
+          ],
+          [
+            4,
+            [
+              "34",
+              "-118"
+            ]
+          ],
+          [
+            1,
+            [
+              "-253/2",
+              "-95/2"
+            ]
+          ]
+        ],
+        "restricted_ext_inverse": [
+          [
+            8,
+            [
+              "-7/972",
+              "5/1944"
+            ]
+          ],
+          [
+            5,
+            [
+              "-25/243",
+              "79/243"
+            ]
+          ],
+          [
+            2,
+            [
+              "853/1944",
+              "91/972"
+            ]
+          ]
+        ],
+        "restricted_splitting_degrees": [
+          0,
+          0
+        ],
+        "source_character": [
+          "1",
+          "omega"
+        ],
+        "surface_factor": 2
+      }
+    ],
+    "coordinate_x": [
+      [
+        1,
+        [
+          "1",
+          "0"
+        ]
+      ]
+    ],
+    "coordinate_y": [
+      [
+        8,
+        [
+          "1/3",
+          "1/6"
+        ]
+      ],
+      [
+        5,
+        [
+          "25/2",
+          "-1/2"
+        ]
+      ],
+      [
+        2,
+        [
+          "-37/3",
+          "-38/3"
+        ]
+      ]
+    ],
+    "cover_curve_count": 81,
+    "deck_fixed_point_checks": [
+      {
+        "exponents": [
+          0,
+          1
+        ],
+        "fixed_point_ideal_gcd_degree": 0,
+        "image_x": [
+          [
+            1,
+            [
+              "0",
+              "1"
+            ]
+          ]
+        ],
+        "image_y": [
+          [
+            8,
+            [
+              "-1/6",
+              "-1/3"
+            ]
+          ],
+          [
+            5,
+            [
+              "-13",
+              "-25/2"
+            ]
+          ],
+          [
+            2,
+            [
+              "-1/3",
+              "37/3"
+            ]
+          ]
+        ]
+      },
+      {
+        "exponents": [
+          0,
+          2
+        ],
+        "fixed_point_ideal_gcd_degree": 0,
+        "image_x": [
+          [
+            1,
+            [
+              "-1",
+              "-1"
+            ]
+          ]
+        ],
+        "image_y": [
+          [
+            8,
+            [
+              "-1/6",
+              "1/6"
+            ]
+          ],
+          [
+            5,
+            [
+              "1/2",
+              "13"
+            ]
+          ],
+          [
+            2,
+            [
+              "38/3",
+              "1/3"
+            ]
+          ]
+        ]
+      },
+      {
+        "exponents": [
+          1,
+          0
+        ],
+        "fixed_point_ideal_gcd_degree": 0,
+        "image_x": [
+          [
+            7,
+            [
+              "-1/6",
+              "1/6"
+            ]
+          ],
+          [
+            4,
+            [
+              "1/2",
+              "13"
+            ]
+          ],
+          [
+            1,
+            [
+              "38/3",
+              "1/3"
+            ]
+          ]
+        ],
+        "image_y": [
+          [
+            8,
+            [
+              "-1",
+              "-1"
+            ]
+          ],
+          [
+            5,
+            [
+              "-51",
+              "-24"
+            ]
+          ],
+          [
+            2,
+            [
+              "24",
+              "51"
+            ]
+          ]
+        ]
+      },
+      {
+        "exponents": [
+          1,
+          1
+        ],
+        "fixed_point_ideal_gcd_degree": 0,
+        "image_x": [
+          [
+            7,
+            [
+              "-1/6",
+              "-1/3"
+            ]
+          ],
+          [
+            4,
+            [
+              "-13",
+              "-25/2"
+            ]
+          ],
+          [
+            1,
+            [
+              "-1/3",
+              "37/3"
+            ]
+          ]
+        ],
+        "image_y": [
+          [
+            8,
+            [
+              "0",
+              "1"
+            ]
+          ],
+          [
+            5,
+            [
+              "27",
+              "51"
+            ]
+          ],
+          [
+            2,
+            [
+              "27",
+              "-24"
+            ]
+          ]
+        ]
+      },
+      {
+        "exponents": [
+          1,
+          2
+        ],
+        "fixed_point_ideal_gcd_degree": 0,
+        "image_x": [
+          [
+            7,
+            [
+              "1/3",
+              "1/6"
+            ]
+          ],
+          [
+            4,
+            [
+              "25/2",
+              "-1/2"
+            ]
+          ],
+          [
+            1,
+            [
+              "-37/3",
+              "-38/3"
+            ]
+          ]
+        ],
+        "image_y": [
+          [
+            8,
+            [
+              "1",
+              "0"
+            ]
+          ],
+          [
+            5,
+            [
+              "24",
+              "-27"
+            ]
+          ],
+          [
+            2,
+            [
+              "-51",
+              "-27"
+            ]
+          ]
+        ]
+      },
+      {
+        "exponents": [
+          2,
+          0
+        ],
+        "fixed_point_ideal_gcd_degree": 0,
+        "image_x": [
+          [
+            7,
+            [
+              "1/12",
+              "1/12"
+            ]
+          ],
+          [
+            4,
+            [
+              "25/6",
+              "2"
+            ]
+          ],
+          [
+            1,
+            [
+              "-4",
+              "-25/12"
+            ]
+          ]
+        ],
+        "image_y": [
+          [
+            8,
+            [
+              "0",
+              "-1/12"
+            ]
+          ],
+          [
+            5,
+            [
+              "-13/6",
+              "-25/6"
+            ]
+          ],
+          [
+            2,
+            [
+              "23/12",
+              "4"
+            ]
+          ]
+        ]
+      },
+      {
+        "exponents": [
+          2,
+          1
+        ],
+        "fixed_point_ideal_gcd_degree": 0,
+        "image_x": [
+          [
+            7,
+            [
+              "-1/12",
+              "0"
+            ]
+          ],
+          [
+            4,
+            [
+              "-2",
+              "13/6"
+            ]
+          ],
+          [
+            1,
+            [
+              "25/12",
+              "-23/12"
+            ]
+          ]
+        ],
+        "image_y": [
+          [
+            8,
+            [
+              "-1/12",
+              "0"
+            ]
+          ],
+          [
+            5,
+            [
+              "-2",
+              "13/6"
+            ]
+          ],
+          [
+            2,
+            [
+              "25/12",
+              "-23/12"
+            ]
+          ]
+        ]
+      },
+      {
+        "exponents": [
+          2,
+          2
+        ],
+        "fixed_point_ideal_gcd_degree": 0,
+        "image_x": [
+          [
+            7,
+            [
+              "0",
+              "-1/12"
+            ]
+          ],
+          [
+            4,
+            [
+              "-13/6",
+              "-25/6"
+            ]
+          ],
+          [
+            1,
+            [
+              "23/12",
+              "4"
+            ]
+          ]
+        ],
+        "image_y": [
+          [
+            8,
+            [
+              "1/12",
+              "1/12"
+            ]
+          ],
+          [
+            5,
+            [
+              "25/6",
+              "2"
+            ]
+          ],
+          [
+            2,
+            [
+              "-4",
+              "-25/12"
+            ]
+          ]
+        ]
+      }
+    ],
+    "embedding": "((X:Y:1),(U:V:1),(p0:p1)); independent basepoint factors",
+    "genesis_to_uv_derivation_available": false,
+    "hidden_restrictions_available": false,
+    "instanton_sum_available": false,
+    "jacobian": [
+      [
+        6,
+        [
+          "0",
+          "-81/4"
+        ]
+      ],
+      [
+        3,
+        [
+          "-729/2",
+          "-1377/2"
+        ]
+      ],
+      [
+        0,
+        [
+          "-729/4",
+          "162"
+        ]
+      ]
+    ],
+    "jacobian_inverse": [
+      [
+        6,
+        [
+          "1/6561",
+          "0"
+        ]
+      ],
+      [
+        3,
+        [
+          "49/13122",
+          "-53/13122"
+        ]
+      ],
+      [
+        0,
+        [
+          "-17/4374",
+          "-14/6561"
+        ]
+      ]
+    ],
+    "missing_seed_conic_embeddings_supplied": false,
+    "modulus": [
+      [
+        9,
+        [
+          "1",
+          "0"
+        ]
+      ],
+      [
+        6,
+        [
+          "24",
+          "-27"
+        ]
+      ],
+      [
+        3,
+        [
+          "-51",
+          "-27"
+        ]
+      ],
+      [
+        0,
+        [
+          "-1",
+          "0"
+        ]
+      ]
+    ],
+    "normal_bundle_degrees": [
+      -1,
+      -1
+    ],
+    "observations_used": false,
+    "outer_extension_point_selected": false,
+    "physical_pfaffian_amplitude_available": false,
+    "physical_yukawas_available": false,
+    "prerequisite_artifact_digests": {
+      "carrier": "d525c9fb44764f8dee8fd54a449b3aa584c6e4b15786f6b4f2a26011a3541c08",
+      "cone": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+    },
+    "quillen_normalization_available": false,
+    "quotient_curve_count": 9,
+    "quotient_map_degree_on_each_cover_curve": 1,
+    "schema": "alternate-section-curve-restrictions-v1",
+    "source_sha256": {
+      "research/experiments/computable_carrier/pencil.py": "07fb4c6ca52405d402c8aeecee443e523ee10ba7226c0ea7b57e70b2d4eade5d",
+      "research/experiments/computable_carrier/schoen_sparse_actions.py": "2a1d184afcabf6d32c1da8f658dd2317b3d6373f6345073e945af95c24b284cc",
+      "research/experiments/scientific_genesis/ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md": "6b573821a6e3145bef75cb3685179abf82a1343f11b19bc1651553ca2d55d09e",
+      "research/experiments/scientific_genesis/alternate_metric_quotient_generation.py": "436519c332a31506a1b8f1005f3a15220d9c81e5286c115061154bdb127c10cf",
+      "research/experiments/scientific_genesis/alternate_section_curve_restrictions.py": "db2879b052c669065e1f4471b42f87c09390e5246fcc7b9ed98730f489caf054",
+      "research/experiments/scientific_genesis/distinct_constituent_ray_screen.py": "42a416de2d6ecf52a37e252b5cd9b4a279a8a8f6b10078b29dfa6c8c61c39289",
+      "research/experiments/scientific_genesis/mixed_constituent_schoen_arrows.py": "f4d37618047c20b7e5208113d3531504c2f05f35eaed0dea9d8c0b1b0fa291e7",
+      "research/experiments/scientific_genesis/published_constituent_deck_actions.py": "4581273394ccdadfc3e3177dabdd6905f28c34386223478cce1446c179ccaeb3",
+      "research/experiments/scientific_genesis/published_constituent_full_cech.py": "c1a3bacd93b1f538c858ae0639753af8ef06d50f90fcb43b57d922b10bbdf438",
+      "research/experiments/scientific_genesis/published_constituent_ray_alignment.py": "d2787220c7c303777ad3d148da9af977dc83361f1d996129be7bd7190360e27d",
+      "src/onetheory/math/linear.py": "2615c183ec643d40987e93eb5816b18b44ee278934bf64ae084a40fac44e33cf",
+      "src/onetheory/math/numbers.py": "efbf0505e1dc23f96ee17b783c19716bf52937ba1db92d2ab0e4f78a364953f5",
+      "src/onetheory/math/polynomials.py": "27d1859cceff49830db90ba80e12d75e7b8bb4c36b07b97d08022eb809f48f74",
+      "src/onetheory/models/heterotic_schoen/geometry.py": "22bfdeb11cd2e33658d293a7e0df8ece07c5f82dcc29341727dbf8b0c3f76b11"
+    },
+    "torsion_or_b_field_cancellation_evaluated": false,
+    "two_basepoint_factors_are_independent": true,
+    "visible_restricted_splitting_degrees": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visible_spin_twist_degree": -1,
+    "visible_spin_twisted_h0": 0,
+    "visible_spin_twisted_h1": 0,
+    "whole_frozen_outer_parameter_family": true
+  },
+  "artifact_digest": "93b387a4b7176db74b324ef4ec2a914b278ba1099880d42eee8c3624308cae22",
   "artifacts": [
     {
       "bytes": 3337,
@@ -16229,6 +17398,26 @@
       "sha256": "1c8447bb8dfabd38300a80141d7d8c3622f796aec9a987556e048b2a8b417c53"
     },
     {
+      "bytes": 16606,
+      "path": "research/experiments/scientific_genesis/alternate_section_curve_restrictions.py",
+      "sha256": "db2879b052c669065e1f4471b42f87c09390e5246fcc7b9ed98730f489caf054"
+    },
+    {
+      "bytes": 5643,
+      "path": "research/experiments/scientific_genesis/ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md",
+      "sha256": "6b573821a6e3145bef75cb3685179abf82a1343f11b19bc1651553ca2d55d09e"
+    },
+    {
+      "bytes": 14986,
+      "path": "tests/integration/test_scientific_genesis_alternate_section_curve_restrictions.py",
+      "sha256": "1abc7018e0a4dc78293d867b8be9c502268ae69048e736439e6be99cef3e3c78"
+    },
+    {
+      "bytes": 19642,
+      "path": "data/generated/scientific_genesis/alternate_section_curve_restrictions.json",
+      "sha256": "ba848b709f405c03f1c568c3908e30b92a4590c0119abfeb7b74162debae3a11"
+    },
+    {
       "bytes": 13010,
       "path": "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
       "sha256": "b634077922c0a7d2ed8c4fb3886ff562412d4f2c12b61fc00a57cea98418ea10"
@@ -16520,11 +17709,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3366,
+    "collected_tests_at_audit": 3410,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 304,
-    "test_python_files": 290
+    "research_python_files": 305,
+    "test_python_files": 291
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -22175,6 +23364,29 @@
       "status": "COMPUTED"
     },
     {
+      "assumptions": [
+        "conditional heterotic realization",
+        "frozen alternate carrier component"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_section_curve_restrictions.py",
+        "research/experiments/scientific_genesis/ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md",
+        "tests/integration/test_scientific_genesis_alternate_section_curve_restrictions.py",
+        "data/generated/scientific_genesis/alternate_section_curve_restrictions.json"
+      ],
+      "id": "alternate_section_curve_restrictions",
+      "label": "actual exceptional-section restrictions of the frozen alternate family",
+      "layer": "Vacuum",
+      "missing_prerequisites": [
+        "physical determinant-line normalization",
+        "hidden restrictions",
+        "torsion or B-field cancellation",
+        "complete instanton sum"
+      ],
+      "statement": "Exact independent basepoint factors give 81 isolated cover curves and nine free quotient orbits. Actual full Serre classes are units on every base point, giving O^2 for both constituents and O^4 for the entire frozen outer family. The spin twist has H0=H1=0. This is a visible zero-mode prerequisite, not a physical amplitude.",
+      "status": "COMPUTED"
+    },
+    {
       "assumptions": [],
       "evidence": [
         "research/experiments/conic_pfaffians/audit.py"
@@ -22184,11 +23396,12 @@
       "layer": "Vacuum",
       "missing_prerequisites": [
         "seed embeddings",
-        "restricted resolutions",
+        "conic restricted resolutions",
+        "hidden restrictions and cancellation data",
         "relative-duality maps",
         "Quillen normalization"
       ],
-      "statement": "Seed conic embeddings, restrictions, determinant-line maps, and normalization are absent.",
+      "statement": "Actual exceptional-section visible restrictions are established for the frozen alternate family. Seed conic embeddings and their restrictions, determinant-line maps, hidden factors and physical normalization remain absent.",
       "status": "BLOCKED"
     },
     {
@@ -27759,6 +28972,51 @@
       "target": "physical_yukawas"
     },
     {
+      "assumptions_required": [
+        "frozen alternate carrier and exact pencil equations"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "changed curve type or carrier; nonunit Serre class"
+      ],
+      "mathematical_reason": "The two actual pencils determine the section embeddings.",
+      "source": "schoen_geometry",
+      "target": "alternate_section_curve_restrictions"
+    },
+    {
+      "assumptions_required": [
+        "frozen alternate carrier and exact pencil equations"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "changed curve type or carrier; nonunit Serre class"
+      ],
+      "mathematical_reason": "The actual constituent cochains determine restrictions of the entire family.",
+      "source": "alternate_constituent_carrier_state",
+      "target": "alternate_section_curve_restrictions"
+    },
+    {
+      "assumptions_required": [
+        "selected heterotic realization"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "hidden zero modes; determinant phases; cancellation among curves"
+      ],
+      "mathematical_reason": "Acyclic visible spin twists close one zero-mode prerequisite on these exceptional sections, not a normalized determinant or instanton sum.",
+      "source": "alternate_section_curve_restrictions",
+      "target": "physical_pfaffians"
+    },
+    {
       "assumptions_required": [],
       "implementation_or_artifact": [
         "research/experiments/conic_pfaffians/audit.py"
@@ -27953,6 +29211,7 @@
     }
   ],
   "established_results": [
+    "actual exceptional-section embeddings yield 81 isolated cover curves and nine quotient orbits; independently checked full Serre classes give trivial visible restriction for the whole frozen alternate family and acyclic spin twists, not conic seeds, physical Pfaffians, hidden restrictions, instanton cancellation or a common vacuum",
     "universal trace and scalar-characteristic arguments constrain exact canonical quantum realizations; independently checked boundary defects, positive-characteristic and finite CAR counterexamples prevent overbroad no-go claims; quantum phase, causality, gravity and UV emergence remain open",
     "transposed original finite-pole functionals produced all 5345 columns on one predeclared uncertain-input A domain; exact archive and independent full-cochain/raw-arrow Gaussian checks validate the evaluation order, not practical throughput or a metric",
     "the complete original unit-H trial kernel has an admitted whole-region inverse and all 5345 factorized action outputs; the global rank-four projection identity controls the weighted integrand with conditional fixed-parameter independent-law error estimates, not an integral, simultaneous moduli probability bound or a physical metric",

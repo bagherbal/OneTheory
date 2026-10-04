@@ -1,5 +1,24 @@
 # Scientific Genesis audit
 
+`alternate_section_curve_restrictions.py` closes an actual visible restriction
+prerequisite on the frozen alternate carrier, conditional on the selected
+heterotic realization. The two independent nine-point pencil algebras describe
+81 isolated exceptional-section curves on the cover and nine free quotient
+orbits. Each cover component maps isomorphically to its quotient image.
+
+Pullback of the original full Serre cochains gives unit extension classes for
+both constituents. Independent Fraction-pair reduction and elimination verify
+the classes, inverses, norms, deck fixed-point ideals and normal Jacobian.
+Both constituents restrict to O^2; H1(P1,O)=0 then gives O^4 for the entire
+frozen outer family without selecting a parameter. The visible spin twist is
+acyclic. See `ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md` for the analytic
+Euler-sequence and normal-bundle derivations.
+
+These exceptional sections are not the missing conic seeds. No normalized
+Pfaffian, hidden restriction, cancellation sum, B-field phase, Quillen metric,
+common vacuum or physical Yukawa is supplied. The result remains research-only;
+the metric compiler and all production sources are unchanged.
+
 The parallel foundational audit `canonical_representation_constraints.py`
 separates symbolic canonical-relation declarations from actual representations.
 A universal trace proof excludes exact nonzero canonical commutators on finite

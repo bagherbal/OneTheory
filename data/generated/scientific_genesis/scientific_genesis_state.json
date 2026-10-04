@@ -1,4 +1,162 @@
 {
+  "alternate_metric_fiber_functionals": {
+    "all_15_domains_executed": false,
+    "all_original_columns_consumed": true,
+    "artifact_digest": "dcb30fb238c2e4414bd89285a7d9ed4c1e36d0e2299ca8ce40a399ae7671d13a",
+    "bound_bits": 100,
+    "centers_are_exact_cover_points": false,
+    "chart_pivots": [
+      0,
+      0,
+      0
+    ],
+    "coefficient_entry_count": 64140,
+    "common_stabilized_vacuum_available": false,
+    "complete_5345_column_matrix_on_declared_new_domain_available": true,
+    "component": "A",
+    "controlled_integral_available": false,
+    "domain_role": "predeclared coupled-input regression; not an independent draw",
+    "exact_column_stream_sha256": "b1f445824225e3ada119a6f0ebde087a5fd8d699775cdf4af679b7e1640a9f43",
+    "extension_point_selected": false,
+    "fiber_basis_labels": [
+      "V1:F0:0",
+      "V1:F0:2",
+      "V2:F0:2",
+      "V2:F0:3"
+    ],
+    "first_pivot_rows": [
+      0,
+      2
+    ],
+    "functional_unit_count": 39087,
+    "independent_cloud_available": false,
+    "individual_units_asserted_closed": false,
+    "largest_coefficient_radius": "15447038341782040291507570923367881/158456325028528675187087900672",
+    "matrix_archive": "data/generated/scientific_genesis/alternate_metric_fiber_functionals.columns.jsonl.gz",
+    "matrix_archive_bytes": 1215937,
+    "matrix_archive_sha256": "ce8f49b885e8d1f80d28d6c1fbce41e0f51db11a7c1f96be1d19701f4e6a0032",
+    "normalized_cover_bounds": [
+      [
+        {
+          "center": [
+            "1",
+            "0"
+          ],
+          "radius": "0"
+        },
+        {
+          "center": [
+            "-243033723246769008742303423245/633825300114114700748351602688",
+            "-565261828262686813968777524955/1267650600228229401496703205376"
+          ],
+          "radius": "6766173621845729252455523/158456325028528675187087900672"
+        },
+        {
+          "center": [
+            "-1049203018270748409065999051687/1267650600228229401496703205376",
+            "-841344265575341372792065010721/633825300114114700748351602688"
+          ],
+          "radius": "279739795704545872822267911/1267650600228229401496703205376"
+        }
+      ],
+      [
+        {
+          "center": [
+            "1",
+            "0"
+          ],
+          "radius": "0"
+        },
+        {
+          "center": [
+            "398854367729781401720028770761/316912650057057350374175801344",
+            "2234658542834718579924091809643/1267650600228229401496703205376"
+          ],
+          "radius": "21395416285119958973064149/79228162514264337593543950336"
+        },
+        {
+          "center": [
+            "-170215940490590786602043251037/633825300114114700748351602688",
+            "136371483131904850275768935957/1267650600228229401496703205376"
+          ],
+          "radius": "559807933334663943013463425/1267650600228229401496703205376"
+        }
+      ],
+      [
+        {
+          "center": [
+            "1",
+            "0"
+          ],
+          "radius": "0"
+        },
+        {
+          "center": [
+            "-257232263626879036126219901797/633825300114114700748351602688",
+            "10106435056897302214932978357/39614081257132168796771975168"
+          ],
+          "radius": "1318479100855911725/316912650057057350374175801344"
+        }
+      ]
+    ],
+    "observations_used": false,
+    "observed_series_depths": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "original_constituent_counts": [
+      2655,
+      2690
+    ],
+    "original_unit_residual_key_count": 11832,
+    "parameter_order": [
+      "constant",
+      "a0",
+      "a1"
+    ],
+    "physical_yukawas_available": false,
+    "practical_multi_point_throughput_certified": false,
+    "prerequisite_digests_and_archives": [
+      {
+        "data/generated/scientific_genesis/alternate_constituent_outer_invariants.json": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+        "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+        "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json": "d9e320a952cc6d5fc843ea2f9c0254823d8d9a49b8d6dbd1d2dda0dd2d61f01c",
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json": "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d",
+        "data/generated/scientific_genesis/alternate_metric_outer_lifts.json": "3708b3f7757ec12080daa98d09315ed53a2c7d0e0ead61ff3a55777bb00aaa4c",
+        "data/generated/scientific_genesis/alternate_metric_second_sections.json": "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348",
+        "data/generated/scientific_genesis/projective_uncertain_intersections.json": "97981cfe6a6d67fd40287c8902a99f4ce3a73729fea6a64b4f133fdce82c0d26",
+        "data/generated/scientific_genesis/uncertain_cover_weights.json": "5be593ab1bfa8d1200b72a944d127cde33343158f1be79236ed5bcef51934429"
+      },
+      {
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz": "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68",
+        "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz": "cce0f3f00f7a61fb870087e21249af02ddd2b48c23b67e36bf0d67f8ee6a37e3"
+      }
+    ],
+    "proof_sha256": "046ef857410b8e519120bb31e6006928fce72bb76a882df8daf63e92149eb4ab",
+    "relation_minor": {
+      "center": [
+        "-345233485868876823252473153108441/1267650600228229401496703205376",
+        "334034669586890940601545006139835/633825300114114700748351602688"
+      ],
+      "radius": "1499140276646726921941492513951/1267650600228229401496703205376"
+    },
+    "ricci_flat_or_hym_metric_available": false,
+    "root_pair": [
+      0,
+      0
+    ],
+    "schema": "alternate-metric-fiber-functionals-v1",
+    "second_pivot_rows": [
+      0,
+      1,
+      2
+    ],
+    "section_count": 5345,
+    "uncertain_center_bits": 100,
+    "uncertain_entry_count": 21430
+  },
   "alternate_metric_trial_kernel": {
     "action_input": {
       "nonzero_coordinates": [
@@ -14613,7 +14771,7 @@
       ]
     ]
   },
-  "artifact_digest": "5fc5409422d0328f9a704b36e9acf7f9bb1763d5a2f8b8d23fc628dd3da2939e",
+  "artifact_digest": "bd26ffd871c552701b93572b8e5cd4e4bd6efa21f741ad8019bb44fb199565bf",
   "artifacts": [
     {
       "bytes": 3337,
@@ -15996,6 +16154,36 @@
       "sha256": "64016a3ff4add0c74dda6ee55b96b7ca6f83324f6588ce9ac8e513b5f815a5c9"
     },
     {
+      "bytes": 5639,
+      "path": "data/generated/scientific_genesis/alternate_metric_fiber_functionals.json",
+      "sha256": "942a1a781ce15c5844badf027293717b6bbd5c2beec58d213b9258c460dac5f8"
+    },
+    {
+      "bytes": 1215937,
+      "path": "data/generated/scientific_genesis/alternate_metric_fiber_functionals.columns.jsonl.gz",
+      "sha256": "ce8f49b885e8d1f80d28d6c1fbce41e0f51db11a7c1f96be1d19701f4e6a0032"
+    },
+    {
+      "bytes": 10588,
+      "path": "research/experiments/scientific_genesis/alternate_metric_fiber_functionals.py",
+      "sha256": "5aa07f7f080c1afec3b18e92b1f3ba60eb722540e3a2b30c3fcd6a11840caa76"
+    },
+    {
+      "bytes": 2539,
+      "path": "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md",
+      "sha256": "046ef857410b8e519120bb31e6006928fce72bb76a882df8daf63e92149eb4ab"
+    },
+    {
+      "bytes": 2606,
+      "path": "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_EXECUTION.md",
+      "sha256": "59fd57d3ee0e12c837ad564c5b5ae0e031fc2677e7d58e5d370818efde904f3e"
+    },
+    {
+      "bytes": 8710,
+      "path": "tests/integration/test_scientific_genesis_alternate_metric_fiber_functionals.py",
+      "sha256": "23336a5e44186a0cbec7c75f71e46bb9228aa0e9eb03d6f6c1562c7dbb8dfa1a"
+    },
+    {
       "bytes": 13010,
       "path": "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
       "sha256": "b634077922c0a7d2ed8c4fb3886ff562412d4f2c12b61fc00a57cea98418ea10"
@@ -16031,9 +16219,9 @@
       "sha256": "dbc22028c72e8ceb942ea3570f0501704be778c284569b15b0b0f177d5c42b12"
     },
     {
-      "bytes": 24036,
+      "bytes": 24240,
       "path": "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
-      "sha256": "101599f9b0231b0c274bdb48ea1c98f6d787533c78aaa19327f1c6fc7cad56c6"
+      "sha256": "4ab67d115d64de75fa720b4d09fcff3556d79b69a8bb42a7df975d0a45bb9db4"
     },
     {
       "bytes": 4488,
@@ -16287,11 +16475,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3248,
+    "collected_tests_at_audit": 3285,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 300,
-    "test_python_files": 286
+    "research_python_files": 301,
+    "test_python_files": 287
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -17893,11 +18081,12 @@
     "uncertain_roots_parent_digest": "97981cfe6a6d67fd40287c8902a99f4ce3a73729fea6a64b4f133fdce82c0d26"
   },
   "blocked_physical_calculations": [
-    "equivariantly trivial quotient determinant with preserved Wilson spectrum",
-    "atlas-derived relative-pushdown line characters resolving the unavailable down-Higgs representation",
-    "the first nontrivial deformation or higher-product Yukawa contribution",
-    "alternate-carrier matter metrics and remaining flavor matrices",
-    "physical normalization, hidden sector, vacuum, and low-energy predictions"
+    "controlled alternate-carrier Ricci-flat/HYM and harmonic matter/Higgs metrics",
+    "physical instanton/Pfaffian normalization and complete supported superpotential",
+    "compatible hidden construction, shared stability and global anomaly consistency",
+    "a common stabilized vacuum fixing the remaining physical moduli",
+    "canonically normalized physical Yukawas, running and low-energy predictions",
+    "the Genesis-to-UV derivation; quantum, causal and gravitational primitives remain assumptions rather than derived reality"
   ],
   "claims": [
     {
@@ -21152,6 +21341,34 @@
       "layer": "Normalization",
       "missing_prerequisites": [],
       "statement": "All 5345 original bounded columns are stored on the declared finite-chart domain at the original 80-bit radius mesh. The read-only consumer independently parses every column, verifies compressed and raw stream hashes, original parents and frame labels, and exact agreement with predecessor probes 0,1273,2655. Single-domain completion does not certify practical multi-point throughput, requested relative accuracy, sampling, or metrics.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "original finite pole encoding",
+        "certified finite lifting series",
+        "fixed determinant-certified frame",
+        "outward arithmetic"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/alternate_metric_fiber_functionals.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_EXECUTION.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_fiber_functionals.py",
+        "data/generated/scientific_genesis/alternate_metric_fiber_functionals.json",
+        "data/generated/scientific_genesis/alternate_metric_fiber_functionals.columns.jsonl.gz"
+      ],
+      "id": "alternate_metric_fiber_functionals",
+      "label": "Transposed original finite-pole section evaluation",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "practical multi-point throughput",
+        "independent cloud",
+        "controlled integration",
+        "Ricci-flat/HYM convergence",
+        "common vacuum"
+      ],
+      "statement": "The existing finite functional is evaluated once per encoded unit. All 5345 original columns were executed on the predeclared first uncertain A domain, with 39087 functional units. Exact archive comparisons and independent full-cochain/raw-arrow Gaussian checks attack all three native mixture components. The roughly 74-minute complete-domain run does not certify practical multi-point throughput, an independent cloud, or a metric.",
       "status": "COMPUTED"
     },
     {
@@ -25744,6 +25961,71 @@
     },
     {
       "assumptions_required": [
+        "original named section basis",
+        "fixed certified frame"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a linear evaluation identity does not certify complete execution or a metric"
+      ],
+      "mathematical_reason": "The existing functional is linear on pole units.",
+      "source": "alternate_metric_bounded_support",
+      "target": "alternate_metric_fiber_functionals"
+    },
+    {
+      "assumptions_required": [
+        "original named section basis",
+        "fixed certified frame"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a linear evaluation identity does not certify complete execution or a metric"
+      ],
+      "mathematical_reason": "The certified finite series, not closedness of each unit, defines the functional.",
+      "source": "alternate_metric_lift_operator_certificate",
+      "target": "alternate_metric_fiber_functionals"
+    },
+    {
+      "assumptions_required": [
+        "original named section basis",
+        "fixed certified frame"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a linear evaluation identity does not certify complete execution or a metric"
+      ],
+      "mathematical_reason": "Actual quotient frames supply valid local evaluations.",
+      "source": "uncertain_cover_frames",
+      "target": "alternate_metric_fiber_functionals"
+    },
+    {
+      "assumptions_required": [
+        "complete independent per-draw execution",
+        "controlled integration",
+        "metric convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "single-domain execution cannot supply a controlled physical metric"
+      ],
+      "mathematical_reason": "The complete original section output on one new domain is an integration prerequisite, not proof of numerical coverage or convergence.",
+      "source": "alternate_metric_fiber_functionals",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "certified complete output",
         "measured multi-point cost",
         "SU-uniform proposal law",
@@ -27069,6 +27351,7 @@
     }
   ],
   "established_results": [
+    "transposed original finite-pole functionals produced all 5345 columns on one predeclared uncertain-input A domain; exact archive and independent full-cochain/raw-arrow Gaussian checks validate the evaluation order, not practical throughput or a metric",
     "the complete original unit-H trial kernel has an admitted whole-region inverse and all 5345 factorized action outputs; the global rank-four projection identity controls the weighted integrand with conditional fixed-parameter independent-law error estimates, not an integral, simultaneous moduli probability bound or a physical metric",
     "all 5345 original columns contribute to complete formal trial covariance and unchanged auxiliary-weighted blocks on the original domain; exact triangular structure and positive constituent minor bounds give a uniform determinant lower bound for every complex parameter; unit H is a declared initializer, not a physical or harmonic matter metric",
     "the auxiliary mixture has a conditional same-prefix draw workflow with unbiased exact selectors, native actual roots and weights, certified branch continuation and retained unresolved requests; deterministic probes are not an IID cloud or a controlled integral",
@@ -27179,6 +27462,7 @@
     "one shared ambient transfer derives current synchronized Higgs H1 characters (0,0), (0,1), (2,0), and (2,1)"
   ],
   "experimental_prototypes": [
+    "the full original functional evaluator runs on one new uncertain domain, but its measured 74-minute execution does not establish practical multi-point integration throughput",
     "rank-four transition and horseshoe constructors",
     "common-DGA and HPL machinery",
     "complete natural quotient null-scalar evaluator with both exact coefficient residues certified",
@@ -29744,7 +30028,7 @@
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Use the actual residue and normalized FS measure with the bounded all-index evaluator and certified complete single-domain output; measure multi-point cost, then implement the positive auxiliary SU-uniform mixture using the quantitative global weight bound and admitted-cell root/weight bounds. Use the same-prefix draw workflow without dropping pending draws; justify external independence and complete section/frame integrands on those domains with integral errors; reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Control every draw's numerical enclosure, then implement nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Use the actual residue and normalized FS measure with the bounded all-index evaluator and certified complete new-domain output; the measured 74-minute domain requires structural numerator compilation or another rigorously cheaper representation before a large integration campaign. Do not treat cache reuse as throughput. measure multi-point cost, then implement the positive auxiliary SU-uniform mixture using the quantitative global weight bound and admitted-cell root/weight bounds. Use the same-prefix draw workflow without dropping pending draws; justify external independence and complete section/frame integrands on those domains with integral errors; reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Control every draw's numerical enclosure, then implement nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,
@@ -30028,7 +30312,8 @@
         "research/experiments/scientific_genesis/uncertain_cover_weights.py",
         "research/experiments/scientific_genesis/auxiliary_cover_draws.py",
         "research/experiments/scientific_genesis/alternate_section_covariance.py",
-        "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py"
+        "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py",
+        "research/experiments/scientific_genesis/alternate_metric_fiber_functionals.py"
       ],
       "maturity": "research-only; actual roots/charts/densities/universal frames, not sampling or metrics"
     },
@@ -30113,6 +30398,11 @@
     "the certified constituent atlases force Higgs characters (1,0), (1,1), (2,0), and (2,1), incompatible with the source-bound multiset"
   ],
   "structural_compression_questions": [
+    {
+      "attack": "reuse the actual pole encoding, finite homotopy/deck maps and exact polynomial engine; prove symbolic-to-bounded evaluation equality and zero-coordinate safety before claiming throughput. Do not start a large sampling campaign from this single-domain runtime",
+      "evidence": "the complete new-domain run produced 5345 columns in about 4444 seconds; the 39087 functional-unit cache stopped growing before many remaining sections, yet 11832 original unit-residual keys still required work",
+      "question": "Can original regular-coordinate numerator functionals be compiled symbolically once, avoiding numerical residual reconstruction for every section on every new domain?"
+    },
     {
       "attack": "check exact H2(E) vanishing, full row nilpotence, and commutation with both atlas generators before quantifying over all classes; this would certify existence and truncation, not assign any uncomputed primitive, scalar, physical normalization, or moduli value",
       "evidence": "twenty-four archived up/neutrino/d/e coefficient corrections use the same full equation, strict atlas projection, and parameter-linear quotient pushout in the same frozen carrier",

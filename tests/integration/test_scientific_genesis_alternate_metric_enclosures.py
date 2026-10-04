@@ -104,6 +104,29 @@ def test_complex_ball_arithmetic_contains_independent_exact_circle_values(center
             assert (left / right).contains(a / b)
 
 
+@pytest.mark.parametrize("radii", ((0, 0), (0, Rational(1, 1024)),
+                                  (Rational(1, 1024), 0),
+                                  (Rational(1, 1024), Rational(1, 512))))
+def test_multiplication_omits_only_exactly_vanishing_uncertainty_terms(radii, monkeypatch):
+    left = bounds.Ball(Eisenstein(2, 3), radii[0], 80)
+    right = bounds.Ball(Eisenstein(5, -7), radii[1], 80)
+    original = bounds.roots.modulus_bounds
+    expected_radius = (original(left.center, 80)[1] * right.radius
+                       + original(right.center, 80)[1] * left.radius
+                       + left.radius * right.radius)
+    expected = bounds.Ball(left.center * right.center, expected_radius, 80)
+    calls = []
+
+    def recorded(value, bits):
+        calls.append((value, bits))
+        return original(value, bits)
+
+    monkeypatch.setattr(bounds.roots, "modulus_bounds", recorded)
+    assert left * right == expected
+    assert calls == ([(left.center, 80)] if right.radius else []) + (
+        [(right.center, 80)] if left.radius else [])
+
+
 def test_interval_arithmetic_covers_signed_endpoints_and_rejects_possible_zero():
     left = bounds.Interval(Rational(-2), Rational(3), 40)
     right = bounds.Interval(Rational(4), Rational(5), 40)

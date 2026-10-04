@@ -200,10 +200,9 @@ class BoundedSupportEvaluator:
                     for key, values in grouped.items()
                 }
 
-    def _unit_correction(self, power, parameter, key):
-        cache_key = power, parameter, key
-        if cache_key in self.unit_values:
-            return self.unit_values[cache_key]
+    def _encoded_residual(self, power, parameter, key):
+        """Retain the original residual construction for either evaluation order."""
+
         index, x, p, chart = key
         residual = []
         for (component, ax, ap, cell), c in self.arrows[power, parameter].get((index, chart), ()):
@@ -213,41 +212,56 @@ class BoundedSupportEvaluator:
                 tuple(a + b for a, b in zip(p, ap, strict=True)), cell,
             )
             residual.extend(_encode_x_term(basis, c, self.x_channels[power]))
-        encoded = BoundedCoefficients(tuple(residual), bits=self.frame.point.bits)
+        return BoundedCoefficients(tuple(residual), bits=self.frame.point.bits)
+
+    def _residual_functional(self, power, encoded):
+        """Apply the existing finite series, deck pullback and fiber projection.
+
+        This is a linear functional on encoded degree-one inputs. It is not
+        a claim that an individual unit input is closed or has a primitive.
+        """
+
+        primitive, depth = perturbed_homotopy(encoded, self.operators[power],
+                                              homotopy=bounded_homotopy)
+        if depth > 5:
+            raise ValueError("the original finite-support filtration exceeded its bound")
+        self.series_depths.add(depth)
+        corrected = []
+        for basis, c in primitive.terms:
+            dummy_x, dummy_u = support._positive(basis.x_monomial), basis.u_monomial
+            scalar = Eisenstein(1)
+            for _ in range(power):
+                unit, dummy_x = _monomial_action(dummy_x, self.p.x_images)
+                scalar *= unit
+                unit, dummy_u = _monomial_action(dummy_u, self.p.u_images)
+                scalar *= unit
+            corrected.append((basis, c / scalar))
+        pulled = BoundedCoefficients(tuple(corrected), bits=self.frame.point.bits)
+        for _ in range(power):
+            pulled = _linear_columns(pulled, _deck_column)
+        coordinates = [self.scalar(0)] * 4
+        for basis, c in pulled.terms:
+            if (basis.cell != self.frame.point.cell or basis.component.koszul_summand != "k0"
+                or self.target.left.objects[basis.component.left_index].position != 0):
+                continue
+            monomial = tuple(min(e, 0) for e in basis.x_monomial) + (0, 0, 0) + basis.p_monomial
+            if monomial not in self.numerators:
+                self.numerators[monomial] = self.frame.point.monomial(monomial)
+            obj = basis.component.left_index
+            coordinates[obj] = coordinates[obj] + c * self.numerators[monomial]
+        value = bounded._multiply(self.projection, bounded._columns((tuple(coordinates),)))
+        return tuple(tuple(c * (Eisenstein(-1) / 3) for c in row) for row in value)
+
+    def _unit_correction(self, power, parameter, key):
+        cache_key = power, parameter, key
+        if cache_key in self.unit_values:
+            return self.unit_values[cache_key]
+        encoded = self._encoded_residual(power, parameter, key)
         residual_key = power, parameter, encoded
         if residual_key in self.residual_values:
             value = self.residual_values[residual_key]
         else:
-            primitive, depth = perturbed_homotopy(encoded, self.operators[power],
-                                                  homotopy=bounded_homotopy)
-            if depth > 5:
-                raise ValueError("the original finite-support filtration exceeded its bound")
-            self.series_depths.add(depth)
-            corrected = []
-            for basis, c in primitive.terms:
-                dummy_x, dummy_u = support._positive(basis.x_monomial), basis.u_monomial
-                scalar = Eisenstein(1)
-                for _ in range(power):
-                    unit, dummy_x = _monomial_action(dummy_x, self.p.x_images)
-                    scalar *= unit
-                    unit, dummy_u = _monomial_action(dummy_u, self.p.u_images)
-                    scalar *= unit
-                corrected.append((basis, c / scalar))
-            pulled = BoundedCoefficients(tuple(corrected), bits=self.frame.point.bits)
-            for _ in range(power):
-                pulled = _linear_columns(pulled, _deck_column)
-            coordinates = [self.scalar(0)] * 4
-            for basis, c in pulled.terms:
-                if (basis.cell != self.frame.point.cell or basis.component.koszul_summand != "k0"
-                    or self.target.left.objects[basis.component.left_index].position != 0):
-                    continue
-                monomial = tuple(min(e, 0) for e in basis.x_monomial) + (0, 0, 0) + basis.p_monomial
-                if monomial not in self.numerators:
-                    self.numerators[monomial] = self.frame.point.monomial(monomial)
-                obj = basis.component.left_index
-                coordinates[obj] = coordinates[obj] + c * self.numerators[monomial]
-            value = bounded._multiply(self.projection, bounded._columns((tuple(coordinates),)))
-            value = tuple(tuple(c * (Eisenstein(-1) / 3) for c in row) for row in value)
+            value = self._residual_functional(power, encoded)
             self.residual_values[residual_key] = value
         self.unit_values[cache_key] = value
         return value

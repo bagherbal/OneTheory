@@ -1,5 +1,14 @@
 # Scientific Genesis audit
 
+`alternate_metric_fiber_functionals.py` reorders the existing finite lifting
+functional onto encoded unit columns. Complete execution produced all 5,345
+original columns on one predeclared uncertain-input domain. It took about
+74 minutes after setup, so practical integration throughput remains unproven.
+Exact archive and independent full-cochain/Gaussian checks preserve the
+original nonsplit sections. Individual units are not assumed closed. See
+`ALTERNATE_METRIC_FIBER_FUNCTIONALS_EXECUTION.md` for the measured boundary
+and the next symbolic-numerator compression question. No cloud or metric follows.
+
 `alternate_metric_trial_kernel.py` uses the complete original section archive
 and explicit parameter disks to admit a four-by-four inverse and apply the
 factorized trial kernel to all 5,345 coordinates. Exact denominator rescaling

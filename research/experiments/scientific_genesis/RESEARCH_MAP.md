@@ -1,5 +1,26 @@
 # Scientific Genesis research map
 
+## Complete original section output on a new uncertain-input domain
+
+The transposed evaluator reuses the original five-term lifting functional,
+deck action and named quotient frame. It does not replace the carrier or
+interpret an individual encoded unit as a closed residual. Every original
+column was produced on the predeclared A branch (0,0), with all geometric
+uncertainty and both nonsplit parameter coefficients retained. Independent
+original-archive checks and full corrected-cochain/raw-arrow Gaussian attacks
+cover all three native mixture components. Those attacks are not independent
+all-column cochain replay or execution of all fifteen domains.
+
+The complete run took about 4,444 seconds after setup. The first exact-point
+cache fill was slower than the original evaluator; no matched speedup factor
+is asserted. A 39,087-unit cache stopped growing while substantial original
+residual reconstruction remained. The next structural question is symbolic
+regular-coordinate numerator compilation using existing polynomial and exact
+sparse-arrow machinery. Practical multi-point throughput, independent draws,
+controlled integration and converged metrics remain open. The 74-minute result
+does not justify starting a large sampling campaign. See
+`ALTERNATE_METRIC_FIBER_FUNCTIONALS_EXECUTION.md`.
+
 ## Complete factorized trial kernel and global projection bound
 
 `alternate_metric_trial_kernel` closes the complete original covariance's

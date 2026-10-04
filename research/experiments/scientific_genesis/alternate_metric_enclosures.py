@@ -177,9 +177,13 @@ class Ball:
 
     def __mul__(self, other):
         other = self._coerce(other)
-        left = roots.modulus_bounds(self.center, self.bits)[1]
-        right = roots.modulus_bounds(other.center, self.bits)[1]
-        radius = left * other.radius + right * self.radius + self.radius * other.radius
+        radius = self.radius * other.radius
+        # Exact coefficients contribute no uncertainty term. Do not compute
+        # a modulus enclosure only to multiply it by an identically zero radius.
+        if other.radius:
+            radius += roots.modulus_bounds(self.center, self.bits)[1] * other.radius
+        if self.radius:
+            radius += roots.modulus_bounds(other.center, self.bits)[1] * self.radius
         policy = self.center_bits if self.center_bits is not None else other.center_bits
         return Ball(self.center * other.center, radius, self.bits, policy)
 

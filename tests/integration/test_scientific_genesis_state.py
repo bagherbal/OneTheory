@@ -79,6 +79,27 @@ def test_full_section_covariance_is_not_physical_normalization() -> None:
     assert record["unit_family_determinant_certificate"]["extension_parameter_choice_used"] is False
 
 
+def test_complete_new_domain_functionals_keep_throughput_and_physics_unresolved() -> None:
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    record = stored["alternate_metric_fiber_functionals"]
+    assert claims["alternate_metric_fiber_functionals"]["status"] == "COMPUTED"
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+    assert record["section_count"] == 5345
+    assert record["complete_5345_column_matrix_on_declared_new_domain_available"] is True
+    for gate in ("individual_units_asserted_closed", "all_15_domains_executed",
+                 "practical_multi_point_throughput_certified", "independent_cloud_available",
+                 "controlled_integral_available", "ricci_flat_or_hym_metric_available",
+                 "physical_yukawas_available", "common_stabilized_vacuum_available"):
+        assert record[gate] is False
+    assert {edge["source"] for edge in stored["dependencies"]
+            if edge["target"] == "alternate_metric_fiber_functionals"} == {
+        "alternate_metric_bounded_support", "alternate_metric_lift_operator_certificate",
+        "uncertain_cover_frames",
+    }
+
+
 def test_complete_trial_kernel_keeps_independent_integration_and_physics_unresolved() -> None:
     """A global projector bound is not a metric or a uniform stochastic moduli claim."""
 

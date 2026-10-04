@@ -1,0 +1,158 @@
+{
+  "all_15_domains_executed": false,
+  "all_original_columns_consumed": true,
+  "artifact_digest": "dcb30fb238c2e4414bd89285a7d9ed4c1e36d0e2299ca8ce40a399ae7671d13a",
+  "bound_bits": 100,
+  "centers_are_exact_cover_points": false,
+  "chart_pivots": [
+    0,
+    0,
+    0
+  ],
+  "coefficient_entry_count": 64140,
+  "common_stabilized_vacuum_available": false,
+  "complete_5345_column_matrix_on_declared_new_domain_available": true,
+  "component": "A",
+  "controlled_integral_available": false,
+  "domain_role": "predeclared coupled-input regression; not an independent draw",
+  "exact_column_stream_sha256": "b1f445824225e3ada119a6f0ebde087a5fd8d699775cdf4af679b7e1640a9f43",
+  "extension_point_selected": false,
+  "fiber_basis_labels": [
+    "V1:F0:0",
+    "V1:F0:2",
+    "V2:F0:2",
+    "V2:F0:3"
+  ],
+  "first_pivot_rows": [
+    0,
+    2
+  ],
+  "functional_unit_count": 39087,
+  "independent_cloud_available": false,
+  "individual_units_asserted_closed": false,
+  "largest_coefficient_radius": "15447038341782040291507570923367881/158456325028528675187087900672",
+  "matrix_archive": "data/generated/scientific_genesis/alternate_metric_fiber_functionals.columns.jsonl.gz",
+  "matrix_archive_bytes": 1215937,
+  "matrix_archive_sha256": "ce8f49b885e8d1f80d28d6c1fbce41e0f51db11a7c1f96be1d19701f4e6a0032",
+  "normalized_cover_bounds": [
+    [
+      {
+        "center": [
+          "1",
+          "0"
+        ],
+        "radius": "0"
+      },
+      {
+        "center": [
+          "-243033723246769008742303423245/633825300114114700748351602688",
+          "-565261828262686813968777524955/1267650600228229401496703205376"
+        ],
+        "radius": "6766173621845729252455523/158456325028528675187087900672"
+      },
+      {
+        "center": [
+          "-1049203018270748409065999051687/1267650600228229401496703205376",
+          "-841344265575341372792065010721/633825300114114700748351602688"
+        ],
+        "radius": "279739795704545872822267911/1267650600228229401496703205376"
+      }
+    ],
+    [
+      {
+        "center": [
+          "1",
+          "0"
+        ],
+        "radius": "0"
+      },
+      {
+        "center": [
+          "398854367729781401720028770761/316912650057057350374175801344",
+          "2234658542834718579924091809643/1267650600228229401496703205376"
+        ],
+        "radius": "21395416285119958973064149/79228162514264337593543950336"
+      },
+      {
+        "center": [
+          "-170215940490590786602043251037/633825300114114700748351602688",
+          "136371483131904850275768935957/1267650600228229401496703205376"
+        ],
+        "radius": "559807933334663943013463425/1267650600228229401496703205376"
+      }
+    ],
+    [
+      {
+        "center": [
+          "1",
+          "0"
+        ],
+        "radius": "0"
+      },
+      {
+        "center": [
+          "-257232263626879036126219901797/633825300114114700748351602688",
+          "10106435056897302214932978357/39614081257132168796771975168"
+        ],
+        "radius": "1318479100855911725/316912650057057350374175801344"
+      }
+    ]
+  ],
+  "observations_used": false,
+  "observed_series_depths": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "original_constituent_counts": [
+    2655,
+    2690
+  ],
+  "original_unit_residual_key_count": 11832,
+  "parameter_order": [
+    "constant",
+    "a0",
+    "a1"
+  ],
+  "physical_yukawas_available": false,
+  "practical_multi_point_throughput_certified": false,
+  "prerequisite_digests_and_archives": [
+    {
+      "data/generated/scientific_genesis/alternate_constituent_outer_invariants.json": "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53",
+      "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json": "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca",
+      "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json": "d9e320a952cc6d5fc843ea2f9c0254823d8d9a49b8d6dbd1d2dda0dd2d61f01c",
+      "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json": "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d",
+      "data/generated/scientific_genesis/alternate_metric_outer_lifts.json": "3708b3f7757ec12080daa98d09315ed53a2c7d0e0ead61ff3a55777bb00aaa4c",
+      "data/generated/scientific_genesis/alternate_metric_second_sections.json": "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348",
+      "data/generated/scientific_genesis/projective_uncertain_intersections.json": "97981cfe6a6d67fd40287c8902a99f4ce3a73729fea6a64b4f133fdce82c0d26",
+      "data/generated/scientific_genesis/uncertain_cover_weights.json": "5be593ab1bfa8d1200b72a944d127cde33343158f1be79236ed5bcef51934429"
+    },
+    {
+      "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz": "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68",
+      "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz": "cce0f3f00f7a61fb870087e21249af02ddd2b48c23b67e36bf0d67f8ee6a37e3"
+    }
+  ],
+  "proof_sha256": "046ef857410b8e519120bb31e6006928fce72bb76a882df8daf63e92149eb4ab",
+  "relation_minor": {
+    "center": [
+      "-345233485868876823252473153108441/1267650600228229401496703205376",
+      "334034669586890940601545006139835/633825300114114700748351602688"
+    ],
+    "radius": "1499140276646726921941492513951/1267650600228229401496703205376"
+  },
+  "ricci_flat_or_hym_metric_available": false,
+  "root_pair": [
+    0,
+    0
+  ],
+  "schema": "alternate-metric-fiber-functionals-v1",
+  "second_pivot_rows": [
+    0,
+    1,
+    2
+  ],
+  "section_count": 5345,
+  "uncertain_center_bits": 100,
+  "uncertain_entry_count": 21430
+}

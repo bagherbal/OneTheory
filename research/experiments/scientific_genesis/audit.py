@@ -3858,6 +3858,29 @@ def _nodes() -> list[dict[str, object]]:
              "same bounded evaluator", "independent complete stream validation"),
         ),
         _node(
+            "alternate_metric_fiber_functionals",
+            "Transposed original finite-pole section evaluation",
+            "Normalization",
+            "COMPUTED",
+            "The existing finite functional is evaluated once per encoded unit. "
+            "All 5345 original columns were executed on the predeclared first "
+            "uncertain A domain, with 39087 functional units. Exact archive "
+            "comparisons and independent full-cochain/raw-arrow Gaussian "
+            "checks attack all three native mixture components. The roughly "
+            "74-minute complete-domain run does not certify practical "
+            "multi-point throughput, an independent cloud, or a metric.",
+            ("research/experiments/scientific_genesis/alternate_metric_fiber_functionals.py",
+             "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md",
+             "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_EXECUTION.md",
+             "tests/integration/test_scientific_genesis_alternate_metric_fiber_functionals.py",
+             "data/generated/scientific_genesis/alternate_metric_fiber_functionals.json",
+             "data/generated/scientific_genesis/alternate_metric_fiber_functionals.columns.jsonl.gz"),
+            ("original finite pole encoding", "certified finite lifting series",
+             "fixed determinant-certified frame", "outward arithmetic"),
+            ("practical multi-point throughput", "independent cloud",
+             "controlled integration", "Ricci-flat/HYM convergence", "common vacuum"),
+        ),
+        _node(
             "alternate_section_covariance",
             "complete trial covariance from the original full section matrix",
             "Normalization",
@@ -7133,6 +7156,32 @@ def _edges() -> list[dict[str, object]]:
             True,
             ("unit trial input is not a stabilized metric or derived physical coefficient",),
         ),
+        *tuple(_edge(
+            source,
+            "alternate_metric_fiber_functionals",
+            reason,
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md",),
+            ("original named section basis", "fixed certified frame"),
+            True,
+            ("a linear evaluation identity does not certify complete execution or a metric",),
+        ) for source, reason in (
+            ("alternate_metric_bounded_support",
+             "The existing functional is linear on pole units."),
+            ("alternate_metric_lift_operator_certificate",
+             "The certified finite series, not closedness of each unit, defines the functional."),
+            ("uncertain_cover_frames", "Actual quotient frames supply valid local evaluations."),
+        )),
+        _edge(
+            "alternate_metric_fiber_functionals",
+            "visible_metrics",
+            "The complete original section output on one new domain is an "
+            "integration prerequisite, not proof of numerical coverage or convergence.",
+            ("research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md",),
+            ("complete independent per-draw execution", "controlled integration",
+             "metric convergence"),
+            True,
+            ("single-domain execution cannot supply a controlled physical metric",),
+        ),
         _edge(
             "alternate_metric_bounded_matrix",
             "visible_metrics",
@@ -8458,6 +8507,7 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/auxiliary_cover_draws.py",
                 "research/experiments/scientific_genesis/alternate_section_covariance.py",
                 "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py",
+                "research/experiments/scientific_genesis/alternate_metric_fiber_functionals.py",
             ),
         ),
         (
@@ -8518,7 +8568,10 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             "Use the actual residue and normalized FS measure with the bounded "
-            "all-index evaluator and certified complete single-domain output; "
+            "all-index evaluator and certified complete new-domain output; "
+            "the measured 74-minute domain requires structural numerator "
+            "compilation or another rigorously cheaper representation before "
+            "a large integration campaign. Do not treat cache reuse as throughput. "
             "measure multi-point cost, then implement the positive auxiliary "
             "SU-uniform mixture using the quantitative global weight bound and "
             "admitted-cell root/weight bounds. Use the same-prefix draw workflow "
@@ -8611,6 +8664,7 @@ def build_state() -> dict[str, object]:
     """Inspect authoritative artifacts and assemble the deterministic state."""
 
     from .alternate_down_lepton_full_matrices import load_full_matrices
+    from .alternate_metric_fiber_functionals import verify_completed_domain
     from .alternate_metric_trial_kernel import read_kernel
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
     from .alternate_section_covariance import read_covariance
@@ -8632,6 +8686,10 @@ def build_state() -> dict[str, object]:
         "7da6b80e9694fb1f9f3f6249c5652fbb8a28d2c691bde4f1b49ac6de73da96b3"
     ):
         raise ValueError("the complete unit trial kernel changed its trusted output or scope")
+
+    fiber_functionals = verify_completed_domain(expected_digest=(
+        "dcb30fb238c2e4414bd89285a7d9ed4c1e36d0e2299ca8ce40a399ae7671d13a"
+    ))
 
     auxiliary_draws = read_draws()
     if _canonical_digest(auxiliary_draws) != (
@@ -12107,6 +12165,12 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/alternate_metric_trial_kernel.py",
         "research/experiments/scientific_genesis/ALTERNATE_METRIC_TRIAL_KERNEL_NOTE.md",
         "tests/integration/test_scientific_genesis_alternate_metric_trial_kernel.py",
+        "data/generated/scientific_genesis/alternate_metric_fiber_functionals.json",
+        "data/generated/scientific_genesis/alternate_metric_fiber_functionals.columns.jsonl.gz",
+        "research/experiments/scientific_genesis/alternate_metric_fiber_functionals.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_NOTE.md",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_FIBER_FUNCTIONALS_EXECUTION.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_fiber_functionals.py",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.json",
         "data/generated/scientific_genesis/alternate_neutrino_mixed_pairing.cochains.json.gz",
         "data/generated/scientific_genesis/alternate_neutrino_full_holomorphic_matrix.json",
@@ -12162,7 +12226,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3248,
+            "collected_tests_at_audit": 3285,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12711,11 +12775,16 @@ def build_state() -> dict[str, object]:
                 "description": "all three full action arrays are verified in the referenced packet",
             },
         },
+        "alternate_metric_fiber_functionals": fiber_functionals,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
         "claims": _nodes(),
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "transposed original finite-pole functionals produced all 5345 "
+            "columns on one predeclared uncertain-input A domain; exact archive "
+            "and independent full-cochain/raw-arrow Gaussian checks validate "
+            "the evaluation order, not practical throughput or a metric",
             "the complete original unit-H trial kernel has an admitted whole-region "
             "inverse and all 5345 factorized action outputs; the global rank-four "
             "projection identity controls the weighted integrand with conditional "
@@ -13112,6 +13181,9 @@ def build_state() -> dict[str, object]:
             "three families and one Higgs pair as selection constraints rather than predictions",
         ],
         "experimental_prototypes": [
+            "the full original functional evaluator runs on one new uncertain "
+            "domain, but its measured 74-minute execution does not establish "
+            "practical multi-point integration throughput",
             "rank-four transition and horseshoe constructors",
             "common-DGA and HPL machinery",
             "complete natural quotient null-scalar evaluator with both "
@@ -13124,12 +13196,13 @@ def build_state() -> dict[str, object]:
             "not a sampling law; complete single-domain output is now separately certified",
         ],
         "blocked_physical_calculations": [
-            "equivariantly trivial quotient determinant with preserved Wilson spectrum",
-            "atlas-derived relative-pushdown line characters resolving the "
-            "unavailable down-Higgs representation",
-            "the first nontrivial deformation or higher-product Yukawa contribution",
-            "alternate-carrier matter metrics and remaining flavor matrices",
-            "physical normalization, hidden sector, vacuum, and low-energy predictions",
+            "controlled alternate-carrier Ricci-flat/HYM and harmonic matter/Higgs metrics",
+            "physical instanton/Pfaffian normalization and complete supported superpotential",
+            "compatible hidden construction, shared stability and global anomaly consistency",
+            "a common stabilized vacuum fixing the remaining physical moduli",
+            "canonically normalized physical Yukawas, running and low-energy predictions",
+            "the Genesis-to-UV derivation; quantum, causal and gravitational primitives "
+            "remain assumptions rather than derived reality",
         ],
         "duplicated_calculations": [
             {
@@ -13158,6 +13231,26 @@ def build_state() -> dict[str, object]:
             },
         ],
         "structural_compression_questions": [
+            {
+                "question": (
+                    "Can original regular-coordinate numerator functionals be "
+                    "compiled symbolically once, avoiding numerical residual "
+                    "reconstruction for every section on every new domain?"
+                ),
+                "evidence": (
+                    "the complete new-domain run produced 5345 columns in "
+                    "about 4444 seconds; the 39087 functional-unit cache "
+                    "stopped growing before many remaining sections, yet "
+                    "11832 original unit-residual keys still required work"
+                ),
+                "attack": (
+                    "reuse the actual pole encoding, finite homotopy/deck maps "
+                    "and exact polynomial engine; prove symbolic-to-bounded "
+                    "evaluation equality and zero-coordinate safety before "
+                    "claiming throughput. Do not start a large sampling "
+                    "campaign from this single-domain runtime"
+                ),
+            },
             {
                 "question": (
                     "Can H2(E)=0 and the one-way outer row replace separate "

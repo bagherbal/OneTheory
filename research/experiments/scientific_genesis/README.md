@@ -1,5 +1,23 @@
 # Scientific Genesis audit
 
+`projective_subdivision_roots.py` supplies an explicitly selected, certified
+two-chart alternative to the bounded simultaneous root proposer. Exact whole-cell
+exclusion and the existing uniform Rouche certificates retain all projective
+roots, including moving infinity branches. Actual A/Bx/Bu regression executions
+retain their complete 9/3/3 coupled branch families; work exhaustion retains
+the original pending address. There is no automatic fallback or reseeding.
+
+A Taylor-margin proof gives eventual root admission under the explicit
+same-stream refinement schedule, conditional on independent infinite fair
+streams and simple limiting intersections. This does not prove convergence
+of the old proposer, certify entropy inputs, or authorize dropping finite
+cells. The same-root native containment controller now executes levels 8 to 12
+through a failed work cap without losing the admitted parent. Complete frame
+and section integrands, controlled integration, physical metrics and a common
+vacuum remain open. See
+`PROJECTIVE_SUBDIVISION_ROOTS_NOTE.md`. Production and original sources are
+unchanged.
+
 `alternate_metric_generic_frame.py` proves a conditional full-measure statement
 for the original named chart and relation pivots. Actual local differential
 columns yield small exact minors, independent of the outer parameters. A native

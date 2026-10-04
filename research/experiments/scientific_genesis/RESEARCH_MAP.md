@@ -1,5 +1,29 @@
 # Scientific Genesis research map
 
+## Constructive native root admission under same-stream refinement
+
+The next numerical admission edge now has an explicitly chosen subdivision
+route. Both declared parameter charts cover P1; exact Taylor inequalities
+exclude whole input cells or admit native uniform one-root disks. Three
+projectively disjoint disks exhaust the actual binary cubic for every member.
+Actual A/Bx/Bu executions certify complete 9/3/3 coupled branches. Independent
+Fraction-pair Taylor expansion, exact complex roots, moving infinity and finite
+failure attacks verify the implementation without invoking the old proposer.
+
+For simple limiting intersections the explicit radius/input precision/work-cap
+schedule eventually suffices; proper actual discriminant and named-pivot loci
+make this almost-sure under the stated independent fair stream assumption.
+This is not old-proposer convergence, all-cell admission or RNG evidence.
+All unresolved finite-prefix addresses remain prerequisites. A root index after
+first admission is not a branch identity: the controller retains its native
+parent and applies the existing containment bijection before refinement. Actual
+levels 8 to 12 execute through a failed cap, retaining that parent. Extending
+this executed root controller through complete section integrands and
+integration-error control is the next
+metric prerequisite, not another root-case enumeration. Physical metrics,
+canonical Yukawas and the common vacuum remain unresolved. See
+`PROJECTIVE_SUBDIVISION_ROOTS_NOTE.md` and its source-bound execution packet.
+
 ## Generic named-frame admission, not solver termination
 
 The actual original four-by-two and five-by-three differential blocks give

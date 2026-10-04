@@ -3749,8 +3749,39 @@ def _nodes() -> list[dict[str, object]]:
              "data/generated/scientific_genesis/alternate_metric_generic_frame.json"),
             ("selected smooth compact irreducible cover", "positive auxiliary beta^3 law",
              "actual original relations and native coupled nonvanishing witness"),
-            ("native almost-sure algorithmic admission", "independent inputs",
+            ("same-branch full frame/integrand admission controller", "independent inputs",
              "controlled integration errors", "Ricci-flat/HYM convergence", "common vacuum"),
+        ),
+        _node(
+            "projective_subdivision_roots",
+            "conditional eventual native root admission by explicit projective subdivision",
+            "Normalization",
+            "PROVED",
+            "Two caller-ordered parameter charts cover P1. Exact Taylor bounds "
+            "exclude whole squares or admit existing uniform Rouche disks. "
+            "Three projectively disjoint disks exhaust every actual binary cubic "
+            "member. A uniform Taylor-margin argument proves eventual finite "
+            "root admission under the explicit same-stream radius/precision/work "
+            "schedule for simple limiting intersections. Actual A/Bx/Bu witnesses "
+            "make their discriminant failure loci proper, hence null under the "
+            "conditional fair-input law. All complete 9/3/3 native regression "
+            "families execute without the simultaneous proposer. Independent "
+            "Fraction Taylor expansion, exact roots, moving infinity and finite "
+            "cap/cluster failures attack the proof. Native containment continues "
+            "all three declared addresses from levels 8 to 12 through a failed "
+            "work cap without losing the admitted parent. This proves no old-proposer "
+            "convergence, all-cell admission, entropy law or physical metric.",
+            ("research/experiments/scientific_genesis/projective_subdivision_roots.py",
+             "research/experiments/scientific_genesis/PROJECTIVE_SUBDIVISION_ROOTS_NOTE.md",
+             "tests/integration/test_scientific_genesis_projective_subdivision_roots.py",
+             "data/generated/scientific_genesis/projective_subdivision_roots.json"),
+            ("mutually independent infinite fair named bit streams",
+             "unchanged actual pencils and generic simple limiting intersections",
+             "source prefixes expose 4j bits; root selectors expose up to 2j until termination",
+             "explicit same-prefix refinement schedule and unchanged ordered line bases"),
+            ("full frame/section admission controller", "full section integrands",
+             "independent input cloud", "controlled integration errors",
+             "Ricci-flat/HYM convergence", "common vacuum"),
         ),
         _node(
             "alternate_metric_projection_free_weights",
@@ -7139,6 +7170,32 @@ def _edges() -> list[dict[str, object]]:
             ("finite-prefix numerical failure is not a null event",
              "properness does not prove convergence of the finite-work root proposer"),
         ),
+        *tuple(_edge(
+            source, "projective_subdivision_roots", reason,
+            ("research/experiments/scientific_genesis/PROJECTIVE_SUBDIVISION_ROOTS_NOTE.md",),
+            ("same actual auxiliary configurations", "explicit radius/precision/work schedule"),
+            True,
+            ("finite-prefix failures have positive probability and must remain pending",),
+        ) for source, reason in (
+            ("projective_uniform_input_cells",
+             "The existing exact input transformations supply shrinking same-prefix cells."),
+            ("projective_uncertain_intersections",
+             "Native uniform Rouche certificates verify roots independently of proposals."),
+            ("auxiliary_cover_draws",
+             "The existing addresses and coupling retain every branch and pending request."),
+            ("alternate_metric_positive_measure",
+             "Its smooth input law makes the proper actual discriminant failure sets null."),
+        )),
+        _edge(
+            "projective_subdivision_roots", "visible_metrics",
+            "Constructive eventual root admission replaces an unproved global "
+            "root-iteration prerequisite without dropping unresolved draws.",
+            ("research/experiments/scientific_genesis/PROJECTIVE_SUBDIVISION_ROOTS_NOTE.md",),
+            ("certified retained-parent root continuation", "full frame/section admission",
+             "independent inputs", "integration error control", "actual metric convergence"),
+            True,
+            ("root admission is not integrand admission or a practical expected-work bound",),
+        ),
         _edge(
             "uncertain_cover_frames",
             "visible_metrics",
@@ -8738,6 +8795,7 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_metric_bounded_support.py",
                 "research/experiments/scientific_genesis/projective_uniform_input_cells.py",
                 "research/experiments/scientific_genesis/projective_uncertain_intersections.py",
+                "research/experiments/scientific_genesis/projective_subdivision_roots.py",
                 "research/experiments/scientific_genesis/uncertain_cover_weights.py",
                 "research/experiments/scientific_genesis/auxiliary_cover_draws.py",
                 "research/experiments/scientific_genesis/alternate_section_covariance.py",
@@ -8913,6 +8971,7 @@ def build_state() -> dict[str, object]:
     from .alternate_section_curve_restrictions import read_restrictions
     from .auxiliary_cover_draws import read_draws
     from .canonical_representation_constraints import read_constraints
+    from .projective_subdivision_roots import read_subdivision
     from .projective_uncertain_intersections import read_uncertain_intersections
     from .projective_uniform_input_cells import read_input_cells
     from .uncertain_cover_frames import read_frames
@@ -8950,6 +9009,9 @@ def build_state() -> dict[str, object]:
     )
     generic_frame = read_generic_frame(expected_digest=(
         "4a3f35677039b12aa0239fbab79047b23b07d79ecd79288d7a9f0b0832c21b8f"
+    ))
+    subdivision_roots = read_subdivision(expected_digest=(
+        "27169bb7b404a863bee7791512169e03ab9ad3790596cd3baf1736c0f58ff768"
     ))
 
     canonical_constraints = read_constraints(expected_digest=(
@@ -12455,6 +12517,10 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/ALTERNATE_METRIC_GENERIC_FRAME_NOTE.md",
         "tests/integration/test_scientific_genesis_alternate_metric_generic_frame.py",
         "data/generated/scientific_genesis/alternate_metric_generic_frame.json",
+        "research/experiments/scientific_genesis/projective_subdivision_roots.py",
+        "research/experiments/scientific_genesis/PROJECTIVE_SUBDIVISION_ROOTS_NOTE.md",
+        "tests/integration/test_scientific_genesis_projective_subdivision_roots.py",
+        "data/generated/scientific_genesis/projective_subdivision_roots.json",
         "research/experiments/scientific_genesis/canonical_representation_constraints.py",
         "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
         "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
@@ -13043,8 +13109,9 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "close controlled independent metric integration with original complete "
-                "section data, verify Ricci-flat/HYM convergence and stabilize one common "
+                "extend the constructive same-root controller through full original frame "
+                "and section integrands with independent inputs and controlled integration "
+                "errors, verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
         },
@@ -13072,6 +13139,7 @@ def build_state() -> dict[str, object]:
         "alternate_metric_symbolic_columns": symbolic_columns,
         "alternate_metric_symbolic_evaluation": symbolic_evaluation,
         "alternate_metric_generic_frame": generic_frame,
+        "projective_subdivision_roots": subdivision_roots,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -13079,10 +13147,17 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "explicit two-chart subdivision admits complete native 9/3/3 "
+            "regression families; a Taylor-margin theorem gives eventual root "
+            "admission under same-stream refinement conditional on fair inputs "
+            "and simple limiting intersections; native containment continues "
+            "levels 8 to 12 through failed work without dropping the parent, "
+            "not old-proposer convergence, "
+            "all-cell admission, an independent cloud or a physical metric",
             "the original named chart/frame fails only on a proper auxiliary-null "
             "locus of the selected smooth irreducible cover for all outer parameters; "
-            "actual zero-minor geometry has a regular alternative frame. Native "
-            "solver termination, independent inputs and finite-cell errors remain "
+            "actual zero-minor geometry has a regular alternative frame. Complete "
+            "frame/integrand admission, independent inputs and finite-cell errors remain "
             "separate requirements; no pending requests may be discarded",
             "the unchanged complete polynomial consumer and fresh source-bound "
             "verifier completed all 5345 original sections and 64140 outward "

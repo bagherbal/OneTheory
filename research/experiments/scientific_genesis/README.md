@@ -28,7 +28,7 @@ systems. No unital finite-field scalar embedding into characteristic zero is
 available, but complex representations of finite groups remain possible.
 This supplies necessary constraints, not quantum emergence or a physical
 state. See `CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md`. Production quantum
-contracts, the original source artifacts and the live metric compiler are
+contracts, the original source artifacts and the metric compiler source are
 unchanged; no physical model is fabricated to satisfy an unresolved edge.
 
 `alternate_metric_symbolic_columns.py` compiles the original finite lifting
@@ -38,12 +38,22 @@ representation. The source-bound section identity is derived from the original
 cochain archives and universal lift certificate, without numerical point or
 chart inputs. It is not the hash of a numerical matrix at one point.
 
-The full compilation is in progress: no completed polynomial packet or new
-numerical execution is asserted at this checkpoint. The direct consumer
-`alternate_metric_symbolic_evaluation.py` requires trusted complete input and
-has no numerical fallback. Its declared domain is a regression, not an IID
-draw. Complete execution, measured repeated-point cost, independent integration
-and physical metrics remain separate gates. See
+The full compilation and separate source-bound archive verification completed
+all 5,345 original columns: 90,865 polynomials with 3,621,141 exact terms in
+the named first chart. Compilation took about 335 minutes after setup, not
+a measured whole-process cold runtime. Completed-output tests independently
+inspect the actual full stream and compare saved columns with full cochains.
+See `ALTERNATE_METRIC_SYMBOLIC_EXECUTION.md` for the completed output boundary.
+
+The unchanged direct consumer `alternate_metric_symbolic_evaluation.py` also
+completed every original section on the same predeclared uncertain A domain.
+The separately verified stream contains 64,140 coefficients at unchanged
+100-bit precision. Whole-process wall time was 32m48.32s; this is not the
+setup-excluded progress counter or a repeated-point throughput certificate.
+Independent full-stream and exact-polynomial/Gaussian checks attack the actual
+saved output. There is no numerical fallback. The domain is a regression,
+not an IID draw; independent integration and physical metrics remain separate
+gates. See the execution receipt above and
 `ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md` for the coefficient-ring argument.
 
 `alternate_metric_fiber_functionals.py` reorders the existing finite lifting

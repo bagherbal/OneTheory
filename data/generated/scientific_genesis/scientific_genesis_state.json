@@ -157,6 +157,301 @@
     "uncertain_center_bits": 100,
     "uncertain_entry_count": 21430
   },
+  "alternate_metric_symbolic_columns": {
+    "artifact_digest": "63dcc3ff50a8cf3aadbd896dd20a732774efbc460d714daeb2ee8ce41c44a488",
+    "chart_pivots": [
+      0,
+      0,
+      0
+    ],
+    "common_stabilized_vacuum_available": false,
+    "complete_original_basis_compiled": true,
+    "controlled_integral_available": false,
+    "every_chart_compiled": false,
+    "exact_polynomial_stream_sha256": "35471fcc01237efca2d83f09128d0a1e70242716d6612a97951e5a7eec58567e",
+    "exact_polynomial_term_count": 3621141,
+    "extension_point_selected": false,
+    "functional_unit_count": 39087,
+    "independent_all_column_cochain_replay": false,
+    "independent_cloud_available": false,
+    "matrix_archive": "data/generated/scientific_genesis/alternate_metric_symbolic_columns.polynomials.jsonl.gz",
+    "matrix_archive_bytes": 19036122,
+    "matrix_archive_sha256": "2f587826ae4cfee863e8016149d1ef827b538c91df6560876cabb557a4be3815",
+    "numerical_point_used_for_compilation": false,
+    "observations_used": false,
+    "observed_series_depths": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "original_constituent_counts": [
+      2655,
+      2690
+    ],
+    "original_source_signature": [
+      [
+        [
+          "data/generated/scientific_genesis/alternate_constituent_outer_invariants.json",
+          "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json",
+          "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
+          "d9e320a952cc6d5fc843ea2f9c0254823d8d9a49b8d6dbd1d2dda0dd2d61f01c"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
+          "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
+          "3708b3f7757ec12080daa98d09315ed53a2c7d0e0ead61ff3a55777bb00aaa4c"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_second_sections.json",
+          "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348"
+        ],
+        [
+          "data/generated/scientific_genesis/projective_uncertain_intersections.json",
+          "97981cfe6a6d67fd40287c8902a99f4ce3a73729fea6a64b4f133fdce82c0d26"
+        ],
+        [
+          "data/generated/scientific_genesis/uncertain_cover_weights.json",
+          "5be593ab1bfa8d1200b72a944d127cde33343158f1be79236ed5bcef51934429"
+        ]
+      ],
+      [
+        [
+          "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz",
+          "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz",
+          "cce0f3f00f7a61fb870087e21249af02ddd2b48c23b67e36bf0d67f8ee6a37e3"
+        ]
+      ]
+    ],
+    "original_unit_residual_key_count": 11832,
+    "parameter_order": [
+      "constant",
+      "a0",
+      "a1"
+    ],
+    "physical_yukawas_available": false,
+    "polynomial_count": 90865,
+    "practical_multi_point_throughput_certified": false,
+    "proof_sha256": "c9a020749747a01a7c0ee6d4817b194ce0e25312701fd460ee4dc81102719ff6",
+    "raw_generator_order": [
+      "V1:A",
+      "V1:F0:0",
+      "V1:F0:1",
+      "V1:F0:2",
+      "V2:A",
+      "V2:F0:0",
+      "V2:F0:1",
+      "V2:F0:2",
+      "V2:F0:3"
+    ],
+    "ricci_flat_or_hym_metric_available": false,
+    "schema": "alternate-metric-symbolic-columns-v1",
+    "section_count": 5345,
+    "variables": [
+      "x0",
+      "x1",
+      "x2",
+      "u0",
+      "u1",
+      "u2",
+      "p0",
+      "p1"
+    ]
+  },
+  "alternate_metric_symbolic_evaluation": {
+    "all_15_domains_executed": false,
+    "artifact_digest": "b439fab56d1095001f6f7ec5bb795d2606c55f4e51beb8b8e66959023c4318d9",
+    "bound_bits": 100,
+    "centers_are_exact_cover_points": false,
+    "chart_pivots": [
+      0,
+      0,
+      0
+    ],
+    "coefficient_entry_count": 64140,
+    "common_stabilized_vacuum_available": false,
+    "complete_compilation_digest": "63dcc3ff50a8cf3aadbd896dd20a732774efbc460d714daeb2ee8ce41c44a488",
+    "complete_original_basis_evaluated": true,
+    "component": "A",
+    "controlled_integral_available": false,
+    "domain_role": "predeclared coupled-input regression; not an independent draw",
+    "exact_column_stream_sha256": "a7f48c7da40064c11548bd6956301e03dd28b47f82d5dc16fe9dd958d06665a3",
+    "extension_point_selected": false,
+    "fiber_basis_labels": [
+      "V1:F0:0",
+      "V1:F0:2",
+      "V2:F0:2",
+      "V2:F0:3"
+    ],
+    "first_pivot_rows": [
+      0,
+      2
+    ],
+    "independent_all_column_cochain_replay": false,
+    "independent_cloud_available": false,
+    "largest_coefficient_radius": "136745486219359945981577150497088181/1267650600228229401496703205376",
+    "matrix_archive": "data/generated/scientific_genesis/alternate_metric_symbolic_evaluation.columns.jsonl.gz",
+    "matrix_archive_bytes": 1216047,
+    "matrix_archive_sha256": "794217a2df51b0eca496d9396d5d8cae470079fbbaa43631e3c69183cb78f322",
+    "normalized_cover_bounds": [
+      [
+        {
+          "center": [
+            "1",
+            "0"
+          ],
+          "radius": "0"
+        },
+        {
+          "center": [
+            "-243033723246769008742303423245/633825300114114700748351602688",
+            "-565261828262686813968777524955/1267650600228229401496703205376"
+          ],
+          "radius": "6766173621845729252455523/158456325028528675187087900672"
+        },
+        {
+          "center": [
+            "-1049203018270748409065999051687/1267650600228229401496703205376",
+            "-841344265575341372792065010721/633825300114114700748351602688"
+          ],
+          "radius": "279739795704545872822267911/1267650600228229401496703205376"
+        }
+      ],
+      [
+        {
+          "center": [
+            "1",
+            "0"
+          ],
+          "radius": "0"
+        },
+        {
+          "center": [
+            "398854367729781401720028770761/316912650057057350374175801344",
+            "2234658542834718579924091809643/1267650600228229401496703205376"
+          ],
+          "radius": "21395416285119958973064149/79228162514264337593543950336"
+        },
+        {
+          "center": [
+            "-170215940490590786602043251037/633825300114114700748351602688",
+            "136371483131904850275768935957/1267650600228229401496703205376"
+          ],
+          "radius": "559807933334663943013463425/1267650600228229401496703205376"
+        }
+      ],
+      [
+        {
+          "center": [
+            "1",
+            "0"
+          ],
+          "radius": "0"
+        },
+        {
+          "center": [
+            "-257232263626879036126219901797/633825300114114700748351602688",
+            "10106435056897302214932978357/39614081257132168796771975168"
+          ],
+          "radius": "1318479100855911725/316912650057057350374175801344"
+        }
+      ]
+    ],
+    "observations_used": false,
+    "original_constituent_counts": [
+      2655,
+      2690
+    ],
+    "original_section_basis_digest": "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c",
+    "original_source_signature": [
+      [
+        [
+          "data/generated/scientific_genesis/alternate_constituent_outer_invariants.json",
+          "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json",
+          "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
+          "d9e320a952cc6d5fc843ea2f9c0254823d8d9a49b8d6dbd1d2dda0dd2d61f01c"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
+          "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
+          "3708b3f7757ec12080daa98d09315ed53a2c7d0e0ead61ff3a55777bb00aaa4c"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_second_sections.json",
+          "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348"
+        ],
+        [
+          "data/generated/scientific_genesis/projective_uncertain_intersections.json",
+          "97981cfe6a6d67fd40287c8902a99f4ce3a73729fea6a64b4f133fdce82c0d26"
+        ],
+        [
+          "data/generated/scientific_genesis/uncertain_cover_weights.json",
+          "5be593ab1bfa8d1200b72a944d127cde33343158f1be79236ed5bcef51934429"
+        ]
+      ],
+      [
+        [
+          "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz",
+          "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68"
+        ],
+        [
+          "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz",
+          "cce0f3f00f7a61fb870087e21249af02ddd2b48c23b67e36bf0d67f8ee6a37e3"
+        ]
+      ]
+    ],
+    "parameter_order": [
+      "constant",
+      "a0",
+      "a1"
+    ],
+    "physical_yukawas_available": false,
+    "point_dependent_stream_is_global_section_identity": false,
+    "practical_multi_point_throughput_certified": false,
+    "proof_sha256": "c9a020749747a01a7c0ee6d4817b194ce0e25312701fd460ee4dc81102719ff6",
+    "relation_minor": {
+      "center": [
+        "-345233485868876823252473153108441/1267650600228229401496703205376",
+        "334034669586890940601545006139835/633825300114114700748351602688"
+      ],
+      "radius": "1499140276646726921941492513951/1267650600228229401496703205376"
+    },
+    "ricci_flat_or_hym_metric_available": false,
+    "root_pair": [
+      0,
+      0
+    ],
+    "schema": "alternate-metric-symbolic-evaluation-v1",
+    "second_pivot_rows": [
+      0,
+      1,
+      2
+    ],
+    "section_count": 5345,
+    "uncertain_center_bits": 100,
+    "uncertain_entry_count": 21430
+  },
   "alternate_metric_trial_kernel": {
     "action_input": {
       "nonzero_coordinates": [
@@ -15940,7 +16235,7 @@
     "visible_spin_twisted_h1": 0,
     "whole_frozen_outer_parameter_family": true
   },
-  "artifact_digest": "93b387a4b7176db74b324ef4ec2a914b278ba1099880d42eee8c3624308cae22",
+  "artifact_digest": "07fd959ce5f5b8162414c9826beeb8c944930c9074ea1b1ad70334de0ab69b3a",
   "artifacts": [
     {
       "bytes": 3337,
@@ -17378,6 +17673,41 @@
       "sha256": "1b7a351594fa5c57ce9e5e5b772dcc246bf535cb9d20aeae95f07a4a7d09b3d9"
     },
     {
+      "bytes": 5076,
+      "path": "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_EXECUTION.md",
+      "sha256": "ee73ec550610ada361e90791d3afc155f266713444e13ba35c78f977f992950f"
+    },
+    {
+      "bytes": 7600,
+      "path": "tests/integration/test_scientific_genesis_completed_symbolic_columns.py",
+      "sha256": "84a011892f7d65bd590b604a6801d32d72192d3f69fdb932e57af1a84b101a5d"
+    },
+    {
+      "bytes": 3598,
+      "path": "data/generated/scientific_genesis/alternate_metric_symbolic_columns.json",
+      "sha256": "6b45cb9c38583feec9a133f5ce3137ad4a9ed82e64f2832ec76e3ec0b2ebf7d7"
+    },
+    {
+      "bytes": 19036122,
+      "path": "data/generated/scientific_genesis/alternate_metric_symbolic_columns.polynomials.jsonl.gz",
+      "sha256": "2f587826ae4cfee863e8016149d1ef827b538c91df6560876cabb557a4be3815"
+    },
+    {
+      "bytes": 9255,
+      "path": "tests/integration/test_scientific_genesis_completed_symbolic_evaluation.py",
+      "sha256": "38fd08cb27a664dcf39694385e7642183e2541b607e6e6fd82871a65f22a778a"
+    },
+    {
+      "bytes": 5959,
+      "path": "data/generated/scientific_genesis/alternate_metric_symbolic_evaluation.json",
+      "sha256": "f0a80fcee060f909b15e7fed12d2e9faf5791bcc45dc08981a7b56a2e9d23c0b"
+    },
+    {
+      "bytes": 1216047,
+      "path": "data/generated/scientific_genesis/alternate_metric_symbolic_evaluation.columns.jsonl.gz",
+      "sha256": "794217a2df51b0eca496d9396d5d8cae470079fbbaa43631e3c69183cb78f322"
+    },
+    {
       "bytes": 11169,
       "path": "research/experiments/scientific_genesis/canonical_representation_constraints.py",
       "sha256": "15183a23fb278404ea681d2200585b63296f251409ae4c23c11ed6d701f8fd54"
@@ -17709,11 +18039,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3410,
+    "collected_tests_at_audit": 3438,
     "original_sources_unchanged": true,
     "production_python_files": 50,
     "research_python_files": 305,
-    "test_python_files": 291
+    "test_python_files": 293
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -23005,20 +23335,22 @@
       "evidence": [
         "research/experiments/scientific_genesis/alternate_metric_symbolic_columns.py",
         "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
-        "tests/integration/test_scientific_genesis_alternate_metric_symbolic_columns.py"
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_EXECUTION.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_symbolic_columns.py",
+        "tests/integration/test_scientific_genesis_completed_symbolic_columns.py",
+        "data/generated/scientific_genesis/alternate_metric_symbolic_columns.json",
+        "data/generated/scientific_genesis/alternate_metric_symbolic_columns.polynomials.jsonl.gz"
       ],
       "id": "alternate_metric_symbolic_columns",
       "label": "Point-independent original polynomial section columns",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "full compilation execution",
-        "measured full-domain cost",
         "multi-point throughput",
         "controlled integration",
         "metric convergence"
       ],
-      "statement": "Compilation over the exact regular coefficient ring reuses the original pole encoding, unit operators and finite lifting series. Five exact archived columns and independent full-cochain/raw-arrow Gaussian probes on all three native components check the representation. Complete symbolic output and measured multi-point throughput require execution; a lazy index range is not a full archive.",
-      "status": "CONJECTURED"
+      "statement": "Compilation over the exact regular coefficient ring reuses the original pole encoding, unit operators and finite lifting series. Five exact archived columns and independent full-cochain/raw-arrow Gaussian probes on all three native components check the representation. Complete execution and separate archive verification produced all 5345 original columns, 90865 polynomials and 3621141 exact terms in the explicitly normalized first chart. Setup-excluded compilation took about 335 minutes. Full-stream Fraction inspection and saved full-cochain probes check actual output; repeated-point throughput and physical metrics remain unproved.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [
@@ -23030,20 +23362,23 @@
       "evidence": [
         "research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py",
         "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
-        "tests/integration/test_scientific_genesis_alternate_metric_symbolic_evaluation.py"
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_EXECUTION.md",
+        "tests/integration/test_scientific_genesis_alternate_metric_symbolic_evaluation.py",
+        "tests/integration/test_scientific_genesis_completed_symbolic_evaluation.py",
+        "data/generated/scientific_genesis/alternate_metric_symbolic_evaluation.json",
+        "data/generated/scientific_genesis/alternate_metric_symbolic_evaluation.columns.jsonl.gz"
       ],
       "id": "alternate_metric_symbolic_evaluation",
       "label": "Full bounded evaluation from compiled original section polynomials",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "complete domain execution",
-        "trusted numerical stream",
+        "measured repeated-point throughput",
         "independent cloud",
         "controlled integration",
         "metric convergence"
       ],
-      "statement": "The direct consumer evaluates original raw generator polynomials in actual certified cover bounds, then applies the original named quotient projections. Complete execution, trusted output and per-domain cost require measurement; no sampling is inferred. The actual source-only section identity is separate from numerical output; missing compilation cannot be replaced by a fallback.",
-      "status": "CONJECTURED"
+      "statement": "The direct consumer evaluates original raw generator polynomials in actual certified cover bounds, then applies the original named quotient projections. Complete execution and separate fresh verification produced all 5345 sections and 64140 coefficients on the unchanged predeclared A domain at 100-bit precision. Measured whole-process wall time was 32m48.32s, distinct from the 1701-second setup-excluded progress counter. Independent full-stream rational inspection, prior-stream consistency and exact-polynomial/Gaussian probes attack actual saved output. One domain is neither repeated-point throughput nor sampling. The actual source-only section identity is separate from numerical output; missing compilation cannot be replaced by a fallback.",
+      "status": "COMPUTED"
     },
     {
       "assumptions": [
@@ -29211,6 +29546,8 @@
     }
   ],
   "established_results": [
+    "the unchanged complete polynomial consumer and fresh source-bound verifier completed all 5345 original sections and 64140 outward coefficients on one declared uncertain A domain at 100-bit precision; measured whole-process wall time was 32m48.32s, not proof of repeated-point throughput, independent sampling or a physical metric",
+    "the full exact original polynomial compiler and independent archive verifier completed all 5345 ordered sections with 90865 polynomials and 3621141 terms in one explicit chart; about 335 setup-excluded minutes of compilation do not certify numerical throughput, an independent cloud, an integral or a physical metric",
     "actual exceptional-section embeddings yield 81 isolated cover curves and nine quotient orbits; independently checked full Serre classes give trivial visible restriction for the whole frozen alternate family and acyclic spin twists, not conic seeds, physical Pfaffians, hidden restrictions, instanton cancellation or a common vacuum",
     "universal trace and scalar-characteristic arguments constrain exact canonical quantum realizations; independently checked boundary defects, positive-characteristic and finite CAR counterexamples prevent overbroad no-go claims; quantum phase, causality, gravity and UV emergence remain open",
     "transposed original finite-pole functionals produced all 5345 columns on one predeclared uncertain-input A domain; exact archive and independent full-cochain/raw-arrow Gaussian checks validate the evaluation order, not practical throughput or a metric",

@@ -100,8 +100,8 @@ def test_complete_new_domain_functionals_keep_throughput_and_physics_unresolved(
     }
 
 
-def test_pending_symbolic_execution_uses_the_actual_point_independent_section_identity() -> None:
-    """Verified section provenance is not evidence of complete numerical execution."""
+def test_completed_symbolic_execution_preserves_global_identity_and_metric_gates() -> None:
+    """Complete single-domain numerical output is not a physical metric."""
 
     stored = json.loads(STATE.read_text(encoding="utf-8"))
     identity = stored["original_metric_section_basis_identity"]
@@ -114,9 +114,40 @@ def test_pending_symbolic_execution_uses_the_actual_point_independent_section_id
     assert "chart_pivots" not in identity
     assert "exact_column_stream_sha256" not in identity
     claims = {claim["id"]: claim for claim in stored["claims"]}
-    for name in ("alternate_metric_symbolic_columns", "alternate_metric_symbolic_evaluation"):
-        assert claims[name]["status"] == "CONJECTURED"
-        assert name not in stored
+    assert claims["alternate_metric_symbolic_columns"]["status"] == "COMPUTED"
+    compiled = stored["alternate_metric_symbolic_columns"]
+    assert compiled["artifact_digest"] == (
+        "63dcc3ff50a8cf3aadbd896dd20a732774efbc460d714daeb2ee8ce41c44a488"
+    )
+    assert compiled["section_count"] == 5345
+    assert compiled["polynomial_count"] == 90865
+    assert compiled["exact_polynomial_term_count"] == 3621141
+    for flag in ("numerical_point_used_for_compilation", "every_chart_compiled",
+                 "independent_all_column_cochain_replay", "independent_cloud_available",
+                 "practical_multi_point_throughput_certified", "controlled_integral_available",
+                 "ricci_flat_or_hym_metric_available", "physical_yukawas_available"):
+        assert compiled[flag] is False
+    assert claims["alternate_metric_symbolic_evaluation"]["status"] == "COMPUTED"
+    numerical = stored["alternate_metric_symbolic_evaluation"]
+    assert numerical["artifact_digest"] == (
+        "b439fab56d1095001f6f7ec5bb795d2606c55f4e51beb8b8e66959023c4318d9"
+    )
+    assert numerical["complete_compilation_digest"] == compiled["artifact_digest"]
+    assert numerical["original_section_basis_digest"] == identity["artifact_digest"]
+    assert numerical["section_count"] == 5345
+    assert numerical["coefficient_entry_count"] == 64140
+    assert numerical["uncertain_entry_count"] == 21430
+    assert numerical["complete_original_basis_evaluated"] is True
+    assert numerical["bound_bits"] == numerical["uncertain_center_bits"] == 100
+    assert numerical["original_section_basis_digest"] != numerical["exact_column_stream_sha256"]
+    for flag in ("point_dependent_stream_is_global_section_identity", "all_15_domains_executed",
+                 "independent_all_column_cochain_replay",
+                 "practical_multi_point_throughput_certified",
+                 "independent_cloud_available", "controlled_integral_available",
+                 "ricci_flat_or_hym_metric_available", "physical_yukawas_available",
+                 "common_stabilized_vacuum_available", "extension_point_selected",
+                 "centers_are_exact_cover_points", "observations_used"):
+        assert numerical[flag] is False
     assert claims["visible_metrics"]["status"] == "BLOCKED"
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
 

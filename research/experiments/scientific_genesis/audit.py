@@ -3904,39 +3904,58 @@ def _nodes() -> list[dict[str, object]]:
             "alternate_metric_symbolic_columns",
             "Point-independent original polynomial section columns",
             "Normalization",
-            "CONJECTURED",
+            "COMPUTED",
             "Compilation over the exact regular coefficient ring reuses the "
             "original pole encoding, unit operators and finite lifting series. "
             "Five exact archived columns and independent full-cochain/raw-arrow "
             "Gaussian probes on all three native components check the representation. "
-            "Complete symbolic output and measured multi-point throughput "
-            "require execution; a lazy index range is not a full archive.",
+            "Complete execution and separate archive verification produced all "
+            "5345 original columns, 90865 polynomials and 3621141 exact terms "
+            "in the explicitly normalized first chart. Setup-excluded compilation "
+            "took about 335 minutes. Full-stream Fraction inspection and saved "
+            "full-cochain probes check actual output; repeated-point throughput "
+            "and physical metrics remain unproved.",
             ("research/experiments/scientific_genesis/alternate_metric_symbolic_columns.py",
              "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
-             "tests/integration/test_scientific_genesis_alternate_metric_symbolic_columns.py"),
+             "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_EXECUTION.md",
+             "tests/integration/test_scientific_genesis_alternate_metric_symbolic_columns.py",
+             "tests/integration/test_scientific_genesis_completed_symbolic_columns.py",
+             "data/generated/scientific_genesis/alternate_metric_symbolic_columns.json",
+             "data/generated/scientific_genesis/"
+             "alternate_metric_symbolic_columns.polynomials.jsonl.gz"),
             ("original regular coefficient ring", "certified finite lifting",
              "explicit normalized chart", "original named section source identity"),
-            ("full compilation execution", "measured full-domain cost",
-             "multi-point throughput", "controlled integration", "metric convergence"),
+            ("multi-point throughput", "controlled integration", "metric convergence"),
         ),
         _node(
             "alternate_metric_symbolic_evaluation",
             "Full bounded evaluation from compiled original section polynomials",
             "Normalization",
-            "CONJECTURED",
+            "COMPUTED",
             "The direct consumer evaluates original raw generator polynomials "
             "in actual certified cover bounds, then applies the original "
-            "named quotient projections. Complete execution, trusted output "
-            "and per-domain cost require measurement; no sampling is inferred. "
+            "named quotient projections. Complete execution and separate fresh "
+            "verification produced all 5345 sections and 64140 coefficients "
+            "on the unchanged predeclared A domain at 100-bit precision. "
+            "Measured whole-process wall time was 32m48.32s, distinct from "
+            "the 1701-second setup-excluded progress counter. Independent "
+            "full-stream rational inspection, prior-stream consistency and "
+            "exact-polynomial/Gaussian probes attack actual saved output. "
+            "One domain is neither repeated-point throughput nor sampling. "
             "The actual source-only section identity is separate from numerical "
             "output; missing compilation cannot be replaced by a fallback.",
             ("research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py",
              "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
-             "tests/integration/test_scientific_genesis_alternate_metric_symbolic_evaluation.py"),
+             "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_EXECUTION.md",
+             "tests/integration/test_scientific_genesis_alternate_metric_symbolic_evaluation.py",
+             "tests/integration/test_scientific_genesis_completed_symbolic_evaluation.py",
+             "data/generated/scientific_genesis/alternate_metric_symbolic_evaluation.json",
+             "data/generated/scientific_genesis/"
+             "alternate_metric_symbolic_evaluation.columns.jsonl.gz"),
             ("complete original polynomial compilation", "certified actual quotient frame",
              "outward arithmetic", "unchanged source and basis identity"),
-            ("complete domain execution", "trusted numerical stream",
-             "independent cloud", "controlled integration", "metric convergence"),
+            ("measured repeated-point throughput", "independent cloud",
+             "controlled integration", "metric convergence"),
         ),
         _node(
             "alternate_section_covariance",
@@ -8828,7 +8847,10 @@ def build_state() -> dict[str, object]:
 
     from .alternate_down_lepton_full_matrices import load_full_matrices
     from .alternate_metric_fiber_functionals import verify_completed_domain
-    from .alternate_metric_symbolic_columns import section_basis_identity
+    from .alternate_metric_symbolic_columns import section_basis_identity, verify_completed_chart
+    from .alternate_metric_symbolic_evaluation import (
+        verify_completed_domain as verify_symbolic_evaluation,
+    )
     from .alternate_metric_trial_kernel import read_kernel
     from .alternate_necessary_hidden_chamber import read_hidden_chamber
     from .alternate_section_covariance import read_covariance
@@ -8862,6 +8884,14 @@ def build_state() -> dict[str, object]:
         "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c"
     ):
         raise ValueError("the point-independent original section identity changed")
+
+    symbolic_columns = verify_completed_chart(expected_digest=(
+        "63dcc3ff50a8cf3aadbd896dd20a732774efbc460d714daeb2ee8ce41c44a488"
+    ))
+    symbolic_evaluation = verify_symbolic_evaluation(
+        expected_digest="b439fab56d1095001f6f7ec5bb795d2606c55f4e51beb8b8e66959023c4318d9",
+        expected_compilation_digest=symbolic_columns["artifact_digest"],
+    )
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
@@ -12355,6 +12385,13 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_COLUMNS_NOTE.md",
         "tests/integration/test_scientific_genesis_alternate_metric_symbolic_columns.py",
         "tests/integration/test_scientific_genesis_alternate_metric_symbolic_evaluation.py",
+        "research/experiments/scientific_genesis/ALTERNATE_METRIC_SYMBOLIC_EXECUTION.md",
+        "tests/integration/test_scientific_genesis_completed_symbolic_columns.py",
+        "data/generated/scientific_genesis/alternate_metric_symbolic_columns.json",
+        "data/generated/scientific_genesis/alternate_metric_symbolic_columns.polynomials.jsonl.gz",
+        "tests/integration/test_scientific_genesis_completed_symbolic_evaluation.py",
+        "data/generated/scientific_genesis/alternate_metric_symbolic_evaluation.json",
+        "data/generated/scientific_genesis/alternate_metric_symbolic_evaluation.columns.jsonl.gz",
         "research/experiments/scientific_genesis/canonical_representation_constraints.py",
         "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
         "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
@@ -12418,7 +12455,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3410,
+            "collected_tests_at_audit": 3438,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -12969,6 +13006,8 @@ def build_state() -> dict[str, object]:
         },
         "alternate_metric_fiber_functionals": fiber_functionals,
         "original_metric_section_basis_identity": section_identity,
+        "alternate_metric_symbolic_columns": symbolic_columns,
+        "alternate_metric_symbolic_evaluation": symbolic_evaluation,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -12976,6 +13015,17 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "the unchanged complete polynomial consumer and fresh source-bound "
+            "verifier completed all 5345 original sections and 64140 outward "
+            "coefficients on one declared uncertain A domain at 100-bit "
+            "precision; measured whole-process wall time was 32m48.32s, not "
+            "proof of repeated-point throughput, independent sampling or a "
+            "physical metric",
+            "the full exact original polynomial compiler and independent archive "
+            "verifier completed all 5345 ordered sections with 90865 polynomials "
+            "and 3621141 terms in one explicit chart; about 335 setup-excluded "
+            "minutes of compilation do not certify numerical throughput, an "
+            "independent cloud, an integral or a physical metric",
             "actual exceptional-section embeddings yield 81 isolated cover curves "
             "and nine quotient orbits; independently checked full Serre classes "
             "give trivial visible restriction for the whole frozen alternate "

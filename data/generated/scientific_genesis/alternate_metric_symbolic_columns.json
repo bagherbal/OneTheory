@@ -1,0 +1,113 @@
+{
+  "artifact_digest": "63dcc3ff50a8cf3aadbd896dd20a732774efbc460d714daeb2ee8ce41c44a488",
+  "chart_pivots": [
+    0,
+    0,
+    0
+  ],
+  "common_stabilized_vacuum_available": false,
+  "complete_original_basis_compiled": true,
+  "controlled_integral_available": false,
+  "every_chart_compiled": false,
+  "exact_polynomial_stream_sha256": "35471fcc01237efca2d83f09128d0a1e70242716d6612a97951e5a7eec58567e",
+  "exact_polynomial_term_count": 3621141,
+  "extension_point_selected": false,
+  "functional_unit_count": 39087,
+  "independent_all_column_cochain_replay": false,
+  "independent_cloud_available": false,
+  "matrix_archive": "data/generated/scientific_genesis/alternate_metric_symbolic_columns.polynomials.jsonl.gz",
+  "matrix_archive_bytes": 19036122,
+  "matrix_archive_sha256": "2f587826ae4cfee863e8016149d1ef827b538c91df6560876cabb557a4be3815",
+  "numerical_point_used_for_compilation": false,
+  "observations_used": false,
+  "observed_series_depths": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "original_constituent_counts": [
+    2655,
+    2690
+  ],
+  "original_source_signature": [
+    [
+      [
+        "data/generated/scientific_genesis/alternate_constituent_outer_invariants.json",
+        "34e6de70c34940f6335b9aa1f2dd772a2cc58cad3ba62e4f777725364af37e53"
+      ],
+      [
+        "data/generated/scientific_genesis/alternate_constituent_outer_universal_cone.json",
+        "b7c4327d8c1ee197f431cf05eebb38f38746a2a4eaf21440ac4338b051ce3fca"
+      ],
+      [
+        "data/generated/scientific_genesis/alternate_metric_bounded_fibers.json",
+        "d9e320a952cc6d5fc843ea2f9c0254823d8d9a49b8d6dbd1d2dda0dd2d61f01c"
+      ],
+      [
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.json",
+        "1a41b4cff18fb878b800f8f55609535d619186a55ae0861f101e6dcfe9667b0d"
+      ],
+      [
+        "data/generated/scientific_genesis/alternate_metric_outer_lifts.json",
+        "3708b3f7757ec12080daa98d09315ed53a2c7d0e0ead61ff3a55777bb00aaa4c"
+      ],
+      [
+        "data/generated/scientific_genesis/alternate_metric_second_sections.json",
+        "82fc3dfec203d767ab0741b26befec46d076178c06323e1f7c8bf70643317348"
+      ],
+      [
+        "data/generated/scientific_genesis/projective_uncertain_intersections.json",
+        "97981cfe6a6d67fd40287c8902a99f4ce3a73729fea6a64b4f133fdce82c0d26"
+      ],
+      [
+        "data/generated/scientific_genesis/uncertain_cover_weights.json",
+        "5be593ab1bfa8d1200b72a944d127cde33343158f1be79236ed5bcef51934429"
+      ]
+    ],
+    [
+      [
+        "data/generated/scientific_genesis/alternate_metric_first_serre_lifts.sections.json.gz",
+        "f2bc842dca2c2c5df06252e91e825b3facccefcace00b5dfa52e8de3fb71bd68"
+      ],
+      [
+        "data/generated/scientific_genesis/alternate_metric_second_sections.sections.json.gz",
+        "cce0f3f00f7a61fb870087e21249af02ddd2b48c23b67e36bf0d67f8ee6a37e3"
+      ]
+    ]
+  ],
+  "original_unit_residual_key_count": 11832,
+  "parameter_order": [
+    "constant",
+    "a0",
+    "a1"
+  ],
+  "physical_yukawas_available": false,
+  "polynomial_count": 90865,
+  "practical_multi_point_throughput_certified": false,
+  "proof_sha256": "c9a020749747a01a7c0ee6d4817b194ce0e25312701fd460ee4dc81102719ff6",
+  "raw_generator_order": [
+    "V1:A",
+    "V1:F0:0",
+    "V1:F0:1",
+    "V1:F0:2",
+    "V2:A",
+    "V2:F0:0",
+    "V2:F0:1",
+    "V2:F0:2",
+    "V2:F0:3"
+  ],
+  "ricci_flat_or_hym_metric_available": false,
+  "schema": "alternate-metric-symbolic-columns-v1",
+  "section_count": 5345,
+  "variables": [
+    "x0",
+    "x1",
+    "x2",
+    "u0",
+    "u1",
+    "u2",
+    "p0",
+    "p1"
+  ]
+}

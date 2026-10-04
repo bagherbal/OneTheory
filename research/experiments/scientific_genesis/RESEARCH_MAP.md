@@ -66,11 +66,25 @@ corrected-cochain and raw-arrow Gaussian checks attack all three native mixture
 components. These probes and a coefficient-ring derivation do not establish a
 completed 5,345-column polynomial archive or practical integration throughput.
 
-The full compiler remains in progress at this checkpoint. Its temporary stream
-is not an input certificate. The numerical consumer requires a trusted complete
-archive and evaluates original quotient projections with unchanged uncertainty;
-it never substitutes a partial matrix, center-only evaluation or fabricated
-fallback for missing input.
+The full compiler and its separate source-bound archive verifier completed all
+5,345 original sections in the explicit first chart. The actual output contains
+90,865 polynomials and 3,621,141 exact terms, with 39,087 cached functional
+units. The final reported setup-excluded compilation time is about 335 minutes;
+no improved numerical throughput follows from that cost. Completed-archive
+tests independently inspect every record and compare five saved columns,
+including both basis ends, against original full corrected cochains and a
+raw-arrow Gaussian quotient. See `ALTERNATE_METRIC_SYMBOLIC_EXECUTION.md`.
+
+No temporary prefix is used as an input certificate. The unchanged numerical
+consumer completed all 5,345 sections and 64,140 coefficients on the predeclared
+uncertain A domain, retaining the original quotient projections and 100-bit
+precision. A separate fresh source-bound verifier checked the actual complete
+stream. Whole-process wall time was 32m48.32s, with about 1.79 GiB peak resident
+memory. Independent tests inspect every rational enclosure, require consistency
+with the earlier full-domain archive, and check saved columns against exact
+polynomial/Gaussian witnesses. This remains one coupled-input regression,
+not an IID cloud, a repeated-point throughput certificate or a physical metric.
+There is no partial, center-only or fabricated numerical fallback.
 
 The global section basis is identified by the actual original constituent
 cochain archives and certified universal lift, not a point-dependent numerical

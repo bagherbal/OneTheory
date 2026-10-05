@@ -143,6 +143,36 @@ def test_full_section_covariance_is_not_physical_normalization() -> None:
     assert record["unit_family_determinant_certificate"]["extension_parameter_choice_used"] is False
 
 
+def test_integer_kernel_certification_closes_only_finite_cloud_numerical_error() -> None:
+    """Numerical enclosures neither improve sampling accuracy nor supply HYM."""
+
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    assert claims["certified_trial_cloud"]["status"] == "COMPUTED"
+    assert claims["independent_cloud_entropy_law"]["status"] == "ASSUMED"
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+    result = stored["certified_trial_cloud"]
+    assert result["finite_cloud_numerical_error_bound_available"] is True
+    assert result["unresolved_sample_ordinals"] == []
+    assert result["sample_count"] == 16
+    assert len(result["sample_certificates"]) == 16
+    assert result["sample_operator_rank_upper_bound"] == 64
+    assert result["minimum_samples_necessary_for_invertibility"] == 1337
+    for flag in ("roundoff_assumptions_used", "original_discovery_references_overwritten",
+                 "sampling_error_included", "failed_samples_dropped",
+                 "controlled_integral_available", "nonunit_h_iteration_executed",
+                 "ricci_flat_or_hym_metric_available", "physical_yukawas_available",
+                 "common_stabilized_vacuum_available", "observations_used"):
+        assert result[flag] is False
+    assert {edge["source"] for edge in stored["dependencies"]
+            if edge["target"] == "certified_trial_cloud"} == {
+        "independent_trial_cloud", "native_section_continuation",
+        "alternate_metric_symbolic_columns",
+    }
+    assert "1337" in stored["recommended_vertical_path"]["next_required_object"]
+
+
 def test_complete_new_domain_functionals_keep_throughput_and_physics_unresolved() -> None:
     stored = json.loads(STATE.read_text(encoding="utf-8"))
     claims = {claim["id"]: claim for claim in stored["claims"]}

@@ -16745,7 +16745,7 @@
     "visible_spin_twisted_h1": 0,
     "whole_frozen_outer_parameter_family": true
   },
-  "artifact_digest": "68f026820dba765aa3c57d70c42bd48d7a4e72d3f6aacf389dc3cb319859a31e",
+  "artifact_digest": "6325e3630b3046e4e3245e079255f98be5dacfbe11e7cf4a4c05a49df18a2697",
   "artifacts": [
     {
       "bytes": 3337,
@@ -18418,6 +18418,106 @@
       "sha256": "dabe4903d79762af932d7fc1811c369d8498e30b54f6b34f77c96ed6f8cfa3d8"
     },
     {
+      "bytes": 36591,
+      "path": "research/experiments/scientific_genesis/certified_trial_features.py",
+      "sha256": "4b6085652d2455dac6b4d6bc1b98d9aee9c975bdfca77453e8069c9b82dbb0da"
+    },
+    {
+      "bytes": 5439,
+      "path": "research/experiments/scientific_genesis/CERTIFIED_TRIAL_FEATURES_NOTE.md",
+      "sha256": "ab84d34e26a1aa8778a854628ee20bb1373887364eaae0c76dcfd06f1f045d7e"
+    },
+    {
+      "bytes": 15358,
+      "path": "tests/integration/test_scientific_genesis_certified_trial_features.py",
+      "sha256": "91afcbb065d850aec02dd914c06f34366f193b3eb65922fb8abcda6365106aed"
+    },
+    {
+      "bytes": 7421,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.json",
+      "sha256": "aba2d5e7f195f897afed07883c8f85d2b83b8e8e13dd2e759d1cadbb72c1bd25"
+    },
+    {
+      "bytes": 16037,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0000.json.gz",
+      "sha256": "4c8e790763d386e9921941eceb7eecc01af68f9f8b98c10dc89f9bbb6abfb93f"
+    },
+    {
+      "bytes": 16481,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0001.json.gz",
+      "sha256": "e8fbf488a1b90e8d091870a70b2d35472ff859e1d050b2bb34ecd4671bd96ba8"
+    },
+    {
+      "bytes": 13538,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0002.json.gz",
+      "sha256": "6b2a06617abcda6db5f101d23e413dbacfd7ce124ce04c1fd97642cbb04a919c"
+    },
+    {
+      "bytes": 10559,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0003.json.gz",
+      "sha256": "6f8c9394d246ee676a907cc1b310a83fdd5e57b383a8897a29ad2552de96d3de"
+    },
+    {
+      "bytes": 16223,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0004.json.gz",
+      "sha256": "39bea423c657080ad6b60bfdf0c12883b204edf24687dcb22df0021ca760a958"
+    },
+    {
+      "bytes": 15749,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0005.json.gz",
+      "sha256": "63835ffe87f1a4fe289739ca3892be96a402a5537f2fdc9f5ff62a9367f35253"
+    },
+    {
+      "bytes": 17002,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0006.json.gz",
+      "sha256": "91527348f0e4f17696126aadf257c00d8048b35bd425c6ccc19a0fe6b4e7dfd8"
+    },
+    {
+      "bytes": 15549,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0007.json.gz",
+      "sha256": "7d03fb615f871c257fd60d256123d74620cc3e6cedd7e68f2f91367379a314be"
+    },
+    {
+      "bytes": 16557,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0008.json.gz",
+      "sha256": "d37baec513c6e9b4180bd34f02f14457aa64e35d66da17a0a28db4079c8df13e"
+    },
+    {
+      "bytes": 17625,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0009.json.gz",
+      "sha256": "b4c7cd261580eb2b77b32face68a510c055378b6730e283b70eb39b384751b91"
+    },
+    {
+      "bytes": 16445,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0010.json.gz",
+      "sha256": "2b60d85ab6f66ee9dc7a4ec4f60cc06d371b36a37b6f3bad502ce99630881ef4"
+    },
+    {
+      "bytes": 17259,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0011.json.gz",
+      "sha256": "a1b0a452ca2a26c07bb591e22e5ac8139a320505d990db0390e90895a1440e44"
+    },
+    {
+      "bytes": 12392,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0012.json.gz",
+      "sha256": "c6ccb876882c57e4deebc37419b1e2dfb10b171205ad932c7622d7ae062a60da"
+    },
+    {
+      "bytes": 16578,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0013.json.gz",
+      "sha256": "c56f0ad8b49e3fc14b8c51c2968730dfec4814fdeea3ab3b8b717fedeb4bbe24"
+    },
+    {
+      "bytes": 11957,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0014.json.gz",
+      "sha256": "ea30ccc2a828bdbd905997a291a8b2e499ab18cbce96352f6ad0b4a29f7745ca"
+    },
+    {
+      "bytes": 16812,
+      "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0015.json.gz",
+      "sha256": "34dd5d21f4478298ee3379e215626843ae1e6da9911d6073e39dc93ae5299a55"
+    },
+    {
       "bytes": 11169,
       "path": "research/experiments/scientific_genesis/canonical_representation_constraints.py",
       "sha256": "15183a23fb278404ea681d2200585b63296f251409ae4c23c11ed6d701f8fd54"
@@ -18749,11 +18849,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3598,
+    "collected_tests_at_audit": 3646,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 311,
-    "test_python_files": 299
+    "research_python_files": 312,
+    "test_python_files": 300
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -20732,6 +20832,154 @@
       "AB-BA=lambda I with lambda nonzero cannot hold exactly",
       "no unital scalar-ring homomorphism from F_p into a characteristic-zero field"
     ]
+  },
+  "certified_trial_cloud": {
+    "arithmetic": "exact integer Gaussian disk centers, radii and square-root bounds",
+    "artifact_digest": "dc613f8f9603fd3fad440ce3622a7e03c62561f1925a796b87e74482abdb9fb7",
+    "common_stabilized_vacuum_available": false,
+    "compilation_parent_digest": "63dcc3ff50a8cf3aadbd896dd20a732774efbc460d714daeb2ee8ce41c44a488",
+    "controlled_integral_available": false,
+    "entropy_assumption_status": "ASSUMED",
+    "execution_signature": "2d0839bad30c6b1b0b2ce3e51dbbceb3aa3cc0432ce22bdad85d588ca124ae19",
+    "failed_samples_dropped": false,
+    "finite_cloud_mean_operator_frobenius_error_upper_without_pi_cubed": "705254494193731442494048870639174084807639/1461501637330902918203684832716283019655932542976",
+    "finite_cloud_numerical_error_bound_available": true,
+    "input_digest": "6a0def040a9ce1b2e702c7a5df428bb9ae35db84ae382599dca4d3caff55f748",
+    "minimum_samples_necessary_for_invertibility": 1337,
+    "nonunit_h_iteration_executed": false,
+    "observations_used": false,
+    "original_cloud_digest": "706b323d3d1860767e916755d7b982ec2bd9cc4e6a884d064e67d29b8094b10c",
+    "original_discovery_references_overwritten": false,
+    "original_section_basis_digest": "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c",
+    "physical_yukawas_available": false,
+    "policy": {
+      "arithmetic_mesh_bits": 160,
+      "max_cells": 65536,
+      "original_levels": [
+        12,
+        16
+      ],
+      "refinement_level": 24
+    },
+    "ricci_flat_or_hym_metric_available": false,
+    "roundoff_assumptions_used": false,
+    "sample_certificates": [
+      {
+        "artifact_digest": "76fd711b0abebd95c76fc0b487e6e46680357f2ed2020b59da119220f5245385",
+        "ordinal": 0,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0000.json.gz",
+        "sha256": "4c8e790763d386e9921941eceb7eecc01af68f9f8b98c10dc89f9bbb6abfb93f"
+      },
+      {
+        "artifact_digest": "67b671fff7201488157ec14c1d147ca00c9a9fc0e816e00747c81c909d472470",
+        "ordinal": 1,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0001.json.gz",
+        "sha256": "e8fbf488a1b90e8d091870a70b2d35472ff859e1d050b2bb34ecd4671bd96ba8"
+      },
+      {
+        "artifact_digest": "f0fba5ed199e616c9cfa3f35ae3a4285bbd80e9161fd102b3a2d8eb8d2194879",
+        "ordinal": 2,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0002.json.gz",
+        "sha256": "6b2a06617abcda6db5f101d23e413dbacfd7ce124ce04c1fd97642cbb04a919c"
+      },
+      {
+        "artifact_digest": "de562749c3064d34b71edd17a427274b29a65f8751fd858ba52970ca4b38c3be",
+        "ordinal": 3,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0003.json.gz",
+        "sha256": "6f8c9394d246ee676a907cc1b310a83fdd5e57b383a8897a29ad2552de96d3de"
+      },
+      {
+        "artifact_digest": "0361c137d2001b8c714e5a95118a86c8320a484fdc249a4e2947369968c8147b",
+        "ordinal": 4,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0004.json.gz",
+        "sha256": "39bea423c657080ad6b60bfdf0c12883b204edf24687dcb22df0021ca760a958"
+      },
+      {
+        "artifact_digest": "41658b9ae098a9e55d6f7a687e0fda4a7859968defda180abc5273de8b549466",
+        "ordinal": 5,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0005.json.gz",
+        "sha256": "63835ffe87f1a4fe289739ca3892be96a402a5537f2fdc9f5ff62a9367f35253"
+      },
+      {
+        "artifact_digest": "c9c89767876a9ddf1df6ac2fd78f383abde4114f049ab17a44b9cc43d9ca7035",
+        "ordinal": 6,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0006.json.gz",
+        "sha256": "91527348f0e4f17696126aadf257c00d8048b35bd425c6ccc19a0fe6b4e7dfd8"
+      },
+      {
+        "artifact_digest": "9a51e104e2eefc62903d226a536d21ebae52caada252f40b258b267ca232dced",
+        "ordinal": 7,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0007.json.gz",
+        "sha256": "7d03fb615f871c257fd60d256123d74620cc3e6cedd7e68f2f91367379a314be"
+      },
+      {
+        "artifact_digest": "3a32cebb1467c0077eda46cc69d89c641c81e1ad84f9370faa1c025158575dd2",
+        "ordinal": 8,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0008.json.gz",
+        "sha256": "d37baec513c6e9b4180bd34f02f14457aa64e35d66da17a0a28db4079c8df13e"
+      },
+      {
+        "artifact_digest": "4caf37ab3227e58f83c3fc8e9672fdadd1d3c7e0f1e04947cad23a1d8b736330",
+        "ordinal": 9,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0009.json.gz",
+        "sha256": "b4c7cd261580eb2b77b32face68a510c055378b6730e283b70eb39b384751b91"
+      },
+      {
+        "artifact_digest": "6e107cb1d0f3d20d856688968d3ce35d16a983b6460b7398b088c651a50de075",
+        "ordinal": 10,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0010.json.gz",
+        "sha256": "2b60d85ab6f66ee9dc7a4ec4f60cc06d371b36a37b6f3bad502ce99630881ef4"
+      },
+      {
+        "artifact_digest": "1708f8b27182535296cfa3dd6195426eee7b37ebb791a921279ff096e6e47e6d",
+        "ordinal": 11,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0011.json.gz",
+        "sha256": "a1b0a452ca2a26c07bb591e22e5ac8139a320505d990db0390e90895a1440e44"
+      },
+      {
+        "artifact_digest": "d1282adbb6082d62777cfd19895567def04f8fd593cf59f14a3538091019c492",
+        "ordinal": 12,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0012.json.gz",
+        "sha256": "c6ccb876882c57e4deebc37419b1e2dfb10b171205ad932c7622d7ae062a60da"
+      },
+      {
+        "artifact_digest": "e318319495698c364a1769e7a514e71be0c5f756c373308c1a6f9bcb6f0ea03a",
+        "ordinal": 13,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0013.json.gz",
+        "sha256": "c56f0ad8b49e3fc14b8c51c2968730dfec4814fdeea3ab3b8b717fedeb4bbe24"
+      },
+      {
+        "artifact_digest": "49d4e77d02c2981044bb8080750ea4b1c8868906c4970e628b24c530ff1bc8d6",
+        "ordinal": 14,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0014.json.gz",
+        "sha256": "ea30ccc2a828bdbd905997a291a8b2e499ab18cbce96352f6ad0b4a29f7745ca"
+      },
+      {
+        "artifact_digest": "9a74c99f1f3101aae3c4f73d3dc0982cfc71b575085832c45dd3ba3339c457d5",
+        "ordinal": 15,
+        "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0015.json.gz",
+        "sha256": "34dd5d21f4478298ee3379e215626843ae1e6da9911d6073e39dc93ae5299a55"
+      }
+    ],
+    "sample_count": 16,
+    "sample_operator_rank_upper_bound": 64,
+    "sampling_error_included": false,
+    "schema": "certified-retained-trial-cloud-v1",
+    "source_files_sha256": {
+      "research/experiments/scientific_genesis/CERTIFIED_TRIAL_FEATURES_NOTE.md": "ab84d34e26a1aa8778a854628ee20bb1373887364eaae0c76dcfd06f1f045d7e",
+      "research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md": "fecd128fedeeb06fee4b3075edd2117b0590d99cfc4c889112af4309a73e51a3",
+      "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py": "d38dcdf5ce94cee24d921c744b27fea5932311a16ebbce6dd239f6fe211e17c8",
+      "research/experiments/scientific_genesis/auxiliary_cover_draws.py": "8563dd02290cff06c8f25c2a6ce85aee32dd459e9ab149086fdf88c298f35d5f",
+      "research/experiments/scientific_genesis/certified_trial_features.py": "4b6085652d2455dac6b4d6bc1b98d9aee9c975bdfca77453e8069c9b82dbb0da",
+      "research/experiments/scientific_genesis/compiled_section_features.py": "d5fb672c20bc5db505498b5e4e83cb959d1dffc97fdeaba24346e72982f8549e",
+      "research/experiments/scientific_genesis/independent_cloud_inputs.py": "fcee850c7b88e0065c3b5fb8b9757d4077245834f5f99972e38ac0ae88cead0a",
+      "research/experiments/scientific_genesis/independent_trial_cloud.py": "58b704fb336c47c3b9fc17679e68806f120126dfed9b1a25ce9244877091bbcb",
+      "research/experiments/scientific_genesis/native_section_continuation.py": "ac39e7dd9c89abaf3614b5866b86552ef478d73a575fa98e45a0beb06b218163",
+      "research/experiments/scientific_genesis/projective_subdivision_roots.py": "2a68582d6fff5b2c757751842e064b457ce252f02ba6674721038210810d82af",
+      "research/experiments/scientific_genesis/projective_uncertain_intersections.py": "2d2c8555ed9712d2e319e1cde2918b226797203f8a076609cbce0b8b7dccc78e",
+      "research/experiments/scientific_genesis/uncertain_cover_weights.py": "0934fbee559e6241ef17b2131c7b24642a743e43fe885d69f0354521def09b9b"
+    },
+    "unresolved_sample_ordinals": []
   },
   "claims": [
     {
@@ -23994,6 +24242,32 @@
         "common vacuum"
       ],
       "statement": "The fixed new sixteen-sample workload executes native root/frame admission and full 5345-section factorized unit-H kernels at two resolutions without redrawing failures. Full weighted projector means are available only when every requested sample is admitted; a partial admitted subset never becomes the integral. Ideal IID statistical bounds use the established positive auxiliary law, but do not cover discovery arithmetic or input-cell errors. The sample operator has rank at most 64; it cannot be inverted for a 5345-dimensional nonunit-H update. At least 1337 samples are necessary, not sufficient, for invertibility.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "unchanged complete original section basis",
+        "selected unstabilized point",
+        "explicit integer arithmetic mesh",
+        "unit-H and unit residue scale"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/certified_trial_features.py",
+        "research/experiments/scientific_genesis/CERTIFIED_TRIAL_FEATURES_NOTE.md",
+        "tests/integration/test_scientific_genesis_certified_trial_features.py",
+        "data/generated/scientific_genesis/certified_trial_cloud.json"
+      ],
+      "id": "certified_trial_cloud",
+      "label": "full retained finite-cloud input and arithmetic error enclosure",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "useful statistical integral accuracy",
+        "sufficient full-rank sample operator",
+        "nonunit-H iteration",
+        "Ricci-flat/HYM convergence",
+        "common vacuum"
+      ],
+      "statement": "Integer Gaussian disks enclose all original coefficients, native coordinate cells and quotient projections without trusting hardware rounding. Every original sample is refined on its captured streams while the saved discovery rows remain unchanged. Full-section perturbation and row-Gram bounds certify the ideal rank-four projector and the entire finite-cloud weighted operator error. This numerical bound is distinct from ideal IID sampling error; it does not invert the rank-at-most-64 sample operator or imply a controlled physical metric, HYM convergence or a vacuum.",
       "status": "COMPUTED"
     },
     {
@@ -29274,6 +29548,73 @@
     },
     {
       "assumptions_required": [
+        "full retained sixteen-sample mean",
+        "no replaced discovery reference"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/CERTIFIED_TRIAL_FEATURES_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "finite-cloud numerical control is not statistical accuracy"
+      ],
+      "mathematical_reason": "Unchanged complete saved dyadic rows and positive weight references are compared with true kernels on every retained original cell.",
+      "source": "independent_trial_cloud",
+      "target": "certified_trial_cloud"
+    },
+    {
+      "assumptions_required": [
+        "original chart and pivot order",
+        "all captured streams retained"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/CERTIFIED_TRIAL_FEATURES_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "no finite positive-probability cell may be dropped"
+      ],
+      "mathematical_reason": "Certified same-stream refinement retains the original roots, quotient frame and ancestor cells while tightening input uncertainty.",
+      "source": "native_section_continuation",
+      "target": "certified_trial_cloud"
+    },
+    {
+      "assumptions_required": [
+        "same original full section basis",
+        "exact embedding and outward arithmetic"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/CERTIFIED_TRIAL_FEATURES_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "unresolved rank margins prevent a certified mean"
+      ],
+      "mathematical_reason": "All original exact coefficients compile into integer disk instructions; full projector perturbation avoids a dense section matrix.",
+      "source": "alternate_metric_symbolic_columns",
+      "target": "certified_trial_cloud"
+    },
+    {
+      "assumptions_required": [
+        "useful statistical accuracy",
+        "full-rank nonunit-H update",
+        "Ricci-flat/HYM convergence",
+        "line untwisting",
+        "common vacuum"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/certified_trial_cloud.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "a rank-at-most-64 cloud cannot be inverted in 5345 dimensions"
+      ],
+      "mathematical_reason": "A finite-cloud input and arithmetic bound supplies one missing error component without closing statistical or physical metric gates.",
+      "source": "certified_trial_cloud",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "same original full section basis",
         "explicit numerical discovery embedding"
       ],
@@ -31174,7 +31515,8 @@
     }
   ],
   "established_results": [
-    "sixteen new retained-input samples execute all original 5345 sections and full factorized unit-H trial projectors at two resolutions; every sample and stream is retained under the assumed fair IID law; global discovery operator means are computed but input and rounding errors remain uncontrolled; rank at most 64 prevents a full inverse metric update, with at least 1337 samples necessary for invertibility",
+    "exact integer disk arithmetic encloses all original 5345 sections after same-stream refinement of all sixteen captured samples; full row-Gram and perturbation bounds certify ideal rank-four projectors and a full finite-cloud numerical operator error bound against unchanged saved discovery references; sampling accuracy, a full inverse metric update, HYM and physical normalization remain open",
+    "sixteen new retained-input samples execute all original 5345 sections and full factorized unit-H trial projectors at two resolutions; every sample and stream is retained under the assumed fair IID law; global discovery means remain approximate references, with input and arithmetic errors separately bounded by the new certification; rank at most 64 prevents a full inverse metric update, with at least 1337 samples necessary for invertibility",
     "all 5345 original sections evaluate twice on all fifteen fixed regression domains through 83523 shared monomials and immutable sparse discovery instructions; held-out Fraction-pair and existing bounded arithmetic checks preserve original identities; timings are measured, rounding and input errors remain uncertified, and no independent cloud, integral or physical metric is supplied",
     "retained-root refinement composes with the original named frame and all 5345 sections; finite rational-expression continuity gives conditional coefficient convergence on the proper-locus complement, uniformly on compact extension-parameter sets; one actual A continuation executes complete weighted trial covariance, not an inverse kernel, certified stopping tolerance, integral or physical metric",
     "explicit two-chart subdivision admits complete native 9/3/3 regression families; a Taylor-margin theorem gives eventual root admission under same-stream refinement conditional on fair inputs and simple limiting intersections; native containment continues levels 8 to 12 through failed work without dropping the parent, not old-proposer convergence, all-cell admission, an independent cloud or a physical metric",
@@ -52210,13 +52552,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "control numerical and statistical errors on the retained independent-input discovery cloud without redraws; obtain enough original full-section samples to overcome the rank bound (at least 1337 necessary), then execute a controlled global integral and genuine nonunit-H iteration; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
+    "next_required_object": "freeze the complete retained independent-input cloud numerical error bound; obtain useful statistical accuracy and enough original full-section samples to overcome the rank bound (at least 1337 necessary), then execute a controlled global integral and genuine nonunit-H iteration; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. Freeze those inputs and control input-cell and arithmetic errors without replacing hard samples. The sample operator rank is at most 64, so no full 5345-dimensional inverse update is available; at least 1337 samples and a verified span are needed. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Control every draw's numerical enclosure, then implement nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The sample operator rank is at most 64, so no full 5345-dimensional inverse update is available; at least 1337 samples and a verified span are needed. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,
@@ -52508,9 +52850,10 @@
         "research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py",
         "research/experiments/scientific_genesis/compiled_section_features.py",
         "research/experiments/scientific_genesis/independent_cloud_inputs.py",
-        "research/experiments/scientific_genesis/independent_trial_cloud.py"
+        "research/experiments/scientific_genesis/independent_trial_cloud.py",
+        "research/experiments/scientific_genesis/certified_trial_features.py"
       ],
-      "maturity": "research-only; actual roots/charts/densities/universal frames, plus explicitly uncertified full-operator discovery; not physical metrics"
+      "maturity": "research-only; actual roots/charts/densities/universal frames, plus approximate discovery and separately certified finite-cloud numerical error; not physical metrics"
     },
     {
       "capability": "same-carrier strict character projection and remaining flavor execution",

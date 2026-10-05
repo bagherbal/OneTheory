@@ -1,5 +1,27 @@
 # Scientific Genesis audit
 
+`certified_trial_features.py` now bounds the full finite-cloud numerical error
+against the unchanged discovery reference. Exact integer Gaussian disks enclose
+every original coefficient, all 5,345 sections, certified input cells and named
+quotient projections. All sixteen original samples pass the full rank-four
+perturbation gate after same-stream refinement to level 24; none is replaced.
+The saved level-16 rows and original source archives remain unchanged.
+
+The mean operator's numerical Frobenius error, without the common pi-cubed
+factor, is at most the exact rational
+`705254494193731442494048870639174084807639 / 1461501637330902918203684832716283019655932542976`,
+approximately `4.825547068710212e-7`. This covers input uncertainty and arithmetic
+error, including the saved reference rows' orthogonality defect. It does not
+include sampling error or prove independence. Independent exact-field source
+polynomials, Gaussian rational witnesses and a fresh full-pipeline replay attack
+the calculation. See `CERTIFIED_TRIAL_FEATURES_NOTE.md` and the pinned packet
+`data/generated/scientific_genesis/certified_trial_cloud.json`.
+
+Freeze this finite-cloud result. The statistical bound remains unusably loose,
+and the rank-at-most-64 cloud cannot be inverted in 5,345 dimensions. The next
+frontier is sufficient original-basis sampling with useful statistical control,
+followed by genuine nonunit-H iteration. No physical metric or vacuum follows.
+
 `independent_trial_cloud.py` now executes a new sixteen-sample cloud at two
 resolutions, retaining all thirteen named streams and every original sample.
 All 32 requests admitted the native roots and original quotient frame, then
@@ -10,8 +32,9 @@ trace and Frobenius diagnostics. This is not an admitted-subset estimate.
 At the finer resolution, the mean quotient weight without pi-cubed is
 `5.395476651743498e-5`; the operator trace is `2.1581906606973992e-4`.
 The empirical weight-mean standard error is `8.519050416781153e-6`, a diagnostic
-rather than a confidence certificate. Independence/fairness remains **ASSUMED**;
-input-cell and binary64 errors are not controlled. The largest raw squared
+rather than a confidence certificate. Independence/fairness remains **ASSUMED**.
+The discovery evaluator itself supplies no error bound; its input-cell and
+binary64 errors are controlled separately by the certificate above. The largest raw squared
 same-sample projector refinement difference is about `2.27e-4`; this is not an
 error bound. The ideal bounded-law Markov radius is separately derived and
 explicitly excludes discovery numerical error.
@@ -20,9 +43,9 @@ The sample operator has rank at most 64, so it cannot produce an inverse-based
 update in the original 5,345-dimensional section space. At least 1,337 samples
 are necessary, not sufficient, for invertibility. No ridge, pseudoinverse,
 reduced section model, HYM result, physical Yukawa, or common vacuum is supplied.
-The next frontier is numerical/input error control on these same retained
-samples, followed by sufficient original-basis sampling and a genuine metric
-iteration. See `INDEPENDENT_TRIAL_CLOUD_NOTE.md` and the source-bound packet
+The numerical/input error frontier on these same samples is now closed by
+the separate integer certificate; sufficient original-basis sampling and a
+genuine metric iteration remain open. See `INDEPENDENT_TRIAL_CLOUD_NOTE.md` and the source-bound packet
 `data/generated/scientific_genesis/independent_trial_cloud.json`.
 
 `compiled_section_features.py` separates fast discovery evaluation from the

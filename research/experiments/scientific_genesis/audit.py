@@ -3883,6 +3883,50 @@ def _nodes() -> list[dict[str, object]]:
              "nonunit-H iteration", "Ricci-flat/HYM convergence", "common vacuum"),
         ),
         _node(
+            "full_trial_cloud_request",
+            "predeclared original-basis training and validation workload",
+            "Normalization",
+            "SELECTED",
+            "The complete captured 2048-input population fixes 1536 training "
+            "and 512 validation ordinals before geometry. Eight disjoint "
+            "resumable shards retain every original stream, branch, frame and "
+            "precision history. All 5345 original sections and unit H0 remain "
+            "unchanged. Failed samples refine only their own streams; no "
+            "admitted subset becomes the integral. The immutable request is "
+            "a selected workload, not a completed cloud or global operator.",
+            ("research/experiments/scientific_genesis/full_trial_cloud.py",
+             "research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md",
+             "tests/integration/test_scientific_genesis_full_trial_cloud.py",
+             "data/generated/scientific_genesis/full_trial_cloud_inputs.json",
+             "data/generated/scientific_genesis/full_trial_cloud_request.json"),
+            ("assumed fair independent infinite streams", "selected unstabilized point",
+             "full original section basis", "declared finite refinement budget"),
+            ("complete original cloud execution", "useful sampling and numerical bounds",
+             "full-rank inverse update", "Ricci-flat/HYM convergence", "common vacuum"),
+        ),
+        _node(
+            "balanced_trial_inverse_request",
+            "predeclared full-cloud inverse admission and explicit scalar gauge",
+            "Normalization",
+            "SELECTED",
+            "The source-bound request fixes numerical Hermitian, conditioning "
+            "and inverse-residual gates before the full cloud completes. The "
+            "calculation requires every original training and validation "
+            "checkpoint before summing the full 5345-dimensional operator. "
+            "Explicit solver congruence preserves every original coordinate "
+            "and the initializer remains unit H0. No ridge, pseudoinverse, "
+            "reduced model or inferred physical normalization is permitted. "
+            "The requested step has not yet executed on the complete cloud.",
+            ("research/experiments/scientific_genesis/balanced_trial_iteration.py",
+             "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md",
+             "tests/integration/test_scientific_genesis_balanced_trial_iteration.py",
+             "data/generated/scientific_genesis/balanced_trial_request.json"),
+            ("complete original training and validation population", "binary64 discovery",
+             "explicit r*mean(w)/N computational projective gauge"),
+            ("completed original cloud", "admitted full inverse", "sampling and numerical control",
+             "Ricci-flat/HYM convergence", "matter and Higgs metrics", "common vacuum"),
+        ),
+        _node(
             "compiled_section_features",
             "complete original sparse binary64 discovery section evaluation",
             "Normalization",
@@ -7442,6 +7486,61 @@ def _edges() -> list[dict[str, object]]:
             ("a rank-at-most-64 cloud cannot be inverted in 5345 dimensions",),
         ),
         _edge(
+            "independent_cloud_entropy_law", "full_trial_cloud_request",
+            "All new original named streams and the hold-out split are captured "
+            "before geometric evaluation under the same assumed ideal law.",
+            ("research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md",),
+            ("finite OS receipts do not establish infinite IID",),
+            False,
+            ("geometry-conditioned replacement would change the measure",),
+        ),
+        _edge(
+            "compiled_section_features", "full_trial_cloud_request",
+            "The frozen sparse program evaluates every original section "
+            "on the predeclared population without reducing the approximation space.",
+            ("research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md",),
+            ("complete original 5345-section identity", "binary64 discovery"),
+            False,
+            ("missing or unresolved samples prevent a complete mean",),
+        ),
+        _edge(
+            "native_section_continuation", "full_trial_cloud_request",
+            "Same-stream native refinement retains original roots and frames "
+            "through each declared numerical admission attempt.",
+            ("research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md",),
+            ("unchanged chart and pivot policy", "no replaced failure"),
+            False,
+            ("an exhausted finite budget remains unresolved",),
+        ),
+        _edge(
+            "full_trial_cloud_request", "balanced_trial_inverse_request",
+            "The fixed full population can supply the actual original-basis "
+            "training sum only after every training and validation checkpoint resolves.",
+            ("research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md",),
+            ("complete cloud", "unit initializer", "explicit projective scalar convention"),
+            False,
+            ("sample rank and numerical conditioning may still forbid inversion",),
+        ),
+        _edge(
+            "certified_trial_cloud", "balanced_trial_inverse_request",
+            "The frozen pilot establishes separate finite-cloud numerical "
+            "error machinery; the larger discovery population requires its own control.",
+            ("research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md",),
+            ("no inherited statistical or numerical accuracy claim",),
+            False,
+            ("pilot certification does not certify the new population or adaptive H",),
+        ),
+        _edge(
+            "balanced_trial_inverse_request", "visible_metrics",
+            "A full numerical inverse step is the next reachable metric "
+            "experiment; a selected execution policy supplies no physical metric.",
+            ("research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md",),
+            ("actual full inverse execution", "useful numerical and sampling bounds",
+             "Ricci-flat/HYM convergence", "line untwisting", "common vacuum"),
+            False,
+            ("a discovery inverse is not HYM convergence or canonical normalization",),
+        ),
+        _edge(
             "alternate_metric_symbolic_columns", "compiled_section_features",
             "A pinned complete exact polynomial stream supplies the actual "
             "sparse coefficients; monomial sharing does not reconstruct cochains.",
@@ -9082,6 +9181,8 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/independent_cloud_inputs.py",
                 "research/experiments/scientific_genesis/independent_trial_cloud.py",
                 "research/experiments/scientific_genesis/certified_trial_features.py",
+                "research/experiments/scientific_genesis/full_trial_cloud.py",
+                "research/experiments/scientific_genesis/balanced_trial_iteration.py",
             ),
         ),
         (
@@ -9152,7 +9253,12 @@ def _scheduler() -> list[dict[str, object]]:
             "hard samples or their discovery references. Freeze that result. "
             "The sample operator rank is at most "
             "64, so no full 5345-dimensional inverse update is available; at "
-            "least 1337 samples and a verified span are needed. Use the "
+            "least 1337 samples and a verified span are needed. The selected "
+            "2048-input request now captures 1536 training and 512 held-out "
+            "ordinals before geometry. Disjoint resumable shards execute "
+            "the original workload without redraws. Complete that cloud, "
+            "then apply the separately predeclared full inverse admission "
+            "policy; failed span or conditioning must remain unresolved. Use the "
             "positive auxiliary law and quantitative global weight/kernel bound. "
             "Retain every pending same-stream request; justify external independence "
             "or a certified deterministic cubature with integral error control. "
@@ -9255,9 +9361,11 @@ def build_state() -> dict[str, object]:
     from .alternate_section_covariance import read_covariance
     from .alternate_section_curve_restrictions import read_restrictions
     from .auxiliary_cover_draws import read_draws
+    from .balanced_trial_iteration import read_request as read_inverse_request
     from .canonical_representation_constraints import read_constraints
     from .certified_trial_features import read_certificates
     from .compiled_section_features import read_execution as read_compiled_discovery
+    from .full_trial_cloud import read_request as read_full_cloud_request
     from .independent_trial_cloud import read_cloud
     from .native_section_continuation import read_complete_continuation
     from .projective_subdivision_roots import read_subdivision
@@ -9313,6 +9421,12 @@ def build_state() -> dict[str, object]:
     ))
     certified_cloud = read_certificates(expected_digest=(
         "dc613f8f9603fd3fad440ce3622a7e03c62561f1925a796b87e74482abdb9fb7"
+    ))
+    full_cloud_request = read_full_cloud_request(expected_digest=(
+        "9e13a565bc13a2bd27320e5746d3fbf2104c3290f8792efc97d8d3316bc8a5b5"
+    ))
+    inverse_request = read_inverse_request(expected_digest=(
+        "5a7953df972ee465e28c0bec9db09173b3fa81e20409503f171d7da280c37bfc"
     ))
 
     canonical_constraints = read_constraints(expected_digest=(
@@ -12844,6 +12958,16 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/CERTIFIED_TRIAL_FEATURES_NOTE.md",
         "tests/integration/test_scientific_genesis_certified_trial_features.py",
         "data/generated/scientific_genesis/certified_trial_cloud.json",
+        "research/experiments/scientific_genesis/full_trial_cloud.py",
+        "research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md",
+        "tests/integration/test_scientific_genesis_full_trial_cloud.py",
+        "data/generated/scientific_genesis/full_trial_cloud_inputs.json",
+        "data/generated/scientific_genesis/full_trial_cloud_request.json",
+        "research/experiments/scientific_genesis/balanced_trial_iteration.py",
+        "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md",
+        "tests/integration/test_scientific_genesis_balanced_trial_iteration.py",
+        "data/generated/scientific_genesis/balanced_trial_request.json",
+        "requirements-dev.txt",
         *(f"data/generated/scientific_genesis/certified_trial_cloud.sample_{i:04d}.json.gz"
           for i in range(16)),
         "research/experiments/scientific_genesis/canonical_representation_constraints.py",
@@ -12909,7 +13033,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3646,
+            "collected_tests_at_audit": 3713,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -13434,10 +13558,11 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "freeze the complete retained independent-input cloud numerical error bound; "
-                "obtain useful statistical accuracy and enough original full-section "
-                "samples to overcome the rank bound (at least 1337 necessary), then "
-                "execute a controlled global integral and genuine nonunit-H iteration; "
+                "complete the predeclared independent 2048-input original-section cloud "
+                "with all 1536 training and 512 held-out checkpoints retained; execute "
+                "the separately predeclared full inverse policy without regularization "
+                "or reduced coordinates; obtain useful statistical and numerical "
+                "accuracy for a controlled global integral and genuine nonunit-H iteration; "
                 "verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
@@ -13471,6 +13596,8 @@ def build_state() -> dict[str, object]:
         "compiled_section_features": compiled_discovery,
         "independent_trial_cloud": independent_cloud,
         "certified_trial_cloud": certified_cloud,
+        "full_trial_cloud_request": full_cloud_request,
+        "balanced_trial_inverse_request": inverse_request,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -13478,6 +13605,13 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "the selected 2048-input workload captures all named streams and "
+            "fixes 1536 training and 512 held-out ordinals before geometry; "
+            "disjoint resumable shards consume every original section without "
+            "replacement failures; a separately fixed full inverse policy "
+            "requires complete training and validation before execution; "
+            "neither selected request supplies a completed cloud, inverse, "
+            "controlled integral, HYM metric or physical normalization",
             "exact integer disk arithmetic encloses all original 5345 sections "
             "after same-stream refinement of all sixteen captured samples; "
             "full row-Gram and perturbation bounds certify ideal rank-four "

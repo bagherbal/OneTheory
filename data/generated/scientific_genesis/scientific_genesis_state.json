@@ -16745,7 +16745,7 @@
     "visible_spin_twisted_h1": 0,
     "whole_frozen_outer_parameter_family": true
   },
-  "artifact_digest": "6325e3630b3046e4e3245e079255f98be5dacfbe11e7cf4a4c05a49df18a2697",
+  "artifact_digest": "5e2e7687ba895e20b0b4df72d1f661407c6991feb138efc290bf694a1cc80f9f",
   "artifacts": [
     {
       "bytes": 3337,
@@ -18438,6 +18438,56 @@
       "sha256": "aba2d5e7f195f897afed07883c8f85d2b83b8e8e13dd2e759d1cadbb72c1bd25"
     },
     {
+      "bytes": 20714,
+      "path": "research/experiments/scientific_genesis/full_trial_cloud.py",
+      "sha256": "d933a81b505f65e8e438d79b4fd3731c64cd5620cb70c4c2b6932278b280df68"
+    },
+    {
+      "bytes": 4613,
+      "path": "research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md",
+      "sha256": "d0ce3cf4f62e16da316e39e7a496634ad11ef510e8db17e71a0befe71eefede9"
+    },
+    {
+      "bytes": 11802,
+      "path": "tests/integration/test_scientific_genesis_full_trial_cloud.py",
+      "sha256": "d248db0d790ab1d1ba39ec6cf735f4787d97cb7675d2be84105174ad6ec0dfc1"
+    },
+    {
+      "bytes": 2764460,
+      "path": "data/generated/scientific_genesis/full_trial_cloud_inputs.json",
+      "sha256": "7ef54a22beecd16efbe96751a7395d87e2585e512d17f7a7b12a8d9ea1f07009"
+    },
+    {
+      "bytes": 2869,
+      "path": "data/generated/scientific_genesis/full_trial_cloud_request.json",
+      "sha256": "085b16360c4a97f0aa8c88d60b5809cd532526d8789cbd74462cfefb4a339987"
+    },
+    {
+      "bytes": 31330,
+      "path": "research/experiments/scientific_genesis/balanced_trial_iteration.py",
+      "sha256": "2772e82b5935a0cd10a61cc61bc3d20d7d162932344eea29d0e5e7230c5a91f1"
+    },
+    {
+      "bytes": 5493,
+      "path": "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md",
+      "sha256": "22d5522354a0dbd31896afd3ee981b7ce6f8491272b8ac70ee7b88adf5991a6d"
+    },
+    {
+      "bytes": 12144,
+      "path": "tests/integration/test_scientific_genesis_balanced_trial_iteration.py",
+      "sha256": "47003eec950b84987fe6ae1a00e538fc5e91fe79e575e252fbd935b96b8c3b5b"
+    },
+    {
+      "bytes": 2922,
+      "path": "data/generated/scientific_genesis/balanced_trial_request.json",
+      "sha256": "8150611cd24401ad5ca4e9cf594235e41da0b8d888ca8525091ad3961fb515d5"
+    },
+    {
+      "bytes": 144,
+      "path": "requirements-dev.txt",
+      "sha256": "0858cb4668a03544a4169530841bb5552298ce46e2f7735e9a2dd559cccffe2f"
+    },
+    {
       "bytes": 16037,
       "path": "data/generated/scientific_genesis/certified_trial_cloud.sample_0000.json.gz",
       "sha256": "4c8e790763d386e9921941eceb7eecc01af68f9f8b98c10dc89f9bbb6abfb93f"
@@ -18849,11 +18899,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3646,
+    "collected_tests_at_audit": 3713,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 312,
-    "test_python_files": 300
+    "research_python_files": 314,
+    "test_python_files": 302
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -20453,6 +20503,45 @@
     ],
     "schema": "auxiliary-cover-draws-v1",
     "uncertain_roots_parent_digest": "97981cfe6a6d67fd40287c8902a99f4ce3a73729fea6a64b4f133fdce82c0d26"
+  },
+  "balanced_trial_inverse_request": {
+    "artifact_digest": "5a7953df972ee465e28c0bec9db09173b3fa81e20409503f171d7da280c37bfc",
+    "cloud_request_digest": "9e13a565bc13a2bd27320e5746d3fbf2104c3290f8792efc97d8d3316bc8a5b5",
+    "entropy_assumption_status": "ASSUMED",
+    "initial_form": "explicit unit H0 in the full original 5345-dimensional section basis",
+    "input_digest": "cfaac611b57142a0c291a3c3336c6bf34c61c64aecfd3370af50aa0474380d6e",
+    "observations_used": false,
+    "original_section_basis_digest": "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c",
+    "parameter_point_status": "SELECTED",
+    "policy": {
+      "block_size": 16,
+      "maximum_hermitian_residual": 1e-12,
+      "maximum_inverse_residual": 1e-06,
+      "minimum_reciprocal_condition": 1e-12
+    },
+    "projective_scale_convention": "r*mean(w)/N; explicit computational scalar gauge",
+    "required_population": "all original training and validation checkpoints",
+    "sample_count": 2048,
+    "schema": "full-original-trial-inverse-request-v1",
+    "source_files_sha256": {
+      "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md": "22d5522354a0dbd31896afd3ee981b7ce6f8491272b8ac70ee7b88adf5991a6d",
+      "research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md": "d0ce3cf4f62e16da316e39e7a496634ad11ef510e8db17e71a0befe71eefede9",
+      "research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md": "fecd128fedeeb06fee4b3075edd2117b0590d99cfc4c889112af4309a73e51a3",
+      "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py": "d38dcdf5ce94cee24d921c744b27fea5932311a16ebbce6dd239f6fe211e17c8",
+      "research/experiments/scientific_genesis/auxiliary_cover_draws.py": "8563dd02290cff06c8f25c2a6ce85aee32dd459e9ab149086fdf88c298f35d5f",
+      "research/experiments/scientific_genesis/balanced_trial_iteration.py": "2772e82b5935a0cd10a61cc61bc3d20d7d162932344eea29d0e5e7230c5a91f1",
+      "research/experiments/scientific_genesis/compiled_section_features.py": "d5fb672c20bc5db505498b5e4e83cb959d1dffc97fdeaba24346e72982f8549e",
+      "research/experiments/scientific_genesis/full_trial_cloud.py": "d933a81b505f65e8e438d79b4fd3731c64cd5620cb70c4c2b6932278b280df68",
+      "research/experiments/scientific_genesis/independent_cloud_inputs.py": "fcee850c7b88e0065c3b5fb8b9757d4077245834f5f99972e38ac0ae88cead0a",
+      "research/experiments/scientific_genesis/independent_trial_cloud.py": "58b704fb336c47c3b9fc17679e68806f120126dfed9b1a25ce9244877091bbcb",
+      "research/experiments/scientific_genesis/native_section_continuation.py": "ac39e7dd9c89abaf3614b5866b86552ef478d73a575fa98e45a0beb06b218163",
+      "research/experiments/scientific_genesis/projective_subdivision_roots.py": "2a68582d6fff5b2c757751842e064b457ce252f02ba6674721038210810d82af",
+      "research/experiments/scientific_genesis/projective_uncertain_intersections.py": "2d2c8555ed9712d2e319e1cde2918b226797203f8a076609cbce0b8b7dccc78e",
+      "research/experiments/scientific_genesis/uncertain_cover_weights.py": "0934fbee559e6241ef17b2131c7b24642a743e43fe885d69f0354521def09b9b"
+    },
+    "training_count": 1536,
+    "update_count": 1,
+    "validation_count": 512
   },
   "blocked_physical_calculations": [
     "controlled alternate-carrier Ricci-flat/HYM and harmonic matter/Higgs metrics",
@@ -24269,6 +24358,59 @@
       ],
       "statement": "Integer Gaussian disks enclose all original coefficients, native coordinate cells and quotient projections without trusting hardware rounding. Every original sample is refined on its captured streams while the saved discovery rows remain unchanged. Full-section perturbation and row-Gram bounds certify the ideal rank-four projector and the entire finite-cloud weighted operator error. This numerical bound is distinct from ideal IID sampling error; it does not invert the rank-at-most-64 sample operator or imply a controlled physical metric, HYM convergence or a vacuum.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "assumed fair independent infinite streams",
+        "selected unstabilized point",
+        "full original section basis",
+        "declared finite refinement budget"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/full_trial_cloud.py",
+        "research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md",
+        "tests/integration/test_scientific_genesis_full_trial_cloud.py",
+        "data/generated/scientific_genesis/full_trial_cloud_inputs.json",
+        "data/generated/scientific_genesis/full_trial_cloud_request.json"
+      ],
+      "id": "full_trial_cloud_request",
+      "label": "predeclared original-basis training and validation workload",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "complete original cloud execution",
+        "useful sampling and numerical bounds",
+        "full-rank inverse update",
+        "Ricci-flat/HYM convergence",
+        "common vacuum"
+      ],
+      "statement": "The complete captured 2048-input population fixes 1536 training and 512 validation ordinals before geometry. Eight disjoint resumable shards retain every original stream, branch, frame and precision history. All 5345 original sections and unit H0 remain unchanged. Failed samples refine only their own streams; no admitted subset becomes the integral. The immutable request is a selected workload, not a completed cloud or global operator.",
+      "status": "SELECTED"
+    },
+    {
+      "assumptions": [
+        "complete original training and validation population",
+        "binary64 discovery",
+        "explicit r*mean(w)/N computational projective gauge"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/balanced_trial_iteration.py",
+        "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md",
+        "tests/integration/test_scientific_genesis_balanced_trial_iteration.py",
+        "data/generated/scientific_genesis/balanced_trial_request.json"
+      ],
+      "id": "balanced_trial_inverse_request",
+      "label": "predeclared full-cloud inverse admission and explicit scalar gauge",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "completed original cloud",
+        "admitted full inverse",
+        "sampling and numerical control",
+        "Ricci-flat/HYM convergence",
+        "matter and Higgs metrics",
+        "common vacuum"
+      ],
+      "statement": "The source-bound request fixes numerical Hermitian, conditioning and inverse-residual gates before the full cloud completes. The calculation requires every original training and validation checkpoint before summing the full 5345-dimensional operator. Explicit solver congruence preserves every original coordinate and the initializer remains unit H0. No ridge, pseudoinverse, reduced model or inferred physical normalization is permitted. The requested step has not yet executed on the complete cloud.",
+      "status": "SELECTED"
     },
     {
       "assumptions": [
@@ -29615,6 +29757,104 @@
     },
     {
       "assumptions_required": [
+        "finite OS receipts do not establish infinite IID"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "geometry-conditioned replacement would change the measure"
+      ],
+      "mathematical_reason": "All new original named streams and the hold-out split are captured before geometric evaluation under the same assumed ideal law.",
+      "source": "independent_cloud_entropy_law",
+      "target": "full_trial_cloud_request"
+    },
+    {
+      "assumptions_required": [
+        "complete original 5345-section identity",
+        "binary64 discovery"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "missing or unresolved samples prevent a complete mean"
+      ],
+      "mathematical_reason": "The frozen sparse program evaluates every original section on the predeclared population without reducing the approximation space.",
+      "source": "compiled_section_features",
+      "target": "full_trial_cloud_request"
+    },
+    {
+      "assumptions_required": [
+        "unchanged chart and pivot policy",
+        "no replaced failure"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "an exhausted finite budget remains unresolved"
+      ],
+      "mathematical_reason": "Same-stream native refinement retains original roots and frames through each declared numerical admission attempt.",
+      "source": "native_section_continuation",
+      "target": "full_trial_cloud_request"
+    },
+    {
+      "assumptions_required": [
+        "complete cloud",
+        "unit initializer",
+        "explicit projective scalar convention"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "sample rank and numerical conditioning may still forbid inversion"
+      ],
+      "mathematical_reason": "The fixed full population can supply the actual original-basis training sum only after every training and validation checkpoint resolves.",
+      "source": "full_trial_cloud_request",
+      "target": "balanced_trial_inverse_request"
+    },
+    {
+      "assumptions_required": [
+        "no inherited statistical or numerical accuracy claim"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "pilot certification does not certify the new population or adaptive H"
+      ],
+      "mathematical_reason": "The frozen pilot establishes separate finite-cloud numerical error machinery; the larger discovery population requires its own control.",
+      "source": "certified_trial_cloud",
+      "target": "balanced_trial_inverse_request"
+    },
+    {
+      "assumptions_required": [
+        "actual full inverse execution",
+        "useful numerical and sampling bounds",
+        "Ricci-flat/HYM convergence",
+        "line untwisting",
+        "common vacuum"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "a discovery inverse is not HYM convergence or canonical normalization"
+      ],
+      "mathematical_reason": "A full numerical inverse step is the next reachable metric experiment; a selected execution policy supplies no physical metric.",
+      "source": "balanced_trial_inverse_request",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "same original full section basis",
         "explicit numerical discovery embedding"
       ],
@@ -31515,6 +31755,7 @@
     }
   ],
   "established_results": [
+    "the selected 2048-input workload captures all named streams and fixes 1536 training and 512 held-out ordinals before geometry; disjoint resumable shards consume every original section without replacement failures; a separately fixed full inverse policy requires complete training and validation before execution; neither selected request supplies a completed cloud, inverse, controlled integral, HYM metric or physical normalization",
     "exact integer disk arithmetic encloses all original 5345 sections after same-stream refinement of all sixteen captured samples; full row-Gram and perturbation bounds certify ideal rank-four projectors and a full finite-cloud numerical operator error bound against unchanged saved discovery references; sampling accuracy, a full inverse metric update, HYM and physical normalization remain open",
     "sixteen new retained-input samples execute all original 5345 sections and full factorized unit-H trial projectors at two resolutions; every sample and stream is retained under the assumed fair IID law; global discovery means remain approximate references, with input and arithmetic errors separately bounded by the new certification; rank at most 64 prevents a full inverse metric update, with at least 1337 samples necessary for invertibility",
     "all 5345 original sections evaluate twice on all fifteen fixed regression domains through 83523 shared monomials and immutable sparse discovery instructions; held-out Fraction-pair and existing bounded arithmetic checks preserve original identities; timings are measured, rounding and input errors remain uncertified, and no independent cloud, integral or physical metric is supplied",
@@ -31645,6 +31886,76 @@
     "original finite-pole evaluation carries certified coefficient bounds for every archived index; finite/infinity three-index packets are not a sampling law; complete single-domain output is now separately certified"
   ],
   "fitted_inputs": [],
+  "full_trial_cloud_request": {
+    "artifact_digest": "9e13a565bc13a2bd27320e5746d3fbf2104c3290f8792efc97d8d3316bc8a5b5",
+    "compilation_parent_digest": "63dcc3ff50a8cf3aadbd896dd20a732774efbc460d714daeb2ee8ce41c44a488",
+    "entropy_assumption_status": "ASSUMED",
+    "input_digest": "cfaac611b57142a0c291a3c3336c6bf34c61c64aecfd3370af50aa0474380d6e",
+    "observations_used": false,
+    "original_section_basis_digest": "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c",
+    "parameter_point_role": "same unstabilized computational point as the frozen pilot",
+    "parameter_point_status": "SELECTED",
+    "pilot_parent_digest": "706b323d3d1860767e916755d7b982ec2bd9cc4e6a884d064e67d29b8094b10c",
+    "policy": {
+      "chart": [
+        0,
+        0,
+        0
+      ],
+      "covering_degree": 9,
+      "first_pivots": [
+        0,
+        2
+      ],
+      "levels": [
+        16,
+        20,
+        24
+      ],
+      "max_cells": 65536,
+      "parameters": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "residue_scale": [
+        "1",
+        "0"
+      ],
+      "second_pivots": [
+        0,
+        1,
+        2
+      ],
+      "stop_after_first_resolved_kernel": true
+    },
+    "sample_count": 2048,
+    "schema": "full-original-trial-cloud-request-v1",
+    "section_form": "explicit unit H0 in the full original 5345-dimensional section basis",
+    "source_files_sha256": {
+      "research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md": "d0ce3cf4f62e16da316e39e7a496634ad11ef510e8db17e71a0befe71eefede9",
+      "research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md": "fecd128fedeeb06fee4b3075edd2117b0590d99cfc4c889112af4309a73e51a3",
+      "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py": "d38dcdf5ce94cee24d921c744b27fea5932311a16ebbce6dd239f6fe211e17c8",
+      "research/experiments/scientific_genesis/auxiliary_cover_draws.py": "8563dd02290cff06c8f25c2a6ce85aee32dd459e9ab149086fdf88c298f35d5f",
+      "research/experiments/scientific_genesis/compiled_section_features.py": "d5fb672c20bc5db505498b5e4e83cb959d1dffc97fdeaba24346e72982f8549e",
+      "research/experiments/scientific_genesis/full_trial_cloud.py": "d933a81b505f65e8e438d79b4fd3731c64cd5620cb70c4c2b6932278b280df68",
+      "research/experiments/scientific_genesis/independent_cloud_inputs.py": "fcee850c7b88e0065c3b5fb8b9757d4077245834f5f99972e38ac0ae88cead0a",
+      "research/experiments/scientific_genesis/independent_trial_cloud.py": "58b704fb336c47c3b9fc17679e68806f120126dfed9b1a25ce9244877091bbcb",
+      "research/experiments/scientific_genesis/native_section_continuation.py": "ac39e7dd9c89abaf3614b5866b86552ef478d73a575fa98e45a0beb06b218163",
+      "research/experiments/scientific_genesis/projective_subdivision_roots.py": "2a68582d6fff5b2c757751842e064b457ce252f02ba6674721038210810d82af",
+      "research/experiments/scientific_genesis/projective_uncertain_intersections.py": "2d2c8555ed9712d2e319e1cde2918b226797203f8a076609cbce0b8b7dccc78e",
+      "research/experiments/scientific_genesis/uncertain_cover_weights.py": "0934fbee559e6241ef17b2131c7b24642a743e43fe885d69f0354521def09b9b"
+    },
+    "split_fixed_before_geometry": true,
+    "split_rule": "training ordinal < training_count; all remaining ordinals are validation",
+    "training_count": 1536,
+    "validation_count": 512
+  },
   "independent_trial_cloud": {
     "artifact_digest": "706b323d3d1860767e916755d7b982ec2bd9cc4e6a884d064e67d29b8094b10c",
     "common_stabilized_vacuum_available": false,
@@ -52552,13 +52863,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "freeze the complete retained independent-input cloud numerical error bound; obtain useful statistical accuracy and enough original full-section samples to overcome the rank bound (at least 1337 necessary), then execute a controlled global integral and genuine nonunit-H iteration; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
+    "next_required_object": "complete the predeclared independent 2048-input original-section cloud with all 1536 training and 512 held-out checkpoints retained; execute the separately predeclared full inverse policy without regularization or reduced coordinates; obtain useful statistical and numerical accuracy for a controlled global integral and genuine nonunit-H iteration; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The sample operator rank is at most 64, so no full 5345-dimensional inverse update is available; at least 1337 samples and a verified span are needed. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The sample operator rank is at most 64, so no full 5345-dimensional inverse update is available; at least 1337 samples and a verified span are needed. The selected 2048-input request now captures 1536 training and 512 held-out ordinals before geometry. Disjoint resumable shards execute the original workload without redraws. Complete that cloud, then apply the separately predeclared full inverse admission policy; failed span or conditioning must remain unresolved. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,
@@ -52851,7 +53162,9 @@
         "research/experiments/scientific_genesis/compiled_section_features.py",
         "research/experiments/scientific_genesis/independent_cloud_inputs.py",
         "research/experiments/scientific_genesis/independent_trial_cloud.py",
-        "research/experiments/scientific_genesis/certified_trial_features.py"
+        "research/experiments/scientific_genesis/certified_trial_features.py",
+        "research/experiments/scientific_genesis/full_trial_cloud.py",
+        "research/experiments/scientific_genesis/balanced_trial_iteration.py"
       ],
       "maturity": "research-only; actual roots/charts/densities/universal frames, plus approximate discovery and separately certified finite-cloud numerical error; not physical metrics"
     },

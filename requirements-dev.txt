@@ -3,3 +3,6 @@ pytest-cov
 hypothesis
 mypy
 ruff
+# Full original-basis research trial-operator solves; not production runtime.
+numpy>=2,<3
+scipy>=1.15,<2

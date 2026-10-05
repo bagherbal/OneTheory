@@ -40,6 +40,35 @@ def test_scientific_genesis_state_is_current_and_valid() -> None:
     assert stored == rebuilt
 
 
+def test_large_cloud_requests_do_not_claim_completed_inverse_or_physical_metrics() -> None:
+    """Predeclared real inputs and an inverse policy are selected, not computed metrics."""
+
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    assert claims["full_trial_cloud_request"]["status"] == "SELECTED"
+    assert claims["balanced_trial_inverse_request"]["status"] == "SELECTED"
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+    population = stored["full_trial_cloud_request"]
+    inverse = stored["balanced_trial_inverse_request"]
+    assert (
+        population["sample_count"], population["training_count"], population["validation_count"],
+    ) == (
+        2048, 1536, 512,
+    )
+    assert population["split_fixed_before_geometry"] is True
+    assert inverse["cloud_request_digest"] == population["artifact_digest"]
+    assert inverse["update_count"] == 1
+    assert inverse["required_population"] == "all original training and validation checkpoints"
+    assert inverse["observations_used"] is False
+    assert inverse["entropy_assumption_status"] == "ASSUMED"
+    assert inverse["parameter_point_status"] == "SELECTED"
+    assert {edge["source"] for edge in stored["dependencies"]
+            if edge["target"] == "balanced_trial_inverse_request"} == {
+        "full_trial_cloud_request", "certified_trial_cloud",
+    }
+
+
 def test_same_prefix_draw_workflow_preserves_conditional_metric_boundary() -> None:
     """A declared law workflow is not IID evidence or a normalized physical result."""
 
@@ -122,7 +151,9 @@ def test_actual_cloud_preserves_assumed_entropy_and_unresolved_metric_boundary()
         "compiled_section_features", "alternate_metric_global_weight_bound",
         "auxiliary_cover_draws",
     }
-    assert "1337" in stored["recommended_vertical_path"]["next_required_object"]
+    # The pilot count bound is unchanged; the predeclared larger population
+    # now governs the next action rather than another request for a minimum.
+    assert "1536 training" in stored["recommended_vertical_path"]["next_required_object"]
 
 
 def test_full_section_covariance_is_not_physical_normalization() -> None:
@@ -170,7 +201,7 @@ def test_integer_kernel_certification_closes_only_finite_cloud_numerical_error()
         "independent_trial_cloud", "native_section_continuation",
         "alternate_metric_symbolic_columns",
     }
-    assert "1337" in stored["recommended_vertical_path"]["next_required_object"]
+    assert "full inverse policy" in stored["recommended_vertical_path"]["next_required_object"]
 
 
 def test_complete_new_domain_functionals_keep_throughput_and_physics_unresolved() -> None:

@@ -3818,6 +3818,48 @@ def _nodes() -> list[dict[str, object]]:
              "Ricci-flat/HYM convergence", "common stabilized vacuum"),
         ),
         _node(
+            "independent_cloud_entropy_law",
+            "fair independent named auxiliary input streams",
+            "Normalization",
+            "ASSUMED",
+            "The entire sixteen-sample workload and all thirteen named stream "
+            "receipts per sample are captured before geometry is evaluated. "
+            "Linux getrandom supplies public computational bytes without a "
+            "user seed. Independence and fairness of the ideal infinite "
+            "streams remain an explicit assumption, not a conclusion from "
+            "finite receipts or an OS interface. Duplicate bytes are retained.",
+            ("research/experiments/scientific_genesis/independent_cloud_inputs.py",
+             "research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md",
+             "tests/integration/test_scientific_genesis_independent_cloud_inputs.py",
+             "data/generated/scientific_genesis/independent_cloud_inputs.json"),
+            ("mutually independent fair infinite named bit streams",),
+            ("finite entropy receipts cannot prove the ideal IID law",),
+        ),
+        _node(
+            "independent_trial_cloud",
+            "retained-input full original global trial operator discovery execution",
+            "Normalization",
+            "COMPUTED",
+            "The fixed new sixteen-sample workload executes native root/frame "
+            "admission and full 5345-section factorized unit-H kernels at two "
+            "resolutions without redrawing failures. Full weighted projector "
+            "means are available only when every requested sample is admitted; "
+            "a partial admitted subset never becomes the integral. Ideal IID "
+            "statistical bounds use the established positive auxiliary law, "
+            "but do not cover discovery arithmetic or input-cell errors. "
+            "The sample operator has rank at most 64; it cannot be inverted "
+            "for a 5345-dimensional nonunit-H update. At least 1337 samples "
+            "are necessary, not sufficient, for invertibility.",
+            ("research/experiments/scientific_genesis/independent_trial_cloud.py",
+             "research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md",
+             "tests/integration/test_scientific_genesis_independent_trial_cloud.py",
+             "data/generated/scientific_genesis/independent_trial_cloud.json"),
+            ("explicit fair independent stream law", "selected unstabilized parameter point",
+             "binary64 discovery arithmetic", "unit residue scale and ninefold quotient"),
+            ("controlled numerical and input errors", "sufficient full-rank sample operator",
+             "nonunit-H iteration", "Ricci-flat/HYM convergence", "common vacuum"),
+        ),
+        _node(
             "compiled_section_features",
             "complete original sparse binary64 discovery section evaluation",
             "Normalization",
@@ -7285,6 +7327,61 @@ def _edges() -> list[dict[str, object]]:
             ("trial form is not physical; convergence or a common vacuum may fail",),
         ),
         _edge(
+            "independent_cloud_entropy_law", "independent_trial_cloud",
+            "The captured original named bytes drive every sample and its "
+            "refinement; the ideal sampling interpretation is conditional on IID.",
+            ("research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md",),
+            ("fair independent named stream law", "no outcome-conditioned redraw"),
+            False,
+            ("finite entropy receipts do not prove independence",),
+        ),
+        _edge(
+            "native_section_continuation", "independent_trial_cloud",
+            "Certified native families, retained parents and original quotient "
+            "frames determine the same sample at both declared resolutions.",
+            ("research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md",),
+            ("original charts, ordered pivot rows, and extending prefixes",),
+            False,
+            ("positive-mass pending cells cannot be dropped or resampled",),
+        ),
+        _edge(
+            "compiled_section_features", "independent_trial_cloud",
+            "The complete original source-bound section system supplies all "
+            "rank-four rows; full projectors are retained without dense matrices.",
+            ("research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md",),
+            ("same full original basis", "explicit numerical tolerances"),
+            False,
+            ("roundoff, input radii and numerical rank remain uncertified",),
+        ),
+        _edge(
+            "alternate_metric_global_weight_bound", "independent_trial_cloud",
+            "The positive-law quotient weight bound gives the ideal Hilbert "
+            "space sample-mean variance and Markov radius, conditional on IID.",
+            ("research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md",),
+            ("ideal exact projector", "unit scale and degree nine", "fair IID law"),
+            False,
+            ("the statistical radius excludes numerical discovery error",),
+        ),
+        _edge(
+            "auxiliary_cover_draws", "independent_trial_cloud",
+            "The existing component and ternary-selection maps consume the "
+            "captured streams under the unchanged positive auxiliary law.",
+            ("research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md",),
+            ("no modulo-three bias or geometry-conditioned selection",),
+            False,
+            ("finite prefix exhaustion remains unresolved",),
+        ),
+        _edge(
+            "independent_trial_cloud", "visible_metrics",
+            "Actual full-operator discovery estimates move beyond fixed "
+            "regression domains, without supplying a controlled physical metric.",
+            ("data/generated/scientific_genesis/independent_trial_cloud.json",),
+            ("numerical and statistical error control", "full-rank metric update",
+             "Ricci-flat/HYM convergence", "line untwisting", "common vacuum"),
+            False,
+            ("sixteen rank-four samples cannot yield an invertible section-space mean",),
+        ),
+        _edge(
             "alternate_metric_symbolic_columns", "compiled_section_features",
             "A pinned complete exact polynomial stream supplies the actual "
             "sparse coefficients; monomial sharing does not reconstruct cochains.",
@@ -8901,9 +8998,9 @@ def _engines() -> list[dict[str, object]]:
             ),
         ),
         (
-            "certified metric integration input enclosures",
+            "certified metric prerequisites and separate discovery execution",
             "research-only; actual roots/charts/densities/universal frames, "
-            "not sampling or metrics",
+            "plus explicitly uncertified full-operator discovery; not physical metrics",
             (
                 "research/experiments/scientific_genesis/alternate_metric_projective_roots.py",
                 "research/experiments/scientific_genesis/alternate_metric_enclosures.py",
@@ -8921,6 +9018,8 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_metric_symbolic_columns.py",
                 "research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py",
                 "research/experiments/scientific_genesis/compiled_section_features.py",
+                "research/experiments/scientific_genesis/independent_cloud_inputs.py",
+                "research/experiments/scientific_genesis/independent_trial_cloud.py",
             ),
         ),
         (
@@ -8983,12 +9082,13 @@ def _scheduler() -> list[dict[str, object]]:
             "Reuse the complete original coefficient-ring archive and retained-root "
             "full-section trial covariance controller. The source-bound sparse "
             "discovery evaluator now executes all original sections repeatedly "
-            "on all fifteen regression domains; freeze it and generate an actual "
-            "independent cloud, rather than polishing pointwise prerequisites. "
-            "Extend the original inverse "
-            "kernel to those actual frames with certified numerical stopping "
-            "tolerances before a large integration campaign. Do not treat an "
-            "unmatched domain runtime or cache reuse as throughput. Use the "
+            "on all fifteen regression domains. The new sixteen-sample cloud "
+            "now preserves original streams and executes the full trial operator "
+            "at two resolutions, conditional on the assumed fair IID law. "
+            "Freeze those inputs and control input-cell and arithmetic errors "
+            "without replacing hard samples. The sample operator rank is at most "
+            "64, so no full 5345-dimensional inverse update is available; at "
+            "least 1337 samples and a verified span are needed. Use the "
             "positive auxiliary law and quantitative global weight/kernel bound. "
             "Retain every pending same-stream request; justify external independence "
             "or a certified deterministic cubature with integral error control. "
@@ -9092,6 +9192,7 @@ def build_state() -> dict[str, object]:
     from .auxiliary_cover_draws import read_draws
     from .canonical_representation_constraints import read_constraints
     from .compiled_section_features import read_execution as read_compiled_discovery
+    from .independent_trial_cloud import read_cloud
     from .native_section_continuation import read_complete_continuation
     from .projective_subdivision_roots import read_subdivision
     from .projective_uncertain_intersections import read_uncertain_intersections
@@ -9140,6 +9241,9 @@ def build_state() -> dict[str, object]:
     ))
     compiled_discovery = read_compiled_discovery(expected_digest=(
         "6d0cc28da2e9426cb7803cc096ca735dbed2a499acaecb3cd2a91067aa5d225a"
+    ))
+    independent_cloud = read_cloud(expected_digest=(
+        "706b323d3d1860767e916755d7b982ec2bd9cc4e6a884d064e67d29b8094b10c"
     ))
 
     canonical_constraints = read_constraints(expected_digest=(
@@ -12658,6 +12762,15 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/COMPILED_SECTION_FEATURES_NOTE.md",
         "tests/integration/test_scientific_genesis_compiled_section_features.py",
         "data/generated/scientific_genesis/compiled_section_features.json",
+        "research/experiments/scientific_genesis/independent_cloud_inputs.py",
+        "research/experiments/scientific_genesis/independent_trial_cloud.py",
+        "research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md",
+        "tests/integration/test_scientific_genesis_independent_cloud_inputs.py",
+        "tests/integration/test_scientific_genesis_independent_trial_cloud.py",
+        "data/generated/scientific_genesis/independent_cloud_inputs.json",
+        "data/generated/scientific_genesis/independent_trial_cloud.json",
+        *(f"data/generated/scientific_genesis/independent_trial_cloud.sample_{i:04d}.json.gz"
+          for i in range(16)),
         "research/experiments/scientific_genesis/canonical_representation_constraints.py",
         "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
         "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
@@ -12721,7 +12834,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3456,
+            "collected_tests_at_audit": 3598,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -13246,10 +13359,10 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "use the frozen sparse discovery evaluator to generate a genuine independent "
-                "identity-preserving cloud; extend the original factorized inverse kernel "
-                "with numerical and statistical error control to a global trial integral "
-                "and nonunit-H iteration; "
+                "control numerical and statistical errors on the retained independent-input "
+                "discovery cloud without redraws; obtain enough original full-section "
+                "samples to overcome the rank bound (at least 1337 necessary), then "
+                "execute a controlled global integral and genuine nonunit-H iteration; "
                 "verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
@@ -13281,6 +13394,7 @@ def build_state() -> dict[str, object]:
         "projective_subdivision_roots": subdivision_roots,
         "native_section_continuation": native_sections,
         "compiled_section_features": compiled_discovery,
+        "independent_trial_cloud": independent_cloud,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -13288,6 +13402,12 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "sixteen new retained-input samples execute all original 5345 sections "
+            "and full factorized unit-H trial projectors at two resolutions; "
+            "every sample and stream is retained under the assumed fair IID law; "
+            "global discovery operator means are computed but input and rounding "
+            "errors remain uncontrolled; rank at most 64 prevents a full inverse "
+            "metric update, with at least 1337 samples necessary for invertibility",
             "all 5345 original sections evaluate twice on all fifteen fixed "
             "regression domains through 83523 shared monomials and immutable "
             "sparse discovery instructions; held-out Fraction-pair and existing "
@@ -13726,6 +13846,8 @@ def build_state() -> dict[str, object]:
             "(1,1), (2,0), and (2,1), incompatible with the source-bound multiset",
         ],
         "open_assumptions": [
+            "mutually independent fair infinite named bit streams for the "
+            "captured auxiliary cloud; finite OS receipts do not prove IID",
             "quantum postulates, Lorentzian causality, Einstein gravity, and dimensional constants",
             "heterotic E8 x E8 as the conditional UV realization",
             "Schoen compactification and published one-Higgs model as selected realization data",

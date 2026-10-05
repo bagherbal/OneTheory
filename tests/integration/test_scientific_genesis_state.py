@@ -90,6 +90,41 @@ def test_sparse_discovery_throughput_does_not_close_global_metric_dependencies()
     assert "independent" in stored["recommended_vertical_path"]["next_required_object"]
 
 
+def test_actual_cloud_preserves_assumed_entropy_and_unresolved_metric_boundary() -> None:
+    """A full trial estimate is neither controlled integration nor invertible H1."""
+
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    assert claims["independent_cloud_entropy_law"]["status"] == "ASSUMED"
+    assert claims["independent_trial_cloud"]["status"] == "COMPUTED"
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+    record = stored["independent_trial_cloud"]
+    assert record["sample_count"] == 16
+    assert len(record["sample_archives"]) == 16
+    assert record["entropy_assumption_status"] == "ASSUMED"
+    assert record["original_section_basis_digest"] == (
+        "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c"
+    )
+    for statistics in record["global_statistics"].values():
+        assert statistics["sample_count"] == statistics["kernel_count"] == 16
+        assert statistics["sample_operator_rank_upper_bound"] == 64
+        assert statistics["minimum_samples_necessary_for_invertibility"] == 1337
+        assert statistics["full_sample_operator_invertibility_possible_by_rank"] is False
+    for flag in ("randomness_certificate_available", "numerical_error_bound_certified",
+                 "failed_samples_dropped", "controlled_integral_available",
+                 "nonunit_h_iteration_executed", "ricci_flat_or_hym_metric_available",
+                 "physical_yukawas_available", "common_stabilized_vacuum_available"):
+        assert record[flag] is False
+    assert {edge["source"] for edge in stored["dependencies"]
+            if edge["target"] == "independent_trial_cloud"} == {
+        "independent_cloud_entropy_law", "native_section_continuation",
+        "compiled_section_features", "alternate_metric_global_weight_bound",
+        "auxiliary_cover_draws",
+    }
+    assert "1337" in stored["recommended_vertical_path"]["next_required_object"]
+
+
 def test_full_section_covariance_is_not_physical_normalization() -> None:
     """Full execution and an all-parameter local denominator do not imply HYM."""
 

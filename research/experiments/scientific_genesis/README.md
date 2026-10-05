@@ -1,5 +1,30 @@
 # Scientific Genesis audit
 
+`independent_trial_cloud.py` now executes a new sixteen-sample cloud at two
+resolutions, retaining all thirteen named streams and every original sample.
+All 32 requests admitted the native roots and original quotient frame, then
+evaluated every one of the 5,345 original sections. The full unit-H operator
+is retained as weighted rank-four projector factors, with all diagonal entries,
+trace and Frobenius diagnostics. This is not an admitted-subset estimate.
+
+At the finer resolution, the mean quotient weight without pi-cubed is
+`5.395476651743498e-5`; the operator trace is `2.1581906606973992e-4`.
+The empirical weight-mean standard error is `8.519050416781153e-6`, a diagnostic
+rather than a confidence certificate. Independence/fairness remains **ASSUMED**;
+input-cell and binary64 errors are not controlled. The largest raw squared
+same-sample projector refinement difference is about `2.27e-4`; this is not an
+error bound. The ideal bounded-law Markov radius is separately derived and
+explicitly excludes discovery numerical error.
+
+The sample operator has rank at most 64, so it cannot produce an inverse-based
+update in the original 5,345-dimensional section space. At least 1,337 samples
+are necessary, not sufficient, for invertibility. No ridge, pseudoinverse,
+reduced section model, HYM result, physical Yukawa, or common vacuum is supplied.
+The next frontier is numerical/input error control on these same retained
+samples, followed by sufficient original-basis sampling and a genuine metric
+iteration. See `INDEPENDENT_TRIAL_CLOUD_NOTE.md` and the source-bound packet
+`data/generated/scientific_genesis/independent_trial_cloud.json`.
+
 `compiled_section_features.py` separates fast discovery evaluation from the
 unchanged exact verifier. It shares 83,523 actual monomials across all 90,865
 original polynomials. The completed workload evaluates every original section
@@ -10,11 +35,11 @@ Compilation and repeated-evaluation timings are separately recorded; no
 matched speedup against a different previous workload is claimed.
 
 Discovery uses binary64 centers without propagating input radii or certifying
-roundoff. Centers are not asserted to lie on the variety. This supplies neither
-IID samples nor a controlled integral, metric iteration or physical Yukawa
-normalization. The next experiment should use the frozen representation for
-actual independent inputs and the original factorized kernel, with numerical
-and statistical error accounting. See `COMPILED_SECTION_FEATURES_NOTE.md`.
+roundoff. Centers are not asserted to lie on the variety. The evaluator alone
+supplies neither IID samples nor a controlled integral, metric iteration or
+physical Yukawa normalization. The new cloud above reuses this frozen
+representation and the original factorized kernel; numerical and statistical
+error accounting remain separate. See `COMPILED_SECTION_FEATURES_NOTE.md`.
 
 `native_section_continuation.py` carries retained native roots through the
 original named quotient frame and complete polynomial-column archive. A failed

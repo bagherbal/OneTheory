@@ -1,5 +1,23 @@
 # Scientific Genesis research map
 
+## Repeated original-section discovery evaluation
+
+The complete source-bound polynomial archive now has a sparse numerical
+representation sharing 83,523 original monomials. All 5,345 sections execute
+twice on every one of the fifteen fixed regression domains. This is measured
+repeated evaluation, not an inferred speedup from unrelated old timings.
+Held-out original coefficients agree with independently computed exact
+Fraction-pair center arithmetic and the existing bounded verifier on A, Bx
+and Bu. No cochain or bundle algorithm has been reconstructed.
+
+Binary64 discovery does not certify rounding or propagate source radii.
+Regression centers are not physical cover points and the domains are not
+independent samples. Freeze this step and move to a genuine independent cloud
+and global factorized trial functional, accounting for numerical/statistical
+errors before claiming a controlled integral. Nonunit-H iteration, HYM
+convergence, matter/Higgs metrics and a common vacuum remain unresolved.
+See `COMPILED_SECTION_FEATURES_NOTE.md`.
+
 ## Original full-section trial integrands on retained native roots
 
 The retained-root controller now composes with the original named quotient

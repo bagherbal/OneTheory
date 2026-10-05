@@ -1,5 +1,21 @@
 # Scientific Genesis audit
 
+`compiled_section_features.py` separates fast discovery evaluation from the
+unchanged exact verifier. It shares 83,523 actual monomials across all 90,865
+original polynomials. The completed workload evaluates every original section
+twice on all fifteen fixed domains, retaining the original section identity
+and explicit quotient bases. Independent Fraction-pair center calculations and
+existing bounded arithmetic check held-out columns on all three components.
+Compilation and repeated-evaluation timings are separately recorded; no
+matched speedup against a different previous workload is claimed.
+
+Discovery uses binary64 centers without propagating input radii or certifying
+roundoff. Centers are not asserted to lie on the variety. This supplies neither
+IID samples nor a controlled integral, metric iteration or physical Yukawa
+normalization. The next experiment should use the frozen representation for
+actual independent inputs and the original factorized kernel, with numerical
+and statistical error accounting. See `COMPILED_SECTION_FEATURES_NOTE.md`.
+
 `native_section_continuation.py` carries retained native roots through the
 original named quotient frame and complete polynomial-column archive. A failed
 root or frame request retains its admitted parents. An identical-root frame-only

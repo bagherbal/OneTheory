@@ -61,6 +61,35 @@ def test_same_prefix_draw_workflow_preserves_conditional_metric_boundary() -> No
     assert record["failed_draws_resampled_or_dropped"] is False
 
 
+def test_sparse_discovery_throughput_does_not_close_global_metric_dependencies() -> None:
+    """Complete fast regression evaluation is not an independent integral or metric."""
+
+    stored = json.loads(STATE.read_text(encoding="utf-8"))
+    claims = {claim["id"]: claim for claim in stored["claims"]}
+    node = claims["compiled_section_features"]
+    assert node["status"] == "COMPUTED"
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+    record = stored["compiled_section_features"]
+    assert record["artifact_digest"] == (
+        "6d0cc28da2e9426cb7803cc096ca735dbed2a499acaecb3cd2a91067aa5d225a"
+    )
+    assert record["section_count"] == 5345
+    assert record["shared_monomial_count"] == 83523
+    assert len(record["domains"]) == 15
+    assert {edge["source"] for edge in stored["dependencies"]
+            if edge["target"] == "compiled_section_features"} == {
+        "alternate_metric_symbolic_columns", "uncertain_cover_frames",
+    }
+    assert record["complete_original_sections_evaluated"] is True
+    for flag in ("coordinate_centers_are_cover_points", "numerical_error_bound_certified",
+                 "input_radii_propagated", "independent_cloud_available",
+                 "controlled_integral_available", "nonunit_h_iteration_executed",
+                 "ricci_flat_or_hym_metric_available", "physical_yukawas_available"):
+        assert record[flag] is False
+    assert "independent" in stored["recommended_vertical_path"]["next_required_object"]
+
+
 def test_full_section_covariance_is_not_physical_normalization() -> None:
     """Full execution and an all-parameter local denominator do not imply HYM."""
 

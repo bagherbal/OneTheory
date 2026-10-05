@@ -3818,6 +3818,32 @@ def _nodes() -> list[dict[str, object]]:
              "Ricci-flat/HYM convergence", "common stabilized vacuum"),
         ),
         _node(
+            "compiled_section_features",
+            "complete original sparse binary64 discovery section evaluation",
+            "Normalization",
+            "COMPUTED",
+            "The trusted exact archive compiles into shared original monomial "
+            "features and immutable sparse instructions. All 5345 original "
+            "sections execute twice on each of the fifteen existing regression "
+            "domains, with unchanged global section identity and named quotient "
+            "bases. Independently evaluated Fraction-pair center polynomials "
+            "and the existing bounded evaluator attack held-out coefficients "
+            "on all three components. Repeated-workload timings are measured "
+            "discovery throughput, not a matched speedup, roundoff certificate "
+            "or physical result. Input radii are not propagated; centers are "
+            "not asserted to belong to the variety. These fixed domains are "
+            "not independent samples or a controlled integral.",
+            ("research/experiments/scientific_genesis/compiled_section_features.py",
+             "research/experiments/scientific_genesis/COMPILED_SECTION_FEATURES_NOTE.md",
+             "tests/integration/test_scientific_genesis_compiled_section_features.py",
+             "data/generated/scientific_genesis/compiled_section_features.json"),
+            ("trusted original complete chart archive", "binary64 discovery arithmetic",
+             "caller-declared original quotient frame and source identity"),
+            ("numerical and input error control", "independent integration cloud",
+             "global trial integral", "nonunit-H iteration", "Ricci-flat/HYM convergence",
+             "derived matter and Higgs metrics", "common stabilized vacuum"),
+        ),
+        _node(
             "alternate_metric_projection_free_weights",
             "projection-free positive-law weights from the ambient conormal Gram",
             "Normalization",
@@ -7259,6 +7285,34 @@ def _edges() -> list[dict[str, object]]:
             ("trial form is not physical; convergence or a common vacuum may fail",),
         ),
         _edge(
+            "alternate_metric_symbolic_columns", "compiled_section_features",
+            "A pinned complete exact polynomial stream supplies the actual "
+            "sparse coefficients; monomial sharing does not reconstruct cochains.",
+            ("research/experiments/scientific_genesis/COMPILED_SECTION_FEATURES_NOTE.md",),
+            ("same original full section basis", "explicit numerical discovery embedding"),
+            False,
+            ("finite precision is not exact arithmetic or a certified error bound",),
+        ),
+        _edge(
+            "uncertain_cover_frames", "compiled_section_features",
+            "Original named quotient projections supply the same rank-four "
+            "coefficient expressions on every fixed regression domain.",
+            ("research/experiments/scientific_genesis/COMPILED_SECTION_FEATURES_NOTE.md",),
+            ("admitted original chart and frame", "explicit center arithmetic"),
+            False,
+            ("centers are not cover points and input radii are not propagated",),
+        ),
+        _edge(
+            "compiled_section_features", "visible_metrics",
+            "Measured repeated complete section evaluation makes a discovery "
+            "integration cloud reachable without repeating exact lifting proofs.",
+            ("data/generated/scientific_genesis/compiled_section_features.json",),
+            ("independent input law", "numerical and statistical error control",
+             "factorized kernel", "nonunit-H iteration", "Ricci-flat/HYM convergence"),
+            False,
+            ("regression throughput is not a controlled integral or physical metric",),
+        ),
+        _edge(
             "uncertain_cover_frames",
             "visible_metrics",
             "Original section bounds on uncertain-input domains can feed metrics "
@@ -8866,6 +8920,7 @@ def _engines() -> list[dict[str, object]]:
                 "research/experiments/scientific_genesis/alternate_metric_fiber_functionals.py",
                 "research/experiments/scientific_genesis/alternate_metric_symbolic_columns.py",
                 "research/experiments/scientific_genesis/alternate_metric_symbolic_evaluation.py",
+                "research/experiments/scientific_genesis/compiled_section_features.py",
             ),
         ),
         (
@@ -8926,7 +8981,11 @@ def _scheduler() -> list[dict[str, object]]:
             5,
             2,
             "Reuse the complete original coefficient-ring archive and retained-root "
-            "full-section trial covariance controller. Extend the original inverse "
+            "full-section trial covariance controller. The source-bound sparse "
+            "discovery evaluator now executes all original sections repeatedly "
+            "on all fifteen regression domains; freeze it and generate an actual "
+            "independent cloud, rather than polishing pointwise prerequisites. "
+            "Extend the original inverse "
             "kernel to those actual frames with certified numerical stopping "
             "tolerances before a large integration campaign. Do not treat an "
             "unmatched domain runtime or cache reuse as throughput. Use the "
@@ -9032,6 +9091,7 @@ def build_state() -> dict[str, object]:
     from .alternate_section_curve_restrictions import read_restrictions
     from .auxiliary_cover_draws import read_draws
     from .canonical_representation_constraints import read_constraints
+    from .compiled_section_features import read_execution as read_compiled_discovery
     from .native_section_continuation import read_complete_continuation
     from .projective_subdivision_roots import read_subdivision
     from .projective_uncertain_intersections import read_uncertain_intersections
@@ -9077,6 +9137,9 @@ def build_state() -> dict[str, object]:
     ))
     native_sections = read_complete_continuation(expected_digest=(
         "7584936b3d0d5c310b0bb402e1c210ff76df8e01fd9b8a1e0321e06d098bccb1"
+    ))
+    compiled_discovery = read_compiled_discovery(expected_digest=(
+        "6d0cc28da2e9426cb7803cc096ca735dbed2a499acaecb3cd2a91067aa5d225a"
     ))
 
     canonical_constraints = read_constraints(expected_digest=(
@@ -12591,6 +12654,10 @@ def build_state() -> dict[str, object]:
         "tests/integration/test_scientific_genesis_native_section_continuation.py",
         "data/generated/scientific_genesis/native_section_continuation.json",
         "data/generated/scientific_genesis/native_section_continuation.columns.jsonl.gz",
+        "research/experiments/scientific_genesis/compiled_section_features.py",
+        "research/experiments/scientific_genesis/COMPILED_SECTION_FEATURES_NOTE.md",
+        "tests/integration/test_scientific_genesis_compiled_section_features.py",
+        "data/generated/scientific_genesis/compiled_section_features.json",
         "research/experiments/scientific_genesis/canonical_representation_constraints.py",
         "research/experiments/scientific_genesis/CANONICAL_REPRESENTATION_CONSTRAINTS_NOTE.md",
         "tests/integration/test_scientific_genesis_canonical_representation_constraints.py",
@@ -13179,9 +13246,11 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "extend retained-root full-section trial covariance through the original "
-                "inverse kernel with certified stopping tolerances and controlled integration "
-                "errors, verify Ricci-flat/HYM convergence and stabilize one common "
+                "use the frozen sparse discovery evaluator to generate a genuine independent "
+                "identity-preserving cloud; extend the original factorized inverse kernel "
+                "with numerical and statistical error control to a global trial integral "
+                "and nonunit-H iteration; "
+                "verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
         },
@@ -13211,6 +13280,7 @@ def build_state() -> dict[str, object]:
         "alternate_metric_generic_frame": generic_frame,
         "projective_subdivision_roots": subdivision_roots,
         "native_section_continuation": native_sections,
+        "compiled_section_features": compiled_discovery,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -13218,6 +13288,12 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "all 5345 original sections evaluate twice on all fifteen fixed "
+            "regression domains through 83523 shared monomials and immutable "
+            "sparse discovery instructions; held-out Fraction-pair and existing "
+            "bounded arithmetic checks preserve original identities; timings "
+            "are measured, rounding and input errors remain uncertified, and "
+            "no independent cloud, integral or physical metric is supplied",
             "retained-root refinement composes with the original named frame and "
             "all 5345 sections; finite rational-expression continuity gives conditional "
             "coefficient convergence on the proper-locus complement, uniformly on "

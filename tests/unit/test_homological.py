@@ -354,6 +354,86 @@ def test_chain_maps_reject_noncommuting_components_in_either_direction(
 
 @pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
 @pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_complex_identities_reject_arbitrarily_small_exact_defects(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """An exact differential identity has no numerical tolerance or underflow."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    first = VectorSpace("first", ("a",), scalar_type)
+    middle = VectorSpace("middle", ("b", "c"), scalar_type)
+    last = VectorSpace("last", ("d",), scalar_type)
+    spaces = GradedVectorSpace("exact cancellation", {0: first, step: middle, 2 * step: last})
+    coefficient = Rational(2, 3) if scalar_type is Rational else OMEGA
+    tiny = scalar_type(Rational(1, 10**400))
+    incoming = LinearMap(first, middle, ((coefficient,), (1,)))
+    outgoing = LinearMap(middle, last, ((1, -coefficient),))
+    complex_ = complex_type(spaces, {0: incoming, step: outgoing})
+
+    assert outgoing.compose(incoming).is_zero()
+    assert all(complex_.cohomology_dimension(degree) == 0 for degree in spaces.degrees)
+    perturbed = LinearMap(middle, last, ((1, -coefficient + tiny),))
+    assert perturbed.compose(incoming).rows == ((tiny,),)
+    with pytest.raises(ValueError, match="squared equals zero"):
+        complex_type(spaces, {0: incoming, step: perturbed})
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_maps_and_homotopies_reject_arbitrarily_small_exact_defects(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """Commutation and homotopy equations cannot silently round to zero."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    first = VectorSpace("first", ("a",), scalar_type)
+    last = VectorSpace("last", ("b",), scalar_type)
+    coefficient = Rational(2, 3) if scalar_type is Rational else OMEGA
+    tiny = scalar_type(Rational(1, 10**400))
+    complex_ = complex_type(
+        GradedVectorSpace("contractible", {0: first, step: last}),
+        {0: LinearMap(first, last, ((coefficient,),))},
+    )
+    identity = ChainMap.identity(complex_)
+    zero = ChainMap(complex_, complex_, {})
+    contraction = LinearMap(last, first, ((scalar_type(1) / coefficient,),))
+    assert ChainHomotopy(identity, zero, {step: contraction}).component(step) == contraction
+
+    with pytest.raises(ValueError, match="commute with the differentials"):
+        ChainMap(complex_, complex_, {
+            0: LinearMap.identity(first),
+            step: LinearMap(last, last, ((scalar_type(1) + tiny,),)),
+        })
+    perturbed = contraction + LinearMap(last, first, ((tiny,),))
+    with pytest.raises(ValueError, match="homotopy equation"):
+        ChainHomotopy(identity, zero, {step: perturbed})
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+def test_totalization_requires_exact_unsigned_square_commutation(
+    scalar_type: type[Rational] | type[Eisenstein],
+) -> None:
+    """The total differential's sign cannot hide a tiny noncommuting square."""
+
+    cells = {(p, q): VectorSpace(f"cell {p},{q}", ("e",), scalar_type)
+             for p in (0, 1) for q in (0, 1)}
+    coefficient = Rational(2, 3) if scalar_type is Rational else OMEGA
+    tiny = scalar_type(Rational(1, 10**400))
+    horizontal = {(0, q): LinearMap(cells[0, q], cells[1, q], ((coefficient,),))
+                  for q in (0, 1)}
+    vertical = {(p, 0): LinearMap(cells[p, 0], cells[p, 1], ((1,),))
+                for p in (0, 1)}
+    total = Bicomplex("commuting square", cells, horizontal, vertical).totalize()
+    assert total.differential(1).compose(total.differential(0)).is_zero()
+    vertical[1, 0] = LinearMap(cells[1, 0], cells[1, 1], ((scalar_type(1) + tiny,),))
+    with pytest.raises(ValueError, match="directions must commute"):
+        Bicomplex("noncommuting square", cells, horizontal, vertical)
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
 def test_direct_sum_preserves_explicit_zero_edge_bases(
     scalar_type: type[Rational] | type[Eisenstein],
     complex_type: type[ChainComplex] | type[CochainComplex],

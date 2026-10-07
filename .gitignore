@@ -38,6 +38,8 @@ data/generated/*
 !data/generated/visible_carrier/**
 !data/generated/computable_carrier/
 !data/generated/computable_carrier/**
+!data/generated/hierarchy_valuation/
+!data/generated/hierarchy_valuation/**
 
 .gitmessage
 *.partial.json

@@ -272,8 +272,9 @@ class WallValuationReport:
 PREMISES = (
     "near the wall j1=j2 the extension modulus is the only parametrically small "
     "quantity, with |a|^2 proportional to the anomalous-U(1) FI term (D-flatness)",
-    "V1 and V2 remain stable at the wall and V is stable on the side j2>j1 adjacent "
-    "to it (not yet certified at the wall; certified at (14,16,1) and near (6,9,3))",
+    "V1 and V2 are stable on the whole wall and V is stable on the adjacent side "
+    "j2>j1 (certified by wall_stability.py under the same published source-order "
+    "line premise as the retained-polarization certificate)",
     "canonical matter and Higgs metrics have finite nondegenerate limits at the wall, "
     "given by the split bundle V1+V2",
 )

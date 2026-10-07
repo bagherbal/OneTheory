@@ -16745,7 +16745,7 @@
     "visible_spin_twisted_h1": 0,
     "whole_frozen_outer_parameter_family": true
   },
-  "artifact_digest": "0febc83556ebf38d636c290cd8fc42fa2e8342522caf52b19f6f11523c41362d",
+  "artifact_digest": "6ac74a1c06d0eb3cece1aae7cb00f81e4a8c49479af1cdf92d85a3b30322b4d4",
   "artifacts": [
     {
       "bytes": 3337,
@@ -18628,6 +18628,26 @@
       "sha256": "a6af7623ec6f6c3fd70f31c4ea31f196828f4c17359bdacede4233d60f00ef0f"
     },
     {
+      "bytes": 10750,
+      "path": "research/experiments/scientific_genesis/metric_polarization_scope.py",
+      "sha256": "2dba0543abe2138f6b537b0f96c0c86e499cbf0d318aabe4c0da968e0f61ed7d"
+    },
+    {
+      "bytes": 3535,
+      "path": "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md",
+      "sha256": "cfd023ce16aa3b203be9f6f49a20882ede7b309ab99fc3000ed1f4f99a4da693"
+    },
+    {
+      "bytes": 7733,
+      "path": "tests/integration/test_scientific_genesis_metric_polarization_scope.py",
+      "sha256": "d3d8d7e95f92f95c518ede86ad0bee04974dfe7dffb5c8984117118a135dba2b"
+    },
+    {
+      "bytes": 6273,
+      "path": "data/generated/scientific_genesis/metric_polarization_scope.json",
+      "sha256": "cb6c2272c044ed754e543833f9dc82ddbc17a927558101f73eb69b02b82c2551"
+    },
+    {
       "bytes": 144,
       "path": "requirements-dev.txt",
       "sha256": "0858cb4668a03544a4169530841bb5552298ce46e2f7735e9a2dd559cccffe2f"
@@ -19044,11 +19064,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3880,
+    "collected_tests_at_audit": 3918,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 320,
-    "test_python_files": 308
+    "research_python_files": 321,
+    "test_python_files": 309
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -24756,6 +24776,46 @@
     },
     {
       "assumptions": [
+        "trusted original generation twist",
+        "source sufficient chamber only",
+        "explicit cover/quotient normalization"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/metric_polarization_scope.json",
+        "research/experiments/scientific_genesis/metric_polarization_scope.py",
+        "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md",
+        "tests/integration/test_scientific_genesis_metric_polarization_scope.py"
+      ],
+      "id": "metric_polarization_scope",
+      "label": "exact sufficient-stability scope of the retained section twist",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "actual stability at the intended metric polarization"
+      ],
+      "statement": "Independent ambient Chow multiplication reproduces all nine published homogeneous slope polynomials and the ninefold quotient normalization. Four bounds are positive at the retained (14,16,1) twist. At fixed first coordinates its sufficient interval is 17/5 < y < 51. Positive rescaling cannot repair this theorem hypothesis. This is not a bundle-instability proof, new physical polarization or reason to discard the live finite-cloud experiment.",
+      "status": "PROVED"
+    },
+    {
+      "assumptions": [
+        "same retained carrier and section system",
+        "no hidden polarization change"
+      ],
+      "evidence": [
+        "data/generated/scientific_genesis/metric_polarization_scope.json",
+        "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md"
+      ],
+      "id": "retained_polarization_stability",
+      "label": "stability and background compatibility for the intended HYM limit",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "actual stability at the retained polarization, or a derived algorithm using the retained sections on an independently declared admissible background",
+        "compatible background metric and line untwisting"
+      ],
+      "statement": "Generation at the frozen ample twist and stability on a different certified chamber do not prove slope stability on this twist's ray. Failure of the sufficient bounds does not prove instability either. A physical HYM calculation requires actual stability for its polarization and a compatible background/line-untwisting algorithm; finite balance and a larger population do not supply these inputs.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
         "trusted original complete chart archive",
         "binary64 discovery arithmetic",
         "caller-declared original quotient frame and source identity"
@@ -25068,6 +25128,7 @@
       "layer": "Normalization",
       "missing_prerequisites": [
         "controlled numerical full-basis evaluation and metric sampling",
+        "actual slope stability for the intended polarization and compatible background",
         "converged Ricci-flat and HYM metrics"
       ],
       "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Actual chart, Laurent-coefficient, and density errors are bounded, and universal quotient frames now have certified bounds on declared pivot domains. Full original-cochain section evaluation is bounded on demand. The original finite-pole engine also carries certified coefficient bounds for every archived index. The complete bounded matrix is certified on one declared domain, and exact polynomial identities give a conservative global auxiliary weight bound. The full unit trial kernel and its global projection integrand bound are available, but no independent integral or iteration is. Practical multi-point throughput, controlled sampling and converged Ricci-flat/HYM matter metrics are not yet available. The published reference still lacks complete carrier cocycles.",
@@ -30456,6 +30517,67 @@
     },
     {
       "assumptions_required": [
+        "same original (14,16,1) twist and 5345 section columns"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/alternate_metric_quotient_generation.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "global generation is not slope stability"
+      ],
+      "mathematical_reason": "The trusted generation certificate fixes the actual line twist whose source-stability hypothesis is tested, without changing its sections.",
+      "source": "alternate_metric_quotient_generation",
+      "target": "metric_polarization_scope"
+    },
+    {
+      "assumptions_required": [
+        "source bounds are sufficient, not a classification of all stable classes"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/metric_polarization_scope.json"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "a failed sufficient test does not construct a destabilizing subsheaf"
+      ],
+      "mathematical_reason": "The certified sufficient chamber supplies nine exact inequalities; independent ambient intersections decide their applicability at the twist.",
+      "source": "alternate_constituent_outer_stability_locus",
+      "target": "metric_polarization_scope"
+    },
+    {
+      "assumptions_required": [
+        "retained twist and original section system"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md"
+      ],
+      "implication": "exact",
+      "known_failure_modes": [
+        "do not turn theorem inapplicability into an instability claim"
+      ],
+      "mathematical_reason": "The existing sufficient theorem cannot certify stability on this ray; the actual stability/background hypothesis remains unresolved.",
+      "source": "metric_polarization_scope",
+      "target": "retained_polarization_stability"
+    },
+    {
+      "assumptions_required": [
+        "derived compatible metric algorithm",
+        "controlled continuum convergence"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "finite-cloud balance or rescaling does not close this physical gate"
+      ],
+      "mathematical_reason": "A genuine HYM limit needs actual slope-stability and a compatible background and untwisting procedure, not only finite-twist balance.",
+      "source": "retained_polarization_stability",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "same original full section basis",
         "explicit numerical discovery embedding"
       ],
@@ -32356,6 +32478,7 @@
     }
   ],
   "established_results": [
+    "independent exact ambient intersections put the retained (14,16,1) section twist outside the certified sufficient stability chamber; its restricted interval is 17/5 < y < 51, with endpoints excluded; positive rescaling cannot repair the hypothesis; no actual bundle instability, new physical Kahler class or HYM metric is inferred",
     "exact retained positive-weight intervals force training atom 78's normalized balance multiplier above 3.22533; every positive H on this unchanged complete finite measure has operator-norm balance residual above 2.22533; this is not a continuum bundle no-go",
     "the actual full-basis nonunit H1 executes on all 2048 original fibers with all 5345 coordinates and numerical gates retained; the training Rayleigh witness has maximum eigenvalue about 5.25985, while separately held-out rows give about 8.62495; neither is a certified full-operator norm or HYM curvature residual",
     "full unpivoted original-column QR and a separately predeclared triangular inverse policy admit an actual nonunit computational H1 without modifying the old failed full Gram policy, dropping samples, regularization, physical normalization or a common vacuum",
@@ -85265,6 +85388,191 @@
       "research/experiments/scientific_genesis/uncertain_cover_weights.py": "0934fbee559e6241ef17b2131c7b24642a743e43fe885d69f0354521def09b9b"
     }
   },
+  "metric_polarization_scope": {
+    "actual_destabilizing_subsheaf_constructed": false,
+    "ambient_coordinate_order": [
+      "x=tau1",
+      "u=tau2",
+      "p=phi"
+    ],
+    "artifact_digest": "4b05abef53e7814af7b5faca2511e35944dc1df603a78bfe02b6809e100bb9e8",
+    "claim": "the retained twist lies outside the source sufficient stability chamber",
+    "common_stabilized_vacuum_available": false,
+    "every_positive_rescaling_has_the_same_slope_signs": true,
+    "finite_cloud_should_stop_because_of_this_sufficient_test": false,
+    "first_missing_input": "establish actual stability at the retained polarization, or derive a metric algorithm for an independently declared admissible background; finite-cloud balance alone cannot supply either hypothesis",
+    "normalization": "rank-one line slopes; cover = nine times quotient",
+    "observations_used": false,
+    "original_section_count": 5345,
+    "original_sections_or_cloud_inputs_changed": false,
+    "physical_kahler_class_selected": false,
+    "physical_yukawas_available": false,
+    "prerequisite_digests": {
+      "generation": "3ca16bfa116c6b5530d73e74486eb196d37dbf9c0f7e75d445e84c41176fe063",
+      "stability": "570132144ddccead002f9e5957de29bce23d0f73fb94d0e97230e34ba706346f"
+    },
+    "published_sources": [
+      {
+        "arxiv_id": "hep-th/0602073",
+        "locators": [
+          "section 3.2, equations 10 and 15",
+          "Proposition 1 and equations 32 through 36"
+        ],
+        "source_archive_sha256": "8e38123b9d2de8751deecbf295015497ab2ed891244215455fffe756bebf0aea",
+        "version": "v1"
+      },
+      {
+        "arxiv_id": "hep-th/0512205",
+        "locators": [
+          "section 2.1 nontrivial-extension lower bound",
+          "split pair (0,V_R) exclusion"
+        ],
+        "source_archive_sha256": "f3c339b0ea7d5d26747dac8788400c785a3194077d09974eae5e04293f9a4eab",
+        "version": "v2"
+      }
+    ],
+    "rescaling_reason": "each line slope is a homogeneous quadratic in the polarization",
+    "restricted_sufficient_interval": {
+      "endpoints_excluded": true,
+      "first": 14,
+      "lower_exact": "17/5",
+      "second": 16,
+      "upper_exact": "51"
+    },
+    "retained_twist": [
+      14,
+      16,
+      1
+    ],
+    "ricci_flat_or_hym_metric_available": false,
+    "rows": [
+      {
+        "cover_line_slope_exact": "1296",
+        "line_class": [
+          -1,
+          -2,
+          2
+        ],
+        "quotient_line_slope_exact": "144",
+        "slice_constant_exact": "2088",
+        "slice_linear_exact": "-792",
+        "strictly_negative_at_retained_twist": false
+      },
+      {
+        "cover_line_slope_exact": "-3600",
+        "line_class": [
+          2,
+          -2,
+          -1
+        ],
+        "quotient_line_slope_exact": "-400",
+        "slice_constant_exact": "-3672",
+        "slice_linear_exact": "72",
+        "strictly_negative_at_retained_twist": true
+      },
+      {
+        "cover_line_slope_exact": "-2088",
+        "line_class": [
+          2,
+          -5,
+          1
+        ],
+        "quotient_line_slope_exact": "-232",
+        "slice_constant_exact": "-1404",
+        "slice_linear_exact": "-684",
+        "strictly_negative_at_retained_twist": true
+      },
+      {
+        "cover_line_slope_exact": "648",
+        "line_class": [
+          -4,
+          1,
+          2
+        ],
+        "quotient_line_slope_exact": "72",
+        "slice_constant_exact": "1548",
+        "slice_linear_exact": "-900",
+        "strictly_negative_at_retained_twist": false
+      },
+      {
+        "cover_line_slope_exact": "-4248",
+        "line_class": [
+          -1,
+          1,
+          -1
+        ],
+        "quotient_line_slope_exact": "-472",
+        "slice_constant_exact": "-4212",
+        "slice_linear_exact": "-36",
+        "strictly_negative_at_retained_twist": true
+      },
+      {
+        "cover_line_slope_exact": "-432",
+        "line_class": [
+          -2,
+          2,
+          0
+        ],
+        "quotient_line_slope_exact": "-48",
+        "slice_constant_exact": "-360",
+        "slice_linear_exact": "-72",
+        "strictly_negative_at_retained_twist": true
+      },
+      {
+        "cover_line_slope_exact": "1080",
+        "line_class": [
+          -2,
+          -1,
+          2
+        ],
+        "quotient_line_slope_exact": "120",
+        "slice_constant_exact": "1908",
+        "slice_linear_exact": "-828",
+        "strictly_negative_at_retained_twist": false
+      },
+      {
+        "cover_line_slope_exact": "1728",
+        "line_class": [
+          1,
+          -4,
+          2
+        ],
+        "quotient_line_slope_exact": "192",
+        "slice_constant_exact": "2448",
+        "slice_linear_exact": "-720",
+        "strictly_negative_at_retained_twist": false
+      },
+      {
+        "cover_line_slope_exact": "-3816",
+        "line_class": [
+          1,
+          -1,
+          -1
+        ],
+        "quotient_line_slope_exact": "-424",
+        "slice_constant_exact": "-3852",
+        "slice_linear_exact": "36",
+        "strictly_negative_at_retained_twist": true
+      }
+    ],
+    "schema": "metric-polarization-scope-v1",
+    "scope_failure_is_a_bundle_instability_proof": false,
+    "source_files_sha256": {
+      "data/published/visible_carrier/source_manifest.json": "dc7b51776d7b362ae748f2bfde8ff4a90d54c82becb6a55e2a6eafb31bc0c99d",
+      "research/experiments/scientific_genesis/ALTERNATE_METRIC_QUOTIENT_GENERATION_NOTE.md": "f900fbd7433d6f624b13ba8065cd0a6b396b13757428e7fbd551dbabde01f726",
+      "research/experiments/scientific_genesis/ALTERNATE_STABILITY_NOTE.md": "ace202c9120c23056d621b5f33b8234e6768ce9c5aeb924a914cfde85be2abdd",
+      "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md": "cfd023ce16aa3b203be9f6f49a20882ede7b309ab99fc3000ed1f4f99a4da693",
+      "research/experiments/scientific_genesis/metric_polarization_scope.py": "2dba0543abe2138f6b537b0f96c0c86e499cbf0d318aabe4c0da968e0f61ed7d",
+      "src/onetheory/math/geometry.py": "05acbc48379aad7a79f421e4a379eb4b09bfd880410a85b24fcc5038cbee4250",
+      "src/onetheory/math/numbers.py": "efbf0505e1dc23f96ee17b783c19716bf52937ba1db92d2ab0e4f78a364953f5",
+      "src/onetheory/math/polynomials.py": "27d1859cceff49830db90ba80e12d75e7b8bb4c36b07b97d08022eb809f48f74",
+      "src/onetheory/models/heterotic_schoen/geometry.py": "22bfdeb11cd2e33658d293a7e0df8ece07c5f82dcc29341727dbf8b0c3f76b11",
+      "src/onetheory/models/heterotic_schoen/visible.py": "fe44306da979e92a06487db76a224158d7f6849872070ff662bb4ed2c92df6c5"
+    },
+    "stability_at_retained_polarization_established": false,
+    "status": "PROVED",
+    "sufficient_chamber_test_passed": false
+  },
   "native_section_continuation": {
     "all_components_or_domains_executed": false,
     "all_original_columns_consumed": true,
@@ -95182,13 +95490,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the original full inverse policy and Gram failure stay unchanged; actual complete-factor nonunit H1 and its retained-fiber diagnostic retain all 1536 training, 512 held-out samples and 5345 coordinates; the exact atomic no-go excludes balance on this unchanged finite measure for every H; execute the separately captured 16384-input predeclared independent population with 8192 training and 8192 fresh validation points under the unchanged law; retain every new checkpoint and check both complete finite-weight bounds without replacing the old cloud, clipping weights or reducing sections; obtain useful statistical, input and numerical control and sample/refinement stability; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
+    "next_required_object": "the original full inverse policy and Gram failure stay unchanged; actual complete-factor nonunit H1 and its retained-fiber diagnostic retain all 1536 training, 512 held-out samples and 5345 coordinates; the exact atomic no-go excludes balance on this unchanged finite measure for every H; execute the separately captured 16384-input predeclared independent population with 8192 training and 8192 fresh validation points under the unchanged law; retain every new checkpoint and check both complete finite-weight bounds without replacing the old cloud, clipping weights or reducing sections; obtain useful statistical, input and numerical control and sample/refinement stability; the retained (14,16,1) twist fails four sufficient stability bounds, which is not an instability proof; establish actual stability at the intended polarization and a compatible background/line-untwisting algorithm without changing labels; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The older sixteen-point operator has rank at most 64. The actual 2048-point cloud is now complete, retaining all 1536 training and 512 held-out samples. The original full inverse policy failed Gram positivity and stays failed. Full unpivoted QR and a distinct triangular policy produce an actual positive nonunit full-basis H1. Its retained-population fiber witness now consumes all original coordinates. Exact positive-atom bounds exclude a balanced fixed point for every H on this unchanged finite measure. Stop blind H2 iteration on that cloud. Preserve it; derive a lawful larger predeclared independent population or a justified auxiliary-measure change without dropping heavy samples, clipping weights or truncating sections. Do not infer continuum bundle instability. Use the separately captured 16384-input request: execute all 8192 new training and 8192 fresh held-out checkpoints under the unchanged law, preserving older populations and all failed requests. Check both complete populations' atomic bounds before seeking balance. A new budget is not an integration accuracy theorem. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement further controlled nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The older sixteen-point operator has rank at most 64. The actual 2048-point cloud is now complete, retaining all 1536 training and 512 held-out samples. The original full inverse policy failed Gram positivity and stays failed. Full unpivoted QR and a distinct triangular policy produce an actual positive nonunit full-basis H1. Its retained-population fiber witness now consumes all original coordinates. Exact positive-atom bounds exclude a balanced fixed point for every H on this unchanged finite measure. Stop blind H2 iteration on that cloud. Preserve it; derive a lawful larger predeclared independent population or a justified auxiliary-measure change without dropping heavy samples, clipping weights or truncating sections. Do not infer continuum bundle instability. Use the separately captured 16384-input request: execute all 8192 new training and 8192 fresh held-out checkpoints under the unchanged law, preserving older populations and all failed requests. Check both complete populations' atomic bounds before seeking balance. A new budget is not an integration accuracy theorem. Use the exact retained-polarization scope check: four sufficient bounds fail at (14,16,1), so neither more samples nor positive ray rescaling certifies its HYM stability hypothesis. This does not prove instability or stop the finite-cloud experiment. Establish actual stability for the intended polarization and a compatible background/line-untwisting algorithm before interpreting balance as a HYM route. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement further controlled nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,

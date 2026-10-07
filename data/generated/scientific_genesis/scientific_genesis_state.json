@@ -16745,7 +16745,7 @@
     "visible_spin_twisted_h1": 0,
     "whole_frozen_outer_parameter_family": true
   },
-  "artifact_digest": "825111b288964636d7fe6bd8a9e3f29c448e8b6fdaf15a93dbcf41a1445967ad",
+  "artifact_digest": "0febc83556ebf38d636c290cd8fc42fa2e8342522caf52b19f6f11523c41362d",
   "artifacts": [
     {
       "bytes": 3337,
@@ -18598,6 +18598,36 @@
       "sha256": "77f60149c4cedc9b635b26e66bbe2b3828d95331d5a7987fa40a09acc6cb9efe"
     },
     {
+      "bytes": 16574,
+      "path": "research/experiments/scientific_genesis/expanded_trial_cloud.py",
+      "sha256": "804ecd3147e9bb96acc719eeb46b68bed6601ca21c88f52ee7e54b4e507d3b59"
+    },
+    {
+      "bytes": 3977,
+      "path": "research/experiments/scientific_genesis/EXPANDED_TRIAL_CLOUD_NOTE.md",
+      "sha256": "50c2ce45969646b2c33c23f81154c333fd5fc60004b142614cac460f044e5eee"
+    },
+    {
+      "bytes": 3548,
+      "path": "research/experiments/scientific_genesis/EXPANDED_TRIAL_EXECUTION_NOTE.md",
+      "sha256": "5eff948e115f0985c699bf9b67baffb85fea441b45f04ab8881d8124294429f0"
+    },
+    {
+      "bytes": 11887,
+      "path": "tests/integration/test_scientific_genesis_expanded_trial_cloud.py",
+      "sha256": "484f505029978cd45b01a251317abee7deab8a8f7b1a5ff2568da508cde65da0"
+    },
+    {
+      "bytes": 22124445,
+      "path": "data/generated/scientific_genesis/expanded_trial_cloud_inputs.json",
+      "sha256": "797d52ebfffb1f3854f4c139b4a7bde09e5ae2a3d46150c0b15323b02a5f2811"
+    },
+    {
+      "bytes": 4679,
+      "path": "data/generated/scientific_genesis/expanded_trial_cloud_request.json",
+      "sha256": "a6af7623ec6f6c3fd70f31c4ea31f196828f4c17359bdacede4233d60f00ef0f"
+    },
+    {
       "bytes": 144,
       "path": "requirements-dev.txt",
       "sha256": "0858cb4668a03544a4169530841bb5552298ce46e2f7735e9a2dd559cccffe2f"
@@ -19014,11 +19044,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3832,
+    "collected_tests_at_audit": 3880,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 318,
-    "test_python_files": 306
+    "research_python_files": 320,
+    "test_python_files": 308
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -24696,6 +24726,36 @@
     },
     {
       "assumptions": [
+        "assumed fresh fair independent infinite named streams",
+        "unchanged auxiliary probability law",
+        "selected unstabilized point",
+        "predeclared engineering sample budget and same-stream refinement policy"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/expanded_trial_cloud.py",
+        "research/experiments/scientific_genesis/EXPANDED_TRIAL_CLOUD_NOTE.md",
+        "research/experiments/scientific_genesis/EXPANDED_TRIAL_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_expanded_trial_cloud.py",
+        "data/generated/scientific_genesis/expanded_trial_cloud_inputs.json",
+        "data/generated/scientific_genesis/expanded_trial_cloud_request.json"
+      ],
+      "id": "expanded_trial_cloud_request",
+      "label": "fresh predeclared full-section population after the finite-measure no-go",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "complete new population",
+        "exact finite-weight necessary condition",
+        "controlled numerical and sampling errors",
+        "actual full-basis metric iteration",
+        "Ricci-flat/HYM convergence",
+        "matter and Higgs metrics",
+        "common vacuum"
+      ],
+      "statement": "A separate captured 16384-input population fixes 8192 training and 8192 fresh validation ordinals before their geometry is evaluated. The old populations remain unchanged and inspected old validation is not reused as blind validation. The same auxiliary law, selected unstabilized point and all 5345 section coordinates remain. This source-bound request is not a completed cloud, balance result, controlled integral or physical metric.",
+      "status": "SELECTED"
+    },
+    {
+      "assumptions": [
         "trusted original complete chart archive",
         "binary64 discovery arithmetic",
         "caller-declared original quotient frame and source identity"
@@ -30315,6 +30375,87 @@
     },
     {
       "assumptions_required": [
+        "engineering counts are selected, not guaranteed sufficient"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/EXPANDED_TRIAL_CLOUD_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "the larger fresh measure may also fail its exact atomic bound"
+      ],
+      "mathematical_reason": "The exact old empirical obstruction motivates a separately predeclared larger population without dropping atoms or altering its geometric law.",
+      "source": "finite_cloud_atomic_obstruction",
+      "target": "expanded_trial_cloud_request"
+    },
+    {
+      "assumptions_required": [
+        "fresh fair infinite-stream law remains assumed"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/expanded_trial_cloud_inputs.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "finite OS bytes cannot prove ideal IID or conditional independence"
+      ],
+      "mathematical_reason": "Fresh named receipts and a new held-out split precede new geometry; previously inspected validation is not silently made blind again.",
+      "source": "independent_cloud_entropy_law",
+      "target": "expanded_trial_cloud_request"
+    },
+    {
+      "assumptions_required": [
+        "complete original section identity",
+        "binary64 discovery arithmetic"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/expanded_trial_cloud.py"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "floating evaluation does not certify geometric or arithmetic error"
+      ],
+      "mathematical_reason": "The frozen evaluator computes all original section columns on the new population without rebuilding the symbolic system or changing the basis.",
+      "source": "compiled_section_features",
+      "target": "expanded_trial_cloud_request"
+    },
+    {
+      "assumptions_required": [
+        "unchanged native chart and pivot policy",
+        "no replaced terminal failure"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/EXPANDED_TRIAL_CLOUD_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "an exhausted input prevents an admitted whole-population operator"
+      ],
+      "mathematical_reason": "Every new input refines only its own retained address, root branch and quotient frame under the declared budget.",
+      "source": "native_section_continuation",
+      "target": "expanded_trial_cloud_request"
+    },
+    {
+      "assumptions_required": [
+        "every original new checkpoint",
+        "useful sampling and numerical error bounds",
+        "controlled nonunit-H iteration",
+        "HYM curvature convergence",
+        "common vacuum"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/expanded_trial_cloud_request.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "passing an atomic or finite-twist balance test is not a physical metric"
+      ],
+      "mathematical_reason": "A larger population is an executable experiment, not a balance or HYM theorem; only controlled full-population calculations can advance metrics.",
+      "source": "expanded_trial_cloud_request",
+      "target": "visible_metrics"
+    },
+    {
+      "assumptions_required": [
         "same original full section basis",
         "explicit numerical discovery embedding"
       ],
@@ -32340,6 +32481,93 @@
     "the isolated W1/P atlas line substitution has a nonzero 14-term commutator, while its forced uniform omega^2 propagation is an exact action whose shifted character-(1,2) H1 remains zero",
     "one shared ambient transfer derives current synchronized Higgs H1 characters (0,0), (0,1), (2,0), and (2,1)"
   ],
+  "expanded_trial_cloud_request": {
+    "artifact_digest": "65d7683b549605256f95b23bccf1f97e6f5c4ffc07ae7cac68fdfa778b6e55b8",
+    "auxiliary_law": "unchanged beta^3 / integral_cover beta^3 with exact mixture selectors",
+    "compilation_parent_digest": "63dcc3ff50a8cf3aadbd896dd20a732774efbc460d714daeb2ee8ce41c44a488",
+    "entropy_assumption_status": "ASSUMED",
+    "input_digest": "c4858eb82f7152c9332130b80a4af047fcc2c571dfc628f08f9a4a2cd21ad958",
+    "new_validation_used_to_select_request": false,
+    "observations_used": false,
+    "old_and_new_populations_combined_in_an_estimator": false,
+    "older_populations_retained_unchanged": true,
+    "older_validation_is_blind_for_this_experiment": false,
+    "original_section_basis_digest": "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c",
+    "parameter_point_status": "SELECTED",
+    "parent_cloud_digest": "3138e6d6eb4c17fb977714f78069cc704e09f3eab45fb73e1b8d16d540cd29cc",
+    "parent_obstruction_digest": "1a60352d1c7b4287621e5eb53e8b7902f7bf7f1c3bf37cce2bb1fd35e3100288",
+    "parent_request_digest": "9e13a565bc13a2bd27320e5746d3fbf2104c3290f8792efc97d8d3316bc8a5b5",
+    "policy": {
+      "chart": [
+        0,
+        0,
+        0
+      ],
+      "covering_degree": 9,
+      "first_pivots": [
+        0,
+        2
+      ],
+      "levels": [
+        16,
+        20,
+        24
+      ],
+      "max_cells": 65536,
+      "parameters": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "residue_scale": [
+        "1",
+        "0"
+      ],
+      "second_pivots": [
+        0,
+        1,
+        2
+      ],
+      "stop_after_first_resolved_kernel": true
+    },
+    "sample_budget_proves_balance": false,
+    "sample_count": 16384,
+    "schema": "expanded-original-trial-cloud-request-v1",
+    "section_form": "explicit unit H0 in the full original 5345-dimensional section basis",
+    "source_files_sha256": {
+      "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md": "22d5522354a0dbd31896afd3ee981b7ce6f8491272b8ac70ee7b88adf5991a6d",
+      "research/experiments/scientific_genesis/EXPANDED_TRIAL_CLOUD_NOTE.md": "50c2ce45969646b2c33c23f81154c333fd5fc60004b142614cac460f044e5eee",
+      "research/experiments/scientific_genesis/FACTORED_TRIAL_INVERSE_NOTE.md": "4491f8b7e729b512d87401396efeae615687896423437ca264598d2937d09795",
+      "research/experiments/scientific_genesis/FINITE_CLOUD_BALANCE_NOTE.md": "64357fc93c0a0f93951d9d2add5d080d6b594f54aeb78401fc2df7b6923aaee4",
+      "research/experiments/scientific_genesis/FULL_TRIAL_CLOUD_NOTE.md": "d0ce3cf4f62e16da316e39e7a496634ad11ef510e8db17e71a0befe71eefede9",
+      "research/experiments/scientific_genesis/FULL_TRIAL_SAMPLE_FACTOR_NOTE.md": "bba8b080ce0b2ed1add9122366963cff067fcea0720badcebf64a11063ee7e75",
+      "research/experiments/scientific_genesis/INDEPENDENT_TRIAL_CLOUD_NOTE.md": "fecd128fedeeb06fee4b3075edd2117b0590d99cfc4c889112af4309a73e51a3",
+      "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py": "d38dcdf5ce94cee24d921c744b27fea5932311a16ebbce6dd239f6fe211e17c8",
+      "research/experiments/scientific_genesis/auxiliary_cover_draws.py": "8563dd02290cff06c8f25c2a6ce85aee32dd459e9ab149086fdf88c298f35d5f",
+      "research/experiments/scientific_genesis/balanced_trial_iteration.py": "2772e82b5935a0cd10a61cc61bc3d20d7d162932344eea29d0e5e7230c5a91f1",
+      "research/experiments/scientific_genesis/compiled_section_features.py": "d5fb672c20bc5db505498b5e4e83cb959d1dffc97fdeaba24346e72982f8549e",
+      "research/experiments/scientific_genesis/expanded_trial_cloud.py": "804ecd3147e9bb96acc719eeb46b68bed6601ca21c88f52ee7e54b4e507d3b59",
+      "research/experiments/scientific_genesis/factored_trial_inverse.py": "58c7c706c8cb9246cec2e34eff419d12bf270fa4a2bd47507c43c193a12501c5",
+      "research/experiments/scientific_genesis/finite_cloud_balance.py": "bdbdc67aee58265ce5d3e55aa0dd4ae1c2afe3d7942ae9f0af07b55664af9c58",
+      "research/experiments/scientific_genesis/full_trial_cloud.py": "d933a81b505f65e8e438d79b4fd3731c64cd5620cb70c4c2b6932278b280df68",
+      "research/experiments/scientific_genesis/full_trial_sample_factor.py": "081bccd5139ee36ea821fe84db170a0851484b997fb943724ac1b26746c7d877",
+      "research/experiments/scientific_genesis/independent_cloud_inputs.py": "fcee850c7b88e0065c3b5fb8b9757d4077245834f5f99972e38ac0ae88cead0a",
+      "research/experiments/scientific_genesis/independent_trial_cloud.py": "58b704fb336c47c3b9fc17679e68806f120126dfed9b1a25ce9244877091bbcb",
+      "research/experiments/scientific_genesis/native_section_continuation.py": "ac39e7dd9c89abaf3614b5866b86552ef478d73a575fa98e45a0beb06b218163",
+      "research/experiments/scientific_genesis/projective_subdivision_roots.py": "2a68582d6fff5b2c757751842e064b457ce252f02ba6674721038210810d82af",
+      "research/experiments/scientific_genesis/projective_uncertain_intersections.py": "2d2c8555ed9712d2e319e1cde2918b226797203f8a076609cbce0b8b7dccc78e",
+      "research/experiments/scientific_genesis/uncertain_cover_weights.py": "0934fbee559e6241ef17b2131c7b24642a743e43fe885d69f0354521def09b9b"
+    },
+    "split_fixed_before_geometry": true,
+    "split_rule": "training ordinal < training_count; all remaining ordinals are validation",
+    "training_count": 8192,
+    "validation_count": 8192
+  },
   "experimental_prototypes": [
     "the full original functional evaluator runs on one new uncertain domain, but its measured 74-minute execution does not establish practical multi-point integration throughput",
     "rank-four transition and horseshoe constructors",
@@ -94954,13 +95182,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the original full inverse policy and Gram failure stay unchanged; actual complete-factor nonunit H1 and its retained-fiber diagnostic retain all 1536 training, 512 held-out samples and 5345 coordinates; the exact atomic no-go excludes balance on this unchanged finite measure for every H, so derive a lawful larger predeclared independent population or a justified auxiliary-measure change without replacing this cloud, clipping weights or reducing sections; obtain useful statistical, input and numerical control and sample/refinement stability; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
+    "next_required_object": "the original full inverse policy and Gram failure stay unchanged; actual complete-factor nonunit H1 and its retained-fiber diagnostic retain all 1536 training, 512 held-out samples and 5345 coordinates; the exact atomic no-go excludes balance on this unchanged finite measure for every H; execute the separately captured 16384-input predeclared independent population with 8192 training and 8192 fresh validation points under the unchanged law; retain every new checkpoint and check both complete finite-weight bounds without replacing the old cloud, clipping weights or reducing sections; obtain useful statistical, input and numerical control and sample/refinement stability; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The older sixteen-point operator has rank at most 64. The actual 2048-point cloud is now complete, retaining all 1536 training and 512 held-out samples. The original full inverse policy failed Gram positivity and stays failed. Full unpivoted QR and a distinct triangular policy produce an actual positive nonunit full-basis H1. Its retained-population fiber witness now consumes all original coordinates. Exact positive-atom bounds exclude a balanced fixed point for every H on this unchanged finite measure. Stop blind H2 iteration on that cloud. Preserve it; derive a lawful larger predeclared independent population or a justified auxiliary-measure change without dropping heavy samples, clipping weights or truncating sections. Do not infer continuum bundle instability. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement further controlled nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The older sixteen-point operator has rank at most 64. The actual 2048-point cloud is now complete, retaining all 1536 training and 512 held-out samples. The original full inverse policy failed Gram positivity and stays failed. Full unpivoted QR and a distinct triangular policy produce an actual positive nonunit full-basis H1. Its retained-population fiber witness now consumes all original coordinates. Exact positive-atom bounds exclude a balanced fixed point for every H on this unchanged finite measure. Stop blind H2 iteration on that cloud. Preserve it; derive a lawful larger predeclared independent population or a justified auxiliary-measure change without dropping heavy samples, clipping weights or truncating sections. Do not infer continuum bundle instability. Use the separately captured 16384-input request: execute all 8192 new training and 8192 fresh held-out checkpoints under the unchanged law, preserving older populations and all failed requests. Check both complete populations' atomic bounds before seeking balance. A new budget is not an integration accuracy theorem. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement further controlled nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,

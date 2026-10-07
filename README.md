@@ -85,7 +85,11 @@ holomorphic matrices are controlled by **one hidden symmetry**.
 
 Consequence: this carrier explains the **structure** of its Yukawa couplings
 exactly, but its bundle modulus makes two families heavy and one light. The
-observed spectrum has one heavy family. On this geometry the abelian route to a realistic
+observed spectrum has one heavy family. This agrees with the independent finding of
+[Braun, He and Ovrut (2006)](https://arxiv.org/abs/hep-th/0601204) that the
+minimal heterotic standard model on the same geometry makes one family
+naturally light. OneTheory now explains why: one anomalous U(1) and a
+two-piece family structure. On this geometry the abelian route to a realistic
 hierarchy is closed in every case examined. The observed one-heavy pattern
 must come from non-split bundle data away from walls, from Kähler-metric
 hierarchies, or from worldsheet instantons. The prime instanton candidates

@@ -145,6 +145,14 @@ worldsheet instantons. It cannot come from the holomorphic bundle data.
    families, one massless) and ten have **no leading Yukawa** at all. None
    gives one heavy family.
 
+**Literature cross-check.** For the minimal heterotic standard model on the
+same SU(4)/Schoen ℤ3×ℤ3 geometry,
+[Braun--He--Ovrut](https://arxiv.org/abs/hep-th/0601204) found by different
+methods (Leray selection rules) that one of the three families is naturally
+light. That is the same two-heavy/one-light pattern. The results above give
+it a structural cause (one anomalous U(1) plus a two-piece filtration) and
+show it recurring across every construction screened here.
+
 **Consequence.** On the Schoen ℤ3×ℤ3 quotient, every abelian wall/split
 mechanism examined fails in one of two ways. It gives two heavy families and
 one light, or it gives no leading coupling. The observed one-heavy hierarchy

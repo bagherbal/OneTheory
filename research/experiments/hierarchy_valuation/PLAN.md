@@ -26,15 +26,17 @@ Source: migration draft, section 3.11, and `hierarchy_bridge_parameters` in
 | Ingredient | Status in the repository | Content it can carry |
 | --- | --- | --- |
 | `rho = I/431` | No 431-dimensional space, group action or primitive action is defined anywhere | For **any** irreducible unitary Weyl--Heisenberg action the unique invariant state is `I/d` (Schur). Symmetry explains `1/d`, never `d = 431`. |
-| `14/431` | `14 = dim G2`. `431` appears exactly once (draft line 1770) with no derivation | The whole numerical content sits in the unexplained integer 431. |
+| `14/431` | `431` appears once in the draft with no derivation. In MinTOE/ASHA, `431 = 6*8*9 - 1 = dim(Lambda^2 X4 (x) V8 (x) End F3) - 1` and `14 = 2*7` (rank-two Majorana support times `dim C7`), not `dim G2` | `seed_audit.py`: `Lambda^2 X4 (x) V8` has **zero** Lorentz-invariant lines, so there is no canonical "scalar identity" to remove. Under flavor alone the traceless part is 384. The "minus one" has no invariant meaning. |
 | `1/(8 pi)` | Defined as `alpha_G` at the reduced Planck energy | `G Ebar_P^2/(hbar c^5) = 1/(8 pi)` holds **by definition** of `Ebar_P`. It is a units convention, not a measured gravitational strength. |
-| `9/5` | Draft MISSING_INPUT: "the nine operators U_g ... are not serialized" | Any unit-norm tight frame of 9 vectors in `C^5` has frame constant `9/5`. Content only in "why 5". |
+| `9/5` | Draft MISSING_INPUT: "the nine operators U_g ... are not serialized". ASHA instead reads it as `3 * 3/5` (colour times inverse hypercharge normalization) | Any unit-norm tight frame of 9 vectors in `C^5` has frame constant `9/5`. Content only in "why 5". Two incompatible readings of the same factor across projects. |
 | fourth root | Definition | Unexplained (see section 4). |
 | second prefactor | `eta_Q^4 = (4/3) S*`, `eta_Q = 0.2037` | A second, independently chosen rational prefactor already exists for left-handed quarks. |
 | exponent filters | `D_Q = diag(eta^3, eta^2, 1)`, `D_U = diag(eps^5, eps^2, 1)`, `D_D = diag(eps^2, eps, 1)` | Declared, not derived. `ord(Y_u) = (8,4,0)` holds only if `eta ≈ eps` (they differ by about 8%). |
 
 Conclusion: every factor has a generic explanation that does not single out the
-numbers used. The real conjecture is the **choice** `(d, D, g, n) = (5, 431, 14, 4)`
+numbers used, and the meanings attached to 14 and 9/5 changed between ASHA,
+MinTOE and OneTheory while the numbers stayed fixed (a signature of post-hoc
+interpretation). The real conjecture is the **choice** `(d, D, g, n) = (5, 431, 14, 4)`
 together with the identification `epsilon = valuation parameter`.
 
 ## 2. Evidential power of valuation-level agreement (terminal comparison only)
@@ -84,9 +86,23 @@ alternate carrier, the only bundle modulus produces two unsuppressed families
 and one family suppressed by a single power, in all four sectors. It cannot
 produce `(8,4,0)`, `(5,3,0)`, `(1,2,3)` or any deeper parametric hierarchy.
 
-Premises still to certify (gate G1): stability of `V1` and `V2` at the wall and
-of `V` on the adjacent stable side; the D-flat identification; finite
-split-bundle matter metrics at the wall.
+Premise status (gate G1). **Stability is now certified exactly**
+(`wall_stability.py`): both constituents are stable on the whole wall
+`J = (1,1,s)`, `s > 0`. Only the four lines with already certified Hom vanishing
+ever reach nonnegative degree there, and only for `s <= 1/6`. The extension is
+stable on the adjacent side `j2 > j1` and destabilized by `V1` across it. The
+D-flat identification and the finite limit of split-bundle matter metrics are
+standard results (Anderson--Gray--Lukas--Ovrut; Donaldson--Uhlenbeck--Yau
+continuity toward the polystable graded object `V1 + V2`). They are cited, not
+machine-certified.
+
+**Physical reading.** On the stable side, the canonical texture is
+`Y ~ [[0, r, r'], [c, eps, eps], [c', eps, eps]]`. Its two heavy masses are
+`|r|` and `|c|`, the norms of the constant E-row and E-column, and the light
+mass is `O(eps)`. The carrier therefore makes **two families heavy and one
+light** in every sector. The observed quark and lepton spectra have one heavy
+family. Matching them would need `|c|/|r| ~ 10^-2` from O(1) metric data, a
+numerical accident rather than a mechanism.
 
 Implication: if this carrier yields a parametric hierarchy at all, it must come
 from Kähler- or complex-structure degenerations of the **metrics**, or from
@@ -112,9 +128,9 @@ power, this form of the equation dies, whatever its numerical agreement.
 | Gate | Work | Inputs already certified | Pass | Kill |
 | --- | --- | --- | --- | --- |
 | **G0** done | Audit, evidential power, wall valuation theorem | All four holomorphic matrices, Schoen geometry | Exact | — |
-| **G1** days | Certify the three premises: constituent stability at `j1=j2`, `V` stability on `j2>j1` near the wall (reuse `retained_slope_stability` line-Hom machinery), D-term normalization | Constituent presentations, Hom engines | Theorem promoted | A premise fails: restate the scope |
+| **G1** stability done | Certify the three premises: constituent stability at `j1=j2`, `V` stability on `j2>j1` near the wall (reuse `retained_slope_stability` line-Hom machinery), D-term normalization | Constituent presentations, Hom engines | Theorem promoted | A premise fails: restate the scope |
 | **G2** weeks | Asymptotic matter-metric valuations along declared Kähler rays `J(s)` inside the stable cone, using localization at large flux ([Blesneag et al. 2018](https://arxiv.org/abs/1801.09645)); that method is abelian, so its extension to these non-abelian constituents is itself part of the gate | Constituent line data, section bases | Family-dependent exponents | Uniform exponents: the carrier has no parametric hierarchy, so retire it as a flavor-hierarchy carrier (not as an SU(4) carrier) |
-| **G3** weeks to months | Carrier design theorem: the U(1)^k charge patterns needed for the target valuations, with the Wilson-line split of each 16. Search the computable-carrier category for SU(4) bundles near multi-wall split loci with these charges | Computable-carrier engines, Tier A/B/C contracts | A stable carrier with the required charge lattice and spectrum | No such carrier in a declared finite category: scoped no-go |
+| **G3** weeks to months | Carrier design theorem. Families from one graded piece share a U(1) charge, so three distinct valuations need the three families to come from **three distinct graded pieces** (a filtration with at least three steps, for example `L1 + L2 + W` or a full four-line flag). The frozen carrier has two (one family in `V1`, two in `V2`), which is exactly why it gives `(0,0,1)`. Fix the U(1)^k charge patterns needed for the target valuations, with the Wilson-line split of each 16. Search the computable-carrier category for SU(4) bundles near multi-wall split loci with these charges | Computable-carrier engines, Tier A/B/C contracts | A stable carrier with the required charge lattice and spectrum | No such carrier in a declared finite category: scoped no-go |
 | **G4** | Express `eps` as a derived function of moduli in the surviving channel; derive the power `n` | G2/G3 output | `n = 4` derived | `n ≠ 4`: kill the equation in this form |
 | **G5** | Shared hidden sector and vacuum: stabilized moduli value | Existing blocker (priority 8.5) | Moduli fixed without fitting | Unstabilized: the value test stays open |
 | **G6** | Blind test. Hash-register every `eps` estimator and unit-core derivation **before** metric/vacuum execution. Then compare at least three independent estimators with each other and with 0.21962 | Physical Yukawas from metrics plus G5 | Mutual agreement at about 1% with no tuning | Disagreement beyond the derived error bars |

@@ -1,5 +1,32 @@
 # Scientific Genesis research map
 
+## Stability-wall flavor texture and hierarchy-seed audit
+
+`research/experiments/hierarchy_valuation` turns the four completed holomorphic
+matrices into a structural flavor statement. Every sector has the same exact
+extension-degree pattern `[[-,0,0],[0,1,1],[0,1,1]]`. This is a single
+anomalous-U(1) charge assignment, with the E family at charge -1, the F families
+at 0 and the extension class as a charge +1 flavon, and it forces the E-E zero.
+The first-constituent slope is exactly `6 (j1 - j2)(j1 + j2 + 6 j3)`, so the
+stability wall is the factor-exchange plane `j1 = j2`.
+
+Both constituents are now proven stable on the entire wall. Only the four
+lines with certified cover Hom vanishing ever reach nonnegative degree there,
+and only for `s <= 1/6`. The extension is stable just beside the wall on
+`j2 > j1` and destabilized by `V1` across it. Over `C[[eps]]` the invariant-factor
+orders are `(0,0,1)` in all four sectors. Near its wall the carrier makes two
+families heavy and one light, so its bundle modulus cannot produce a
+realistic three-level hierarchy. A realistic texture needs families from three
+distinct graded pieces.
+
+The inherited hierarchy seed `eps^4 = (9/5)(14/431)/(8 pi)` is audited, not
+used. Its 431 (`432 - 1` in MinTOE/ASHA) removes a "scalar identity" that does
+not exist: `Lambda^2 X4 (x) V8` has no Lorentz-invariant line. `1/(8 pi)` is the
+reduced-Planck units convention, and the meanings of 14 and 9/5 differ across
+the three projects. Valuation-level matches cannot distinguish `eps` anywhere
+in about `[0.20, 0.25]`. See `hierarchy_valuation/PLAN.md`. No hierarchy
+parameter, metric, vacuum or observation entered any calculation.
+
 ## Repeated original-section discovery evaluation
 
 The complete source-bound polynomial archive now has a sparse numerical

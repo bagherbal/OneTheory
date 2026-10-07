@@ -25,8 +25,24 @@ and one family suppressed by exactly one power. Under the three premises
 recorded in the report, this carrier's bundle modulus cannot generate the
 draft's `(8,4,0)`, `(5,3,0)` or `(1,2,3)` valuations.
 
+`wall_stability.py` certifies the second premise exactly. Along the whole wall
+`J = (1,1,s)`, `s > 0`, the only source-order line candidates with nonnegative
+degree are the four whose cover Hom vanishing is already certified, and only
+for `s <= 1/6`; every proper descendant then stays strictly negative. Both
+constituents are therefore stable on the entire wall. At the wall the only
+proper-rank extension case reaching zero is `det V1`, so `V` is stable on an
+open neighbourhood on the side `j2 > j1` and destabilized by `V1` on the other.
+
+`seed_audit.py` tests the inherited origin of 431 (MinTOE/ASHA:
+`dim Lambda^2 X4 (x) V8 (x) End(F3) - 1 = 432 - 1`). The bivector-times-octave
+factor has **no** Lorentz-invariant line, so the chamber has no canonical
+scalar identity to remove under Lorentz x flavor symmetry; a flavor-only
+traceless part has dimension 384, not 431.
+
 ```bash
 python -m research.experiments.hierarchy_valuation.wall_valuation
+python -m research.experiments.hierarchy_valuation.wall_stability
+python -m research.experiments.hierarchy_valuation.seed_audit
 ```
 
 ## Belongs here

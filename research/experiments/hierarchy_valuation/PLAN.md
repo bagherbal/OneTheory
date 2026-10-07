@@ -108,6 +108,49 @@ Implication: if this carrier yields a parametric hierarchy at all, it must come
 from Kähler- or complex-structure degenerations of the **metrics**, or from
 worldsheet instantons. It cannot come from the holomorphic bundle data.
 
+## 3b. The two-piece obstruction is structural on this geometry
+
+`family_pieces.py` and `line_sum_screen.py` (tests:
+`tests/integration/test_hierarchy_valuation_family_pieces.py`).
+
+1. **Complete filtration of the frozen carrier.** Both Serre sublines have
+   cover cohomology `(0,0,9,0)`. This comes from the actual two-equation
+   Koszul complex, with a single supporting column, so no differential can act.
+   Every family therefore injects into a quotient piece. In
+   `0 < L1 < V1 < V1+L2 < V` the families occupy only two of the four graded
+   pieces: one in `V1/L1` and two in `V/(V1+L2)`.
+2. **No wall charge can separate the two.** Left- and right-handed fields both
+   come from `H1(V)`, so they carry the same charge vector `(a,b,b)`. An
+   exhaustive tropical computation over 1,377 charge/offset cases, with
+   holomorphically forbidden entries, never gives three distinct orders.
+   Three pieces with charges `(4,2,0)` give exactly `(0,4,8)`, the draft's up
+   pattern, so the target needs three family-carrying pieces.
+3. **Line-bundle SU(4) sums on the same quotient.** Line cohomology is
+   computed from the exact Koszul E2 page with the actual Schoen equations,
+   refusing any line where `d2` could act. The project's known
+   higher-transgression line `(4,8,0)` is correctly refused. Of 243 descending
+   lines with `|a|,|b|,|c| <= 4`, 237 resolve and 6 are refused. The refused
+   ones have Euler characteristic 0 or ±99, so none can carry exactly nine
+   families. Of the ten c1-trivial sums with 27 cover families and no
+   anti-families, every one distributes families as `27` or `9 + 18`, never
+   `9 + 9 + 9`. This holds even when the refused lines are admitted
+   optimistically.
+4. **Leading textures.** Slot automorphisms `λ_a` with product one rescale a
+   coupling `16_a 16_b 10_cd` by `λ_a λ_b λ_c λ_d`. A leading coupling
+   therefore needs four distinct slots, and families couple only across
+   slots. Of the ten sums, four have the **cross texture** (two unsuppressed
+   families, one massless) and six have **no leading Yukawa** at all. None
+   gives one heavy family.
+
+**Consequence.** On the Schoen ℤ3×ℤ3 quotient, every abelian wall/split
+mechanism examined fails in one of two ways. It gives two heavy families and
+one light, or it gives no leading coupling. The observed one-heavy hierarchy
+must therefore come from non-split bundle data away from walls, from
+Kähler-metric hierarchies, or from worldsheet instantons. The prime instanton
+candidates are the exceptional sections below. This is scoped to the
+invariant line lattice box and the frozen carrier. It is not a theorem about
+every SU(4) bundle.
+
 ## 4. "Why four?" as a discriminating question, not a choice
 
 Each candidate below is a hypothesis with a computable test on whichever
@@ -130,7 +173,7 @@ power, this form of the equation dies, whatever its numerical agreement.
 | **G0** done | Audit, evidential power, wall valuation theorem | All four holomorphic matrices, Schoen geometry | Exact | — |
 | **G1** stability done | Certify the three premises: constituent stability at `j1=j2`, `V` stability on `j2>j1` near the wall (reuse `retained_slope_stability` line-Hom machinery), D-term normalization | Constituent presentations, Hom engines | Theorem promoted | A premise fails: restate the scope |
 | **G2** weeks | Asymptotic matter-metric valuations along declared Kähler rays `J(s)` inside the stable cone, using localization at large flux ([Blesneag et al. 2018](https://arxiv.org/abs/1801.09645)); that method is abelian, so its extension to these non-abelian constituents is itself part of the gate | Constituent line data, section bases | Family-dependent exponents | Uniform exponents: the carrier has no parametric hierarchy, so retire it as a flavor-hierarchy carrier (not as an SU(4) carrier) |
-| **G3** weeks to months | Carrier design theorem. Families from one graded piece share a U(1) charge, so three distinct valuations need the three families to come from **three distinct graded pieces** (a filtration with at least three steps, for example `L1 + L2 + W` or a full four-line flag). The frozen carrier has two (one family in `V1`, two in `V2`), which is exactly why it gives `(0,0,1)`. Fix the U(1)^k charge patterns needed for the target valuations, with the Wilson-line split of each 16. Search the computable-carrier category for SU(4) bundles near multi-wall split loci with these charges | Computable-carrier engines, Tier A/B/C contracts | A stable carrier with the required charge lattice and spectrum | No such carrier in a declared finite category: scoped no-go |
+| **G3** started: line-sum box screen negative (section 3b) | Carrier design theorem. Families from one graded piece share a U(1) charge, so three distinct valuations need the three families to come from **three distinct graded pieces** (a filtration with at least three steps, for example `L1 + L2 + W` or a full four-line flag). The frozen carrier has two (one family in `V1`, two in `V2`), which is exactly why it gives `(0,0,1)`. Fix the U(1)^k charge patterns needed for the target valuations, with the Wilson-line split of each 16. Search the computable-carrier category for SU(4) bundles near multi-wall split loci with these charges | Computable-carrier engines, Tier A/B/C contracts | A stable carrier with the required charge lattice and spectrum | No such carrier in a declared finite category: scoped no-go |
 | **G4** | Express `eps` as a derived function of moduli in the surviving channel; derive the power `n` | G2/G3 output | `n = 4` derived | `n ≠ 4`: kill the equation in this form |
 | **G5** | Shared hidden sector and vacuum: stabilized moduli value | Existing blocker (priority 8.5) | Moduli fixed without fitting | Unstabilized: the value test stays open |
 | **G6** | Blind test. Hash-register every `eps` estimator and unit-core derivation **before** metric/vacuum execution. Then compare at least three independent estimators with each other and with 0.21962 | Physical Yukawas from metrics plus G5 | Mutual agreement at about 1% with no tuning | Disagreement beyond the derived error bars |

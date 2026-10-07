@@ -27,6 +27,16 @@ the three projects. Valuation-level matches cannot distinguish `eps` anywhere
 in about `[0.20, 0.25]`. See `hierarchy_valuation/PLAN.md`. No hierarchy
 parameter, metric, vacuum or observation entered any calculation.
 
+The obstruction is structural on this geometry. Both Serre sublines have
+cohomology `(0,0,9,0)`, so families occupy only two graded pieces of the
+complete filtration (`1 + 2`), and shared left/right charges never give three
+valuation levels. An exact E2-page screen of all descending SU(4) line-bundle
+sums with `|a|,|b|,|c| <= 4` refuses the six `d2`-ambiguous lines and gets the
+same answer: families split `27` or `9 + 18`, never three slots. Their leading
+textures are the cross (two heavy, one massless) or absent. A one-heavy
+hierarchy must come from non-split, metric or instanton effects; the 81
+exceptional sections of area `j3` are the prime instanton candidates.
+
 ## Repeated original-section discovery evaluation
 
 The complete source-bound polynomial archive now has a sparse numerical

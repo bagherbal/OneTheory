@@ -235,6 +235,42 @@ def write_textures(path: Path = TEXTURES) -> dict[str, object]:
     return record
 
 
+# Rank-two constituents of the frozen carrier: first Chern class and cover H1.
+CONSTITUENTS = {"V1": ((-2, 2, 0), 9), "V2": ((2, -2, 0), 18)}
+
+
+def one_family_lines(box: int) -> tuple[tuple[int, int, int], ...]:
+    """Descending lines with cover cohomology exactly (0,9,0,0)."""
+
+    geometry = schoen_geometry()
+    span = range(-box, box + 1)
+    return tuple(
+        (a, b, c) for a in span for b in span for c in span
+        if geometry.descent_congruence((a, b, c))
+        and euler_characteristic((a, b, c)) == -9
+        and line_cohomology((a, b, c)) == (0, 9, 0, 0)
+    )
+
+
+def partial_split_hits(box: int) -> dict[str, tuple[tuple[tuple[int, int, int], ...], ...]]:
+    """W + L1 + L2 with W a frozen constituent and families in all three slots.
+
+    Three slots with 27 cover families need W to carry exactly 9 and each line
+    exactly 9, with c1(L1) + c1(L2) = -c1(W).
+    """
+
+    nines = one_family_lines(box)
+    hits = {}
+    for name, (c1, families) in CONSTITUENTS.items():
+        need = tuple(-x for x in c1)
+        pairs = tuple(
+            (left, right) for left in nines for right in nines
+            if left <= right and tuple(left[i] + right[i] for i in range(3)) == need
+        )
+        hits[name] = pairs if families == 9 else ()
+    return hits
+
+
 if __name__ == "__main__":
     print(write_artifact()["artifact_digest"])
     print(write_textures()["artifact_digest"])

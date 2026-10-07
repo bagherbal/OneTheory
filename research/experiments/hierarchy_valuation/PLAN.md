@@ -145,6 +145,11 @@ worldsheet instantons. It cannot come from the holomorphic bundle data.
    families, one massless) and ten have **no leading Yukawa** at all. None
    gives one heavy family.
 
+5. **Partial splits.** Up to degree eight there are exactly four descending
+   one-family lines: `(-1,1,1)`, `(-1,4,0)`, `(1,-1,1)` and `(4,-1,0)`. Neither
+   frozen constituent plus two lines (`W + L1 + L2`, structure group
+   `S(U(2) x U(1) x U(1))`) can place one family in each of three slots.
+
 **Literature cross-check.** For the minimal heterotic standard model on the
 same SU(4)/Schoen ℤ3×ℤ3 geometry,
 [Braun--He--Ovrut](https://arxiv.org/abs/hep-th/0601204) found by different

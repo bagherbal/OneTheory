@@ -115,3 +115,13 @@ def test_no_line_sum_has_a_one_heavy_leading_texture() -> None:
         "cross: two unsuppressed families, one massless at leading order",
     }
     assert sum(counts.values()) == len(json.loads(OUTPUT.read_text())["family_sums_any_slots"])
+
+
+def test_one_family_lines_and_partial_splits_in_box_four() -> None:
+    from research.experiments.hierarchy_valuation.line_sum_screen import (
+        one_family_lines,
+        partial_split_hits,
+    )
+
+    assert one_family_lines(4) == ((-1, 1, 1), (-1, 4, 0), (1, -1, 1), (4, -1, 0))
+    assert partial_split_hits(4) == {"V1": (), "V2": ()}

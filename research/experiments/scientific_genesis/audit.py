@@ -4046,6 +4046,30 @@ def _nodes() -> list[dict[str, object]]:
              "genuine HYM convergence", "matter and Higgs metrics", "common vacuum"),
         ),
         _node(
+            "expanded_trial_cloud_request",
+            "fresh predeclared full-section population after the finite-measure no-go",
+            "Normalization", "SELECTED",
+            "A separate captured 16384-input population fixes 8192 training and "
+            "8192 fresh validation ordinals before their geometry is evaluated. "
+            "The old populations remain unchanged and inspected old validation "
+            "is not reused as blind validation. The same auxiliary law, selected "
+            "unstabilized point and all 5345 section coordinates remain. This "
+            "source-bound request is not a completed cloud, balance result, "
+            "controlled integral or physical metric.",
+            ("research/experiments/scientific_genesis/expanded_trial_cloud.py",
+             "research/experiments/scientific_genesis/EXPANDED_TRIAL_CLOUD_NOTE.md",
+             "research/experiments/scientific_genesis/EXPANDED_TRIAL_EXECUTION_NOTE.md",
+             "tests/integration/test_scientific_genesis_expanded_trial_cloud.py",
+             "data/generated/scientific_genesis/expanded_trial_cloud_inputs.json",
+             "data/generated/scientific_genesis/expanded_trial_cloud_request.json"),
+            ("assumed fresh fair independent infinite named streams",
+             "unchanged auxiliary probability law", "selected unstabilized point",
+             "predeclared engineering sample budget and same-stream refinement policy"),
+            ("complete new population", "exact finite-weight necessary condition",
+             "controlled numerical and sampling errors", "actual full-basis metric iteration",
+             "Ricci-flat/HYM convergence", "matter and Higgs metrics", "common vacuum"),
+        ),
+        _node(
             "compiled_section_features",
             "complete original sparse binary64 discovery section evaluation",
             "Normalization",
@@ -7741,6 +7765,47 @@ def _edges() -> list[dict[str, object]]:
             ("a discovery inverse is not HYM convergence or canonical normalization",),
         ),
         _edge(
+            "finite_cloud_atomic_obstruction", "expanded_trial_cloud_request",
+            "The exact old empirical obstruction motivates a separately predeclared "
+            "larger population without dropping atoms or altering its geometric law.",
+            ("research/experiments/scientific_genesis/EXPANDED_TRIAL_CLOUD_NOTE.md",),
+            ("engineering counts are selected, not guaranteed sufficient",),
+            False, ("the larger fresh measure may also fail its exact atomic bound",),
+        ),
+        _edge(
+            "independent_cloud_entropy_law", "expanded_trial_cloud_request",
+            "Fresh named receipts and a new held-out split precede new geometry; "
+            "previously inspected validation is not silently made blind again.",
+            ("data/generated/scientific_genesis/expanded_trial_cloud_inputs.json",),
+            ("fresh fair infinite-stream law remains assumed",),
+            False, ("finite OS bytes cannot prove ideal IID or conditional independence",),
+        ),
+        _edge(
+            "compiled_section_features", "expanded_trial_cloud_request",
+            "The frozen evaluator computes all original section columns on the new "
+            "population without rebuilding the symbolic system or changing the basis.",
+            ("research/experiments/scientific_genesis/expanded_trial_cloud.py",),
+            ("complete original section identity", "binary64 discovery arithmetic"),
+            False, ("floating evaluation does not certify geometric or arithmetic error",),
+        ),
+        _edge(
+            "native_section_continuation", "expanded_trial_cloud_request",
+            "Every new input refines only its own retained address, root branch and "
+            "quotient frame under the declared budget.",
+            ("research/experiments/scientific_genesis/EXPANDED_TRIAL_CLOUD_NOTE.md",),
+            ("unchanged native chart and pivot policy", "no replaced terminal failure"),
+            False, ("an exhausted input prevents an admitted whole-population operator",),
+        ),
+        _edge(
+            "expanded_trial_cloud_request", "visible_metrics",
+            "A larger population is an executable experiment, not a balance or "
+            "HYM theorem; only controlled full-population calculations can advance metrics.",
+            ("data/generated/scientific_genesis/expanded_trial_cloud_request.json",),
+            ("every original new checkpoint", "useful sampling and numerical error bounds",
+             "controlled nonunit-H iteration", "HYM curvature convergence", "common vacuum"),
+            False, ("passing an atomic or finite-twist balance test is not a physical metric",),
+        ),
+        _edge(
             "alternate_metric_symbolic_columns", "compiled_section_features",
             "A pinned complete exact polynomial stream supplies the actual "
             "sparse coefficients; monomial sharing does not reconstruct cochains.",
@@ -9463,6 +9528,11 @@ def _scheduler() -> list[dict[str, object]]:
             "predeclared independent population or a justified auxiliary-measure change "
             "without dropping heavy samples, clipping weights or truncating "
             "sections. Do not infer continuum bundle instability. Use the "
+            "separately captured 16384-input request: execute all 8192 new "
+            "training and 8192 fresh held-out checkpoints under the unchanged "
+            "law, preserving older populations and all failed requests. Check "
+            "both complete populations' atomic bounds before seeking balance. "
+            "A new budget is not an integration accuracy theorem. Use the "
             "positive auxiliary law and quantitative global weight/kernel bound. "
             "Retain every pending same-stream request; justify external independence "
             "or a certified deterministic cubature with integral error control. "
@@ -9570,6 +9640,7 @@ def build_state() -> dict[str, object]:
     from .canonical_representation_constraints import read_constraints
     from .certified_trial_features import read_certificates
     from .compiled_section_features import read_execution as read_compiled_discovery
+    from .expanded_trial_cloud import read_request as read_expanded_cloud_request
     from .factored_trial_inverse import read_factor
     from .factored_trial_inverse import read_result as read_h1
     from .finite_cloud_balance import read_certificate as read_atomic_obstruction
@@ -9710,6 +9781,21 @@ def build_state() -> dict[str, object]:
         expected_request_digest="30aaf6b26a88973585311e3b8e167eafb58160a5e195c28d1cb17041dbc27e7f",
         expected_digest="5a10c48ea62dbc6b8f0d2dca3f069e42cefb77e102773be0c67b18d1d0b6f644",
     )
+    expanded_cloud_request = read_expanded_cloud_request(expected_digest=(
+        "65d7683b549605256f95b23bccf1f97e6f5c4ffc07ae7cac68fdfa778b6e55b8"
+    ))
+    if (
+        expanded_cloud_request["input_digest"] != (
+            "c4858eb82f7152c9332130b80a4af047fcc2c571dfc628f08f9a4a2cd21ad958"
+        )
+        or (expanded_cloud_request["training_count"],
+            expanded_cloud_request["validation_count"]) != (8192, 8192)
+        or expanded_cloud_request["parent_cloud_digest"] != full_cloud_execution["artifact_digest"]
+        or expanded_cloud_request["parent_obstruction_digest"] != atomic_obstruction[
+            "artifact_digest"
+        ]
+    ):
+        raise ValueError("the fresh predeclared full-section workload changed its trusted scope")
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
@@ -13272,6 +13358,12 @@ def build_state() -> dict[str, object]:
         "data/generated/scientific_genesis/finite_cloud_balance.json",
         "data/generated/scientific_genesis/finite_cloud_balance_h1_request.json",
         "data/generated/scientific_genesis/finite_cloud_balance_h1.json",
+        "research/experiments/scientific_genesis/expanded_trial_cloud.py",
+        "research/experiments/scientific_genesis/EXPANDED_TRIAL_CLOUD_NOTE.md",
+        "research/experiments/scientific_genesis/EXPANDED_TRIAL_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_expanded_trial_cloud.py",
+        "data/generated/scientific_genesis/expanded_trial_cloud_inputs.json",
+        "data/generated/scientific_genesis/expanded_trial_cloud_request.json",
         "requirements-dev.txt",
         *(f"data/generated/scientific_genesis/certified_trial_cloud.sample_{i:04d}.json.gz"
           for i in range(16)),
@@ -13338,7 +13430,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3832,
+            "collected_tests_at_audit": 3880,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -13867,8 +13959,10 @@ def build_state() -> dict[str, object]:
                 "actual complete-factor nonunit H1 and its retained-fiber diagnostic "
                 "retain all 1536 training, 512 held-out samples and 5345 coordinates; "
                 "the exact atomic no-go excludes balance on this unchanged finite "
-                "measure for every H, so derive a lawful larger predeclared independent population "
-                "or a justified auxiliary-measure change without replacing this cloud, "
+                "measure for every H; execute the separately captured 16384-input "
+                "predeclared independent population with 8192 training and 8192 fresh "
+                "validation points under the unchanged law; retain every new checkpoint "
+                "and check both complete finite-weight bounds without replacing the old cloud, "
                 "clipping weights or reducing sections; obtain useful statistical, "
                 "input and numerical control and sample/refinement stability; "
                 "verify Ricci-flat/HYM convergence and stabilize one common "
@@ -13913,6 +14007,7 @@ def build_state() -> dict[str, object]:
         "factored_trial_inverse_step": actual_h1,
         "finite_cloud_atomic_obstruction": atomic_obstruction,
         "full_h1_balance_witness": h1_witness,
+        "expanded_trial_cloud_request": expanded_cloud_request,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,

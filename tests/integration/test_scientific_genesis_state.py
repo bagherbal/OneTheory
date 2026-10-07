@@ -131,6 +131,34 @@ def test_actual_h1_witness_consumes_every_fiber_without_claiming_a_metric() -> N
         assert record[flag] is False
 
 
+def test_fresh_population_is_selected_not_a_completed_cloud_or_metric() -> None:
+    """New executable inputs preserve old evidence without a scientific promotion."""
+
+    from research.experiments.scientific_genesis.expanded_trial_cloud import read_request
+
+    record = read_request(expected_digest=(
+        "65d7683b549605256f95b23bccf1f97e6f5c4ffc07ae7cac68fdfa778b6e55b8"
+    ))
+    assert (record["sample_count"], record["training_count"], record["validation_count"]) == (
+        16384, 8192, 8192,
+    )
+    assert record["older_validation_is_blind_for_this_experiment"] is False
+    assert record["old_and_new_populations_combined_in_an_estimator"] is False
+    assert record["sample_budget_proves_balance"] is False
+    nodes = {node["id"]: node for node in audit._nodes()}
+    assert nodes["expanded_trial_cloud_request"]["status"] == "SELECTED"
+    assert nodes["finite_cloud_atomic_obstruction"]["status"] == "PROVED"
+    assert nodes["visible_metrics"]["status"] == "BLOCKED"
+    assert nodes["physical_yukawas"]["status"] == "BLOCKED"
+    edges = {(edge["source"], edge["target"]) for edge in audit._edges()}
+    assert ("finite_cloud_atomic_obstruction", "expanded_trial_cloud_request") in edges
+    assert ("independent_cloud_entropy_law", "expanded_trial_cloud_request") in edges
+    assert ("expanded_trial_cloud_request", "visible_metrics") in edges
+    task = next(task for task in audit._scheduler()
+                if task["task"] == "alternate_metric_convergence")
+    assert "8192 fresh held-out" in task["rationale"]
+
+
 def test_same_prefix_draw_workflow_preserves_conditional_metric_boundary() -> None:
     """A declared law workflow is not IID evidence or a normalized physical result."""
 

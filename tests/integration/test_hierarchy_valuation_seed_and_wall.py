@@ -88,3 +88,12 @@ def test_report_is_scoped_and_observation_free() -> None:
     assert "('1', '11/10', '2')" not in report.hidden_compatible_stable_points
     assert not report.full_kahler_chamber_claimed
     assert not report.observations_used
+
+
+def test_exceptional_section_instantons_are_neutral_under_the_wall_u1() -> None:
+    from research.experiments.hierarchy_valuation.instanton_charge import audit as charges
+
+    result = charges()
+    assert result.curve_count_on_cover == 81
+    assert result.curve_degrees == (0, 0, 1)
+    assert result.wall_u1_flux == 0 and result.neutral_under_wall_u1

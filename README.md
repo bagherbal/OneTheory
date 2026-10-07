@@ -92,9 +92,11 @@ naturally light. OneTheory now explains why: one anomalous U(1) and a
 two-piece family structure. On this geometry the abelian route to a realistic
 hierarchy is closed in every case examined. The observed one-heavy pattern
 must come from non-split bundle data away from walls, from Kähler-metric
-hierarchies, or from worldsheet instantons. The prime instanton candidates
-are the 81 exceptional curves, whose area is exactly `j3` and on which the
-bundle restricts trivially. This is now a sharp, testable design criterion (gate G3 in
+hierarchies, or from worldsheet instantons. The least-suppressed
+instantons, on the 81 exceptional curves of area exactly `j3`, carry zero flux
+of the wall U(1). They can only
+correct couplings that are already allowed, so they cannot change this
+texture. This is now a sharp, testable design criterion (gate G3 in
 [`hierarchy_valuation/PLAN.md`](research/experiments/hierarchy_valuation/PLAN.md)).
 
 ## The proposed universal hierarchy number, audited
@@ -133,9 +135,9 @@ These are ordered by how cheaply they discriminate. Full detail is in
 [research map](research/experiments/scientific_genesis/RESEARCH_MAP.md).
 
 1. **Flavor origin (G2/G3).** The abelian route is closed on this geometry in
-   every case examined. Next come the Pfaffian normalization and U(1) charge
-   of instantons on the exceptional curves, and matter-metric scaling along
-   Kähler degenerations.
+   every case examined, and the least-suppressed instantons are U(1)-neutral.
+   What remains is matter-metric scaling along Kähler degenerations, the bundle
+   far from its walls, or a different carrier or geometry.
 2. **Metrics.** Controlled Ricci-flat/HYM convergence with useful error bounds.
    [`metric_sampling`](research/experiments/metric_sampling/README.md) shows
    the H1 anomaly is in-sample leverage, not geometry, and registers a

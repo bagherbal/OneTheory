@@ -50,8 +50,9 @@ valuation levels. An exact E2-page screen of all descending SU(4) line-bundle
 sums with `|a|,|b|,|c| <= 8` (1,649 lines, refusing only `d2`-ambiguous
 `(k,-k,0)` lines of Euler characteristic zero) gets the same answer: families split `27` or `9 + 18`, never three slots. Their leading
 textures are the cross (two heavy, one massless) or absent. A one-heavy
-hierarchy must come from non-split, metric or instanton effects; the 81
-exceptional sections of area `j3` are the prime instanton candidates.
+hierarchy must come from non-split, metric or instanton effects. The 81
+exceptional sections of area `j3` carry zero wall-U(1) flux, so even these
+least-suppressed instantons cannot change the texture.
 
 ## Repeated original-section discovery evaluation
 

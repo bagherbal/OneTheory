@@ -1168,6 +1168,67 @@ def test_nonidentity_quasi_isomorphism_has_an_acyclic_cone(
         assert cone.cohomology_representatives(degree) == ()
 
 
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_explicit_basis_transport_preserves_complexes_and_quotient_classes(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """A declared shear preserves classes without identifying distinct bases."""
+
+    source = _three_term_complex(scalar_type, complex_type)
+    step = -1 if complex_type is ChainComplex else 1
+    spaces = GradedVectorSpace("transported", {
+        degree: VectorSpace(f"transported {degree}", space.basis, scalar_type)
+        for degree, space in source.spaces.components
+    })
+    coefficient = Rational(2, 3) if scalar_type is Rational else OMEGA
+    forward = {
+        degree: LinearMap(space, spaces.space(degree), (
+            ((1, coefficient, 0), (0, 1, 1), (0, 0, 1))
+            if degree == step else ((1,),)
+        ))
+        for degree, space in source.spaces.components
+    }
+    backward = {
+        degree: LinearMap(spaces.space(degree), space, (
+            ((1, -coefficient, coefficient), (0, 1, -1), (0, 0, 1))
+            if degree == step else ((1,),)
+        ))
+        for degree, space in source.spaces.components
+    }
+    target = complex_type(spaces, {
+        degree: forward[degree + step].compose(differential).compose(backward[degree])
+        for degree, differential in source.differentials
+    })
+    change = ChainMap(source, target, forward)
+    inverse = ChainMap(target, source, backward)
+
+    assert inverse.compose(change) == ChainMap.identity(source)
+    assert change.compose(inverse) == ChainMap.identity(target)
+    for degree in source.degrees:
+        assert target.cohomology_dimension(degree) == source.cohomology_dimension(degree)
+        for cycle in source.cycles(degree):
+            assert target.differential(degree)(change.component(degree)(cycle)).is_zero()
+    transported_class = change.component(step)(source.cohomology_representatives(step)[0])
+    assert transported_class.coordinates == tuple(scalar_type(value) for value in (0, 1, 1))
+    boundaries = target.boundaries(step)
+    span = LinearMap(VectorSpace("boundary columns", ("b",), scalar_type),
+                     target.spaces.space(step),
+                     tuple((entry,) for entry in boundaries[0].coordinates))
+    enlarged = LinearMap(VectorSpace("boundary and class", ("b", "h"), scalar_type),
+                         target.spaces.space(step),
+                         tuple((boundary, representative) for boundary, representative in zip(
+                             boundaries[0].coordinates, transported_class.coordinates, strict=True
+                         )))
+    assert span.rank() == 1
+    assert enlarged.rank() == 2
+    cone = mapping_cone(change)
+    assert all(cone.cohomology_dimension(degree) == 0 for degree in cone.degrees)
+    with pytest.raises(ValueError, match="vector basis"):
+        target.differential(step)(source.cohomology_representatives(step)[0])
+
+
 def test_dga_leibniz_commutator_pairing_and_maurer_cartan() -> None:
     degree_zero = VectorSpace("A0", ("1",))
     graded = GradedVectorSpace("A", {0: degree_zero})

@@ -142,18 +142,20 @@ def test_scope_reader_keeps_retained_request_receipts_unchanged():
     assert before == tuple(hashlib.sha256(path.read_bytes()).hexdigest() for path in paths)
 
 
-def test_metric_graph_separates_scope_proof_from_open_stability_hypothesis():
+def test_metric_graph_separates_old_scope_from_refined_stability_and_missing_background():
     from research.experiments.scientific_genesis import audit
 
     nodes = audit._nodes()
     claims = {node["id"]: node for node in nodes}
     assert claims["metric_polarization_scope"]["status"] == "PROVED"
+    assert claims["retained_slope_stability"]["status"] == "PROVED"
     assert claims["retained_polarization_stability"]["status"] == "BLOCKED"
     assert claims["visible_metrics"]["status"] == "BLOCKED"
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
     edges = audit._edges()
     endpoints = {(edge["source"], edge["target"]) for edge in edges}
-    assert ("metric_polarization_scope", "retained_polarization_stability") in endpoints
+    assert ("metric_polarization_scope", "retained_slope_stability") in endpoints
+    assert ("retained_slope_stability", "retained_polarization_stability") in endpoints
     assert ("retained_polarization_stability", "visible_metrics") in endpoints
     task = next(task for task in audit._scheduler()
                 if task["task"] == "alternate_metric_convergence")

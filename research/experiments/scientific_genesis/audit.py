@@ -4086,24 +4086,47 @@ def _nodes() -> list[dict[str, object]]:
              "tests/integration/test_scientific_genesis_metric_polarization_scope.py"),
             ("trusted original generation twist", "source sufficient chamber only",
              "explicit cover/quotient normalization"),
-            ("actual stability at the intended metric polarization",),
+        ),
+        _node(
+            "retained_slope_stability",
+            "actual descended stability at the retained section polarization",
+            "Normalization", "PROVED",
+            "Four positive maximal source candidates have zero cover line Hom "
+            "into the actual alternate constituents. Exact transferred maps "
+            "have full column ranks 43,3,93,3, independently checked by rational "
+            "restriction ranks 86,6,186,6. The published proper-line ordering "
+            "gives a minimum effective cover degree of 2520. Every remaining "
+            "constituent line has degree at most -1224 or -792. All seven "
+            "proper-rank extension cases are negative; a zero-divisor (0,2) "
+            "case would split the certified nonzero outer extension by "
+            "reflexivity. Thus every nonzero alternate P1 class descends to "
+            "a slope-stable bundle at the unchanged (14,16,1) polarization. "
+            "No full chamber, non-equivariant cover-stability theorem or "
+            "computed HYM connection is inferred.",
+            ("data/generated/scientific_genesis/retained_slope_stability.json",
+             "research/experiments/scientific_genesis/retained_slope_stability.py",
+             "research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md",
+             "tests/integration/test_scientific_genesis_retained_slope_stability.py"),
+            ("published quantified invariant line-order and Serre ideal bounds",
+             "actual unchanged alternate Serre arrows", "nonsplit outer family",
+             "explicit determinant-degree, covering-degree and rank normalization"),
         ),
         _node(
             "retained_polarization_stability",
-            "stability and background compatibility for the intended HYM limit",
+            "background compatibility for the retained stable polarization",
             "Normalization", "BLOCKED",
-            "Generation at the frozen ample twist and stability on a different "
-            "certified chamber do not prove slope stability on this twist's ray. "
-            "Failure of the sufficient bounds does not prove instability either. "
-            "A physical HYM calculation requires actual stability for its "
-            "polarization and a compatible background/line-untwisting algorithm; "
-            "finite balance and a larger population do not supply these inputs.",
-            ("data/generated/scientific_genesis/metric_polarization_scope.json",
-             "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md"),
+            "The refined actual line-Hom and source-order argument establishes "
+            "descended slope stability at the retained generating polarization. "
+            "The earlier sufficient-chamber failure is still true, but its "
+            "missing slope hypothesis is now repaired separately. A physical "
+            "HYM calculation still requires compatible controlled background "
+            "geometry and a line-untwisting algorithm. A theorem of existence, "
+            "finite balance or a larger population is not a computed connection.",
+            ("data/generated/scientific_genesis/retained_slope_stability.json",
+             "research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md"),
             ("same retained carrier and section system", "no hidden polarization change"),
-            ("actual stability at the retained polarization, or a derived algorithm "
-             "using the retained sections on an independently declared admissible background",
-             "compatible background metric and line untwisting"),
+            ("compatible controlled background metric and line untwisting",
+             "controlled continuum HYM convergence"),
         ),
         _node(
             "compiled_section_features",
@@ -4436,15 +4459,22 @@ def _nodes() -> list[dict[str, object]]:
             "coefficient bounds for every archived index. The complete bounded "
             "matrix is certified on one declared domain, and exact polynomial "
             "identities give a conservative global auxiliary weight bound. "
-            "The full unit trial kernel and its global projection integrand "
-            "bound are available, but no independent integral or iteration is. "
-            "Practical multi-point throughput, controlled sampling "
-            "and converged Ricci-flat/HYM matter metrics are not yet available. The "
-            "published reference still lacks complete carrier cocycles.",
-            ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
+            "The full unit trial kernel and global projection integrand bound "
+            "are available. An actual all-coordinate finite-cloud integral "
+            "and nonunit H1 are computed, but an exact atomic obstruction "
+            "excludes balance on that empirical measure. The separate larger "
+            "population executes without partial means or dropped samples. "
+            "The refined source order now proves descended slope stability "
+            "at the retained polarization. Compatible background geometry, "
+            "useful sampling/arithmetic control and converged Ricci-flat/HYM "
+            "matter metrics remain unavailable.",
+            ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py",
+             "data/generated/scientific_genesis/retained_slope_stability.json",
+             "data/generated/scientific_genesis/finite_cloud_balance.json",
+             "data/generated/scientific_genesis/expanded_trial_cloud_request.json"),
             missing=(
                 "controlled numerical full-basis evaluation and metric sampling",
-                "actual slope stability for the intended polarization and compatible background",
+                "compatible controlled background geometry and line untwisting",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -7859,12 +7889,37 @@ def _edges() -> list[dict[str, object]]:
             True, ("a failed sufficient test does not construct a destabilizing subsheaf",),
         ),
         _edge(
-            "metric_polarization_scope", "retained_polarization_stability",
-            "The existing sufficient theorem cannot certify stability on this ray; "
-            "the actual stability/background hypothesis remains unresolved.",
-            ("research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md",),
+            "metric_polarization_scope", "retained_slope_stability",
+            "The sufficient chamber fails here; actual maximal line-Hom vanishing "
+            "and a quantified proper-descendant gap refine the source bound.",
+            ("research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md",),
             ("retained twist and original section system",),
             True, ("do not turn theorem inapplicability into an instability claim",),
+        ),
+        _edge(
+            "alternate_constituent_outer_stability_locus", "retained_slope_stability",
+            "The unchanged Serre ideal supports and quantified invariant line order "
+            "supply exhaustive upper bounds; their four nonnegative maxima need "
+            "actual maps, not guessed subobjects.",
+            ("research/experiments/scientific_genesis/ALTERNATE_STABILITY_NOTE.md",),
+            ("published source-order premises", "all proper descendants retained"),
+            True, ("a finite candidate check without descendant control is insufficient",),
+        ),
+        _edge(
+            "alternate_constituent_carrier_state", "retained_slope_stability",
+            "The actual alternate constituent arrows give four exact injective "
+            "degree-zero maps; nonsplitting excludes the zero-divisor rank-two case.",
+            ("data/generated/scientific_genesis/retained_slope_stability.json",),
+            ("same alternate Serre ray", "every nonzero outer P1 class"),
+            True, ("dimensions or Euler characteristics alone do not establish Hom vanishing",),
+        ),
+        _edge(
+            "retained_slope_stability", "retained_polarization_stability",
+            "Actual descended slope stability closes the polarization hypothesis "
+            "but not the compatible numerical background or line-untwisting algorithm.",
+            ("research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md",),
+            ("controlled background and continuum metric calculation still required",),
+            True, ("an existence theorem is not a computed HYM connection",),
         ),
         _edge(
             "retained_polarization_stability", "visible_metrics",
@@ -9603,10 +9658,10 @@ def _scheduler() -> list[dict[str, object]]:
             "both complete populations' atomic bounds before seeking balance. "
             "A new budget is not an integration accuracy theorem. Use the "
             "exact retained-polarization scope check: four sufficient bounds "
-            "fail at (14,16,1), so neither more samples nor positive ray "
-            "rescaling certifies its HYM stability hypothesis. This does not "
-            "prove instability or stop the finite-cloud experiment. Establish "
-            "actual stability for the intended polarization and a compatible "
+            "fail at (14,16,1); this does not prove instability or stop the "
+            "finite-cloud experiment. The actual line-Hom vanishing and source "
+            "descendant/rank bounds now establish descended slope stability "
+            "on this retained ray. Freeze that result. Derive a compatible "
             "background/line-untwisting algorithm before interpreting balance "
             "as a HYM route. Use the "
             "positive auxiliary law and quantitative global weight/kernel bound. "
@@ -9728,6 +9783,7 @@ def build_state() -> dict[str, object]:
     from .projective_subdivision_roots import read_subdivision
     from .projective_uncertain_intersections import read_uncertain_intersections
     from .projective_uniform_input_cells import read_input_cells
+    from .retained_slope_stability import read_certificate as read_retained_stability
     from .uncertain_cover_frames import read_frames
     from .uncertain_cover_weights import read_weights
 
@@ -9881,6 +9937,18 @@ def build_state() -> dict[str, object]:
             or polarization_scope["scope_failure_is_a_bundle_instability_proof"] is not False
             or polarization_scope["original_section_count"] != 5345):
         raise ValueError("the retained polarization's theorem-scope boundary changed")
+
+    retained_stability = read_retained_stability(expected_digest=(
+        "0017a8dc6c3a654ae6513d0cbc54a72c67c712c353162f9de32a8e3b1313cafd"
+    ))
+    if (retained_stability["descended_slope_stability_established"] is not True
+            or retained_stability["polarization"] != [14, 16, 1]
+            or retained_stability["original_section_count"] != 5345
+            or retained_stability["ricci_flat_or_hym_metric_available"] is not False
+            or len(retained_stability["source_order_refinement"][
+                "proper_rank_extension_cases"
+            ]) != 7):
+        raise ValueError("the actual retained-polarization refinement changed its scope")
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
@@ -13453,6 +13521,10 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md",
         "tests/integration/test_scientific_genesis_metric_polarization_scope.py",
         "data/generated/scientific_genesis/metric_polarization_scope.json",
+        "research/experiments/scientific_genesis/retained_slope_stability.py",
+        "research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md",
+        "tests/integration/test_scientific_genesis_retained_slope_stability.py",
+        "data/generated/scientific_genesis/retained_slope_stability.json",
         "requirements-dev.txt",
         *(f"data/generated/scientific_genesis/certified_trial_cloud.sample_{i:04d}.json.gz"
           for i in range(16)),
@@ -13519,7 +13591,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3918,
+            "collected_tests_at_audit": 3948,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -14054,9 +14126,9 @@ def build_state() -> dict[str, object]:
                 "and check both complete finite-weight bounds without replacing the old cloud, "
                 "clipping weights or reducing sections; obtain useful statistical, "
                 "input and numerical control and sample/refinement stability; "
-                "the retained (14,16,1) twist fails four sufficient stability "
-                "bounds, which is not an instability proof; establish actual "
-                "stability at the intended polarization and a compatible "
+                "the retained (14,16,1) twist fails four old sufficient stability "
+                "bounds, but actual line-Hom vanishing and the quantified source "
+                "order now prove descended slope stability; derive a compatible "
                 "background/line-untwisting algorithm without changing labels; "
                 "verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
@@ -14102,6 +14174,7 @@ def build_state() -> dict[str, object]:
         "full_h1_balance_witness": h1_witness,
         "expanded_trial_cloud_request": expanded_cloud_request,
         "metric_polarization_scope": polarization_scope,
+        "retained_slope_stability": retained_stability,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -14109,6 +14182,12 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "actual transferred degree-zero maps have full column ranks 43,3,93,3 "
+            "with independent rational ranks 86,6,186,6; source-order descendants "
+            "lose at least 2520 in cover degree and all seven proper-rank outer "
+            "extension cases are negative; every nonzero alternate P1 class is "
+            "descended slope-stable at the unchanged (14,16,1) polarization; "
+            "compatible background geometry and a computed HYM metric remain missing",
             "independent exact ambient intersections put the retained (14,16,1) "
             "section twist outside the certified sufficient stability chamber; "
             "its restricted interval is 17/5 < y < 51, with endpoints excluded; "

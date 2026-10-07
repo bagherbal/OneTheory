@@ -144,6 +144,32 @@ def _trial_curvature_summary(path: Path | None = None) -> dict[str, object]:
     return cast(dict[str, object], summary)
 
 
+def _completed_curvature_summary() -> tuple[dict[str, object], dict[str, object]]:
+    """Inspect complete H0/H1 packets without replacing the retained raw failure."""
+
+    from . import connection_curvature_comparison as comparison
+
+    profile = comparison.baseline.read_profile(expected_digest=comparison.baseline.PROFILE)
+    packet = json.loads(comparison.OUTPUT.read_bytes())
+    expected = "7a848bea2272234664028ff4dabfd09059978e8439e5400484892d5dc4d7a6f0"
+    if (packet.get("artifact_digest") != expected
+            or _canonical_digest({k: v for k, v in packet.items() if k != "artifact_digest"})
+            != expected
+            or any(_sha256(ROOT / name) != digest
+                   for name, digest in packet["source_files_sha256"].items())):
+        raise ValueError("the completed curvature comparison or its sources changed")
+    independent = comparison.summarize()
+    if any(packet.get(key) != value for key, value in independent.items()):
+        raise ValueError("the complete curvature comparison changed its result or scope")
+    summary = {key: value for key, value in profile.items() if key != "points"}
+    summary["point_records_reference"] = {
+        "path": str(comparison.baseline.refinement.OUTPUT.relative_to(ROOT)),
+        "artifact_digest": comparison.baseline.PROFILE, "sample_count": 2048,
+        "resolved_count": 2048, "unresolved_count": 0,
+    }
+    return cast(dict[str, object], summary), cast(dict[str, object], packet)
+
+
 def _node(
     identifier: str,
     label: str,
@@ -4223,22 +4249,63 @@ def _nodes() -> list[dict[str, object]]:
              "controlled HYM and background refinement; matter/Higgs metrics"),
         ),
         _node(
+            "refined_trial_connection_curvature",
+            "complete same-input constant-frame H0 reference curvature",
+            "Normalization", "COMPUTED",
+            "All 2048 original samples resolve under one explicit constant-germ "
+            "row policy, retaining all 5345 sections and the raw six-failure "
+            "profile. The complete discovery residual is 1.2445720689962494. "
+            "Unadjusted reference volume is 1345.006971309551 against exact "
+            "1344; the Chern-Weil trace offset is about 1.54 percent. Neither "
+            "offset is an error certificate. No physical metric is exported.",
+            ("data/generated/scientific_genesis/row_scaled_trial_curvature.json",
+             "data/generated/scientific_genesis/reference_curvature_normalization.json",
+             "research/experiments/scientific_genesis/REFERENCE_CURVATURE_EXECUTION_NOTE.md",
+             "tests/integration/test_scientific_genesis_reference_curvature_checks.py"),
+            ("same original population and unstabilized parameter point",
+             "non-Ricci-flat FS reference background", "binary64 discovery arithmetic"),
+        ),
+        _node(
+            "nonunit_connection_curvature",
+            "complete actual H1 reference curvature and failed improvement diagnostic",
+            "Normalization", "COMPUTED",
+            "The actual H1 resolves on every original input, with identical "
+            "reference weights. Its complete discovery residual is "
+            "3977.480285884433, about 3196 times H0. Training is about 5303 "
+            "while old validation is about 0.624. The sampled trace integral "
+            "is about 1390 times its topological target; 1185 points have "
+            "L1 above 1000. A well-conditioned dominant point independently "
+            "reproduces the enormous curvature. Favorable validation cannot "
+            "replace the complete population. Geometry precision, adaptive "
+            "sampling and arithmetic interpretation remain unresolved; no "
+            "continuum instability or HYM no-go is inferred.",
+            ("data/generated/scientific_genesis/nonunit_connection_curvature.json",
+             "data/generated/scientific_genesis/connection_curvature_comparison.json",
+             "research/experiments/scientific_genesis/CONNECTION_CURVATURE_COMPARISON_NOTE.md",
+             "tests/integration/test_scientific_genesis_nonunit_curvature.py",
+             "tests/integration/test_scientific_genesis_curvature_comparison.py"),
+            ("actual original-basis H1, not a reduced replacement",
+             "same original old population, not blind validation",
+             "input and roundoff errors are not certified"),
+        ),
+        _node(
             "retained_polarization_stability",
             "background compatibility for the retained stable polarization",
             "Normalization", "BLOCKED",
             "The refined actual line-Hom and source-order argument establishes "
             "descended slope stability at the retained generating polarization. "
             "The earlier sufficient-chamber failure is still true, but its "
-            "missing slope hypothesis is now repaired separately. A physical "
-            "An explicit compatible FS reference background and analytic "
-            "trace-free connection consumer now exist, but six retained "
-            "whitening failures prevent a full-population curvature mean. "
+            "missing slope hypothesis is now repaired separately. An explicit "
+            "compatible FS reference background and complete H0/H1 analytic "
+            "curvature profiles now exist. The constant-frame H0 refinement "
+            "resolves all original inputs, but H1's enormous training trace "
+            "offset prevents a controlled convergence interpretation. "
             "Controlled background/HYM refinement remains missing. A theorem "
             "of existence, finite balance or a larger population is not a "
             "controlled physical connection.",
             ("data/generated/scientific_genesis/retained_slope_stability.json",
              "research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md",
-             "data/generated/scientific_genesis/trial_connection_curvature.json"),
+             "data/generated/scientific_genesis/connection_curvature_comparison.json"),
             ("same retained carrier and section system", "no hidden polarization change"),
             ("controlled reference-background curvature and metric refinement",
              "controlled continuum HYM convergence"),
@@ -4581,8 +4648,9 @@ def _nodes() -> list[dict[str, object]]:
             "population executes without partial means or dropped samples. "
             "The refined source order now proves descended slope stability "
             "at the retained polarization. Analytic reference curvature is "
-            "available pointwise, with six retained numerical failures and "
-            "no global mean. Controlled background geometry, "
+            "available on complete original H0 and H1 populations. Constant "
+            "row frames resolve the raw six-failure profile, but H1's sampled "
+            "trace exceeds its target by about 1390 times. Controlled background geometry, "
             "useful sampling/arithmetic control and converged Ricci-flat/HYM "
             "matter metrics remain unavailable.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py",
@@ -8072,6 +8140,29 @@ def _edges() -> list[dict[str, object]]:
             ("controlled background and numerical/sampling refinement",),
             False, ("a reference FS residual is not physical Ricci-flat/HYM convergence",),
         ),
+        *[
+            _edge(
+                source, target, reason,
+                ("data/generated/scientific_genesis/connection_curvature_comparison.json",
+                 "research/experiments/scientific_genesis/CONNECTION_CURVATURE_COMPARISON_NOTE.md"),
+                ("same original inputs, full basis and declared reference background",),
+                False, ("uncontrolled input, arithmetic and adaptive sampling errors",),
+            )
+            for source, target, reason in (
+                ("trial_connection_curvature", "refined_trial_connection_curvature",
+                 "Constant-germ row scaling preserves the connection "
+                 "and resolves all original points."),
+                ("refined_trial_connection_curvature", "nonunit_connection_curvature",
+                 "The complete H0 baseline supplies the same-population comparison, not a subset."),
+                ("factored_trial_inverse_step", "nonunit_connection_curvature",
+                 "The actual full-basis H1 factor acts on all original values and first jets."),
+                ("refined_trial_connection_curvature", "retained_polarization_stability",
+                 "A complete discovery reference integral "
+                 "is not a controlled physical connection."),
+                ("nonunit_connection_curvature", "retained_polarization_stability",
+                 "The enormous sampled trace discrepancy requires same-input resolution checks."),
+            )
+        ],
         _edge(
             "alternate_metric_symbolic_columns", "compiled_section_features",
             "A pinned complete exact polynomial stream supplies the actual "
@@ -9806,13 +9897,15 @@ def _scheduler() -> list[dict[str, object]]:
             "descendant/rank bounds now establish descended slope stability "
             "on this retained ray. Freeze that result. The analytic reference "
             "connection now uses all original sections, actual quotient jets "
-            "and explicit FS background/trace untwisting. Six full-fiber "
-            "whitening failures are retained, with no global or subset mean. "
-            "Test explicitly recorded constant row scaling on the same inputs, "
-            "then repeat the entire unchanged population without relaxing the "
-            "condition guard or changing H0. A single old regression point's "
-            "H1 curvature is worse than H0; this is not a global convergence "
-            "test or reason to select new moduli. Use the "
+            "and explicit FS background/trace untwisting. The raw six-failure "
+            "profile is retained; constant row frames resolve every old input "
+            "without relaxing the guard. Complete H0 tau is about 1.245, "
+            "but actual H1 tau is about 3977 and its sampled trace is about "
+            "1390 times the topological target. Favorable old validation is "
+            "not a substitute mean or convergence evidence. Check same-input "
+            "resolution sensitivity at dominant points 526 and well-conditioned "
+            "1360, preserving captured streams, roots, histories and every "
+            "section. Do not infer continuum instability or select new moduli. Use the "
             "positive auxiliary law and quantitative global weight/kernel bound. "
             "Retain every pending same-stream request; justify external independence "
             "or a certified deterministic cubature with integral error control. "
@@ -10100,6 +10193,7 @@ def build_state() -> dict[str, object]:
         raise ValueError("the actual retained-polarization refinement changed its scope")
 
     reference_curvature = _trial_curvature_summary()
+    refined_reference_curvature, curvature_comparison = _completed_curvature_summary()
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
@@ -13682,6 +13776,21 @@ def build_state() -> dict[str, object]:
         "tests/integration/test_scientific_genesis_trial_connection_curvature.py",
         "tests/integration/test_scientific_genesis_curvature_formula.py",
         "data/generated/scientific_genesis/trial_connection_curvature.json",
+        "research/experiments/scientific_genesis/row_scaled_trial_curvature.py",
+        "research/experiments/scientific_genesis/ROW_SCALED_TRIAL_CURVATURE_NOTE.md",
+        "data/generated/scientific_genesis/row_scaled_trial_curvature.json",
+        "research/experiments/scientific_genesis/reference_curvature_checks.py",
+        "research/experiments/scientific_genesis/REFERENCE_CURVATURE_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_reference_curvature_checks.py",
+        "data/generated/scientific_genesis/reference_curvature_normalization.json",
+        "research/experiments/scientific_genesis/nonunit_connection_curvature.py",
+        "research/experiments/scientific_genesis/NONUNIT_CONNECTION_CURVATURE_NOTE.md",
+        "tests/integration/test_scientific_genesis_nonunit_curvature.py",
+        "data/generated/scientific_genesis/nonunit_connection_curvature.json",
+        "research/experiments/scientific_genesis/connection_curvature_comparison.py",
+        "research/experiments/scientific_genesis/CONNECTION_CURVATURE_COMPARISON_NOTE.md",
+        "tests/integration/test_scientific_genesis_curvature_comparison.py",
+        "data/generated/scientific_genesis/connection_curvature_comparison.json",
         "requirements-dev.txt",
         *(f"data/generated/scientific_genesis/certified_trial_cloud.sample_{i:04d}.json.gz"
           for i in range(16)),
@@ -13748,7 +13857,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3975,
+            "collected_tests_at_audit": 4057,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -14285,11 +14394,11 @@ def build_state() -> dict[str, object]:
                 "input and numerical control and sample/refinement stability; "
                 "the retained (14,16,1) twist fails four old sufficient stability "
                 "bounds, but actual line-Hom vanishing and the quantified source "
-                "order now prove descended slope stability; the analytic FS "
-                "reference connection has six retained whitening failures and "
-                "no full-population mean; record constant-frame row scaling "
-                "on the same inputs and repeat all original points without "
-                "relaxing the condition guard or changing labels; "
+                "order now prove descended slope stability; complete H0/H1 "
+                "reference profiles retain every original point and raw failure; "
+                "H1 has an enormous training/trace diagnostic despite favorable "
+                "old validation; check same-input resolution sensitivity "
+                "without replacing roots, histories, streams or sections; "
                 "verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
@@ -14336,6 +14445,8 @@ def build_state() -> dict[str, object]:
         "metric_polarization_scope": polarization_scope,
         "retained_slope_stability": retained_stability,
         "trial_connection_curvature": reference_curvature,
+        "refined_trial_connection_curvature": refined_reference_curvature,
+        "connection_curvature_comparison": curvature_comparison,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -14343,6 +14454,11 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "complete constant-frame H0 and actual H1 curvature profiles retain "
+            "all 2048 old inputs and 5345 sections; H0 discovery tau is about "
+            "1.245 but H1 is about 3977, with sampled trace about 1390 times "
+            "its topological target; favorable old validation is not a "
+            "replacement mean, convergence proof or continuum instability theorem",
             "analytic first jets of every original section and the actual "
             "quotient projection give a trace-free Chern-curvature consumer "
             "in the explicit retained FS reference background; all 2048 old "

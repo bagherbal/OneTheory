@@ -136,8 +136,8 @@ def test_live_dependency_graph_closes_only_the_actual_slope_hypothesis(packet):
     assert ("retained_slope_stability", "retained_polarization_stability") in pairs
     assert ("alternate_constituent_outer_stability_locus", "retained_slope_stability") in pairs
     assert ("alternate_constituent_carrier_state", "retained_slope_stability") in pairs
-    assert len(nodes) == 228
-    assert len(edges) == 409
+    assert len(nodes) == 230
+    assert len(edges) == 414
     task = next(task for task in audit._scheduler()
                 if task["task"] == "alternate_metric_convergence")
     assert "now establish descended slope stability" in task["rationale"]

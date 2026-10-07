@@ -4070,6 +4070,42 @@ def _nodes() -> list[dict[str, object]]:
              "Ricci-flat/HYM convergence", "matter and Higgs metrics", "common vacuum"),
         ),
         _node(
+            "metric_polarization_scope",
+            "exact sufficient-stability scope of the retained section twist",
+            "Normalization", "PROVED",
+            "Independent ambient Chow multiplication reproduces all nine "
+            "published homogeneous slope polynomials and the ninefold quotient "
+            "normalization. Four bounds are positive at the retained (14,16,1) "
+            "twist. At fixed first coordinates its sufficient interval is "
+            "17/5 < y < 51. Positive rescaling cannot repair this theorem "
+            "hypothesis. This is not a bundle-instability proof, new physical "
+            "polarization or reason to discard the live finite-cloud experiment.",
+            ("data/generated/scientific_genesis/metric_polarization_scope.json",
+             "research/experiments/scientific_genesis/metric_polarization_scope.py",
+             "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md",
+             "tests/integration/test_scientific_genesis_metric_polarization_scope.py"),
+            ("trusted original generation twist", "source sufficient chamber only",
+             "explicit cover/quotient normalization"),
+            ("actual stability at the intended metric polarization",),
+        ),
+        _node(
+            "retained_polarization_stability",
+            "stability and background compatibility for the intended HYM limit",
+            "Normalization", "BLOCKED",
+            "Generation at the frozen ample twist and stability on a different "
+            "certified chamber do not prove slope stability on this twist's ray. "
+            "Failure of the sufficient bounds does not prove instability either. "
+            "A physical HYM calculation requires actual stability for its "
+            "polarization and a compatible background/line-untwisting algorithm; "
+            "finite balance and a larger population do not supply these inputs.",
+            ("data/generated/scientific_genesis/metric_polarization_scope.json",
+             "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md"),
+            ("same retained carrier and section system", "no hidden polarization change"),
+            ("actual stability at the retained polarization, or a derived algorithm "
+             "using the retained sections on an independently declared admissible background",
+             "compatible background metric and line untwisting"),
+        ),
+        _node(
             "compiled_section_features",
             "complete original sparse binary64 discovery section evaluation",
             "Normalization",
@@ -4408,6 +4444,7 @@ def _nodes() -> list[dict[str, object]]:
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py"),
             missing=(
                 "controlled numerical full-basis evaluation and metric sampling",
+                "actual slope stability for the intended polarization and compatible background",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -7806,6 +7843,38 @@ def _edges() -> list[dict[str, object]]:
             False, ("passing an atomic or finite-twist balance test is not a physical metric",),
         ),
         _edge(
+            "alternate_metric_quotient_generation", "metric_polarization_scope",
+            "The trusted generation certificate fixes the actual line twist "
+            "whose source-stability hypothesis is tested, without changing its sections.",
+            ("data/generated/scientific_genesis/alternate_metric_quotient_generation.json",),
+            ("same original (14,16,1) twist and 5345 section columns",),
+            True, ("global generation is not slope stability",),
+        ),
+        _edge(
+            "alternate_constituent_outer_stability_locus", "metric_polarization_scope",
+            "The certified sufficient chamber supplies nine exact inequalities; "
+            "independent ambient intersections decide their applicability at the twist.",
+            ("data/generated/scientific_genesis/metric_polarization_scope.json",),
+            ("source bounds are sufficient, not a classification of all stable classes",),
+            True, ("a failed sufficient test does not construct a destabilizing subsheaf",),
+        ),
+        _edge(
+            "metric_polarization_scope", "retained_polarization_stability",
+            "The existing sufficient theorem cannot certify stability on this ray; "
+            "the actual stability/background hypothesis remains unresolved.",
+            ("research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md",),
+            ("retained twist and original section system",),
+            True, ("do not turn theorem inapplicability into an instability claim",),
+        ),
+        _edge(
+            "retained_polarization_stability", "visible_metrics",
+            "A genuine HYM limit needs actual slope-stability and a compatible "
+            "background and untwisting procedure, not only finite-twist balance.",
+            ("research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md",),
+            ("derived compatible metric algorithm", "controlled continuum convergence"),
+            False, ("finite-cloud balance or rescaling does not close this physical gate",),
+        ),
+        _edge(
             "alternate_metric_symbolic_columns", "compiled_section_features",
             "A pinned complete exact polynomial stream supplies the actual "
             "sparse coefficients; monomial sharing does not reconstruct cochains.",
@@ -9533,6 +9602,13 @@ def _scheduler() -> list[dict[str, object]]:
             "law, preserving older populations and all failed requests. Check "
             "both complete populations' atomic bounds before seeking balance. "
             "A new budget is not an integration accuracy theorem. Use the "
+            "exact retained-polarization scope check: four sufficient bounds "
+            "fail at (14,16,1), so neither more samples nor positive ray "
+            "rescaling certifies its HYM stability hypothesis. This does not "
+            "prove instability or stop the finite-cloud experiment. Establish "
+            "actual stability for the intended polarization and a compatible "
+            "background/line-untwisting algorithm before interpreting balance "
+            "as a HYM route. Use the "
             "positive auxiliary law and quantitative global weight/kernel bound. "
             "Retain every pending same-stream request; justify external independence "
             "or a certified deterministic cubature with integral error control. "
@@ -9647,6 +9723,7 @@ def build_state() -> dict[str, object]:
     from .finite_cloud_balance import read_probe as read_h1_witness
     from .full_trial_cloud import read_request as read_full_cloud_request
     from .independent_trial_cloud import read_cloud
+    from .metric_polarization_scope import read_certificate as read_polarization_scope
     from .native_section_continuation import read_complete_continuation
     from .projective_subdivision_roots import read_subdivision
     from .projective_uncertain_intersections import read_uncertain_intersections
@@ -9796,6 +9873,14 @@ def build_state() -> dict[str, object]:
         ]
     ):
         raise ValueError("the fresh predeclared full-section workload changed its trusted scope")
+
+    polarization_scope = read_polarization_scope(expected_digest=(
+        "4b05abef53e7814af7b5faca2511e35944dc1df603a78bfe02b6809e100bb9e8"
+    ))
+    if (polarization_scope["sufficient_chamber_test_passed"] is not False
+            or polarization_scope["scope_failure_is_a_bundle_instability_proof"] is not False
+            or polarization_scope["original_section_count"] != 5345):
+        raise ValueError("the retained polarization's theorem-scope boundary changed")
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
@@ -13364,6 +13449,10 @@ def build_state() -> dict[str, object]:
         "tests/integration/test_scientific_genesis_expanded_trial_cloud.py",
         "data/generated/scientific_genesis/expanded_trial_cloud_inputs.json",
         "data/generated/scientific_genesis/expanded_trial_cloud_request.json",
+        "research/experiments/scientific_genesis/metric_polarization_scope.py",
+        "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md",
+        "tests/integration/test_scientific_genesis_metric_polarization_scope.py",
+        "data/generated/scientific_genesis/metric_polarization_scope.json",
         "requirements-dev.txt",
         *(f"data/generated/scientific_genesis/certified_trial_cloud.sample_{i:04d}.json.gz"
           for i in range(16)),
@@ -13430,7 +13519,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3880,
+            "collected_tests_at_audit": 3918,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -13965,6 +14054,10 @@ def build_state() -> dict[str, object]:
                 "and check both complete finite-weight bounds without replacing the old cloud, "
                 "clipping weights or reducing sections; obtain useful statistical, "
                 "input and numerical control and sample/refinement stability; "
+                "the retained (14,16,1) twist fails four sufficient stability "
+                "bounds, which is not an instability proof; establish actual "
+                "stability at the intended polarization and a compatible "
+                "background/line-untwisting algorithm without changing labels; "
                 "verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
@@ -14008,6 +14101,7 @@ def build_state() -> dict[str, object]:
         "finite_cloud_atomic_obstruction": atomic_obstruction,
         "full_h1_balance_witness": h1_witness,
         "expanded_trial_cloud_request": expanded_cloud_request,
+        "metric_polarization_scope": polarization_scope,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -14015,6 +14109,11 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "independent exact ambient intersections put the retained (14,16,1) "
+            "section twist outside the certified sufficient stability chamber; "
+            "its restricted interval is 17/5 < y < 51, with endpoints excluded; "
+            "positive rescaling cannot repair the hypothesis; no actual bundle "
+            "instability, new physical Kahler class or HYM metric is inferred",
             "exact retained positive-weight intervals force training atom 78's "
             "normalized balance multiplier above 3.22533; every positive H on "
             "this unchanged complete finite measure has operator-norm balance "

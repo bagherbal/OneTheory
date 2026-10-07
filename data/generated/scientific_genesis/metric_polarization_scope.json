@@ -1,0 +1,185 @@
+{
+  "actual_destabilizing_subsheaf_constructed": false,
+  "ambient_coordinate_order": [
+    "x=tau1",
+    "u=tau2",
+    "p=phi"
+  ],
+  "artifact_digest": "4b05abef53e7814af7b5faca2511e35944dc1df603a78bfe02b6809e100bb9e8",
+  "claim": "the retained twist lies outside the source sufficient stability chamber",
+  "common_stabilized_vacuum_available": false,
+  "every_positive_rescaling_has_the_same_slope_signs": true,
+  "finite_cloud_should_stop_because_of_this_sufficient_test": false,
+  "first_missing_input": "establish actual stability at the retained polarization, or derive a metric algorithm for an independently declared admissible background; finite-cloud balance alone cannot supply either hypothesis",
+  "normalization": "rank-one line slopes; cover = nine times quotient",
+  "observations_used": false,
+  "original_section_count": 5345,
+  "original_sections_or_cloud_inputs_changed": false,
+  "physical_kahler_class_selected": false,
+  "physical_yukawas_available": false,
+  "prerequisite_digests": {
+    "generation": "3ca16bfa116c6b5530d73e74486eb196d37dbf9c0f7e75d445e84c41176fe063",
+    "stability": "570132144ddccead002f9e5957de29bce23d0f73fb94d0e97230e34ba706346f"
+  },
+  "published_sources": [
+    {
+      "arxiv_id": "hep-th/0602073",
+      "locators": [
+        "section 3.2, equations 10 and 15",
+        "Proposition 1 and equations 32 through 36"
+      ],
+      "source_archive_sha256": "8e38123b9d2de8751deecbf295015497ab2ed891244215455fffe756bebf0aea",
+      "version": "v1"
+    },
+    {
+      "arxiv_id": "hep-th/0512205",
+      "locators": [
+        "section 2.1 nontrivial-extension lower bound",
+        "split pair (0,V_R) exclusion"
+      ],
+      "source_archive_sha256": "f3c339b0ea7d5d26747dac8788400c785a3194077d09974eae5e04293f9a4eab",
+      "version": "v2"
+    }
+  ],
+  "rescaling_reason": "each line slope is a homogeneous quadratic in the polarization",
+  "restricted_sufficient_interval": {
+    "endpoints_excluded": true,
+    "first": 14,
+    "lower_exact": "17/5",
+    "second": 16,
+    "upper_exact": "51"
+  },
+  "retained_twist": [
+    14,
+    16,
+    1
+  ],
+  "ricci_flat_or_hym_metric_available": false,
+  "rows": [
+    {
+      "cover_line_slope_exact": "1296",
+      "line_class": [
+        -1,
+        -2,
+        2
+      ],
+      "quotient_line_slope_exact": "144",
+      "slice_constant_exact": "2088",
+      "slice_linear_exact": "-792",
+      "strictly_negative_at_retained_twist": false
+    },
+    {
+      "cover_line_slope_exact": "-3600",
+      "line_class": [
+        2,
+        -2,
+        -1
+      ],
+      "quotient_line_slope_exact": "-400",
+      "slice_constant_exact": "-3672",
+      "slice_linear_exact": "72",
+      "strictly_negative_at_retained_twist": true
+    },
+    {
+      "cover_line_slope_exact": "-2088",
+      "line_class": [
+        2,
+        -5,
+        1
+      ],
+      "quotient_line_slope_exact": "-232",
+      "slice_constant_exact": "-1404",
+      "slice_linear_exact": "-684",
+      "strictly_negative_at_retained_twist": true
+    },
+    {
+      "cover_line_slope_exact": "648",
+      "line_class": [
+        -4,
+        1,
+        2
+      ],
+      "quotient_line_slope_exact": "72",
+      "slice_constant_exact": "1548",
+      "slice_linear_exact": "-900",
+      "strictly_negative_at_retained_twist": false
+    },
+    {
+      "cover_line_slope_exact": "-4248",
+      "line_class": [
+        -1,
+        1,
+        -1
+      ],
+      "quotient_line_slope_exact": "-472",
+      "slice_constant_exact": "-4212",
+      "slice_linear_exact": "-36",
+      "strictly_negative_at_retained_twist": true
+    },
+    {
+      "cover_line_slope_exact": "-432",
+      "line_class": [
+        -2,
+        2,
+        0
+      ],
+      "quotient_line_slope_exact": "-48",
+      "slice_constant_exact": "-360",
+      "slice_linear_exact": "-72",
+      "strictly_negative_at_retained_twist": true
+    },
+    {
+      "cover_line_slope_exact": "1080",
+      "line_class": [
+        -2,
+        -1,
+        2
+      ],
+      "quotient_line_slope_exact": "120",
+      "slice_constant_exact": "1908",
+      "slice_linear_exact": "-828",
+      "strictly_negative_at_retained_twist": false
+    },
+    {
+      "cover_line_slope_exact": "1728",
+      "line_class": [
+        1,
+        -4,
+        2
+      ],
+      "quotient_line_slope_exact": "192",
+      "slice_constant_exact": "2448",
+      "slice_linear_exact": "-720",
+      "strictly_negative_at_retained_twist": false
+    },
+    {
+      "cover_line_slope_exact": "-3816",
+      "line_class": [
+        1,
+        -1,
+        -1
+      ],
+      "quotient_line_slope_exact": "-424",
+      "slice_constant_exact": "-3852",
+      "slice_linear_exact": "36",
+      "strictly_negative_at_retained_twist": true
+    }
+  ],
+  "schema": "metric-polarization-scope-v1",
+  "scope_failure_is_a_bundle_instability_proof": false,
+  "source_files_sha256": {
+    "data/published/visible_carrier/source_manifest.json": "dc7b51776d7b362ae748f2bfde8ff4a90d54c82becb6a55e2a6eafb31bc0c99d",
+    "research/experiments/scientific_genesis/ALTERNATE_METRIC_QUOTIENT_GENERATION_NOTE.md": "f900fbd7433d6f624b13ba8065cd0a6b396b13757428e7fbd551dbabde01f726",
+    "research/experiments/scientific_genesis/ALTERNATE_STABILITY_NOTE.md": "ace202c9120c23056d621b5f33b8234e6768ce9c5aeb924a914cfde85be2abdd",
+    "research/experiments/scientific_genesis/METRIC_POLARIZATION_SCOPE_NOTE.md": "cfd023ce16aa3b203be9f6f49a20882ede7b309ab99fc3000ed1f4f99a4da693",
+    "research/experiments/scientific_genesis/metric_polarization_scope.py": "2dba0543abe2138f6b537b0f96c0c86e499cbf0d318aabe4c0da968e0f61ed7d",
+    "src/onetheory/math/geometry.py": "05acbc48379aad7a79f421e4a379eb4b09bfd880410a85b24fcc5038cbee4250",
+    "src/onetheory/math/numbers.py": "efbf0505e1dc23f96ee17b783c19716bf52937ba1db92d2ab0e4f78a364953f5",
+    "src/onetheory/math/polynomials.py": "27d1859cceff49830db90ba80e12d75e7b8bb4c36b07b97d08022eb809f48f74",
+    "src/onetheory/models/heterotic_schoen/geometry.py": "22bfdeb11cd2e33658d293a7e0df8ece07c5f82dcc29341727dbf8b0c3f76b11",
+    "src/onetheory/models/heterotic_schoen/visible.py": "fe44306da979e92a06487db76a224158d7f6849872070ff662bb4ed2c92df6c5"
+  },
+  "stability_at_retained_polarization_established": false,
+  "status": "PROVED",
+  "sufficient_chamber_test_passed": false
+}

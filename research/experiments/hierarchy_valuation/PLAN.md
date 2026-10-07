@@ -118,7 +118,7 @@ carrier survives gates G2 and G3.
 | `eps^2 ∝ xi_FI` | D-flatness gives `\|flavon\|^2 ∝ xi`, so `eps^4 ∝ xi^2` | The exponent relating flavon VEV to the slope polynomial in a derived wall regime |
 | rank-four determinant | `S(U(1)^4)` split of an SU(4) bundle, product of four flavon factors | Charge lattice of a full-flag split carrier |
 | quartic Kähler data | Slopes are quadratic in `J`, the volume is cubic | Scaling of matter metrics along degenerations (G2) |
-| instanton action | `eps^4 = exp(-S_inst)` | Instanton/Pfaffian sector (existing blocker) |
+| instanton action | `eps^4 = exp(-S_inst)`. Concrete candidates are the 81 exceptional sections `sigma x sigma'` (9 on the quotient). Their ambient class is `x^2 u^2`, so their area is exactly `J.C = j3`. `V` restricts trivially to them, so the spin-twisted zero modes vanish (`ALTERNATE_SECTION_CURVE_RESTRICTIONS_NOTE.md`) and their Pfaffians are not forced to zero. On the hidden-compatible wall region `j3 < (11/12) j1` they are the least suppressed instantons. Through the Green--Schwarz shift they can carry anomalous-U(1) charge and generate U(1)-forbidden entries. `eps^4 = e^{-S}` would mean `S ≈ 6.06`. | Pfaffian normalization and U(1) charge of these instantons, then their contribution to each texture entry. They cannot lift the two unsuppressed E-F masses, so they test only the light entries |
 
 Kill rule: if the derived relation in the surviving channel is not a fourth
 power, this form of the equation dies, whatever its numerical agreement.

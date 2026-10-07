@@ -40,3 +40,4 @@ data/generated/*
 !data/generated/computable_carrier/**
 
 .gitmessage
+*.partial.json

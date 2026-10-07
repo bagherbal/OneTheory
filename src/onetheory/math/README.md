@@ -16,6 +16,18 @@ Physical meanings assigned to coincidences, Schoen-specific assumptions, observe
 
 Math may use core policy and other reusable mathematics, but not physics, models, engine, reality, verification, research, or observations.
 
+## Finite-complex conventions
+
+Homological coordinates always carry their named ordered basis and coefficient
+field. An omitted construction name may be generated; an explicitly invalid name
+is rejected. Shifting by `k` moves degree `n` to `n+k` and multiplies the
+differential by `(-1)^k`. Chain differentials lower degree; cochain differentials
+raise it. The cone of `A → B` orders `B` before the shifted `A`, with differential
+blocks `((d_B, f), (0, -d_A))`. Bicomplex directions commute before totalization,
+which uses `d_horizontal + (-1)^p d_vertical`. Cohomology representatives follow
+the declared basis and deterministic exact elimination; they are not a canonical
+geometric choice. These constructions require no sheaf or physical bundle data.
+
 ## Promotion condition
 
 Research may be promoted only after exact conventions, reproducibility, independent mathematical certification, scientific review, and tests establish that the result is reusable mathematics rather than an unresolved physical claim.

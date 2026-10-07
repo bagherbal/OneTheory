@@ -243,7 +243,8 @@ class GradedVectorSpace:
             raise TypeError("the shift amount must be an integer")
         shifted = {degree + amount: space for degree, space in self.components}
         return GradedVectorSpace(
-            name or f"{self.name}[{amount}]", shifted, scalar_type=self.scalar_type,
+            f"{self.name}[{amount}]" if name is None else name,
+            shifted, scalar_type=self.scalar_type,
         )
 
     def direct_sum(self, other: GradedVectorSpace, name: str | None = None) -> GradedVectorSpace:
@@ -255,7 +256,8 @@ class GradedVectorSpace:
             degree: self.space(degree).direct_sum(other.space(degree)) for degree in degrees
         }
         return GradedVectorSpace(
-            name or f"{self.name}⊕{other.name}", components, scalar_type=self.scalar_type,
+            f"{self.name}⊕{other.name}" if name is None else name,
+            components, scalar_type=self.scalar_type,
         )
 
 

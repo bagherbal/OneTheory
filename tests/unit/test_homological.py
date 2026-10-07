@@ -1112,6 +1112,62 @@ def test_nine_cell_totalization_matches_the_tensor_complex_cohomology(
     )
 
 
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("empty", (False, True))
+def test_graded_constructions_validate_explicit_names(
+    scalar_type: type[Rational] | type[Eisenstein], empty: bool,
+) -> None:
+    """An explicitly invalid identity is not silently replaced by a default."""
+
+    components = {} if empty else {0: VectorSpace("C0", ("x",), scalar_type)}
+    space = GradedVectorSpace("C", components, scalar_type=scalar_type)
+    for construct, argument in ((space.shift, 1), (space.direct_sum, space)):
+        with pytest.raises(ValueError, match="nonempty space name"):
+            construct(argument, name="")
+        for name in (False, 0, [], {}):
+            with pytest.raises(TypeError, match="space names must be strings"):
+                construct(argument, name=name)
+
+    assert space.shift(1).name == "C[1]"
+    assert space.direct_sum(space).name == "C⊕C"
+    assert space.shift(1, name="suspension").name == "suspension"
+    assert space.direct_sum(space, name="sum").name == "sum"
+
+
+@pytest.mark.parametrize("scalar_type", (Rational, Eisenstein))
+@pytest.mark.parametrize("complex_type", (ChainComplex, CochainComplex))
+def test_nonidentity_quasi_isomorphism_has_an_acyclic_cone(
+    scalar_type: type[Rational] | type[Eisenstein],
+    complex_type: type[ChainComplex] | type[CochainComplex],
+) -> None:
+    """An inclusion across unequal complexes induces an isomorphism on classes."""
+
+    step = -1 if complex_type is ChainComplex else 1
+    survivor = VectorSpace("survivor", ("h",), scalar_type)
+    source = complex_type(GradedVectorSpace("source", {0: survivor}), {})
+    middle = VectorSpace("target middle", ("boundary", "class"), scalar_type)
+    incoming = VectorSpace("target incoming", ("primitive",), scalar_type)
+    coefficient = Rational(2, 3) if scalar_type is Rational else OMEGA
+    target = complex_type(
+        GradedVectorSpace("target", {-step: incoming, 0: middle}),
+        {-step: LinearMap(incoming, middle, ((coefficient,), (0,)))},
+    )
+    inclusion = ChainMap(source, target, {
+        0: LinearMap(survivor, middle, ((coefficient,), (1,))),
+    })
+    cone = mapping_cone(inclusion)
+
+    assert source != target
+    assert source.cohomology_dimension(0) == target.cohomology_dimension(0) == 1
+    assert inclusion.component(0)(source.cycles(0)[0]) == CoordinateVector(
+        middle, (coefficient, 1),
+    )
+    for degree in cone.degrees:
+        assert cone.differential(degree + step).compose(cone.differential(degree)).is_zero()
+        assert cone.cohomology_dimension(degree) == 0
+        assert cone.cohomology_representatives(degree) == ()
+
+
 def test_dga_leibniz_commutator_pairing_and_maurer_cartan() -> None:
     degree_zero = VectorSpace("A0", ("1",))
     graded = GradedVectorSpace("A", {0: degree_zero})

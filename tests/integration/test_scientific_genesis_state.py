@@ -69,6 +69,68 @@ def test_large_cloud_requests_do_not_claim_completed_inverse_or_physical_metrics
     }
 
 
+def test_current_metric_graph_records_computation_without_promoting_physics() -> None:
+    """Computational progress and an empirical no-go keep physical gates blocked."""
+
+    claims = {node["id"]: node for node in audit._nodes()}
+    assert claims["full_trial_cloud_execution"]["status"] == "COMPUTED"
+    assert claims["full_trial_inverse_execution"]["status"] == "COMPUTED"
+    assert claims["full_trial_sample_factor"]["status"] == "COMPUTED"
+    assert claims["factored_trial_inverse_step"]["status"] == "COMPUTED"
+    assert claims["finite_cloud_atomic_obstruction"]["status"] == "PROVED"
+    assert claims["full_h1_balance_witness"]["status"] == "COMPUTED"
+    assert claims["visible_metrics"]["status"] == "BLOCKED"
+    assert claims["physical_yukawas"]["status"] == "BLOCKED"
+    assert "not continuum" in claims["finite_cloud_atomic_obstruction"]["statement"]
+    edges = {(edge["source"], edge["target"]) for edge in audit._edges()}
+    assert ("full_trial_sample_factor", "factored_trial_inverse_step") in edges
+    assert ("factored_trial_inverse_step", "full_h1_balance_witness") in edges
+    assert ("finite_cloud_atomic_obstruction", "visible_metrics") in edges
+    assert all(source in claims and target in claims for source, target in edges)
+
+
+def test_exact_finite_weight_obstruction_changes_the_metric_scheduler() -> None:
+    """A proved empirical obstruction requires measure control, not endless H2."""
+
+    from research.experiments.scientific_genesis.finite_cloud_balance import read_certificate
+
+    certificate = read_certificate(expected_digest=(
+        "1a60352d1c7b4287621e5eb53e8b7902f7bf7f1c3bf37cce2bb1fd35e3100288"
+    ))
+    assert certificate["training"]["balanced_fixed_point_excluded_on_retained_intervals"] is True
+    assert certificate["continuum_bundle_instability_proved"] is False
+    task = next(task for task in audit._scheduler()
+                if task["task"] == "alternate_metric_convergence")
+    assert "Stop blind H2 iteration" in task["rationale"]
+    assert "predeclared independent population" in task["rationale"]
+    assert "without dropping heavy samples" in task["rationale"]
+
+
+def test_actual_h1_witness_consumes_every_fiber_without_claiming_a_metric() -> None:
+    """The real all-population output is distinct from a synthetic or reduced result."""
+
+    from research.experiments.scientific_genesis.finite_cloud_balance import read_probe
+
+    record = read_probe(
+        expected_request_digest="30aaf6b26a88973585311e3b8e167eafb58160a5e195c28d1cb17041dbc27e7f",
+        expected_digest="5a10c48ea62dbc6b8f0d2dca3f069e42cefb77e102773be0c67b18d1d0b6f644",
+    )
+    assert record["section_count"] == 5345
+    assert len(record["fiber_diagnostics"]) == 2048
+    assert (record["training"]["sample_count"], record["validation"]["sample_count"]) == (1536, 512)
+    assert record["nonunit_h1_consumed_on_all_original_fibers"] is True
+    assert record["complete_original_coordinates_used"] is True
+    assert record["training"]["maximum_witness_eigenvalue_discovery"] > 5
+    assert record["validation"]["maximum_witness_eigenvalue_discovery"] > 8
+    for flag in (
+        "held_out_samples_used_to_select_h1_or_witness", "full_operator_norm_computed",
+        "numerical_error_bound_certified", "sampling_error_bound_useful",
+        "ricci_flat_or_hym_metric_available", "physical_yukawas_available",
+        "common_stabilized_vacuum_available", "observations_used",
+    ):
+        assert record[flag] is False
+
+
 def test_same_prefix_draw_workflow_preserves_conditional_metric_boundary() -> None:
     """A declared law workflow is not IID evidence or a normalized physical result."""
 

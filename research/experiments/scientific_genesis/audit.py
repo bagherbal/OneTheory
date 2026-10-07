@@ -3916,7 +3916,8 @@ def _nodes() -> list[dict[str, object]]:
             "Explicit solver congruence preserves every original coordinate "
             "and the initializer remains unit H0. No ridge, pseudoinverse, "
             "reduced model or inferred physical normalization is permitted. "
-            "The requested step has not yet executed on the complete cloud.",
+            "Its actual original Gram execution remains unresolved; a distinct "
+            "full-factor computation does not retroactively admit this policy.",
             ("research/experiments/scientific_genesis/balanced_trial_iteration.py",
              "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md",
              "tests/integration/test_scientific_genesis_balanced_trial_iteration.py",
@@ -3925,6 +3926,124 @@ def _nodes() -> list[dict[str, object]]:
              "explicit r*mean(w)/N computational projective gauge"),
             ("completed original cloud", "admitted full inverse", "sampling and numerical control",
              "Ricci-flat/HYM convergence", "matter and Higgs metrics", "common vacuum"),
+        ),
+        _node(
+            "full_trial_cloud_execution",
+            "complete retained original-section training and validation cloud",
+            "Normalization", "COMPUTED",
+            "The trusted whole-workload reader validates all 2048 original "
+            "checkpoints: 1536 training and 512 held-out samples, with no missing "
+            "or unresolved ordinal. All 5345 section coordinates, named streams, "
+            "branches, frames and refinement histories remain retained. This "
+            "binary64 discovery cloud is not a controlled integral or metric.",
+            ("data/generated/scientific_genesis/full_trial_cloud.json",
+             "research/experiments/scientific_genesis/full_trial_cloud.py",
+             "research/experiments/scientific_genesis/FULL_TRIAL_EXECUTION_NOTE.md"),
+            ("assumed independent fair infinite streams", "selected unstabilized point",
+             "binary64 discovery arithmetic", "complete original section basis"),
+            ("useful numerical and statistical control", "Ricci-flat/HYM convergence",
+             "derived matter and Higgs metrics", "common vacuum"),
+        ),
+        _node(
+            "full_trial_inverse_execution",
+            "complete training operator with unresolved full numerical positivity",
+            "Normalization", "COMPUTED",
+            "Every original training sample contributes to the saved complete "
+            "5345-dimensional operator. The original Gram Cholesky positivity "
+            "gate fails and this run exports no H1. Its policy remains unchanged. "
+            "A distinct factor-based successful update does not erase the failure.",
+            ("data/generated/scientific_genesis/balanced_trial_step.json",
+             "research/experiments/scientific_genesis/balanced_trial_iteration.py",
+             "research/experiments/scientific_genesis/FULL_TRIAL_EXECUTION_NOTE.md"),
+            ("complete original population", "unit H0", "frozen original inverse policy",
+             "explicit computational projective scalar gauge"),
+            ("useful input and numerical error bounds", "sampling control",
+             "Ricci-flat/HYM convergence", "matter metrics", "common vacuum"),
+        ),
+        _node(
+            "full_trial_positivity_diagnostic",
+            "whole-operator near-null diagnostic with independent positive kernel sum",
+            "Normalization", "COMPUTED",
+            "The complete 5345-coordinate numerical eigendirection has a "
+            "negative reported eigenvalue near -1.417e-14 but an independently "
+            "recomputed positive quadratic sum over every training kernel. "
+            "Neither exact rank nor the eigenvalue sign is certified; this "
+            "motivates full-factor QR without squaring its condition number.",
+            ("data/generated/scientific_genesis/balanced_trial_obstruction.json",
+             "research/experiments/scientific_genesis/balanced_trial_obstruction.py",
+             "research/experiments/scientific_genesis/FULL_TRIAL_EXECUTION_NOTE.md"),
+            ("saved complete original operator", "all original training kernels",
+             "binary64 discovery"),
+            ("exact or interval-controlled input and arithmetic errors", "physical metrics"),
+        ),
+        _node(
+            "full_trial_sample_factor",
+            "complete unpivoted original-column sample QR",
+            "Normalization", "COMPUTED",
+            "All 6144 training fiber rows and all 5345 original section columns "
+            "enter unpivoted QR. Every column passes reconstruction with "
+            "relative residual about 3.814e-16. No coordinate or sample is "
+            "dropped. The condition estimate is discovery evidence, not exact rank.",
+            ("data/generated/scientific_genesis/full_trial_sample_factor.json",
+             "research/experiments/scientific_genesis/full_trial_sample_factor.py",
+             "research/experiments/scientific_genesis/FULL_TRIAL_SAMPLE_FACTOR_NOTE.md"),
+            ("same unit H0", "explicit invertible solver congruence", "binary64 discovery"),
+            ("controlled input and numerical errors", "statistical integral control"),
+        ),
+        _node(
+            "factored_trial_inverse_step",
+            "actual full-basis nonunit computational H1",
+            "Normalization", "COMPUTED",
+            "A separately declared triangular solver policy admits a positive "
+            "full original-basis H1 after checking all 5345 inverse columns. "
+            "The residual is about 7.780e-7. This actual nonunit update preserves "
+            "the failed old Gram policy, all original points and all sections. "
+            "It is not a controlled integral, matter metric or HYM solution.",
+            ("data/generated/scientific_genesis/factored_trial_inverse.json",
+             "data/generated/scientific_genesis/factored_trial_inverse_request.json",
+             "research/experiments/scientific_genesis/factored_trial_inverse.py",
+             "research/experiments/scientific_genesis/FACTORED_TRIAL_EXECUTION_NOTE.md"),
+            ("new distinct triangular policy", "selected unstabilized point",
+             "explicit full QR row phases and projective scalar", "binary64 discovery"),
+            ("controlled integral", "sampling and refinement stability",
+             "Ricci-flat/HYM convergence", "matter and Higgs metrics", "common vacuum"),
+        ),
+        _node(
+            "finite_cloud_atomic_obstruction",
+            "exact finite-weight obstruction to unchanged-cloud balance",
+            "Normalization", "PROVED",
+            "For any positive full-basis H, its normalized finite balance "
+            "operator is a positive weighted sum of rank-four projectors. "
+            "Training sample 78 has exact interval atomic multiplier above "
+            "3.22533, requiring operator-norm balance residual above 2.22533 "
+            "for every H. This excludes a balanced fixed point on the retained "
+            "finite measure, not continuum carrier stability or HYM existence.",
+            ("data/generated/scientific_genesis/finite_cloud_balance.json",
+             "research/experiments/scientific_genesis/finite_cloud_balance.py",
+             "research/experiments/scientific_genesis/FINITE_CLOUD_BALANCE_NOTE.md",
+             "tests/integration/test_scientific_genesis_finite_cloud_balance.py"),
+            ("fixed complete finite weighted measure", "rank-four section law",
+             "retained source-pinned producer weight intervals"),
+            ("larger lawful population or derived auxiliary-measure change",
+             "useful controlled integral", "HYM convergence", "physical normalization"),
+        ),
+        _node(
+            "full_h1_balance_witness",
+            "actual H1 retained-population balance witness",
+            "Normalization", "COMPUTED",
+            "The actual nonunit H1 is evaluated on every one of the 2048 "
+            "original fibers with all 5345 section columns retained. A "
+            "predeclared training fiber tests full-space Rayleigh quotients, "
+            "with held-out rows used only for an independent diagnostic. "
+            "The four-dimensional witness is not a reduced model or HYM residual.",
+            ("data/generated/scientific_genesis/finite_cloud_balance_h1.json",
+             "data/generated/scientific_genesis/finite_cloud_balance_h1_request.json",
+             "research/experiments/scientific_genesis/finite_cloud_balance.py",
+             "research/experiments/scientific_genesis/FINITE_CLOUD_BALANCE_NOTE.md"),
+            ("actual admitted full H1", "all original training and held-out samples",
+             "predeclared fiber admission gates", "binary64 discovery"),
+            ("numerical input and arithmetic certification", "sampling accuracy",
+             "genuine HYM convergence", "matter and Higgs metrics", "common vacuum"),
         ),
         _node(
             "compiled_section_features",
@@ -7531,6 +7650,87 @@ def _edges() -> list[dict[str, object]]:
             ("pilot certification does not certify the new population or adaptive H",),
         ),
         _edge(
+            "full_trial_cloud_request", "full_trial_cloud_execution",
+            "All original requested checkpoints resolve without replacement "
+            "or omitted coordinates.",
+            ("data/generated/scientific_genesis/full_trial_cloud.json",),
+            ("assumed fair IID streams", "binary64 discovery", "selected unstabilized point"),
+            False, ("finite receipts do not establish ideal IID or integration accuracy",),
+        ),
+        _edge(
+            "full_trial_cloud_execution", "full_trial_inverse_execution",
+            "The complete original training population supplies its full unit-H operator.",
+            ("data/generated/scientific_genesis/balanced_trial_step.json",),
+            ("unit H0", "frozen full inverse admission gates"),
+            False, ("Gram roundoff leaves positivity unresolved",),
+        ),
+        _edge(
+            "balanced_trial_inverse_request", "full_trial_inverse_execution",
+            "The actual failed step retains the independently declared original solver policy.",
+            ("data/generated/scientific_genesis/balanced_trial_step.json",),
+            ("no retrospective admission or regularization",),
+            False, ("a numerical inverse failure is not an exact rank theorem",),
+        ),
+        _edge(
+            "full_trial_inverse_execution", "full_trial_positivity_diagnostic",
+            "Full-space eigen and positive-kernel diagnostics distinguish "
+            "unresolved small directions.",
+            ("data/generated/scientific_genesis/balanced_trial_obstruction.json",),
+            ("complete original operator and kernels", "binary64 diagnostics"),
+            False, ("eigenvalue sign and exact rank remain uncertified",),
+        ),
+        _edge(
+            "full_trial_positivity_diagnostic", "full_trial_sample_factor",
+            "Direct complete-factor QR avoids forming a second normal Gram.",
+            ("data/generated/scientific_genesis/full_trial_sample_factor.json",),
+            ("all original rows and columns", "explicit invertible solver congruence"),
+            False, ("reconstruction residual does not certify input error",),
+        ),
+        _edge(
+            "full_trial_sample_factor", "factored_trial_inverse_step",
+            "Separate triangular gates admit an actual original-basis nonunit H1.",
+            ("data/generated/scientific_genesis/factored_trial_inverse.json",),
+            ("distinct frozen triangular policy", "whole inverse residual check"),
+            False, ("conditioning can amplify unresolved input and arithmetic errors",),
+        ),
+        _edge(
+            "full_trial_cloud_execution", "finite_cloud_atomic_obstruction",
+            "Positive empirical atoms force a basis-independent necessary balance inequality.",
+            ("research/experiments/scientific_genesis/FINITE_CLOUD_BALANCE_NOTE.md",),
+            ("fixed complete finite measure", "retained exact weight intervals", "fiber rank four"),
+            True, ("finite-measure obstruction must not be inferred for the continuum",),
+        ),
+        _edge(
+            "factored_trial_inverse_step", "full_h1_balance_witness",
+            "Its full immutable inverse factor evaluates every retained fiber under actual H1.",
+            ("data/generated/scientific_genesis/finite_cloud_balance_h1.json",),
+            ("all original coordinates", "every fiber passes the predeclared gates"),
+            False, ("one unresolved fiber prevents the completed witness",),
+        ),
+        _edge(
+            "finite_cloud_atomic_obstruction", "full_h1_balance_witness",
+            "A retained training atom supplies a declared full-space Rayleigh witness.",
+            ("data/generated/scientific_genesis/finite_cloud_balance_h1_request.json",),
+            ("held-out samples never select the form or witness",),
+            False, ("a four-dimensional witness does not compute the full operator norm",),
+        ),
+        _edge(
+            "finite_cloud_atomic_obstruction", "visible_metrics",
+            "A fixed empirical measure that excludes balance cannot support claimed convergence.",
+            ("research/experiments/scientific_genesis/FINITE_CLOUD_BALANCE_NOTE.md",),
+            ("lawful larger population or independently derived change of auxiliary measure",
+             "controlled integral", "actual Ricci-flat/HYM convergence"),
+            False, ("dropping heavy atoms or truncating sections changes the scientific problem",),
+        ),
+        _edge(
+            "full_h1_balance_witness", "visible_metrics",
+            "Actual nonunit-H evaluation supplies a diagnostic, not canonical "
+            "physical normalization.",
+            ("data/generated/scientific_genesis/finite_cloud_balance_h1.json",),
+            ("numerical and sampling error control", "HYM curvature convergence", "common vacuum"),
+            False, ("finite validation rank floors are not HYM failure",),
+        ),
+        _edge(
             "balanced_trial_inverse_request", "visible_metrics",
             "A full numerical inverse step is the next reachable metric "
             "experiment; a selected execution policy supplies no physical metric.",
@@ -9251,14 +9451,18 @@ def _scheduler() -> list[dict[str, object]]:
             "The complete sixteen-sample input/arithmetic error is now bounded "
             "by integer disks after same-stream refinement, without replacing "
             "hard samples or their discovery references. Freeze that result. "
-            "The sample operator rank is at most "
-            "64, so no full 5345-dimensional inverse update is available; at "
-            "least 1337 samples and a verified span are needed. The selected "
-            "2048-input request now captures 1536 training and 512 held-out "
-            "ordinals before geometry. Disjoint resumable shards execute "
-            "the original workload without redraws. Complete that cloud, "
-            "then apply the separately predeclared full inverse admission "
-            "policy; failed span or conditioning must remain unresolved. Use the "
+            "The older sixteen-point operator has rank at most 64. The actual "
+            "2048-point cloud is now complete, retaining all 1536 training and "
+            "512 held-out samples. The original full inverse policy failed "
+            "Gram positivity and stays failed. Full unpivoted QR and a distinct "
+            "triangular policy produce an actual positive nonunit full-basis H1. "
+            "Its retained-population fiber witness now consumes all original "
+            "coordinates. Exact positive-atom bounds exclude a balanced fixed "
+            "point for every H on this unchanged finite measure. Stop blind "
+            "H2 iteration on that cloud. Preserve it; derive a lawful larger "
+            "predeclared independent population or a justified auxiliary-measure change "
+            "without dropping heavy samples, clipping weights or truncating "
+            "sections. Do not infer continuum bundle instability. Use the "
             "positive auxiliary law and quantitative global weight/kernel bound. "
             "Retain every pending same-stream request; justify external independence "
             "or a certified deterministic cubature with integral error control. "
@@ -9266,7 +9470,7 @@ def _scheduler() -> list[dict[str, object]]:
             "bound for each fixed parameter, not a uniform probability claim over "
             "moduli. Scale lawful original-basis sampling with separate numerical "
             "and useful statistical bounds, then implement "
-            "nonunit-H iteration, twist refinement and line untwisting; "
+            "further controlled nonunit-H iteration, twist refinement and line untwisting; "
             "require Ricci-flat/HYM convergence before normalization.",
         ),
         (
@@ -9362,9 +9566,14 @@ def build_state() -> dict[str, object]:
     from .alternate_section_curve_restrictions import read_restrictions
     from .auxiliary_cover_draws import read_draws
     from .balanced_trial_iteration import read_request as read_inverse_request
+    from .balanced_trial_iteration import read_step as read_full_inverse
     from .canonical_representation_constraints import read_constraints
     from .certified_trial_features import read_certificates
     from .compiled_section_features import read_execution as read_compiled_discovery
+    from .factored_trial_inverse import read_factor
+    from .factored_trial_inverse import read_result as read_h1
+    from .finite_cloud_balance import read_certificate as read_atomic_obstruction
+    from .finite_cloud_balance import read_probe as read_h1_witness
     from .full_trial_cloud import read_request as read_full_cloud_request
     from .independent_trial_cloud import read_cloud
     from .native_section_continuation import read_complete_continuation
@@ -9428,6 +9637,79 @@ def build_state() -> dict[str, object]:
     inverse_request = read_inverse_request(expected_digest=(
         "5a7953df972ee465e28c0bec9db09173b3fa81e20409503f171d7da280c37bfc"
     ))
+    full_inverse, failed_form = read_full_inverse(
+        expected_request_digest=inverse_request["artifact_digest"],
+        expected_digest="bc7f9c9819829269b9978823e4d3c99119bce97ef548a26014d6a333a8b89001",
+    )
+    if failed_form is not None or full_inverse["reason"] != (
+        "full equilibrated Cholesky positivity is unresolved"
+    ):
+        raise ValueError("the failed original full Gram policy must remain unresolved")
+    # read_full_inverse already independently inspected every original archive.
+    full_cloud_execution = json.loads((ROOT / (
+        "data/generated/scientific_genesis/full_trial_cloud.json"
+    )).read_bytes())
+    if full_cloud_execution["artifact_digest"] != (
+        "3138e6d6eb4c17fb977714f78069cc704e09f3eab45fb73e1b8d16d540cd29cc"
+    ) or full_inverse["cloud_manifest_digest"] != full_cloud_execution["artifact_digest"] or (
+        _canonical_digest({k: v for k, v in full_cloud_execution.items() if k != "artifact_digest"})
+        != full_cloud_execution["artifact_digest"]
+    ):
+        raise ValueError("the complete original cloud changed its trusted manifest")
+    obstruction_path = ROOT / "data/generated/scientific_genesis/balanced_trial_obstruction.json"
+    positivity = json.loads(obstruction_path.read_bytes())
+    if (
+        positivity["artifact_digest"] != (
+            "408e68b132c83d00b4ffe73f5256cd3cef1452b82f5e690a80ec0f78ac000b0b"
+        )
+        or _canonical_digest({k: v for k, v in positivity.items() if k != "artifact_digest"})
+        != positivity["artifact_digest"]
+        or positivity["inverse_step_digest"] != full_inverse["artifact_digest"]
+        or positivity["operator_reference"] != full_inverse["arrays"]["operator"]
+        or any(_sha256(ROOT / path) != digest
+               for path, digest in positivity["source_files_sha256"].items())
+        or positivity["section_count"] != 5345
+        or positivity["training_count"] != 1536
+        or positivity["validation_count"] != 512
+        or positivity["all_original_training_samples_consumed"] is not True
+        or positivity["witness_reference"]["shape"] != [5345]
+        or positivity["witness_reference"]["sha256"]
+        != _sha256(ROOT / positivity["witness_reference"]["path"])
+        or any(positivity[key] is not False for key in (
+            "diagnostic_is_physical_normalization", "reduced_section_basis_used",
+            "ridge_or_pseudoinverse_used", "numerical_error_bound_certified",
+            "exact_sample_rank_determined", "nonunit_h_iteration_executed",
+            "ricci_flat_or_hym_metric_available", "physical_yukawas_available", "observations_used",
+        ))
+    ):
+        raise ValueError("the full-space positivity diagnostic or its limited scope changed")
+    full_factor = read_factor(
+        "b92402fab50bde1d9de3cbadff344e785184edf2ddc2f2df9646c1b3e61d4fa8",
+    )
+    actual_h1, full_form = read_h1(
+        expected_request_digest="2de18a347a4b94e6472228815c21a2133254bdd02211f0a4fc6b3ff05d8e6d53",
+        expected_digest="202980d12d88fef5b9398edd6150a3da8083312c8cd1f2e030d9efbfaadce80c",
+    )
+    if full_form is None or full_form.section_count != 5345 or (
+        actual_h1["nonunit_h_iteration_executed"] is not True
+    ):
+        raise ValueError("the admitted actual full-basis nonunit H1 must remain available")
+    del full_form
+    atomic_obstruction = read_atomic_obstruction(expected_digest=(
+        "1a60352d1c7b4287621e5eb53e8b7902f7bf7f1c3bf37cce2bb1fd35e3100288"
+    ))
+    if atomic_obstruction["training"][
+        "balanced_fixed_point_excluded_on_retained_intervals"
+    ] is not True:
+        raise ValueError("the unchanged finite measure's exact no-go must remain explicit")
+    if Fraction(atomic_obstruction["training"]["sum_reference_exact"]) / 1536 != Fraction(
+        full_inverse["summation"]["mean_reference_weight_exact_dyadic"],
+    ):
+        raise ValueError("the exact atomic weights changed the original inverse's reference volume")
+    h1_witness = read_h1_witness(
+        expected_request_digest="30aaf6b26a88973585311e3b8e167eafb58160a5e195c28d1cb17041dbc27e7f",
+        expected_digest="5a10c48ea62dbc6b8f0d2dca3f069e42cefb77e102773be0c67b18d1d0b6f644",
+    )
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
@@ -12967,6 +13249,29 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/BALANCED_TRIAL_ITERATION_NOTE.md",
         "tests/integration/test_scientific_genesis_balanced_trial_iteration.py",
         "data/generated/scientific_genesis/balanced_trial_request.json",
+        "data/generated/scientific_genesis/full_trial_cloud.json",
+        "data/generated/scientific_genesis/balanced_trial_step.json",
+        "data/generated/scientific_genesis/balanced_trial_obstruction.json",
+        "research/experiments/scientific_genesis/balanced_trial_obstruction.py",
+        "research/experiments/scientific_genesis/FULL_TRIAL_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_balanced_trial_obstruction.py",
+        "research/experiments/scientific_genesis/full_trial_sample_factor.py",
+        "research/experiments/scientific_genesis/FULL_TRIAL_SAMPLE_FACTOR_NOTE.md",
+        "tests/integration/test_scientific_genesis_full_trial_sample_factor.py",
+        "data/generated/scientific_genesis/full_trial_sample_factor.json",
+        "research/experiments/scientific_genesis/factored_trial_inverse.py",
+        "research/experiments/scientific_genesis/FACTORED_TRIAL_INVERSE_NOTE.md",
+        "research/experiments/scientific_genesis/FACTORED_TRIAL_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_factored_trial_inverse.py",
+        "data/generated/scientific_genesis/factored_trial_inverse_request.json",
+        "data/generated/scientific_genesis/factored_trial_inverse.json",
+        "research/experiments/scientific_genesis/finite_cloud_balance.py",
+        "research/experiments/scientific_genesis/FINITE_CLOUD_BALANCE_NOTE.md",
+        "research/experiments/scientific_genesis/FINITE_CLOUD_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_finite_cloud_balance.py",
+        "data/generated/scientific_genesis/finite_cloud_balance.json",
+        "data/generated/scientific_genesis/finite_cloud_balance_h1_request.json",
+        "data/generated/scientific_genesis/finite_cloud_balance_h1.json",
         "requirements-dev.txt",
         *(f"data/generated/scientific_genesis/certified_trial_cloud.sample_{i:04d}.json.gz"
           for i in range(16)),
@@ -13033,7 +13338,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3713,
+            "collected_tests_at_audit": 3832,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -13558,11 +13863,14 @@ def build_state() -> dict[str, object]:
             "invariant_certificate_digest": pair_73["invariant_certificate_digest"],
             "automorphism_certificate_digest": pair_73["certificate_digest"],
             "next_required_object": (
-                "complete the predeclared independent 2048-input original-section cloud "
-                "with all 1536 training and 512 held-out checkpoints retained; execute "
-                "the separately predeclared full inverse policy without regularization "
-                "or reduced coordinates; obtain useful statistical and numerical "
-                "accuracy for a controlled global integral and genuine nonunit-H iteration; "
+                "the original full inverse policy and Gram failure stay unchanged; "
+                "actual complete-factor nonunit H1 and its retained-fiber diagnostic "
+                "retain all 1536 training, 512 held-out samples and 5345 coordinates; "
+                "the exact atomic no-go excludes balance on this unchanged finite "
+                "measure for every H, so derive a lawful larger predeclared independent population "
+                "or a justified auxiliary-measure change without replacing this cloud, "
+                "clipping weights or reducing sections; obtain useful statistical, "
+                "input and numerical control and sample/refinement stability; "
                 "verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
@@ -13598,6 +13906,13 @@ def build_state() -> dict[str, object]:
         "certified_trial_cloud": certified_cloud,
         "full_trial_cloud_request": full_cloud_request,
         "balanced_trial_inverse_request": inverse_request,
+        "full_trial_cloud_execution": full_cloud_execution,
+        "full_trial_inverse_execution": full_inverse,
+        "full_trial_positivity_diagnostic": positivity,
+        "full_trial_sample_factor": full_factor,
+        "factored_trial_inverse_step": actual_h1,
+        "finite_cloud_atomic_obstruction": atomic_obstruction,
+        "full_h1_balance_witness": h1_witness,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -13605,6 +13920,22 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "exact retained positive-weight intervals force training atom 78's "
+            "normalized balance multiplier above 3.22533; every positive H on "
+            "this unchanged complete finite measure has operator-norm balance "
+            "residual above 2.22533; this is not a continuum bundle no-go",
+            "the actual full-basis nonunit H1 executes on all 2048 original "
+            "fibers with all 5345 coordinates and numerical gates retained; "
+            "the training Rayleigh witness has maximum eigenvalue about 5.25985, "
+            "while separately held-out rows give about 8.62495; neither is a "
+            "certified full-operator norm or HYM curvature residual",
+            "full unpivoted original-column QR and a separately predeclared "
+            "triangular inverse policy admit an actual nonunit computational "
+            "H1 without modifying the old failed full Gram policy, dropping "
+            "samples, regularization, physical normalization or a common vacuum",
+            "all original 1536 training and 512 held-out checkpoints resolve; "
+            "the complete training Gram operator remains saved despite its "
+            "unresolved numerical Cholesky positivity and full-space diagnostic",
             "the selected 2048-input workload captures all named streams and "
             "fixes 1536 training and 512 held-out ordinals before geometry; "
             "disjoint resumable shards consume every original section without "
@@ -13617,7 +13948,7 @@ def build_state() -> dict[str, object]:
             "full row-Gram and perturbation bounds certify ideal rank-four "
             "projectors and a full finite-cloud numerical operator error bound "
             "against unchanged saved discovery references; sampling accuracy, "
-            "a full inverse metric update, HYM and physical normalization remain open",
+            "controlled inverse input error, HYM and physical normalization remain open",
             "sixteen new retained-input samples execute all original 5345 sections "
             "and full factorized unit-H trial projectors at two resolutions; "
             "every sample and stream is retained under the assumed fair IID law; "

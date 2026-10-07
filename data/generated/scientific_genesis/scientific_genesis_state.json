@@ -16745,7 +16745,7 @@
     "visible_spin_twisted_h1": 0,
     "whole_frozen_outer_parameter_family": true
   },
-  "artifact_digest": "bc9d40b148824cb01e98a0f7e88c7b21a36fe58266dadf39c683a8238e78ac31",
+  "artifact_digest": "0869ca906fb19e95a4249b9930151710463e134f7b36e168a19208ac4d17b05e",
   "artifacts": [
     {
       "bytes": 3337,
@@ -18660,7 +18660,7 @@
     {
       "bytes": 10438,
       "path": "tests/integration/test_scientific_genesis_retained_slope_stability.py",
-      "sha256": "f0bf5fe86b21f488f244b154422d7a7346d07e03f3a714bf57dcaa4b2ebdd87d"
+      "sha256": "cfd2216a74970975673b38feecabdef2c10ee22fff8c41e356a108f1aee0a9e4"
     },
     {
       "bytes": 172263,
@@ -18751,6 +18751,51 @@
       "bytes": 3606201,
       "path": "data/generated/scientific_genesis/nonunit_connection_curvature.json",
       "sha256": "a4ed4da89db3af433405cc5208d5aa753105bfeac8d072f129a21b3575be5e38"
+    },
+    {
+      "bytes": 10218,
+      "path": "research/experiments/scientific_genesis/retained_root_refinement.py",
+      "sha256": "8e6a5c760448f5f1884b8df8a0831821bfaa4731ea058b6187cdc44989888e6d"
+    },
+    {
+      "bytes": 10453,
+      "path": "research/experiments/scientific_genesis/retained_root_benchmark.py",
+      "sha256": "ff2246e49fa42e782916a0a3ea8392d884ef1078a35eaa2173be7904ab4f0a8d"
+    },
+    {
+      "bytes": 2358,
+      "path": "research/experiments/scientific_genesis/RETAINED_ROOT_REFINEMENT_NOTE.md",
+      "sha256": "fa82dff3c93eedcaf60881aca16119d9844241efa76414268836c4fde9b969c3"
+    },
+    {
+      "bytes": 2345,
+      "path": "research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+      "sha256": "dd278a7fcf196e8e787e2fc98fa46b0df62ef5bb0a394296a641b3edd173cb92"
+    },
+    {
+      "bytes": 4069,
+      "path": "research/experiments/scientific_genesis/RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md",
+      "sha256": "7c9f6889e17929a51badef99a097db143afe3a493703bb7380e428f0b567abdf"
+    },
+    {
+      "bytes": 2401,
+      "path": "research/experiments/scientific_genesis/CONTINUED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md",
+      "sha256": "ce6727f6e2b75737dabf0c539cdbf11ae55dbcb4c47296f1a0ecf3a4df8b7309"
+    },
+    {
+      "bytes": 5343,
+      "path": "tests/integration/test_scientific_genesis_retained_root_execution.py",
+      "sha256": "5d873c25dd44cb9f1518392d5f1dd9ac78b20a5c20fd4e443386dfbed50cd2bc"
+    },
+    {
+      "bytes": 1183951,
+      "path": "data/generated/scientific_genesis/retained_root_benchmark.sample_0526.json",
+      "sha256": "7510f68b1bf085ed4c7c3e00298a9caa3805576c3dea7351c86f57808d0ce1f7"
+    },
+    {
+      "bytes": 1153302,
+      "path": "data/generated/scientific_genesis/retained_root_benchmark.sample_1360.json",
+      "sha256": "970c36950ba540f4f3c8330103b54aa7868efbde2adb29dea57bb1120b3ac906"
     },
     {
       "bytes": 9073,
@@ -19189,11 +19234,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 4057,
+    "collected_tests_at_audit": 4119,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 328,
-    "test_python_files": 318
+    "research_python_files": 334,
+    "test_python_files": 325
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -25001,6 +25046,44 @@
       "missing_prerequisites": [],
       "statement": "The actual H1 resolves on every original input, with identical reference weights. Its complete discovery residual is 3977.480285884433, about 3196 times H0. Training is about 5303 while old validation is about 0.624. The sampled trace integral is about 1390 times its topological target; 1185 points have L1 above 1000. A well-conditioned dominant point independently reproduces the enormous curvature. Favorable validation cannot replace the complete population. Geometry precision, adaptive sampling and arithmetic interpretation remain unresolved; no continuum instability or HYM no-go is inferred.",
       "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "two post-selected diagnostic cases, not blind or IID",
+        "same captured input prefixes and unstabilized parameter point",
+        "exact root admission with binary64 curvature discovery"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+        "research/experiments/scientific_genesis/CONTINUED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md",
+        "data/generated/scientific_genesis/retained_root_benchmark.sample_0526.json",
+        "data/generated/scientific_genesis/retained_root_benchmark.sample_1360.json",
+        "tests/integration/test_scientific_genesis_retained_root_execution.py"
+      ],
+      "id": "retained_curvature_resolution",
+      "label": "same-input curvature sensitivity and native-certified acceleration",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "Post-selected original inputs 526 and 1360 retain all streams, root/frame ancestry, 5345 sections and the same H1 through levels 16/20/24/28/32. Their enormous coarse curvature is resolution sensitive, but point 1360 remains large in a well-conditioned refined frame. Saved certificates replay literally; direct level-32 Newton refinement uses one step per root and existing native admission. Independent native histories match by common parent containment. Exact finer root work still costs roughly a minute per case. Neither local agreement nor a plateau is an error certificate, global integral or convergence result.",
+      "status": "COMPUTED"
+    },
+    {
+      "assumptions": [
+        "globally generating exact section matrix and constant positive-definite H",
+        "rank four, c1=4J and the declared reference Kahler class",
+        "actual Chern connection and stated Chern-Weil normalization"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_curvature_resolution_execution.py",
+        "data/generated/scientific_genesis/reference_curvature_normalization.json"
+      ],
+      "id": "conditional_curvature_trace_constraint",
+      "label": "positive section curvature constrains the continuum diagnostic",
+      "layer": "Normalization",
+      "missing_prerequisites": [],
+      "statement": "For the declared exact globally generating section metric with constant positive H, contracted twisted curvature is positive semidefinite. Rank four implies trace-free L1 <= 3/2 trace; Chern-Weil and c1=4J give tau <= 9/2 in the declared conventions. The old H1 discovery residual about 3977 is not that continuum integral under these premises. This conditional constraint does not prove carrier instability, a HYM no-go or accuracy of a finite-cell numerical experiment.",
+      "status": "DERIVED"
     },
     {
       "assumptions": [
@@ -31143,6 +31226,102 @@
       ],
       "mathematical_reason": "The enormous sampled trace discrepancy requires same-input resolution checks.",
       "source": "nonunit_connection_curvature",
+      "target": "retained_polarization_stability"
+    },
+    {
+      "assumptions_required": [
+        "same full section system and declared reference conventions"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "local discovery is not a controlled global integral"
+      ],
+      "mathematical_reason": "The large complete-profile discrepancy motivates same-input sensitivity.",
+      "source": "nonunit_connection_curvature",
+      "target": "retained_curvature_resolution"
+    },
+    {
+      "assumptions_required": [
+        "same full section system and declared reference conventions"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "local discovery is not a controlled global integral"
+      ],
+      "mathematical_reason": "Existing exact admission and parent containment preserve the ideal root.",
+      "source": "native_section_continuation",
+      "target": "retained_curvature_resolution"
+    },
+    {
+      "assumptions_required": [
+        "same full section system and declared reference conventions"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "local discovery is not a controlled global integral"
+      ],
+      "mathematical_reason": "The original full H1 factor is unchanged in every resolution comparison.",
+      "source": "factored_trial_inverse_step",
+      "target": "retained_curvature_resolution"
+    },
+    {
+      "assumptions_required": [
+        "same full section system and declared reference conventions"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "local discovery is not a controlled global integral"
+      ],
+      "mathematical_reason": "The actual full section coefficients define the metric; global generation and c1=4J remain explicit premises.",
+      "source": "alternate_metric_symbolic_columns",
+      "target": "conditional_curvature_trace_constraint"
+    },
+    {
+      "assumptions_required": [
+        "same full section system and declared reference conventions"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "local discovery is not a controlled global integral"
+      ],
+      "mathematical_reason": "Whole-population resolution and useful numerical control remain missing.",
+      "source": "retained_curvature_resolution",
+      "target": "retained_polarization_stability"
+    },
+    {
+      "assumptions_required": [
+        "same full section system and declared reference conventions"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "local discovery is not a controlled global integral"
+      ],
+      "mathematical_reason": "The conditional trace bound falsifies a continuum reading of the old estimate.",
+      "source": "conditional_curvature_trace_constraint",
       "target": "retained_polarization_stability"
     },
     {
@@ -96062,7 +96241,7 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the original full inverse policy and Gram failure stay unchanged; actual complete-factor nonunit H1 and its retained-fiber diagnostic retain all 1536 training, 512 held-out samples and 5345 coordinates; the exact atomic no-go excludes balance on this unchanged finite measure for every H; execute the separately captured 16384-input predeclared independent population with 8192 training and 8192 fresh validation points under the unchanged law; retain every new checkpoint and check both complete finite-weight bounds without replacing the old cloud, clipping weights or reducing sections; obtain useful statistical, input and numerical control and sample/refinement stability; the retained (14,16,1) twist fails four old sufficient stability bounds, but actual line-Hom vanishing and the quantified source order now prove descended slope stability; complete H0/H1 reference profiles retain every original point and raw failure; H1 has an enormous training/trace diagnostic despite favorable old validation; check same-input resolution sensitivity without replacing roots, histories, streams or sections; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
+    "next_required_object": "the original full inverse policy and Gram failure stay unchanged; actual complete-factor nonunit H1 and its retained-fiber diagnostic retain all 1536 training, 512 held-out samples and 5345 coordinates; the exact atomic no-go excludes balance on this unchanged finite measure for every H; execute the separately captured 16384-input predeclared independent population with 8192 training and 8192 fresh validation points under the unchanged law; retain every new checkpoint and check both complete finite-weight bounds without replacing the old cloud, clipping weights or reducing sections; obtain useful statistical, input and numerical control and sample/refinement stability; the retained (14,16,1) twist fails four old sufficient stability bounds, but actual line-Hom vanishing and the quantified source order now prove descended slope stability; complete H0/H1 reference profiles retain every original point and raw failure; H1 has an enormous training/trace diagnostic despite favorable old validation; same-input resolution through level 32 is executed and a conditional continuum tau <= 9/2 constraint is derived; native-certified seeded refinement matches independent histories but exact restrictions stay costly; execute whole retained-population numerical resolution comparison with independent native checks, without replacing roots, histories, streams or sections; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "refined_trial_connection_curvature": {
@@ -96149,7 +96328,7 @@
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The older sixteen-point operator has rank at most 64. The actual 2048-point cloud is now complete, retaining all 1536 training and 512 held-out samples. The original full inverse policy failed Gram positivity and stays failed. Full unpivoted QR and a distinct triangular policy produce an actual positive nonunit full-basis H1. Its retained-population fiber witness now consumes all original coordinates. Exact positive-atom bounds exclude a balanced fixed point for every H on this unchanged finite measure. Stop blind H2 iteration on that cloud. Preserve it; derive a lawful larger predeclared independent population or a justified auxiliary-measure change without dropping heavy samples, clipping weights or truncating sections. Do not infer continuum bundle instability. Use the separately captured 16384-input request: execute all 8192 new training and 8192 fresh held-out checkpoints under the unchanged law, preserving older populations and all failed requests. Check both complete populations' atomic bounds before seeking balance. A new budget is not an integration accuracy theorem. Use the exact retained-polarization scope check: four sufficient bounds fail at (14,16,1); this does not prove instability or stop the finite-cloud experiment. The actual line-Hom vanishing and source descendant/rank bounds now establish descended slope stability on this retained ray. Freeze that result. The analytic reference connection now uses all original sections, actual quotient jets and explicit FS background/trace untwisting. The raw six-failure profile is retained; constant row frames resolve every old input without relaxing the guard. Complete H0 tau is about 1.245, but actual H1 tau is about 3977 and its sampled trace is about 1390 times the topological target. Favorable old validation is not a substitute mean or convergence evidence. Check same-input resolution sensitivity at dominant points 526 and well-conditioned 1360, preserving captured streams, roots, histories and every section. Do not infer continuum instability or select new moduli. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement further controlled nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The older sixteen-point operator has rank at most 64. The actual 2048-point cloud is now complete, retaining all 1536 training and 512 held-out samples. The original full inverse policy failed Gram positivity and stays failed. Full unpivoted QR and a distinct triangular policy produce an actual positive nonunit full-basis H1. Its retained-population fiber witness now consumes all original coordinates. Exact positive-atom bounds exclude a balanced fixed point for every H on this unchanged finite measure. Stop blind H2 iteration on that cloud. Preserve it; derive a lawful larger predeclared independent population or a justified auxiliary-measure change without dropping heavy samples, clipping weights or truncating sections. Do not infer continuum bundle instability. Use the separately captured 16384-input request: execute all 8192 new training and 8192 fresh held-out checkpoints under the unchanged law, preserving older populations and all failed requests. Check both complete populations' atomic bounds before seeking balance. A new budget is not an integration accuracy theorem. Use the exact retained-polarization scope check: four sufficient bounds fail at (14,16,1); this does not prove instability or stop the finite-cloud experiment. The actual line-Hom vanishing and source descendant/rank bounds now establish descended slope stability on this retained ray. Freeze that result. The analytic reference connection now uses all original sections, actual quotient jets and explicit FS background/trace untwisting. The raw six-failure profile is retained; constant row frames resolve every old input without relaxing the guard. Complete H0 tau is about 1.245, but actual H1 tau is about 3977 and its sampled trace is about 1390 times the topological target. Favorable old validation is not a substitute mean or convergence evidence. The same-input resolution sensitivity through level 32 is now executed at 526 and 1360, preserving every stream, root and section. A conditional positive-curvature theorem gives continuum tau <= 9/2, not an HYM no-go. Freeze the local precision ladder. Native-certified seeded refinement matches independent histories, but exact restriction construction remains costly. Execute a whole retained-population numerical resolution comparison with independent native checks and global input-error control. Do not infer continuum instability or select new moduli. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement further controlled nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,
@@ -96226,6 +96405,75 @@
       "task": "finish_automorphism_sweep"
     }
   ],
+  "retained_curvature_resolution": {
+    "case_selection": "post-selected; not blind or IID",
+    "cases": [
+      {
+        "accelerated_h1_l1_discovery": 1346.80553203112,
+        "artifact_digest": "9611df5e2db00075ec7de54d4aa04d9080c8902b2c1256771f7f69790f40ad31",
+        "native_h1_l1_by_level_discovery": {
+          "16": 38695192.869766615,
+          "20": 8298.108102910535,
+          "24": 1345.5249444566948,
+          "28": 1346.8296877231783,
+          "32": 1346.8275599401018
+        },
+        "native_resolution_digest": "0ac036db82db3adf47aa6ecdad620a97ff15a45b1d4f30eb5e1b37beaa8ac2ea",
+        "newton_steps_by_family": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ordinal": 526,
+        "relative_difference_discovery": -1.635540408950753e-05,
+        "timings_seconds": {
+          "coarse_frame": 6.21336737414822,
+          "finer_frame": 2.597074811346829,
+          "finer_roots": 70.05294303735718,
+          "root_restoration": 4.12389810429886
+        }
+      },
+      {
+        "accelerated_h1_l1_discovery": 941006.0153263515,
+        "artifact_digest": "7afe1e86379cbb459cf93d9a6919a5788d5d6f5c5ba2b2b4e0262ee6546dfc5a",
+        "native_h1_l1_by_level_discovery": {
+          "16": 5332261.81624054,
+          "20": 936276.1551972331,
+          "24": 942684.9617137238,
+          "28": 941038.0189605833,
+          "32": 941010.5202867524
+        },
+        "native_resolution_digest": "e44b19d10547bbc60914e7069f42f4b49e2df6449fa7b2e2ab4d16d6d2c1a897",
+        "newton_steps_by_family": [
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ordinal": 1360,
+        "relative_difference_discovery": -4.787364544567296e-06,
+        "timings_seconds": {
+          "coarse_frame": 9.36790778208524,
+          "finer_frame": 2.6735110343433917,
+          "finer_roots": 56.57492994889617,
+          "root_restoration": 3.931211923249066
+        }
+      }
+    ],
+    "conditional_bound_premises": "globally generating exact section metric; constant positive H; rank four and c1=4J; declared reference Kahler class and conventions",
+    "conditional_continuum_tau_upper_bound_exact": "9/2",
+    "controlled_global_integral": false,
+    "hym_convergence_established": false,
+    "next_required_object": "whole retained-population numerical resolution comparison, independent native certification checks and global numerical/statistical control"
+  },
   "retained_slope_stability": {
     "actual_cover_line_Hom_probes": [
       {

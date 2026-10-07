@@ -24,6 +24,7 @@ from time import perf_counter
 
 import numpy as np
 
+from . import retained_bu_refinement as bu
 from . import retained_population_resolution as population
 
 geometry, full = population.geometry, population.full
@@ -35,12 +36,14 @@ NOTE = Path(__file__).with_name("RETAINED_NUMERICAL_CHECKS_NOTE.md")
 def output_path(ordinal):
     if type(ordinal) is not int or ordinal not in CASES:
         raise ValueError("only the four predeclared independent-method cases are allowed")
-    return full.OUTPUT.with_name(f"retained_numerical_checks.sample_{ordinal:04d}.json")
+    return full.OUTPUT.with_name(f"retained_native_method_checks.sample_{ordinal:04d}.json")
 
 
 def _sources():
     result = population._sources()
-    paths = (Path(__file__), Path(certified.__file__), NOTE, full.ROOT /
+    paths = (Path(__file__), Path(certified.__file__), Path(bu.__file__), NOTE,
+             Path(__file__).with_name("RETAINED_BU_REFINEMENT_NOTE.md"), full.ROOT /
+             "tests/integration/test_scientific_genesis_retained_bu_refinement.py", full.ROOT /
              "tests/integration/test_scientific_genesis_retained_numerical_checks.py")
     result.update({str(path.relative_to(full.ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
                    for path in paths})
@@ -62,8 +65,8 @@ def run(ordinal, *, progress=None):
     frames = certified.draws.declared_policy()
     coarse_policy, _ = full.cloud.roots.refinement_policy(16, first_frame=frames.first,
                                                         second_frame=frames.second)
-    draw = certified.restore_draw(full.cloud.roots.refinement_address(available, 16),
-                                   coarse_policy, saved["history"][0])
+    draw = bu.restore_draw(full.cloud.roots.refinement_address(available, 16),
+                           coarse_policy, saved["history"][0])
     frame_policy = certified.continuation.FramePolicy((0, 0, 0), (0, 2), (0, 1, 2),
                                                       128, population.curvature.Eisenstein(1), 9)
     parent = certified.continuation.admit_frame(draw, frame_policy)
@@ -75,13 +78,13 @@ def run(ordinal, *, progress=None):
     fine_policy, _ = full.cloud.roots.refinement_policy(32, first_frame=frames.first,
                                                       second_frame=frames.second)
     start = perf_counter()
-    finer_draw, steps = certified.refine_draw(draw,
+    finer_draw, steps = bu.refine_draw(draw,
         full.cloud.roots.refinement_address(available, 32), fine_policy, max_steps=8)
     finer_frame_policy = certified.continuation.FramePolicy((0, 0, 0), (0, 2), (0, 1, 2),
                                                             256, frame_policy.volume_scale, 9)
     admission = certified.continuation.admit_frame(finer_draw, finer_frame_policy, parent=parent)
     native_seconds = perf_counter() - start
-    result = {"schema": "retained-numerical-check-v1", "source_files_sha256": sources,
+    result = {"schema": "retained-native-method-check-v1", "source_files_sha256": sources,
         **full.cloud.inputs.sample_identity(inputs, ordinal), "role": saved["role"],
         "input_digest": inputs["artifact_digest"],
         "original_sample_digest": saved["artifact_digest"],

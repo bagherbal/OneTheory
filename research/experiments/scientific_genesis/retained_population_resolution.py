@@ -113,6 +113,9 @@ def _method_checks():
 
     paths = (Path(__file__).with_name("retained_numerical_checks.py"),
              Path(geometry.certified.__file__),
+             Path(__file__).with_name("retained_bu_refinement.py"),
+             Path(__file__).with_name("RETAINED_BU_REFINEMENT_NOTE.md"),
+             full.ROOT / "tests/integration/test_scientific_genesis_retained_bu_refinement.py",
              Path(__file__).with_name("RETAINED_NUMERICAL_CHECKS_NOTE.md"),
              full.ROOT / "tests/integration/test_scientific_genesis_retained_numerical_checks.py")
     expected_sources = {**_sources(), **{
@@ -121,7 +124,7 @@ def _method_checks():
     manifest = _parent_manifest()
     references = []
     for ordinal in (17, 101, 1819, 1980):
-        path = OUTPUT.with_name(f"retained_numerical_checks.sample_{ordinal:04d}.json")
+        path = OUTPUT.with_name(f"retained_native_method_checks.sample_{ordinal:04d}.json")
         record = json.loads(path.read_bytes())
         unsigned = {k: v for k, v in record.items() if k != "artifact_digest"}
         if (full.cloud.inputs._digest(unsigned) != record.get("artifact_digest")

@@ -78,7 +78,8 @@ holomorphic matrices are controlled by **one hidden symmetry**.
    pieces of the bundle's complete filtration: one family in one piece, two in
    the other. No combination of wall symmetries can then give three mass
    levels. An exact screen of every three-family SU(4) line-bundle model on
-   the same quotient (degrees up to 4) gives the same split, `1 + 2` or `3`,
+   the same quotient (all 1,649 descending line classes with degrees up to 8)
+   gives the same split, `1 + 2` or `3`,
    never `1 + 1 + 1`. Each such model either has the "cross" texture (two
    heavy, one massless) or no leading Yukawa at all.
 

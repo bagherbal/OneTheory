@@ -31,8 +31,8 @@ The obstruction is structural on this geometry. Both Serre sublines have
 cohomology `(0,0,9,0)`, so families occupy only two graded pieces of the
 complete filtration (`1 + 2`), and shared left/right charges never give three
 valuation levels. An exact E2-page screen of all descending SU(4) line-bundle
-sums with `|a|,|b|,|c| <= 4` refuses the six `d2`-ambiguous lines and gets the
-same answer: families split `27` or `9 + 18`, never three slots. Their leading
+sums with `|a|,|b|,|c| <= 8` (1,649 lines, refusing only `d2`-ambiguous
+`(k,-k,0)` lines of Euler characteristic zero) gets the same answer: families split `27` or `9 + 18`, never three slots. Their leading
 textures are the cross (two heavy, one massless) or absent. A one-heavy
 hierarchy must come from non-split, metric or instanton effects; the 81
 exceptional sections of area `j3` are the prime instanton candidates.

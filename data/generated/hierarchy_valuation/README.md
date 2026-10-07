@@ -3,7 +3,8 @@
 This directory stores deterministic outputs of
 `research/experiments/hierarchy_valuation`. `line_sum_screen.json` is the
 content-addressed gate-G3 screen of four-line SU(4) sums on the Schoen cover
-in the box `|a|,|b|,|c| <= 4`. It records exact E2-page line cohomology,
+in the box `|a|,|b|,|c| <= 8`. An exact Euler-characteristic prefilter keeps
+only possible summands (`chi` in `{0,-9,-18,-27}`). It records exact E2-page line cohomology,
 every d2-ambiguous line left unresolved, every c1-trivial sum with 27 cover
 families, and the (empty) set of sums with families in three distinct slots.
 

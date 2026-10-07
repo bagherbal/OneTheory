@@ -100,7 +100,7 @@ class LineSumScreen:
     optimistic_three_slot_candidates: tuple[tuple[tuple[int, int, int], ...], ...]
 
 
-def screen(box: int = BOX) -> LineSumScreen:
+def screen(box: int = BOX, prefilter: bool = False) -> LineSumScreen:
     geometry = schoen_geometry()
     catalogue: dict[tuple[int, int, int], int] = {}
     descending = 0
@@ -112,6 +112,10 @@ def screen(box: int = BOX) -> LineSumScreen:
                 if not geometry.descent_congruence((a, b, c)):
                     continue
                 descending += 1
+                # Rigorous prefilter: a summand of a 27-family sum without
+                # anti-families is pure H1 with h1 <= 27 or acyclic.
+                if prefilter and euler_characteristic((a, b, c)) not in (0, -9, -18, -27):
+                    continue
                 h = line_cohomology((a, b, c))
                 if h is None:
                     unresolved.append((a, b, c))
@@ -152,10 +156,14 @@ def screen(box: int = BOX) -> LineSumScreen:
     )
 
 
+ARTIFACT_BOX = 8
+
+
 def write_artifact(path: Path = OUTPUT) -> dict[str, object]:
     record: dict[str, object] = {
-        "schema": "line-sum-three-slot-screen-v1",
-        **json.loads(json.dumps(asdict(screen()))),
+        "schema": "line-sum-three-slot-screen-v2",
+        "euler_prefilter": "summands restricted to chi in {0,-9,-18,-27}",
+        **json.loads(json.dumps(asdict(screen(box=ARTIFACT_BOX, prefilter=True)))),
         "equivariant_structures_constructed": False,
         "stability_checked": False,
         "observations_used": False,

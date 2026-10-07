@@ -1,5 +1,5 @@
 {
-  "artifact_digest": "5acbf9f05dc975bc0bc0f2861db1ddb7be2860a8f4b2d8ad30755418555a2490",
+  "artifact_digest": "b544842d46df1ad45ecd4a43cb8973f504a630280bb049bb1b41c039ac3d90d5",
   "observations_used": false,
   "one_heavy_texture_found": false,
   "rows": [
@@ -58,6 +58,102 @@
           1,
           2,
           -1
+        ],
+        [
+          2,
+          -2,
+          0
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [],
+      "families": [
+        0,
+        0,
+        0,
+        27
+      ],
+      "lines": [
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          5,
+          1,
+          -2
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [],
+      "families": [
+        0,
+        0,
+        0,
+        27
+      ],
+      "lines": [
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -2,
+          2,
+          0
+        ],
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          5,
+          1,
+          -2
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [],
+      "families": [
+        0,
+        0,
+        27,
+        0
+      ],
+      "lines": [
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          1,
+          5,
+          -2
         ],
         [
           2,
@@ -296,6 +392,38 @@
       "texture": "no leading Yukawa"
     },
     {
+      "couplings": [],
+      "families": [
+        0,
+        0,
+        0,
+        27
+      ],
+      "lines": [
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          1,
+          5,
+          -2
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
       "couplings": [
         {
           "family_slots": [
@@ -427,5 +555,5 @@
     }
   ],
   "schema": "line-sum-leading-textures-v1",
-  "screen_digest": "5327ff5b67bfe2510bcb14d8138f921da6aee021e18445e2adf1a0a76b80008f"
+  "screen_digest": "c696b3de42f07a47cbc0017da54ee6c2b0a75b74f77555f30cf4430e97458c48"
 }

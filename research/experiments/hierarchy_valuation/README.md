@@ -44,13 +44,14 @@ sublines have cohomology `(0,0,9,0)`, so the three families occupy only two
 graded pieces (`1 + 2`). Shared left/right charges `(a,b,b)` never give three
 valuation levels (exhaustive over 1,377 cases). `line_sum_screen.py` computes
 exact E2-page line cohomology, refusing any line where `d2` could act. It finds
-that every three-family SU(4) line-bundle sum in the box `|a|,|b|,|c| <= 4`
-splits families `27` or `9 + 18`, never three slots. The leading texture is
+that every three-family SU(4) line-bundle sum in the box `|a|,|b|,|c| <= 8`
+(14 sums from 1,649 descending lines, after an exact Euler-characteristic
+prefilter) splits families `27` or `9 + 18`, never three slots. The leading texture is
 either the cross (two heavy, one massless) or absent.
 
 ```bash
 python -m research.experiments.hierarchy_valuation.family_pieces
-python -m research.experiments.hierarchy_valuation.line_sum_screen   # about 6 minutes
+python -m research.experiments.hierarchy_valuation.line_sum_screen   # about 2 minutes
 python -m research.experiments.hierarchy_valuation.wall_valuation
 python -m research.experiments.hierarchy_valuation.wall_stability
 python -m research.experiments.hierarchy_valuation.seed_audit

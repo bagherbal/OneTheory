@@ -128,18 +128,21 @@ worldsheet instantons. It cannot come from the holomorphic bundle data.
 3. **Line-bundle SU(4) sums on the same quotient.** Line cohomology is
    computed from the exact Koszul E2 page with the actual Schoen equations,
    refusing any line where `d2` could act. The project's known
-   higher-transgression line `(4,8,0)` is correctly refused. Of 243 descending
-   lines with `|a|,|b|,|c| <= 4`, 237 resolve and 6 are refused. The refused
-   ones have Euler characteristic 0 or ±99, so none can carry exactly nine
-   families. Of the ten c1-trivial sums with 27 cover families and no
-   anti-families, every one distributes families as `27` or `9 + 18`, never
-   `9 + 9 + 9`. This holds even when the refused lines are admitted
-   optimistically.
+   higher-transgression line `(4,8,0)` is correctly refused. Any summand of a
+   three-family sum without anti-families must have `chi` in
+   `{0,-9,-18,-27}`, and `chi` needs no differential. This exact prefilter
+   reproduces the unfiltered box-four result and makes larger boxes cheap.
+   Of 1,649 descending lines with `|a|,|b|,|c| <= 8`, the only refused lines
+   are `(k,-k,0)`, all with `chi = 0`. Every one of the 14 c1-trivial sums with
+   27 cover families and no anti-families distributes families as `27` or
+   `9 + 18`, never `9 + 9 + 9`. The set is unchanged from box six to box eight,
+   and the result holds when every refused line is admitted optimistically
+   as an acyclic summand.
 4. **Leading textures.** Slot automorphisms `λ_a` with product one rescale a
    coupling `16_a 16_b 10_cd` by `λ_a λ_b λ_c λ_d`. A leading coupling
    therefore needs four distinct slots, and families couple only across
-   slots. Of the ten sums, four have the **cross texture** (two unsuppressed
-   families, one massless) and six have **no leading Yukawa** at all. None
+   slots. Of the 14 sums, four have the **cross texture** (two unsuppressed
+   families, one massless) and ten have **no leading Yukawa** at all. None
    gives one heavy family.
 
 **Consequence.** On the Schoen ℤ3×ℤ3 quotient, every abelian wall/split
@@ -148,7 +151,8 @@ one light, or it gives no leading coupling. The observed one-heavy hierarchy
 must therefore come from non-split bundle data away from walls, from
 Kähler-metric hierarchies, or from worldsheet instantons. The prime instanton
 candidates are the exceptional sections below. This is scoped to the
-invariant line lattice box and the frozen carrier. It is not a theorem about
+line lattice box `|a|,|b|,|c| <= 8` of the quotient's Picard group (rank 3)
+and to the frozen carrier. It is not a theorem about
 every SU(4) bundle.
 
 ## 4. "Why four?" as a discriminating question, not a choice

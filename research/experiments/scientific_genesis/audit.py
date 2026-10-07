@@ -222,8 +222,74 @@ def _retained_resolution_summary() -> dict[str, object]:
             "conditional_bound_premises": "globally generating exact section metric; constant "
                 "positive H; rank four and c1=4J; declared reference Kahler class and conventions",
             "controlled_global_integral": False, "hym_convergence_established": False,
-            "next_required_object": "whole retained-population numerical resolution comparison, "
-                "independent native certification checks and global numerical/statistical control"}
+            "next_required_object": "preserve the completed whole-population arithmetic result; "
+                "obtain useful independent sampling, input and numerical control before HYM claims"}
+
+
+def _retained_population_summary() -> dict[str, object]:
+    """Inspect all outcomes and recompute aggregates without promoting a physical metric."""
+
+    from . import retained_precise_population as precise
+
+    expected = "9f06c6a120f10b3e2b2c0f1507c751e258e8e108ebeadbaa3ef3285687e90ae8"
+    request = precise.read_request(expected_digest=(
+        "60db9b62ad646f9917d7ea641285aa5cdb8df8b254096e4408d06c4234c7db7b"))
+    packet = json.loads(precise.OUTPUT.read_bytes())
+    raw = json.loads(precise.previous.OUTPUT.read_bytes())
+    if (packet.get("artifact_digest") != expected
+            or _canonical_digest({k: v for k, v in packet.items()
+                                  if k != "artifact_digest"}) != expected
+            or packet["source_files_sha256"] != precise._sources()
+            or packet["request_digest"] != request["artifact_digest"]
+            or packet["sample_count"] != 2048 or packet["unresolved_ordinals"]
+            or packet["status"] != "computed_discovery"
+            or packet["h1_factor_digest"] != precise.previous.nonunit.H1
+            or raw["artifact_digest"] != precise.RAW
+            or _canonical_digest({k: v for k, v in raw.items() if k != "artifact_digest"})
+            != precise.RAW
+            or any("population_" in key and "tau" in key for key in raw)
+            or any(packet[key] is not False for key in (
+                "new_entropy_obtained", "old_checkpoint_replaced",
+                "hybrid_or_subset_mean_available",
+                "h1_rebuilt", "h2_executed", "old_validation_is_blind",
+                "numerical_and_sampling_error_certified", "hym_convergence_established",
+                "physical_yukawas_available", "observations_used"))):
+        raise ValueError("the complete retained arithmetic experiment changed its result or scope")
+    points = packet["points"]
+    manifest = precise.previous._parent_manifest()
+    inputs = precise.full.cloud.inputs.read_inputs(expected_digest=request["input_digest"],
+                                                  path=precise.full.INPUTS)
+    if [point["ordinal"] for point in points] != list(range(2048)):
+        raise ValueError("the arithmetic experiment lost complete original coverage")
+    for ordinal, point in enumerate(points):
+        component, branch = precise.full.cloud.inputs.address(inputs, ordinal).choices()
+        if (_canonical_digest({k: v for k, v in point.items() if k != "artifact_digest"})
+                != point.get("artifact_digest")
+                or any(point.get(k) != v for k, v in precise.full.cloud.inputs.sample_identity(
+                    inputs, ordinal).items())
+                or point["original_sample_digest"] != manifest["sample_archives"][ordinal][
+                    "artifact_digest"]
+                or point["status"] != "computed_discovery"
+                or point["role"] != ("training" if ordinal < 1536 else "validation")
+                or point["component"] != component or point["selected_branch"] != list(branch)
+                or point["original_section_count"] != 5345
+                or point["geometry_working_precision_bits"] != 256
+                or point["floating_mantissa_bits"] != 53
+                or point["native_cover_membership_certified"] is not False):
+            raise ValueError("a complete arithmetic point lost its original identity or scope")
+    volume = float(Fraction(packet["reference_quotient_volume_exact"]))
+    summary = {k: v for k, v in packet.items() if k not in ("points", "source_files_sha256")}
+    summary["failed_binary64_ordinals"] = raw["unresolved_ordinals"]
+    summary["trace_ratios_to_topological_target_discovery"] = {}
+    for h in ("h0", "h1"):
+        tau = math.fsum(point["reference_volume_weight_discovery"]*point[h]["trace_free_l1"]
+                        for point in points)/(2048*2*math.pi*volume*4)
+        if packet[f"full_population_{h}_tau_discovery"] != tau:
+            raise ValueError("a retained population aggregate changed its all-point arithmetic")
+        summary["trace_ratios_to_topological_target_discovery"][h] = math.fsum(
+            point["reference_volume_weight_discovery"]*point[h]["twisted_curvature_trace"]
+            for point in points)/(2048*volume*24*math.pi)
+    return cast(dict[str, object], summary)
 
 
 def _node(
@@ -4389,6 +4455,31 @@ def _nodes() -> list[dict[str, object]]:
              "actual Chern connection and stated Chern-Weil normalization"),
         ),
         _node(
+            "retained_population_arithmetic_resolution",
+            "complete uniform arithmetic H0/H1 resolution comparison",
+            "Normalization", "COMPUTED",
+            "All four predeclared native checks admit under unchanged inputs. "
+            "The complete binary64 workload retains twelve failures and no "
+            "aggregate. A separate uniform 256-bit geometry workload resolves "
+            "all 2048 original inputs with the unchanged 5345-section H1. "
+            "H0 tau is 1.0413634317367264 and H1 tau is 796.5049768063988, "
+            "with training about 1062 and inspected validation about 0.390. "
+            "The H1 trace is about 239 times its topological target. Coarse "
+            "resolution explains part, not all, of the old discrepancy. "
+            "Neither empirical profile is a controlled continuum integral "
+            "or HYM solution. No hybrid mean, H1 rebuild or H2 is used.",
+            ("data/generated/scientific_genesis/retained_population_resolution.json",
+             "data/generated/scientific_genesis/retained_precise_population_request.json",
+             "data/generated/scientific_genesis/retained_precise_population.json",
+             "research/experiments/scientific_genesis/RETAINED_PRECISE_EXECUTION_NOTE.md",
+             "tests/integration/test_scientific_genesis_retained_arithmetic_execution.py"),
+            ("same selected unstabilized point and all original captured inputs",
+             "native spot checks are not blind, IID or a uniform error bound",
+             "section and factor consumption is still binary64 discovery"),
+            ("independent sampling and useful arithmetic/input error control",
+             "controlled global Ricci-flat/HYM convergence and matter metrics"),
+        ),
+        _node(
             "retained_polarization_stability",
             "background compatibility for the retained stable polarization",
             "Normalization", "BLOCKED",
@@ -8286,6 +8377,23 @@ def _edges() -> list[dict[str, object]]:
                  "The conditional trace bound falsifies a continuum reading of the old estimate."),
             )
         ],
+        *[
+            _edge(source, target, reason,
+                  ("research/experiments/scientific_genesis/RETAINED_PRECISE_EXECUTION_NOTE.md",),
+                  ("same full section system, H1 and retained original inputs",),
+                  False, ("discovery does not establish a controlled continuum metric",))
+            for source, target, reason in (
+                ("retained_curvature_resolution", "retained_population_arithmetic_resolution",
+                 "Complete uniform evaluation tests the earlier local resolution sensitivity."),
+                ("factored_trial_inverse_step", "retained_population_arithmetic_resolution",
+                 "The unchanged original-basis H1 defines both numerical comparisons."),
+                ("conditional_curvature_trace_constraint",
+                 "retained_population_arithmetic_resolution",
+                 "The remaining trace offset excludes a controlled continuum interpretation."),
+                ("retained_population_arithmetic_resolution", "retained_polarization_stability",
+                 "Whole-population arithmetic is executed; independent integral control is open."),
+            )
+        ],
         _edge(
             "alternate_metric_symbolic_columns", "compiled_section_features",
             "A pinned complete exact polynomial stream supplies the actual "
@@ -10031,9 +10139,14 @@ def _scheduler() -> list[dict[str, object]]:
             "positive-curvature theorem gives continuum tau <= 9/2, not an "
             "HYM no-go. Freeze the local precision ladder. Native-certified "
             "seeded refinement matches independent histories, but exact "
-            "restriction construction remains costly. Execute a whole retained-"
-            "population numerical resolution comparison with independent "
-            "native checks and global input-error control. Do not infer "
+            "restriction construction remains costly. The whole retained-population "
+            "numerical resolution experiment is now executed with four fixed "
+            "native checks: binary64 retains twelve failures and no mean; "
+            "uniform 256-bit geometry resolves every original input. H1 tau "
+            "falls to about 796.5 but remains much worse than H0 1.041; "
+            "its trace remains about 239 times target. Preserve both complete "
+            "workloads. Obtain independent sampling, section/factor roundoff "
+            "and useful global input-error control. Do not infer "
             "continuum instability or select new moduli. Use the "
             "positive auxiliary law and quantitative global weight/kernel bound. "
             "Retain every pending same-stream request; justify external independence "
@@ -10324,6 +10437,7 @@ def build_state() -> dict[str, object]:
     reference_curvature = _trial_curvature_summary()
     refined_reference_curvature, curvature_comparison = _completed_curvature_summary()
     retained_resolution = _retained_resolution_summary()
+    retained_population = _retained_population_summary()
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
@@ -13928,6 +14042,29 @@ def build_state() -> dict[str, object]:
         "tests/integration/test_scientific_genesis_retained_root_execution.py",
         "data/generated/scientific_genesis/retained_root_benchmark.sample_0526.json",
         "data/generated/scientific_genesis/retained_root_benchmark.sample_1360.json",
+        "research/experiments/scientific_genesis/retained_numerical_geometry.py",
+        "research/experiments/scientific_genesis/retained_population_resolution.py",
+        "research/experiments/scientific_genesis/retained_numerical_checks.py",
+        "research/experiments/scientific_genesis/retained_bu_refinement.py",
+        "research/experiments/scientific_genesis/retained_precise_geometry.py",
+        "research/experiments/scientific_genesis/retained_precise_population.py",
+        "research/experiments/scientific_genesis/RETAINED_BU_REFINEMENT_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_METHOD_EXECUTION_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_PRECISE_GEOMETRY_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_PRECISE_POPULATION_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_PRECISE_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_retained_method_execution.py",
+        "tests/integration/test_scientific_genesis_retained_precise_geometry.py",
+        "tests/integration/test_scientific_genesis_retained_precise_population.py",
+        "tests/integration/test_scientific_genesis_retained_arithmetic_execution.py",
+        "data/generated/scientific_genesis/retained_native_method_checks.sample_0017.json",
+        "data/generated/scientific_genesis/retained_native_method_checks.sample_0101.json",
+        "data/generated/scientific_genesis/retained_native_method_checks.sample_1819.json",
+        "data/generated/scientific_genesis/retained_native_method_checks.sample_1980.json",
+        "data/generated/scientific_genesis/retained_population_resolution_request.json",
+        "data/generated/scientific_genesis/retained_population_resolution.json",
+        "data/generated/scientific_genesis/retained_precise_population_request.json",
+        "data/generated/scientific_genesis/retained_precise_population.json",
         "research/experiments/scientific_genesis/connection_curvature_comparison.py",
         "research/experiments/scientific_genesis/CONNECTION_CURVATURE_COMPARISON_NOTE.md",
         "tests/integration/test_scientific_genesis_curvature_comparison.py",
@@ -13998,7 +14135,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 4119,
+            "collected_tests_at_audit": 4207,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -14542,9 +14679,13 @@ def build_state() -> dict[str, object]:
                 "executed and a conditional continuum tau <= 9/2 constraint "
                 "is derived; native-certified seeded refinement matches "
                 "independent histories but exact restrictions stay costly; "
-                "execute whole retained-population numerical resolution "
-                "comparison with independent native checks, without replacing "
-                "roots, histories, streams or sections; "
+                "complete retained-population arithmetic comparison is executed: "
+                "all 2048 inputs resolve under uniform 256-bit geometry after "
+                "four fixed native checks; binary64 retains twelve failures "
+                "with no mean; H1 tau falls to 796.5 but its trace remains "
+                "about 239 times target; preserve every root, history, stream "
+                "and section; obtain useful independent sampling and input, "
+                "section/factor numerical control; "
                 "verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
@@ -14594,6 +14735,7 @@ def build_state() -> dict[str, object]:
         "refined_trial_connection_curvature": refined_reference_curvature,
         "connection_curvature_comparison": curvature_comparison,
         "retained_curvature_resolution": retained_resolution,
+        "retained_population_arithmetic_resolution": retained_population,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,

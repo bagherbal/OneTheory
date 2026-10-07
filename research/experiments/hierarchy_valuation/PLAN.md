@@ -1,0 +1,162 @@
+# Hierarchy valuation program
+
+Question under test: does one dimensionless number,
+
+```text
+epsilon^4 = (9/5) S*,   S* = (14/431) (1/(8 pi)),   epsilon = 0.219619476873...
+```
+
+arise from a primitive quantum/gravitational state **and** act as the
+geometric valuation parameter of the physical Yukawa matrices,
+
+```text
+Y_f^phys = D_qL(epsilon) U_f D_qR(epsilon)   (up to derived unit cores and metrics)?
+```
+
+This plan is written so that each step either moves the claim toward a theorem
+or kills a version of it cheaply. No step uses a measured mass or mixing angle
+upstream. Observations enter only in the terminal comparison of gate G6.
+
+## 1. Audit: what the equation currently contains
+
+Source: migration draft, section 3.11, and `hierarchy_bridge_parameters` in
+`Experimental_Draft_OneTheory.py`. The draft labels the whole section
+`[B]`: a bridge target, not a result.
+
+| Ingredient | Status in the repository | Content it can carry |
+| --- | --- | --- |
+| `rho = I/431` | No 431-dimensional space, group action or primitive action is defined anywhere | For **any** irreducible unitary Weyl--Heisenberg action the unique invariant state is `I/d` (Schur). Symmetry explains `1/d`, never `d = 431`. |
+| `14/431` | `14 = dim G2`. `431` appears exactly once (draft line 1770) with no derivation | The whole numerical content sits in the unexplained integer 431. |
+| `1/(8 pi)` | Defined as `alpha_G` at the reduced Planck energy | `G Ebar_P^2/(hbar c^5) = 1/(8 pi)` holds **by definition** of `Ebar_P`. It is a units convention, not a measured gravitational strength. |
+| `9/5` | Draft MISSING_INPUT: "the nine operators U_g ... are not serialized" | Any unit-norm tight frame of 9 vectors in `C^5` has frame constant `9/5`. Content only in "why 5". |
+| fourth root | Definition | Unexplained (see section 4). |
+| second prefactor | `eta_Q^4 = (4/3) S*`, `eta_Q = 0.2037` | A second, independently chosen rational prefactor already exists for left-handed quarks. |
+| exponent filters | `D_Q = diag(eta^3, eta^2, 1)`, `D_U = diag(eps^5, eps^2, 1)`, `D_D = diag(eps^2, eps, 1)` | Declared, not derived. `ord(Y_u) = (8,4,0)` holds only if `eta ≈ eps` (they differ by about 8%). |
+
+Conclusion: every factor has a generic explanation that does not single out the
+numbers used. The real conjecture is the **choice** `(d, D, g, n) = (5, 431, 14, 4)`
+together with the identification `epsilon = valuation parameter`.
+
+## 2. Evidential power of valuation-level agreement (terminal comparison only)
+
+This assesses how much a match could prove. It is not an input to any
+calculation.
+
+* With dense O(1) unit cores, the draft exponents fit approximate running
+  masses and CKM magnitudes about equally well for any `epsilon` between
+  about 0.20 and 0.25. The implied cores span a factor of about 5 to 7 for every choice
+  (at `epsilon = 0.2196`: 0.35 to 1.96; at 0.225: 0.32 to 1.74; at 0.25: 0.24 to 1.22).
+* Keeping everything else fixed, every integer `D` from about 257 to 627 gives
+  `epsilon` in `[0.20, 0.25]`. Valuations cannot tell 431 from 300 or 600.
+* The fourth root gives 0.2196 and the fifth root gives 0.2974. Both lie in the
+  tolerated range.
+* The sharp reading `|V_us| = epsilon` is excluded at about 8 sigma
+  (0.2250 ± 0.0007 against 0.2196). Any sharp test therefore needs derived
+  unit cores.
+
+**Consequence for the plan:** agreement of exponents can never be the evidence.
+Only derived unit cores and several independent, precise estimators can confirm
+the number.
+
+## 3. New exact result: the frozen carrier's bundle modulus is a flavon with the wrong charges
+
+`wall_valuation.py` (tests: `tests/integration/test_hierarchy_valuation_wall.py`).
+
+1. All four completed holomorphic matrices (up, neutrino, down, charged lepton)
+   have extension-degree pattern `[[-,0,0],[0,1,1],[0,1,1]]`. This is one
+   anomalous-U(1) charge assignment: E family charge -1, F families 0, flavon
+   (extension class) +1. The vanishing E-E entry is **forced**, because its
+   predicted degree is -1. An independent first-row cofactor expansion
+   reproduces all four certified determinants exactly.
+2. The cover slope of `V1` is exactly `6 (j1 - j2)(j1 + j2 + 6 j3)`. Production
+   geometry agrees with an independent Chow-ring calculation. The stability wall
+   is the plane `j1 = j2` inside the Kähler cone. The stable side is `j2 > j1`,
+   which contains both certified polarizations.
+3. Near the wall the extension modulus is the anomalous-U(1) flavon of
+   [Anderson--Gray--Ovrut](https://arxiv.org/abs/1001.2317).
+   Its D-flat value obeys `|a|^2 ∝ xi_FI ∝ -mu(V1)`, which vanishes linearly in `j2 - j1`.
+4. Over `C[[eps]]` with `a = eps * a_hat`, the invariant-factor orders are
+   `(0,0,1)` in every sector: four constant 2x2 minors, and the determinant is
+   exactly linear.
+
+**Theorem (scoped, three premises listed in the report).** On the frozen
+alternate carrier, the only bundle modulus produces two unsuppressed families
+and one family suppressed by a single power, in all four sectors. It cannot
+produce `(8,4,0)`, `(5,3,0)`, `(1,2,3)` or any deeper parametric hierarchy.
+
+Premises still to certify (gate G1): stability of `V1` and `V2` at the wall and
+of `V` on the adjacent stable side; the D-flat identification; finite
+split-bundle matter metrics at the wall.
+
+Implication: if this carrier yields a parametric hierarchy at all, it must come
+from Kähler- or complex-structure degenerations of the **metrics**, or from
+worldsheet instantons. It cannot come from the holomorphic bundle data.
+
+## 4. "Why four?" as a discriminating question, not a choice
+
+Each candidate below is a hypothesis with a computable test on whichever
+carrier survives gates G2 and G3.
+
+| Candidate | Mechanism | Test |
+| --- | --- | --- |
+| `eps^2 ∝ xi_FI` | D-flatness gives `\|flavon\|^2 ∝ xi`, so `eps^4 ∝ xi^2` | The exponent relating flavon VEV to the slope polynomial in a derived wall regime |
+| rank-four determinant | `S(U(1)^4)` split of an SU(4) bundle, product of four flavon factors | Charge lattice of a full-flag split carrier |
+| quartic Kähler data | Slopes are quadratic in `J`, the volume is cubic | Scaling of matter metrics along degenerations (G2) |
+| instanton action | `eps^4 = exp(-S_inst)` | Instanton/Pfaffian sector (existing blocker) |
+
+Kill rule: if the derived relation in the surviving channel is not a fourth
+power, this form of the equation dies, whatever its numerical agreement.
+
+## 5. Gates (cheapest discriminating step first)
+
+| Gate | Work | Inputs already certified | Pass | Kill |
+| --- | --- | --- | --- | --- |
+| **G0** done | Audit, evidential power, wall valuation theorem | All four holomorphic matrices, Schoen geometry | Exact | — |
+| **G1** days | Certify the three premises: constituent stability at `j1=j2`, `V` stability on `j2>j1` near the wall (reuse `retained_slope_stability` line-Hom machinery), D-term normalization | Constituent presentations, Hom engines | Theorem promoted | A premise fails: restate the scope |
+| **G2** weeks | Asymptotic matter-metric valuations along declared Kähler rays `J(s)` inside the stable cone, using localization at large flux ([Blesneag et al. 2018](https://arxiv.org/abs/1801.09645)); that method is abelian, so its extension to these non-abelian constituents is itself part of the gate | Constituent line data, section bases | Family-dependent exponents | Uniform exponents: the carrier has no parametric hierarchy, so retire it as a flavor-hierarchy carrier (not as an SU(4) carrier) |
+| **G3** weeks to months | Carrier design theorem: the U(1)^k charge patterns needed for the target valuations, with the Wilson-line split of each 16. Search the computable-carrier category for SU(4) bundles near multi-wall split loci with these charges | Computable-carrier engines, Tier A/B/C contracts | A stable carrier with the required charge lattice and spectrum | No such carrier in a declared finite category: scoped no-go |
+| **G4** | Express `eps` as a derived function of moduli in the surviving channel; derive the power `n` | G2/G3 output | `n = 4` derived | `n ≠ 4`: kill the equation in this form |
+| **G5** | Shared hidden sector and vacuum: stabilized moduli value | Existing blocker (priority 8.5) | Moduli fixed without fitting | Unstabilized: the value test stays open |
+| **G6** | Blind test. Hash-register every `eps` estimator and unit-core derivation **before** metric/vacuum execution. Then compare at least three independent estimators with each other and with 0.21962 | Physical Yukawas from metrics plus G5 | Mutual agreement at about 1% with no tuning | Disagreement beyond the derived error bars |
+| **G7** | Origin: typed primitive action producing the 431-dimensional carrier, the G2 channel, and a convention-free gravitational quantity (for example `M_c^2/Mbar_Pl^2` from the heterotic matching) replacing `1/(8 pi)` | None yet | Theorem | No typed construction: the equation stays a bridge target |
+
+## 6. Validation of this plan
+
+* **Discriminating:** every gate has an outcome that changes the next action.
+  G0 already removed one whole channel.
+* **No leakage:** neither the value 0.2196 nor any observation enters G1 to G5.
+  Comparison happens only in G6, after registration.
+* **Cheapest first:** G1 and G2 are exact or asymptotic and need no Ricci-flat
+  sampling. The current top project priority, metric convergence for this
+  carrier, still matters for normalized Yukawas. G0 shows it cannot by itself
+  create a parametric hierarchy from the bundle modulus. Run G1 and G2 before
+  committing to a large sampling campaign aimed at flavor.
+* **Pre-mortem:** (a) the premises of section 3 fail. G1 detects this, and the
+  statement is restated rather than silently kept. (b) Hierarchies come only
+  from O(1) numerical accidents. G2 detects this as uniform exponents.
+  (c) A surviving channel fits valuations but not values. G6 detects this, and
+  section 2 already says valuations are not evidence.
+* **What would be extraordinary evidence:** derived unit cores, at least three
+  independent estimators agreeing at the percent level with 0.21962 and no
+  tuning, and a registered blind prediction of something not yet measured
+  (for example a neutrino-sector quantity), followed by the origin theorem G7.
+
+## 7. Relevant external results (`github.com/openai/math`, 722 manuscripts)
+
+None addresses heterotic flavor, the number 431, or this equation. Peripheral
+results that bear on specific gates:
+
+* 055, numerical Bridgeland stability at large volume on threefolds with trivial
+  canonical class. This is the framework for wall-crossing as `J` moves, relevant to G1 and G2.
+* 050, ample bundles without Griffiths-positive metrics. Positivity of a metric
+  cannot be assumed. The continuum bound `tau <= 9/2` uses section-induced
+  metrics, which are positive by construction, so it is unaffected.
+* 038, Fujita freeness. For a CY threefold, `4L` is globally generated for ample
+  `L` (dimension three was already known). This may help choose smaller twists
+  with fewer sections in the metric program.
+* 266, exactly three MUBs in dimension six. Weyl--Heisenberg context for G7.
+  431 is prime, so the full set of 432 MUBs exists. This does not explain 431.
+* 270, the unique BFSS threshold bound state. Rigorous quantum-gravity support
+  for the UV duality web, not for this equation.
+* 280 and 282, unitary VOAs to conformal nets, and scale to conformal symmetry
+  in 4D QFT. Foundational context for the Genesis-to-QFT contract.

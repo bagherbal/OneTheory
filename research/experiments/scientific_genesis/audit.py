@@ -170,6 +170,62 @@ def _completed_curvature_summary() -> tuple[dict[str, object], dict[str, object]
     return cast(dict[str, object], summary), cast(dict[str, object], packet)
 
 
+def _retained_resolution_summary() -> dict[str, object]:
+    """Inspect terminal sensitivity and acceleration without inventing a global mean."""
+
+    from . import retained_root_benchmark as benchmark
+
+    expected = {
+        526: "9611df5e2db00075ec7de54d4aa04d9080c8902b2c1256771f7f69790f40ad31",
+        1360: "7afe1e86379cbb459cf93d9a6919a5788d5d6f5c5ba2b2b4e0262ee6546dfc5a",
+    }
+    cases = []
+    for ordinal, digest in expected.items():
+        native = benchmark.read_native(ordinal)
+        record = json.loads(benchmark.output_path(ordinal).read_bytes())
+        unsigned = {k: v for k, v in record.items() if k != "artifact_digest"}
+        fine = record["finer_history"]
+        if (record.get("artifact_digest") != digest or _canonical_digest(unsigned) != digest
+                or any(_sha256(ROOT / path) != value for path, value
+                       in record["source_files_sha256"].items())
+                or record["original_sample_digest"] != native["original_sample_digest"]
+                or record["native_resolution_digest"] != native["artifact_digest"]
+                or record["streams"] != native["streams"]
+                or record["input_digest"] != native["input_digest"]
+                or record["original_section_count"] != 5345
+                or record["h1_factor_digest"] != benchmark.prior.nonunit.H1
+                or fine["address"] != native["history"][-1]["address"]
+                or fine["status"] != "admitted"
+                or fine["curvature_status"] != "computed_discovery"
+                or not fine["root_parent_retained"] or not fine["frame_parent_retained"]
+                or record["newton_steps_by_family"] != [[1, 1, 1]]*(2 if ordinal == 526 else 1)
+                or any(record[field] is not False for field in (
+                    "new_entropy_obtained", "checkpoint_replaced", "subdivision_fallback_used",
+                    "hybrid_or_subset_mean_available", "h1_rebuilt", "h2_executed",
+                    "numerical_error_bound_certified", "controlled_global_integral",
+                    "hym_convergence_established", "physical_yukawas_available", "observations_used"
+                ))):
+            raise ValueError("retained-input acceleration changed identity or physical scope")
+        difference = fine["h1"]["trace_free_l1"] / native["history"][-1]["h1"]["trace_free_l1"] - 1
+        if fine["h1_relative_l1_difference_from_native_discovery"] != difference:
+            raise ValueError("retained-input acceleration changed its comparison")
+        cases.append({"ordinal": ordinal, "artifact_digest": digest,
+            "native_resolution_digest": native["artifact_digest"],
+            "native_h1_l1_by_level_discovery": {
+                str(item["level"]): item["h1"]["trace_free_l1"] for item in native["history"]},
+            "accelerated_h1_l1_discovery": fine["h1"]["trace_free_l1"],
+            "relative_difference_discovery": difference,
+            "timings_seconds": record["timings_seconds"],
+            "newton_steps_by_family": record["newton_steps_by_family"]})
+    return {"cases": cases, "case_selection": "post-selected; not blind or IID",
+            "conditional_continuum_tau_upper_bound_exact": "9/2",
+            "conditional_bound_premises": "globally generating exact section metric; constant "
+                "positive H; rank four and c1=4J; declared reference Kahler class and conventions",
+            "controlled_global_integral": False, "hym_convergence_established": False,
+            "next_required_object": "whole retained-population numerical resolution comparison, "
+                "independent native certification checks and global numerical/statistical control"}
+
+
 def _node(
     identifier: str,
     label: str,
@@ -4289,6 +4345,50 @@ def _nodes() -> list[dict[str, object]]:
              "input and roundoff errors are not certified"),
         ),
         _node(
+            "retained_curvature_resolution",
+            "same-input curvature sensitivity and native-certified acceleration",
+            "Normalization", "COMPUTED",
+            "Post-selected original inputs 526 and 1360 retain all streams, "
+            "root/frame ancestry, 5345 sections and the same H1 through levels "
+            "16/20/24/28/32. Their enormous coarse curvature is resolution "
+            "sensitive, but point 1360 remains large in a well-conditioned "
+            "refined frame. Saved certificates replay literally; direct "
+            "level-32 Newton refinement uses one step per root and existing "
+            "native admission. Independent native histories match by common "
+            "parent containment. Exact finer root work still costs roughly "
+            "a minute per case. Neither local agreement nor a plateau is "
+            "an error certificate, global integral or convergence result.",
+            ("research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+             "research/experiments/scientific_genesis/"
+             "CONTINUED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md",
+             "data/generated/scientific_genesis/retained_root_benchmark.sample_0526.json",
+             "data/generated/scientific_genesis/retained_root_benchmark.sample_1360.json",
+             "tests/integration/test_scientific_genesis_retained_root_execution.py"),
+            ("two post-selected diagnostic cases, not blind or IID",
+             "same captured input prefixes and unstabilized parameter point",
+             "exact root admission with binary64 curvature discovery"),
+        ),
+        _node(
+            "conditional_curvature_trace_constraint",
+            "positive section curvature constrains the continuum diagnostic",
+            "Normalization", "DERIVED",
+            "For the declared exact globally generating section metric with "
+            "constant positive H, contracted twisted curvature is positive "
+            "semidefinite. Rank four implies trace-free L1 <= 3/2 trace; "
+            "Chern-Weil and c1=4J give tau <= 9/2 in the declared conventions. "
+            "The old H1 discovery residual about 3977 is not that continuum "
+            "integral under these premises. This conditional constraint "
+            "does not prove carrier instability, a HYM no-go or accuracy "
+            "of a finite-cell numerical experiment.",
+            ("research/experiments/scientific_genesis/"
+             "RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md",
+             "tests/integration/test_scientific_genesis_curvature_resolution_execution.py",
+             "data/generated/scientific_genesis/reference_curvature_normalization.json"),
+            ("globally generating exact section matrix and constant positive-definite H",
+             "rank four, c1=4J and the declared reference Kahler class",
+             "actual Chern connection and stated Chern-Weil normalization"),
+        ),
+        _node(
             "retained_polarization_stability",
             "background compatibility for the retained stable polarization",
             "Normalization", "BLOCKED",
@@ -8163,6 +8263,29 @@ def _edges() -> list[dict[str, object]]:
                  "The enormous sampled trace discrepancy requires same-input resolution checks."),
             )
         ],
+        *[
+            _edge(source, target, reason,
+                  ("research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+                   "research/experiments/scientific_genesis/"
+                   "RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md"),
+                  ("same full section system and declared reference conventions",),
+                  False, ("local discovery is not a controlled global integral",))
+            for source, target, reason in (
+                ("nonunit_connection_curvature", "retained_curvature_resolution",
+                 "The large complete-profile discrepancy motivates same-input sensitivity."),
+                ("native_section_continuation", "retained_curvature_resolution",
+                 "Existing exact admission and parent containment preserve the ideal root."),
+                ("factored_trial_inverse_step", "retained_curvature_resolution",
+                 "The original full H1 factor is unchanged in every resolution comparison."),
+                ("alternate_metric_symbolic_columns", "conditional_curvature_trace_constraint",
+                 "The actual full section coefficients define the metric; "
+                 "global generation and c1=4J remain explicit premises."),
+                ("retained_curvature_resolution", "retained_polarization_stability",
+                 "Whole-population resolution and useful numerical control remain missing."),
+                ("conditional_curvature_trace_constraint", "retained_polarization_stability",
+                 "The conditional trace bound falsifies a continuum reading of the old estimate."),
+            )
+        ],
         _edge(
             "alternate_metric_symbolic_columns", "compiled_section_features",
             "A pinned complete exact polynomial stream supplies the actual "
@@ -9902,10 +10025,16 @@ def _scheduler() -> list[dict[str, object]]:
             "without relaxing the guard. Complete H0 tau is about 1.245, "
             "but actual H1 tau is about 3977 and its sampled trace is about "
             "1390 times the topological target. Favorable old validation is "
-            "not a substitute mean or convergence evidence. Check same-input "
-            "resolution sensitivity at dominant points 526 and well-conditioned "
-            "1360, preserving captured streams, roots, histories and every "
-            "section. Do not infer continuum instability or select new moduli. Use the "
+            "not a substitute mean or convergence evidence. The same-input "
+            "resolution sensitivity through level 32 is now executed at 526 "
+            "and 1360, preserving every stream, root and section. A conditional "
+            "positive-curvature theorem gives continuum tau <= 9/2, not an "
+            "HYM no-go. Freeze the local precision ladder. Native-certified "
+            "seeded refinement matches independent histories, but exact "
+            "restriction construction remains costly. Execute a whole retained-"
+            "population numerical resolution comparison with independent "
+            "native checks and global input-error control. Do not infer "
+            "continuum instability or select new moduli. Use the "
             "positive auxiliary law and quantitative global weight/kernel bound. "
             "Retain every pending same-stream request; justify external independence "
             "or a certified deterministic cubature with integral error control. "
@@ -10194,6 +10323,7 @@ def build_state() -> dict[str, object]:
 
     reference_curvature = _trial_curvature_summary()
     refined_reference_curvature, curvature_comparison = _completed_curvature_summary()
+    retained_resolution = _retained_resolution_summary()
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
@@ -13787,6 +13917,17 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/NONUNIT_CONNECTION_CURVATURE_NOTE.md",
         "tests/integration/test_scientific_genesis_nonunit_curvature.py",
         "data/generated/scientific_genesis/nonunit_connection_curvature.json",
+        "research/experiments/scientific_genesis/retained_root_refinement.py",
+        "research/experiments/scientific_genesis/retained_root_benchmark.py",
+        "research/experiments/scientific_genesis/RETAINED_ROOT_REFINEMENT_NOTE.md",
+        "research/experiments/scientific_genesis/RETAINED_ROOT_EXECUTION_NOTE.md",
+        "research/experiments/scientific_genesis/"
+        "RETAINED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md",
+        "research/experiments/scientific_genesis/"
+        "CONTINUED_CURVATURE_RESOLUTION_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_retained_root_execution.py",
+        "data/generated/scientific_genesis/retained_root_benchmark.sample_0526.json",
+        "data/generated/scientific_genesis/retained_root_benchmark.sample_1360.json",
         "research/experiments/scientific_genesis/connection_curvature_comparison.py",
         "research/experiments/scientific_genesis/CONNECTION_CURVATURE_COMPARISON_NOTE.md",
         "tests/integration/test_scientific_genesis_curvature_comparison.py",
@@ -13857,7 +13998,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 4057,
+            "collected_tests_at_audit": 4119,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -14397,8 +14538,13 @@ def build_state() -> dict[str, object]:
                 "order now prove descended slope stability; complete H0/H1 "
                 "reference profiles retain every original point and raw failure; "
                 "H1 has an enormous training/trace diagnostic despite favorable "
-                "old validation; check same-input resolution sensitivity "
-                "without replacing roots, histories, streams or sections; "
+                "old validation; same-input resolution through level 32 is "
+                "executed and a conditional continuum tau <= 9/2 constraint "
+                "is derived; native-certified seeded refinement matches "
+                "independent histories but exact restrictions stay costly; "
+                "execute whole retained-population numerical resolution "
+                "comparison with independent native checks, without replacing "
+                "roots, histories, streams or sections; "
                 "verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
@@ -14447,6 +14593,7 @@ def build_state() -> dict[str, object]:
         "trial_connection_curvature": reference_curvature,
         "refined_trial_connection_curvature": refined_reference_curvature,
         "connection_curvature_comparison": curvature_comparison,
+        "retained_curvature_resolution": retained_resolution,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,

@@ -6,3 +6,5 @@ ruff
 # Full original-basis research trial-operator solves; not production runtime.
 numpy>=2,<3
 scipy>=1.15,<2
+# Same-input research geometry arithmetic; no production runtime dependency.
+mpmath==1.3.0

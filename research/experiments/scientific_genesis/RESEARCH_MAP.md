@@ -1,5 +1,21 @@
 # Scientific Genesis research map
 
+## H1 curvature anomaly diagnosed as in-sample leverage
+
+`research/experiments/metric_sampling/leverage.py` explains the retained H1
+failure without changing any sample, weight or factor. For the project's
+update `H1 = c T^-1` with `T = sum_i (w_i/n) M_i^† M_i`, each training
+leverage block obeys `0 <= B_i <= I` and the blocks' traces sum exactly to the
+section count. With 5,345 sections and 1,536 rank-four training samples the
+mean leverage is `5345/6144 = 87%` of maximal. The recorded weights have
+effective size about 1,258, below the 1,337 invertibility threshold. The
+observed split matches: median H1 trace-free curvature is 1,612 on training
+points and 7.6 on validation points (ratio 212), against 1.02 for H0. Out of
+sample, H1 improves `tau` from 1.02 to 0.39, on previously inspected and
+therefore non-blind points. The content-addressed artifact registers a
+falsifiable prediction: an H1 from the 8,192-point training population must
+bring the ratio below 10. No metric is certified.
+
 ## Stability-wall flavor texture and hierarchy-seed audit
 
 `research/experiments/hierarchy_valuation` turns the four completed holomorphic

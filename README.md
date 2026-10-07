@@ -17,7 +17,7 @@ Each status is backed by code, tests and content-addressed artifacts.
 | **Space** | Schoen Calabi–Yau threefold with a free ℤ3×ℤ3 quotient: exact cover, quotient, Cox presentation, intersection ring and deck action. | Exact; published geometry input. |
 | **Gauge forces and matter** | A rank-four SU(4) bundle family over `P¹` (`alternate-i6-ray-0-1-P1`). It is locally free, descends to the quotient, has trivial determinant and is slope-stable. Wilson lines give exactly three families with right-handed neutrinos, one Higgs pair, no anti-families and no massless colour triplets. | **COMPUTED** from chain-level data. Three families and one Higgs pair are selection constraints, not predictions. |
 | **Yukawa couplings** | All four 3×3 holomorphic matrices (up, down, charged lepton, Dirac neutrino) are exact over `Q(ω)[a0,a1]`. All share one structure, explained below. Each has rank at least two, and all four have rank three on a common open set. | Holomorphic **COMPUTED**. Physical (normalized) Yukawas **OPEN**. |
-| **Metrics** | 5,345-section invariant basis, global generation, an exact integration measure, certified roots and a 2,048-point sample cloud. | **OPEN**: the H1 iterate's curvature diagnostic violates a proved continuum bound (`τ ≤ 9/2`), so it is not yet a controlled integral. |
+| **Metrics** | 5,345-section invariant basis, global generation, an exact integration measure, certified roots and a 2,048-point sample cloud. The H1 anomaly is diagnosed as an in-sample leverage effect: mean leverage 87%, effective training size 1,258 below the 1,337 threshold, curvature blow-up 212× on training points only, and better than H0 out of sample. | **OPEN**. A registered prediction for the 8,192-point training run decides the diagnosis. |
 | **Hidden sector, instantons, vacuum** | Necessary hidden HYM chamber `4 j1 + 7 j2 − 12 j3 > 0`; exceptional-section zero modes. | **OPEN**: no hidden bundle, Pfaffian normalization or stabilized vacuum. |
 | **Observables** | Reserved for blind terminal comparison. | No prediction yet; zero fitted inputs. |
 
@@ -137,7 +137,9 @@ These are ordered by how cheaply they discriminate. Full detail is in
    of instantons on the exceptional curves, and matter-metric scaling along
    Kähler degenerations.
 2. **Metrics.** Controlled Ricci-flat/HYM convergence with useful error bounds.
-   The current twist has 5,345 sections, so sample counts must scale with it.
+   [`metric_sampling`](research/experiments/metric_sampling/README.md) shows
+   the H1 anomaly is in-sample leverage, not geometry, and registers a
+   falsifiable prediction for the pending 16,384-point population.
 3. **Hidden sector and vacuum.** A hidden bundle in the necessary chamber,
    anomaly cancellation, and a stabilized common vacuum fixing all moduli.
 4. **Blind comparison.** Hash-registered predictions of masses, mixing and CP,

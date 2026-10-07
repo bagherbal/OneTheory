@@ -129,15 +129,15 @@ def test_live_dependency_graph_closes_only_the_actual_slope_hypothesis(packet):
     assert claims["visible_metrics"]["status"] == "BLOCKED"
     assert claims["physical_yukawas"]["status"] == "BLOCKED"
     missing = claims["retained_polarization_stability"]["missing_prerequisites"]
-    assert "compatible controlled background metric and line untwisting" in missing
+    assert "controlled reference-background curvature and metric refinement" in missing
     assert all("actual stability" not in item for item in missing)
     edges = audit._edges()
     pairs = {(edge["source"], edge["target"]) for edge in edges}
     assert ("retained_slope_stability", "retained_polarization_stability") in pairs
     assert ("alternate_constituent_outer_stability_locus", "retained_slope_stability") in pairs
     assert ("alternate_constituent_carrier_state", "retained_slope_stability") in pairs
-    assert len(nodes) == 227
-    assert len(edges) == 405
+    assert len(nodes) == 228
+    assert len(edges) == 409
     task = next(task for task in audit._scheduler()
                 if task["task"] == "alternate_metric_convergence")
     assert "now establish descended slope stability" in task["rationale"]

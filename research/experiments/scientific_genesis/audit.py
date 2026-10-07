@@ -23,6 +23,7 @@ from __future__ import annotations
 import gzip
 import hashlib
 import json
+import math
 from fractions import Fraction
 from itertools import combinations
 from pathlib import Path
@@ -60,6 +61,87 @@ def _canonical_digest(payload: object) -> str:
 
     text = json.dumps(payload, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def _trial_curvature_summary(path: Path | None = None) -> dict[str, object]:
+    """Inspect the pinned whole-population diagnostic without replay or partial means."""
+
+    if path is None:
+        path = ROOT / "data/generated/scientific_genesis/trial_connection_curvature.json"
+    record = json.loads(path.read_bytes())
+    expected = "a60e2349513da60505a79be51f21db65aefc11525a64fd027ab35d2260124990"
+    if (record.get("artifact_digest") != expected
+            or _canonical_digest({k: v for k, v in record.items() if k != "artifact_digest"})
+            != expected):
+        raise ValueError("the trusted original curvature diagnostic changed")
+    if any(_sha256(ROOT / name) != digest
+           for name, digest in record["source_files_sha256"].items()):
+        raise ValueError("the original curvature experiment sources changed")
+    if (record["schema"] != "full-original-trial-curvature-v1"
+            or record["original_section_count"] != 5345
+            or record["reference_polarization"] != [14, 16, 1]
+            or record["reference_quotient_volume"] != 1344.0
+            or record["parameter_point"] != [["1", "0"], ["0", "1"]]
+            or record["parameter_point_status"] != "SELECTED"
+            or record["entropy_assumption_status"] != "ASSUMED"
+            or record["sample_count"] != 2048 or len(record["points"]) != 2048
+            or record["unresolved_ordinals"] != [632, 956, 1007, 1161, 1637, 1962]
+            or record["all_old_samples_retained"] is not True
+            or any(record[key] is not False for key in (
+                "complete_original_workload_available", "admitted_subset_mean_available",
+                "old_validation_is_blind", "numerical_and_sampling_error_certified",
+                "reference_background_is_ricci_flat", "hym_convergence_established",
+                "determinant_normalized_su4_metric_exported", "matter_or_higgs_metrics_available",
+                "physical_yukawas_available", "common_stabilized_vacuum_available",
+                "observations_used",
+            )) or any(key in record for key in (
+                "full_population_tau_discovery", "empirical_reference_volume_discovery",
+                "role_tau_discovery",
+            ))):
+        raise ValueError("the original curvature failure or physical boundary changed")
+    manifest = json.loads((ROOT / "data/generated/scientific_genesis/full_trial_cloud.json")
+                          .read_bytes())
+    if (manifest["artifact_digest"] != record["cloud_manifest_digest"]
+            or manifest["artifact_digest"]
+            != "3138e6d6eb4c17fb977714f78069cc704e09f3eab45fb73e1b8d16d540cd29cc"
+            or _canonical_digest({k: v for k, v in manifest.items() if k != "artifact_digest"})
+            != manifest["artifact_digest"]
+            or record["cloud_request_digest"] != manifest["request_digest"]
+            or record["input_digest"] != manifest["input_digest"]
+            or record["original_section_basis_digest"]
+            != manifest["original_section_basis_digest"]):
+        raise ValueError("the retained curvature workload changed its original cloud identity")
+    failures = []
+    for ordinal, (point, reference) in enumerate(zip(
+        record["points"], manifest["sample_archives"], strict=True,
+    )):
+        if (point["ordinal"] != ordinal or reference["ordinal"] != ordinal
+                or point["sample_artifact_digest"] != reference["artifact_digest"]
+                or point["role"] != ("training" if ordinal < 1536 else "validation")):
+            raise ValueError("a curvature point lost its original sample identity or role")
+        if ordinal in record["unresolved_ordinals"]:
+            if (point["status"] != "unresolved"
+                    or point["reason"] != "the full fiber whitening is numerically unresolved"
+                    or "weighted_trace_free_l1" in point):
+                raise ValueError("a failed original curvature point must remain unavailable")
+            failures.append({key: point[key] for key in ("ordinal", "role", "reason")})
+        elif (point["status"] != "computed_discovery"
+                or len(point["trace_free_eigenvalues"]) != 4
+                or not all(math.isfinite(x) for x in point["trace_free_eigenvalues"])
+                or not 0 < point["fiber_condition_number_discovery"] <= 1e12
+                or not all(math.isfinite(point[key]) and point[key] >= 0 for key in (
+                    "trace_free_l1", "trace_free_frobenius", "hermiticity_residual",
+                    "reference_volume_weight", "weighted_trace_free_l1",
+                ))):
+            raise ValueError("a resolved curvature diagnostic must use finite full-fiber data")
+    summary = {key: value for key, value in record.items() if key != "points"}
+    summary["point_records_reference"] = {
+        "path": str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path),
+        "artifact_digest": expected, "sample_count": 2048,
+        "resolved_count": 2042, "unresolved_count": len(failures),
+    }
+    summary["numerical_failure_chain"] = failures
+    return cast(dict[str, object], summary)
 
 
 def _node(
@@ -4112,6 +4194,35 @@ def _nodes() -> list[dict[str, object]]:
              "explicit determinant-degree, covering-degree and rank normalization"),
         ),
         _node(
+            "trial_connection_curvature",
+            "analytic full-section reference connection with retained numerical failures",
+            "Normalization", "BLOCKED",
+            "All 2048 original samples were consumed with analytic derivatives "
+            "of every original section and the actual quotient projection. "
+            "The explicit (14,16,1) FS background has quotient volume 1344. "
+            "Trace subtraction removes scalar line curvature without selecting "
+            "a determinant-volume frame. There are 2042 finite point diagnostics "
+            "and six retained full-fiber whitening failures. No global or role "
+            "mean is available. This is not a rank, instability or continuum "
+            "HYM no-go. Exact derivative probes, a direct inverse-metric "
+            "curvature calculation, and frame/coordinate checks constrain the "
+            "discovery consumer. The reference background is not Ricci-flat "
+            "and no physical normalization is inferred.",
+            ("research/experiments/scientific_genesis/trial_connection_curvature.py",
+             "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_NOTE.md",
+             "research/experiments/scientific_genesis/"
+             "TRIAL_CONNECTION_CURVATURE_EXECUTION_NOTE.md",
+             "tests/integration/test_scientific_genesis_trial_connection_curvature.py",
+             "tests/integration/test_scientific_genesis_curvature_formula.py",
+             "data/generated/scientific_genesis/trial_connection_curvature.json"),
+            ("original full section basis and same unstabilized point",
+             "explicit FS reference metric, not physical Ricci-flat geometry",
+             "binary64 discovery arithmetic and old inspected population"),
+            ("same-input conditioning refinement for six original points",
+             "whole-population reference curvature aggregate",
+             "controlled HYM and background refinement; matter/Higgs metrics"),
+        ),
+        _node(
             "retained_polarization_stability",
             "background compatibility for the retained stable polarization",
             "Normalization", "BLOCKED",
@@ -4119,13 +4230,17 @@ def _nodes() -> list[dict[str, object]]:
             "descended slope stability at the retained generating polarization. "
             "The earlier sufficient-chamber failure is still true, but its "
             "missing slope hypothesis is now repaired separately. A physical "
-            "HYM calculation still requires compatible controlled background "
-            "geometry and a line-untwisting algorithm. A theorem of existence, "
-            "finite balance or a larger population is not a computed connection.",
+            "An explicit compatible FS reference background and analytic "
+            "trace-free connection consumer now exist, but six retained "
+            "whitening failures prevent a full-population curvature mean. "
+            "Controlled background/HYM refinement remains missing. A theorem "
+            "of existence, finite balance or a larger population is not a "
+            "controlled physical connection.",
             ("data/generated/scientific_genesis/retained_slope_stability.json",
-             "research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md"),
+             "research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md",
+             "data/generated/scientific_genesis/trial_connection_curvature.json"),
             ("same retained carrier and section system", "no hidden polarization change"),
-            ("compatible controlled background metric and line untwisting",
+            ("controlled reference-background curvature and metric refinement",
              "controlled continuum HYM convergence"),
         ),
         _node(
@@ -4465,16 +4580,19 @@ def _nodes() -> list[dict[str, object]]:
             "excludes balance on that empirical measure. The separate larger "
             "population executes without partial means or dropped samples. "
             "The refined source order now proves descended slope stability "
-            "at the retained polarization. Compatible background geometry, "
+            "at the retained polarization. Analytic reference curvature is "
+            "available pointwise, with six retained numerical failures and "
+            "no global mean. Controlled background geometry, "
             "useful sampling/arithmetic control and converged Ricci-flat/HYM "
             "matter metrics remain unavailable.",
             ("src/onetheory/math/sections.py", "research/experiments/visible_metrics/audit.py",
              "data/generated/scientific_genesis/retained_slope_stability.json",
              "data/generated/scientific_genesis/finite_cloud_balance.json",
+             "data/generated/scientific_genesis/trial_connection_curvature.json",
              "data/generated/scientific_genesis/expanded_trial_cloud_request.json"),
             missing=(
                 "controlled numerical full-basis evaluation and metric sampling",
-                "compatible controlled background geometry and line untwisting",
+                "controlled reference curvature and background refinement",
                 "converged Ricci-flat and HYM metrics",
             ),
         ),
@@ -7929,6 +8047,31 @@ def _edges() -> list[dict[str, object]]:
             ("derived compatible metric algorithm", "controlled continuum convergence"),
             False, ("finite-cloud balance or rescaling does not close this physical gate",),
         ),
+        *[
+            _edge(
+                source, "trial_connection_curvature", reason,
+                ("research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_NOTE.md",),
+                ("unchanged full section basis, parameter point and retained receipts",
+                 "explicit non-Ricci-flat reference metric and discovery arithmetic"),
+                False, ("numerical conditioning failure; no center/roundoff certificate",),
+            )
+            for source, reason in (
+                ("compiled_section_features",
+                 "Analytic first jets reuse the exact original polynomial instructions."),
+                ("uncertain_cover_frames",
+                 "Differentiate actual pivot elimination; do not freeze pointwise projections."),
+                ("full_trial_cloud_execution",
+                 "Every old sample retains its identity and errors; no failure is omitted."),
+            )
+        ],
+        _edge(
+            "trial_connection_curvature", "retained_polarization_stability",
+            "An actual trace-free connection residual is required beyond existence "
+            "and finite balance; six whitening failures still prevent a whole-population mean.",
+            ("data/generated/scientific_genesis/trial_connection_curvature.json",),
+            ("controlled background and numerical/sampling refinement",),
+            False, ("a reference FS residual is not physical Ricci-flat/HYM convergence",),
+        ),
         _edge(
             "alternate_metric_symbolic_columns", "compiled_section_features",
             "A pinned complete exact polynomial stream supplies the actual "
@@ -9661,9 +9804,15 @@ def _scheduler() -> list[dict[str, object]]:
             "fail at (14,16,1); this does not prove instability or stop the "
             "finite-cloud experiment. The actual line-Hom vanishing and source "
             "descendant/rank bounds now establish descended slope stability "
-            "on this retained ray. Freeze that result. Derive a compatible "
-            "background/line-untwisting algorithm before interpreting balance "
-            "as a HYM route. Use the "
+            "on this retained ray. Freeze that result. The analytic reference "
+            "connection now uses all original sections, actual quotient jets "
+            "and explicit FS background/trace untwisting. Six full-fiber "
+            "whitening failures are retained, with no global or subset mean. "
+            "Test explicitly recorded constant row scaling on the same inputs, "
+            "then repeat the entire unchanged population without relaxing the "
+            "condition guard or changing H0. A single old regression point's "
+            "H1 curvature is worse than H0; this is not a global convergence "
+            "test or reason to select new moduli. Use the "
             "positive auxiliary law and quantitative global weight/kernel bound. "
             "Retain every pending same-stream request; justify external independence "
             "or a certified deterministic cubature with integral error control. "
@@ -9949,6 +10098,8 @@ def build_state() -> dict[str, object]:
                 "proper_rank_extension_cases"
             ]) != 7):
         raise ValueError("the actual retained-polarization refinement changed its scope")
+
+    reference_curvature = _trial_curvature_summary()
 
     canonical_constraints = read_constraints(expected_digest=(
         "3cb170379b54658324e13d9511f18de939694473790686069c5cc91e3b7f0cbf"
@@ -13525,6 +13676,12 @@ def build_state() -> dict[str, object]:
         "research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md",
         "tests/integration/test_scientific_genesis_retained_slope_stability.py",
         "data/generated/scientific_genesis/retained_slope_stability.json",
+        "research/experiments/scientific_genesis/trial_connection_curvature.py",
+        "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_NOTE.md",
+        "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_trial_connection_curvature.py",
+        "tests/integration/test_scientific_genesis_curvature_formula.py",
+        "data/generated/scientific_genesis/trial_connection_curvature.json",
         "requirements-dev.txt",
         *(f"data/generated/scientific_genesis/certified_trial_cloud.sample_{i:04d}.json.gz"
           for i in range(16)),
@@ -13591,7 +13748,7 @@ def build_state() -> dict[str, object]:
             "production_python_files": len(tuple((ROOT / "src/onetheory").rglob("*.py"))),
             "research_python_files": len(tuple((ROOT / "research/experiments").rglob("*.py"))),
             "test_python_files": len(tuple((ROOT / "tests").rglob("test_*.py"))),
-            "collected_tests_at_audit": 3948,
+            "collected_tests_at_audit": 3975,
             "original_sources_unchanged": True,
         },
         "artifacts": [
@@ -14128,8 +14285,11 @@ def build_state() -> dict[str, object]:
                 "input and numerical control and sample/refinement stability; "
                 "the retained (14,16,1) twist fails four old sufficient stability "
                 "bounds, but actual line-Hom vanishing and the quantified source "
-                "order now prove descended slope stability; derive a compatible "
-                "background/line-untwisting algorithm without changing labels; "
+                "order now prove descended slope stability; the analytic FS "
+                "reference connection has six retained whitening failures and "
+                "no full-population mean; record constant-frame row scaling "
+                "on the same inputs and repeat all original points without "
+                "relaxing the condition guard or changing labels; "
                 "verify Ricci-flat/HYM convergence and stabilize one common "
                 "vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved"
             ),
@@ -14175,6 +14335,7 @@ def build_state() -> dict[str, object]:
         "expanded_trial_cloud_request": expanded_cloud_request,
         "metric_polarization_scope": polarization_scope,
         "retained_slope_stability": retained_stability,
+        "trial_connection_curvature": reference_curvature,
         "canonical_representation_constraints": canonical_constraints,
         "alternate_section_curve_restrictions": section_restrictions,
         "completed_down_lepton_holomorphic_matrices": completed_flavor,
@@ -14182,12 +14343,18 @@ def build_state() -> dict[str, object]:
         "dependencies": _edges(),
         "reusable_engines": _engines(),
         "established_results": [
+            "analytic first jets of every original section and the actual "
+            "quotient projection give a trace-free Chern-curvature consumer "
+            "in the explicit retained FS reference background; all 2048 old "
+            "samples were consumed, but six whitening failures prevent any "
+            "global or role mean; this is numerical unresolvedness, not a "
+            "bundle no-go or computed physical HYM metric",
             "actual transferred degree-zero maps have full column ranks 43,3,93,3 "
             "with independent rational ranks 86,6,186,6; source-order descendants "
             "lose at least 2520 in cover degree and all seven proper-rank outer "
             "extension cases are negative; every nonzero alternate P1 class is "
             "descended slope-stable at the unchanged (14,16,1) polarization; "
-            "compatible background geometry and a computed HYM metric remain missing",
+            "controlled background refinement and a computed physical HYM metric remain missing",
             "independent exact ambient intersections put the retained (14,16,1) "
             "section twist outside the certified sufficient stability chamber; "
             "its restricted interval is 17/5 < y < 51, with endpoints excluded; "

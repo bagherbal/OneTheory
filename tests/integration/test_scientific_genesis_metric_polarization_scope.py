@@ -160,7 +160,8 @@ def test_metric_graph_separates_old_scope_from_refined_stability_and_missing_bac
     task = next(task for task in audit._scheduler()
                 if task["task"] == "alternate_metric_convergence")
     assert "does not prove instability" in task["rationale"]
-    assert "compatible background/line-untwisting algorithm" in task["rationale"]
+    assert "analytic reference" in task["rationale"]
+    assert "Six full-fiber whitening failures" in task["rationale"]
     payload = {"claims": nodes, "dependencies": edges, "fitted_inputs": []}
     payload["artifact_digest"] = audit._canonical_digest(payload)
     audit.validate_state(payload)

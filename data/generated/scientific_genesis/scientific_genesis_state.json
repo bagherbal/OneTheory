@@ -16745,7 +16745,7 @@
     "visible_spin_twisted_h1": 0,
     "whole_frozen_outer_parameter_family": true
   },
-  "artifact_digest": "70c29de649acf92adad950ea61e60098c62e0fdc8f59a2aa16f817d49a05c51d",
+  "artifact_digest": "98a32f6f9382eb7cfcb9fcb95aa3bae730bc397f341d4bba7d38980e649e0e84",
   "artifacts": [
     {
       "bytes": 3337,
@@ -18638,9 +18638,9 @@
       "sha256": "cfd023ce16aa3b203be9f6f49a20882ede7b309ab99fc3000ed1f4f99a4da693"
     },
     {
-      "bytes": 7895,
+      "bytes": 7934,
       "path": "tests/integration/test_scientific_genesis_metric_polarization_scope.py",
-      "sha256": "ca0a6ac1e154afc722144c4f17c0ac0bc324f0b7e381f8ec8a406ae97d7f1e56"
+      "sha256": "e7227e2e229d16136e89adff998250287bc42ba4af8087488ef87fc2c248d380"
     },
     {
       "bytes": 6273,
@@ -18658,14 +18658,44 @@
       "sha256": "d748ec038a4338e618ac7f85512fe0cfe74239c9bc3a3b393b717be8c7a951e0"
     },
     {
-      "bytes": 10434,
+      "bytes": 10438,
       "path": "tests/integration/test_scientific_genesis_retained_slope_stability.py",
-      "sha256": "3392ceaaf3aaa41afc7b50e950576eb12dcdd028b36c814b9a3bf7950f9f48b4"
+      "sha256": "b55e9857f2a3cb99356bb06b0e5150322671c695ed09f6ff4de0802a95b829ba"
     },
     {
       "bytes": 172263,
       "path": "data/generated/scientific_genesis/retained_slope_stability.json",
       "sha256": "0a28361dd7de1d3b32354cd091df3235a6abc4bca01eb7864daf641b3c816b38"
+    },
+    {
+      "bytes": 20804,
+      "path": "research/experiments/scientific_genesis/trial_connection_curvature.py",
+      "sha256": "fa9bbd7dc209b6fa38166fe52882fb9fb5073e0241027c303016cc85499b85f0"
+    },
+    {
+      "bytes": 4061,
+      "path": "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_NOTE.md",
+      "sha256": "4fdcbb85ec34529ef15811cb4ff7c88b95c154eccb6a29e93b83af46c18afa37"
+    },
+    {
+      "bytes": 3564,
+      "path": "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_EXECUTION_NOTE.md",
+      "sha256": "cf7da91f8e9f88028a3417ac910485c379c07a09ddb9eb894ffa72597c1474d0"
+    },
+    {
+      "bytes": 7647,
+      "path": "tests/integration/test_scientific_genesis_trial_connection_curvature.py",
+      "sha256": "0388bf3f7016ab781104307524386b797316f3750ede90b0840f6e091e1b617e"
+    },
+    {
+      "bytes": 8532,
+      "path": "tests/integration/test_scientific_genesis_curvature_formula.py",
+      "sha256": "a1cf05a2258570a4987ac9f52e5e097b32c7de6feb9a2a8efbfea88c0c0a5de1"
+    },
+    {
+      "bytes": 3358538,
+      "path": "data/generated/scientific_genesis/trial_connection_curvature.json",
+      "sha256": "5a021dd7d7c9433a90505559511afe5d44c54ea62d3b3b44514b7cff7e4a3614"
     },
     {
       "bytes": 144,
@@ -19084,11 +19114,11 @@
     }
   ],
   "audit_scope": {
-    "collected_tests_at_audit": 3948,
+    "collected_tests_at_audit": 3975,
     "original_sources_unchanged": true,
     "production_python_files": 50,
-    "research_python_files": 322,
-    "test_python_files": 310
+    "research_python_files": 325,
+    "test_python_files": 313
   },
   "automorphism_checkpoint": {
     "completed_pairs": 1296,
@@ -24835,21 +24865,47 @@
     },
     {
       "assumptions": [
+        "original full section basis and same unstabilized point",
+        "explicit FS reference metric, not physical Ricci-flat geometry",
+        "binary64 discovery arithmetic and old inspected population"
+      ],
+      "evidence": [
+        "research/experiments/scientific_genesis/trial_connection_curvature.py",
+        "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_NOTE.md",
+        "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_EXECUTION_NOTE.md",
+        "tests/integration/test_scientific_genesis_trial_connection_curvature.py",
+        "tests/integration/test_scientific_genesis_curvature_formula.py",
+        "data/generated/scientific_genesis/trial_connection_curvature.json"
+      ],
+      "id": "trial_connection_curvature",
+      "label": "analytic full-section reference connection with retained numerical failures",
+      "layer": "Normalization",
+      "missing_prerequisites": [
+        "same-input conditioning refinement for six original points",
+        "whole-population reference curvature aggregate",
+        "controlled HYM and background refinement; matter/Higgs metrics"
+      ],
+      "statement": "All 2048 original samples were consumed with analytic derivatives of every original section and the actual quotient projection. The explicit (14,16,1) FS background has quotient volume 1344. Trace subtraction removes scalar line curvature without selecting a determinant-volume frame. There are 2042 finite point diagnostics and six retained full-fiber whitening failures. No global or role mean is available. This is not a rank, instability or continuum HYM no-go. Exact derivative probes, a direct inverse-metric curvature calculation, and frame/coordinate checks constrain the discovery consumer. The reference background is not Ricci-flat and no physical normalization is inferred.",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
         "same retained carrier and section system",
         "no hidden polarization change"
       ],
       "evidence": [
         "data/generated/scientific_genesis/retained_slope_stability.json",
-        "research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md"
+        "research/experiments/scientific_genesis/RETAINED_SLOPE_STABILITY_NOTE.md",
+        "data/generated/scientific_genesis/trial_connection_curvature.json"
       ],
       "id": "retained_polarization_stability",
       "label": "background compatibility for the retained stable polarization",
       "layer": "Normalization",
       "missing_prerequisites": [
-        "compatible controlled background metric and line untwisting",
+        "controlled reference-background curvature and metric refinement",
         "controlled continuum HYM convergence"
       ],
-      "statement": "The refined actual line-Hom and source-order argument establishes descended slope stability at the retained generating polarization. The earlier sufficient-chamber failure is still true, but its missing slope hypothesis is now repaired separately. A physical HYM calculation still requires compatible controlled background geometry and a line-untwisting algorithm. A theorem of existence, finite balance or a larger population is not a computed connection.",
+      "statement": "The refined actual line-Hom and source-order argument establishes descended slope stability at the retained generating polarization. The earlier sufficient-chamber failure is still true, but its missing slope hypothesis is now repaired separately. A physical An explicit compatible FS reference background and analytic trace-free connection consumer now exist, but six retained whitening failures prevent a full-population curvature mean. Controlled background/HYM refinement remains missing. A theorem of existence, finite balance or a larger population is not a controlled physical connection.",
       "status": "BLOCKED"
     },
     {
@@ -25162,6 +25218,7 @@
         "research/experiments/visible_metrics/audit.py",
         "data/generated/scientific_genesis/retained_slope_stability.json",
         "data/generated/scientific_genesis/finite_cloud_balance.json",
+        "data/generated/scientific_genesis/trial_connection_curvature.json",
         "data/generated/scientific_genesis/expanded_trial_cloud_request.json"
       ],
       "id": "visible_metrics",
@@ -25169,10 +25226,10 @@
       "layer": "Normalization",
       "missing_prerequisites": [
         "controlled numerical full-basis evaluation and metric sampling",
-        "compatible controlled background geometry and line untwisting",
+        "controlled reference curvature and background refinement",
         "converged Ricci-flat and HYM metrics"
       ],
-      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Actual chart, Laurent-coefficient, and density errors are bounded, and universal quotient frames now have certified bounds on declared pivot domains. Full original-cochain section evaluation is bounded on demand. The original finite-pole engine also carries certified coefficient bounds for every archived index. The complete bounded matrix is certified on one declared domain, and exact polynomial identities give a conservative global auxiliary weight bound. The full unit trial kernel and global projection integrand bound are available. An actual all-coordinate finite-cloud integral and nonunit H1 are computed, but an exact atomic obstruction excludes balance on that empirical measure. The separate larger population executes without partial means or dropped samples. The refined source order now proves descended slope stability at the retained polarization. Compatible background geometry, useful sampling/arithmetic control and converged Ricci-flat/HYM matter metrics remain unavailable.",
+      "statement": "The alternate carrier is globally generated at a declared ample twist. Both actual constituents have complete invariant section bases of sizes 2655 and 2690. Its universal rank-four lifting formula is independently certified and exact local rank-four evaluation is available with a complete exact point matrix. The actual residue and normalized auxiliary integration measure are explicit. Complete projective roots have exact inclusion certificates for declared Q(omega) configurations. Actual chart, Laurent-coefficient, and density errors are bounded, and universal quotient frames now have certified bounds on declared pivot domains. Full original-cochain section evaluation is bounded on demand. The original finite-pole engine also carries certified coefficient bounds for every archived index. The complete bounded matrix is certified on one declared domain, and exact polynomial identities give a conservative global auxiliary weight bound. The full unit trial kernel and global projection integrand bound are available. An actual all-coordinate finite-cloud integral and nonunit H1 are computed, but an exact atomic obstruction excludes balance on that empirical measure. The separate larger population executes without partial means or dropped samples. The refined source order now proves descended slope stability at the retained polarization. Analytic reference curvature is available pointwise, with six retained numerical failures and no global mean. Controlled background geometry, useful sampling/arithmetic control and converged Ricci-flat/HYM matter metrics remain unavailable.",
       "status": "BLOCKED"
     },
     {
@@ -30666,6 +30723,69 @@
     },
     {
       "assumptions_required": [
+        "unchanged full section basis, parameter point and retained receipts",
+        "explicit non-Ricci-flat reference metric and discovery arithmetic"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "numerical conditioning failure; no center/roundoff certificate"
+      ],
+      "mathematical_reason": "Analytic first jets reuse the exact original polynomial instructions.",
+      "source": "compiled_section_features",
+      "target": "trial_connection_curvature"
+    },
+    {
+      "assumptions_required": [
+        "unchanged full section basis, parameter point and retained receipts",
+        "explicit non-Ricci-flat reference metric and discovery arithmetic"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "numerical conditioning failure; no center/roundoff certificate"
+      ],
+      "mathematical_reason": "Differentiate actual pivot elimination; do not freeze pointwise projections.",
+      "source": "uncertain_cover_frames",
+      "target": "trial_connection_curvature"
+    },
+    {
+      "assumptions_required": [
+        "unchanged full section basis, parameter point and retained receipts",
+        "explicit non-Ricci-flat reference metric and discovery arithmetic"
+      ],
+      "implementation_or_artifact": [
+        "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_NOTE.md"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "numerical conditioning failure; no center/roundoff certificate"
+      ],
+      "mathematical_reason": "Every old sample retains its identity and errors; no failure is omitted.",
+      "source": "full_trial_cloud_execution",
+      "target": "trial_connection_curvature"
+    },
+    {
+      "assumptions_required": [
+        "controlled background and numerical/sampling refinement"
+      ],
+      "implementation_or_artifact": [
+        "data/generated/scientific_genesis/trial_connection_curvature.json"
+      ],
+      "implication": "conditional_or_conjectural",
+      "known_failure_modes": [
+        "a reference FS residual is not physical Ricci-flat/HYM convergence"
+      ],
+      "mathematical_reason": "An actual trace-free connection residual is required beyond existence and finite balance; six whitening failures still prevent a whole-population mean.",
+      "source": "trial_connection_curvature",
+      "target": "retained_polarization_stability"
+    },
+    {
+      "assumptions_required": [
         "same original full section basis",
         "explicit numerical discovery embedding"
       ],
@@ -32566,7 +32686,8 @@
     }
   ],
   "established_results": [
-    "actual transferred degree-zero maps have full column ranks 43,3,93,3 with independent rational ranks 86,6,186,6; source-order descendants lose at least 2520 in cover degree and all seven proper-rank outer extension cases are negative; every nonzero alternate P1 class is descended slope-stable at the unchanged (14,16,1) polarization; compatible background geometry and a computed HYM metric remain missing",
+    "analytic first jets of every original section and the actual quotient projection give a trace-free Chern-curvature consumer in the explicit retained FS reference background; all 2048 old samples were consumed, but six whitening failures prevent any global or role mean; this is numerical unresolvedness, not a bundle no-go or computed physical HYM metric",
+    "actual transferred degree-zero maps have full column ranks 43,3,93,3 with independent rational ranks 86,6,186,6; source-order descendants lose at least 2520 in cover degree and all seven proper-rank outer extension cases are negative; every nonzero alternate P1 class is descended slope-stable at the unchanged (14,16,1) polarization; controlled background refinement and a computed physical HYM metric remain missing",
     "independent exact ambient intersections put the retained (14,16,1) section twist outside the certified sufficient stability chamber; its restricted interval is 17/5 < y < 51, with endpoints excluded; positive rescaling cannot repair the hypothesis; no actual bundle instability, new physical Kahler class or HYM metric is inferred",
     "exact retained positive-weight intervals force training atom 78's normalized balance multiplier above 3.22533; every positive H on this unchanged complete finite measure has operator-norm balance residual above 2.22533; this is not a continuum bundle no-go",
     "the actual full-basis nonunit H1 executes on all 2048 original fibers with all 5345 coordinates and numerical gates retained; the training Rayleigh witness has maximum eigenvalue about 5.25985, while separately held-out rows give about 8.62495; neither is a certified full-operator norm or HYM curvature residual",
@@ -95579,13 +95700,13 @@
       "up_maximum_exterior_allowed_parameter_order": 1
     },
     "invariant_certificate_digest": "d4e1b76417a1b92372272e835965deee7141cb58f9a4a777ad9a79b9738683c6",
-    "next_required_object": "the original full inverse policy and Gram failure stay unchanged; actual complete-factor nonunit H1 and its retained-fiber diagnostic retain all 1536 training, 512 held-out samples and 5345 coordinates; the exact atomic no-go excludes balance on this unchanged finite measure for every H; execute the separately captured 16384-input predeclared independent population with 8192 training and 8192 fresh validation points under the unchanged law; retain every new checkpoint and check both complete finite-weight bounds without replacing the old cloud, clipping weights or reducing sections; obtain useful statistical, input and numerical control and sample/refinement stability; the retained (14,16,1) twist fails four old sufficient stability bounds, but actual line-Hom vanishing and the quantified source order now prove descended slope stability; derive a compatible background/line-untwisting algorithm without changing labels; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
+    "next_required_object": "the original full inverse policy and Gram failure stay unchanged; actual complete-factor nonunit H1 and its retained-fiber diagnostic retain all 1536 training, 512 held-out samples and 5345 coordinates; the exact atomic no-go excludes balance on this unchanged finite measure for every H; execute the separately captured 16384-input predeclared independent population with 8192 training and 8192 fresh validation points under the unchanged law; retain every new checkpoint and check both complete finite-weight bounds without replacing the old cloud, clipping weights or reducing sections; obtain useful statistical, input and numerical control and sample/refinement stability; the retained (14,16,1) twist fails four old sufficient stability bounds, but actual line-Hom vanishing and the quantified source order now prove descended slope stability; the analytic FS reference connection has six retained whitening failures and no full-population mean; record constant-frame row scaling on the same inputs and repeat all original points without relaxing the condition guard or changing labels; verify Ricci-flat/HYM convergence and stabilize one common vacuum before physical Yukawa normalization; Genesis-to-UV remains unresolved",
     "selection_status": "the selected P1 and reverse P5 physical quotient freezes are refuted; the distinct determinant-repaired alternate P1 component passes the charged structural spectrum and is frozen only for chain-level physics"
   },
   "research_value_scheduler": [
     {
       "priority_score": 12.9,
-      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The older sixteen-point operator has rank at most 64. The actual 2048-point cloud is now complete, retaining all 1536 training and 512 held-out samples. The original full inverse policy failed Gram positivity and stays failed. Full unpivoted QR and a distinct triangular policy produce an actual positive nonunit full-basis H1. Its retained-population fiber witness now consumes all original coordinates. Exact positive-atom bounds exclude a balanced fixed point for every H on this unchanged finite measure. Stop blind H2 iteration on that cloud. Preserve it; derive a lawful larger predeclared independent population or a justified auxiliary-measure change without dropping heavy samples, clipping weights or truncating sections. Do not infer continuum bundle instability. Use the separately captured 16384-input request: execute all 8192 new training and 8192 fresh held-out checkpoints under the unchanged law, preserving older populations and all failed requests. Check both complete populations' atomic bounds before seeking balance. A new budget is not an integration accuracy theorem. Use the exact retained-polarization scope check: four sufficient bounds fail at (14,16,1); this does not prove instability or stop the finite-cloud experiment. The actual line-Hom vanishing and source descendant/rank bounds now establish descended slope stability on this retained ray. Freeze that result. Derive a compatible background/line-untwisting algorithm before interpreting balance as a HYM route. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement further controlled nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
+      "rationale": "Reuse the complete original coefficient-ring archive and retained-root full-section trial covariance controller. The source-bound sparse discovery evaluator now executes all original sections repeatedly on all fifteen regression domains. The new sixteen-sample cloud now preserves original streams and executes the full trial operator at two resolutions, conditional on the assumed fair IID law. The complete sixteen-sample input/arithmetic error is now bounded by integer disks after same-stream refinement, without replacing hard samples or their discovery references. Freeze that result. The older sixteen-point operator has rank at most 64. The actual 2048-point cloud is now complete, retaining all 1536 training and 512 held-out samples. The original full inverse policy failed Gram positivity and stays failed. Full unpivoted QR and a distinct triangular policy produce an actual positive nonunit full-basis H1. Its retained-population fiber witness now consumes all original coordinates. Exact positive-atom bounds exclude a balanced fixed point for every H on this unchanged finite measure. Stop blind H2 iteration on that cloud. Preserve it; derive a lawful larger predeclared independent population or a justified auxiliary-measure change without dropping heavy samples, clipping weights or truncating sections. Do not infer continuum bundle instability. Use the separately captured 16384-input request: execute all 8192 new training and 8192 fresh held-out checkpoints under the unchanged law, preserving older populations and all failed requests. Check both complete populations' atomic bounds before seeking balance. A new budget is not an integration accuracy theorem. Use the exact retained-polarization scope check: four sufficient bounds fail at (14,16,1); this does not prove instability or stop the finite-cloud experiment. The actual line-Hom vanishing and source descendant/rank bounds now establish descended slope stability on this retained ray. Freeze that result. The analytic reference connection now uses all original sections, actual quotient jets and explicit FS background/trace untwisting. Six full-fiber whitening failures are retained, with no global or subset mean. Test explicitly recorded constant row scaling on the same inputs, then repeat the entire unchanged population without relaxing the condition guard or changing H0. A single old regression point's H1 curvature is worse than H0; this is not a global convergence test or reason to select new moduli. Use the positive auxiliary law and quantitative global weight/kernel bound. Retain every pending same-stream request; justify external independence or a certified deterministic cubature with integral error control. reuse the complete factorized unit kernel and global projection-error bound for each fixed parameter, not a uniform probability claim over moduli. Scale lawful original-basis sampling with separate numerical and useful statistical bounds, then implement further controlled nonunit-H iteration, twist refinement and line untwisting; require Ricci-flat/HYM convergence before normalization.",
       "scores": {
         "computational_cost": 5,
         "distance_to_observable": 5,
@@ -102981,6 +103102,110 @@
       "question": "Does either candidate-4/24 nonlifting open complement contain a slope-stable extension?"
     }
   ],
+  "trial_connection_curvature": {
+    "admitted_subset_mean_available": false,
+    "all_old_samples_retained": true,
+    "artifact_digest": "a60e2349513da60505a79be51f21db65aefc11525a64fd027ab35d2260124990",
+    "cloud_manifest_digest": "3138e6d6eb4c17fb977714f78069cc704e09f3eab45fb73e1b8d16d540cd29cc",
+    "cloud_request_digest": "9e13a565bc13a2bd27320e5746d3fbf2104c3290f8792efc97d8d3316bc8a5b5",
+    "common_stabilized_vacuum_available": false,
+    "complete_original_workload_available": false,
+    "curvature_convention": "bar-partial(h^-1 partial h), dz_i wedge dbar z_j",
+    "determinant_normalized_su4_metric_exported": false,
+    "entropy_assumption_status": "ASSUMED",
+    "fiber_metric_convention": "h=(S H0 S^dagger)^-1; H0=I in original sections",
+    "hym_convergence_established": false,
+    "input_digest": "cfaac611b57142a0c291a3c3336c6bf34c61c64aecfd3370af50aa0474380d6e",
+    "matter_or_higgs_metrics_available": false,
+    "numerical_and_sampling_error_certified": false,
+    "numerical_failure_chain": [
+      {
+        "ordinal": 632,
+        "reason": "the full fiber whitening is numerically unresolved",
+        "role": "training"
+      },
+      {
+        "ordinal": 956,
+        "reason": "the full fiber whitening is numerically unresolved",
+        "role": "training"
+      },
+      {
+        "ordinal": 1007,
+        "reason": "the full fiber whitening is numerically unresolved",
+        "role": "training"
+      },
+      {
+        "ordinal": 1161,
+        "reason": "the full fiber whitening is numerically unresolved",
+        "role": "training"
+      },
+      {
+        "ordinal": 1637,
+        "reason": "the full fiber whitening is numerically unresolved",
+        "role": "validation"
+      },
+      {
+        "ordinal": 1962,
+        "reason": "the full fiber whitening is numerically unresolved",
+        "role": "validation"
+      }
+    ],
+    "numerical_policy": {
+      "maximum_fiber_condition": 1000000000000.0,
+      "relative_hermiticity_tolerance": 1e-10
+    },
+    "observations_used": false,
+    "old_validation_is_blind": false,
+    "original_section_basis_digest": "71f9c2f46c1f7a69087e8f3aab1ed98f4474cf76cf66db5bf2c902f4f372621c",
+    "original_section_count": 5345,
+    "parameter_point": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "parameter_point_status": "SELECTED",
+    "physical_yukawas_available": false,
+    "point_records_reference": {
+      "artifact_digest": "a60e2349513da60505a79be51f21db65aefc11525a64fd027ab35d2260124990",
+      "path": "data/generated/scientific_genesis/trial_connection_curvature.json",
+      "resolved_count": 2042,
+      "sample_count": 2048,
+      "unresolved_count": 6
+    },
+    "reference_background": "pullback 14 FS_x + 16 FS_u + FS_p; integral_CP1 FS=1",
+    "reference_background_is_ricci_flat": false,
+    "reference_polarization": [
+      14,
+      16,
+      1
+    ],
+    "reference_quotient_volume": 1344.0,
+    "sample_count": 2048,
+    "schema": "full-original-trial-curvature-v1",
+    "section_form": "explicit unit H0 in the full original 5345-dimensional section basis",
+    "source_files_sha256": {
+      "research/experiments/scientific_genesis/TRIAL_CONNECTION_CURVATURE_NOTE.md": "4fdcbb85ec34529ef15811cb4ff7c88b95c154eccb6a29e93b83af46c18afa37",
+      "research/experiments/scientific_genesis/alternate_metric_bounded_fibers.py": "d38dcdf5ce94cee24d921c744b27fea5932311a16ebbce6dd239f6fe211e17c8",
+      "research/experiments/scientific_genesis/alternate_metric_measure.py": "6e3abe4644d0c3a183135166e2fbc092f629ec33ef1498d73531425718fd3dc9",
+      "research/experiments/scientific_genesis/compiled_section_features.py": "d5fb672c20bc5db505498b5e4e83cb959d1dffc97fdeaba24346e72982f8549e",
+      "research/experiments/scientific_genesis/trial_connection_curvature.py": "fa9bbd7dc209b6fa38166fe52882fb9fb5073e0241027c303016cc85499b85f0",
+      "tests/integration/test_scientific_genesis_trial_connection_curvature.py": "0388bf3f7016ab781104307524386b797316f3750ede90b0840f6e091e1b617e"
+    },
+    "unresolved_ordinals": [
+      632,
+      956,
+      1007,
+      1161,
+      1637,
+      1962
+    ],
+    "untwisting": "pointwise F - trace(F)/4 I; no determinant-volume frame selected"
+  },
   "uncertain_cover_frames": {
     "actual_domain_probes": [
       {

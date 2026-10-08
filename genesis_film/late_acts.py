@@ -465,9 +465,10 @@ class LateActs:
             group.add(Rectangle(width=(width - 0.4) * share, height=0.2, stroke_width=0,
                                 fill_color=color, fill_opacity=0.9)
                       .move_to([left + (width - 0.4) * share / 2, y, 0]))
-        group.add(text("shares by mass;  deuterium D/H = 2.5×10⁻⁵", 11.5, MUTED)
-                  .move_to(center + DOWN * 0.55))
-        group.add(text("lithium-7/H ≈ 1.6×10⁻¹⁰", 11.5, MUTED).move_to(center + DOWN * 0.8))
+        for k, line in enumerate(("shares by mass", "deuterium: D/H = 2.5×10⁻⁵",
+                                  "lithium-7: Li/H ≈ 1.6×10⁻¹⁰")):
+            group.add(fit(text(line, 11.5, MUTED), width - 0.3, 0.3)
+                      .move_to(center + DOWN * (0.45 + 0.24 * k)))
         return group
 
     # ------------------------------------------------------------------

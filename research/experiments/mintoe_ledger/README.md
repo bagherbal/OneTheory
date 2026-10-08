@@ -40,6 +40,41 @@ construction supplies.
 python -m research.experiments.mintoe_ledger.ledger
 ```
 
+### Can the cores be derived? (`cores.py`)
+
+`cores.py` tests the two cores against scheme changes and against two
+candidate physical readings. No derivation is found:
+
+* **Conventions move the numbers more than the matches.**
+  * `12π − √3/2` matches `ln(MbarP/v)` to 0.0027, but only for the reduced
+    Planck mass and `v = (√2 G_F)^(−1/2)`.
+  * The other conventions give gaps of 0.0115 (MS-bar vev at M_Z), −0.344
+    (v = 174 GeV) and −1.61 (non-reduced Planck mass).
+  * The τ core matches the pole mass to 0.0012. With the MS-bar m_τ(M_Z) the
+    gap is −0.016, thirteen times larger.
+  * A derivation must therefore fix its scheme first.
+* **GUT-coupling reading of 12π.** Writing `ln(MbarP/v) = (π/2) α_GUT⁻¹ − √3/2`
+  needs `α_GUT⁻¹ = 24` exactly. One-loop MSSM unification gives 24.33
+  (superpartners at M_Z) to 26.81 (at 3 TeV). That gives 37.35–41.25, against
+  the 36.83 needed. The reading fails unless superpartners sit at M_Z, which
+  is excluded.
+* **Running reading of 4π/3.**
+  * In the Standard Model, y_τ barely runs: −ln y_τ is 4.60 at the α1 = α2
+    crossing, so running cannot turn 4π/3 = 4.19 into the observed value.
+  * In the one-loop MSSM (superpartners at 1 TeV), `−ln y_τ(M_GUT) = 4π/3`
+    holds at tan β ≈ 1.88. For tan β ≤ 1 the top Yukawa hits a Landau pole
+    below M_GUT.
+  * Such a low tan β needs very heavy stops to reach m_H = 125 GeV. This is a
+    tension, not a fit.
+
+An earlier scratch version of this scan stopped its MSSM running far below
+M_GUT and reported tan β ≈ 1.3–1.4. That number was wrong and is superseded
+by `cores.py`.
+
+```bash
+python -m research.experiments.mintoe_ledger.cores
+```
+
 ## Belongs here
 
 Ports, comparisons, look-elsewhere accounting and registered predictions.

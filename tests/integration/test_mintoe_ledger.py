@@ -59,3 +59,19 @@ def test_cores_are_close_but_post_hoc() -> None:
     v_core = result["ln(MbarP/v) = 12 pi - sqrt3/2"]
     assert abs(v_core["absolute_gap"]) < 0.003
     assert 0.005 < v_core["nominal_post_hoc_probability"] < 0.05
+
+
+def test_cores_audit_scheme_sensitivity_and_readings() -> None:
+    from research.experiments.mintoe_ledger import cores
+
+    gaps = cores.conventions()
+    assert abs(gaps["v"]["MbarP / v_GF (MinTOE)"]) < 0.003
+    assert abs(gaps["v"]["MbarP / v_MSbar(M_Z)"]) > 4 * abs(gaps["v"]["MbarP / v_GF (MinTOE)"])
+    assert abs(gaps["tau"]["v_GF / (√2 m_τ(M_Z) MS-bar)"]) > 10 * abs(
+        gaps["tau"]["v_GF / (√2 m_τ pole) (MinTOE)"])
+    for row in (cores.mssm_unification(m) for m in (cores.MZ, 1000.0, 3000.0)):
+        assert row["alpha_gut_inv"] > 24.3
+        assert row["reading_ln_MbarP_over_v"] > cores.CORE_V + 0.5
+    assert abs(cores.tau_yukawa_at_unification(None)["A_tau"] - cores.CORE_TAU) < 0.05
+    assert cores.tau_yukawa_at_unification(1.0)["landau_pole_below_gut"]
+    assert 1.8 < cores.tan_beta_for_core() < 2.0

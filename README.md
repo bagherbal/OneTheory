@@ -50,6 +50,18 @@ Lorentzian causality, gravitational coupling and the heterotic UV without
 importing them. The proved finite-algebra no-go says where such a derivation
 cannot start.
 
+### Watch it: the Genesis film
+
+[`genesis_film/`](genesis_film/README.md) is a single continuous Manim
+animation of this whole chain, joined to established cosmology: from the
+quantum seed, through the string, E8, Schoen's Calabi–Yau and three
+families, to inflation, nuclei, the first light, the cosmic web, a galaxy and
+the horizons. The centre always shows the actual shape computed from its
+formula. A side panel shows the equations. Colour-coded badges mark every
+scene as proven, measured, established, OneTheory-computed, selected,
+hypothesis, or one possible reality. Video:
+[`genesis_film/output/genesis.mp4`](genesis_film/output/genesis.mp4).
+
 ## The best current explanation of the Yukawa couplings
 
 `research/experiments/hierarchy_valuation` proves that all four exact

@@ -460,12 +460,13 @@ class LateActs:
             y = center[1] + 0.55 - k * 0.6
             label = text(name, 13, INK)
             group.add(label.move_to([left + label.width / 2, y + 0.22, 0]))
-            value = text(f"{share * 100:.1f}% by mass", 12, MUTED)
+            value = text(f"{share * 100:.1f}%", 12, MUTED)
             group.add(value.move_to([right - value.width / 2, y + 0.22, 0]))
             group.add(Rectangle(width=(width - 0.4) * share, height=0.2, stroke_width=0,
                                 fill_color=color, fill_opacity=0.9)
                       .move_to([left + (width - 0.4) * share / 2, y, 0]))
-        group.add(text("deuterium D/H = 2.5×10⁻⁵", 11.5, MUTED).move_to(center + DOWN * 0.55))
+        group.add(text("shares by mass;  deuterium D/H = 2.5×10⁻⁵", 11.5, MUTED)
+                  .move_to(center + DOWN * 0.55))
         group.add(text("lithium-7/H ≈ 1.6×10⁻¹⁰", 11.5, MUTED).move_to(center + DOWN * 0.8))
         return group
 
@@ -659,9 +660,9 @@ class LateActs:
                       text("you are here", 12, vis.STRING_COLOR).move_to(center + DOWN * 0.22))
         labels = VGroup(
             text(f"Hubble sphere {hz['hubble']:.1f} Gly", 12, vis.SPIN10_COLOR)
-            .move_to(center + np.array([-1.1, 1.18, 0])),
+            .move_to(center + np.array([-0.85, 1.12, 0])),
             text(f"event horizon {hz['event']:.1f} Gly", 12, vis.SU4_COLOR)
-            .move_to(center + np.array([1.1, -1.18, 0])),
+            .move_to(center + np.array([0.85, -1.12, 0])),
             text(f"edge of the visible universe {hz['particle']:.1f} Gly", 12, INK)
             .move_to(center + np.array([0, 2.6, 0])),
             text("first light (CMB shell)", 12, "#fca5a5")

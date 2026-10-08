@@ -7,7 +7,7 @@ shape, the forces and three families of matter, inflation, the hot soup, the
 Higgs field, protons, nuclei, the first light, the cosmic web, a galaxy and
 the horizons of the visible universe.
 
-**Watch:** [`output/genesis.mp4`](output/genesis.mp4)
+**Watch:** [`output/genesis.mp4`](output/genesis.mp4). It runs 7 min 19 s at 1280×720 and 30 fps, with a soft ambient soundtrack.
 
 **Plan:** [`DIRECTOR_PLAN.md`](DIRECTOR_PLAN.md) describes the acts, the joins
 between them and every gap that had to be filled.
@@ -67,7 +67,8 @@ from 10⁻³² s to today.
 | [`visuals.py`](visuals.py) | Manim builders: E8 diagram, glow points, tori, spheres, the Dynkin diagram, live images. |
 | [`genesis.py`](genesis.py) | The `Genesis` scene, acts 1–5. |
 | [`late_acts.py`](late_acts.py) | Acts 6–14 and the finale. |
-| [`render.sh`](render.sh) | Renders act groups in parallel and joins them without re-encoding. |
+| [`render.sh`](render.sh) | Renders act groups in parallel, joins them and adds the soundtrack. |
+| [`soundtrack.py`](soundtrack.py) | Synthesizes the ambient score from the act timeline. Chords cross-fade, so the sound never jumps either. It sets the mood only and carries no data. |
 
 Tests:
 [`tests/test_engine.py`](tests/test_engine.py).

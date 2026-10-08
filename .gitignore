@@ -42,6 +42,7 @@ data/generated/*
 !data/generated/hierarchy_valuation/**
 !data/generated/metric_sampling/
 !data/generated/metric_sampling/**
+data/generated/metric_sampling/*.npy
 
 .gitmessage
 *.partial.json

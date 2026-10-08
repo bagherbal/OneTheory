@@ -28,8 +28,17 @@ same law from the 8192-point training population (mean leverage
 `5345/32768 ≈ 16%`) must have a training/validation median curvature ratio
 below 10. A ratio of 10 or more refutes this explanation.
 
+`expanded_h1.py` is the predeclared test. It builds H1 by the same law from
+all 8192 expanded training checkpoints, then compares the median H0 and H1
+trace-free curvature on two fixed subsets: every 16th training ordinal and
+every 16th validation ordinal (512 each). Both subsets are fixed in code
+before any curvature exists. The prediction passes only if the H1 ratio is
+below 10. The 457 MB triangular factor stays local (`*.npy` is ignored);
+its SHA-256 is recorded in the result.
+
 ```bash
 python -m research.experiments.metric_sampling.leverage
+python -m research.experiments.metric_sampling.expanded_h1   # needs all 8192 training checkpoints
 ```
 
 ## Belongs here

@@ -1,0 +1,189 @@
+{
+  "artifact_digest": "4bfab9c326298781b6cf02d394112da63560605f65b66345c30b730c8c1b55cb",
+  "cores": {
+    "lambda_h = (1 + 1/(8 pi))/8": {
+      "absolute_gap": 0.0006930265603709018,
+      "core": 0.12997359197162173,
+      "needed": 0.12928056541125083,
+      "relative_gap": 0.005360639924232524
+    },
+    "ln(MbarP/v) = 12 pi - sqrt3/2": {
+      "absolute_gap": 0.002700624387841799,
+      "core": 36.833086439293076,
+      "needed": 36.830385814905235,
+      "nominal_post_hoc_probability": 0.014183984785065027,
+      "relative_gap": 7.332598690146241e-05
+    },
+    "ln(v/(sqrt2 m_tau)) = 4pi/3 + 3/10 + 7/72": {
+      "absolute_gap": 0.0012491497256181816,
+      "core": 4.586012427008613,
+      "needed": 4.5847632772829945,
+      "nominal_post_hoc_probability": 0.02326057735880015,
+      "relative_gap": 0.0002724567551410928
+    }
+  },
+  "knob_accounting": {
+    "adjustable_integers_on_S_and_S2": {
+      "A_b": [
+        56,
+        106
+      ],
+      "A_t": [
+        5,
+        138
+      ],
+      "A_tau": [
+        1,
+        49.5
+      ],
+      "B_EW": [
+        2,
+        148
+      ],
+      "M_R3": [
+        49,
+        90
+      ],
+      "m2": [
+        10
+      ],
+      "theta12": [
+        48
+      ],
+      "theta13": [
+        7,
+        4
+      ]
+    },
+    "base_of_S_expansion": 773.7293906841147,
+    "note": "integer coefficients up to ~1/S make the S-expansion a positional number system; digits beyond the cores carry no evidence without a derivation"
+  },
+  "koide": {
+    "Q": 0.6666644634145,
+    "Q_minus_two_thirds": -2.2032521665993343e-06,
+    "Q_sigma_from_tau": 5.08082384576003e-06,
+    "brannen_delta": 0.22222476190402557,
+    "delta_minus_two_ninths": 2.539681803359617e-06,
+    "delta_sigma_from_tau": 6.2604465703997025e-06,
+    "me_from_measured_tau_relative_difference": -3.093352782879144e-05,
+    "mmu_from_measured_tau_relative_difference": -2.110164188040553e-05
+  },
+  "observations_used_as_inputs": false,
+  "port_matches_mintoe_build": {
+    "Lambda_m2": -4.9003689994719934e-11,
+    "dm21_eV2": 4.8474113611973735e-11,
+    "dm31_eV2": 1.3817813560024206e-10,
+    "mH_GeV": -1.932082271949298e-10,
+    "me_MeV": 3.519406988061746e-13,
+    "mmu_MeV": 1.8554824343652854e-10,
+    "mtau_MeV": 2.743558713547145e-10,
+    "sum_mnu_eV": -7.826617132167257e-11,
+    "v_GeV": 1.7009194053230203e-10
+  },
+  "pulls": {
+    "Lambda_m2": {
+      "measured": 1.0909e-52,
+      "prediction": 1.0891953019466255e-52,
+      "pull": -0.0852349026687305
+    },
+    "V_cb": {
+      "measured": 0.0418,
+      "prediction": 0.04177046321596523,
+      "pull": -0.036920980043455426
+    },
+    "V_ub": {
+      "measured": 0.00369,
+      "prediction": 0.0037451357543525146,
+      "pull": 0.5012341304774043
+    },
+    "V_us": {
+      "measured": 0.22501,
+      "prediction": 0.22485195182092033,
+      "pull": -0.2324237927642084
+    },
+    "delta_CP_PMNS_deg": {
+      "difference_from_alternative_fit_212_deg": 58.0,
+      "gaussian_pull_unreliable": true,
+      "measured": 177.0,
+      "prediction": 270.0,
+      "pull": 4.65
+    },
+    "dm21_eV2": {
+      "measured": 7.49e-05,
+      "prediction": 7.45325514036129e-05,
+      "pull": -0.1933939980984771
+    },
+    "dm31_eV2": {
+      "measured": 0.002534,
+      "prediction": 0.0025170302323477985,
+      "pull": -0.7070736521750532
+    },
+    "mH_GeV": {
+      "measured": 125.2,
+      "prediction": 125.29152977579265,
+      "pull": 0.8320888708422817
+    },
+    "me_MeV": {
+      "measured": 0.51099895,
+      "prediction": 0.5109630501001798,
+      "relative_difference": -7.025435144258907e-05
+    },
+    "mmu_MeV": {
+      "measured": 105.6583755,
+      "prediction": 105.65199131960355,
+      "relative_difference": -6.042285210461351e-05
+    },
+    "mtau_MeV": {
+      "measured": 1776.93,
+      "prediction": 1776.860127487492,
+      "pull": -0.7763612500891921
+    },
+    "mtau_vs_superseded_average": {
+      "relative_difference": 7.174875471527287e-08
+    },
+    "sin2_theta12": {
+      "measured": 0.307,
+      "prediction": 0.3055098845023371,
+      "pull": -0.12417629147190579
+    },
+    "sin2_theta13": {
+      "measured": 0.02195,
+      "prediction": 0.022365615074404682,
+      "pull": 0.7165777144908301
+    },
+    "sin2_theta23_upper": {
+      "measured": 0.561,
+      "prediction": 0.5618781446186984,
+      "pull": 0.058542974579893034
+    },
+    "v_GeV": {
+      "measured": 246.21965,
+      "prediction": 246.21966734187998,
+      "relative_difference": 7.043255889627176e-08
+    }
+  },
+  "registered_predictions": {
+    "ordering": "normal, lightest neutrino massless",
+    "registered_on": "2026-10-08",
+    "sha256": "835d4fc2084a3cb9bd60b616f303d3570098e6fd881d2c60566a7b6479a9c1c3",
+    "values": {
+      "J": 3.163760659e-05,
+      "V_ub": 0.003745135754,
+      "beta_deg": 22.87772991,
+      "delta_CP_PMNS_deg": 270.0,
+      "dm21_eV2": 7.45325514e-05,
+      "dm31_eV2": 0.002517030232,
+      "gamma_deg": 67.46409305,
+      "m1_eV": 0.0,
+      "mH_GeV": 125.2915298,
+      "m_betabeta_meV": 2.239335462,
+      "mtau_MeV": 1776.860127,
+      "sin2_theta12": 0.3055098845,
+      "sin2_theta13": 0.02236561507,
+      "sin2_theta23_lower": 0.4381218554,
+      "sin2_theta23_upper": 0.5618781446,
+      "sum_mnu_eV": 0.05880323698
+    }
+  },
+  "schema": "mintoe-evidence-ledger-v1"
+}

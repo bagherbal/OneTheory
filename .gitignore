@@ -43,6 +43,8 @@ data/generated/*
 !data/generated/metric_sampling/
 !data/generated/metric_sampling/**
 data/generated/metric_sampling/*.npy
+!data/generated/mintoe_ledger/
+!data/generated/mintoe_ledger/**
 
 .gitmessage
 *.partial.json

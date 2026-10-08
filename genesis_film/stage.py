@@ -165,8 +165,8 @@ def wrap(content: str, size: float, width: float, color: str = INK) -> VGroup:
             current = trial
     if current:
         lines.append(current)
-    return VGroup(*[text(line, size, color) for line in lines]).arrange(
-        DOWN, aligned_edge=LEFT, buff=0.05)
+    rows = [fit(text(line, size, color), width, 1.0) for line in lines]
+    return VGroup(*rows).arrange(DOWN, aligned_edge=LEFT, buff=0.05)
 
 
 def badge(category: str, source: str) -> VGroup:

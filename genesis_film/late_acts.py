@@ -47,7 +47,7 @@ from manim import (
     always_redraw,
     linear,
 )
-from stage import CATEGORIES, CENTER, INK, MUTED, fit, live_text, text
+from stage import CATEGORIES, CENTER, INK, MUTED, SHORT, fit, live_text, text
 
 WINDOW_HEIGHT = 5.3
 INSET_HEIGHT = 2.9
@@ -455,14 +455,16 @@ class LateActs:
         rows = (("hydrogen", 0.754, cosmos.PROTON), ("helium-4", 0.246, "#fde68a"))
         group = VGroup()
         left = center[0] - width / 2 + 0.2
+        right = center[0] + width / 2 - 0.2
         for k, (name, share, color) in enumerate(rows):
             y = center[1] + 0.55 - k * 0.6
-            group.add(text(name, 13, INK).move_to([left + 0.45, y + 0.22, 0]))
+            label = text(name, 13, INK)
+            group.add(label.move_to([left + label.width / 2, y + 0.22, 0]))
+            value = text(f"{share * 100:.1f}% by mass", 12, MUTED)
+            group.add(value.move_to([right - value.width / 2, y + 0.22, 0]))
             group.add(Rectangle(width=(width - 0.4) * share, height=0.2, stroke_width=0,
                                 fill_color=color, fill_opacity=0.9)
                       .move_to([left + (width - 0.4) * share / 2, y, 0]))
-            group.add(text(f"{share * 100:.1f}%", 12, MUTED).move_to(
-                [left + (width - 0.4) * share + 0.35, y + 0.22, 0]))
         group.add(text("deuterium D/H = 2.5×10⁻⁵", 11.5, MUTED).move_to(center + DOWN * 0.55))
         group.add(text("lithium-7/H ≈ 1.6×10⁻¹⁰", 11.5, MUTED).move_to(center + DOWN * 0.8))
         return group
@@ -657,9 +659,9 @@ class LateActs:
                       text("you are here", 12, vis.STRING_COLOR).move_to(center + DOWN * 0.22))
         labels = VGroup(
             text(f"Hubble sphere {hz['hubble']:.1f} Gly", 12, vis.SPIN10_COLOR)
-            .move_to(center + np.array([-1.35, 0.55, 0])),
+            .move_to(center + np.array([-1.1, 1.18, 0])),
             text(f"event horizon {hz['event']:.1f} Gly", 12, vis.SU4_COLOR)
-            .move_to(center + np.array([1.45, -0.62, 0])),
+            .move_to(center + np.array([1.1, -1.18, 0])),
             text(f"edge of the visible universe {hz['particle']:.1f} Gly", 12, INK)
             .move_to(center + np.array([0, 2.6, 0])),
             text("first light (CMB shell)", 12, "#fca5a5")
@@ -697,11 +699,14 @@ class LateActs:
 
     def finale(self, overlay: VGroup) -> None:
         hud = self.hud
-        legend = VGroup(*[VGroup(Dot(radius=0.07, color=color),
-                                 text(f"{name.lower()}: {meaning}", 11.5, INK))
-                          .arrange(RIGHT, buff=0.1)
-                          for name, (color, meaning) in CATEGORIES.items()])
-        legend.arrange(DOWN, aligned_edge=LEFT, buff=0.09)
+        rows = []
+        for name, (color, _) in CATEGORIES.items():
+            label, meaning = SHORT[name]
+            row = VGroup(Dot(radius=0.07, color=color), text(label, 14, color, "BOLD"))
+            if meaning:
+                row.add(text(meaning, 12.5, INK))
+            rows.append(row.arrange(RIGHT, buff=0.12))
+        legend = VGroup(*rows).arrange(DOWN, aligned_edge=LEFT, buff=0.12)
         center, width, height = hud.inset_box(INSET_HEIGHT)
         fit(legend, width, height).move_to(center)
         self.beat(*self.show_inset(legend, "how sure we are: the colour key"),

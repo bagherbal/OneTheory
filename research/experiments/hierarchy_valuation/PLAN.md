@@ -236,3 +236,29 @@ results that bear on specific gates:
   for the UV duality web, not for this equation.
 * 280 and 282, unitary VOAs to conformal nets, and scale to conformal symmetry
   in 4D QFT. Foundational context for the Genesis-to-QFT contract.
+
+## 8. Evidence ledger: reclassified, not retired
+
+[`mintoe_ledger`](../mintoe_ledger/README.md) ports the full MinTOE
+calculation, reproducing its build outputs to better than 1e-9, and keeps the
+ε family as a **registered hypothesis**.
+
+* **Matches.** About 20 observables are within ~1σ of today's data.
+* **Digits that carry no evidence.** The 7th-digit matches of v and m_τ do
+  not count. m_τ tracks the superseded average to 7e-8, and v relies on a
+  rounded Planck mass. The integer S/S² coefficients form a base-774 number
+  system.
+* **Cores worth explaining.** `ln(MbarP/v) ≈ 12π − √3/2` and
+  `ln(v/(√2 m_τ)) ≈ 4π/3 + 3/10 + 7/72` have nominal post-hoc probabilities of
+  1.4% and 2.3%.
+* **Koide–Brannen.** Q = 2/3 and phase 2/9 hold within m_τ errors. This is the
+  strongest empirical thread for a theory to explain.
+* **Registered predictions.** Hash `835d4fc2…` dated 2026-10-08:
+  δ_CP(PMNS) = 270°, normal ordering with m1 = 0, Σm_ν = 58.80 meV,
+  m_ββ = 2.239 meV, sin²θ12 = 0.30551, Δm²31 = 2.5170e-3 eV²,
+  m_H = 125.2915 GeV and others. These turn the hypothesis into a test that
+  JUNO, DUNE, Hyper-K, HL-LHC and cosmology can pass or fail.
+
+A theory route remains open, but not through this geometry's bundle modulus
+(section 3). The derivation target is the cores, the Koide phase and
+`ρ_Λ ≈ m_ββ⁴`, with every constant fixed before comparison.

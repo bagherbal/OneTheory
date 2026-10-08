@@ -123,10 +123,22 @@ enter any calculation:
 * With order-one coefficients, exponent patterns fit equally well for any
   `ε ≈ 0.20–0.25`. The sharp reading `|V_us| = ε` is off by about 8σ.
 
-The equation is not refuted as a target, but in its current form it is not
-evidence. The plan states the only route that could make it evidence:
-derive the mechanism and its fourth power, derive the order-one coefficients,
-register the estimators blind, and then compare.
+The full MinTOE calculation is now kept in a tested
+[evidence ledger](research/experiments/mintoe_ledger/README.md) as a
+**registered hypothesis**, not retired. About 20 observables lie within ~1σ.
+The 7th-digit matches carry no evidence: m_τ tracks a superseded average, v
+uses a rounded Planck mass, and the integer S-corrections form a positional
+number system. Several things do survive:
+
+* the cores `ln(MbarP/v) ≈ 12π − √3/2` and
+  `ln(v/(√2 m_τ)) ≈ 4π/3 + 3/10 + 7/72`, each a nominal ~2% post-hoc
+  coincidence;
+* the Koide–Brannen relation (Q = 2/3 and phase 2/9, within m_τ errors);
+* a hash-registered prediction set (δ_CP = 270°, m1 = 0, Σm_ν = 58.8 meV,
+  m_ββ = 2.24 meV, Δm², m_H, ...).
+
+Upcoming experiments will test that set. A derivation of the cores is the
+open theory target.
 
 ## What completes the theory
 

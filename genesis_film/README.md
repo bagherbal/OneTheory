@@ -71,7 +71,7 @@ from 10⁻³² s to today.
 | [`soundtrack.py`](soundtrack.py) | Synthesizes the ambient score from the act timeline. Chords cross-fade, so the sound never jumps either. It sets the mood only and carries no data. |
 
 Tests:
-[`tests/test_engine.py`](tests/test_engine.py).
+[`tests/test_genesis_film.py`](tests/test_genesis_film.py).
 They check the formulas, and they check that the painters hand over on
 identical pixels, so the film has no jumps.
 

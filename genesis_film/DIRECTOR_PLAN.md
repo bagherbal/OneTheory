@@ -71,7 +71,7 @@ can follow, and every shape on the centre stage comes from a formula in
   skipped section and a rendered section end in the same state.
 * One live image carries acts 6–14. Its painters hand over only where they
   paint identical pixels, and
-  [`tests/test_engine.py`](tests/test_engine.py)
+  [`tests/test_genesis_film.py`](tests/test_genesis_film.py)
   checks those seams:
   * inflation → widening;
   * widening → soup;

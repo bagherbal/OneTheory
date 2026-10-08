@@ -1,5 +1,59 @@
 # Scientific Genesis research map
 
+## H1 curvature anomaly diagnosed as in-sample leverage
+
+`research/experiments/metric_sampling/leverage.py` explains the retained H1
+failure without changing any sample, weight or factor. For the project's
+update `H1 = c T^-1` with `T = sum_i (w_i/n) M_i^† M_i`, each training
+leverage block obeys `0 <= B_i <= I` and the blocks' traces sum exactly to the
+section count. With 5,345 sections and 1,536 rank-four training samples the
+mean leverage is `5345/6144 = 87%` of maximal. The recorded weights have
+effective size about 1,258, below the 1,337 invertibility threshold. The
+observed split matches: median H1 trace-free curvature is 1,612 on training
+points and 7.6 on validation points (ratio 212), against 1.02 for H0. Out of
+sample, H1 improves `tau` from 1.02 to 0.39, on previously inspected and
+therefore non-blind points. The content-addressed artifact registers a
+falsifiable prediction: an H1 from the 8,192-point training population must
+bring the ratio below 10. No metric is certified.
+
+## Stability-wall flavor texture and hierarchy-seed audit
+
+`research/experiments/hierarchy_valuation` turns the four completed holomorphic
+matrices into a structural flavor statement. Every sector has the same exact
+extension-degree pattern `[[-,0,0],[0,1,1],[0,1,1]]`. This is a single
+anomalous-U(1) charge assignment, with the E family at charge -1, the F families
+at 0 and the extension class as a charge +1 flavon, and it forces the E-E zero.
+The first-constituent slope is exactly `6 (j1 - j2)(j1 + j2 + 6 j3)`, so the
+stability wall is the factor-exchange plane `j1 = j2`.
+
+Both constituents are now proven stable on the entire wall. Only the four
+lines with certified cover Hom vanishing ever reach nonnegative degree there,
+and only for `s <= 1/6`. The extension is stable just beside the wall on
+`j2 > j1` and destabilized by `V1` across it. Over `C[[eps]]` the invariant-factor
+orders are `(0,0,1)` in all four sectors. Near its wall the carrier makes two
+families heavy and one light, so its bundle modulus cannot produce a
+realistic three-level hierarchy. A realistic texture needs families from three
+distinct graded pieces.
+
+The inherited hierarchy seed `eps^4 = (9/5)(14/431)/(8 pi)` is audited, not
+used. Its 431 (`432 - 1` in MinTOE/ASHA) removes a "scalar identity" that does
+not exist: `Lambda^2 X4 (x) V8` has no Lorentz-invariant line. `1/(8 pi)` is the
+reduced-Planck units convention, and the meanings of 14 and 9/5 differ across
+the three projects. Valuation-level matches cannot distinguish `eps` anywhere
+in about `[0.20, 0.25]`. See `hierarchy_valuation/PLAN.md`. No hierarchy
+parameter, metric, vacuum or observation entered any calculation.
+
+The obstruction is structural on this geometry. Both Serre sublines have
+cohomology `(0,0,9,0)`, so families occupy only two graded pieces of the
+complete filtration (`1 + 2`), and shared left/right charges never give three
+valuation levels. An exact E2-page screen of all descending SU(4) line-bundle
+sums with `|a|,|b|,|c| <= 8` (1,649 lines, refusing only `d2`-ambiguous
+`(k,-k,0)` lines of Euler characteristic zero) gets the same answer: families split `27` or `9 + 18`, never three slots. Their leading
+textures are the cross (two heavy, one massless) or absent. A one-heavy
+hierarchy must come from non-split, metric or instanton effects. The 81
+exceptional sections of area `j3` carry zero wall-U(1) flux, so even these
+least-suppressed instantons cannot change the texture.
+
 ## Repeated original-section discovery evaluation
 
 The complete source-bound polynomial archive now has a sparse numerical

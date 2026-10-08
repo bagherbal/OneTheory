@@ -1,0 +1,559 @@
+{
+  "artifact_digest": "b544842d46df1ad45ecd4a43cb8973f504a630280bb049bb1b41c039ac3d90d5",
+  "observations_used": false,
+  "one_heavy_texture_found": false,
+  "rows": [
+    {
+      "couplings": [],
+      "families": [
+        27,
+        0,
+        0,
+        0
+      ],
+      "lines": [
+        [
+          -4,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          2,
+          1,
+          -1
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [],
+      "families": [
+        27,
+        0,
+        0,
+        0
+      ],
+      "lines": [
+        [
+          -4,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          1,
+          2,
+          -1
+        ],
+        [
+          2,
+          -2,
+          0
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [],
+      "families": [
+        0,
+        0,
+        0,
+        27
+      ],
+      "lines": [
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          5,
+          1,
+          -2
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [],
+      "families": [
+        0,
+        0,
+        0,
+        27
+      ],
+      "lines": [
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -2,
+          2,
+          0
+        ],
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          5,
+          1,
+          -2
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [],
+      "families": [
+        0,
+        0,
+        27,
+        0
+      ],
+      "lines": [
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          1,
+          5,
+          -2
+        ],
+        [
+          2,
+          -2,
+          0
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [
+        {
+          "family_slots": [
+            2,
+            3
+          ],
+          "higgs_h1": 8,
+          "higgs_line": [
+            -3,
+            0,
+            1
+          ],
+          "higgs_slots": [
+            0,
+            1
+          ]
+        }
+      ],
+      "families": [
+        0,
+        0,
+        9,
+        18
+      ],
+      "lines": [
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          2,
+          1,
+          -2
+        ]
+      ],
+      "texture": "cross: two unsuppressed families, one massless at leading order"
+    },
+    {
+      "couplings": [
+        {
+          "family_slots": [
+            1,
+            3
+          ],
+          "higgs_h1": 0,
+          "higgs_line": [
+            -1,
+            -2,
+            1
+          ],
+          "higgs_slots": [
+            0,
+            2
+          ]
+        }
+      ],
+      "families": [
+        0,
+        9,
+        0,
+        18
+      ],
+      "lines": [
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          2,
+          1,
+          -2
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [
+        {
+          "family_slots": [
+            1,
+            2
+          ],
+          "higgs_h1": 8,
+          "higgs_line": [
+            0,
+            -3,
+            1
+          ],
+          "higgs_slots": [
+            0,
+            3
+          ]
+        }
+      ],
+      "families": [
+        0,
+        9,
+        18,
+        0
+      ],
+      "lines": [
+        [
+          -2,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          -2
+        ],
+        [
+          2,
+          -2,
+          0
+        ]
+      ],
+      "texture": "cross: two unsuppressed families, one massless at leading order"
+    },
+    {
+      "couplings": [
+        {
+          "family_slots": [
+            2,
+            3
+          ],
+          "higgs_h1": 8,
+          "higgs_line": [
+            -3,
+            0,
+            1
+          ],
+          "higgs_slots": [
+            0,
+            1
+          ]
+        }
+      ],
+      "families": [
+        0,
+        0,
+        9,
+        18
+      ],
+      "lines": [
+        [
+          -2,
+          2,
+          0
+        ],
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          2,
+          1,
+          -2
+        ]
+      ],
+      "texture": "cross: two unsuppressed families, one massless at leading order"
+    },
+    {
+      "couplings": [],
+      "families": [
+        0,
+        0,
+        27,
+        0
+      ],
+      "lines": [
+        [
+          -2,
+          2,
+          0
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          1,
+          -4,
+          1
+        ],
+        [
+          2,
+          1,
+          -1
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [],
+      "families": [
+        0,
+        0,
+        0,
+        27
+      ],
+      "lines": [
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          1,
+          5,
+          -2
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [
+        {
+          "family_slots": [
+            2,
+            3
+          ],
+          "higgs_h1": 0,
+          "higgs_line": [
+            -2,
+            -1,
+            1
+          ],
+          "higgs_slots": [
+            0,
+            1
+          ]
+        }
+      ],
+      "families": [
+        0,
+        0,
+        9,
+        18
+      ],
+      "lines": [
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          2,
+          -2
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    },
+    {
+      "couplings": [
+        {
+          "family_slots": [
+            1,
+            3
+          ],
+          "higgs_h1": 8,
+          "higgs_line": [
+            0,
+            -3,
+            1
+          ],
+          "higgs_slots": [
+            0,
+            2
+          ]
+        }
+      ],
+      "families": [
+        0,
+        9,
+        0,
+        18
+      ],
+      "lines": [
+        [
+          -1,
+          -2,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          1,
+          2,
+          -2
+        ]
+      ],
+      "texture": "cross: two unsuppressed families, one massless at leading order"
+    },
+    {
+      "couplings": [],
+      "families": [
+        0,
+        0,
+        27,
+        0
+      ],
+      "lines": [
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          1,
+          -4,
+          1
+        ],
+        [
+          1,
+          2,
+          -1
+        ]
+      ],
+      "texture": "no leading Yukawa"
+    }
+  ],
+  "schema": "line-sum-leading-textures-v1",
+  "screen_digest": "c696b3de42f07a47cbc0017da54ee6c2b0a75b74f77555f30cf4430e97458c48"
+}
